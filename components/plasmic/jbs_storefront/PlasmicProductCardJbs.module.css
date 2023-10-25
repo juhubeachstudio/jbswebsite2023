@@ -1,0 +1,115 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  justify-content: flex-start;
+  align-items: flex-start;
+  min-width: 0;
+  position: relative;
+  border: 1px solid var(--token-ZGgUq6H0D);
+}
+.link {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+  min-width: 0;
+  min-height: 0;
+}
+.freeBox__lhsrt {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  transition-property: all;
+  transition-duration: 0.3s;
+  min-width: 0;
+  min-height: 0;
+  -webkit-transition-property: all;
+  -webkit-transition-duration: 0.3s;
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .freeBox__lhsrt {
+    border-width: 2px;
+  }
+}
+.root .freeBox__lhsrt:hover {
+  transform: scaleX(1.5) scaleY(1.5) scaleZ(1) rotateX(0deg) rotateY(0deg)
+    rotateZ(-15deg);
+}
+.productMedia:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .productMedia:global(.__wab_instance) {
+    border-width: 2px;
+  }
+}
+.freeBox___3HlGq {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+  padding: var(--token-oYI7ebdZitcv);
+}
+.freeBox___3HlGq > :global(.__wab_flex-container) {
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  min-width: 0;
+  margin-top: calc(0px - var(--token-cSJ2BJk-9JCq));
+  height: calc(100% + var(--token-cSJ2BJk-9JCq));
+}
+.freeBox___3HlGq > :global(.__wab_flex-container) > *,
+.freeBox___3HlGq > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.freeBox___3HlGq > :global(.__wab_flex-container) > picture > img,
+.freeBox___3HlGq
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-top: var(--token-cSJ2BJk-9JCq);
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .freeBox___3HlGq {
+    border-left-width: 2px;
+    border-right-width: 2px;
+    border-bottom-width: 2px;
+  }
+}
+.productTextField:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+  font-weight: 700;
+  font-size: var(--token-BlA-iDkaAWvO);
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .productTextField:global(.__wab_instance) {
+    font-size: var(--token-o0Nl0Hefncwa);
+  }
+}
+.productPrice:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+  position: relative;
+  font-style: italic;
+  font-size: var(--token-hYndcje43OGL);
+}

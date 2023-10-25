@@ -1,0 +1,144 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  min-width: 0;
+  min-height: 0;
+  padding: 0px;
+}
+.freeBox___5ZeeQ {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: 100%;
+  height: 80vh;
+  max-width: 100%;
+  min-width: 0;
+  flex-shrink: 0;
+  padding: 0px;
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .freeBox___5ZeeQ {
+    height: 80vh;
+    width: 100%;
+    max-width: none;
+    max-height: 100%;
+    min-width: 0;
+    flex-shrink: 0;
+  }
+}
+.img___2YTvc {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+  object-position: center top;
+  min-width: 0;
+  min-height: 0;
+}
+.img___2YTvc > picture > img {
+  object-fit: cover;
+  object-position: center top;
+}
+.img___2YTvc > :global(.__wab_img-spacer) > img {
+  object-fit: cover;
+  object-position: center top;
+}
+.freeBox__qZlh {
+  display: flex;
+  position: absolute;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-start;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  left: auto;
+  top: auto;
+  bottom: 5%;
+  right: 0px;
+  padding: 8px 56px 8px 8px;
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .freeBox__qZlh {
+    padding: 8px 32px;
+  }
+}
+.freeBox__bo6Bj {
+  position: relative;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  justify-content: flex-end;
+  display: flex;
+  flex-direction: row;
+  filter: drop-shadow(4px 4px 0px #ffffff);
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .freeBox__bo6Bj {
+    filter: drop-shadow(2px 2px 0px #ffffff);
+  }
+}
+.slotTargetSlot {
+  font-family: "BIZ UDMincho", serif;
+  font-size: 8rem;
+  font-weight: 700;
+  color: var(--token-ZGgUq6H0D);
+  text-align: right;
+  text-transform: uppercase;
+  line-height: 1;
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .slotTargetSlot {
+    font-size: 4rem;
+  }
+}
+.freeBox__oZaT7 {
+  position: relative;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  justify-content: flex-end;
+  display: flex;
+  flex-direction: row;
+  filter: drop-shadow(2px 2px 0px #ffffff);
+  padding: 0px 0px 24px;
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .freeBox__oZaT7 {
+    padding-bottom: 16px;
+  }
+}
+.slotTargetSlot2 {
+  font-size: var(--token-BwOcdtoxJOlu);
+  font-weight: 700;
+  color: var(--token-ZGgUq6H0D);
+  text-align: right;
+  line-height: 1.2;
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .slotTargetSlot2 {
+    font-size: var(--token-7z5Kw5B89TZR);
+  }
+}
+.button2__haaPw:global(.__wab_instance) {
+  max-width: 100%;
+  position: relative;
+}
+.svg__ytHJi {
+  position: relative;
+  object-fit: cover;
+  width: 1em;
+  height: 1em;
+}
+.svg__x0Imm {
+  position: relative;
+  object-fit: cover;
+  width: 1em;
+  height: 1em;
+}

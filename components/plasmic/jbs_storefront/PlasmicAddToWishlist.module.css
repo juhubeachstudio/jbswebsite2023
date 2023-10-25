@@ -1,0 +1,23 @@
+.root {
+  object-fit: cover;
+  max-width: 100%;
+  width: 2em;
+  height: 2em;
+  position: relative;
+  color: #535353;
+  transition-property: all;
+  transition-duration: 0.2s;
+  -webkit-transition-property: all;
+  -webkit-transition-duration: 0.2s;
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .root {
+    height: 1.5em;
+    width: 1.5em;
+  }
+}
+.root___hover__pressed__focusedWithin__focusVisibleWithin:hover:active:focus-within {
+  color: var(--token-TWp-NYtFx);
+  transform: scaleX(1.2) scaleY(1.2) scaleZ(1);
+  outline: none;
+}

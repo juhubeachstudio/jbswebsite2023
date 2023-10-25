@@ -1,0 +1,35 @@
+.root {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: 100%;
+  background: var(--token-ZGgUq6H0D);
+  height: auto;
+  min-width: 0;
+}
+.marquee:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+  position: relative;
+}
+.freeBox {
+  display: flex;
+  width: 2em;
+  height: 1em;
+  background: linear-gradient(
+      90deg,
+      var(--token-KUFb4wcAz) 50%,
+      var(--token-5flkhAz6pTxg) 51%
+    )
+    0% 0% / 2em auto repeat-x padding-box border-box scroll;
+  transform: skewX(-45deg) skewY(0deg);
+  transition-property: all;
+  transition-duration: 1s;
+  transition-timing-function: linear;
+  flex-direction: row;
+  -webkit-transition-property: all;
+  -webkit-transition-timing-function: linear;
+  -webkit-transition-duration: 1s;
+}
