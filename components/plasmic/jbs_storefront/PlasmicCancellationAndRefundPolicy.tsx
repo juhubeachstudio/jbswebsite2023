@@ -219,6 +219,7 @@ function PlasmicCancellationAndRefundPolicy__RenderFunc(props: {
                           </li>
                         </ul>
                       }
+
                       <React.Fragment>{""}</React.Fragment>
                     </React.Fragment>
                   </div>
@@ -288,13 +289,15 @@ type NodeOverridesType<T extends NodeNameType> = Pick<
   PlasmicCancellationAndRefundPolicy__OverridesType,
   DescendantsType<T>
 >;
+
 type NodeComponentProps<T extends NodeNameType> =
   // Explicitly specify variants, args, and overrides as objects
   {
     variants?: PlasmicCancellationAndRefundPolicy__VariantsArgs;
     args?: PlasmicCancellationAndRefundPolicy__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit< // Specify variants directly as props
+  } & Omit<
+    // Specify variants directly as props
     PlasmicCancellationAndRefundPolicy__VariantsArgs,
     ReservedPropsType
   > &

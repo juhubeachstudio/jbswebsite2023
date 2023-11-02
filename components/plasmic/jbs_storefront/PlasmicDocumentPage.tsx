@@ -198,6 +198,7 @@ function PlasmicDocumentPage__RenderFunc(props: {
               </React.Fragment>
             </div>
           ),
+
           value: args.slot,
           className: classNames(sty.slotTargetSlot)
         })}
@@ -221,6 +222,7 @@ type NodeOverridesType<T extends NodeNameType> = Pick<
   PlasmicDocumentPage__OverridesType,
   DescendantsType<T>
 >;
+
 type NodeComponentProps<T extends NodeNameType> =
   // Explicitly specify variants, args, and overrides as objects
   {

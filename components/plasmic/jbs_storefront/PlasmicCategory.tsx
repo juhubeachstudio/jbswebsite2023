@@ -311,6 +311,7 @@ const PlasmicDescendants = {
     "productCollection",
     "productCardJbs"
   ],
+
   fullPage: [
     "fullPage",
     "section",
@@ -319,6 +320,7 @@ const PlasmicDescendants = {
     "productCollection",
     "productCardJbs"
   ],
+
   section: [
     "section",
     "categoryCollection",
@@ -326,12 +328,14 @@ const PlasmicDescendants = {
     "productCollection",
     "productCardJbs"
   ],
+
   categoryCollection: [
     "categoryCollection",
     "categoryField",
     "productCollection",
     "productCardJbs"
   ],
+
   categoryField: ["categoryField"],
   productCollection: ["productCollection", "productCardJbs"],
   productCardJbs: ["productCardJbs"]
@@ -354,6 +358,7 @@ type NodeOverridesType<T extends NodeNameType> = Pick<
   PlasmicCategory__OverridesType,
   DescendantsType<T>
 >;
+
 type NodeComponentProps<T extends NodeNameType> =
   // Explicitly specify variants, args, and overrides as objects
   {

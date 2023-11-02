@@ -157,6 +157,7 @@ function PlasmicAbout__RenderFunc(props: {
         )
       }
     ],
+
     [$props, $ctx, $refs]
   );
   const $state = p.useDollarState(stateSpecs, {
@@ -380,6 +381,7 @@ function PlasmicAbout__RenderFunc(props: {
                           plasmicStateName: "sliderCarousel.currentSlide"
                         }
                       ],
+
                       [],
                       SliderWrapper_Helpers ?? {},
                       child$Props
@@ -550,6 +552,7 @@ function PlasmicAbout__RenderFunc(props: {
                         {"waste fellows "}
                       </h1>
                     }
+
                     <React.Fragment>{""}</React.Fragment>
                   </React.Fragment>
                 </div>
@@ -937,6 +940,7 @@ function PlasmicAbout__RenderFunc(props: {
                         plasmicStateName: "sliderCarousel2.currentSlide"
                       }
                     ],
+
                     [],
                     SliderWrapper_Helpers ?? {},
                     child$Props
@@ -1465,6 +1469,7 @@ function PlasmicAbout__RenderFunc(props: {
                         plasmicStateName: "sliderCarousel3.currentSlide"
                       }
                     ],
+
                     [],
                     SliderWrapper_Helpers ?? {},
                     child$Props
@@ -1610,6 +1615,7 @@ function PlasmicAbout__RenderFunc(props: {
                         plasmicStateName: "sliderCarousel4.currentSlide"
                       }
                     ],
+
                     [],
                     SliderWrapper_Helpers ?? {},
                     child$Props
@@ -1946,6 +1952,7 @@ const PlasmicDescendants = {
     "reveal",
     "sliderCarousel4"
   ],
+
   fullPage: [
     "fullPage",
     "sliderCarousel",
@@ -1955,6 +1962,7 @@ const PlasmicDescendants = {
     "reveal",
     "sliderCarousel4"
   ],
+
   sliderCarousel: ["sliderCarousel"],
   h1: ["h1"],
   sliderCarousel2: ["sliderCarousel2"],
@@ -1981,6 +1989,7 @@ type NodeOverridesType<T extends NodeNameType> = Pick<
   PlasmicAbout__OverridesType,
   DescendantsType<T>
 >;
+
 type NodeComponentProps<T extends NodeNameType> =
   // Explicitly specify variants, args, and overrides as objects
   {

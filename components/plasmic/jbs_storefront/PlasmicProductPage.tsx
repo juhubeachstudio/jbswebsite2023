@@ -150,6 +150,7 @@ function PlasmicProductPage__RenderFunc(props: {
         )
       }
     ],
+
     [$props, $ctx, $refs]
   );
   const $state = p.useDollarState(stateSpecs, {
@@ -309,6 +310,7 @@ function PlasmicProductPage__RenderFunc(props: {
                                 plasmicStateName: "sliderCarousel.currentSlide"
                               }
                             ],
+
                             [],
                             SliderWrapper_Helpers ?? {},
                             child$Props
@@ -883,6 +885,7 @@ function PlasmicProductPage__RenderFunc(props: {
                                 </AntdAccordionItem>
                               </React.Fragment>
                             ),
+
                             onChange:
                               p.generateStateOnChangePropForCodeComponents(
                                 $state,
@@ -900,6 +903,7 @@ function PlasmicProductPage__RenderFunc(props: {
                                 plasmicStateName: "accordion.activePanelId"
                               }
                             ],
+
                             [],
                             AntdAccordion_Helpers ?? {},
                             child$Props
@@ -1107,6 +1111,7 @@ const PlasmicDescendants = {
     "section",
     "productCardJbs"
   ],
+
   fullPage: [
     "fullPage",
     "columns",
@@ -1122,6 +1127,7 @@ const PlasmicDescendants = {
     "section",
     "productCardJbs"
   ],
+
   columns: [
     "columns",
     "pageMetadataOverride",
@@ -1134,6 +1140,7 @@ const PlasmicDescendants = {
     "addToCartCustomButton",
     "accordion"
   ],
+
   pageMetadataOverride: ["pageMetadataOverride"],
   sliderCarousel: ["sliderCarousel", "img"],
   img: ["img"],
@@ -1171,6 +1178,7 @@ type NodeOverridesType<T extends NodeNameType> = Pick<
   PlasmicProductPage__OverridesType,
   DescendantsType<T>
 >;
+
 type NodeComponentProps<T extends NodeNameType> =
   // Explicitly specify variants, args, and overrides as objects
   {

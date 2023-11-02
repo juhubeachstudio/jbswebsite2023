@@ -169,6 +169,7 @@ function PlasmicFooter__RenderFunc(props: {
                     {"Get monthly updates on drops, restocks and events "}
                   </h5>
                 }
+
                 <React.Fragment>{""}</React.Fragment>
               </React.Fragment>
             </div>
@@ -425,6 +426,7 @@ type NodeOverridesType<T extends NodeNameType> = Pick<
   PlasmicFooter__OverridesType,
   DescendantsType<T>
 >;
+
 type NodeComponentProps<T extends NodeNameType> =
   // Explicitly specify variants, args, and overrides as objects
   {
