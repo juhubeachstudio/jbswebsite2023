@@ -31,7 +31,7 @@ export default function GlobalContextsProvider(
       borderRadius={
         antdConfigProviderProps && "borderRadius" in antdConfigProviderProps
           ? antdConfigProviderProps.borderRadius!
-          : 6
+          : 0
       }
       colorBgBase={
         antdConfigProviderProps && "colorBgBase" in antdConfigProviderProps
@@ -76,7 +76,7 @@ export default function GlobalContextsProvider(
       lineWidth={
         antdConfigProviderProps && "lineWidth" in antdConfigProviderProps
           ? antdConfigProviderProps.lineWidth!
-          : 1
+          : 2
       }
       loadingText={
         antdConfigProviderProps && "loadingText" in antdConfigProviderProps

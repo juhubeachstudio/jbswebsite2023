@@ -69,11 +69,9 @@ export type PlasmicCategory__OverridesType = {
   fullPage?: p.Flex<typeof FullPage>;
   section?: p.Flex<typeof Section>;
   categoryCollection?: p.Flex<typeof CategoryCollection>;
-  freeBox?: p.Flex<"div">;
   categoryField?: p.Flex<typeof CategoryField>;
   productCollection?: p.Flex<typeof ProductCollection>;
   productCardJbs?: p.Flex<typeof ProductCardJbs>;
-  button2?: p.Flex<typeof Button2>;
 };
 
 export interface DefaultCategoryProps {}
@@ -195,12 +193,8 @@ function PlasmicCategory__RenderFunc(props: {
               >
                 <ph.DataCtxReader>
                   {$ctx => (
-                    <p.Stack
-                      as={"div"}
-                      data-plasmic-name={"freeBox"}
-                      data-plasmic-override={overrides.freeBox}
-                      hasGap={true}
-                      className={classNames(projectcss.all, sty.freeBox)}
+                    <div
+                      className={classNames(projectcss.all, sty.freeBox__zJ7Ys)}
                     >
                       <CategoryField
                         data-plasmic-name={"categoryField"}
@@ -263,15 +257,42 @@ function PlasmicCategory__RenderFunc(props: {
                           )}
                         </ph.DataCtxReader>
                       </ProductCollection>
-                    </p.Stack>
+                    </div>
                   )}
                 </ph.DataCtxReader>
               </CategoryCollection>
-              <Button2
-                data-plasmic-name={"button2"}
-                data-plasmic-override={overrides.button2}
-                className={classNames("__wab_instance", sty.button2)}
-              />
+              <p.Stack
+                as={"div"}
+                hasGap={true}
+                className={classNames(projectcss.all, sty.freeBox__bS8Cu)}
+              >
+                <Button2
+                  className={classNames("__wab_instance", sty.button2___2Yksa)}
+                >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__ga3OH
+                    )}
+                  >
+                    {"See all Categories"}
+                  </div>
+                </Button2>
+                <Button2
+                  className={classNames("__wab_instance", sty.button2__ofyzo)}
+                >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text___0RTj
+                    )}
+                  >
+                    {"Shop all"}
+                  </div>
+                </Button2>
+              </p.Stack>
             </Section>
           </FullPage>
         </div>
@@ -286,43 +307,34 @@ const PlasmicDescendants = {
     "fullPage",
     "section",
     "categoryCollection",
-    "freeBox",
     "categoryField",
     "productCollection",
-    "productCardJbs",
-    "button2"
+    "productCardJbs"
   ],
   fullPage: [
     "fullPage",
     "section",
     "categoryCollection",
-    "freeBox",
-    "categoryField",
-    "productCollection",
-    "productCardJbs",
-    "button2"
-  ],
-  section: [
-    "section",
-    "categoryCollection",
-    "freeBox",
-    "categoryField",
-    "productCollection",
-    "productCardJbs",
-    "button2"
-  ],
-  categoryCollection: [
-    "categoryCollection",
-    "freeBox",
     "categoryField",
     "productCollection",
     "productCardJbs"
   ],
-  freeBox: ["freeBox", "categoryField", "productCollection", "productCardJbs"],
+  section: [
+    "section",
+    "categoryCollection",
+    "categoryField",
+    "productCollection",
+    "productCardJbs"
+  ],
+  categoryCollection: [
+    "categoryCollection",
+    "categoryField",
+    "productCollection",
+    "productCardJbs"
+  ],
   categoryField: ["categoryField"],
   productCollection: ["productCollection", "productCardJbs"],
-  productCardJbs: ["productCardJbs"],
-  button2: ["button2"]
+  productCardJbs: ["productCardJbs"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -332,11 +344,9 @@ type NodeDefaultElementType = {
   fullPage: typeof FullPage;
   section: typeof Section;
   categoryCollection: typeof CategoryCollection;
-  freeBox: "div";
   categoryField: typeof CategoryField;
   productCollection: typeof ProductCollection;
   productCardJbs: typeof ProductCardJbs;
-  button2: typeof Button2;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -402,11 +412,9 @@ export const PlasmicCategory = Object.assign(
     fullPage: makeNodeComponent("fullPage"),
     section: makeNodeComponent("section"),
     categoryCollection: makeNodeComponent("categoryCollection"),
-    freeBox: makeNodeComponent("freeBox"),
     categoryField: makeNodeComponent("categoryField"),
     productCollection: makeNodeComponent("productCollection"),
     productCardJbs: makeNodeComponent("productCardJbs"),
-    button2: makeNodeComponent("button2"),
 
     // Metadata about props expected for PlasmicCategory
     internalVariantProps: PlasmicCategory__VariantProps,

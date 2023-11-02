@@ -147,9 +147,9 @@ function PlasmicFullpagewidthSlide2__RenderFunc(props: {
               displayMinWidth={"0"}
               displayWidth={"auto"}
               src={{
-                src: "/plasmic/jbs_storefront/images/asset76Png.png",
-                fullWidth: 5319,
-                fullHeight: 2949,
+                src: "/plasmic/jbs_storefront/images/asset84Png2.png",
+                fullWidth: 5323,
+                fullHeight: 2898,
                 aspectRatio: undefined
               }}
             />
@@ -178,7 +178,7 @@ function PlasmicFullpagewidthSlide2__RenderFunc(props: {
           defaultContents: (
             <Button2
               className={classNames("__wab_instance", sty.button2__pTyOk)}
-              color={"pink"}
+              color={"red"}
             >
               {"Shop all Chakhna"}
             </Button2>

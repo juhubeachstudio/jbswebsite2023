@@ -131,7 +131,7 @@ function PlasmicFullpageheightSlide__RenderFunc(props: {
             displayMaxWidth={"100%"}
             displayMinHeight={"0"}
             displayMinWidth={"0"}
-            displayWidth={"auto"}
+            displayWidth={"100%"}
             src={{
               src: "/plasmic/jbs_storefront/images/asset582Png.png",
               fullWidth: 2656,

@@ -36,7 +36,6 @@ import {
   deriveRenderOpts,
   ensureGlobalVariants
 } from "@plasmicapp/react-web";
-import Button2 from "../../Button2"; // plasmic-import: yEsI5slGwPm/component
 
 import { useScreenVariants as useScreenVariants_6Hzia3M7Np4Ulu } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6hzia3m7Np4ulu/globalVariant
 
@@ -45,9 +44,6 @@ import "@plasmicapp/react-web/lib/plasmic.css";
 import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic_antd_5_hostless.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
 import projectcss from "./plasmic_jbs_storefront.module.css"; // plasmic-import: heL2P6rJiLNgtnBJPb6i1m/projectcss
 import sty from "./PlasmicFullpagewidthSlide.module.css"; // plasmic-import: DUKvgkpbeBWf/css
-
-import ChecksvgIcon from "./icons/PlasmicIcon__Checksvg"; // plasmic-import: ew07hyuAC0c/icon
-import Icon38Icon from "./icons/PlasmicIcon__Icon38"; // plasmic-import: 3r4KXWygi9v/icon
 
 createPlasmicElementProxy;
 
@@ -59,27 +55,19 @@ export const PlasmicFullpagewidthSlide__VariantProps =
 
 export type PlasmicFullpagewidthSlide__ArgsType = {
   children?: React.ReactNode;
-  slot?: React.ReactNode;
-  slot2?: React.ReactNode;
-  slot3?: React.ReactNode;
 };
 type ArgPropType = keyof PlasmicFullpagewidthSlide__ArgsType;
 export const PlasmicFullpagewidthSlide__ArgProps = new Array<ArgPropType>(
-  "children",
-  "slot",
-  "slot2",
-  "slot3"
+  "children"
 );
 
 export type PlasmicFullpagewidthSlide__OverridesType = {
   root?: p.Flex<"div">;
+  freeBox?: p.Flex<"div">;
 };
 
 export interface DefaultFullpagewidthSlideProps {
   children?: React.ReactNode;
-  slot?: React.ReactNode;
-  slot2?: React.ReactNode;
-  slot3?: React.ReactNode;
   className?: string;
 }
 
@@ -134,7 +122,11 @@ function PlasmicFullpagewidthSlide__RenderFunc(props: {
         sty.root
       )}
     >
-      <div className={classNames(projectcss.all, sty.freeBox___5ZeeQ)}>
+      <div
+        data-plasmic-name={"freeBox"}
+        data-plasmic-override={overrides.freeBox}
+        className={classNames(projectcss.all, sty.freeBox)}
+      >
         {p.renderPlasmicSlot({
           defaultContents: (
             <p.PlasmicImg
@@ -158,46 +150,20 @@ function PlasmicFullpagewidthSlide__RenderFunc(props: {
           value: args.children
         })}
       </div>
-      <div className={classNames(projectcss.all, sty.freeBox__qZlh)}>
-        <div className={classNames(projectcss.all, sty.freeBox__bo6Bj)}>
-          {p.renderPlasmicSlot({
-            defaultContents: "Chakhna",
-            value: args.slot,
-            className: classNames(sty.slotTargetSlot)
-          })}
-        </div>
-        <div className={classNames(projectcss.all, sty.freeBox__oZaT7)}>
-          {p.renderPlasmicSlot({
-            defaultContents:
-              "Life is a party, these are the snacks our \ndelightful new Textile Collectibles ",
-            value: args.slot2,
-            className: classNames(sty.slotTargetSlot2)
-          })}
-        </div>
-        {p.renderPlasmicSlot({
-          defaultContents: (
-            <Button2
-              className={classNames("__wab_instance", sty.button2__haaPw)}
-              color={"pink"}
-            >
-              {"Shop all Chakhna"}
-            </Button2>
-          ),
-          value: args.slot3
-        })}
-      </div>
     </div>
   ) as React.ReactElement | null;
 }
 
 const PlasmicDescendants = {
-  root: ["root"]
+  root: ["root", "freeBox"],
+  freeBox: ["freeBox"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
+  freeBox: "div";
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -260,6 +226,7 @@ export const PlasmicFullpagewidthSlide = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
+    freeBox: makeNodeComponent("freeBox"),
 
     // Metadata about props expected for PlasmicFullpagewidthSlide
     internalVariantProps: PlasmicFullpagewidthSlide__VariantProps,

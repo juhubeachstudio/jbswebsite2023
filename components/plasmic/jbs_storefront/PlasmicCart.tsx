@@ -38,8 +38,7 @@ import {
 } from "@plasmicapp/react-web";
 import Navbar from "../../Navbar"; // plasmic-import: zY4oOp60G2/component
 import Section from "../../Section"; // plasmic-import: GMAR4VOl00/component
-import { CartProvider } from "@plasmicpkgs/commerce"; // plasmic-import: -7iA_UBq8qca/codeComponent
-import Button2 from "../../Button2"; // plasmic-import: yEsI5slGwPm/component
+import Cart2 from "../../Cart2"; // plasmic-import: 4iMp3co2mNSz/component
 import Footer from "../../Footer"; // plasmic-import: mZogRkwS1rd/component
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources"; // plasmic-import: 1xopR4ZBZs2K4b/codeComponent
 
@@ -48,9 +47,6 @@ import "@plasmicapp/react-web/lib/plasmic.css";
 import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic_antd_5_hostless.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
 import projectcss from "./plasmic_jbs_storefront.module.css"; // plasmic-import: heL2P6rJiLNgtnBJPb6i1m/projectcss
 import sty from "./PlasmicCart.module.css"; // plasmic-import: q3NSBnBYzH/css
-
-import ChecksvgIcon from "./icons/PlasmicIcon__Checksvg"; // plasmic-import: ew07hyuAC0c/icon
-import Icon38Icon from "./icons/PlasmicIcon__Icon38"; // plasmic-import: 3r4KXWygi9v/icon
 
 createPlasmicElementProxy;
 
@@ -67,9 +63,7 @@ export type PlasmicCart__OverridesType = {
   root?: p.Flex<"div">;
   navbar?: p.Flex<typeof Navbar>;
   section?: p.Flex<typeof Section>;
-  cartProvider?: p.Flex<typeof CartProvider>;
-  img?: p.Flex<typeof p.PlasmicImg>;
-  button2?: p.Flex<typeof Button2>;
+  cart2?: p.Flex<typeof Cart2>;
   footer?: p.Flex<typeof Footer>;
 };
 
@@ -143,127 +137,11 @@ function PlasmicCart__RenderFunc(props: {
             data-plasmic-override={overrides.section}
             className={classNames("__wab_instance", sty.section)}
           >
-            <div className={classNames(projectcss.all, sty.freeBox__v8FnL)}>
-              <CartProvider
-                data-plasmic-name={"cartProvider"}
-                data-plasmic-override={overrides.cartProvider}
-                className={classNames("__wab_instance", sty.cartProvider)}
-              >
-                <ph.DataCtxReader>
-                  {$ctx => (
-                    <React.Fragment>
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox___3SNAe
-                        )}
-                      >
-                        <p.PlasmicImg
-                          data-plasmic-name={"img"}
-                          data-plasmic-override={overrides.img}
-                          alt={""}
-                          className={classNames(sty.img)}
-                          displayHeight={"330px"}
-                          displayMaxHeight={"none"}
-                          displayMaxWidth={"100%"}
-                          displayMinHeight={"0"}
-                          displayMinWidth={"0"}
-                          displayWidth={"auto"}
-                          loading={"lazy"}
-                          src={(() => {
-                            try {
-                              return $ctx.cart.lineItems[0].variant.image.url;
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return undefined;
-                              }
-                              throw e;
-                            }
-                          })()}
-                        />
-
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text__u6TnP
-                          )}
-                        >
-                          <React.Fragment>
-                            {(() => {
-                              try {
-                                return $ctx.cart.lineItems[0].name;
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return "";
-                                }
-                                throw e;
-                              }
-                            })()}
-                          </React.Fragment>
-                        </div>
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text__iNw4R
-                          )}
-                        >
-                          <React.Fragment>
-                            {(() => {
-                              try {
-                                return $ctx.cart.lineItems[0].quantity;
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return "";
-                                }
-                                throw e;
-                              }
-                            })()}
-                          </React.Fragment>
-                        </div>
-                      </div>
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__auGr5
-                        )}
-                      >
-                        <Button2
-                          data-plasmic-name={"button2"}
-                          data-plasmic-override={overrides.button2}
-                          className={classNames("__wab_instance", sty.button2)}
-                          link={(() => {
-                            try {
-                              return $ctx.cart.url;
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return undefined;
-                              }
-                              throw e;
-                            }
-                          })()}
-                        >
-                          {"Checkout"}
-                        </Button2>
-                      </div>
-                    </React.Fragment>
-                  )}
-                </ph.DataCtxReader>
-              </CartProvider>
-            </div>
+            <Cart2
+              data-plasmic-name={"cart2"}
+              data-plasmic-override={overrides.cart2}
+              className={classNames("__wab_instance", sty.cart2)}
+            />
           </Section>
           <Footer
             data-plasmic-name={"footer"}
@@ -277,20 +155,10 @@ function PlasmicCart__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: [
-    "root",
-    "navbar",
-    "section",
-    "cartProvider",
-    "img",
-    "button2",
-    "footer"
-  ],
+  root: ["root", "navbar", "section", "cart2", "footer"],
   navbar: ["navbar"],
-  section: ["section", "cartProvider", "img", "button2"],
-  cartProvider: ["cartProvider", "img", "button2"],
-  img: ["img"],
-  button2: ["button2"],
+  section: ["section", "cart2"],
+  cart2: ["cart2"],
   footer: ["footer"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
@@ -300,9 +168,7 @@ type NodeDefaultElementType = {
   root: "div";
   navbar: typeof Navbar;
   section: typeof Section;
-  cartProvider: typeof CartProvider;
-  img: typeof p.PlasmicImg;
-  button2: typeof Button2;
+  cart2: typeof Cart2;
   footer: typeof Footer;
 };
 
@@ -368,9 +234,7 @@ export const PlasmicCart = Object.assign(
     // Helper components rendering sub-elements
     navbar: makeNodeComponent("navbar"),
     section: makeNodeComponent("section"),
-    cartProvider: makeNodeComponent("cartProvider"),
-    img: makeNodeComponent("img"),
-    button2: makeNodeComponent("button2"),
+    cart2: makeNodeComponent("cart2"),
     footer: makeNodeComponent("footer"),
 
     // Metadata about props expected for PlasmicCart

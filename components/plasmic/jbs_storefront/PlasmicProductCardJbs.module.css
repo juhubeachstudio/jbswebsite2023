@@ -2,63 +2,72 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: auto;
+  height: 100%;
   max-width: 100%;
   justify-content: flex-start;
   align-items: flex-start;
   min-width: 0;
   position: relative;
+  min-height: 0;
   border: 1px solid var(--token-ZGgUq6H0D);
 }
-.link {
+.link__cdKoo {
   display: flex;
-  width: 100%;
+  color: var(--token-ZGgUq6H0D);
   height: 100%;
-  overflow: hidden;
-  justify-content: center;
-  align-items: center;
+  width: 100%;
   min-width: 0;
   min-height: 0;
 }
-.freeBox__lhsrt {
-  display: flex;
-  position: relative;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  width: 100%;
-  max-width: 100%;
+.productMedia__rUWyF:global(.__wab_instance) {
+  object-fit: cover;
   height: 100%;
   transition-property: all;
-  transition-duration: 0.3s;
+  transition-duration: 0.5s;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  width: 100%;
+  cursor: pointer;
   min-width: 0;
   min-height: 0;
   -webkit-transition-property: all;
-  -webkit-transition-duration: 0.3s;
+  -webkit-transition-duration: 0.5s;
 }
 @media (min-width: 0px) and (max-width: 768px) {
-  .freeBox__lhsrt {
+  .productMedia__rUWyF:global(.__wab_instance) {
     border-width: 2px;
   }
 }
-.root .freeBox__lhsrt:hover {
-  transform: scaleX(1.5) scaleY(1.5) scaleZ(1) rotateX(0deg) rotateY(0deg)
-    rotateZ(-15deg);
+.root:hover .productMedia__rUWyF:global(.__wab_instance) {
+  opacity: 0;
+  display: none;
 }
-.productMedia:global(.__wab_instance) {
-  max-width: 100%;
+.productMedia__zreYd:global(.__wab_instance) {
   object-fit: cover;
-  width: 100%;
   height: 100%;
+  transition-property: all;
+  transition-duration: 0.5s;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  width: 100%;
+  cursor: pointer;
+  opacity: 0;
   min-width: 0;
   min-height: 0;
+  display: none;
+  -webkit-transition-property: all;
+  -webkit-transition-duration: 0.5s;
 }
 @media (min-width: 0px) and (max-width: 768px) {
-  .productMedia:global(.__wab_instance) {
+  .productMedia__zreYd:global(.__wab_instance) {
     border-width: 2px;
   }
 }
-.freeBox___3HlGq {
+.root:hover .productMedia__zreYd:global(.__wab_instance) {
+  opacity: 1;
+  display: flex;
+}
+.freeBox {
   display: flex;
   position: relative;
   flex-direction: column;
@@ -68,7 +77,7 @@
   min-width: 0;
   padding: var(--token-oYI7ebdZitcv);
 }
-.freeBox___3HlGq > :global(.__wab_flex-container) {
+.freeBox > :global(.__wab_flex-container) {
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
@@ -76,10 +85,10 @@
   margin-top: calc(0px - var(--token-cSJ2BJk-9JCq));
   height: calc(100% + var(--token-cSJ2BJk-9JCq));
 }
-.freeBox___3HlGq > :global(.__wab_flex-container) > *,
-.freeBox___3HlGq > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
-.freeBox___3HlGq > :global(.__wab_flex-container) > picture > img,
-.freeBox___3HlGq
+.freeBox > :global(.__wab_flex-container) > *,
+.freeBox > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.freeBox > :global(.__wab_flex-container) > picture > img,
+.freeBox
   > :global(.__wab_flex-container)
   > :global(.__wab_slot)
   > picture
@@ -87,11 +96,16 @@
   margin-top: var(--token-cSJ2BJk-9JCq);
 }
 @media (min-width: 0px) and (max-width: 768px) {
-  .freeBox___3HlGq {
+  .freeBox {
     border-left-width: 2px;
     border-right-width: 2px;
     border-bottom-width: 2px;
   }
+}
+.link___7Zco {
+  display: flex;
+  width: 100%;
+  min-width: 0;
 }
 .productTextField:global(.__wab_instance) {
   max-width: 100%;
@@ -100,11 +114,19 @@
   font-size: var(--token-BlA-iDkaAWvO);
   text-transform: uppercase;
   line-height: 1.2;
+  white-space: pre;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  width: auto;
+  color: var(--token-ZGgUq6H0D);
 }
 @media (min-width: 0px) and (max-width: 768px) {
   .productTextField:global(.__wab_instance) {
     font-size: var(--token-o0Nl0Hefncwa);
   }
+}
+.root:hover .productTextField:global(.__wab_instance) {
+  color: var(--token-qoXYsQ1lS);
 }
 .productPrice:global(.__wab_instance) {
   max-width: 100%;

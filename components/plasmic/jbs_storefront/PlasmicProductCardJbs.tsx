@@ -60,8 +60,7 @@ export const PlasmicProductCardJbs__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicProductCardJbs__OverridesType = {
   root?: p.Flex<"div">;
-  link?: p.Flex<"a"> & Partial<LinkProps>;
-  productMedia?: p.Flex<typeof ProductMedia>;
+  freeBox?: p.Flex<"div">;
   productTextField?: p.Flex<typeof ProductTextField>;
   productPrice?: p.Flex<typeof ProductPriceComponent>;
 };
@@ -101,6 +100,11 @@ function PlasmicProductCardJbs__RenderFunc(props: {
 
   const currentUser = p.useCurrentUser?.() || {};
 
+  const [isRootHover, triggerRootHoverProps] = useTrigger("useHover", {});
+  const triggers = {
+    hover_root: isRootHover
+  };
+
   return (
     <div
       data-plasmic-name={"root"}
@@ -116,11 +120,10 @@ function PlasmicProductCardJbs__RenderFunc(props: {
         plasmic_antd_5_hostless_css.plasmic_tokens,
         sty.root
       )}
+      data-plasmic-trigger-props={[triggerRootHoverProps]}
     >
       <p.PlasmicLink
-        data-plasmic-name={"link"}
-        data-plasmic-override={overrides.link}
-        className={classNames(projectcss.all, projectcss.a, sty.link)}
+        className={classNames(projectcss.all, projectcss.a, sty.link__cdKoo)}
         component={Link}
         href={`/product/${(() => {
           try {
@@ -136,27 +139,37 @@ function PlasmicProductCardJbs__RenderFunc(props: {
           }
         })()}`}
         platform={"nextjs"}
+        target={"_blank"}
       >
-        <div className={classNames(projectcss.all, sty.freeBox__lhsrt)}>
-          <ProductMedia
-            data-plasmic-name={"productMedia"}
-            data-plasmic-override={overrides.productMedia}
-            className={classNames("__wab_instance", sty.productMedia)}
-          />
-        </div>
+        <ProductMedia
+          className={classNames("__wab_instance", sty.productMedia__rUWyF)}
+          mediaIndex={0}
+        />
       </p.PlasmicLink>
+      <ProductMedia
+        className={classNames("__wab_instance", sty.productMedia__zreYd)}
+        mediaIndex={triggers.hover_root ? 1 : 1}
+      />
+
       <p.Stack
         as={"div"}
+        data-plasmic-name={"freeBox"}
+        data-plasmic-override={overrides.freeBox}
         hasGap={true}
-        className={classNames(projectcss.all, sty.freeBox___3HlGq)}
+        className={classNames(projectcss.all, sty.freeBox)}
       >
-        <ProductTextField
-          data-plasmic-name={"productTextField"}
-          data-plasmic-override={overrides.productTextField}
-          className={classNames("__wab_instance", sty.productTextField)}
-          field={"name"}
-        />
-
+        <p.PlasmicLink
+          className={classNames(projectcss.all, projectcss.a, sty.link___7Zco)}
+          component={Link}
+          platform={"nextjs"}
+        >
+          <ProductTextField
+            data-plasmic-name={"productTextField"}
+            data-plasmic-override={overrides.productTextField}
+            className={classNames("__wab_instance", sty.productTextField)}
+            field={"name"}
+          />
+        </p.PlasmicLink>
         <ProductPriceComponent
           data-plasmic-name={"productPrice"}
           data-plasmic-override={overrides.productPrice}
@@ -168,9 +181,8 @@ function PlasmicProductCardJbs__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "link", "productMedia", "productTextField", "productPrice"],
-  link: ["link", "productMedia"],
-  productMedia: ["productMedia"],
+  root: ["root", "freeBox", "productTextField", "productPrice"],
+  freeBox: ["freeBox", "productTextField", "productPrice"],
   productTextField: ["productTextField"],
   productPrice: ["productPrice"]
 } as const;
@@ -179,8 +191,7 @@ type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
-  link: "a";
-  productMedia: typeof ProductMedia;
+  freeBox: "div";
   productTextField: typeof ProductTextField;
   productPrice: typeof ProductPriceComponent;
 };
@@ -245,8 +256,7 @@ export const PlasmicProductCardJbs = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
-    link: makeNodeComponent("link"),
-    productMedia: makeNodeComponent("productMedia"),
+    freeBox: makeNodeComponent("freeBox"),
     productTextField: makeNodeComponent("productTextField"),
     productPrice: makeNodeComponent("productPrice"),
 

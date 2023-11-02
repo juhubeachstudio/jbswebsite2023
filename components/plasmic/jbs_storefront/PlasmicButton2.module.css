@@ -8,7 +8,7 @@
   transition-duration: 0.1s;
   -webkit-transition-property: background;
   -webkit-transition-duration: 0.1s;
-  border-radius: 6px;
+  border-radius: 8px;
   padding: 12px 20px;
   border-width: 0px;
 }
@@ -63,8 +63,8 @@
 .rootcolor_yellow {
   background: #f5d90a;
 }
-.rootcolor_pink {
-  background: var(--token-TWp-NYtFx);
+.rootcolor_red {
+  background: var(--token-qoXYsQ1lS);
 }
 .rootcolor_sand {
   background: #717069;
@@ -124,7 +124,7 @@
 .rootcolor_yellow:hover {
   background: #ffef5c;
 }
-.rootcolor_pink:hover {
+.rootcolor_red:hover {
   background: #ec5e41;
 }
 .rootcolor_sand:hover {
@@ -149,17 +149,17 @@
   background: #e9e9e6;
 }
 .rootcolor_clear:hover {
-  background: #e9e9e6;
+  background: none;
 }
 .rootcolor_link:hover {
   background: #ffffff00;
 }
 .root:focus-within {
-  box-shadow: 0px 0px 0px 3px #96c7f2;
+  box-shadow: none;
   outline: none;
 }
 .root___focusVisibleWithin {
-  box-shadow: 0px 0px 0px 3px #96c7f2;
+  box-shadow: none;
   outline: none;
 }
 .root:active {
@@ -174,7 +174,7 @@
 .rootcolor_yellow:active {
   background: #f0c000;
 }
-.rootcolor_pink:active {
+.rootcolor_red:active {
   background: #f16a50;
 }
 .rootcolor_sand:active {
@@ -199,7 +199,7 @@
   background: #e3e3e0;
 }
 .rootcolor_clear:active {
-  background: #e3e3e0;
+  background: none;
 }
 .rootcolor_link:active {
   background: #ffffff00;
@@ -281,7 +281,7 @@
 .slotTargetChildrencolor_yellow {
   color: #35290f;
 }
-.slotTargetChildrencolor_pink {
+.slotTargetChildrencolor_red {
   color: #ffffff;
 }
 .slotTargetChildrencolor_sand {
@@ -310,6 +310,9 @@
 }
 .slotTargetChildrencolor_link {
   color: #0091ff;
+}
+.rootcolor_clear:hover .slotTargetChildrencolor_clear {
+  color: var(--token-vg8USqXsf);
 }
 .rootcolor_link:hover .slotTargetChildrencolor_link {
   color: #0081f1;
@@ -431,6 +434,9 @@
   > picture
   > img {
   outline: none;
+}
+.rootcolor_clear:active .slotTargetChildrencolor_clear {
+  color: var(--token-058m_r2f2);
 }
 .rootcolor_link:active .slotTargetChildrencolor_link {
   color: #006adc;

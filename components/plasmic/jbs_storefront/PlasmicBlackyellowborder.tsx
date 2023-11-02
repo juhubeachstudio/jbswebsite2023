@@ -52,9 +52,13 @@ type VariantPropType = keyof PlasmicBlackyellowborder__VariantsArgs;
 export const PlasmicBlackyellowborder__VariantProps =
   new Array<VariantPropType>();
 
-export type PlasmicBlackyellowborder__ArgsType = {};
+export type PlasmicBlackyellowborder__ArgsType = {
+  play?: boolean;
+};
 type ArgPropType = keyof PlasmicBlackyellowborder__ArgsType;
-export const PlasmicBlackyellowborder__ArgProps = new Array<ArgPropType>();
+export const PlasmicBlackyellowborder__ArgProps = new Array<ArgPropType>(
+  "play"
+);
 
 export type PlasmicBlackyellowborder__OverridesType = {
   root?: p.Flex<"div">;
@@ -63,6 +67,7 @@ export type PlasmicBlackyellowborder__OverridesType = {
 };
 
 export interface DefaultBlackyellowborderProps {
+  play?: boolean;
   className?: string;
 }
 
@@ -83,7 +88,16 @@ function PlasmicBlackyellowborder__RenderFunc(props: {
 }) {
   const { variants, overrides, forNode } = props;
 
-  const args = React.useMemo(() => Object.assign({}, props.args), [props.args]);
+  const args = React.useMemo(
+    () =>
+      Object.assign(
+        {
+          play: false
+        },
+        props.args
+      ),
+    [props.args]
+  );
 
   const $props = {
     ...args,
@@ -118,7 +132,7 @@ function PlasmicBlackyellowborder__RenderFunc(props: {
         data-plasmic-override={overrides.marquee}
         autoFill={true}
         className={classNames("__wab_instance", sty.marquee)}
-        play={true}
+        play={args.play}
       >
         <div
           data-plasmic-name={"freeBox"}

@@ -38,8 +38,10 @@ import {
 } from "@plasmicapp/react-web";
 import FullPage from "../../FullPage"; // plasmic-import: VpRM2nIn0R/component
 import Section from "../../Section"; // plasmic-import: GMAR4VOl00/component
-import Slider from "react-slick"; // plasmic-import: HOQUyOpClJ/codeComponent
+import { SliderWrapper } from "@plasmicpkgs/react-slick"; // plasmic-import: HOQUyOpClJ/codeComponent
+import { sliderHelpers as SliderWrapper_Helpers } from "@plasmicpkgs/react-slick"; // plasmic-import: HOQUyOpClJ/codeComponentHelper
 import Blackyellowborder from "../../Blackyellowborder"; // plasmic-import: qeyEUvMFwY/component
+import { Reveal } from "@plasmicpkgs/react-awesome-reveal"; // plasmic-import: R6s1FdhksG/codeComponent
 
 import { useScreenVariants as useScreenVariants_6Hzia3M7Np4Ulu } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6hzia3m7Np4ulu/globalVariant
 
@@ -63,8 +65,12 @@ export const PlasmicAbout__ArgProps = new Array<ArgPropType>();
 export type PlasmicAbout__OverridesType = {
   root?: p.Flex<"div">;
   fullPage?: p.Flex<typeof FullPage>;
-  h4?: p.Flex<"h4">;
+  sliderCarousel?: p.Flex<typeof SliderWrapper>;
   h1?: p.Flex<"h1">;
+  sliderCarousel2?: p.Flex<typeof SliderWrapper>;
+  sliderCarousel3?: p.Flex<typeof SliderWrapper>;
+  reveal?: p.Flex<typeof Reveal>;
+  sliderCarousel4?: p.Flex<typeof SliderWrapper>;
 };
 
 export interface DefaultAboutProps {}
@@ -99,6 +105,66 @@ function PlasmicAbout__RenderFunc(props: {
   const $refs = refsRef.current;
 
   const currentUser = p.useCurrentUser?.() || {};
+
+  const stateSpecs: Parameters<typeof p.useDollarState>[0] = React.useMemo(
+    () => [
+      {
+        path: "sliderCarousel.currentSlide",
+        type: "private",
+        variableType: "number",
+        initFunc: ({ $props, $state, $queries, $ctx }) => 0,
+
+        refName: "sliderCarousel",
+        onMutate: p.generateOnMutateForSpec(
+          "currentSlide",
+          SliderWrapper_Helpers
+        )
+      },
+      {
+        path: "sliderCarousel2.currentSlide",
+        type: "private",
+        variableType: "number",
+        initFunc: ({ $props, $state, $queries, $ctx }) => 0,
+
+        refName: "sliderCarousel2",
+        onMutate: p.generateOnMutateForSpec(
+          "currentSlide",
+          SliderWrapper_Helpers
+        )
+      },
+      {
+        path: "sliderCarousel3.currentSlide",
+        type: "private",
+        variableType: "number",
+        initFunc: ({ $props, $state, $queries, $ctx }) => 0,
+
+        refName: "sliderCarousel3",
+        onMutate: p.generateOnMutateForSpec(
+          "currentSlide",
+          SliderWrapper_Helpers
+        )
+      },
+      {
+        path: "sliderCarousel4.currentSlide",
+        type: "private",
+        variableType: "number",
+        initFunc: ({ $props, $state, $queries, $ctx }) => 0,
+
+        refName: "sliderCarousel4",
+        onMutate: p.generateOnMutateForSpec(
+          "currentSlide",
+          SliderWrapper_Helpers
+        )
+      }
+    ],
+    [$props, $ctx, $refs]
+  );
+  const $state = p.useDollarState(stateSpecs, {
+    $props,
+    $ctx,
+    $queries: {},
+    $refs
+  });
 
   const globalVariants = ensureGlobalVariants({
     screen: useScreenVariants_6Hzia3M7Np4Ulu()
@@ -139,9 +205,32 @@ function PlasmicAbout__RenderFunc(props: {
               className={classNames("__wab_instance", sty.section__uUdAt)}
             >
               <div className={classNames(projectcss.all, sty.freeBox___3OKZ)}>
+                {(
+                  hasVariant(globalVariants, "screen", "mobileOnly")
+                    ? false
+                    : true
+                ) ? (
+                  <p.PlasmicImg
+                    alt={""}
+                    className={classNames(sty.img__vprZ4)}
+                    displayHeight={"auto"}
+                    displayMaxHeight={"none"}
+                    displayMaxWidth={"100%"}
+                    displayMinHeight={"0"}
+                    displayMinWidth={"0"}
+                    displayWidth={"auto"}
+                    loading={"lazy"}
+                    src={{
+                      src: "/plasmic/jbs_storefront/images/asset2Png.png",
+                      fullWidth: 7607,
+                      fullHeight: 3055,
+                      aspectRatio: undefined
+                    }}
+                  />
+                ) : null}
                 <p.PlasmicImg
                   alt={""}
-                  className={classNames(sty.img__vprZ4)}
+                  className={classNames(sty.img__nTwgc)}
                   displayHeight={"auto"}
                   displayMaxHeight={"none"}
                   displayMaxWidth={"100%"}
@@ -150,63 +239,57 @@ function PlasmicAbout__RenderFunc(props: {
                   displayWidth={"auto"}
                   loading={"lazy"}
                   src={{
-                    src: "/plasmic/jbs_storefront/images/asset2Png.png",
-                    fullWidth: 7607,
-                    fullHeight: 3055,
+                    src: "/plasmic/jbs_storefront/images/asset31Png2.png",
+                    fullWidth: 895,
+                    fullHeight: 558,
                     aspectRatio: undefined
                   }}
                 />
-
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text___5YmRm
-                  )}
-                >
-                  <React.Fragment>
-                    <React.Fragment>{""}</React.Fragment>
-                    {
-                      <h4
-                        data-plasmic-name={"h4"}
-                        data-plasmic-override={overrides.h4}
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.h4,
-                          projectcss.__wab_text,
-                          sty.h4
-                        )}
-                      >
-                        {
-                          "We\u2019re Juhu Beach Studio and we work exclusively with textile waste.\nWe make beautiful, tasty products, do commissioned artworks and reaally fun workshops.\nCurious objects that make life more excitinggg"
-                        }
-                      </h4>
-                    }
-                    <React.Fragment>{""}</React.Fragment>
-                  </React.Fragment>
-                </div>
               </div>
             </Section>
             <Section
               className={classNames("__wab_instance", sty.section__zMq4Z)}
             >
-              <p.PlasmicImg
-                alt={""}
-                className={classNames(sty.img__r0Jpl)}
-                displayHeight={"auto"}
-                displayMaxHeight={"none"}
-                displayMaxWidth={"100%"}
-                displayMinHeight={"0"}
-                displayMinWidth={"0"}
-                displayWidth={"100%"}
-                loading={"lazy"}
-                src={{
-                  src: "/plasmic/jbs_storefront/images/asset3Png.png",
-                  fullWidth: 7170,
-                  fullHeight: 3867,
-                  aspectRatio: undefined
-                }}
-              />
+              <div className={classNames(projectcss.all, sty.columns__zzulA)}>
+                <div className={classNames(projectcss.all, sty.column__puagE)}>
+                  <p.PlasmicImg
+                    alt={""}
+                    className={classNames(sty.img__r0Jpl)}
+                    displayHeight={"auto"}
+                    displayMaxHeight={"none"}
+                    displayMaxWidth={"100%"}
+                    displayMinHeight={"0"}
+                    displayMinWidth={"0"}
+                    displayWidth={"100%"}
+                    loading={"lazy"}
+                    src={{
+                      src: "/plasmic/jbs_storefront/images/asset98Png.png",
+                      fullWidth: 3641,
+                      fullHeight: 2487,
+                      aspectRatio: undefined
+                    }}
+                  />
+                </div>
+                <div className={classNames(projectcss.all, sty.column__o3W3R)}>
+                  <p.PlasmicImg
+                    alt={""}
+                    className={classNames(sty.img__o24D5)}
+                    displayHeight={"auto"}
+                    displayMaxHeight={"none"}
+                    displayMaxWidth={"100%"}
+                    displayMinHeight={"0"}
+                    displayMinWidth={"0"}
+                    displayWidth={"100%"}
+                    loading={"lazy"}
+                    src={{
+                      src: "/plasmic/jbs_storefront/images/asset99Png.png",
+                      fullWidth: 3497,
+                      fullHeight: 2519,
+                      aspectRatio: undefined
+                    }}
+                  />
+                </div>
+              </div>
             </Section>
             <Section
               className={classNames("__wab_instance", sty.section__ppS85)}
@@ -265,73 +348,121 @@ function PlasmicAbout__RenderFunc(props: {
                   </div>
                 </p.Stack>
                 <div className={classNames(projectcss.all, sty.column__u114A)}>
-                  <Slider
-                    className={classNames(
-                      "__wab_instance",
-                      sty.sliderCarousel__lBx2Z
-                    )}
-                  >
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__cKjVs)}
-                    >
-                      <p.PlasmicImg
-                        alt={""}
-                        className={classNames(sty.img__tx1Lb)}
-                        displayHeight={"651px"}
-                        displayMaxHeight={"none"}
-                        displayMaxWidth={"100%"}
-                        displayMinHeight={"0"}
-                        displayMinWidth={"0"}
-                        displayWidth={"auto"}
-                        src={{
-                          src: "/plasmic/jbs_storefront/images/asset83Png.png",
-                          fullWidth: 2612,
-                          fullHeight: 3485,
-                          aspectRatio: undefined
-                        }}
-                      />
-                    </div>
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__yqC2R)}
-                    >
-                      <p.PlasmicImg
-                        alt={""}
-                        className={classNames(sty.img__shPbV)}
-                        displayHeight={"auto"}
-                        displayMaxHeight={"none"}
-                        displayMaxWidth={"100%"}
-                        displayMinHeight={"0"}
-                        displayMinWidth={"0"}
-                        displayWidth={"auto"}
-                        src={{
-                          src: "/plasmic/jbs_storefront/images/asset84Png.png",
-                          fullWidth: 2615,
-                          fullHeight: 3487,
-                          aspectRatio: undefined
-                        }}
-                      />
-                    </div>
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__iVLw)}
-                    >
-                      <p.PlasmicImg
-                        alt={""}
-                        className={classNames(sty.img___2J70B)}
-                        displayHeight={"auto"}
-                        displayMaxHeight={"none"}
-                        displayMaxWidth={"100%"}
-                        displayMinHeight={"0"}
-                        displayMinWidth={"0"}
-                        displayWidth={"auto"}
-                        src={{
-                          src: "/plasmic/jbs_storefront/images/asset82Png.png",
-                          fullWidth: 2612,
-                          fullHeight: 3478,
-                          aspectRatio: undefined
-                        }}
-                      />
-                    </div>
-                  </Slider>
+                  {(() => {
+                    const child$Props = {
+                      autoplay: true,
+                      beforeChange:
+                        p.generateStateOnChangePropForCodeComponents(
+                          $state,
+                          "currentSlide",
+                          ["sliderCarousel", "currentSlide"],
+                          SliderWrapper_Helpers
+                        ),
+                      className: classNames(
+                        "__wab_instance",
+                        sty.sliderCarousel
+                      ),
+                      editingSlide: p.generateStateValueProp($state, [
+                        "sliderCarousel",
+                        "currentSlide"
+                      ]),
+                      initialSlide: 0,
+                      ref: ref => {
+                        $refs["sliderCarousel"] = ref;
+                      },
+                      sliderScopeClassName: sty["sliderCarousel__slider"]
+                    };
+                    p.initializeCodeComponentStates(
+                      $state,
+                      [
+                        {
+                          name: "currentSlide",
+                          plasmicStateName: "sliderCarousel.currentSlide"
+                        }
+                      ],
+                      [],
+                      SliderWrapper_Helpers ?? {},
+                      child$Props
+                    );
+
+                    return (
+                      <SliderWrapper
+                        data-plasmic-name={"sliderCarousel"}
+                        data-plasmic-override={overrides.sliderCarousel}
+                        {...child$Props}
+                      >
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox__cKjVs
+                          )}
+                        >
+                          <p.PlasmicImg
+                            alt={""}
+                            className={classNames(sty.img__tx1Lb)}
+                            displayHeight={"auto"}
+                            displayMaxHeight={"none"}
+                            displayMaxWidth={"100%"}
+                            displayMinHeight={"0"}
+                            displayMinWidth={"0"}
+                            displayWidth={"auto"}
+                            src={{
+                              src: "/plasmic/jbs_storefront/images/asset83Png.png",
+                              fullWidth: 2612,
+                              fullHeight: 3485,
+                              aspectRatio: undefined
+                            }}
+                          />
+                        </div>
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox__yqC2R
+                          )}
+                        >
+                          <p.PlasmicImg
+                            alt={""}
+                            className={classNames(sty.img__shPbV)}
+                            displayHeight={"auto"}
+                            displayMaxHeight={"none"}
+                            displayMaxWidth={"100%"}
+                            displayMinHeight={"0"}
+                            displayMinWidth={"0"}
+                            displayWidth={"auto"}
+                            src={{
+                              src: "/plasmic/jbs_storefront/images/asset84Png.png",
+                              fullWidth: 2615,
+                              fullHeight: 3487,
+                              aspectRatio: undefined
+                            }}
+                          />
+                        </div>
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox__iVLw
+                          )}
+                        >
+                          <p.PlasmicImg
+                            alt={""}
+                            className={classNames(sty.img___2J70B)}
+                            displayHeight={"auto"}
+                            displayMaxHeight={"none"}
+                            displayMaxWidth={"100%"}
+                            displayMinHeight={"0"}
+                            displayMinWidth={"0"}
+                            displayWidth={"auto"}
+                            src={{
+                              src: "/plasmic/jbs_storefront/images/asset82Png.png",
+                              fullWidth: 2612,
+                              fullHeight: 3478,
+                              aspectRatio: undefined
+                            }}
+                          />
+                        </div>
+                      </SliderWrapper>
+                    );
+                  })()}
                 </div>
               </p.Stack>
             </Section>
@@ -421,6 +552,43 @@ function PlasmicAbout__RenderFunc(props: {
                     }
                     <React.Fragment>{""}</React.Fragment>
                   </React.Fragment>
+                </div>
+                <div className={classNames(projectcss.all, sty.freeBox__htKgA)}>
+                  <p.PlasmicImg
+                    alt={""}
+                    className={classNames(sty.img__fbg3T)}
+                    displayHeight={"100%"}
+                    displayMaxHeight={"none"}
+                    displayMaxWidth={"none"}
+                    displayMinHeight={"0"}
+                    displayMinWidth={"0"}
+                    displayWidth={"auto"}
+                    loading={"lazy"}
+                    src={{
+                      src: "/plasmic/jbs_storefront/images/drawingPinBluepng2.png",
+                      fullWidth: 181,
+                      fullHeight: 400,
+                      aspectRatio: undefined
+                    }}
+                  />
+
+                  <p.PlasmicImg
+                    alt={""}
+                    className={classNames(sty.img___96Gh)}
+                    displayHeight={"100%"}
+                    displayMaxHeight={"none"}
+                    displayMaxWidth={"none"}
+                    displayMinHeight={"0"}
+                    displayMinWidth={"0"}
+                    displayWidth={"auto"}
+                    loading={"lazy"}
+                    src={{
+                      src: "/plasmic/jbs_storefront/images/drawingPinBluepng2.png",
+                      fullWidth: 181,
+                      fullHeight: 400,
+                      aspectRatio: undefined
+                    }}
+                  />
                 </div>
                 <p.PlasmicImg
                   alt={""}
@@ -593,50 +761,48 @@ function PlasmicAbout__RenderFunc(props: {
                     </div>
                   </div>
                 </p.Stack>
-                <div className={classNames(projectcss.all, sty.columns__rf6UN)}>
-                  <div className={classNames(projectcss.all, sty.column__dIz1)}>
-                    <p.PlasmicImg
-                      alt={""}
-                      className={classNames(sty.img__lsP7Y)}
-                      displayHeight={"auto"}
-                      displayMaxHeight={"none"}
-                      displayMaxWidth={"100%"}
-                      displayMinHeight={"0"}
-                      displayMinWidth={"0"}
-                      displayWidth={"auto"}
-                      loading={"lazy"}
-                      src={{
-                        src: "/plasmic/jbs_storefront/images/asset10Png.png",
-                        fullWidth: 3668,
-                        fullHeight: 5886,
-                        aspectRatio: undefined
-                      }}
-                    />
-                  </div>
-                  <div
-                    className={classNames(projectcss.all, sty.column__rz8Li)}
-                  >
-                    <p.PlasmicImg
-                      alt={""}
-                      className={classNames(sty.img___0IuIu)}
-                      displayHeight={"auto"}
-                      displayMaxHeight={"none"}
-                      displayMaxWidth={"100%"}
-                      displayMinHeight={"0"}
-                      displayMinWidth={"0"}
-                      displayWidth={"auto"}
-                      loading={"lazy"}
-                      src={{
-                        src: "/plasmic/jbs_storefront/images/asset11Png.png",
-                        fullWidth: 3621,
-                        fullHeight: 5672,
-                        aspectRatio: undefined
-                      }}
-                    />
-                  </div>
-                </div>
               </div>
             </Section>
+            <div className={classNames(projectcss.all, sty.columns__rf6UN)}>
+              <div className={classNames(projectcss.all, sty.column__dIz1)}>
+                <p.PlasmicImg
+                  alt={""}
+                  className={classNames(sty.img__lsP7Y)}
+                  displayHeight={"auto"}
+                  displayMaxHeight={"none"}
+                  displayMaxWidth={"100%"}
+                  displayMinHeight={"0"}
+                  displayMinWidth={"0"}
+                  displayWidth={"auto"}
+                  loading={"lazy"}
+                  src={{
+                    src: "/plasmic/jbs_storefront/images/asset88Png.png",
+                    fullWidth: 3500,
+                    fullHeight: 5600,
+                    aspectRatio: undefined
+                  }}
+                />
+              </div>
+              <div className={classNames(projectcss.all, sty.column__rz8Li)}>
+                <p.PlasmicImg
+                  alt={""}
+                  className={classNames(sty.img___0IuIu)}
+                  displayHeight={"auto"}
+                  displayMaxHeight={"none"}
+                  displayMaxWidth={"100%"}
+                  displayMinHeight={"0"}
+                  displayMinWidth={"0"}
+                  displayWidth={"auto"}
+                  loading={"lazy"}
+                  src={{
+                    src: "/plasmic/jbs_storefront/images/asset11Png2.png",
+                    fullWidth: 3500,
+                    fullHeight: 5600,
+                    aspectRatio: undefined
+                  }}
+                />
+              </div>
+            </div>
             <Section
               className={classNames("__wab_instance", sty.section__mbbOa)}
             >
@@ -653,10 +819,17 @@ function PlasmicAbout__RenderFunc(props: {
                     className={classNames(
                       projectcss.all,
                       projectcss.__wab_text,
-                      sty.text___9VLxC
+                      sty.text__wKgxF
                     )}
                   >
-                    {"Process"}
+                    <React.Fragment>
+                      <span
+                        className={"plasmic_default__all plasmic_default__span"}
+                        style={{ fontWeight: 700 }}
+                      >
+                        {"Process"}
+                      </span>
+                    </React.Fragment>
                   </div>
                 </div>
                 <p.Stack
@@ -725,125 +898,204 @@ function PlasmicAbout__RenderFunc(props: {
               </div>
             </Section>
             <Section
-              className={classNames("__wab_instance", sty.section__ck63D)}
+              className={classNames("__wab_instance", sty.section___6M8CL)}
             >
-              <Slider
-                className={classNames(
-                  "__wab_instance",
-                  sty.sliderCarousel__cOddc
-                )}
+              <p.Stack
+                as={"div"}
+                hasGap={true}
+                className={classNames(projectcss.all, sty.freeBox__radub)}
               >
-                <div className={classNames(projectcss.all, sty.freeBox__neHuN)}>
-                  <p.PlasmicImg
-                    alt={""}
-                    className={classNames(sty.img___4GGb)}
-                    displayHeight={"auto"}
-                    displayMaxHeight={"none"}
-                    displayMaxWidth={"100%"}
-                    displayMinHeight={"0"}
-                    displayMinWidth={"0"}
-                    displayWidth={"auto"}
-                    src={
-                      "https://static1.plasmic.app/components/react-slick/slide1.png"
-                    }
-                  />
-                </div>
-                <div className={classNames(projectcss.all, sty.freeBox__ytN4)}>
-                  <p.PlasmicImg
-                    alt={""}
-                    className={classNames(sty.img__fpOPm)}
-                    displayHeight={"auto"}
-                    displayMaxHeight={"none"}
-                    displayMaxWidth={"100%"}
-                    displayMinHeight={"0"}
-                    displayMinWidth={"0"}
-                    displayWidth={"auto"}
-                    src={
-                      "https://static1.plasmic.app/components/react-slick/slide2.png"
-                    }
-                  />
-                </div>
-                <div className={classNames(projectcss.all, sty.freeBox__lcPjv)}>
-                  <p.PlasmicImg
-                    alt={""}
-                    className={classNames(sty.img__rMuuQ)}
-                    displayHeight={"auto"}
-                    displayMaxHeight={"none"}
-                    displayMaxWidth={"100%"}
-                    displayMinHeight={"0"}
-                    displayMinWidth={"0"}
-                    displayWidth={"auto"}
-                    src={
-                      "https://static1.plasmic.app/components/react-slick/slide3.png"
-                    }
-                  />
-                </div>
-              </Slider>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__jwKD
-                )}
-              >
-                {"Sourcing"}
-              </div>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__ryWhh
-                )}
-              >
-                <React.Fragment>
-                  <React.Fragment>
-                    {"We go sourcing for our raw materials - "}
-                  </React.Fragment>
-                  <span
-                    className={"plasmic_default__all plasmic_default__span"}
-                    style={{ fontWeight: 700 }}
+                {(() => {
+                  const child$Props = {
+                    autoplay: true,
+                    beforeChange: p.generateStateOnChangePropForCodeComponents(
+                      $state,
+                      "currentSlide",
+                      ["sliderCarousel2", "currentSlide"],
+                      SliderWrapper_Helpers
+                    ),
+                    centerMode: false,
+                    className: classNames(
+                      "__wab_instance",
+                      sty.sliderCarousel2
+                    ),
+                    editingSlide: p.generateStateValueProp($state, [
+                      "sliderCarousel2",
+                      "currentSlide"
+                    ]),
+                    initialSlide: 0,
+                    ref: ref => {
+                      $refs["sliderCarousel2"] = ref;
+                    },
+                    sliderScopeClassName: sty["sliderCarousel2__slider"]
+                  };
+                  p.initializeCodeComponentStates(
+                    $state,
+                    [
+                      {
+                        name: "currentSlide",
+                        plasmicStateName: "sliderCarousel2.currentSlide"
+                      }
+                    ],
+                    [],
+                    SliderWrapper_Helpers ?? {},
+                    child$Props
+                  );
+
+                  return (
+                    <SliderWrapper
+                      data-plasmic-name={"sliderCarousel2"}
+                      data-plasmic-override={overrides.sliderCarousel2}
+                      {...child$Props}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__neHuN
+                        )}
+                      >
+                        <p.PlasmicImg
+                          alt={""}
+                          className={classNames(sty.img___4GGb)}
+                          displayHeight={"auto"}
+                          displayMaxHeight={"none"}
+                          displayMaxWidth={"100%"}
+                          displayMinHeight={"0"}
+                          displayMinWidth={"0"}
+                          displayWidth={"auto"}
+                          src={{
+                            src: "/plasmic/jbs_storefront/images/asset54Png2.png",
+                            fullWidth: 4721,
+                            fullHeight: 2658,
+                            aspectRatio: undefined
+                          }}
+                        />
+                      </div>
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__ytN4
+                        )}
+                      >
+                        <p.PlasmicImg
+                          alt={""}
+                          className={classNames(sty.img__fpOPm)}
+                          displayHeight={"auto"}
+                          displayMaxHeight={"none"}
+                          displayMaxWidth={"100%"}
+                          displayMinHeight={"0"}
+                          displayMinWidth={"0"}
+                          displayWidth={"auto"}
+                          src={{
+                            src: "/plasmic/jbs_storefront/images/asset55Png2.png",
+                            fullWidth: 4730,
+                            fullHeight: 2653,
+                            aspectRatio: undefined
+                          }}
+                        />
+                      </div>
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__lcPjv
+                        )}
+                      >
+                        <p.PlasmicImg
+                          alt={""}
+                          className={classNames(sty.img__rMuuQ)}
+                          displayHeight={"auto"}
+                          displayMaxHeight={"none"}
+                          displayMaxWidth={"100%"}
+                          displayMinHeight={"0"}
+                          displayMinWidth={"0"}
+                          displayWidth={"auto"}
+                          src={{
+                            src: "/plasmic/jbs_storefront/images/asset56Png.png",
+                            fullWidth: 4706,
+                            fullHeight: 2657,
+                            aspectRatio: undefined
+                          }}
+                        />
+                      </div>
+                    </SliderWrapper>
+                  );
+                })()}
+                <p.Stack
+                  as={"div"}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.freeBox__v3B0S)}
+                >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__jwKD
+                    )}
                   >
-                    {"pre consumer waste"}
-                  </span>
-                  <React.Fragment>
-                    {
-                      " and get to see the craziest things - godowns filled floor to ceiling with thousands of meters of fabric in piles upto 30ft high, bags and bags of unused yarns, buttons, lace, etc. "
-                    }
-                  </React.Fragment>
-                  <span
-                    className={"plasmic_default__all plasmic_default__span"}
-                    style={{ fontWeight: 700 }}
+                    {"Sourcing"}
+                  </div>
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__ryWhh
+                    )}
                   >
-                    {
-                      "We test all our materials for colour fastness and material composition"
-                    }
-                  </span>
-                  <React.Fragment>
-                    {
-                      " before we buy them and it has to happen quickly cuz you only find anything between 5-20 meters of one fabric at a time and you will "
-                    }
-                  </React.Fragment>
-                  <span
-                    className={"plasmic_default__all plasmic_default__span"}
-                    style={{ fontWeight: 700 }}
-                  >
-                    {"NEVER find the same material twice"}
-                  </span>
-                  <React.Fragment>
-                    {" (thats why limited edition)."}
-                  </React.Fragment>
-                </React.Fragment>
-              </div>
+                    <React.Fragment>
+                      <React.Fragment>
+                        {"We go sourcing for our raw materials - "}
+                      </React.Fragment>
+                      <span
+                        className={"plasmic_default__all plasmic_default__span"}
+                        style={{ fontWeight: 700 }}
+                      >
+                        {"pre consumer waste"}
+                      </span>
+                      <React.Fragment>
+                        {
+                          " and get to see the craziest things - godowns filled floor to ceiling with thousands of meters of fabric in piles upto 30ft high, bags and bags of unused yarns, buttons, lace, etc. "
+                        }
+                      </React.Fragment>
+                      <span
+                        className={"plasmic_default__all plasmic_default__span"}
+                        style={{ fontWeight: 700 }}
+                      >
+                        {
+                          "We test all our materials for colour fastness and material composition"
+                        }
+                      </span>
+                      <React.Fragment>
+                        {
+                          " before we buy them and it has to happen quickly cuz you only find anything between 5-20 meters of one fabric at a time and you will "
+                        }
+                      </React.Fragment>
+                      <span
+                        className={"plasmic_default__all plasmic_default__span"}
+                        style={{ fontWeight: 700 }}
+                      >
+                        {"NEVER find the same material twice"}
+                      </span>
+                      <React.Fragment>
+                        {" (thats why limited edition)."}
+                      </React.Fragment>
+                    </React.Fragment>
+                  </div>
+                </p.Stack>
+              </p.Stack>
             </Section>
             <Section
               className={classNames("__wab_instance", sty.section__ch4Xy)}
             >
-              <div className={classNames(projectcss.all, sty.freeBox__rL0US)}>
+              <p.Stack
+                as={"div"}
+                hasGap={true}
+                className={classNames(projectcss.all, sty.freeBox__rL0US)}
+              >
                 <div
                   className={classNames(
                     projectcss.all,
                     projectcss.__wab_text,
-                    sty.text__ebm2Z
+                    sty.text__hmXpB
                   )}
                 >
                   {"Our Materials"}
@@ -853,31 +1105,42 @@ function PlasmicAbout__RenderFunc(props: {
                     className={classNames(projectcss.all, sty.freeBox__kS5AX)}
                   >
                     <div
-                      className={classNames(projectcss.all, sty.freeBox__fA6Zf)}
+                      className={classNames(projectcss.all, sty.freeBox__lne7T)}
                     >
                       <p.PlasmicImg
                         alt={""}
-                        className={classNames(sty.img__g016Y)}
-                        displayHeight={"auto"}
+                        className={classNames(sty.img__su3Rw)}
+                        displayHeight={"60px"}
                         displayMaxHeight={"none"}
                         displayMaxWidth={"100%"}
                         displayMinHeight={"0"}
                         displayMinWidth={"0"}
                         displayWidth={"auto"}
                         loading={"lazy"}
+                        src={{
+                          src: "/plasmic/jbs_storefront/images/file001Png.png",
+                          fullWidth: 242,
+                          fullHeight: 460,
+                          aspectRatio: undefined
+                        }}
                       />
-
+                    </div>
+                    <p.Stack
+                      as={"div"}
+                      hasGap={true}
+                      className={classNames(projectcss.all, sty.columns__ykBke)}
+                    >
                       <div
                         className={classNames(
                           projectcss.all,
-                          sty.freeBox__gYrm7
+                          sty.column__wexom
                         )}
                       >
                         <div
                           className={classNames(
                             projectcss.all,
                             projectcss.__wab_text,
-                            sty.text__rka1S
+                            sty.text__o3Bgr
                           )}
                         >
                           {"Deadstock"}
@@ -890,332 +1153,596 @@ function PlasmicAbout__RenderFunc(props: {
                           )}
                         >
                           {
-                            "Dead stock is any unsold inventory that sits in storage for a long period of time. These goods are not expected to be sold in the near future. They were not ordered with the intention of storing them for a long time, as in the case of safety stock. This makes dead stock a drain on warehouse resources."
+                            "Dead stock is any unsold inventory that sits in storage for a long period of time and continues to depreciate in value . It is typically written off as a loss. Lots of large companies either burn their deadstock or dump it by ship into 3rd world countries (us)."
                           }
                         </div>
                       </div>
-                    </div>
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.column__qVtLb
+                        )}
+                      >
+                        <p.PlasmicImg
+                          alt={""}
+                          className={classNames(sty.img__g016Y)}
+                          displayHeight={"100%"}
+                          displayMaxHeight={"none"}
+                          displayMaxWidth={"100%"}
+                          displayMinHeight={"0"}
+                          displayMinWidth={"0"}
+                          displayWidth={"auto"}
+                          loading={"lazy"}
+                          src={{
+                            src: "/plasmic/jbs_storefront/images/asset25Png.png",
+                            fullWidth: 2179,
+                            fullHeight: 1360,
+                            aspectRatio: undefined
+                          }}
+                        />
+                      </div>
+                    </p.Stack>
                   </div>
                   <div
-                    className={classNames(projectcss.all, sty.freeBox__nPvVi)}
+                    className={classNames(projectcss.all, sty.freeBox__t43Mk)}
                   >
                     <div
-                      className={classNames(projectcss.all, sty.freeBox__e7RmB)}
+                      className={classNames(projectcss.all, sty.freeBox__viKy6)}
                     >
                       <p.PlasmicImg
                         alt={""}
-                        className={classNames(sty.img__fSlu7)}
-                        displayHeight={"auto"}
+                        className={classNames(sty.img__rbd8W)}
+                        displayHeight={"60px"}
                         displayMaxHeight={"none"}
                         displayMaxWidth={"100%"}
                         displayMinHeight={"0"}
                         displayMinWidth={"0"}
                         displayWidth={"auto"}
                         loading={"lazy"}
-                      />
-
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__comFl
-                        )}
-                      >
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text__i7SxP
-                          )}
-                        >
-                          {"Deadstock"}
-                        </div>
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text__juB9
-                          )}
-                        >
-                          {
-                            "Dead stock is any unsold inventory that sits in storage for a long period of time. These goods are not expected to be sold in the near future. They were not ordered with the intention of storing them for a long time, as in the case of safety stock. This makes dead stock a drain on warehouse resources."
-                          }
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__ejtac)}
-                  >
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__ci4L7)}
-                    >
-                      <p.PlasmicImg
-                        alt={""}
-                        className={classNames(sty.img__gqMUa)}
-                        displayHeight={"auto"}
-                        displayMaxHeight={"none"}
-                        displayMaxWidth={"100%"}
-                        displayMinHeight={"0"}
-                        displayMinWidth={"0"}
-                        displayWidth={"auto"}
-                        loading={"lazy"}
-                      />
-
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__bjwbd
-                        )}
-                      >
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text__jpwAl
-                          )}
-                        >
-                          {"Deadstock"}
-                        </div>
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text__mYp2K
-                          )}
-                        >
-                          {
-                            "Dead stock is any unsold inventory that sits in storage for a long period of time. These goods are not expected to be sold in the near future. They were not ordered with the intention of storing them for a long time, as in the case of safety stock. This makes dead stock a drain on warehouse resources."
-                          }
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__rdBv)}
-                  >
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__zxQfq)}
-                    >
-                      <p.PlasmicImg
-                        alt={""}
-                        className={classNames(sty.img__crHpA)}
-                        displayHeight={"auto"}
-                        displayMaxHeight={"none"}
-                        displayMaxWidth={"100%"}
-                        displayMinHeight={"0"}
-                        displayMinWidth={"0"}
-                        displayWidth={"auto"}
-                        loading={"lazy"}
-                      />
-
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__kosC
-                        )}
-                      >
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text__zgwNt
-                          )}
-                        >
-                          {"Deadstock"}
-                        </div>
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text__z4ZJw
-                          )}
-                        >
-                          {
-                            "Dead stock is any unsold inventory that sits in storage for a long period of time. These goods are not expected to be sold in the near future. They were not ordered with the intention of storing them for a long time, as in the case of safety stock. This makes dead stock a drain on warehouse resources."
-                          }
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </Section>
-            <Section
-              className={classNames("__wab_instance", sty.section__eHgi1)}
-            >
-              <div className={classNames(projectcss.all, sty.freeBox__hy50G)}>
-                <div className={classNames(projectcss.all, sty.freeBox__yk2S0)}>
-                  <Slider
-                    className={classNames(
-                      "__wab_instance",
-                      sty.sliderCarousel__jkvnj
-                    )}
-                  >
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__g9Sra)}
-                    >
-                      <p.PlasmicImg
-                        alt={""}
-                        className={classNames(sty.img___1Je1H)}
-                        displayHeight={"auto"}
-                        displayMaxHeight={"none"}
-                        displayMaxWidth={"100%"}
-                        displayMinHeight={"0"}
-                        displayMinWidth={"0"}
-                        displayWidth={"100%"}
                         src={{
-                          src: "/plasmic/jbs_storefront/images/asset75Png2.png",
-                          fullWidth: 4720,
-                          fullHeight: 2655,
+                          src: "/plasmic/jbs_storefront/images/file001Png.png",
+                          fullWidth: 242,
+                          fullHeight: 460,
                           aspectRatio: undefined
                         }}
                       />
                     </div>
-                  </Slider>
+                    <p.Stack
+                      as={"div"}
+                      hasGap={true}
+                      className={classNames(projectcss.all, sty.columns__j7Us5)}
+                    >
+                      <div
+                        className={classNames(projectcss.all, sty.column__m9Bu)}
+                      >
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__rka1S
+                          )}
+                        >
+                          {"Chindhi"}
+                        </div>
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__aolB
+                          )}
+                        >
+                          {
+                            "Chindi/fabric offcuts are the leftover scrap pieces of fabric that happen once the patterns have been cut. Every galli ka tailor shop produces two big bags of chindi a week. Imagine how much factories produce :\u2019) Chindi is very very difficult to work with and is almost\nalways thrown way :("
+                          }
+                        </div>
+                      </div>
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.column__mz66F
+                        )}
+                      >
+                        <p.PlasmicImg
+                          alt={""}
+                          className={classNames(sty.img___46KI1)}
+                          displayHeight={"100%"}
+                          displayMaxHeight={"none"}
+                          displayMaxWidth={"100%"}
+                          displayMinHeight={"0"}
+                          displayMinWidth={"0"}
+                          displayWidth={"auto"}
+                          loading={"lazy"}
+                          src={{
+                            src: "/plasmic/jbs_storefront/images/asset27Png.png",
+                            fullWidth: 2146,
+                            fullHeight: 1334,
+                            aspectRatio: undefined
+                          }}
+                        />
+                      </div>
+                    </p.Stack>
+                  </div>
                   <div
-                    className={classNames(projectcss.all, sty.freeBox__sKvnY)}
+                    className={classNames(projectcss.all, sty.freeBox__lSPcz)}
                   >
                     <div
                       className={classNames(
                         projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text__kCatH
+                        sty.freeBox___8FyTo
                       )}
                     >
-                      {"Designing & Sampling"}
+                      <p.PlasmicImg
+                        alt={""}
+                        className={classNames(sty.img__bCa6)}
+                        displayHeight={"60px"}
+                        displayMaxHeight={"none"}
+                        displayMaxWidth={"100%"}
+                        displayMinHeight={"0"}
+                        displayMinWidth={"0"}
+                        displayWidth={"auto"}
+                        loading={"lazy"}
+                        src={{
+                          src: "/plasmic/jbs_storefront/images/file001Png.png",
+                          fullWidth: 242,
+                          fullHeight: 460,
+                          aspectRatio: undefined
+                        }}
+                      />
                     </div>
+                    <p.Stack
+                      as={"div"}
+                      hasGap={true}
+                      className={classNames(projectcss.all, sty.columns___2V9K)}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.column___4L0IL
+                        )}
+                      >
+                        <p.PlasmicImg
+                          alt={""}
+                          className={classNames(sty.img__eO7H0)}
+                          displayHeight={"100%"}
+                          displayMaxHeight={"none"}
+                          displayMaxWidth={"100%"}
+                          displayMinHeight={"0"}
+                          displayMinWidth={"0"}
+                          displayWidth={"auto"}
+                          loading={"lazy"}
+                          src={{
+                            src: "/plasmic/jbs_storefront/images/asset26Png.png",
+                            fullWidth: 2168,
+                            fullHeight: 1357,
+                            aspectRatio: undefined
+                          }}
+                        />
+                      </div>
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.column__hCc4Z
+                        )}
+                      >
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__ldc3T
+                          )}
+                        >
+                          {"Surplus"}
+                        </div>
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__w7Zop
+                          )}
+                        >
+                          {
+                            "When manufacturing anything on a monstrous scale, overproduction is very normal. Either as a precaution cuz most products don't survive quality check and its good to have extra, or because of large MOQs. Surplus is either destroyed, or dumped landfills or sent to 3rd world countries."
+                          }
+                        </div>
+                      </div>
+                    </p.Stack>
+                  </div>
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__w7UlV)}
+                  >
                     <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text___7C4F1
-                      )}
+                      className={classNames(projectcss.all, sty.freeBox__q9Bs)}
                     >
-                      {
-                        "Once materials are aquired, we start by making lots of sketches of diff. versions of things based on how much/what fabric we have, what colors we have etc. This is quite challenging and we have to get really creative till something hits. Then we make lotss of samples (most of which are super bizarre) that we test and rework over and over again till all the details are perfect and everything hits."
-                      }
+                      <p.PlasmicImg
+                        alt={""}
+                        className={classNames(sty.img__qd9Xe)}
+                        displayHeight={"60px"}
+                        displayMaxHeight={"none"}
+                        displayMaxWidth={"100%"}
+                        displayMinHeight={"0"}
+                        displayMinWidth={"0"}
+                        displayWidth={"auto"}
+                        loading={"lazy"}
+                        src={{
+                          src: "/plasmic/jbs_storefront/images/file001Png.png",
+                          fullWidth: 242,
+                          fullHeight: 460,
+                          aspectRatio: undefined
+                        }}
+                      />
                     </div>
+                    <p.Stack
+                      as={"div"}
+                      hasGap={true}
+                      className={classNames(projectcss.all, sty.columns__gx4Jz)}
+                    >
+                      <div
+                        className={classNames(projectcss.all, sty.column__vwuE)}
+                      >
+                        <p.PlasmicImg
+                          alt={""}
+                          className={classNames(sty.img___36Ik)}
+                          displayHeight={"100%"}
+                          displayMaxHeight={"none"}
+                          displayMaxWidth={"100%"}
+                          displayMinHeight={"0"}
+                          displayMinWidth={"0"}
+                          displayWidth={"auto"}
+                          loading={"lazy"}
+                          src={{
+                            src: "/plasmic/jbs_storefront/images/asset28Png.png",
+                            fullWidth: 2048,
+                            fullHeight: 1379,
+                            aspectRatio: undefined
+                          }}
+                        />
+                      </div>
+                      <div
+                        className={classNames(projectcss.all, sty.column__ysd7)}
+                      >
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__uewia
+                          )}
+                        >
+                          {"Damaged"}
+                        </div>
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__da9Vp
+                          )}
+                        >
+                          {
+                            "During manufacturing, fabrics are bought/made in large lots of 1000s of meters. If a tiny rip or stain is found anywhere on it, either, a 20 meter bolt around the damage is chopped and thrown away or the whole lot is discarded and sent back, so it either gets resold or dumped."
+                          }
+                        </div>
+                      </div>
+                    </p.Stack>
                   </div>
                 </div>
-              </div>
+              </p.Stack>
             </Section>
             <Section
-              className={classNames("__wab_instance", sty.section__swWzU)}
+              className={classNames("__wab_instance", sty.section__eHgi1)}
             >
-              <div className={classNames(projectcss.all, sty.freeBox___8IWHu)}>
-                <div className={classNames(projectcss.all, sty.freeBox__twvWp)}>
+              <p.Stack
+                as={"div"}
+                hasGap={true}
+                className={classNames(projectcss.all, sty.freeBox__hy50G)}
+              >
+                {(() => {
+                  const child$Props = {
+                    autoplay: true,
+                    beforeChange: p.generateStateOnChangePropForCodeComponents(
+                      $state,
+                      "currentSlide",
+                      ["sliderCarousel3", "currentSlide"],
+                      SliderWrapper_Helpers
+                    ),
+                    className: classNames(
+                      "__wab_instance",
+                      sty.sliderCarousel3
+                    ),
+                    editingSlide: p.generateStateValueProp($state, [
+                      "sliderCarousel3",
+                      "currentSlide"
+                    ]),
+                    initialSlide: 0,
+                    ref: ref => {
+                      $refs["sliderCarousel3"] = ref;
+                    },
+                    sliderScopeClassName: sty["sliderCarousel3__slider"]
+                  };
+                  p.initializeCodeComponentStates(
+                    $state,
+                    [
+                      {
+                        name: "currentSlide",
+                        plasmicStateName: "sliderCarousel3.currentSlide"
+                      }
+                    ],
+                    [],
+                    SliderWrapper_Helpers ?? {},
+                    child$Props
+                  );
+
+                  return (
+                    <SliderWrapper
+                      data-plasmic-name={"sliderCarousel3"}
+                      data-plasmic-override={overrides.sliderCarousel3}
+                      {...child$Props}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__g9Sra
+                        )}
+                      >
+                        <p.PlasmicImg
+                          alt={""}
+                          className={classNames(sty.img___1Je1H)}
+                          displayHeight={"auto"}
+                          displayMaxHeight={"none"}
+                          displayMaxWidth={"100%"}
+                          displayMinHeight={"0"}
+                          displayMinWidth={"0"}
+                          displayWidth={"100%"}
+                          src={{
+                            src: "/plasmic/jbs_storefront/images/asset75Png2.png",
+                            fullWidth: 4720,
+                            fullHeight: 2655,
+                            aspectRatio: undefined
+                          }}
+                        />
+                      </div>
+                    </SliderWrapper>
+                  );
+                })()}
+                <p.Stack
+                  as={"div"}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.freeBox__sKvnY)}
+                >
                   <div
                     className={classNames(
                       projectcss.all,
                       projectcss.__wab_text,
-                      sty.text__hhmSt
+                      sty.text__kCatH
                     )}
                   >
-                    {"1125 mts of textile waste"}
+                    {"Designing & Sampling"}
                   </div>
-                </div>
-                <div className={classNames(projectcss.all, sty.freeBox__dVDa)}>
                   <div
                     className={classNames(
                       projectcss.all,
                       projectcss.__wab_text,
-                      sty.text__agHx6
+                      sty.text___7C4F1
                     )}
                   >
-                    {"1500 products"}
+                    {
+                      "Once materials are aquired, we start by making lots of sketches of diff. versions of things based on how much/what fabric we have, what colors we have etc. This is quite challenging and we have to get really creative till something hits. Then we make lotss of samples (most of which are super bizarre) that we test and rework over and over again till all the details are perfect and everything hits."
+                    }
                   </div>
+                </p.Stack>
+              </p.Stack>
+            </Section>
+            <Reveal
+              data-plasmic-name={"reveal"}
+              data-plasmic-override={overrides.reveal}
+              className={classNames("__wab_instance", sty.reveal)}
+              triggerOnce={true}
+            >
+              <p.PlasmicImg
+                alt={""}
+                className={classNames(sty.img___669G)}
+                displayHeight={"auto"}
+                displayMaxHeight={"none"}
+                displayMaxWidth={"none"}
+                displayMinHeight={"0"}
+                displayMinWidth={"0"}
+                displayWidth={"auto"}
+                src={"https://placekitten.com/300/200"}
+              />
+            </Reveal>
+            <div className={classNames(projectcss.all, sty.freeBox___8IWHu)}>
+              <div className={classNames(projectcss.all, sty.freeBox__twvWp)}>
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__hhmSt
+                  )}
+                >
+                  {"1125 mts of textile waste"}
                 </div>
               </div>
-            </Section>
+              <div className={classNames(projectcss.all, sty.freeBox__dVDa)}>
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__agHx6
+                  )}
+                >
+                  {"1500 products"}
+                </div>
+              </div>
+            </div>
             <Section
               className={classNames("__wab_instance", sty.section__ve8Ea)}
             >
-              <div className={classNames(projectcss.all, sty.freeBox___299Qi)}>
-                <div className={classNames(projectcss.all, sty.freeBox__hGgMn)}>
-                  <Slider
-                    className={classNames(
+              <p.Stack
+                as={"div"}
+                hasGap={true}
+                className={classNames(projectcss.all, sty.freeBox__hGgMn)}
+              >
+                {(() => {
+                  const child$Props = {
+                    beforeChange: p.generateStateOnChangePropForCodeComponents(
+                      $state,
+                      "currentSlide",
+                      ["sliderCarousel4", "currentSlide"],
+                      SliderWrapper_Helpers
+                    ),
+                    className: classNames(
                       "__wab_instance",
-                      sty.sliderCarousel__n0Ger
+                      sty.sliderCarousel4
+                    ),
+                    editingSlide: p.generateStateValueProp($state, [
+                      "sliderCarousel4",
+                      "currentSlide"
+                    ]),
+                    initialSlide: 0,
+                    ref: ref => {
+                      $refs["sliderCarousel4"] = ref;
+                    },
+                    sliderScopeClassName: sty["sliderCarousel4__slider"]
+                  };
+                  p.initializeCodeComponentStates(
+                    $state,
+                    [
+                      {
+                        name: "currentSlide",
+                        plasmicStateName: "sliderCarousel4.currentSlide"
+                      }
+                    ],
+                    [],
+                    SliderWrapper_Helpers ?? {},
+                    child$Props
+                  );
+
+                  return (
+                    <SliderWrapper
+                      data-plasmic-name={"sliderCarousel4"}
+                      data-plasmic-override={overrides.sliderCarousel4}
+                      {...child$Props}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__knjVe
+                        )}
+                      >
+                        <p.PlasmicImg
+                          alt={""}
+                          className={classNames(sty.img__jsrOk)}
+                          displayHeight={"auto"}
+                          displayMaxHeight={"none"}
+                          displayMaxWidth={"100%"}
+                          displayMinHeight={"0"}
+                          displayMinWidth={"0"}
+                          displayWidth={"100%"}
+                          src={{
+                            src: "/plasmic/jbs_storefront/images/asset76Png2.png",
+                            fullWidth: 4697,
+                            fullHeight: 2643,
+                            aspectRatio: undefined
+                          }}
+                        />
+                      </div>
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox___3MPTm
+                        )}
+                      >
+                        <p.PlasmicImg
+                          alt={""}
+                          className={classNames(sty.img___5KfaQ)}
+                          displayHeight={"auto"}
+                          displayMaxHeight={"none"}
+                          displayMaxWidth={"100%"}
+                          displayMinHeight={"0"}
+                          displayMinWidth={"0"}
+                          displayWidth={"100%"}
+                          src={{
+                            src: "/plasmic/jbs_storefront/images/asset76Png2.png",
+                            fullWidth: 4697,
+                            fullHeight: 2643,
+                            aspectRatio: undefined
+                          }}
+                        />
+                      </div>
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__uNjVx
+                        )}
+                      >
+                        <p.PlasmicImg
+                          alt={""}
+                          className={classNames(sty.img__sR3Z5)}
+                          displayHeight={"auto"}
+                          displayMaxHeight={"none"}
+                          displayMaxWidth={"100%"}
+                          displayMinHeight={"0"}
+                          displayMinWidth={"0"}
+                          displayWidth={"100%"}
+                          src={{
+                            src: "/plasmic/jbs_storefront/images/asset76Png2.png",
+                            fullWidth: 4697,
+                            fullHeight: 2643,
+                            aspectRatio: undefined
+                          }}
+                        />
+                      </div>
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__nmTqa
+                        )}
+                      >
+                        <p.PlasmicImg
+                          alt={""}
+                          className={classNames(sty.img__y3B8U)}
+                          displayHeight={"auto"}
+                          displayMaxHeight={"none"}
+                          displayMaxWidth={"100%"}
+                          displayMinHeight={"0"}
+                          displayMinWidth={"0"}
+                          displayWidth={"100%"}
+                          src={{
+                            src: "/plasmic/jbs_storefront/images/asset76Png2.png",
+                            fullWidth: 4697,
+                            fullHeight: 2643,
+                            aspectRatio: undefined
+                          }}
+                        />
+                      </div>
+                    </SliderWrapper>
+                  );
+                })()}
+                <p.Stack
+                  as={"div"}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.freeBox__eARsP)}
+                >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__yGmvK
                     )}
                   >
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__knjVe)}
-                    >
-                      <p.PlasmicImg
-                        alt={""}
-                        className={classNames(sty.img__jsrOk)}
-                        displayHeight={"auto"}
-                        displayMaxHeight={"none"}
-                        displayMaxWidth={"100%"}
-                        displayMinHeight={"0"}
-                        displayMinWidth={"0"}
-                        displayWidth={"100%"}
-                        src={
-                          "https://static1.plasmic.app/components/react-slick/slide1.png"
-                        }
-                      />
-                    </div>
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__gzts)}
-                    >
-                      <p.PlasmicImg
-                        alt={""}
-                        className={classNames(sty.img__cEka3)}
-                        displayHeight={"auto"}
-                        displayMaxHeight={"none"}
-                        displayMaxWidth={"100%"}
-                        displayMinHeight={"0"}
-                        displayMinWidth={"0"}
-                        displayWidth={"auto"}
-                        src={
-                          "https://static1.plasmic.app/components/react-slick/slide2.png"
-                        }
-                      />
-                    </div>
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__yrBnK)}
-                    >
-                      <p.PlasmicImg
-                        alt={""}
-                        className={classNames(sty.img__gIFnk)}
-                        displayHeight={"auto"}
-                        displayMaxHeight={"none"}
-                        displayMaxWidth={"100%"}
-                        displayMinHeight={"0"}
-                        displayMinWidth={"0"}
-                        displayWidth={"auto"}
-                        src={
-                          "https://static1.plasmic.app/components/react-slick/slide3.png"
-                        }
-                      />
-                    </div>
-                  </Slider>
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__eARsP)}
-                  >
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text__yGmvK
-                      )}
-                    >
-                      {"Production"}
-                    </div>
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text__aAif
-                      )}
-                    >
-                      {
-                        "After making a perfect final sample, all our fabrics are washed and then we then train our girlz to make the things. While that happens, we desperately try to optimize the number of patterns that can be cut from a piece of fabric, plan everyones schedules, make detailed specification sheets, quality check everything, make hundreds of calls and lists till all our sketches turn into finished productssss."
-                      }
-                    </div>
+                    {"Production"}
                   </div>
-                </div>
-              </div>
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__aAif
+                    )}
+                  >
+                    {
+                      "After making a perfect final sample, all our fabrics are washed and then we then train our girlz to make the things. While that happens, we desperately try to optimize the number of patterns that can be cut from a piece of fabric, plan everyones schedules, make detailed specification sheets, quality check everything, make hundreds of calls and lists till all our sketches turn into finished productssss."
+                    }
+                  </div>
+                </p.Stack>
+              </p.Stack>
             </Section>
             <Section
               className={classNames("__wab_instance", sty.section__tneL3)}
@@ -1231,10 +1758,17 @@ function PlasmicAbout__RenderFunc(props: {
                 className={classNames(
                   projectcss.all,
                   projectcss.__wab_text,
-                  sty.text__wxvGl
+                  sty.text___8RJT
                 )}
               >
-                {"Agenda"}
+                <React.Fragment>
+                  <span
+                    className={"plasmic_default__all plasmic_default__span"}
+                    style={{ fontWeight: 700 }}
+                  >
+                    {"Agenda"}
+                  </span>
+                </React.Fragment>
               </div>
               <div className={classNames(projectcss.all, sty.freeBox__rsaqC)}>
                 <div className={classNames(projectcss.all, sty.freeBox__vFjwm)}>
@@ -1248,6 +1782,12 @@ function PlasmicAbout__RenderFunc(props: {
                     displayMinWidth={"0"}
                     displayWidth={"auto"}
                     loading={"lazy"}
+                    src={{
+                      src: "/plasmic/jbs_storefront/images/asset105Png.png",
+                      fullWidth: 1066,
+                      fullHeight: 1021,
+                      aspectRatio: undefined
+                    }}
                   />
 
                   <div
@@ -1273,6 +1813,12 @@ function PlasmicAbout__RenderFunc(props: {
                     displayMinWidth={"0"}
                     displayWidth={"auto"}
                     loading={"lazy"}
+                    src={{
+                      src: "/plasmic/jbs_storefront/images/asset104Png.png",
+                      fullWidth: 1066,
+                      fullHeight: 1022,
+                      aspectRatio: undefined
+                    }}
                   />
 
                   <div
@@ -1298,6 +1844,12 @@ function PlasmicAbout__RenderFunc(props: {
                     displayMinWidth={"0"}
                     displayWidth={"auto"}
                     loading={"lazy"}
+                    src={{
+                      src: "/plasmic/jbs_storefront/images/asset103Png.png",
+                      fullWidth: 1066,
+                      fullHeight: 1022,
+                      aspectRatio: undefined
+                    }}
                   />
 
                   <div
@@ -1323,6 +1875,12 @@ function PlasmicAbout__RenderFunc(props: {
                     displayMinWidth={"0"}
                     displayWidth={"auto"}
                     loading={"lazy"}
+                    src={{
+                      src: "/plasmic/jbs_storefront/images/asset102Png.png",
+                      fullWidth: 1066,
+                      fullHeight: 1022,
+                      aspectRatio: undefined
+                    }}
                   />
 
                   <div
@@ -1348,6 +1906,12 @@ function PlasmicAbout__RenderFunc(props: {
                     displayMinWidth={"0"}
                     displayWidth={"auto"}
                     loading={"lazy"}
+                    src={{
+                      src: "/plasmic/jbs_storefront/images/asset101Png.png",
+                      fullWidth: 1066,
+                      fullHeight: 1021,
+                      aspectRatio: undefined
+                    }}
                   />
 
                   <div
@@ -1372,10 +1936,31 @@ function PlasmicAbout__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "fullPage", "h4", "h1"],
-  fullPage: ["fullPage", "h4", "h1"],
-  h4: ["h4"],
-  h1: ["h1"]
+  root: [
+    "root",
+    "fullPage",
+    "sliderCarousel",
+    "h1",
+    "sliderCarousel2",
+    "sliderCarousel3",
+    "reveal",
+    "sliderCarousel4"
+  ],
+  fullPage: [
+    "fullPage",
+    "sliderCarousel",
+    "h1",
+    "sliderCarousel2",
+    "sliderCarousel3",
+    "reveal",
+    "sliderCarousel4"
+  ],
+  sliderCarousel: ["sliderCarousel"],
+  h1: ["h1"],
+  sliderCarousel2: ["sliderCarousel2"],
+  sliderCarousel3: ["sliderCarousel3"],
+  reveal: ["reveal"],
+  sliderCarousel4: ["sliderCarousel4"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -1383,8 +1968,12 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   fullPage: typeof FullPage;
-  h4: "h4";
+  sliderCarousel: typeof SliderWrapper;
   h1: "h1";
+  sliderCarousel2: typeof SliderWrapper;
+  sliderCarousel3: typeof SliderWrapper;
+  reveal: typeof Reveal;
+  sliderCarousel4: typeof SliderWrapper;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -1448,8 +2037,12 @@ export const PlasmicAbout = Object.assign(
   {
     // Helper components rendering sub-elements
     fullPage: makeNodeComponent("fullPage"),
-    h4: makeNodeComponent("h4"),
+    sliderCarousel: makeNodeComponent("sliderCarousel"),
     h1: makeNodeComponent("h1"),
+    sliderCarousel2: makeNodeComponent("sliderCarousel2"),
+    sliderCarousel3: makeNodeComponent("sliderCarousel3"),
+    reveal: makeNodeComponent("reveal"),
+    sliderCarousel4: makeNodeComponent("sliderCarousel4"),
 
     // Metadata about props expected for PlasmicAbout
     internalVariantProps: PlasmicAbout__VariantProps,

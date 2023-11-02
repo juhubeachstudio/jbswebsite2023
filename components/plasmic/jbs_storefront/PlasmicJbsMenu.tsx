@@ -256,7 +256,7 @@ function PlasmicJbsMenu__RenderFunc(props: {
           )
         })}
         color={"clear"}
-        link={`/shop`}
+        link={`/category/${"All"}`}
         shape={"sharp"}
         size={"minimal"}
       >

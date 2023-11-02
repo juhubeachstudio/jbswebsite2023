@@ -59,7 +59,7 @@ export type PlasmicButton2__VariantMembers = {
     | "blue"
     | "green"
     | "yellow"
-    | "pink"
+    | "red"
     | "sand"
     | "white"
     | "softBlue"
@@ -82,7 +82,7 @@ export type PlasmicButton2__VariantsArgs = {
     | "blue"
     | "green"
     | "yellow"
-    | "pink"
+    | "red"
     | "sand"
     | "white"
     | "softBlue"
@@ -142,7 +142,7 @@ export interface DefaultButton2Props extends pp.BaseButtonProps {
     | "blue"
     | "green"
     | "yellow"
-    | "pink"
+    | "red"
     | "sand"
     | "white"
     | "softBlue"
@@ -287,7 +287,7 @@ function PlasmicButton2__RenderFunc(props: {
           [sty.rootcolor_link_size_minimal]:
             hasVariant($state, "color", "link") &&
             hasVariant($state, "size", "minimal"),
-          [sty.rootcolor_pink]: hasVariant($state, "color", "pink"),
+          [sty.rootcolor_red]: hasVariant($state, "color", "red"),
           [sty.rootcolor_sand]: hasVariant($state, "color", "sand"),
           [sty.rootcolor_softBlue]: hasVariant($state, "color", "softBlue"),
           [sty.rootcolor_softGreen]: hasVariant($state, "color", "softGreen"),
@@ -443,6 +443,12 @@ function PlasmicButton2__RenderFunc(props: {
         className={classNames(projectcss.all, sty.contentContainer, {
           [sty.contentContainer___focusVisibleWithin]:
             triggers.focusVisibleWithin_root,
+          [sty.contentContainercolor_clear]: hasVariant(
+            $state,
+            "color",
+            "clear"
+          ),
+          [sty.contentContainercolor_red]: hasVariant($state, "color", "red"),
           [sty.contentContainerisDisabled]: hasVariant(
             $state,
             "isDisabled",
@@ -494,10 +500,10 @@ function PlasmicButton2__RenderFunc(props: {
             [sty.slotTargetChildrencolor_link_size_minimal]:
               hasVariant($state, "color", "link") &&
               hasVariant($state, "size", "minimal"),
-            [sty.slotTargetChildrencolor_pink]: hasVariant(
+            [sty.slotTargetChildrencolor_red]: hasVariant(
               $state,
               "color",
-              "pink"
+              "red"
             ),
             [sty.slotTargetChildrencolor_sand]: hasVariant(
               $state,

@@ -198,6 +198,7 @@
   align-self: center;
   display: flex;
   width: auto;
+  padding: 4px;
 }
 .svg___7MLh0 {
   object-fit: cover;

@@ -1,0 +1,42 @@
+// @ts-nocheck
+/* eslint-disable */
+/* tslint:disable */
+/* prettier-ignore-start */
+import React from "react";
+import { classNames } from "@plasmicapp/react-web";
+
+export type PlussvgIconProps = React.ComponentProps<"svg"> & {
+  title?: string;
+};
+
+export function PlussvgIcon(props: PlussvgIconProps) {
+  const { className, style, title, ...restProps } = props;
+  return (
+    <svg
+      xmlns={"http://www.w3.org/2000/svg"}
+      viewBox={"0 0 12 12"}
+      height={"1em"}
+      width={"1em"}
+      className={classNames("plasmic-default__svg", className)}
+      style={style}
+      {...restProps}
+    >
+      {title && <title>{title}</title>}
+
+      <g data-name={"Layer 2"}>
+        <path
+          d={"M6 1v10M1 6h10"}
+          data-name={"Layer 1"}
+          fill={"none"}
+          stroke={"currentColor"}
+          strokeLinecap={"round"}
+          strokeLinejoin={"round"}
+          strokeWidth={"2"}
+        ></path>
+      </g>
+    </svg>
+  );
+}
+
+export default PlussvgIcon;
+/* prettier-ignore-end */

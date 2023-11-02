@@ -5,6 +5,7 @@
   width: 100%;
   position: relative;
   overflow: visible;
+  background: #ffffff;
   grid-column-start: 1 !important;
   grid-column-end: -1 !important;
   grid-template-columns:
@@ -14,7 +15,6 @@
       calc(100% - var(--plsmc-viewport-gap) - var(--plsmc-viewport-gap))
     )
     minmax(0, var(--plsmc-wide-chunk)) 1fr var(--plsmc-viewport-gap);
-  padding: 0px;
 }
 .root > * {
   grid-column: 4;

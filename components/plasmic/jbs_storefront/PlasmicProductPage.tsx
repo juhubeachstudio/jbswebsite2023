@@ -37,22 +37,21 @@ import {
   ensureGlobalVariants
 } from "@plasmicapp/react-web";
 import FullPage from "../../FullPage"; // plasmic-import: VpRM2nIn0R/component
-import Fullpageheight from "../../Fullpageheight"; // plasmic-import: JoyE-OflfH/component
 import { ProductBox } from "@plasmicpkgs/commerce"; // plasmic-import: 1gYJf_XBZUAD/codeComponent
 import { PlasmicHead } from "@plasmicapp/react-web"; // plasmic-import: Y-3ZgxdS1wv60n/codeComponent
+import { SliderWrapper } from "@plasmicpkgs/react-slick"; // plasmic-import: HOQUyOpClJ/codeComponent
+import { sliderHelpers as SliderWrapper_Helpers } from "@plasmicpkgs/react-slick"; // plasmic-import: HOQUyOpClJ/codeComponentHelper
 import { ProductTextField } from "@plasmicpkgs/commerce"; // plasmic-import: S1F4q0wN6b/codeComponent
 import { ProductPriceComponent } from "@plasmicpkgs/commerce"; // plasmic-import: _PaJxGc8gf/codeComponent
 import { ProductCollection } from "@plasmicpkgs/commerce"; // plasmic-import: vU2jzVAnFP/codeComponent
 import { ProductMedia } from "@plasmicpkgs/commerce"; // plasmic-import: qpULM0wwWW/codeComponent
-import Button2 from "../../Button2"; // plasmic-import: yEsI5slGwPm/component
 import { ProductVariantPicker } from "@plasmicpkgs/commerce"; // plasmic-import: i3vHZr7erKX/codeComponent
-import { GraphqlFetcher } from "@plasmicpkgs/plasmic-query"; // plasmic-import: 0DrxdjD45dkx/codeComponent
+import AddToCartCustomButton from "../../AddToCartCustomButton"; // plasmic-import: AyNa8RYOflZ1/component
 import { AntdAccordion } from "@plasmicpkgs/antd5/skinny/registerCollapse"; // plasmic-import: oPUhN99n4VXI/codeComponent
 import { accordionHelpers as AntdAccordion_Helpers } from "@plasmicpkgs/antd5/skinny/registerCollapse"; // plasmic-import: oPUhN99n4VXI/codeComponentHelper
 import { AntdAccordionItem } from "@plasmicpkgs/antd5/skinny/registerCollapse"; // plasmic-import: 4mmDdnlyWx2k/codeComponent
-import { AddToCartButton } from "@plasmicpkgs/commerce"; // plasmic-import: NR7KYUJmEqx/codeComponent
+import { GraphqlFetcher } from "@plasmicpkgs/plasmic-query"; // plasmic-import: 0DrxdjD45dkx/codeComponent
 import Section from "../../Section"; // plasmic-import: GMAR4VOl00/component
-import Blackyellowborder from "../../Blackyellowborder"; // plasmic-import: qeyEUvMFwY/component
 import ProductCardJbs from "../../ProductCardJbs"; // plasmic-import: Ft4Mem_Zab/component
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources"; // plasmic-import: 1xopR4ZBZs2K4b/codeComponent
 
@@ -63,10 +62,6 @@ import "@plasmicapp/react-web/lib/plasmic.css";
 import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic_antd_5_hostless.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
 import projectcss from "./plasmic_jbs_storefront.module.css"; // plasmic-import: heL2P6rJiLNgtnBJPb6i1m/projectcss
 import sty from "./PlasmicProductPage.module.css"; // plasmic-import: sFlg1tQbot/css
-
-import LikesvgIcon from "./icons/PlasmicIcon__Likesvg"; // plasmic-import: KZQE5ZiL9X/icon
-import ChecksvgIcon from "./icons/PlasmicIcon__Checksvg"; // plasmic-import: ew07hyuAC0c/icon
-import Icon38Icon from "./icons/PlasmicIcon__Icon38"; // plasmic-import: 3r4KXWygi9v/icon
 
 createPlasmicElementProxy;
 
@@ -82,19 +77,17 @@ export const PlasmicProductPage__ArgProps = new Array<ArgPropType>();
 export type PlasmicProductPage__OverridesType = {
   root?: p.Flex<"div">;
   fullPage?: p.Flex<typeof FullPage>;
-  fullpageheight?: p.Flex<typeof Fullpageheight>;
   columns?: p.Flex<"div">;
   pageMetadataOverride?: p.Flex<typeof PlasmicHead>;
+  sliderCarousel?: p.Flex<typeof SliderWrapper>;
   img?: p.Flex<typeof p.PlasmicImg>;
   productPrice?: p.Flex<typeof ProductPriceComponent>;
+  productCollection?: p.Flex<typeof ProductCollection>;
   productMedia?: p.Flex<typeof ProductMedia>;
-  button2?: p.Flex<typeof Button2>;
   productVariantPicker?: p.Flex<typeof ProductVariantPicker>;
+  addToCartCustomButton?: p.Flex<typeof AddToCartCustomButton>;
   accordion?: p.Flex<typeof AntdAccordion>;
-  addToCartButton?: p.Flex<typeof AddToCartButton>;
-  button?: p.Flex<"button">;
   section?: p.Flex<typeof Section>;
-  blackyellowborder?: p.Flex<typeof Blackyellowborder>;
   productCardJbs?: p.Flex<typeof ProductCardJbs>;
 };
 
@@ -143,6 +136,18 @@ function PlasmicProductPage__RenderFunc(props: {
           "activePanelId",
           AntdAccordion_Helpers
         )
+      },
+      {
+        path: "sliderCarousel.currentSlide",
+        type: "private",
+        variableType: "number",
+        initFunc: ({ $props, $state, $queries, $ctx }) => 2,
+
+        refName: "sliderCarousel",
+        onMutate: p.generateOnMutateForSpec(
+          "currentSlide",
+          SliderWrapper_Helpers
+        )
       }
     ],
     [$props, $ctx, $refs]
@@ -189,210 +194,131 @@ function PlasmicProductPage__RenderFunc(props: {
             data-plasmic-override={overrides.fullPage}
             className={classNames("__wab_instance", sty.fullPage)}
           >
-            <Fullpageheight
-              data-plasmic-name={"fullpageheight"}
-              data-plasmic-override={overrides.fullpageheight}
-              className={classNames("__wab_instance", sty.fullpageheight)}
+            <p.Stack
+              as={"div"}
+              data-plasmic-name={"columns"}
+              data-plasmic-override={overrides.columns}
+              hasGap={true}
+              className={classNames(projectcss.all, sty.columns)}
             >
-              <p.Stack
-                as={"div"}
-                data-plasmic-name={"columns"}
-                data-plasmic-override={overrides.columns}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.columns)}
-              >
-                <div className={classNames(projectcss.all, sty.column___88Slm)}>
-                  <ProductBox
-                    className={classNames(
-                      "__wab_instance",
-                      sty.productBox__k8N2T
-                    )}
-                    id={(() => {
-                      try {
-                        return $ctx.params.slug;
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return undefined;
-                        }
-                        throw e;
+              <div className={classNames(projectcss.all, sty.column___88Slm)}>
+                <ProductBox
+                  className={classNames(
+                    "__wab_instance",
+                    sty.productBox__k8N2T
+                  )}
+                  id={(() => {
+                    try {
+                      return $ctx.params.slug;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return undefined;
                       }
-                    })()}
-                  >
-                    <ph.DataCtxReader>
-                      {$ctx => (
-                        <React.Fragment>
-                          <PlasmicHead
-                            data-plasmic-name={"pageMetadataOverride"}
-                            data-plasmic-override={
-                              overrides.pageMetadataOverride
-                            }
-                            className={classNames(
-                              "__wab_instance",
-                              sty.pageMetadataOverride
-                            )}
-                            description={(() => {
-                              try {
-                                return undefined;
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return undefined;
-                                }
-                                throw e;
-                              }
-                            })()}
-                            image={(() => {
-                              try {
-                                return $ctx.currentProduct.images[0].url;
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return undefined;
-                                }
-                                throw e;
-                              }
-                            })()}
-                            title={(() => {
-                              try {
-                                return $ctx.currentProduct.name;
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return undefined;
-                                }
-                                throw e;
-                              }
-                            })()}
-                          />
-
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox__a7DSt
-                            )}
-                          >
-                            {(_par =>
-                              !_par ? [] : Array.isArray(_par) ? _par : [_par])(
-                              (() => {
-                                try {
-                                  return $ctx.currentProduct.images;
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return [];
-                                  }
-                                  throw e;
-                                }
-                              })()
-                            ).map((__plasmic_item_0, __plasmic_idx_0) => {
-                              const currentItem = __plasmic_item_0;
-                              const currentIndex = __plasmic_idx_0;
-                              return (
-                                <p.PlasmicImg
-                                  data-plasmic-name={"img"}
-                                  data-plasmic-override={overrides.img}
-                                  alt={""}
-                                  className={classNames(sty.img)}
-                                  displayHeight={"auto"}
-                                  displayMaxHeight={"none"}
-                                  displayMaxWidth={"100%"}
-                                  displayMinHeight={"0"}
-                                  displayMinWidth={"0"}
-                                  displayWidth={"auto"}
-                                  key={currentIndex}
-                                  loading={"lazy"}
-                                  src={(() => {
-                                    try {
-                                      return currentItem.url;
-                                    } catch (e) {
-                                      if (
-                                        e instanceof TypeError ||
-                                        e?.plasmicType ===
-                                          "PlasmicUndefinedDataError"
-                                      ) {
-                                        return undefined;
-                                      }
-                                      throw e;
-                                    }
-                                  })()}
-                                />
-                              );
-                            })}
-                          </div>
-                        </React.Fragment>
-                      )}
-                    </ph.DataCtxReader>
-                  </ProductBox>
-                </div>
-                <p.Stack
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.column__vIqh5)}
+                      throw e;
+                    }
+                  })()}
                 >
-                  <ProductBox
-                    className={classNames(
-                      "__wab_instance",
-                      sty.productBox__hfBk0
-                    )}
-                    id={(() => {
-                      try {
-                        return $ctx.params.slug;
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return undefined;
-                        }
-                        throw e;
-                      }
-                    })()}
-                  >
-                    <ph.DataCtxReader>
-                      {$ctx => (
-                        <React.Fragment>
-                          <p.Stack
-                            as={"div"}
-                            hasGap={true}
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox__emiHk
-                            )}
-                          >
-                            <ProductTextField
-                              className={classNames(
-                                "__wab_instance",
-                                sty.productTextField__kxHmd
-                              )}
-                              field={"name"}
-                            />
+                  <ph.DataCtxReader>
+                    {$ctx => (
+                      <React.Fragment>
+                        <PlasmicHead
+                          data-plasmic-name={"pageMetadataOverride"}
+                          data-plasmic-override={overrides.pageMetadataOverride}
+                          className={classNames(
+                            "__wab_instance",
+                            sty.pageMetadataOverride
+                          )}
+                          description={(() => {
+                            try {
+                              return undefined;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return undefined;
+                              }
+                              throw e;
+                            }
+                          })()}
+                          image={(() => {
+                            try {
+                              return $ctx.currentProduct.images[0].url;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return undefined;
+                              }
+                              throw e;
+                            }
+                          })()}
+                          title={(() => {
+                            try {
+                              return $ctx.currentProduct.name;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return undefined;
+                              }
+                              throw e;
+                            }
+                          })()}
+                        />
 
-                            <ProductPriceComponent
-                              data-plasmic-name={"productPrice"}
-                              data-plasmic-override={overrides.productPrice}
-                              className={classNames(
-                                "__wab_instance",
-                                sty.productPrice
-                              )}
-                            />
+                        {(() => {
+                          const child$Props = {
+                            autoplay: true,
+                            autoplaySpeed: 3000,
+                            beforeChange:
+                              p.generateStateOnChangePropForCodeComponents(
+                                $state,
+                                "currentSlide",
+                                ["sliderCarousel", "currentSlide"],
+                                SliderWrapper_Helpers
+                              ),
+                            centerMode: false,
+                            className: classNames(
+                              "__wab_instance",
+                              sty.sliderCarousel
+                            ),
+                            editingSlide: p.generateStateValueProp($state, [
+                              "sliderCarousel",
+                              "currentSlide"
+                            ]),
+                            initialSlide: 0,
+                            ref: ref => {
+                              $refs["sliderCarousel"] = ref;
+                            },
+                            sliderScopeClassName: sty["sliderCarousel__slider"],
+                            slidesToShow: 1,
+                            swipeToSlide: true,
+                            vertical: true
+                          };
+                          p.initializeCodeComponentStates(
+                            $state,
+                            [
+                              {
+                                name: "currentSlide",
+                                plasmicStateName: "sliderCarousel.currentSlide"
+                              }
+                            ],
+                            [],
+                            SliderWrapper_Helpers ?? {},
+                            child$Props
+                          );
 
-                            <div
-                              className={classNames(
-                                projectcss.all,
-                                sty.freeBox__wKl4A
-                              )}
+                          return (
+                            <SliderWrapper
+                              data-plasmic-name={"sliderCarousel"}
+                              data-plasmic-override={overrides.sliderCarousel}
+                              {...child$Props}
                             >
                               {(_par =>
                                 !_par
@@ -402,8 +328,7 @@ function PlasmicProductPage__RenderFunc(props: {
                                   : [_par])(
                                 (() => {
                                   try {
-                                    return $ctx.currentProduct.options[1]
-                                      .values;
+                                    return $ctx.currentProduct.images;
                                   } catch (e) {
                                     if (
                                       e instanceof TypeError ||
@@ -419,245 +344,158 @@ function PlasmicProductPage__RenderFunc(props: {
                                 const currentItem = __plasmic_item_0;
                                 const currentIndex = __plasmic_idx_0;
                                 return (
-                                  <LikesvgIcon
+                                  <div
                                     className={classNames(
                                       projectcss.all,
-                                      sty.svg__gdIkn
+                                      sty.freeBox__ojNe
                                     )}
-                                    color={(() => {
-                                      try {
-                                        return $ctx.currentProduct.options[1]
-                                          .values[currentIndex].label;
-                                      } catch (e) {
-                                        if (
-                                          e instanceof TypeError ||
-                                          e?.plasmicType ===
-                                            "PlasmicUndefinedDataError"
-                                        ) {
-                                          return undefined;
-                                        }
-                                        throw e;
-                                      }
-                                    })()}
                                     key={currentIndex}
-                                    onClick={async event => {
-                                      const $steps = {};
-
-                                      $steps["runCode"] = true
-                                        ? (() => {
-                                            const actionArgs = {
-                                              customFunction: async () => {
-                                                return $ctx.currentProduct
-                                                  .images[currentIndex].url;
-                                              }
-                                            };
-                                            return (({ customFunction }) => {
-                                              return customFunction();
-                                            })?.apply(null, [actionArgs]);
-                                          })()
-                                        : undefined;
-                                      if (
-                                        $steps["runCode"] != null &&
-                                        typeof $steps["runCode"] === "object" &&
-                                        typeof $steps["runCode"].then ===
-                                          "function"
-                                      ) {
-                                        $steps["runCode"] = await $steps[
-                                          "runCode"
-                                        ];
-                                      }
-
-                                      $steps["runCode"] = true
-                                        ? (() => {
-                                            const actionArgs = {
-                                              customFunction: async () => {
-                                                return ($state.selectedVariant =
-                                                  $ctx.currentProduct.variants[
-                                                    currentIndex
-                                                  ].id);
-                                              }
-                                            };
-                                            return (({ customFunction }) => {
-                                              return customFunction();
-                                            })?.apply(null, [actionArgs]);
-                                          })()
-                                        : undefined;
-                                      if (
-                                        $steps["runCode"] != null &&
-                                        typeof $steps["runCode"] === "object" &&
-                                        typeof $steps["runCode"].then ===
-                                          "function"
-                                      ) {
-                                        $steps["runCode"] = await $steps[
-                                          "runCode"
-                                        ];
-                                      }
-                                    }}
-                                    role={"img"}
-                                  />
+                                  >
+                                    <p.PlasmicImg
+                                      data-plasmic-name={"img"}
+                                      data-plasmic-override={overrides.img}
+                                      alt={""}
+                                      className={classNames(sty.img)}
+                                      displayHeight={"auto"}
+                                      displayMaxHeight={"none"}
+                                      displayMaxWidth={"100%"}
+                                      displayMinHeight={"0"}
+                                      displayMinWidth={"0"}
+                                      displayWidth={"auto"}
+                                      src={(() => {
+                                        try {
+                                          return currentItem.url;
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return "https://static1.plasmic.app/components/react-slick/slide1.png";
+                                          }
+                                          throw e;
+                                        }
+                                      })()}
+                                    />
+                                  </div>
                                 );
                               })}
-                            </div>
-                            <div
+                            </SliderWrapper>
+                          );
+                        })()}
+                      </React.Fragment>
+                    )}
+                  </ph.DataCtxReader>
+                </ProductBox>
+              </div>
+              <p.Stack
+                as={"div"}
+                hasGap={true}
+                className={classNames(projectcss.all, sty.column__vIqh5)}
+              >
+                <ProductBox
+                  className={classNames(
+                    "__wab_instance",
+                    sty.productBox__hfBk0
+                  )}
+                  id={(() => {
+                    try {
+                      return $ctx.params.slug;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return undefined;
+                      }
+                      throw e;
+                    }
+                  })()}
+                >
+                  <ph.DataCtxReader>
+                    {$ctx => (
+                      <React.Fragment>
+                        <p.Stack
+                          as={"div"}
+                          hasGap={true}
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox__emiHk
+                          )}
+                        >
+                          <ProductTextField
+                            className={classNames(
+                              "__wab_instance",
+                              sty.productTextField__kxHmd
+                            )}
+                            field={"name"}
+                          />
+
+                          <ProductPriceComponent
+                            data-plasmic-name={"productPrice"}
+                            data-plasmic-override={overrides.productPrice}
+                            className={classNames(
+                              "__wab_instance",
+                              sty.productPrice
+                            )}
+                          />
+
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox__ulo4R
+                            )}
+                          >
+                            <ProductCollection
+                              data-plasmic-name={"productCollection"}
+                              data-plasmic-override={
+                                overrides.productCollection
+                              }
                               className={classNames(
-                                projectcss.all,
-                                sty.freeBox__ulo4R
+                                "__wab_instance",
+                                sty.productCollection
                               )}
-                            >
-                              <ProductCollection
-                                className={classNames(
-                                  "__wab_instance",
-                                  sty.productCollection__ckQr
-                                )}
-                                emptyMessage={
-                                  <ph.DataCtxReader>
-                                    {$ctx => (
-                                      <div
-                                        className={classNames(
-                                          projectcss.all,
-                                          projectcss.__wab_text,
-                                          sty.text__u3Se9
-                                        )}
-                                      >
-                                        {"No product found!"}
-                                      </div>
-                                    )}
-                                  </ph.DataCtxReader>
-                                }
-                                loadingMessage={
-                                  <ph.DataCtxReader>
-                                    {$ctx => (
-                                      <div
-                                        className={classNames(
-                                          projectcss.all,
-                                          projectcss.__wab_text,
-                                          sty.text__tkX2R
-                                        )}
-                                      >
-                                        {"Loading..."}
-                                      </div>
-                                    )}
-                                  </ph.DataCtxReader>
-                                }
-                                noAutoRepeat={true}
-                              >
+                              emptyMessage={
                                 <ph.DataCtxReader>
                                   {$ctx => (
                                     <div
                                       className={classNames(
                                         projectcss.all,
-                                        sty.freeBox__iXi43
+                                        projectcss.__wab_text,
+                                        sty.text__u3Se9
                                       )}
                                     >
-                                      <ProductMedia
-                                        data-plasmic-name={"productMedia"}
-                                        data-plasmic-override={
-                                          overrides.productMedia
-                                        }
-                                        className={classNames(
-                                          "__wab_instance",
-                                          sty.productMedia
-                                        )}
-                                      />
+                                      {"No product found!"}
                                     </div>
                                   )}
                                 </ph.DataCtxReader>
-                              </ProductCollection>
-                            </div>
-                            <Button2
-                              data-plasmic-name={"button2"}
-                              data-plasmic-override={overrides.button2}
-                              className={classNames(
-                                "__wab_instance",
-                                sty.button2
-                              )}
-                              endIcon={
-                                <Icon38Icon
-                                  className={classNames(
-                                    projectcss.all,
-                                    sty.svg__gPxow
+                              }
+                              loadingMessage={
+                                <ph.DataCtxReader>
+                                  {$ctx => (
+                                    <div
+                                      className={classNames(
+                                        projectcss.all,
+                                        projectcss.__wab_text,
+                                        sty.text__tkX2R
+                                      )}
+                                    >
+                                      {"Loading..."}
+                                    </div>
                                   )}
-                                  role={"img"}
-                                />
-                              }
-                              shape={"rounded"}
-                            >
-                              <ProductVariantPicker
-                                data-plasmic-name={"productVariantPicker"}
-                                data-plasmic-override={
-                                  overrides.productVariantPicker
-                                }
-                                className={classNames(
-                                  "__wab_instance",
-                                  sty.productVariantPicker
-                                )}
-                              />
-                            </Button2>
-                            {(() => {
-                              try {
-                                return $ctx.currentProduct.variants.some(
-                                  variant => variant.availableForSale
-                                );
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return true;
-                                }
-                                throw e;
-                              }
-                            })() ? (
-                              <ProductTextField
-                                className={classNames(
-                                  "__wab_instance",
-                                  sty.productTextField__bQZeN
-                                )}
-                                field={"description"}
-                              />
-                            ) : null}
-                            <GraphqlFetcher
-                              className={classNames(
-                                "__wab_instance",
-                                sty.graphQlFetcher__be4J9
-                              )}
-                              dataName={"fetchedData"}
-                              errorDisplay={
-                                <ph.DataCtxReader>
-                                  {$ctx => "Error fetching data"}
                                 </ph.DataCtxReader>
                               }
-                              headers={{
-                                "Content-Type": "application/json",
-                                Accept: "application/json",
-                                "X-Shopify-Storefront-Access-Token":
-                                  "0f43cbfd628ae6e4fef6a34969378290"
-                              }}
-                              loadingDisplay={
-                                <ph.DataCtxReader>
-                                  {$ctx => "Loading..."}
-                                </ph.DataCtxReader>
-                              }
-                              method={"POST"}
-                              noLayout={false}
-                              query={{
-                                query:
-                                  'query MyQuery($id: ID!) {\n  product(id: $id) {\n    metafields(identifiers: {namespace: "descriptors", key: "product_details"}) {\n      id\n    }\n  }\n}\n',
-                                variables: { name: "Rick Sanchez" }
-                              }}
-                              url={
-                                "https://juhubeachstudio.myshopify.com/api/2023-07/graphql.json"
-                              }
-                              varOverrides={(() => {
+                              noAutoRepeat={false}
+                              search={(() => {
                                 try {
-                                  return { id: $ctx.currentProduct.id };
+                                  return $ctx.currentProduct.productType;
                                 } catch (e) {
                                   if (
                                     e instanceof TypeError ||
                                     e?.plasmicType ===
                                       "PlasmicUndefinedDataError"
                                   ) {
-                                    return {};
+                                    return undefined;
                                   }
                                   throw e;
                                 }
@@ -665,192 +503,438 @@ function PlasmicProductPage__RenderFunc(props: {
                             >
                               <ph.DataCtxReader>
                                 {$ctx => (
-                                  <React.Fragment>
-                                    {(() => {
-                                      const child$Props = {
-                                        activeKey: p.generateStateValueProp(
-                                          $state,
-                                          ["accordion", "activePanelId"]
-                                        ),
-                                        bordered: true,
-                                        className: classNames(
-                                          "__wab_instance",
-                                          sty.accordion
-                                        ),
-                                        expandIconPosition: "start",
-                                        items: (
-                                          <React.Fragment>
-                                            <AntdAccordionItem
-                                              className={classNames(
-                                                "__wab_instance",
-                                                sty.accordionItem__amdic
-                                              )}
-                                              id={1}
-                                              label2={
-                                                <div
-                                                  className={classNames(
-                                                    projectcss.all,
-                                                    projectcss.__wab_text,
-                                                    sty.text__rAhMb
-                                                  )}
-                                                >
-                                                  {"First Item"}
-                                                </div>
-                                              }
-                                              showArrow={true}
-                                            >
-                                              <div
-                                                className={classNames(
-                                                  projectcss.all,
-                                                  projectcss.__wab_text,
-                                                  sty.text___203Ed
-                                                )}
-                                              >
-                                                {"First Children"}
-                                              </div>
-                                            </AntdAccordionItem>
-                                            <AntdAccordionItem
-                                              className={classNames(
-                                                "__wab_instance",
-                                                sty.accordionItem__lgoCu
-                                              )}
-                                              id={2}
-                                              label2={
-                                                <div
-                                                  className={classNames(
-                                                    projectcss.all,
-                                                    projectcss.__wab_text,
-                                                    sty.text__r3Bcx
-                                                  )}
-                                                >
-                                                  {"Second Item"}
-                                                </div>
-                                              }
-                                              showArrow={true}
-                                            >
-                                              <div
-                                                className={classNames(
-                                                  projectcss.all,
-                                                  projectcss.__wab_text,
-                                                  sty.text___8Tnt8
-                                                )}
-                                              >
-                                                {"Second Children"}
-                                              </div>
-                                            </AntdAccordionItem>
-                                          </React.Fragment>
-                                        ),
-                                        onChange:
-                                          p.generateStateOnChangePropForCodeComponents(
-                                            $state,
-                                            "activePanelId",
-                                            ["accordion", "activePanelId"],
-                                            AntdAccordion_Helpers
-                                          ),
-                                        size: "small"
-                                      };
-                                      p.initializeCodeComponentStates(
-                                        $state,
-                                        [
-                                          {
-                                            name: "activePanelId",
-                                            plasmicStateName:
-                                              "accordion.activePanelId"
-                                          }
-                                        ],
-                                        [],
-                                        AntdAccordion_Helpers ?? {},
-                                        child$Props
-                                      );
+                                  <div
+                                    className={classNames(
+                                      projectcss.all,
+                                      sty.freeBox__iXi43
+                                    )}
+                                  >
+                                    <ProductMedia
+                                      data-plasmic-name={"productMedia"}
+                                      data-plasmic-override={
+                                        overrides.productMedia
+                                      }
+                                      className={classNames(
+                                        "__wab_instance",
+                                        sty.productMedia
+                                      )}
+                                    />
+                                  </div>
+                                )}
+                              </ph.DataCtxReader>
+                            </ProductCollection>
+                          </div>
+                          {(() => {
+                            try {
+                              return $ctx.currentProduct.variants.length > 1;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return true;
+                              }
+                              throw e;
+                            }
+                          })() ? (
+                            <ProductVariantPicker
+                              data-plasmic-name={"productVariantPicker"}
+                              data-plasmic-override={
+                                overrides.productVariantPicker
+                              }
+                              className={classNames(
+                                "__wab_instance",
+                                sty.productVariantPicker
+                              )}
+                            />
+                          ) : null}
+                          <ProductTextField
+                            className={classNames(
+                              "__wab_instance",
+                              sty.productTextField__bQZeN
+                            )}
+                            field={"description"}
+                          />
+                        </p.Stack>
+                        <AddToCartCustomButton
+                          data-plasmic-name={"addToCartCustomButton"}
+                          data-plasmic-override={
+                            overrides.addToCartCustomButton
+                          }
+                          className={classNames(
+                            "__wab_instance",
+                            sty.addToCartCustomButton
+                          )}
+                        />
 
-                                      return (
-                                        <AntdAccordion
-                                          data-plasmic-name={"accordion"}
-                                          data-plasmic-override={
-                                            overrides.accordion
-                                          }
-                                          {...child$Props}
-                                        />
-                                      );
-                                    })()}
+                        {(() => {
+                          const child$Props = {
+                            activeKey: p.generateStateValueProp($state, [
+                              "accordion",
+                              "activePanelId"
+                            ]),
+                            bordered: false,
+                            className: classNames(
+                              "__wab_instance",
+                              sty.accordion
+                            ),
+                            expandIconPosition: "end",
+                            items: (
+                              <React.Fragment>
+                                <AntdAccordionItem
+                                  className={classNames(
+                                    "__wab_instance",
+                                    sty.accordionItem__cyA7Q
+                                  )}
+                                  headerClass={classNames({
+                                    [sty["pcls_glhVZ5pr61R9"]]: true
+                                  })}
+                                  id={1}
+                                  label2={
                                     <div
                                       className={classNames(
                                         projectcss.all,
                                         projectcss.__wab_text,
-                                        sty.text___5ZZWz
+                                        sty.text___6OyBx
                                       )}
                                     >
-                                      <React.Fragment>
-                                        {(() => {
-                                          try {
-                                            return $ctx.fetchedData.data.product
-                                              .metafields[0].value;
-                                          } catch (e) {
-                                            if (
-                                              e instanceof TypeError ||
-                                              e?.plasmicType ===
-                                                "PlasmicUndefinedDataError"
-                                            ) {
-                                              return "";
-                                            }
-                                            throw e;
-                                          }
-                                        })()}
-                                      </React.Fragment>
+                                      {"Product Details"}
                                     </div>
-                                  </React.Fragment>
-                                )}
-                              </ph.DataCtxReader>
-                            </GraphqlFetcher>
-                          </p.Stack>
-                          <p.Stack
-                            as={"div"}
-                            hasGap={true}
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox__guntj
-                            )}
-                          >
-                            <AddToCartButton
-                              data-plasmic-name={"addToCartButton"}
-                              data-plasmic-override={overrides.addToCartButton}
-                              className={classNames(
-                                "__wab_instance",
-                                sty.addToCartButton
-                              )}
-                            >
-                              <button
-                                data-plasmic-name={"button"}
-                                data-plasmic-override={overrides.button}
-                                className={classNames(
-                                  projectcss.all,
-                                  projectcss.button,
-                                  projectcss.__wab_text,
-                                  sty.button
-                                )}
-                              >
-                                {"Add To Cart"}
-                              </button>
-                            </AddToCartButton>
-                          </p.Stack>
-                        </React.Fragment>
-                      )}
-                    </ph.DataCtxReader>
-                  </ProductBox>
-                </p.Stack>
+                                  }
+                                  showArrow={true}
+                                >
+                                  <GraphqlFetcher
+                                    className={classNames(
+                                      "__wab_instance",
+                                      sty.graphQlFetcher__v5IcA
+                                    )}
+                                    dataName={"fetchedData"}
+                                    errorDisplay={
+                                      <ph.DataCtxReader>
+                                        {$ctx => "Error fetching data"}
+                                      </ph.DataCtxReader>
+                                    }
+                                    headers={{
+                                      "Content-Type": "application/json",
+                                      Accept: "application/json",
+                                      "X-Shopify-Storefront-Access-Token":
+                                        "0f43cbfd628ae6e4fef6a34969378290"
+                                    }}
+                                    loadingDisplay={
+                                      <ph.DataCtxReader>
+                                        {$ctx => "Loading..."}
+                                      </ph.DataCtxReader>
+                                    }
+                                    method={"POST"}
+                                    noLayout={false}
+                                    query={{
+                                      query:
+                                        'query MyQuery($id: ID!) {\n  product(id: $id) {\n    metafield(key: "product_details", namespace: "descriptors") {\n      value\n    }\n}\n}',
+                                      variables: { name: "Rick Sanchez" }
+                                    }}
+                                    url={
+                                      "https://juhubeachstudio.myshopify.com/api/2023-07/graphql.json"
+                                    }
+                                    varOverrides={(() => {
+                                      try {
+                                        return { id: $ctx.currentProduct.id };
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return {};
+                                        }
+                                        throw e;
+                                      }
+                                    })()}
+                                  >
+                                    <ph.DataCtxReader>
+                                      {$ctx => (
+                                        <div
+                                          className={classNames(
+                                            projectcss.all,
+                                            projectcss.__wab_text,
+                                            sty.text__yaIk
+                                          )}
+                                        >
+                                          <React.Fragment>
+                                            {(() => {
+                                              try {
+                                                return $ctx.fetchedData.data
+                                                  .product.metafield.value;
+                                              } catch (e) {
+                                                if (
+                                                  e instanceof TypeError ||
+                                                  e?.plasmicType ===
+                                                    "PlasmicUndefinedDataError"
+                                                ) {
+                                                  return "";
+                                                }
+                                                throw e;
+                                              }
+                                            })()}
+                                          </React.Fragment>
+                                        </div>
+                                      )}
+                                    </ph.DataCtxReader>
+                                  </GraphqlFetcher>
+                                </AntdAccordionItem>
+                                <AntdAccordionItem
+                                  className={classNames(
+                                    "__wab_instance",
+                                    sty.accordionItem__jPeb
+                                  )}
+                                  headerClass={classNames({
+                                    [sty["pcls_LhikHYKCERFN"]]: true
+                                  })}
+                                  id={1}
+                                  label2={
+                                    <div
+                                      className={classNames(
+                                        projectcss.all,
+                                        projectcss.__wab_text,
+                                        sty.text__chhbz
+                                      )}
+                                    >
+                                      {"Wash+Care Instructions"}
+                                    </div>
+                                  }
+                                  showArrow={true}
+                                >
+                                  <GraphqlFetcher
+                                    className={classNames(
+                                      "__wab_instance",
+                                      sty.graphQlFetcher__yFr
+                                    )}
+                                    dataName={"fetchedData"}
+                                    errorDisplay={
+                                      <ph.DataCtxReader>
+                                        {$ctx => "Error fetching data"}
+                                      </ph.DataCtxReader>
+                                    }
+                                    headers={{
+                                      "Content-Type": "application/json",
+                                      Accept: "application/json",
+                                      "X-Shopify-Storefront-Access-Token":
+                                        "0f43cbfd628ae6e4fef6a34969378290"
+                                    }}
+                                    loadingDisplay={
+                                      <ph.DataCtxReader>
+                                        {$ctx => "Loading..."}
+                                      </ph.DataCtxReader>
+                                    }
+                                    method={"POST"}
+                                    noLayout={false}
+                                    query={{
+                                      query:
+                                        'query MyQuery($id: ID!) {\n  product(id: $id) {\n    metafield(key: "care_guide", namespace: "descriptors") {\n      value\n    }\n}\n}',
+                                      variables: { name: "Rick Sanchez" }
+                                    }}
+                                    url={
+                                      "https://juhubeachstudio.myshopify.com/api/2023-07/graphql.json"
+                                    }
+                                    varOverrides={(() => {
+                                      try {
+                                        return { id: $ctx.currentProduct.id };
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return {};
+                                        }
+                                        throw e;
+                                      }
+                                    })()}
+                                  >
+                                    <ph.DataCtxReader>
+                                      {$ctx => (
+                                        <div
+                                          className={classNames(
+                                            projectcss.all,
+                                            projectcss.__wab_text,
+                                            sty.text__qvO4P
+                                          )}
+                                        >
+                                          <React.Fragment>
+                                            {(() => {
+                                              try {
+                                                return $ctx.fetchedData.data
+                                                  .product.metafield.value;
+                                              } catch (e) {
+                                                if (
+                                                  e instanceof TypeError ||
+                                                  e?.plasmicType ===
+                                                    "PlasmicUndefinedDataError"
+                                                ) {
+                                                  return "";
+                                                }
+                                                throw e;
+                                              }
+                                            })()}
+                                          </React.Fragment>
+                                        </div>
+                                      )}
+                                    </ph.DataCtxReader>
+                                  </GraphqlFetcher>
+                                </AntdAccordionItem>
+                                <AntdAccordionItem
+                                  className={classNames(
+                                    "__wab_instance",
+                                    sty.accordionItem__sMj4I
+                                  )}
+                                  headerClass={classNames({
+                                    [sty["pcls_rc70p24kHQ1o"]]: true
+                                  })}
+                                  id={1}
+                                  label2={
+                                    <div
+                                      className={classNames(
+                                        projectcss.all,
+                                        projectcss.__wab_text,
+                                        sty.text__dNtKk
+                                      )}
+                                    >
+                                      {"Materials"}
+                                    </div>
+                                  }
+                                  showArrow={true}
+                                >
+                                  <GraphqlFetcher
+                                    className={classNames(
+                                      "__wab_instance",
+                                      sty.graphQlFetcher__rVikm
+                                    )}
+                                    dataName={"fetchedData"}
+                                    errorDisplay={
+                                      <ph.DataCtxReader>
+                                        {$ctx => "Error fetching data"}
+                                      </ph.DataCtxReader>
+                                    }
+                                    headers={{
+                                      "Content-Type": "application/json",
+                                      Accept: "application/json",
+                                      "X-Shopify-Storefront-Access-Token":
+                                        "0f43cbfd628ae6e4fef6a34969378290"
+                                    }}
+                                    loadingDisplay={
+                                      <ph.DataCtxReader>
+                                        {$ctx => "Loading..."}
+                                      </ph.DataCtxReader>
+                                    }
+                                    method={"POST"}
+                                    noLayout={false}
+                                    query={{
+                                      query:
+                                        'query MyQuery($id: ID!) {\n  product(id: $id) {\n    metafield(key: "materials", namespace: "descriptors") {\n      value\n    }\n}\n}',
+                                      variables: { name: "Rick Sanchez" }
+                                    }}
+                                    url={
+                                      "https://juhubeachstudio.myshopify.com/api/2023-07/graphql.json"
+                                    }
+                                    varOverrides={(() => {
+                                      try {
+                                        return { id: $ctx.currentProduct.id };
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return {};
+                                        }
+                                        throw e;
+                                      }
+                                    })()}
+                                  >
+                                    <ph.DataCtxReader>
+                                      {$ctx => (
+                                        <div
+                                          className={classNames(
+                                            projectcss.all,
+                                            projectcss.__wab_text,
+                                            sty.text__ptSi9
+                                          )}
+                                        >
+                                          <React.Fragment>
+                                            {(() => {
+                                              try {
+                                                return $ctx.fetchedData.data
+                                                  .product.metafield.value;
+                                              } catch (e) {
+                                                if (
+                                                  e instanceof TypeError ||
+                                                  e?.plasmicType ===
+                                                    "PlasmicUndefinedDataError"
+                                                ) {
+                                                  return "";
+                                                }
+                                                throw e;
+                                              }
+                                            })()}
+                                          </React.Fragment>
+                                        </div>
+                                      )}
+                                    </ph.DataCtxReader>
+                                  </GraphqlFetcher>
+                                </AntdAccordionItem>
+                              </React.Fragment>
+                            ),
+                            onChange:
+                              p.generateStateOnChangePropForCodeComponents(
+                                $state,
+                                "activePanelId",
+                                ["accordion", "activePanelId"],
+                                AntdAccordion_Helpers
+                              ),
+                            size: "large"
+                          };
+                          p.initializeCodeComponentStates(
+                            $state,
+                            [
+                              {
+                                name: "activePanelId",
+                                plasmicStateName: "accordion.activePanelId"
+                              }
+                            ],
+                            [],
+                            AntdAccordion_Helpers ?? {},
+                            child$Props
+                          );
+
+                          return (
+                            <AntdAccordion
+                              data-plasmic-name={"accordion"}
+                              data-plasmic-override={overrides.accordion}
+                              {...child$Props}
+                            />
+                          );
+                        })()}
+                      </React.Fragment>
+                    )}
+                  </ph.DataCtxReader>
+                </ProductBox>
               </p.Stack>
-            </Fullpageheight>
+            </p.Stack>
             <Section
               data-plasmic-name={"section"}
               data-plasmic-override={overrides.section}
               className={classNames("__wab_instance", sty.section)}
             >
-              <Blackyellowborder
-                data-plasmic-name={"blackyellowborder"}
-                data-plasmic-override={overrides.blackyellowborder}
-                className={classNames("__wab_instance", sty.blackyellowborder)}
-              />
-
+              <div className={classNames(projectcss.all, sty.freeBox__uIStc)}>
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__ckdj2
+                  )}
+                >
+                  {"Look how cute -"}
+                </div>
+              </div>
               <ProductBox
                 className={classNames("__wab_instance", sty.productBox__sXbvh)}
                 id={(() => {
@@ -869,51 +953,47 @@ function PlasmicProductPage__RenderFunc(props: {
               >
                 <ph.DataCtxReader>
                   {$ctx => (
-                    <ProductCollection
+                    <GraphqlFetcher
                       className={classNames(
                         "__wab_instance",
-                        sty.productCollection__cZbGz
+                        sty.graphQlFetcher__pCFol
                       )}
-                      count={4}
-                      emptyMessage={
+                      dataName={"fetchedData"}
+                      errorDisplay={
                         <ph.DataCtxReader>
-                          {$ctx => (
-                            <div
-                              className={classNames(
-                                projectcss.all,
-                                projectcss.__wab_text,
-                                sty.text__gGv2S
-                              )}
-                            >
-                              {"No product found!"}
-                            </div>
-                          )}
+                          {$ctx => "Error fetching data"}
                         </ph.DataCtxReader>
                       }
-                      loadingMessage={
+                      headers={{
+                        "Content-Type": "application/json",
+                        Accept: "application/json",
+                        "X-Shopify-Storefront-Access-Token":
+                          "0f43cbfd628ae6e4fef6a34969378290"
+                      }}
+                      loadingDisplay={
                         <ph.DataCtxReader>
-                          {$ctx => (
-                            <div
-                              className={classNames(
-                                projectcss.all,
-                                projectcss.__wab_text,
-                                sty.text__guTw0
-                              )}
-                            >
-                              {"Loading..."}
-                            </div>
-                          )}
+                          {$ctx => "Loading..."}
                         </ph.DataCtxReader>
                       }
-                      search={(() => {
+                      method={"POST"}
+                      noLayout={false}
+                      query={{
+                        query:
+                          'query MyQuery($id: ID!) {\n  product(id: $id) {\n    metafield(key: "related_products", namespace: "shopify--discovery--product_recommendation") {\n      value\n    }\n}\n}',
+                        variables: { name: "Rick Sanchez" }
+                      }}
+                      url={
+                        "https://juhubeachstudio.myshopify.com/api/2023-07/graphql.json"
+                      }
+                      varOverrides={(() => {
                         try {
-                          return $ctx.currentProduct.productType;
+                          return { id: $ctx.currentProduct.id };
                         } catch (e) {
                           if (
                             e instanceof TypeError ||
                             e?.plasmicType === "PlasmicUndefinedDataError"
                           ) {
-                            return undefined;
+                            return {};
                           }
                           throw e;
                         }
@@ -924,56 +1004,84 @@ function PlasmicProductPage__RenderFunc(props: {
                           <div
                             className={classNames(
                               projectcss.all,
-                              sty.freeBox__lSGpI
+                              sty.freeBox__uE3Fy
                             )}
                           >
-                            <ProductCardJbs
-                              data-plasmic-name={"productCardJbs"}
-                              data-plasmic-override={overrides.productCardJbs}
-                              className={classNames(
-                                "__wab_instance",
-                                sty.productCardJbs
-                              )}
-                            />
+                            {(_par =>
+                              !_par ? [] : Array.isArray(_par) ? _par : [_par])(
+                              (() => {
+                                try {
+                                  return JSON.parse(
+                                    $ctx.fetchedData.data.product.metafield
+                                      .value
+                                  );
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return [];
+                                  }
+                                  throw e;
+                                }
+                              })()
+                            ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                              const currentItem = __plasmic_item_0;
+                              const currentIndex = __plasmic_idx_0;
+                              return (
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.freeBox__mcOpP
+                                  )}
+                                  key={currentIndex}
+                                >
+                                  <ProductBox
+                                    className={classNames(
+                                      "__wab_instance",
+                                      sty.productBox__k8Qx4
+                                    )}
+                                    id={(() => {
+                                      try {
+                                        return currentItem;
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return undefined;
+                                        }
+                                        throw e;
+                                      }
+                                    })()}
+                                  >
+                                    <ph.DataCtxReader>
+                                      {$ctx => (
+                                        <ProductCardJbs
+                                          data-plasmic-name={"productCardJbs"}
+                                          data-plasmic-override={
+                                            overrides.productCardJbs
+                                          }
+                                          className={classNames(
+                                            "__wab_instance",
+                                            sty.productCardJbs
+                                          )}
+                                        />
+                                      )}
+                                    </ph.DataCtxReader>
+                                  </ProductBox>
+                                </div>
+                              );
+                            })}
                           </div>
                         )}
                       </ph.DataCtxReader>
-                    </ProductCollection>
+                    </GraphqlFetcher>
                   )}
                 </ph.DataCtxReader>
               </ProductBox>
-              <GraphqlFetcher
-                className={classNames(
-                  "__wab_instance",
-                  sty.graphQlFetcher___5A4GZ
-                )}
-                dataName={"fetchedData"}
-                errorDisplay={
-                  <ph.DataCtxReader>
-                    {$ctx => "Error fetching data"}
-                  </ph.DataCtxReader>
-                }
-                headers={{
-                  "Content-Type": "application/json",
-                  Accept: "application/json",
-                  "X-Shopify-Storefront-Access-Token":
-                    "0f43cbfd628ae6e4fef6a34969378290"
-                }}
-                loadingDisplay={
-                  <ph.DataCtxReader>{$ctx => "Loading..."}</ph.DataCtxReader>
-                }
-                method={"POST"}
-                noLayout={false}
-                query={{
-                  query:
-                    "query MyQuery($name: String) {\n  characters(filter: {name: $name}) {\n    results {\n      name\n      species\n      image\n    }\n  }\n}\n",
-                  variables: { name: "Rick Sanchez" }
-                }}
-                url={
-                  "https://juhubeachstudio.myshopify.com/api/2023-07/graphql.json"
-                }
-                varOverrides={{}}
-              />
             </Section>
           </FullPage>
         </div>
@@ -986,74 +1094,56 @@ const PlasmicDescendants = {
   root: [
     "root",
     "fullPage",
-    "fullpageheight",
     "columns",
     "pageMetadataOverride",
+    "sliderCarousel",
     "img",
     "productPrice",
+    "productCollection",
     "productMedia",
-    "button2",
     "productVariantPicker",
+    "addToCartCustomButton",
     "accordion",
-    "addToCartButton",
-    "button",
     "section",
-    "blackyellowborder",
     "productCardJbs"
   ],
   fullPage: [
     "fullPage",
-    "fullpageheight",
     "columns",
     "pageMetadataOverride",
+    "sliderCarousel",
     "img",
     "productPrice",
+    "productCollection",
     "productMedia",
-    "button2",
     "productVariantPicker",
+    "addToCartCustomButton",
     "accordion",
-    "addToCartButton",
-    "button",
     "section",
-    "blackyellowborder",
     "productCardJbs"
-  ],
-  fullpageheight: [
-    "fullpageheight",
-    "columns",
-    "pageMetadataOverride",
-    "img",
-    "productPrice",
-    "productMedia",
-    "button2",
-    "productVariantPicker",
-    "accordion",
-    "addToCartButton",
-    "button"
   ],
   columns: [
     "columns",
     "pageMetadataOverride",
+    "sliderCarousel",
     "img",
     "productPrice",
+    "productCollection",
     "productMedia",
-    "button2",
     "productVariantPicker",
-    "accordion",
-    "addToCartButton",
-    "button"
+    "addToCartCustomButton",
+    "accordion"
   ],
   pageMetadataOverride: ["pageMetadataOverride"],
+  sliderCarousel: ["sliderCarousel", "img"],
   img: ["img"],
   productPrice: ["productPrice"],
+  productCollection: ["productCollection", "productMedia"],
   productMedia: ["productMedia"],
-  button2: ["button2", "productVariantPicker"],
   productVariantPicker: ["productVariantPicker"],
+  addToCartCustomButton: ["addToCartCustomButton"],
   accordion: ["accordion"],
-  addToCartButton: ["addToCartButton", "button"],
-  button: ["button"],
-  section: ["section", "blackyellowborder", "productCardJbs"],
-  blackyellowborder: ["blackyellowborder"],
+  section: ["section", "productCardJbs"],
   productCardJbs: ["productCardJbs"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
@@ -1062,19 +1152,17 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   fullPage: typeof FullPage;
-  fullpageheight: typeof Fullpageheight;
   columns: "div";
   pageMetadataOverride: typeof PlasmicHead;
+  sliderCarousel: typeof SliderWrapper;
   img: typeof p.PlasmicImg;
   productPrice: typeof ProductPriceComponent;
+  productCollection: typeof ProductCollection;
   productMedia: typeof ProductMedia;
-  button2: typeof Button2;
   productVariantPicker: typeof ProductVariantPicker;
+  addToCartCustomButton: typeof AddToCartCustomButton;
   accordion: typeof AntdAccordion;
-  addToCartButton: typeof AddToCartButton;
-  button: "button";
   section: typeof Section;
-  blackyellowborder: typeof Blackyellowborder;
   productCardJbs: typeof ProductCardJbs;
 };
 
@@ -1139,19 +1227,17 @@ export const PlasmicProductPage = Object.assign(
   {
     // Helper components rendering sub-elements
     fullPage: makeNodeComponent("fullPage"),
-    fullpageheight: makeNodeComponent("fullpageheight"),
     columns: makeNodeComponent("columns"),
     pageMetadataOverride: makeNodeComponent("pageMetadataOverride"),
+    sliderCarousel: makeNodeComponent("sliderCarousel"),
     img: makeNodeComponent("img"),
     productPrice: makeNodeComponent("productPrice"),
+    productCollection: makeNodeComponent("productCollection"),
     productMedia: makeNodeComponent("productMedia"),
-    button2: makeNodeComponent("button2"),
     productVariantPicker: makeNodeComponent("productVariantPicker"),
+    addToCartCustomButton: makeNodeComponent("addToCartCustomButton"),
     accordion: makeNodeComponent("accordion"),
-    addToCartButton: makeNodeComponent("addToCartButton"),
-    button: makeNodeComponent("button"),
     section: makeNodeComponent("section"),
-    blackyellowborder: makeNodeComponent("blackyellowborder"),
     productCardJbs: makeNodeComponent("productCardJbs"),
 
     // Metadata about props expected for PlasmicProductPage
