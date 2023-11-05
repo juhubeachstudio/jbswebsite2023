@@ -72,6 +72,7 @@ export type PlasmicAbout__OverridesType = {
   sliderCarousel3?: p.Flex<typeof SliderWrapper>;
   svg?: p.Flex<"svg">;
   sliderCarousel5?: p.Flex<typeof SliderWrapper>;
+  sliderCarousel6?: p.Flex<typeof SliderWrapper>;
 };
 
 export interface DefaultAboutProps {}
@@ -152,6 +153,18 @@ function PlasmicAbout__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => 0,
 
         refName: "sliderCarousel5",
+        onMutate: p.generateOnMutateForSpec(
+          "currentSlide",
+          SliderWrapper_Helpers
+        )
+      },
+      {
+        path: "sliderCarousel6.currentSlide",
+        type: "private",
+        variableType: "number",
+        initFunc: ({ $props, $state, $queries, $ctx }) => 0,
+
+        refName: "sliderCarousel6",
         onMutate: p.generateOnMutateForSpec(
           "currentSlide",
           SliderWrapper_Helpers
@@ -519,7 +532,7 @@ function PlasmicAbout__RenderFunc(props: {
                       )}
                     >
                       {
-                        "This is basically how we wanted this brand to feel too, just like at the beach, everyone is welcome, anything can happen, no cynicism, just vibes. While real life may be inescapable you can always make it more fun"
+                        "This is basically how we wanted this brand to feel too, just like at the beach, everyone is welcome, anything can happen, no cynicism, just vibes. But because real life might actually be inescapable you can always make it more fun!"
                       }
                     </div>
                   </p.Stack>
@@ -753,26 +766,9 @@ function PlasmicAbout__RenderFunc(props: {
                         sty.text__qcu10
                       )}
                     >
-                      <React.Fragment>
-                        <React.Fragment>
-                          {
-                            "We are so lucky to be able to train, employ and work with such an amazing team of women, our very own "
-                          }
-                        </React.Fragment>
-                        <span
-                          className={
-                            "plasmic_default__all plasmic_default__span"
-                          }
-                          style={{ fontWeight: 700 }}
-                        >
-                          {"impossible mission task force"}
-                        </span>
-                        <React.Fragment>
-                          {
-                            ", each with their own special skill sets that can literally make anything when they work together."
-                          }
-                        </React.Fragment>
-                      </React.Fragment>
+                      {
+                        "We work with an amazing team of women, our very own impossible mission task force, each with their own special skill sets. Women come in with little to no prior experience and are trained in skills such as handwork, embroidery, cutting, stuffing, hand and machine stitching."
+                      }
                     </div>
                   </div>
                   <div
@@ -785,35 +781,9 @@ function PlasmicAbout__RenderFunc(props: {
                         sty.text___6BHct
                       )}
                     >
-                      <React.Fragment>
-                        <React.Fragment>
-                          {"We want to give lots and lots of women "}
-                        </React.Fragment>
-                        <span
-                          className={
-                            "plasmic_default__all plasmic_default__span"
-                          }
-                          style={{ fontWeight: 700 }}
-                        >
-                          {"opportunities to gain financial independence"}
-                        </span>
-                        <React.Fragment>
-                          {
-                            " or even just supplement their household income. We want our studio to be "
-                          }
-                        </React.Fragment>
-                        <span
-                          className={
-                            "plasmic_default__all plasmic_default__span"
-                          }
-                          style={{ fontWeight: 700 }}
-                        >
-                          {
-                            "a safe, happy space, where they foster friendships and enjoy learning and making beautiful things"
-                          }
-                        </span>
-                        <React.Fragment>{"."}</React.Fragment>
-                      </React.Fragment>
+                      {
+                        "We want to create lots of employment opportunities for women to gain financial independence. We want our studio to be a safe, happy workspace, where we can all learn new skills, techniques, do some creative problem solving, and make beautiful things together."
+                      }
                     </div>
                   </div>
                 </p.Stack>
@@ -2382,6 +2352,217 @@ function PlasmicAbout__RenderFunc(props: {
                   </div>
                 </div>
               </div>
+              {(() => {
+                const child$Props = {
+                  arrows: false,
+                  beforeChange: p.generateStateOnChangePropForCodeComponents(
+                    $state,
+                    "currentSlide",
+                    ["sliderCarousel6", "currentSlide"],
+                    SliderWrapper_Helpers
+                  ),
+                  className: classNames("__wab_instance", sty.sliderCarousel6),
+                  editingSlide: p.generateStateValueProp($state, [
+                    "sliderCarousel6",
+                    "currentSlide"
+                  ]),
+                  initialSlide: 0,
+                  ref: ref => {
+                    $refs["sliderCarousel6"] = ref;
+                  },
+                  sliderScopeClassName: sty["sliderCarousel6__slider"],
+                  slidesToShow: 2
+                };
+                p.initializeCodeComponentStates(
+                  $state,
+                  [
+                    {
+                      name: "currentSlide",
+                      plasmicStateName: "sliderCarousel6.currentSlide"
+                    }
+                  ],
+                  [],
+                  SliderWrapper_Helpers ?? {},
+                  child$Props
+                );
+
+                return (
+                  <SliderWrapper
+                    data-plasmic-name={"sliderCarousel6"}
+                    data-plasmic-override={overrides.sliderCarousel6}
+                    {...child$Props}
+                  >
+                    <div
+                      className={classNames(projectcss.all, sty.freeBox__onjfU)}
+                    >
+                      <p.PlasmicImg
+                        alt={""}
+                        className={classNames(sty.img__rjiPc)}
+                        displayHeight={"auto"}
+                        displayMaxHeight={"none"}
+                        displayMaxWidth={"100%"}
+                        displayMinHeight={"0"}
+                        displayMinWidth={"0"}
+                        displayWidth={"auto"}
+                        loading={"lazy"}
+                        src={{
+                          src: "/plasmic/jbs_storefront/images/agendaClothesPilewebp.webp",
+                          fullWidth: 1066,
+                          fullHeight: 1021,
+                          aspectRatio: undefined
+                        }}
+                      />
+
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__nuzHe
+                        )}
+                      >
+                        {
+                          "To explore pre-and post consumer textile waste as a viable raw material for a scalable enterprise. Basically build a kachre ka empire"
+                        }
+                      </div>
+                    </div>
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        sty.freeBox___7Ai4Q
+                      )}
+                    >
+                      <p.PlasmicImg
+                        alt={""}
+                        className={classNames(sty.img__rahso)}
+                        displayHeight={"auto"}
+                        displayMaxHeight={"none"}
+                        displayMaxWidth={"100%"}
+                        displayMinHeight={"0"}
+                        displayMinWidth={"0"}
+                        displayWidth={"auto"}
+                        loading={"lazy"}
+                        src={{
+                          src: "/plasmic/jbs_storefront/images/agendaMousewebp.webp",
+                          fullWidth: 1066,
+                          fullHeight: 1022,
+                          aspectRatio: undefined
+                        }}
+                      />
+
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__vp9FA
+                        )}
+                      >
+                        {
+                          "Make beautiful, magical, high concept, high quality products that we\u2019ve always dreamed of making and having"
+                        }
+                      </div>
+                    </div>
+                    <div
+                      className={classNames(projectcss.all, sty.freeBox__uYeI9)}
+                    >
+                      <p.PlasmicImg
+                        alt={""}
+                        className={classNames(sty.img__xHufh)}
+                        displayHeight={"auto"}
+                        displayMaxHeight={"none"}
+                        displayMaxWidth={"100%"}
+                        displayMinHeight={"0"}
+                        displayMinWidth={"0"}
+                        displayWidth={"auto"}
+                        loading={"lazy"}
+                        src={{
+                          src: "/plasmic/jbs_storefront/images/agendaCoconutwebp.webp",
+                          fullWidth: 1066,
+                          fullHeight: 1022,
+                          aspectRatio: undefined
+                        }}
+                      />
+
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__hrW5
+                        )}
+                      >
+                        {
+                          "Create a community of other creative wastefellows who share our love for beautiful sustainable products and an unshitty future for ALL"
+                        }
+                      </div>
+                    </div>
+                    <div
+                      className={classNames(projectcss.all, sty.freeBox__splvO)}
+                    >
+                      <p.PlasmicImg
+                        alt={""}
+                        className={classNames(sty.img__cdBH)}
+                        displayHeight={"auto"}
+                        displayMaxHeight={"none"}
+                        displayMaxWidth={"100%"}
+                        displayMinHeight={"0"}
+                        displayMinWidth={"0"}
+                        displayWidth={"auto"}
+                        loading={"lazy"}
+                        src={{
+                          src: "/plasmic/jbs_storefront/images/agendaHammerwebp.webp",
+                          fullWidth: 1066,
+                          fullHeight: 1022,
+                          aspectRatio: undefined
+                        }}
+                      />
+
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__jxqfD
+                        )}
+                      >
+                        {
+                          "Create lots and lots of jobs and build a highly skilled team of women who can make anything and everything"
+                        }
+                      </div>
+                    </div>
+                    <div
+                      className={classNames(projectcss.all, sty.freeBox__e7Tjp)}
+                    >
+                      <p.PlasmicImg
+                        alt={""}
+                        className={classNames(sty.img__wICb)}
+                        displayHeight={"auto"}
+                        displayMaxHeight={"none"}
+                        displayMaxWidth={"100%"}
+                        displayMinHeight={"0"}
+                        displayMinWidth={"0"}
+                        displayWidth={"auto"}
+                        loading={"lazy"}
+                        src={{
+                          src: "/plasmic/jbs_storefront/images/agendaTreasurewebp.webp",
+                          fullWidth: 1066,
+                          fullHeight: 1021,
+                          aspectRatio: undefined
+                        }}
+                      />
+
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__ihgB3
+                        )}
+                      >
+                        {
+                          "Get funding and start a giant pink factory with a recycling plant that runs on green energy"
+                        }
+                      </div>
+                    </div>
+                  </SliderWrapper>
+                );
+              })()}
             </Section>
           </FullPage>
         </div>
@@ -2399,7 +2580,8 @@ const PlasmicDescendants = {
     "sliderCarousel2",
     "sliderCarousel3",
     "svg",
-    "sliderCarousel5"
+    "sliderCarousel5",
+    "sliderCarousel6"
   ],
   fullPage: [
     "fullPage",
@@ -2408,14 +2590,16 @@ const PlasmicDescendants = {
     "sliderCarousel2",
     "sliderCarousel3",
     "svg",
-    "sliderCarousel5"
+    "sliderCarousel5",
+    "sliderCarousel6"
   ],
   sliderCarousel: ["sliderCarousel"],
   h1: ["h1"],
   sliderCarousel2: ["sliderCarousel2"],
   sliderCarousel3: ["sliderCarousel3"],
   svg: ["svg"],
-  sliderCarousel5: ["sliderCarousel5"]
+  sliderCarousel5: ["sliderCarousel5"],
+  sliderCarousel6: ["sliderCarousel6"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -2429,6 +2613,7 @@ type NodeDefaultElementType = {
   sliderCarousel3: typeof SliderWrapper;
   svg: "svg";
   sliderCarousel5: typeof SliderWrapper;
+  sliderCarousel6: typeof SliderWrapper;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -2498,6 +2683,7 @@ export const PlasmicAbout = Object.assign(
     sliderCarousel3: makeNodeComponent("sliderCarousel3"),
     svg: makeNodeComponent("svg"),
     sliderCarousel5: makeNodeComponent("sliderCarousel5"),
+    sliderCarousel6: makeNodeComponent("sliderCarousel6"),
 
     // Metadata about props expected for PlasmicAbout
     internalVariantProps: PlasmicAbout__VariantProps,

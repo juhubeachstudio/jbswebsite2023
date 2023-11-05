@@ -1044,7 +1044,7 @@ function PlasmicHomepage__RenderFunc(props: {
                     )}
                   >
                     {
-                      "Welcome to Juhu Beach Studio!\nSo our first ever collection is products inspired by all the things we will literally love forever. "
+                      "Welcome to Juhu Beach Studio!\nWe love to love thingsss. So for our first ever collection, we present to you\nproducts inspired by all the things we will literally love forever."
                     }
                   </div>
                 </div>
@@ -2833,6 +2833,7 @@ function PlasmicHomepage__RenderFunc(props: {
                         "__wab_instance",
                         sty.button2__uhJjf
                       )}
+                      color={"red"}
                       link={`/category/${"giftsss"}`}
                     >
                       {"gift here!"}
@@ -3432,7 +3433,7 @@ function PlasmicHomepage__RenderFunc(props: {
                       )}
                     >
                       {
-                        "Welcome to Juhu Beach Studio, we are a tiny studio based in Mumbai and we work exclusively with textile waste :O"
+                        "JUHU BEACH STUDIO IS A TINY STUDIO BASED IN MUMBAI AND WE WORK EXCLUSIVELY WITH ALL KINDS OF TEXTILE WASTE (ABOVE) :O"
                       }
                     </div>
                   </div>
@@ -3447,7 +3448,7 @@ function PlasmicHomepage__RenderFunc(props: {
                       )}
                     >
                       {
-                        "We collect fabrics (above) and transform them into delightful, lifestyle accessory products, which are handcrafted in small batches by our amazing team of women."
+                        "Our brand celebrates the weird and wonderful conceptness of life through delightful, handrafted lifestyle accessory products."
                       }
                     </div>
                   </div>
@@ -3464,35 +3465,39 @@ function PlasmicHomepage__RenderFunc(props: {
                       )}
                     >
                       {
-                        "Our products celebrate the weird and wonderful, conceptness of life, as we build a people + planet + future friendly enterprise"
+                        "Exploring textile waste\u2019s as a raw material for a scaleable + sustainable enterprise."
                       }
                     </div>
+                    <Button2
+                      className={classNames(
+                        "__wab_instance",
+                        sty.button2__u8Fkr
+                      )}
+                      color={"red"}
+                      endIcon={
+                        <Icon38Icon
+                          data-plasmic-name={"svg"}
+                          data-plasmic-override={overrides.svg}
+                          className={classNames(projectcss.all, sty.svg)}
+                          role={"img"}
+                        />
+                      }
+                      link={`/about`}
+                      showEndIcon={true}
+                      size={"compact"}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__oOzB
+                        )}
+                      >
+                        {"Wanna know how we do it?"}
+                      </div>
+                    </Button2>
                   </p.Stack>
                 </p.Stack>
-                <Button2
-                  className={classNames("__wab_instance", sty.button2__u8Fkr)}
-                  color={"red"}
-                  endIcon={
-                    <Icon38Icon
-                      data-plasmic-name={"svg"}
-                      data-plasmic-override={overrides.svg}
-                      className={classNames(projectcss.all, sty.svg)}
-                      role={"img"}
-                    />
-                  }
-                  link={`/about`}
-                  showEndIcon={true}
-                >
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__oOzB
-                    )}
-                  >
-                    {"Wanna know how we do it?"}
-                  </div>
-                </Button2>
               </p.Stack>
             </Section>
           </FullPage>
