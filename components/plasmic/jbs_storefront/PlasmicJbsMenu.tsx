@@ -214,7 +214,7 @@ function PlasmicJbsMenu__RenderFunc(props: {
             $steps["updateRevealMenu"] = await $steps["updateRevealMenu"];
           }
         }}
-        size={"compact"}
+        size={"minimal"}
       >
         <HamburgersvgIcon
           data-plasmic-name={"svg"}
@@ -245,7 +245,7 @@ function PlasmicJbsMenu__RenderFunc(props: {
         })}
         color={hasVariant($state, "revealMenu", "revealMenu") ? "red" : "red"}
         link={`/`}
-        size={"compact"}
+        size={"minimal"}
       >
         <div
           className={classNames(
@@ -284,7 +284,7 @@ function PlasmicJbsMenu__RenderFunc(props: {
         })}
         color={hasVariant($state, "revealMenu", "revealMenu") ? "red" : "red"}
         link={`/about`}
-        size={"compact"}
+        size={"minimal"}
       >
         <div
           className={classNames(
@@ -365,7 +365,7 @@ function PlasmicJbsMenu__RenderFunc(props: {
               ];
             }
           }}
-          size={"compact"}
+          size={"minimal"}
         >
           <div
             className={classNames(
@@ -387,6 +387,73 @@ function PlasmicJbsMenu__RenderFunc(props: {
             )}
           >
             {"Shop"}
+          </div>
+        </Button2>
+        <Button2
+          alignment={"leftAligned"}
+          className={classNames("__wab_instance", sty.button2__cQnou, {
+            [sty.button2revealMenu__cQnoUxT6MH]: hasVariant(
+              $state,
+              "revealMenu",
+              "revealMenu"
+            ),
+            [sty.button2revealSubMenu__cQnouBjo1Y]: hasVariant(
+              $state,
+              "revealSubMenu",
+              "revealSubMenu"
+            )
+          })}
+          color={hasVariant($state, "revealMenu", "revealMenu") ? "red" : "red"}
+          link={`/categories`}
+          onClick={async event => {
+            const $steps = {};
+
+            $steps["updateRevealSubMenu"] = true
+              ? (() => {
+                  const actionArgs = { vgroup: "revealSubMenu", operation: 2 };
+                  return (({ vgroup, value }) => {
+                    if (typeof value === "string") {
+                      value = [value];
+                    }
+
+                    const oldValue = p.get($state, vgroup);
+                    p.set($state, vgroup, !oldValue);
+                    return !oldValue;
+                  })?.apply(null, [actionArgs]);
+                })()
+              : undefined;
+            if (
+              $steps["updateRevealSubMenu"] != null &&
+              typeof $steps["updateRevealSubMenu"] === "object" &&
+              typeof $steps["updateRevealSubMenu"].then === "function"
+            ) {
+              $steps["updateRevealSubMenu"] = await $steps[
+                "updateRevealSubMenu"
+              ];
+            }
+          }}
+          size={"compact"}
+        >
+          <div
+            className={classNames(
+              projectcss.all,
+              projectcss.__wab_text,
+              sty.text__pTqo5,
+              {
+                [sty.textrevealMenu__pTqo5XT6MH]: hasVariant(
+                  $state,
+                  "revealMenu",
+                  "revealMenu"
+                ),
+                [sty.textrevealSubMenu__pTqo5Bjo1Y]: hasVariant(
+                  $state,
+                  "revealSubMenu",
+                  "revealSubMenu"
+                )
+              }
+            )}
+          >
+            {"View Categories"}
           </div>
         </Button2>
         <CategoryCollection
@@ -458,6 +525,11 @@ function PlasmicJbsMenu__RenderFunc(props: {
                     $state,
                     "revealMenu",
                     "revealMenu"
+                  ),
+                  [sty.button2revealSubMenu__j93E8Bjo1Y]: hasVariant(
+                    $state,
+                    "revealSubMenu",
+                    "revealSubMenu"
                   )
                 })}
                 color={"red"}
@@ -479,7 +551,13 @@ function PlasmicJbsMenu__RenderFunc(props: {
                 <CategoryField
                   data-plasmic-name={"categoryField"}
                   data-plasmic-override={overrides.categoryField}
-                  className={classNames("__wab_instance", sty.categoryField)}
+                  className={classNames("__wab_instance", sty.categoryField, {
+                    [sty.categoryFieldrevealSubMenu]: hasVariant(
+                      $state,
+                      "revealSubMenu",
+                      "revealSubMenu"
+                    )
+                  })}
                   field={"name"}
                 />
               </Button2>

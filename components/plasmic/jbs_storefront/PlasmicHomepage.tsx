@@ -330,348 +330,346 @@ function PlasmicHomepage__RenderFunc(props: {
             data-plasmic-override={overrides.fullPage}
             className={classNames("__wab_instance", sty.fullPage)}
           >
-            {(hasVariant(globalVariants, "screen", "mobileOnly") ? false : true)
-              ? (() => {
-                  const child$Props = {
-                    arrows: false,
-                    autoplay: false,
-                    autoplaySpeed: 2000,
-                    beforeChange: p.generateStateOnChangePropForCodeComponents(
-                      $state,
-                      "currentSlide",
-                      ["sliderCarousel", "currentSlide"],
-                      SliderWrapper_Helpers
-                    ),
-                    className: classNames("__wab_instance", sty.sliderCarousel),
-                    dots: true,
-                    editingSlide: p.generateStateValueProp($state, [
-                      "sliderCarousel",
-                      "currentSlide"
-                    ]),
-                    initialSlide: 0,
-                    pauseOnHover: false,
-                    ref: ref => {
-                      $refs["sliderCarousel"] = ref;
-                    },
-                    sliderScopeClassName: sty["sliderCarousel__slider"],
-                    slidesToShow: 2
-                  };
-                  p.initializeCodeComponentStates(
-                    $state,
-                    [
-                      {
-                        name: "currentSlide",
-                        plasmicStateName: "sliderCarousel.currentSlide"
-                      }
-                    ],
-                    [],
-                    SliderWrapper_Helpers ?? {},
-                    child$Props
-                  );
-
-                  return (
-                    <SliderWrapper
-                      data-plasmic-name={"sliderCarousel"}
-                      data-plasmic-override={overrides.sliderCarousel}
-                      {...child$Props}
-                    >
-                      <FullpageheightSlide
-                        className={classNames(
-                          "__wab_instance",
-                          sty.fullpageheightSlide__fmp4
-                        )}
-                      >
-                        <p.PlasmicLink
-                          className={classNames(
-                            projectcss.all,
-                            projectcss.a,
-                            sty.link__loRam
-                          )}
-                          component={Link}
-                          href={`/product/${"my-precious-baby-collar"}`}
-                          platform={"nextjs"}
-                        >
-                          <p.PlasmicImg
-                            alt={""}
-                            className={classNames(sty.img__a3Vuy)}
-                            displayHeight={"100%"}
-                            displayMaxHeight={"none"}
-                            displayMaxWidth={"100%"}
-                            displayMinHeight={"0"}
-                            displayMinWidth={"0"}
-                            displayWidth={"100%"}
-                            src={{
-                              src: "/plasmic/jbs_storefront/images/bannerRoseCollarwebp.webp",
-                              fullWidth: 2660,
-                              fullHeight: 3489,
-                              aspectRatio: undefined
-                            }}
-                          />
-                        </p.PlasmicLink>
-                      </FullpageheightSlide>
-                      <FullpageheightSlide
-                        className={classNames(
-                          "__wab_instance",
-                          sty.fullpageheightSlide__gwBsl
-                        )}
-                        slot={"Mehfil Lights"}
-                        slot2={"Pre lit fabric cigarettes chakhnas"}
-                      >
-                        <p.PlasmicLink
-                          className={classNames(
-                            projectcss.all,
-                            projectcss.a,
-                            sty.link__qqfE8
-                          )}
-                          component={Link}
-                          href={`/product/${"mehfil-lights-fabric-suttas"}`}
-                          platform={"nextjs"}
-                        >
-                          <p.PlasmicImg
-                            alt={""}
-                            className={classNames(sty.img__maMc)}
-                            displayHeight={"100%"}
-                            displayMaxHeight={"none"}
-                            displayMaxWidth={"100%"}
-                            displayMinHeight={"0"}
-                            displayMinWidth={"0"}
-                            displayWidth={"auto"}
-                            src={{
-                              src: "/plasmic/jbs_storefront/images/bannerMehfilLightsCigaretteswebp.webp",
-                              fullWidth: 2660,
-                              fullHeight: 3491,
-                              aspectRatio: undefined
-                            }}
-                          />
-                        </p.PlasmicLink>
-                      </FullpageheightSlide>
-                      <FullpageheightSlide
-                        className={classNames(
-                          "__wab_instance",
-                          sty.fullpageheightSlide__wlbCj
-                        )}
-                        slot={"Bucket Hats"}
-                        slot2={"Reversible Topis in lots of juicy colours"}
-                      >
-                        <p.PlasmicLink
-                          className={classNames(
-                            projectcss.all,
-                            projectcss.a,
-                            sty.link__wyWZm
-                          )}
-                          component={Link}
-                          href={`/category/${"bucket-hats"}`}
-                          platform={"nextjs"}
-                        >
-                          <p.PlasmicImg
-                            alt={""}
-                            className={classNames(sty.img__fbuK1)}
-                            displayHeight={"100%"}
-                            displayMaxHeight={"none"}
-                            displayMaxWidth={"100%"}
-                            displayMinHeight={"0"}
-                            displayMinWidth={"0"}
-                            displayWidth={"auto"}
-                            src={{
-                              src: "/plasmic/jbs_storefront/images/bannerYellowOrangeBucketHatwebp.webp",
-                              fullWidth: 2663,
-                              fullHeight: 3500,
-                              aspectRatio: undefined
-                            }}
-                          />
-                        </p.PlasmicLink>
-                      </FullpageheightSlide>
-                      <FullpageheightSlide
-                        className={classNames(
-                          "__wab_instance",
-                          sty.fullpageheightSlide___41ZTe
-                        )}
-                        slot={"Custom Heart  Chakhna"}
-                        slot2={"Get any embroidered text of your choice"}
-                      >
-                        <p.PlasmicLink
-                          className={classNames(
-                            projectcss.all,
-                            projectcss.a,
-                            sty.link__xVpH
-                          )}
-                          component={Link}
-                          href={`/product/${"customisable-hearts"}`}
-                          platform={"nextjs"}
-                        >
-                          <p.PlasmicImg
-                            alt={""}
-                            className={classNames(sty.img__kn1Ug)}
-                            displayHeight={"100%"}
-                            displayMaxHeight={"none"}
-                            displayMaxWidth={"100%"}
-                            displayMinHeight={"0"}
-                            displayMinWidth={"0"}
-                            displayWidth={"100%"}
-                            src={{
-                              src: "/plasmic/jbs_storefront/images/bannerCustomHeartswebp.webp",
-                              fullWidth: 2659,
-                              fullHeight: 3488,
-                              aspectRatio: undefined
-                            }}
-                          />
-                        </p.PlasmicLink>
-                      </FullpageheightSlide>
-                      <FullpageheightSlide
-                        className={classNames(
-                          "__wab_instance",
-                          sty.fullpageheightSlide__eG5Ig
-                        )}
-                        slot={"Aashiq Topi"}
-                        slot2={"Dedicated to all you lovers out there"}
-                      >
-                        <p.PlasmicLink
-                          className={classNames(
-                            projectcss.all,
-                            projectcss.a,
-                            sty.link___3PNaq
-                          )}
-                          component={Link}
-                          href={`/category/${"caps"}`}
-                          platform={"nextjs"}
-                        >
-                          <p.PlasmicImg
-                            alt={""}
-                            className={classNames(sty.img___5Al6)}
-                            displayHeight={"100%"}
-                            displayMaxHeight={"none"}
-                            displayMaxWidth={"100%"}
-                            displayMinHeight={"0"}
-                            displayMinWidth={"0"}
-                            displayWidth={"auto"}
-                            src={{
-                              src: "/plasmic/jbs_storefront/images/bannerAashiqCapLavenderwebp.webp",
-                              fullWidth: 2659,
-                              fullHeight: 3488,
-                              aspectRatio: undefined
-                            }}
-                          />
-                        </p.PlasmicLink>
-                      </FullpageheightSlide>
-                      <FullpageheightSlide
-                        className={classNames(
-                          "__wab_instance",
-                          sty.fullpageheightSlide__qbHhl
-                        )}
-                        slot={"AASHIQ TOPI"}
-                        slot2={
-                          "Available in lots of different flavours and sizes"
-                        }
-                      >
-                        <p.PlasmicLink
-                          className={classNames(
-                            projectcss.all,
-                            projectcss.a,
-                            sty.link___3Dryk
-                          )}
-                          component={Link}
-                          href={`/category/${"caps"}`}
-                          platform={"nextjs"}
-                        >
-                          <p.PlasmicImg
-                            alt={""}
-                            className={classNames(sty.img__ez6Ph)}
-                            displayHeight={"100%"}
-                            displayMaxHeight={"none"}
-                            displayMaxWidth={"100%"}
-                            displayMinHeight={"0"}
-                            displayMinWidth={"0"}
-                            displayWidth={"auto"}
-                            src={{
-                              src: "/plasmic/jbs_storefront/images/bannerCapsAnimationwebp.webp",
-                              fullWidth: 2111,
-                              fullHeight: 2767,
-                              aspectRatio: undefined
-                            }}
-                          />
-                        </p.PlasmicLink>
-                      </FullpageheightSlide>
-                      <FullpageheightSlide
-                        className={classNames(
-                          "__wab_instance",
-                          sty.fullpageheightSlide__lfSj
-                        )}
-                        slot={"Photo Frames"}
-                        slot2={"For all your special memories"}
-                      >
-                        <p.PlasmicLink
-                          className={classNames(
-                            projectcss.all,
-                            projectcss.a,
-                            sty.link__pPqLb
-                          )}
-                          component={Link}
-                          href={`/category/${"shiny-heart-photo-frame"}`}
-                          platform={"nextjs"}
-                        >
-                          <p.PlasmicImg
-                            alt={""}
-                            className={classNames(sty.img__hGljC)}
-                            displayHeight={"100%"}
-                            displayMaxHeight={"none"}
-                            displayMaxWidth={"100%"}
-                            displayMinHeight={"0"}
-                            displayMinWidth={"0"}
-                            displayWidth={"100%"}
-                            src={{
-                              src: "/plasmic/jbs_storefront/images/bannerHeartFramewebp.webp",
-                              fullWidth: 2659,
-                              fullHeight: 3488,
-                              aspectRatio: undefined
-                            }}
-                          />
-                        </p.PlasmicLink>
-                      </FullpageheightSlide>
-                      <FullpageheightSlide
-                        className={classNames(
-                          "__wab_instance",
-                          sty.fullpageheightSlide__bZeW8
-                        )}
-                        slot={"Tote-e-Dil"}
-                        slot2={"For all your baggage"}
-                      >
-                        <p.PlasmicLink
-                          className={classNames(
-                            projectcss.all,
-                            projectcss.a,
-                            sty.link__nkiim
-                          )}
-                          component={Link}
-                          href={`/category/${"bags"}`}
-                          platform={"nextjs"}
-                        >
-                          <p.PlasmicImg
-                            alt={""}
-                            className={classNames(sty.img___7ZkK3)}
-                            displayHeight={"100%"}
-                            displayMaxHeight={"none"}
-                            displayMaxWidth={"100%"}
-                            displayMinHeight={"0"}
-                            displayMinWidth={"0"}
-                            displayWidth={"auto"}
-                            src={{
-                              src: "/plasmic/jbs_storefront/images/bannerDilTotewebp.webp",
-                              fullWidth: 2659,
-                              fullHeight: 3488,
-                              aspectRatio: undefined
-                            }}
-                          />
-                        </p.PlasmicLink>
-                      </FullpageheightSlide>
-                    </SliderWrapper>
-                  );
-                })()
-              : null}
             {(() => {
               const child$Props = {
                 arrows: false,
-                autoplay: false,
+                autoplay: true,
                 autoplaySpeed: 2000,
+                beforeChange: p.generateStateOnChangePropForCodeComponents(
+                  $state,
+                  "currentSlide",
+                  ["sliderCarousel", "currentSlide"],
+                  SliderWrapper_Helpers
+                ),
+                className: classNames("__wab_instance", sty.sliderCarousel),
+                dots: false,
+                editingSlide: p.generateStateValueProp($state, [
+                  "sliderCarousel",
+                  "currentSlide"
+                ]),
+                initialSlide: 0,
+                pauseOnHover: false,
+                ref: ref => {
+                  $refs["sliderCarousel"] = ref;
+                },
+                sliderScopeClassName: sty["sliderCarousel__slider"],
+                slidesToScroll: 2,
+                slidesToShow: 2,
+                swipeToSlide: true
+              };
+              p.initializeCodeComponentStates(
+                $state,
+                [
+                  {
+                    name: "currentSlide",
+                    plasmicStateName: "sliderCarousel.currentSlide"
+                  }
+                ],
+                [],
+                SliderWrapper_Helpers ?? {},
+                child$Props
+              );
+
+              return (
+                <SliderWrapper
+                  data-plasmic-name={"sliderCarousel"}
+                  data-plasmic-override={overrides.sliderCarousel}
+                  {...child$Props}
+                >
+                  <FullpageheightSlide
+                    className={classNames(
+                      "__wab_instance",
+                      sty.fullpageheightSlide__fmp4
+                    )}
+                  >
+                    <p.PlasmicLink
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.a,
+                        sty.link__loRam
+                      )}
+                      component={Link}
+                      href={`/product/${"my-precious-baby-collar"}`}
+                      platform={"nextjs"}
+                    >
+                      <p.PlasmicImg
+                        alt={""}
+                        className={classNames(sty.img__a3Vuy)}
+                        displayHeight={"100%"}
+                        displayMaxHeight={"none"}
+                        displayMaxWidth={"100%"}
+                        displayMinHeight={"0"}
+                        displayMinWidth={"0"}
+                        displayWidth={"100%"}
+                        src={{
+                          src: "/plasmic/jbs_storefront/images/bannerRoseCollarwebp.webp",
+                          fullWidth: 2660,
+                          fullHeight: 3489,
+                          aspectRatio: undefined
+                        }}
+                      />
+                    </p.PlasmicLink>
+                  </FullpageheightSlide>
+                  <FullpageheightSlide
+                    className={classNames(
+                      "__wab_instance",
+                      sty.fullpageheightSlide__gwBsl
+                    )}
+                    slot={"Mehfil Lights"}
+                    slot2={"Pre lit fabric cigarettes chakhnas"}
+                  >
+                    <p.PlasmicLink
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.a,
+                        sty.link__qqfE8
+                      )}
+                      component={Link}
+                      href={`/product/${"mehfil-lights-fabric-suttas"}`}
+                      platform={"nextjs"}
+                    >
+                      <p.PlasmicImg
+                        alt={""}
+                        className={classNames(sty.img__maMc)}
+                        displayHeight={"100%"}
+                        displayMaxHeight={"none"}
+                        displayMaxWidth={"100%"}
+                        displayMinHeight={"0"}
+                        displayMinWidth={"0"}
+                        displayWidth={"auto"}
+                        src={{
+                          src: "/plasmic/jbs_storefront/images/bannerMehfilLightsCigaretteswebp.webp",
+                          fullWidth: 2660,
+                          fullHeight: 3491,
+                          aspectRatio: undefined
+                        }}
+                      />
+                    </p.PlasmicLink>
+                  </FullpageheightSlide>
+                  <FullpageheightSlide
+                    className={classNames(
+                      "__wab_instance",
+                      sty.fullpageheightSlide__wlbCj
+                    )}
+                    slot={"Bucket Hats"}
+                    slot2={"Reversible Topis in lots of juicy colours"}
+                  >
+                    <p.PlasmicLink
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.a,
+                        sty.link__wyWZm
+                      )}
+                      component={Link}
+                      href={`/category/${"bucket-hats"}`}
+                      platform={"nextjs"}
+                    >
+                      <p.PlasmicImg
+                        alt={""}
+                        className={classNames(sty.img__fbuK1)}
+                        displayHeight={"100%"}
+                        displayMaxHeight={"none"}
+                        displayMaxWidth={"100%"}
+                        displayMinHeight={"0"}
+                        displayMinWidth={"0"}
+                        displayWidth={"auto"}
+                        src={{
+                          src: "/plasmic/jbs_storefront/images/bannerYellowOrangeBucketHatwebp.webp",
+                          fullWidth: 2663,
+                          fullHeight: 3500,
+                          aspectRatio: undefined
+                        }}
+                      />
+                    </p.PlasmicLink>
+                  </FullpageheightSlide>
+                  <FullpageheightSlide
+                    className={classNames(
+                      "__wab_instance",
+                      sty.fullpageheightSlide___41ZTe
+                    )}
+                    slot={"Custom Heart  Chakhna"}
+                    slot2={"Get any embroidered text of your choice"}
+                  >
+                    <p.PlasmicLink
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.a,
+                        sty.link__xVpH
+                      )}
+                      component={Link}
+                      href={`/product/${"customisable-hearts"}`}
+                      platform={"nextjs"}
+                    >
+                      <p.PlasmicImg
+                        alt={""}
+                        className={classNames(sty.img__kn1Ug)}
+                        displayHeight={"100%"}
+                        displayMaxHeight={"none"}
+                        displayMaxWidth={"100%"}
+                        displayMinHeight={"0"}
+                        displayMinWidth={"0"}
+                        displayWidth={"100%"}
+                        src={{
+                          src: "/plasmic/jbs_storefront/images/bannerCustomHeartswebp.webp",
+                          fullWidth: 2659,
+                          fullHeight: 3488,
+                          aspectRatio: undefined
+                        }}
+                      />
+                    </p.PlasmicLink>
+                  </FullpageheightSlide>
+                  <FullpageheightSlide
+                    className={classNames(
+                      "__wab_instance",
+                      sty.fullpageheightSlide__eG5Ig
+                    )}
+                    slot={"Aashiq Topi"}
+                    slot2={"Dedicated to all you lovers out there"}
+                  >
+                    <p.PlasmicLink
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.a,
+                        sty.link___3PNaq
+                      )}
+                      component={Link}
+                      href={`/category/${"caps"}`}
+                      platform={"nextjs"}
+                    >
+                      <p.PlasmicImg
+                        alt={""}
+                        className={classNames(sty.img___5Al6)}
+                        displayHeight={"100%"}
+                        displayMaxHeight={"none"}
+                        displayMaxWidth={"100%"}
+                        displayMinHeight={"0"}
+                        displayMinWidth={"0"}
+                        displayWidth={"auto"}
+                        src={{
+                          src: "/plasmic/jbs_storefront/images/bannerAashiqCapLavenderwebp.webp",
+                          fullWidth: 2659,
+                          fullHeight: 3488,
+                          aspectRatio: undefined
+                        }}
+                      />
+                    </p.PlasmicLink>
+                  </FullpageheightSlide>
+                  <FullpageheightSlide
+                    className={classNames(
+                      "__wab_instance",
+                      sty.fullpageheightSlide__qbHhl
+                    )}
+                    slot={"AASHIQ TOPI"}
+                    slot2={"Available in lots of different flavours and sizes"}
+                  >
+                    <p.PlasmicLink
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.a,
+                        sty.link___3Dryk
+                      )}
+                      component={Link}
+                      href={`/category/${"caps"}`}
+                      platform={"nextjs"}
+                    >
+                      <p.PlasmicImg
+                        alt={""}
+                        className={classNames(sty.img__ez6Ph)}
+                        displayHeight={"100%"}
+                        displayMaxHeight={"none"}
+                        displayMaxWidth={"100%"}
+                        displayMinHeight={"0"}
+                        displayMinWidth={"0"}
+                        displayWidth={"auto"}
+                        src={{
+                          src: "/plasmic/jbs_storefront/images/bannerCapsAnimationwebp.webp",
+                          fullWidth: 2111,
+                          fullHeight: 2767,
+                          aspectRatio: undefined
+                        }}
+                      />
+                    </p.PlasmicLink>
+                  </FullpageheightSlide>
+                  <FullpageheightSlide
+                    className={classNames(
+                      "__wab_instance",
+                      sty.fullpageheightSlide__lfSj
+                    )}
+                    slot={"Photo Frames"}
+                    slot2={"For all your special memories"}
+                  >
+                    <p.PlasmicLink
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.a,
+                        sty.link__pPqLb
+                      )}
+                      component={Link}
+                      href={`/category/${"shiny-heart-photo-frame"}`}
+                      platform={"nextjs"}
+                    >
+                      <p.PlasmicImg
+                        alt={""}
+                        className={classNames(sty.img__hGljC)}
+                        displayHeight={"100%"}
+                        displayMaxHeight={"none"}
+                        displayMaxWidth={"100%"}
+                        displayMinHeight={"0"}
+                        displayMinWidth={"0"}
+                        displayWidth={"100%"}
+                        src={{
+                          src: "/plasmic/jbs_storefront/images/bannerHeartFramewebp.webp",
+                          fullWidth: 2659,
+                          fullHeight: 3488,
+                          aspectRatio: undefined
+                        }}
+                      />
+                    </p.PlasmicLink>
+                  </FullpageheightSlide>
+                  <FullpageheightSlide
+                    className={classNames(
+                      "__wab_instance",
+                      sty.fullpageheightSlide__bZeW8
+                    )}
+                    slot={"Tote-e-Dil"}
+                    slot2={"For all your baggage"}
+                  >
+                    <p.PlasmicLink
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.a,
+                        sty.link__nkiim
+                      )}
+                      component={Link}
+                      href={`/category/${"bags"}`}
+                      platform={"nextjs"}
+                    >
+                      <p.PlasmicImg
+                        alt={""}
+                        className={classNames(sty.img___7ZkK3)}
+                        displayHeight={"100%"}
+                        displayMaxHeight={"none"}
+                        displayMaxWidth={"100%"}
+                        displayMinHeight={"0"}
+                        displayMinWidth={"0"}
+                        displayWidth={"auto"}
+                        src={{
+                          src: "/plasmic/jbs_storefront/images/bannerDilTotewebp.webp",
+                          fullWidth: 2659,
+                          fullHeight: 3488,
+                          aspectRatio: undefined
+                        }}
+                      />
+                    </p.PlasmicLink>
+                  </FullpageheightSlide>
+                </SliderWrapper>
+              );
+            })()}
+            {(() => {
+              const child$Props = {
+                arrows: false,
+                autoplay: true,
+                autoplaySpeed: 1500,
                 beforeChange: p.generateStateOnChangePropForCodeComponents(
                   $state,
                   "currentSlide",
@@ -1140,10 +1138,12 @@ function PlasmicHomepage__RenderFunc(props: {
                                 ["sliderCarousel2", "currentSlide"],
                                 SliderWrapper_Helpers
                               ),
+                            centerMode: false,
                             className: classNames(
                               "__wab_instance",
                               sty.sliderCarousel2
                             ),
+                            dots: true,
                             editingSlide: p.generateStateValueProp($state, [
                               "sliderCarousel2",
                               "currentSlide"
@@ -1289,6 +1289,7 @@ function PlasmicHomepage__RenderFunc(props: {
                         })()}
                         {(() => {
                           const child$Props = {
+                            arrows: false,
                             autoplay: true,
                             autoplaySpeed: 1500,
                             beforeChange:
@@ -1298,10 +1299,12 @@ function PlasmicHomepage__RenderFunc(props: {
                                 ["sliderCarousel9", "currentSlide"],
                                 SliderWrapper_Helpers
                               ),
+                            centerMode: true,
                             className: classNames(
                               "__wab_instance",
                               sty.sliderCarousel9
                             ),
+                            dots: true,
                             editingSlide: p.generateStateValueProp($state, [
                               "sliderCarousel9",
                               "currentSlide"
@@ -1312,7 +1315,7 @@ function PlasmicHomepage__RenderFunc(props: {
                             },
                             sliderScopeClassName:
                               sty["sliderCarousel9__slider"],
-                            slidesToShow: 2,
+                            slidesToShow: 1,
                             swipeToSlide: true
                           };
                           p.initializeCodeComponentStates(
@@ -1462,6 +1465,8 @@ function PlasmicHomepage__RenderFunc(props: {
 
               {(() => {
                 const child$Props = {
+                  autoplay: true,
+                  autoplaySpeed: 2000,
                   beforeChange: p.generateStateOnChangePropForCodeComponents(
                     $state,
                     "currentSlide",
@@ -1656,6 +1661,8 @@ function PlasmicHomepage__RenderFunc(props: {
                     <React.Fragment>
                       {(() => {
                         const child$Props = {
+                          autoplay: true,
+                          autoplaySpeed: 1500,
                           beforeChange:
                             p.generateStateOnChangePropForCodeComponents(
                               $state,
@@ -1732,6 +1739,8 @@ function PlasmicHomepage__RenderFunc(props: {
                       })()}
                       {(() => {
                         const child$Props = {
+                          autoplay: true,
+                          autoplaySpeed: 1500,
                           beforeChange:
                             p.generateStateOnChangePropForCodeComponents(
                               $state,
@@ -1840,7 +1849,8 @@ function PlasmicHomepage__RenderFunc(props: {
                   </div>
                   {(() => {
                     const child$Props = {
-                      autoplay: false,
+                      arrows: true,
+                      autoplay: true,
                       beforeChange:
                         p.generateStateOnChangePropForCodeComponents(
                           $state,
@@ -1853,6 +1863,7 @@ function PlasmicHomepage__RenderFunc(props: {
                         "__wab_instance",
                         sty.sliderCarousel5
                       ),
+                      dots: true,
                       editingSlide: p.generateStateValueProp($state, [
                         "sliderCarousel5",
                         "currentSlide"
@@ -2335,7 +2346,9 @@ function PlasmicHomepage__RenderFunc(props: {
                   })()}
                   {(() => {
                     const child$Props = {
-                      autoplay: false,
+                      arrows: false,
+                      autoplay: true,
+                      autoplaySpeed: 1500,
                       beforeChange:
                         p.generateStateOnChangePropForCodeComponents(
                           $state,
@@ -2348,6 +2361,7 @@ function PlasmicHomepage__RenderFunc(props: {
                         "__wab_instance",
                         sty.sliderCarousel11
                       ),
+                      dots: true,
                       editingSlide: p.generateStateValueProp($state, [
                         "sliderCarousel11",
                         "currentSlide"
@@ -2876,6 +2890,7 @@ function PlasmicHomepage__RenderFunc(props: {
                 const child$Props = {
                   arrows: false,
                   autoplay: true,
+                  autoplaySpeed: 2000,
                   beforeChange: p.generateStateOnChangePropForCodeComponents(
                     $state,
                     "currentSlide",
@@ -2891,7 +2906,8 @@ function PlasmicHomepage__RenderFunc(props: {
                   ref: ref => {
                     $refs["sliderCarousel6"] = ref;
                   },
-                  sliderScopeClassName: sty["sliderCarousel6__slider"]
+                  sliderScopeClassName: sty["sliderCarousel6__slider"],
+                  swipeToSlide: true
                 };
                 p.initializeCodeComponentStates(
                   $state,
@@ -3122,6 +3138,8 @@ function PlasmicHomepage__RenderFunc(props: {
                       <React.Fragment>
                         {(() => {
                           const child$Props = {
+                            autoplay: true,
+                            autoplaySpeed: 1500,
                             beforeChange:
                               p.generateStateOnChangePropForCodeComponents(
                                 $state,
@@ -3203,6 +3221,8 @@ function PlasmicHomepage__RenderFunc(props: {
                         })()}
                         {(() => {
                           const child$Props = {
+                            autoplay: true,
+                            autoplaySpeed: 1500,
                             beforeChange:
                               p.generateStateOnChangePropForCodeComponents(
                                 $state,
@@ -3299,32 +3319,42 @@ function PlasmicHomepage__RenderFunc(props: {
               />
 
               <div className={classNames(projectcss.all, sty.freeBox__qfSeR)}>
-                <p.PlasmicImg
-                  alt={""}
-                  className={classNames(sty.img__zl0Fd)}
-                  displayHeight={
-                    hasVariant(globalVariants, "screen", "mobileOnly")
-                      ? "120px"
-                      : "189px"
-                  }
-                  displayMaxHeight={"none"}
-                  displayMaxWidth={
-                    hasVariant(globalVariants, "screen", "mobileOnly")
-                      ? "120px"
-                      : "219px"
-                  }
-                  displayMinHeight={"0"}
-                  displayMinWidth={"0"}
-                  displayWidth={"100%"}
-                  loading={"lazy"}
-                  src={{
-                    src: "/plasmic/jbs_storefront/images/clamwebp.webp",
-                    fullWidth: 2000,
-                    fullHeight: 3496,
-                    aspectRatio: undefined
-                  }}
-                />
-
+                <p.PlasmicLink
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.a,
+                    sty.link___7SH7
+                  )}
+                  component={Link}
+                  href={`/product/${""}`}
+                  platform={"nextjs"}
+                >
+                  <p.PlasmicImg
+                    alt={""}
+                    className={classNames(sty.img__zl0Fd)}
+                    displayHeight={
+                      hasVariant(globalVariants, "screen", "mobileOnly")
+                        ? "120px"
+                        : "189px"
+                    }
+                    displayMaxHeight={"none"}
+                    displayMaxWidth={
+                      hasVariant(globalVariants, "screen", "mobileOnly")
+                        ? "120px"
+                        : "219px"
+                    }
+                    displayMinHeight={"0"}
+                    displayMinWidth={"0"}
+                    displayWidth={"100%"}
+                    loading={"lazy"}
+                    src={{
+                      src: "/plasmic/jbs_storefront/images/clamwebp.webp",
+                      fullWidth: 2000,
+                      fullHeight: 3496,
+                      aspectRatio: undefined
+                    }}
+                  />
+                </p.PlasmicLink>
                 <p.PlasmicImg
                   alt={""}
                   className={classNames(sty.img__fdlkx)}
@@ -3387,9 +3417,9 @@ function PlasmicHomepage__RenderFunc(props: {
                   displayWidth={"auto"}
                   loading={"lazy"}
                   src={{
-                    src: "/plasmic/jbs_storefront/images/seaOfWasteWidewebp.webp",
-                    fullWidth: 2558,
-                    fullHeight: 858,
+                    src: "/plasmic/jbs_storefront/images/seaOfWasteWideNewwebp.webp",
+                    fullWidth: 5339,
+                    fullHeight: 2036,
                     aspectRatio: undefined
                   }}
                 />

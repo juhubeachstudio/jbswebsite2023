@@ -109,9 +109,9 @@ function PlasmicGoToCartButton__RenderFunc(props: {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames("__wab_instance", sty.root)}
-      color={"red"}
+      color={"clear"}
       link={`/cart`}
-      size={"compact"}
+      size={"minimal"}
     >
       <Cart1SvgIcon
         data-plasmic-name={"svg"}
@@ -198,7 +198,6 @@ type NodeOverridesType<T extends NodeNameType> = Pick<
   PlasmicGoToCartButton__OverridesType,
   DescendantsType<T>
 >;
-
 type NodeComponentProps<T extends NodeNameType> =
   // Explicitly specify variants, args, and overrides as objects
   {

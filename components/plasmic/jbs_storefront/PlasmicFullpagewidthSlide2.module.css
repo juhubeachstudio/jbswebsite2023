@@ -57,13 +57,14 @@
   max-width: 100%;
   left: auto;
   top: auto;
-  bottom: 5%;
+  bottom: 0px;
   right: 0px;
-  padding: 8px 56px 8px 8px;
+  padding: 0px 5% 5% 0px;
 }
 @media (min-width: 0px) and (max-width: 768px) {
   .freeBox___6Zvm9 {
-    padding: 8px 32px;
+    padding-right: 10%;
+    padding-bottom: 10%;
   }
 }
 .freeBox___1WXf6 {

@@ -1968,6 +1968,11 @@
           "id": "xm6KS1uDpvOh",
           "name": "The Juhu Beach wide.webp",
           "filePath": "../public/plasmic/jbs_storefront/images/theJuhuBeachWidewebp.webp"
+        },
+        {
+          "id": "3xBUBPttvmIR",
+          "name": "Sea of Waste wide new.webp",
+          "filePath": "../public/plasmic/jbs_storefront/images/seaOfWasteWideNewwebp.webp"
         }
       ],
       "indirect": false,

@@ -5,10 +5,10 @@
 .svg {
   object-fit: cover;
   width: 100%;
-  height: 2em;
+  height: 30px;
   color: var(--token-Yq556PvPjGii);
-  margin-bottom: 0px;
   min-width: 0;
+  margin: 2px;
 }
 .freeBox__x6XnG {
   display: flex;

@@ -102,13 +102,11 @@ function PlasmicDocumentPage__RenderFunc(props: {
   const currentUser = p.useCurrentUser?.() || {};
 
   return (
-    <p.Stack
-      as={"div"}
+    <div
       data-plasmic-name={"root"}
       data-plasmic-override={overrides.root}
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
-      hasGap={true}
       className={classNames(
         projectcss.all,
         projectcss.root_reset,
@@ -198,12 +196,11 @@ function PlasmicDocumentPage__RenderFunc(props: {
               </React.Fragment>
             </div>
           ),
-
           value: args.slot,
           className: classNames(sty.slotTargetSlot)
         })}
       </div>
-    </p.Stack>
+    </div>
   ) as React.ReactElement | null;
 }
 
@@ -222,7 +219,6 @@ type NodeOverridesType<T extends NodeNameType> = Pick<
   PlasmicDocumentPage__OverridesType,
   DescendantsType<T>
 >;
-
 type NodeComponentProps<T extends NodeNameType> =
   // Explicitly specify variants, args, and overrides as objects
   {

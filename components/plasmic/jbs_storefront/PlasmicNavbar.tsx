@@ -149,53 +149,47 @@ function PlasmicNavbar__RenderFunc(props: {
           </div>
         </Marquee>
       </div>
-      <div className={classNames(projectcss.all, sty.freeBox__gyInk)}>
+      <p.Stack
+        as={"div"}
+        hasGap={true}
+        className={classNames(projectcss.all, sty.freeBox__kesXh)}
+      >
+        <div className={classNames(projectcss.all, sty.freeBox__xNppI)}>
+          <JbsMenu
+            data-plasmic-name={"jbsMenu"}
+            data-plasmic-override={overrides.jbsMenu}
+            className={classNames("__wab_instance", sty.jbsMenu)}
+          />
+        </div>
+        <div className={classNames(projectcss.all, sty.freeBox__yR3M)}>
+          <p.PlasmicLink
+            data-plasmic-name={"link"}
+            data-plasmic-override={overrides.link}
+            className={classNames(projectcss.all, projectcss.a, sty.link)}
+            component={Link}
+            href={`/`}
+            platform={"nextjs"}
+          >
+            <LogowithbordersvgIcon
+              data-plasmic-name={"svg"}
+              data-plasmic-override={overrides.svg}
+              className={classNames(projectcss.all, sty.svg)}
+              role={"img"}
+            />
+          </p.PlasmicLink>
+        </div>
         <p.Stack
           as={"div"}
           hasGap={true}
-          className={classNames(projectcss.all, sty.freeBox__kesXh)}
+          className={classNames(projectcss.all, sty.freeBox__zbKg3)}
         >
-          <p.Stack
-            as={"div"}
-            hasGap={true}
-            className={classNames(projectcss.all, sty.freeBox__xNppI)}
-          >
-            <JbsMenu
-              data-plasmic-name={"jbsMenu"}
-              data-plasmic-override={overrides.jbsMenu}
-              className={classNames("__wab_instance", sty.jbsMenu)}
-            />
-          </p.Stack>
-          <div className={classNames(projectcss.all, sty.freeBox__yR3M)}>
-            <p.PlasmicLink
-              data-plasmic-name={"link"}
-              data-plasmic-override={overrides.link}
-              className={classNames(projectcss.all, projectcss.a, sty.link)}
-              component={Link}
-              href={`/`}
-              platform={"nextjs"}
-            >
-              <LogowithbordersvgIcon
-                data-plasmic-name={"svg"}
-                data-plasmic-override={overrides.svg}
-                className={classNames(projectcss.all, sty.svg)}
-                role={"img"}
-              />
-            </p.PlasmicLink>
-          </div>
-          <p.Stack
-            as={"div"}
-            hasGap={true}
-            className={classNames(projectcss.all, sty.freeBox__zbKg3)}
-          >
-            <GoToCartButton
-              data-plasmic-name={"goToCartButton"}
-              data-plasmic-override={overrides.goToCartButton}
-              className={classNames("__wab_instance", sty.goToCartButton)}
-            />
-          </p.Stack>
+          <GoToCartButton
+            data-plasmic-name={"goToCartButton"}
+            data-plasmic-override={overrides.goToCartButton}
+            className={classNames("__wab_instance", sty.goToCartButton)}
+          />
         </p.Stack>
-      </div>
+      </p.Stack>
     </div>
   ) as React.ReactElement | null;
 }

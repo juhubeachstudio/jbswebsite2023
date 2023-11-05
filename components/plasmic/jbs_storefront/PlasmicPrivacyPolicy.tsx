@@ -199,7 +199,6 @@ function PlasmicPrivacyPolicy__RenderFunc(props: {
                         </li>
                       </ul>
                     }
-
                     <React.Fragment>{""}</React.Fragment>
                     {
                       <ul
@@ -275,7 +274,6 @@ function PlasmicPrivacyPolicy__RenderFunc(props: {
                         </li>
                       </ul>
                     }
-
                     <React.Fragment>
                       {
                         "\njuhubeachstudio.com follows a standard procedure of using log files. These files log visitors when they visit websites. All hosting companies do this and a part of hosting services' analytics. The information collected by log files include internet protocol (IP) addresses, browser type, Internet Service Provider (ISP), date and time stamp, referring/exit pages, and possibly the number of clicks. These are not linked to any information that is personally identifiable. The purpose of the information is for analyzing trends, administering the site, tracking users' movement on the website, and gathering demographic information.\n\n"
@@ -346,7 +344,6 @@ function PlasmicPrivacyPolicy__RenderFunc(props: {
                         </li>
                       </ul>
                     }
-
                     <React.Fragment>{"\n"}</React.Fragment>
                     <span
                       className={"plasmic_default__all plasmic_default__span"}
@@ -446,7 +443,6 @@ function PlasmicPrivacyPolicy__RenderFunc(props: {
                         </li>
                       </ul>
                     }
-
                     <React.Fragment>
                       {
                         "\nIf you make a request, we have one month to respond to you. If you would like to exercise any of these rights, please contact us.\n\n"
@@ -497,7 +493,6 @@ type NodeOverridesType<T extends NodeNameType> = Pick<
   PlasmicPrivacyPolicy__OverridesType,
   DescendantsType<T>
 >;
-
 type NodeComponentProps<T extends NodeNameType> =
   // Explicitly specify variants, args, and overrides as objects
   {

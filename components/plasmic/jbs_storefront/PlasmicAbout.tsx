@@ -36,6 +36,7 @@ import {
   deriveRenderOpts,
   ensureGlobalVariants
 } from "@plasmicapp/react-web";
+import Navbar from "../../Navbar"; // plasmic-import: zY4oOp60G2/component
 import FullPage from "../../FullPage"; // plasmic-import: VpRM2nIn0R/component
 import Section from "../../Section"; // plasmic-import: GMAR4VOl00/component
 import { SliderWrapper } from "@plasmicpkgs/react-slick"; // plasmic-import: HOQUyOpClJ/codeComponent
@@ -65,6 +66,7 @@ export const PlasmicAbout__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicAbout__OverridesType = {
   root?: p.Flex<"div">;
+  navbar?: p.Flex<typeof Navbar>;
   fullPage?: p.Flex<typeof FullPage>;
   sliderCarousel?: p.Flex<typeof SliderWrapper>;
   h1?: p.Flex<"h1">;
@@ -210,6 +212,12 @@ function PlasmicAbout__RenderFunc(props: {
             sty.root
           )}
         >
+          <Navbar
+            data-plasmic-name={"navbar"}
+            data-plasmic-override={overrides.navbar}
+            className={classNames("__wab_instance", sty.navbar)}
+          />
+
           <FullPage
             data-plasmic-name={"fullPage"}
             data-plasmic-override={overrides.fullPage}
@@ -677,47 +685,53 @@ function PlasmicAbout__RenderFunc(props: {
                   }}
                 />
 
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__tr9LR
-                  )}
+                <p.Stack
+                  as={"div"}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.freeBox__dqUkO)}
                 >
-                  <React.Fragment>
-                    <span
-                      className={"plasmic_default__all plasmic_default__span"}
-                      style={{ fontStyle: "italic", fontWeight: 700 }}
-                    >
-                      {"A"}
-                    </span>
-                    <React.Fragment>{""}</React.Fragment>
-                    <span
-                      className={"plasmic_default__all plasmic_default__span"}
-                      style={{ fontStyle: "italic", fontWeight: 400 }}
-                    >
-                      {"dj."}
-                    </span>
-                    <React.Fragment>{"\n"}</React.Fragment>
-                    <span
-                      className={"plasmic_default__all plasmic_default__span"}
-                      style={{ fontWeight: 700 }}
-                    >
-                      {"Term of endearment, derogatory"}
-                    </span>
-                  </React.Fragment>
-                </div>
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__pjOvw
-                  )}
-                >
-                  {
-                    "Someone who takes timepass very seriously and may appear to be into random pointlessstuff (timepass) and may be dismissed as good for nothing, but the stuff they\u2019re into is actually quite fascinating and theyre super passionate about it and you love that about them. \n\u201cDude they\u2019re such waste fellows i love itt\u201d"
-                  }
-                </div>
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__tr9LR
+                    )}
+                  >
+                    <React.Fragment>
+                      <span
+                        className={"plasmic_default__all plasmic_default__span"}
+                        style={{ fontStyle: "italic", fontWeight: 700 }}
+                      >
+                        {"A"}
+                      </span>
+                      <React.Fragment>{""}</React.Fragment>
+                      <span
+                        className={"plasmic_default__all plasmic_default__span"}
+                        style={{ fontStyle: "italic", fontWeight: 400 }}
+                      >
+                        {"dj."}
+                      </span>
+                      <React.Fragment>{"\n"}</React.Fragment>
+                      <span
+                        className={"plasmic_default__all plasmic_default__span"}
+                        style={{ fontWeight: 700 }}
+                      >
+                        {"Term of endearment, derogatory"}
+                      </span>
+                    </React.Fragment>
+                  </div>
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__pjOvw
+                    )}
+                  >
+                    {
+                      "Someone who takes timepass very seriously and may appear to be into random pointlessstuff (timepass) and may be dismissed as good for nothing, but the stuff they\u2019re into is actually quite fascinating and theyre super passionate about it and you love that about them. \n\u201cDude they\u2019re such waste fellows i love itt\u201d"
+                    }
+                  </div>
+                </p.Stack>
               </p.Stack>
             </Section>
             <Section
@@ -730,7 +744,11 @@ function PlasmicAbout__RenderFunc(props: {
                 )}
               />
 
-              <div className={classNames(projectcss.all, sty.freeBox__oOVd)}>
+              <p.Stack
+                as={"div"}
+                hasGap={true}
+                className={classNames(projectcss.all, sty.freeBox__oOVd)}
+              >
                 <div
                   className={classNames(projectcss.all, sty.freeBox___30VTk)}
                 >
@@ -751,44 +769,40 @@ function PlasmicAbout__RenderFunc(props: {
                     </React.Fragment>
                   </div>
                 </div>
-                <p.Stack
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.columns__uym5W)}
-                >
-                  <div
-                    className={classNames(projectcss.all, sty.column__adnja)}
-                  >
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text__qcu10
-                      )}
-                    >
-                      {
-                        "We work with an amazing team of women, our very own impossible mission task force, each with their own special skill sets. Women come in with little to no prior experience and are trained in skills such as handwork, embroidery, cutting, stuffing, hand and machine stitching."
-                      }
-                    </div>
-                  </div>
-                  <div
-                    className={classNames(projectcss.all, sty.column__jIvsE)}
-                  >
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text___6BHct
-                      )}
-                    >
-                      {
-                        "We want to create lots of employment opportunities for women to gain financial independence. We want our studio to be a safe, happy workspace, where we can all learn new skills, techniques, do some creative problem solving, and make beautiful things together."
-                      }
-                    </div>
-                  </div>
-                </p.Stack>
-              </div>
+              </p.Stack>
             </Section>
+            <p.Stack
+              as={"div"}
+              hasGap={true}
+              className={classNames(projectcss.all, sty.columns__uym5W)}
+            >
+              <div className={classNames(projectcss.all, sty.column__adnja)}>
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__qcu10
+                  )}
+                >
+                  {
+                    "We work with an amazing team of women, our very own impossible mission task force, each with their own special skill sets. Women come in with little to no prior experience and are trained in skills such as handwork, embroidery, cutting, stuffing, hand and machine stitching."
+                  }
+                </div>
+              </div>
+              <div className={classNames(projectcss.all, sty.column__jIvsE)}>
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text___6BHct
+                  )}
+                >
+                  {
+                    "We want to create lots of employment opportunities for women to gain financial independence. We want our studio to be a safe, happy workspace, where we can all learn new skills, techniques, do some creative problem solving, and make beautiful things together."
+                  }
+                </div>
+              </div>
+            </p.Stack>
             <div className={classNames(projectcss.all, sty.columns__rf6UN)}>
               <div className={classNames(projectcss.all, sty.column__dIz1)}>
                 <p.PlasmicImg
@@ -858,71 +872,65 @@ function PlasmicAbout__RenderFunc(props: {
                     </React.Fragment>
                   </div>
                 </div>
-                <p.Stack
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.columns__ta5Mn)}
-                >
-                  <div className={classNames(projectcss.all, sty.column__cLaR)}>
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text___5DsUv
-                      )}
-                    >
-                      <React.Fragment>
-                        <React.Fragment>
-                          {"We were very particular about the products "}
-                        </React.Fragment>
-                        <span
-                          className={
-                            "plasmic_default__all plasmic_default__span"
-                          }
-                          style={{ fontWeight: 700 }}
-                        >
-                          {"not looking like they\u2019re made of waste "}
-                        </span>
-                        <React.Fragment>
-                          {
-                            "so the process is quite painful now x but making these products is also our favourite thing about this business cuz when things work out its the best feeling ever, our nasha of choice X."
-                          }
-                        </React.Fragment>
-                      </React.Fragment>
-                    </div>
-                  </div>
-                  <div
-                    className={classNames(projectcss.all, sty.column__kCdXm)}
-                  >
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text__e09Vi
-                      )}
-                    >
-                      <React.Fragment>
-                        <React.Fragment>
-                          {
-                            "90% of the process takes place in the studio and any waste that we generate in the process gets sorted and stored for use in other projects. "
-                          }
-                        </React.Fragment>
-                        <span
-                          className={
-                            "plasmic_default__all plasmic_default__span"
-                          }
-                          style={{ fontWeight: 700 }}
-                        >
-                          {
-                            "Typically, you design something and then go get the materials, but for us it starts with finding materials first."
-                          }
-                        </span>
-                      </React.Fragment>
-                    </div>
-                  </div>
-                </p.Stack>
               </div>
             </Section>
+            <p.Stack
+              as={"div"}
+              hasGap={true}
+              className={classNames(projectcss.all, sty.columns__k2nd)}
+            >
+              <div className={classNames(projectcss.all, sty.column__ooRoi)}>
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__veDu4
+                  )}
+                >
+                  <React.Fragment>
+                    <React.Fragment>
+                      {"We were very particular about the products "}
+                    </React.Fragment>
+                    <span
+                      className={"plasmic_default__all plasmic_default__span"}
+                      style={{ fontWeight: 700 }}
+                    >
+                      {"not looking like they\u2019re made of waste "}
+                    </span>
+                    <React.Fragment>
+                      {
+                        "so the process is quite painful now x but making these products is also our favourite thing about this business cuz when things work out its the best feeling ever, our nasha of choice X."
+                      }
+                    </React.Fragment>
+                  </React.Fragment>
+                </div>
+              </div>
+              <div className={classNames(projectcss.all, sty.column__iZuRq)}>
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__dnLcv
+                  )}
+                >
+                  <React.Fragment>
+                    <React.Fragment>
+                      {
+                        "90% of the process takes place in the studio and any waste that we generate in the process gets sorted and stored for use in other projects. "
+                      }
+                    </React.Fragment>
+                    <span
+                      className={"plasmic_default__all plasmic_default__span"}
+                      style={{ fontWeight: 700 }}
+                    >
+                      {
+                        "Typically, you design something and then go get the materials, but for us it starts with finding materials first."
+                      }
+                    </span>
+                  </React.Fragment>
+                </div>
+              </div>
+            </p.Stack>
             <Section
               className={classNames("__wab_instance", sty.section___6M8CL)}
             >
@@ -2197,6 +2205,15 @@ function PlasmicAbout__RenderFunc(props: {
               </div>
               <div className={classNames(projectcss.all, sty.freeBox__rsaqC)}>
                 <div className={classNames(projectcss.all, sty.freeBox__vFjwm)}>
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__xLfkL
+                    )}
+                  >
+                    {"1"}
+                  </div>
                   <p.PlasmicImg
                     alt={""}
                     className={classNames(sty.img__vCli7)}
@@ -2228,6 +2245,15 @@ function PlasmicAbout__RenderFunc(props: {
                   </div>
                 </div>
                 <div className={classNames(projectcss.all, sty.freeBox__m6NRl)}>
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__iojmI
+                    )}
+                  >
+                    {"2"}
+                  </div>
                   <p.PlasmicImg
                     alt={""}
                     className={classNames(sty.img__bgq7B)}
@@ -2259,6 +2285,15 @@ function PlasmicAbout__RenderFunc(props: {
                   </div>
                 </div>
                 <div className={classNames(projectcss.all, sty.freeBox__qg19I)}>
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__aSsB
+                    )}
+                  >
+                    {"3"}
+                  </div>
                   <p.PlasmicImg
                     alt={""}
                     className={classNames(sty.img__kAbar)}
@@ -2290,6 +2325,15 @@ function PlasmicAbout__RenderFunc(props: {
                   </div>
                 </div>
                 <div className={classNames(projectcss.all, sty.freeBox__hluNl)}>
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__aCsjh
+                    )}
+                  >
+                    {"4"}
+                  </div>
                   <p.PlasmicImg
                     alt={""}
                     className={classNames(sty.img__tNcCq)}
@@ -2321,6 +2365,15 @@ function PlasmicAbout__RenderFunc(props: {
                   </div>
                 </div>
                 <div className={classNames(projectcss.all, sty.freeBox___6Of)}>
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text___2BFjl
+                    )}
+                  >
+                    {"5"}
+                  </div>
                   <p.PlasmicImg
                     alt={""}
                     className={classNames(sty.img__nujIn)}
@@ -2352,217 +2405,280 @@ function PlasmicAbout__RenderFunc(props: {
                   </div>
                 </div>
               </div>
-              {(() => {
-                const child$Props = {
-                  arrows: false,
-                  beforeChange: p.generateStateOnChangePropForCodeComponents(
+              <div className={classNames(projectcss.all, sty.freeBox__nk9J0)}>
+                {(() => {
+                  const child$Props = {
+                    arrows: true,
+                    beforeChange: p.generateStateOnChangePropForCodeComponents(
+                      $state,
+                      "currentSlide",
+                      ["sliderCarousel6", "currentSlide"],
+                      SliderWrapper_Helpers
+                    ),
+                    className: classNames(
+                      "__wab_instance",
+                      sty.sliderCarousel6
+                    ),
+                    dots: true,
+                    editingSlide: p.generateStateValueProp($state, [
+                      "sliderCarousel6",
+                      "currentSlide"
+                    ]),
+                    initialSlide: 0,
+                    ref: ref => {
+                      $refs["sliderCarousel6"] = ref;
+                    },
+                    sliderScopeClassName: sty["sliderCarousel6__slider"],
+                    slidesToShow: 1
+                  };
+                  p.initializeCodeComponentStates(
                     $state,
-                    "currentSlide",
-                    ["sliderCarousel6", "currentSlide"],
-                    SliderWrapper_Helpers
-                  ),
-                  className: classNames("__wab_instance", sty.sliderCarousel6),
-                  editingSlide: p.generateStateValueProp($state, [
-                    "sliderCarousel6",
-                    "currentSlide"
-                  ]),
-                  initialSlide: 0,
-                  ref: ref => {
-                    $refs["sliderCarousel6"] = ref;
-                  },
-                  sliderScopeClassName: sty["sliderCarousel6__slider"],
-                  slidesToShow: 2
-                };
-                p.initializeCodeComponentStates(
-                  $state,
-                  [
-                    {
-                      name: "currentSlide",
-                      plasmicStateName: "sliderCarousel6.currentSlide"
-                    }
-                  ],
-                  [],
-                  SliderWrapper_Helpers ?? {},
-                  child$Props
-                );
+                    [
+                      {
+                        name: "currentSlide",
+                        plasmicStateName: "sliderCarousel6.currentSlide"
+                      }
+                    ],
+                    [],
+                    SliderWrapper_Helpers ?? {},
+                    child$Props
+                  );
 
-                return (
-                  <SliderWrapper
-                    data-plasmic-name={"sliderCarousel6"}
-                    data-plasmic-override={overrides.sliderCarousel6}
-                    {...child$Props}
-                  >
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__onjfU)}
+                  return (
+                    <SliderWrapper
+                      data-plasmic-name={"sliderCarousel6"}
+                      data-plasmic-override={overrides.sliderCarousel6}
+                      {...child$Props}
                     >
-                      <p.PlasmicImg
-                        alt={""}
-                        className={classNames(sty.img__rjiPc)}
-                        displayHeight={"auto"}
-                        displayMaxHeight={"none"}
-                        displayMaxWidth={"100%"}
-                        displayMinHeight={"0"}
-                        displayMinWidth={"0"}
-                        displayWidth={"auto"}
-                        loading={"lazy"}
-                        src={{
-                          src: "/plasmic/jbs_storefront/images/agendaClothesPilewebp.webp",
-                          fullWidth: 1066,
-                          fullHeight: 1021,
-                          aspectRatio: undefined
-                        }}
-                      />
-
                       <div
                         className={classNames(
                           projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text__nuzHe
+                          sty.freeBox__ib7BC
                         )}
                       >
-                        {
-                          "To explore pre-and post consumer textile waste as a viable raw material for a scalable enterprise. Basically build a kachre ka empire"
-                        }
-                      </div>
-                    </div>
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        sty.freeBox___7Ai4Q
-                      )}
-                    >
-                      <p.PlasmicImg
-                        alt={""}
-                        className={classNames(sty.img__rahso)}
-                        displayHeight={"auto"}
-                        displayMaxHeight={"none"}
-                        displayMaxWidth={"100%"}
-                        displayMinHeight={"0"}
-                        displayMinWidth={"0"}
-                        displayWidth={"auto"}
-                        loading={"lazy"}
-                        src={{
-                          src: "/plasmic/jbs_storefront/images/agendaMousewebp.webp",
-                          fullWidth: 1066,
-                          fullHeight: 1022,
-                          aspectRatio: undefined
-                        }}
-                      />
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__rCz
+                          )}
+                        >
+                          {"1"}
+                        </div>
+                        <p.PlasmicImg
+                          alt={""}
+                          className={classNames(sty.img__wahg6)}
+                          displayHeight={"auto"}
+                          displayMaxHeight={"none"}
+                          displayMaxWidth={"100%"}
+                          displayMinHeight={"0"}
+                          displayMinWidth={"0"}
+                          displayWidth={"auto"}
+                          loading={"lazy"}
+                          src={{
+                            src: "/plasmic/jbs_storefront/images/agendaClothesPilewebp.webp",
+                            fullWidth: 1066,
+                            fullHeight: 1021,
+                            aspectRatio: undefined
+                          }}
+                        />
 
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__abGbq
+                          )}
+                        >
+                          {
+                            "To explore pre-and post consumer textile waste as a viable raw material for a scalable enterprise. Basically build a kachre ka empire"
+                          }
+                        </div>
+                      </div>
                       <div
                         className={classNames(
                           projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text__vp9FA
+                          sty.freeBox__rPvsU
                         )}
                       >
-                        {
-                          "Make beautiful, magical, high concept, high quality products that we\u2019ve always dreamed of making and having"
-                        }
-                      </div>
-                    </div>
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__uYeI9)}
-                    >
-                      <p.PlasmicImg
-                        alt={""}
-                        className={classNames(sty.img__xHufh)}
-                        displayHeight={"auto"}
-                        displayMaxHeight={"none"}
-                        displayMaxWidth={"100%"}
-                        displayMinHeight={"0"}
-                        displayMinWidth={"0"}
-                        displayWidth={"auto"}
-                        loading={"lazy"}
-                        src={{
-                          src: "/plasmic/jbs_storefront/images/agendaCoconutwebp.webp",
-                          fullWidth: 1066,
-                          fullHeight: 1022,
-                          aspectRatio: undefined
-                        }}
-                      />
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__ld3If
+                          )}
+                        >
+                          {"2"}
+                        </div>
+                        <p.PlasmicImg
+                          alt={""}
+                          className={classNames(sty.img__h1BYg)}
+                          displayHeight={"auto"}
+                          displayMaxHeight={"none"}
+                          displayMaxWidth={"100%"}
+                          displayMinHeight={"0"}
+                          displayMinWidth={"0"}
+                          displayWidth={"auto"}
+                          loading={"lazy"}
+                          src={{
+                            src: "/plasmic/jbs_storefront/images/agendaMousewebp.webp",
+                            fullWidth: 1066,
+                            fullHeight: 1022,
+                            aspectRatio: undefined
+                          }}
+                        />
 
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text___2TuBq
+                          )}
+                        >
+                          {
+                            "Make beautiful, magical, high concept, high quality products that we\u2019ve always dreamed of making and having"
+                          }
+                        </div>
+                      </div>
                       <div
                         className={classNames(
                           projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text__hrW5
+                          sty.freeBox___6OAvQ
                         )}
                       >
-                        {
-                          "Create a community of other creative wastefellows who share our love for beautiful sustainable products and an unshitty future for ALL"
-                        }
-                      </div>
-                    </div>
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__splvO)}
-                    >
-                      <p.PlasmicImg
-                        alt={""}
-                        className={classNames(sty.img__cdBH)}
-                        displayHeight={"auto"}
-                        displayMaxHeight={"none"}
-                        displayMaxWidth={"100%"}
-                        displayMinHeight={"0"}
-                        displayMinWidth={"0"}
-                        displayWidth={"auto"}
-                        loading={"lazy"}
-                        src={{
-                          src: "/plasmic/jbs_storefront/images/agendaHammerwebp.webp",
-                          fullWidth: 1066,
-                          fullHeight: 1022,
-                          aspectRatio: undefined
-                        }}
-                      />
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__qAsM6
+                          )}
+                        >
+                          {"3"}
+                        </div>
+                        <p.PlasmicImg
+                          alt={""}
+                          className={classNames(sty.img__seB1F)}
+                          displayHeight={"auto"}
+                          displayMaxHeight={"none"}
+                          displayMaxWidth={"100%"}
+                          displayMinHeight={"0"}
+                          displayMinWidth={"0"}
+                          displayWidth={"auto"}
+                          loading={"lazy"}
+                          src={{
+                            src: "/plasmic/jbs_storefront/images/agendaCoconutwebp.webp",
+                            fullWidth: 1066,
+                            fullHeight: 1022,
+                            aspectRatio: undefined
+                          }}
+                        />
 
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text___08Ce7
+                          )}
+                        >
+                          {
+                            "Create a community of other creative wastefellows who share our love for beautiful sustainable products and an unshitty future for ALL"
+                          }
+                        </div>
+                      </div>
                       <div
                         className={classNames(
                           projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text__jxqfD
+                          sty.freeBox__gt88H
                         )}
                       >
-                        {
-                          "Create lots and lots of jobs and build a highly skilled team of women who can make anything and everything"
-                        }
-                      </div>
-                    </div>
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__e7Tjp)}
-                    >
-                      <p.PlasmicImg
-                        alt={""}
-                        className={classNames(sty.img__wICb)}
-                        displayHeight={"auto"}
-                        displayMaxHeight={"none"}
-                        displayMaxWidth={"100%"}
-                        displayMinHeight={"0"}
-                        displayMinWidth={"0"}
-                        displayWidth={"auto"}
-                        loading={"lazy"}
-                        src={{
-                          src: "/plasmic/jbs_storefront/images/agendaTreasurewebp.webp",
-                          fullWidth: 1066,
-                          fullHeight: 1021,
-                          aspectRatio: undefined
-                        }}
-                      />
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__s4Gp8
+                          )}
+                        >
+                          {"4"}
+                        </div>
+                        <p.PlasmicImg
+                          alt={""}
+                          className={classNames(sty.img__kcCf)}
+                          displayHeight={"auto"}
+                          displayMaxHeight={"none"}
+                          displayMaxWidth={"100%"}
+                          displayMinHeight={"0"}
+                          displayMinWidth={"0"}
+                          displayWidth={"auto"}
+                          loading={"lazy"}
+                          src={{
+                            src: "/plasmic/jbs_storefront/images/agendaHammerwebp.webp",
+                            fullWidth: 1066,
+                            fullHeight: 1022,
+                            aspectRatio: undefined
+                          }}
+                        />
 
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__r0Rf6
+                          )}
+                        >
+                          {
+                            "Create lots and lots of jobs and build a highly skilled team of women who can make anything and everything"
+                          }
+                        </div>
+                      </div>
                       <div
                         className={classNames(
                           projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text__ihgB3
+                          sty.freeBox__s04Vq
                         )}
                       >
-                        {
-                          "Get funding and start a giant pink factory with a recycling plant that runs on green energy"
-                        }
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__l9VSb
+                          )}
+                        >
+                          {"5"}
+                        </div>
+                        <p.PlasmicImg
+                          alt={""}
+                          className={classNames(sty.img__jq1PA)}
+                          displayHeight={"auto"}
+                          displayMaxHeight={"none"}
+                          displayMaxWidth={"100%"}
+                          displayMinHeight={"0"}
+                          displayMinWidth={"0"}
+                          displayWidth={"auto"}
+                          loading={"lazy"}
+                          src={{
+                            src: "/plasmic/jbs_storefront/images/agendaTreasurewebp.webp",
+                            fullWidth: 1066,
+                            fullHeight: 1021,
+                            aspectRatio: undefined
+                          }}
+                        />
+
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__r4MGv
+                          )}
+                        >
+                          {
+                            "Get funding and start a giant pink factory with a recycling plant that runs on green energy"
+                          }
+                        </div>
                       </div>
-                    </div>
-                  </SliderWrapper>
-                );
-              })()}
+                    </SliderWrapper>
+                  );
+                })()}
+              </div>
             </Section>
           </FullPage>
         </div>
@@ -2574,6 +2690,7 @@ function PlasmicAbout__RenderFunc(props: {
 const PlasmicDescendants = {
   root: [
     "root",
+    "navbar",
     "fullPage",
     "sliderCarousel",
     "h1",
@@ -2583,6 +2700,7 @@ const PlasmicDescendants = {
     "sliderCarousel5",
     "sliderCarousel6"
   ],
+  navbar: ["navbar"],
   fullPage: [
     "fullPage",
     "sliderCarousel",
@@ -2606,6 +2724,7 @@ type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
+  navbar: typeof Navbar;
   fullPage: typeof FullPage;
   sliderCarousel: typeof SliderWrapper;
   h1: "h1";
@@ -2676,6 +2795,7 @@ export const PlasmicAbout = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
+    navbar: makeNodeComponent("navbar"),
     fullPage: makeNodeComponent("fullPage"),
     sliderCarousel: makeNodeComponent("sliderCarousel"),
     h1: makeNodeComponent("h1"),

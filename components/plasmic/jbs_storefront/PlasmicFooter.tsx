@@ -39,8 +39,6 @@ import {
 import Blackyellowborder from "../../Blackyellowborder"; // plasmic-import: qeyEUvMFwY/component
 import Button2 from "../../Button2"; // plasmic-import: yEsI5slGwPm/component
 
-import { useScreenVariants as useScreenVariants_6Hzia3M7Np4Ulu } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6hzia3m7Np4ulu/globalVariant
-
 import "@plasmicapp/react-web/lib/plasmic.css";
 
 import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic_antd_5_hostless.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
@@ -67,7 +65,6 @@ export const PlasmicFooter__ArgProps = new Array<ArgPropType>();
 export type PlasmicFooter__OverridesType = {
   root?: p.Flex<"div">;
   blackyellowborder?: p.Flex<typeof Blackyellowborder>;
-  columns?: p.Flex<"div">;
   h5?: p.Flex<"h5">;
 };
 
@@ -106,10 +103,6 @@ function PlasmicFooter__RenderFunc(props: {
 
   const currentUser = p.useCurrentUser?.() || {};
 
-  const globalVariants = ensureGlobalVariants({
-    screen: useScreenVariants_6Hzia3M7Np4Ulu()
-  });
-
   return (
     <div
       data-plasmic-name={"root"}
@@ -135,267 +128,255 @@ function PlasmicFooter__RenderFunc(props: {
       <div className={classNames(projectcss.all, sty.freeBox__anaXj)}>
         <p.Stack
           as={"div"}
-          data-plasmic-name={"columns"}
-          data-plasmic-override={overrides.columns}
           hasGap={true}
-          className={classNames(projectcss.all, sty.columns)}
+          className={classNames(projectcss.all, sty.freeBox__iqeF4)}
         >
+          <div
+            className={classNames(
+              projectcss.all,
+              projectcss.__wab_text,
+              sty.text__tmrfe
+            )}
+          >
+            <React.Fragment>
+              <React.Fragment>{""}</React.Fragment>
+              {
+                <h5
+                  data-plasmic-name={"h5"}
+                  data-plasmic-override={overrides.h5}
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.h5,
+                    projectcss.__wab_text,
+                    sty.h5
+                  )}
+                >
+                  {"Get monthly updates on drops, restocks and events "}
+                </h5>
+              }
+              <React.Fragment>{""}</React.Fragment>
+            </React.Fragment>
+          </div>
+          <Button2
+            alignment={"leftAligned"}
+            className={classNames("__wab_instance", sty.button2__p6Lu)}
+            color={"red"}
+            link={"mailto:juhubeachstudio@gmail.com"}
+            showEndIcon={true}
+          >
+            {"juhubeachstudio@gmail.com"}
+          </Button2>
           <p.Stack
             as={"div"}
             hasGap={true}
-            className={classNames(projectcss.all, sty.column__l4HnA)}
+            className={classNames(projectcss.all, sty.freeBox__ovOtb)}
           >
             <div
               className={classNames(
                 projectcss.all,
                 projectcss.__wab_text,
-                sty.text__tmrfe
+                sty.text__cOKrA
               )}
             >
-              <React.Fragment>
-                <React.Fragment>{""}</React.Fragment>
-                {
-                  <h5
-                    data-plasmic-name={"h5"}
-                    data-plasmic-override={overrides.h5}
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.h5,
-                      projectcss.__wab_text,
-                      sty.h5
-                    )}
-                  >
-                    {"Get monthly updates on drops, restocks and events "}
-                  </h5>
-                }
-                <React.Fragment>{""}</React.Fragment>
-              </React.Fragment>
+              {"Find us"}
             </div>
-            <Button2
-              alignment={"leftAligned"}
-              className={classNames("__wab_instance", sty.button2__p6Lu)}
-              color={"red"}
-              link={"mailto:juhubeachstudio@gmail.com"}
-              showEndIcon={true}
-            >
-              {"juhubeachstudio@gmail.com"}
-            </Button2>
             <p.Stack
               as={"div"}
               hasGap={true}
-              className={classNames(projectcss.all, sty.freeBox__ovOtb)}
+              className={classNames(projectcss.all, sty.freeBox___394L7)}
+            >
+              <Button2
+                className={classNames("__wab_instance", sty.button2__uU4)}
+                color={"white"}
+                link={"https://www.facebook.com/profile.php?id=100067678451857"}
+                shape={"round"}
+                size={"compact"}
+                target={true}
+              >
+                <Facebook176SvgrepoComsvg2Icon
+                  className={classNames(projectcss.all, sty.svg__kDpUm)}
+                  role={"img"}
+                />
+              </Button2>
+              <Button2
+                className={classNames("__wab_instance", sty.button2__nMadE)}
+                color={"white"}
+                link={"https://www.instagram.com/juhubeachstudio/"}
+                shape={"round"}
+                size={"compact"}
+                target={true}
+              >
+                <InstagramSvgrepoComsvgIcon
+                  className={classNames(projectcss.all, sty.svg__vu2Zs)}
+                  role={"img"}
+                />
+              </Button2>
+              <Button2
+                className={classNames("__wab_instance", sty.button2__uDJjx)}
+                color={"white"}
+                link={"https://wa.me/message/5UQ7HPIFA5JMF1"}
+                shape={"round"}
+                size={"compact"}
+                target={true}
+              >
+                <WhatsappSvgrepoComsvgIcon
+                  className={classNames(projectcss.all, sty.svg__fStXc)}
+                  role={"img"}
+                />
+              </Button2>
+            </p.Stack>
+          </p.Stack>
+          <p.Stack
+            as={"div"}
+            hasGap={true}
+            className={classNames(projectcss.all, sty.freeBox___3Bhqm)}
+          >
+            <Button2
+              className={classNames("__wab_instance", sty.button2__eOh2R)}
+              color={"clear"}
+              endIcon={
+                <Icon38Icon
+                  className={classNames(projectcss.all, sty.svg__eD0U1)}
+                  role={"img"}
+                />
+              }
+              link={`/about`}
+              size={"minimal"}
+              startIcon={
+                <ChecksvgIcon
+                  className={classNames(projectcss.all, sty.svg___7Cjna)}
+                  role={"img"}
+                />
+              }
+              submitsForm={true}
             >
               <div
                 className={classNames(
                   projectcss.all,
                   projectcss.__wab_text,
-                  sty.text__cOKrA
+                  sty.text__el2Z4
                 )}
               >
-                {"Find us"}
+                {"About"}
               </div>
-              <p.Stack
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox___394L7)}
-              >
-                <Button2
-                  className={classNames("__wab_instance", sty.button2__uU4)}
-                  color={"white"}
-                  link={
-                    "https://www.facebook.com/profile.php?id=100067678451857"
-                  }
-                  shape={"round"}
-                  size={"compact"}
-                  target={true}
-                >
-                  <Facebook176SvgrepoComsvg2Icon
-                    className={classNames(projectcss.all, sty.svg__kDpUm)}
-                    role={"img"}
-                  />
-                </Button2>
-                <Button2
-                  className={classNames("__wab_instance", sty.button2__nMadE)}
-                  color={"white"}
-                  link={"https://www.instagram.com/juhubeachstudio/"}
-                  shape={"round"}
-                  size={"compact"}
-                  target={true}
-                >
-                  <InstagramSvgrepoComsvgIcon
-                    className={classNames(projectcss.all, sty.svg__vu2Zs)}
-                    role={"img"}
-                  />
-                </Button2>
-                <Button2
-                  className={classNames("__wab_instance", sty.button2__uDJjx)}
-                  color={"white"}
-                  link={"https://wa.me/message/5UQ7HPIFA5JMF1"}
-                  shape={"round"}
-                  size={"compact"}
-                  target={true}
-                >
-                  <WhatsappSvgrepoComsvgIcon
-                    className={classNames(projectcss.all, sty.svg__fStXc)}
-                    role={"img"}
-                  />
-                </Button2>
-              </p.Stack>
-            </p.Stack>
-          </p.Stack>
-          <div className={classNames(projectcss.all, sty.column__vJVg2)}>
-            <p.Stack
-              as={"div"}
-              hasGap={true}
-              className={classNames(projectcss.all, sty.freeBox___3Bhqm)}
+            </Button2>
+            <Button2
+              className={classNames("__wab_instance", sty.button2__kVkyq)}
+              color={"clear"}
+              endIcon={
+                <Icon38Icon
+                  className={classNames(projectcss.all, sty.svg__vvUwx)}
+                  role={"img"}
+                />
+              }
+              link={`/shipping-policy`}
+              size={"minimal"}
+              startIcon={
+                <ChecksvgIcon
+                  className={classNames(projectcss.all, sty.svg__h2MMg)}
+                  role={"img"}
+                />
+              }
+              submitsForm={true}
             >
-              <Button2
-                className={classNames("__wab_instance", sty.button2__eOh2R)}
-                color={"clear"}
-                endIcon={
-                  <Icon38Icon
-                    className={classNames(projectcss.all, sty.svg__eD0U1)}
-                    role={"img"}
-                  />
-                }
-                link={`/about`}
-                size={"minimal"}
-                startIcon={
-                  <ChecksvgIcon
-                    className={classNames(projectcss.all, sty.svg___7Cjna)}
-                    role={"img"}
-                  />
-                }
-                submitsForm={true}
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__i2MJ
+                )}
               >
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__el2Z4
-                  )}
-                >
-                  {"About"}
-                </div>
-              </Button2>
-              <Button2
-                className={classNames("__wab_instance", sty.button2__kVkyq)}
-                color={"clear"}
-                endIcon={
-                  <Icon38Icon
-                    className={classNames(projectcss.all, sty.svg__vvUwx)}
-                    role={"img"}
-                  />
-                }
-                link={`/shipping-policy`}
-                size={"minimal"}
-                startIcon={
-                  <ChecksvgIcon
-                    className={classNames(projectcss.all, sty.svg__h2MMg)}
-                    role={"img"}
-                  />
-                }
-                submitsForm={true}
+                {"Shipping policy"}
+              </div>
+            </Button2>
+            <Button2
+              className={classNames("__wab_instance", sty.button2__q9Zwf)}
+              color={"clear"}
+              endIcon={
+                <Icon38Icon
+                  className={classNames(projectcss.all, sty.svg__rTRx)}
+                  role={"img"}
+                />
+              }
+              link={`/cancellation-and-refund-policy`}
+              size={"minimal"}
+              startIcon={
+                <ChecksvgIcon
+                  className={classNames(projectcss.all, sty.svg__bw6Nu)}
+                  role={"img"}
+                />
+              }
+              submitsForm={true}
+            >
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__tkJrT
+                )}
               >
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__i2MJ
-                  )}
-                >
-                  {"Shipping policy"}
-                </div>
-              </Button2>
-              <Button2
-                className={classNames("__wab_instance", sty.button2__q9Zwf)}
-                color={"clear"}
-                endIcon={
-                  <Icon38Icon
-                    className={classNames(projectcss.all, sty.svg__rTRx)}
-                    role={"img"}
-                  />
-                }
-                link={`/cancellation-and-refund-policy`}
-                size={"minimal"}
-                startIcon={
-                  <ChecksvgIcon
-                    className={classNames(projectcss.all, sty.svg__bw6Nu)}
-                    role={"img"}
-                  />
-                }
-                submitsForm={true}
+                {"Returns and exchange policy"}
+              </div>
+            </Button2>
+            <Button2
+              className={classNames("__wab_instance", sty.button2__lzpR0)}
+              color={"clear"}
+              endIcon={
+                <Icon38Icon
+                  className={classNames(projectcss.all, sty.svg__bqFw)}
+                  role={"img"}
+                />
+              }
+              link={`/privacy-policy`}
+              size={"minimal"}
+              startIcon={
+                <ChecksvgIcon
+                  className={classNames(projectcss.all, sty.svg__qdoWv)}
+                  role={"img"}
+                />
+              }
+              submitsForm={true}
+            >
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__zyeqo
+                )}
               >
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__tkJrT
-                  )}
-                >
-                  {"Returns and exchange policy"}
-                </div>
-              </Button2>
-              <Button2
-                className={classNames("__wab_instance", sty.button2__lzpR0)}
-                color={"clear"}
-                endIcon={
-                  <Icon38Icon
-                    className={classNames(projectcss.all, sty.svg__bqFw)}
-                    role={"img"}
-                  />
-                }
-                link={`/privacy-policy`}
-                size={"minimal"}
-                startIcon={
-                  <ChecksvgIcon
-                    className={classNames(projectcss.all, sty.svg__qdoWv)}
-                    role={"img"}
-                  />
-                }
-                submitsForm={true}
+                {"Privacy policy"}
+              </div>
+            </Button2>
+            <Button2
+              className={classNames("__wab_instance", sty.button2__zXssn)}
+              color={"clear"}
+              endIcon={
+                <Icon38Icon
+                  className={classNames(projectcss.all, sty.svg__gkIli)}
+                  role={"img"}
+                />
+              }
+              link={`/terms-and-conditions`}
+              size={"minimal"}
+              startIcon={
+                <ChecksvgIcon
+                  className={classNames(projectcss.all, sty.svg__jRsVm)}
+                  role={"img"}
+                />
+              }
+              submitsForm={true}
+            >
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__bJvl9
+                )}
               >
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__zyeqo
-                  )}
-                >
-                  {"Privacy policy"}
-                </div>
-              </Button2>
-              <Button2
-                className={classNames("__wab_instance", sty.button2__zXssn)}
-                color={"clear"}
-                endIcon={
-                  <Icon38Icon
-                    className={classNames(projectcss.all, sty.svg__gkIli)}
-                    role={"img"}
-                  />
-                }
-                link={`/terms-and-conditions`}
-                size={"minimal"}
-                startIcon={
-                  <ChecksvgIcon
-                    className={classNames(projectcss.all, sty.svg__jRsVm)}
-                    role={"img"}
-                  />
-                }
-                submitsForm={true}
-              >
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__bJvl9
-                  )}
-                >
-                  {"Terms of Use"}
-                </div>
-              </Button2>
-            </p.Stack>
-          </div>
+                {"Terms of Use"}
+              </div>
+            </Button2>
+          </p.Stack>
         </p.Stack>
       </div>
     </div>
@@ -403,9 +384,8 @@ function PlasmicFooter__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "blackyellowborder", "columns", "h5"],
+  root: ["root", "blackyellowborder", "h5"],
   blackyellowborder: ["blackyellowborder"],
-  columns: ["columns", "h5"],
   h5: ["h5"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
@@ -414,7 +394,6 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   blackyellowborder: typeof Blackyellowborder;
-  columns: "div";
   h5: "h5";
 };
 
@@ -479,7 +458,6 @@ export const PlasmicFooter = Object.assign(
   {
     // Helper components rendering sub-elements
     blackyellowborder: makeNodeComponent("blackyellowborder"),
-    columns: makeNodeComponent("columns"),
     h5: makeNodeComponent("h5"),
 
     // Metadata about props expected for PlasmicFooter
