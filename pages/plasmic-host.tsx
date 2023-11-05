@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { PlasmicCanvasHost, registerComponent } from '@plasmicapp/react-web/lib/host';
+import Marquee from "react-fast-marquee";
 
 // You can register any code components that you want to use here; see
 // https://docs.plasmic.app/learn/code-components-ref/
@@ -9,6 +10,22 @@ import { PlasmicCanvasHost, registerComponent } from '@plasmicapp/react-web/lib/
 // https://docs.plasmic.app/learn/app-hosting/#set-a-plasmic-project-to-use-your-app-host
 
 // registerComponent(...)
+
+registerComponent (Marquee, {
+  name: "Marquee",
+  isAttachment: true,
+  styleSections: false,
+  isDefaultExport: true,
+  props: {
+    children: 'slot',
+    autoFill: 'boolean',
+    direction: 'string',
+    speed: 'number',
+    loop: 'number',
+    play: 'boolean'
+  },
+  importPath: 'react-fast-marquee'
+});
 
 export default function PlasmicHost() {
   return <PlasmicCanvasHost />;

@@ -31,14 +31,14 @@
       calc(100% - var(--plsmc-viewport-gap) - var(--plsmc-viewport-gap))
     )
     minmax(0, var(--plsmc-wide-chunk)) 1fr var(--plsmc-viewport-gap);
-  padding: var(--token-oW80B2Q_Cufz) var(--token-oW80B2Q_Cufz) 241px;
+  padding: 56px var(--token-oW80B2Q_Cufz) 241px;
 }
 .freeBox__anaXj > * {
   grid-column: 4;
 }
 @media (min-width: 0px) and (max-width: 768px) {
   .freeBox__anaXj {
-    background: url("/plasmic/jbs_storefront/images/aiImagepng.png") top 50% left 50% / cover no-repeat;
+    background: url("/plasmic/jbs_storefront/images/footerBg.webp") top 50% left 50% / cover no-repeat;
     padding-bottom: 60px;
   }
 }
@@ -168,18 +168,19 @@
 .button2__p6Lu:global(.__wab_instance) {
   max-width: 100%;
   position: relative;
-  width: auto;
+  width: 100%;
+  min-width: 0;
 }
 .svg__ve1MZ {
   position: relative;
   object-fit: cover;
-  width: 1em;
+  width: auto;
   height: 1em;
 }
 .svg__ggigt {
   position: relative;
   object-fit: cover;
-  width: 1em;
+  width: auto;
   height: 1em;
 }
 .freeBox__ovOtb {
@@ -260,29 +261,6 @@
   > img {
   margin-left: var(--token-oYI7ebdZitcv);
 }
-.button2__gjXcG:global(.__wab_instance) {
-  max-width: 100%;
-  position: relative;
-}
-.svg__qbZd2 {
-  position: relative;
-  object-fit: cover;
-  width: 1em;
-  height: 1em;
-}
-.svg__fEOw {
-  position: relative;
-  object-fit: cover;
-  max-width: 100%;
-  width: var(--token-02IfQLozsPKb);
-  height: var(--token-02IfQLozsPKb);
-}
-.svg___0Q6Eq {
-  position: relative;
-  object-fit: cover;
-  width: 1em;
-  height: 1em;
-}
 .button2__uU4:global(.__wab_instance) {
   max-width: 100%;
   position: relative;
@@ -290,7 +268,7 @@
 .svg__aKge {
   position: relative;
   object-fit: cover;
-  width: 1em;
+  width: auto;
   height: 1em;
 }
 .svg__kDpUm {
@@ -303,7 +281,7 @@
 .svg__j9Jfp {
   position: relative;
   object-fit: cover;
-  width: 1em;
+  width: auto;
   height: 1em;
 }
 .button2__nMadE:global(.__wab_instance) {
@@ -313,7 +291,7 @@
 .svg__iDZt {
   position: relative;
   object-fit: cover;
-  width: 1em;
+  width: auto;
   height: 1em;
 }
 .svg__vu2Zs {
@@ -326,7 +304,7 @@
 .svg__l1Qtg {
   position: relative;
   object-fit: cover;
-  width: 1em;
+  width: auto;
   height: 1em;
 }
 .button2__uDJjx:global(.__wab_instance) {
@@ -336,7 +314,7 @@
 .svg___8JXrt {
   position: relative;
   object-fit: cover;
-  width: 1em;
+  width: auto;
   height: 1em;
 }
 .svg__fStXc {
@@ -349,7 +327,7 @@
 .svg__xvOgT {
   position: relative;
   object-fit: cover;
-  width: 1em;
+  width: auto;
   height: 1em;
 }
 .column__vJVg2 {
@@ -396,7 +374,7 @@
 .svg___7Cjna {
   position: relative;
   object-fit: cover;
-  width: 1em;
+  width: auto;
   height: 1em;
 }
 .text__el2Z4 {
@@ -417,7 +395,7 @@
 .svg__eD0U1 {
   position: relative;
   object-fit: cover;
-  width: 1em;
+  width: auto;
   height: 1em;
 }
 .button2__kVkyq:global(.__wab_instance) {
@@ -426,7 +404,7 @@
 .svg__h2MMg {
   position: relative;
   object-fit: cover;
-  width: 1em;
+  width: auto;
   height: 1em;
 }
 .text__i2MJ {
@@ -447,7 +425,7 @@
 .svg__vvUwx {
   position: relative;
   object-fit: cover;
-  width: 1em;
+  width: auto;
   height: 1em;
 }
 .button2__q9Zwf:global(.__wab_instance) {
@@ -456,7 +434,7 @@
 .svg__bw6Nu {
   position: relative;
   object-fit: cover;
-  width: 1em;
+  width: auto;
   height: 1em;
 }
 .text__tkJrT {
@@ -477,7 +455,7 @@
 .svg__rTRx {
   position: relative;
   object-fit: cover;
-  width: 1em;
+  width: auto;
   height: 1em;
 }
 .button2__lzpR0:global(.__wab_instance) {
@@ -486,7 +464,7 @@
 .svg__qdoWv {
   position: relative;
   object-fit: cover;
-  width: 1em;
+  width: auto;
   height: 1em;
 }
 .text__zyeqo {
@@ -507,7 +485,7 @@
 .svg__bqFw {
   position: relative;
   object-fit: cover;
-  width: 1em;
+  width: auto;
   height: 1em;
 }
 .button2__zXssn:global(.__wab_instance) {
@@ -516,7 +494,7 @@
 .svg__jRsVm {
   position: relative;
   object-fit: cover;
-  width: 1em;
+  width: auto;
   height: 1em;
 }
 .text__bJvl9 {
@@ -537,6 +515,6 @@
 .svg__gkIli {
   position: relative;
   object-fit: cover;
-  width: 1em;
+  width: auto;
   height: 1em;
 }

@@ -103,6 +103,14 @@
 .rootborder_blackBorder {
   border: 2px solid var(--token-ZGgUq6H0D);
 }
+.rootalignment_centreAligned > :global(.__wab_flex-container) {
+  justify-content: center;
+  align-items: center;
+}
+.rootalignment_leftAligned > :global(.__wab_flex-container) {
+  justify-content: flex-start;
+  align-items: center;
+}
 .rootshowStartIcon_shape_rounded {
   padding-left: 16px;
 }
@@ -125,7 +133,7 @@
   background: #ffef5c;
 }
 .rootcolor_red:hover {
-  background: #ec5e41;
+  background: var(--token-qoXYsQ1lS);
 }
 .rootcolor_sand:hover {
   background: #7f7e77;
@@ -175,7 +183,7 @@
   background: #f0c000;
 }
 .rootcolor_red:active {
-  background: #f16a50;
+  background: #cd090d;
 }
 .rootcolor_sand:active {
   background: #a1a09a;
@@ -253,9 +261,8 @@
 .svg__eRnuS {
   position: relative;
   object-fit: cover;
-  width: 1em;
+  width: auto;
   height: 1em;
-  flex-shrink: 0;
 }
 .contentContainer {
   display: flex;
@@ -263,6 +270,10 @@
   flex-direction: row;
   align-items: stretch;
   justify-content: flex-start;
+}
+.contentContainercolor_clear {
+  width: 100%;
+  min-width: 0;
 }
 .root .contentContainer___focusVisibleWithin {
   outline: none;
@@ -310,6 +321,9 @@
 }
 .slotTargetChildrencolor_link {
   color: #0091ff;
+}
+.rootcolor_red:hover .slotTargetChildrencolor_red {
+  color: var(--token-KUFb4wcAz);
 }
 .rootcolor_clear:hover .slotTargetChildrencolor_clear {
   color: var(--token-vg8USqXsf);
@@ -435,6 +449,9 @@
   > img {
   outline: none;
 }
+.rootcolor_red:active .slotTargetChildrencolor_red {
+  color: var(--token-KUFb4wcAz);
+}
 .rootcolor_clear:active .slotTargetChildrencolor_clear {
   color: var(--token-058m_r2f2);
 }
@@ -490,7 +507,6 @@
 .svg__hgyn {
   position: relative;
   object-fit: cover;
-  width: 1em;
+  width: auto;
   height: 1em;
-  flex-shrink: 0;
 }

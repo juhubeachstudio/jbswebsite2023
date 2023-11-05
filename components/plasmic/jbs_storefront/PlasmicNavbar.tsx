@@ -36,8 +36,9 @@ import {
   deriveRenderOpts,
   ensureGlobalVariants
 } from "@plasmicapp/react-web";
-import Tickertext from "../../Tickertext"; // plasmic-import: aGq0s302rH/component
+import Marquee from "react-fast-marquee"; // plasmic-import: m9EkGU-jS0/codeComponent
 import JbsMenu from "../../JbsMenu"; // plasmic-import: NFEkw9xPSE/component
+import GoToCartButton from "../../GoToCartButton"; // plasmic-import: iT6In2ggLenM/component
 
 import { useScreenVariants as useScreenVariants_6Hzia3M7Np4Ulu } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6hzia3m7Np4ulu/globalVariant
 
@@ -48,7 +49,6 @@ import projectcss from "./plasmic_jbs_storefront.module.css"; // plasmic-import:
 import sty from "./PlasmicNavbar.module.css"; // plasmic-import: zY4oOp60G2/css
 
 import LogowithbordersvgIcon from "./icons/PlasmicIcon__Logowithbordersvg"; // plasmic-import: otd7TS4DBl/icon
-import Cart1SvgIcon from "./icons/PlasmicIcon__Cart1Svg"; // plasmic-import: RqINMsIJ-W/icon
 
 createPlasmicElementProxy;
 
@@ -63,8 +63,12 @@ export const PlasmicNavbar__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicNavbar__OverridesType = {
   root?: p.Flex<"div">;
-  tickertext?: p.Flex<typeof Tickertext>;
+  marquee?: p.Flex<typeof Marquee>;
+  text?: p.Flex<"div">;
   jbsMenu?: p.Flex<typeof JbsMenu>;
+  link?: p.Flex<"a"> & Partial<LinkProps>;
+  svg?: p.Flex<"svg">;
+  goToCartButton?: p.Flex<typeof GoToCartButton>;
 };
 
 export interface DefaultNavbarProps {
@@ -122,12 +126,29 @@ function PlasmicNavbar__RenderFunc(props: {
         sty.root
       )}
     >
-      <Tickertext
-        data-plasmic-name={"tickertext"}
-        data-plasmic-override={overrides.tickertext}
-        className={classNames("__wab_instance", sty.tickertext)}
-      />
-
+      <div className={classNames(projectcss.all, sty.freeBox__qCrJf)}>
+        <Marquee
+          data-plasmic-name={"marquee"}
+          data-plasmic-override={overrides.marquee}
+          autoFill={true}
+          className={classNames("__wab_instance", sty.marquee)}
+          play={true}
+        >
+          <div
+            data-plasmic-name={"text"}
+            data-plasmic-override={overrides.text}
+            className={classNames(
+              projectcss.all,
+              projectcss.__wab_text,
+              sty.text
+            )}
+          >
+            {
+              "Limited edition pieces, Handcrafted in Mumbai. Made from Textile waste | First 100 Customers get a discount. Use SWEEDY | "
+            }
+          </div>
+        </Marquee>
+      </div>
       <div className={classNames(projectcss.all, sty.freeBox__gyInk)}>
         <p.Stack
           as={"div"}
@@ -147,17 +168,17 @@ function PlasmicNavbar__RenderFunc(props: {
           </p.Stack>
           <div className={classNames(projectcss.all, sty.freeBox__yR3M)}>
             <p.PlasmicLink
-              className={classNames(
-                projectcss.all,
-                projectcss.a,
-                sty.link__oi5Ll
-              )}
+              data-plasmic-name={"link"}
+              data-plasmic-override={overrides.link}
+              className={classNames(projectcss.all, projectcss.a, sty.link)}
               component={Link}
               href={`/`}
               platform={"nextjs"}
             >
               <LogowithbordersvgIcon
-                className={classNames(projectcss.all, sty.svg__j5Gh)}
+                data-plasmic-name={"svg"}
+                data-plasmic-override={overrides.svg}
+                className={classNames(projectcss.all, sty.svg)}
                 role={"img"}
               />
             </p.PlasmicLink>
@@ -167,21 +188,11 @@ function PlasmicNavbar__RenderFunc(props: {
             hasGap={true}
             className={classNames(projectcss.all, sty.freeBox__zbKg3)}
           >
-            <p.PlasmicLink
-              className={classNames(
-                projectcss.all,
-                projectcss.a,
-                sty.link__uBAuS
-              )}
-              component={Link}
-              href={`/cart`}
-              platform={"nextjs"}
-            >
-              <Cart1SvgIcon
-                className={classNames(projectcss.all, sty.svg___7MLh0)}
-                role={"img"}
-              />
-            </p.PlasmicLink>
+            <GoToCartButton
+              data-plasmic-name={"goToCartButton"}
+              data-plasmic-override={overrides.goToCartButton}
+              className={classNames("__wab_instance", sty.goToCartButton)}
+            />
           </p.Stack>
         </p.Stack>
       </div>
@@ -190,17 +201,25 @@ function PlasmicNavbar__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "tickertext", "jbsMenu"],
-  tickertext: ["tickertext"],
-  jbsMenu: ["jbsMenu"]
+  root: ["root", "marquee", "text", "jbsMenu", "link", "svg", "goToCartButton"],
+  marquee: ["marquee", "text"],
+  text: ["text"],
+  jbsMenu: ["jbsMenu"],
+  link: ["link", "svg"],
+  svg: ["svg"],
+  goToCartButton: ["goToCartButton"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
-  tickertext: typeof Tickertext;
+  marquee: typeof Marquee;
+  text: "div";
   jbsMenu: typeof JbsMenu;
+  link: "a";
+  svg: "svg";
+  goToCartButton: typeof GoToCartButton;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -208,7 +227,6 @@ type NodeOverridesType<T extends NodeNameType> = Pick<
   PlasmicNavbar__OverridesType,
   DescendantsType<T>
 >;
-
 type NodeComponentProps<T extends NodeNameType> =
   // Explicitly specify variants, args, and overrides as objects
   {
@@ -264,8 +282,12 @@ export const PlasmicNavbar = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
-    tickertext: makeNodeComponent("tickertext"),
+    marquee: makeNodeComponent("marquee"),
+    text: makeNodeComponent("text"),
     jbsMenu: makeNodeComponent("jbsMenu"),
+    link: makeNodeComponent("link"),
+    svg: makeNodeComponent("svg"),
+    goToCartButton: makeNodeComponent("goToCartButton"),
 
     // Metadata about props expected for PlasmicNavbar
     internalVariantProps: PlasmicNavbar__VariantProps,

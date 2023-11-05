@@ -49,8 +49,7 @@ import sty from "./PlasmicFooter.module.css"; // plasmic-import: mZogRkwS1rd/css
 
 import ChecksvgIcon from "./icons/PlasmicIcon__Checksvg"; // plasmic-import: ew07hyuAC0c/icon
 import Icon38Icon from "./icons/PlasmicIcon__Icon38"; // plasmic-import: 3r4KXWygi9v/icon
-import IconIcon from "./icons/PlasmicIcon__Icon"; // plasmic-import: E3DB21mRkOyk/icon
-import Facebook176SvgrepoComsvgIcon from "./icons/PlasmicIcon__Facebook176SvgrepoComsvg"; // plasmic-import: AltOIFs52szI/icon
+import Facebook176SvgrepoComsvg2Icon from "./icons/PlasmicIcon__Facebook176SvgrepoComsvg2"; // plasmic-import: 69HLYm9NeIDx/icon
 import InstagramSvgrepoComsvgIcon from "./icons/PlasmicIcon__InstagramSvgrepoComsvg"; // plasmic-import: oo9zvXXIVhzp/icon
 import WhatsappSvgrepoComsvgIcon from "./icons/PlasmicIcon__WhatsappSvgrepoComsvg"; // plasmic-import: MwIlfRiCxnsi/icon
 
@@ -169,16 +168,17 @@ function PlasmicFooter__RenderFunc(props: {
                     {"Get monthly updates on drops, restocks and events "}
                   </h5>
                 }
-
                 <React.Fragment>{""}</React.Fragment>
               </React.Fragment>
             </div>
             <Button2
+              alignment={"leftAligned"}
               className={classNames("__wab_instance", sty.button2__p6Lu)}
               color={"red"}
+              link={"mailto:juhubeachstudio@gmail.com"}
               showEndIcon={true}
             >
-              {"emailidhardedo@gmail.com"}
+              {"juhubeachstudio@gmail.com"}
             </Button2>
             <p.Stack
               as={"div"}
@@ -200,23 +200,16 @@ function PlasmicFooter__RenderFunc(props: {
                 className={classNames(projectcss.all, sty.freeBox___394L7)}
               >
                 <Button2
-                  className={classNames("__wab_instance", sty.button2__gjXcG)}
-                  color={"white"}
-                  shape={"round"}
-                  size={"compact"}
-                >
-                  <IconIcon
-                    className={classNames(projectcss.all, sty.svg__fEOw)}
-                    role={"img"}
-                  />
-                </Button2>
-                <Button2
                   className={classNames("__wab_instance", sty.button2__uU4)}
                   color={"white"}
+                  link={
+                    "https://www.facebook.com/profile.php?id=100067678451857"
+                  }
                   shape={"round"}
                   size={"compact"}
+                  target={true}
                 >
-                  <Facebook176SvgrepoComsvgIcon
+                  <Facebook176SvgrepoComsvg2Icon
                     className={classNames(projectcss.all, sty.svg__kDpUm)}
                     role={"img"}
                   />
@@ -224,8 +217,10 @@ function PlasmicFooter__RenderFunc(props: {
                 <Button2
                   className={classNames("__wab_instance", sty.button2__nMadE)}
                   color={"white"}
+                  link={"https://www.instagram.com/juhubeachstudio/"}
                   shape={"round"}
                   size={"compact"}
+                  target={true}
                 >
                   <InstagramSvgrepoComsvgIcon
                     className={classNames(projectcss.all, sty.svg__vu2Zs)}
@@ -235,8 +230,10 @@ function PlasmicFooter__RenderFunc(props: {
                 <Button2
                   className={classNames("__wab_instance", sty.button2__uDJjx)}
                   color={"white"}
+                  link={"https://wa.me/message/5UQ7HPIFA5JMF1"}
                   shape={"round"}
                   size={"compact"}
+                  target={true}
                 >
                   <WhatsappSvgrepoComsvgIcon
                     className={classNames(projectcss.all, sty.svg__fStXc)}
@@ -426,7 +423,6 @@ type NodeOverridesType<T extends NodeNameType> = Pick<
   PlasmicFooter__OverridesType,
   DescendantsType<T>
 >;
-
 type NodeComponentProps<T extends NodeNameType> =
   // Explicitly specify variants, args, and overrides as objects
   {

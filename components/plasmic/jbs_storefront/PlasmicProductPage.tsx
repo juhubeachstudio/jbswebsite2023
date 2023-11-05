@@ -39,12 +39,9 @@ import {
 import FullPage from "../../FullPage"; // plasmic-import: VpRM2nIn0R/component
 import { ProductBox } from "@plasmicpkgs/commerce"; // plasmic-import: 1gYJf_XBZUAD/codeComponent
 import { PlasmicHead } from "@plasmicapp/react-web"; // plasmic-import: Y-3ZgxdS1wv60n/codeComponent
-import { SliderWrapper } from "@plasmicpkgs/react-slick"; // plasmic-import: HOQUyOpClJ/codeComponent
-import { sliderHelpers as SliderWrapper_Helpers } from "@plasmicpkgs/react-slick"; // plasmic-import: HOQUyOpClJ/codeComponentHelper
+import { ProductMedia } from "@plasmicpkgs/commerce"; // plasmic-import: qpULM0wwWW/codeComponent
 import { ProductTextField } from "@plasmicpkgs/commerce"; // plasmic-import: S1F4q0wN6b/codeComponent
 import { ProductPriceComponent } from "@plasmicpkgs/commerce"; // plasmic-import: _PaJxGc8gf/codeComponent
-import { ProductCollection } from "@plasmicpkgs/commerce"; // plasmic-import: vU2jzVAnFP/codeComponent
-import { ProductMedia } from "@plasmicpkgs/commerce"; // plasmic-import: qpULM0wwWW/codeComponent
 import { ProductVariantPicker } from "@plasmicpkgs/commerce"; // plasmic-import: i3vHZr7erKX/codeComponent
 import AddToCartCustomButton from "../../AddToCartCustomButton"; // plasmic-import: AyNa8RYOflZ1/component
 import { AntdAccordion } from "@plasmicpkgs/antd5/skinny/registerCollapse"; // plasmic-import: oPUhN99n4VXI/codeComponent
@@ -53,6 +50,7 @@ import { AntdAccordionItem } from "@plasmicpkgs/antd5/skinny/registerCollapse"; 
 import { GraphqlFetcher } from "@plasmicpkgs/plasmic-query"; // plasmic-import: 0DrxdjD45dkx/codeComponent
 import Section from "../../Section"; // plasmic-import: GMAR4VOl00/component
 import ProductCardJbs from "../../ProductCardJbs"; // plasmic-import: Ft4Mem_Zab/component
+import Button2 from "../../Button2"; // plasmic-import: yEsI5slGwPm/component
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources"; // plasmic-import: 1xopR4ZBZs2K4b/codeComponent
 
 import { useScreenVariants as useScreenVariants_6Hzia3M7Np4Ulu } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6hzia3m7Np4ulu/globalVariant
@@ -62,6 +60,9 @@ import "@plasmicapp/react-web/lib/plasmic.css";
 import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic_antd_5_hostless.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
 import projectcss from "./plasmic_jbs_storefront.module.css"; // plasmic-import: heL2P6rJiLNgtnBJPb6i1m/projectcss
 import sty from "./PlasmicProductPage.module.css"; // plasmic-import: sFlg1tQbot/css
+
+import ChecksvgIcon from "./icons/PlasmicIcon__Checksvg"; // plasmic-import: ew07hyuAC0c/icon
+import Icon38Icon from "./icons/PlasmicIcon__Icon38"; // plasmic-import: 3r4KXWygi9v/icon
 
 createPlasmicElementProxy;
 
@@ -79,16 +80,15 @@ export type PlasmicProductPage__OverridesType = {
   fullPage?: p.Flex<typeof FullPage>;
   columns?: p.Flex<"div">;
   pageMetadataOverride?: p.Flex<typeof PlasmicHead>;
-  sliderCarousel?: p.Flex<typeof SliderWrapper>;
-  img?: p.Flex<typeof p.PlasmicImg>;
-  productPrice?: p.Flex<typeof ProductPriceComponent>;
-  productCollection?: p.Flex<typeof ProductCollection>;
   productMedia?: p.Flex<typeof ProductMedia>;
+  productPrice?: p.Flex<typeof ProductPriceComponent>;
   productVariantPicker?: p.Flex<typeof ProductVariantPicker>;
   addToCartCustomButton?: p.Flex<typeof AddToCartCustomButton>;
   accordion?: p.Flex<typeof AntdAccordion>;
   section?: p.Flex<typeof Section>;
   productCardJbs?: p.Flex<typeof ProductCardJbs>;
+  button2?: p.Flex<typeof Button2>;
+  svg?: p.Flex<"svg">;
 };
 
 export interface DefaultProductPageProps {}
@@ -135,18 +135,6 @@ function PlasmicProductPage__RenderFunc(props: {
         onMutate: p.generateOnMutateForSpec(
           "activePanelId",
           AntdAccordion_Helpers
-        )
-      },
-      {
-        path: "sliderCarousel.currentSlide",
-        type: "private",
-        variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) => 2,
-
-        refName: "sliderCarousel",
-        onMutate: p.generateOnMutateForSpec(
-          "currentSlide",
-          SliderWrapper_Helpers
         )
       }
     ],
@@ -273,118 +261,57 @@ function PlasmicProductPage__RenderFunc(props: {
                           })()}
                         />
 
-                        {(() => {
-                          const child$Props = {
-                            autoplay: true,
-                            autoplaySpeed: 3000,
-                            beforeChange:
-                              p.generateStateOnChangePropForCodeComponents(
-                                $state,
-                                "currentSlide",
-                                ["sliderCarousel", "currentSlide"],
-                                SliderWrapper_Helpers
-                              ),
-                            centerMode: false,
-                            className: classNames(
-                              "__wab_instance",
-                              sty.sliderCarousel
-                            ),
-                            editingSlide: p.generateStateValueProp($state, [
-                              "sliderCarousel",
-                              "currentSlide"
-                            ]),
-                            initialSlide: 0,
-                            ref: ref => {
-                              $refs["sliderCarousel"] = ref;
-                            },
-                            sliderScopeClassName: sty["sliderCarousel__slider"],
-                            slidesToShow: 1,
-                            swipeToSlide: true,
-                            vertical: true
-                          };
-                          p.initializeCodeComponentStates(
-                            $state,
-                            [
-                              {
-                                name: "currentSlide",
-                                plasmicStateName: "sliderCarousel.currentSlide"
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox__hnKz
+                          )}
+                        >
+                          {(_par =>
+                            !_par ? [] : Array.isArray(_par) ? _par : [_par])(
+                            (() => {
+                              try {
+                                return $ctx.currentProduct.images;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return [];
+                                }
+                                throw e;
                               }
-                            ],
-
-                            [],
-                            SliderWrapper_Helpers ?? {},
-                            child$Props
-                          );
-
-                          return (
-                            <SliderWrapper
-                              data-plasmic-name={"sliderCarousel"}
-                              data-plasmic-override={overrides.sliderCarousel}
-                              {...child$Props}
-                            >
-                              {(_par =>
-                                !_par
-                                  ? []
-                                  : Array.isArray(_par)
-                                  ? _par
-                                  : [_par])(
-                                (() => {
+                            })()
+                          ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                            const currentItem = __plasmic_item_0;
+                            const currentIndex = __plasmic_idx_0;
+                            return (
+                              <ProductMedia
+                                data-plasmic-name={"productMedia"}
+                                data-plasmic-override={overrides.productMedia}
+                                className={classNames(
+                                  "__wab_instance",
+                                  sty.productMedia
+                                )}
+                                key={currentIndex}
+                                mediaIndex={(() => {
                                   try {
-                                    return $ctx.currentProduct.images;
+                                    return currentIndex;
                                   } catch (e) {
                                     if (
                                       e instanceof TypeError ||
                                       e?.plasmicType ===
                                         "PlasmicUndefinedDataError"
                                     ) {
-                                      return [];
+                                      return undefined;
                                     }
                                     throw e;
                                   }
-                                })()
-                              ).map((__plasmic_item_0, __plasmic_idx_0) => {
-                                const currentItem = __plasmic_item_0;
-                                const currentIndex = __plasmic_idx_0;
-                                return (
-                                  <div
-                                    className={classNames(
-                                      projectcss.all,
-                                      sty.freeBox__ojNe
-                                    )}
-                                    key={currentIndex}
-                                  >
-                                    <p.PlasmicImg
-                                      data-plasmic-name={"img"}
-                                      data-plasmic-override={overrides.img}
-                                      alt={""}
-                                      className={classNames(sty.img)}
-                                      displayHeight={"auto"}
-                                      displayMaxHeight={"none"}
-                                      displayMaxWidth={"100%"}
-                                      displayMinHeight={"0"}
-                                      displayMinWidth={"0"}
-                                      displayWidth={"auto"}
-                                      src={(() => {
-                                        try {
-                                          return currentItem.url;
-                                        } catch (e) {
-                                          if (
-                                            e instanceof TypeError ||
-                                            e?.plasmicType ===
-                                              "PlasmicUndefinedDataError"
-                                          ) {
-                                            return "https://static1.plasmic.app/components/react-slick/slide1.png";
-                                          }
-                                          throw e;
-                                        }
-                                      })()}
-                                    />
-                                  </div>
-                                );
-                              })}
-                            </SliderWrapper>
-                          );
-                        })()}
+                                })()}
+                              />
+                            );
+                          })}
+                        </div>
                       </React.Fragment>
                     )}
                   </ph.DataCtxReader>
@@ -442,90 +369,6 @@ function PlasmicProductPage__RenderFunc(props: {
                             )}
                           />
 
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox__ulo4R
-                            )}
-                          >
-                            <ProductCollection
-                              data-plasmic-name={"productCollection"}
-                              data-plasmic-override={
-                                overrides.productCollection
-                              }
-                              className={classNames(
-                                "__wab_instance",
-                                sty.productCollection
-                              )}
-                              emptyMessage={
-                                <ph.DataCtxReader>
-                                  {$ctx => (
-                                    <div
-                                      className={classNames(
-                                        projectcss.all,
-                                        projectcss.__wab_text,
-                                        sty.text__u3Se9
-                                      )}
-                                    >
-                                      {"No product found!"}
-                                    </div>
-                                  )}
-                                </ph.DataCtxReader>
-                              }
-                              loadingMessage={
-                                <ph.DataCtxReader>
-                                  {$ctx => (
-                                    <div
-                                      className={classNames(
-                                        projectcss.all,
-                                        projectcss.__wab_text,
-                                        sty.text__tkX2R
-                                      )}
-                                    >
-                                      {"Loading..."}
-                                    </div>
-                                  )}
-                                </ph.DataCtxReader>
-                              }
-                              noAutoRepeat={false}
-                              search={(() => {
-                                try {
-                                  return $ctx.currentProduct.productType;
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return undefined;
-                                  }
-                                  throw e;
-                                }
-                              })()}
-                            >
-                              <ph.DataCtxReader>
-                                {$ctx => (
-                                  <div
-                                    className={classNames(
-                                      projectcss.all,
-                                      sty.freeBox__iXi43
-                                    )}
-                                  >
-                                    <ProductMedia
-                                      data-plasmic-name={"productMedia"}
-                                      data-plasmic-override={
-                                        overrides.productMedia
-                                      }
-                                      className={classNames(
-                                        "__wab_instance",
-                                        sty.productMedia
-                                      )}
-                                    />
-                                  </div>
-                                )}
-                              </ph.DataCtxReader>
-                            </ProductCollection>
-                          </div>
                           {(() => {
                             try {
                               return $ctx.currentProduct.variants.length > 1;
@@ -1079,6 +922,45 @@ function PlasmicProductPage__RenderFunc(props: {
                                 </div>
                               );
                             })}
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                sty.freeBox__sytZ
+                              )}
+                            >
+                              <Button2
+                                data-plasmic-name={"button2"}
+                                data-plasmic-override={overrides.button2}
+                                className={classNames(
+                                  "__wab_instance",
+                                  sty.button2
+                                )}
+                                color={"clear"}
+                                endIcon={
+                                  <Icon38Icon
+                                    data-plasmic-name={"svg"}
+                                    data-plasmic-override={overrides.svg}
+                                    className={classNames(
+                                      projectcss.all,
+                                      sty.svg
+                                    )}
+                                    role={"img"}
+                                  />
+                                }
+                                shape={"sharp"}
+                                showEndIcon={true}
+                              >
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    projectcss.__wab_text,
+                                    sty.text__vp07P
+                                  )}
+                                >
+                                  {"See all"}
+                                </div>
+                              </Button2>
+                            </div>
                           </div>
                         )}
                       </ph.DataCtxReader>
@@ -1100,58 +982,52 @@ const PlasmicDescendants = {
     "fullPage",
     "columns",
     "pageMetadataOverride",
-    "sliderCarousel",
-    "img",
-    "productPrice",
-    "productCollection",
     "productMedia",
+    "productPrice",
     "productVariantPicker",
     "addToCartCustomButton",
     "accordion",
     "section",
-    "productCardJbs"
+    "productCardJbs",
+    "button2",
+    "svg"
   ],
 
   fullPage: [
     "fullPage",
     "columns",
     "pageMetadataOverride",
-    "sliderCarousel",
-    "img",
-    "productPrice",
-    "productCollection",
     "productMedia",
+    "productPrice",
     "productVariantPicker",
     "addToCartCustomButton",
     "accordion",
     "section",
-    "productCardJbs"
+    "productCardJbs",
+    "button2",
+    "svg"
   ],
 
   columns: [
     "columns",
     "pageMetadataOverride",
-    "sliderCarousel",
-    "img",
-    "productPrice",
-    "productCollection",
     "productMedia",
+    "productPrice",
     "productVariantPicker",
     "addToCartCustomButton",
     "accordion"
   ],
 
   pageMetadataOverride: ["pageMetadataOverride"],
-  sliderCarousel: ["sliderCarousel", "img"],
-  img: ["img"],
-  productPrice: ["productPrice"],
-  productCollection: ["productCollection", "productMedia"],
   productMedia: ["productMedia"],
+  productPrice: ["productPrice"],
   productVariantPicker: ["productVariantPicker"],
   addToCartCustomButton: ["addToCartCustomButton"],
   accordion: ["accordion"],
-  section: ["section", "productCardJbs"],
-  productCardJbs: ["productCardJbs"]
+  section: ["section", "productCardJbs", "button2", "svg"],
+  productCardJbs: ["productCardJbs"],
+  button2: ["button2", "svg"],
+  svg: ["svg"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -1161,16 +1037,15 @@ type NodeDefaultElementType = {
   fullPage: typeof FullPage;
   columns: "div";
   pageMetadataOverride: typeof PlasmicHead;
-  sliderCarousel: typeof SliderWrapper;
-  img: typeof p.PlasmicImg;
-  productPrice: typeof ProductPriceComponent;
-  productCollection: typeof ProductCollection;
   productMedia: typeof ProductMedia;
+  productPrice: typeof ProductPriceComponent;
   productVariantPicker: typeof ProductVariantPicker;
   addToCartCustomButton: typeof AddToCartCustomButton;
   accordion: typeof AntdAccordion;
   section: typeof Section;
   productCardJbs: typeof ProductCardJbs;
+  button2: typeof Button2;
+  svg: "svg";
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -1237,16 +1112,15 @@ export const PlasmicProductPage = Object.assign(
     fullPage: makeNodeComponent("fullPage"),
     columns: makeNodeComponent("columns"),
     pageMetadataOverride: makeNodeComponent("pageMetadataOverride"),
-    sliderCarousel: makeNodeComponent("sliderCarousel"),
-    img: makeNodeComponent("img"),
-    productPrice: makeNodeComponent("productPrice"),
-    productCollection: makeNodeComponent("productCollection"),
     productMedia: makeNodeComponent("productMedia"),
+    productPrice: makeNodeComponent("productPrice"),
     productVariantPicker: makeNodeComponent("productVariantPicker"),
     addToCartCustomButton: makeNodeComponent("addToCartCustomButton"),
     accordion: makeNodeComponent("accordion"),
     section: makeNodeComponent("section"),
     productCardJbs: makeNodeComponent("productCardJbs"),
+    button2: makeNodeComponent("button2"),
+    svg: makeNodeComponent("svg"),
 
     // Metadata about props expected for PlasmicProductPage
     internalVariantProps: PlasmicProductPage__VariantProps,

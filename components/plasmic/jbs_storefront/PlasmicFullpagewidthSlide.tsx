@@ -139,10 +139,10 @@ function PlasmicFullpagewidthSlide__RenderFunc(props: {
               displayMinWidth={"0"}
               displayWidth={"100%"}
               src={{
-                src: "/plasmic/jbs_storefront/images/asset76Png.png",
-                fullWidth: 5319,
-                fullHeight: 2949,
-                aspectRatio: undefined
+                src: "/plasmic/jbs_storefront/images/image.svg",
+                fullWidth: 150,
+                fullHeight: 150,
+                aspectRatio: 1
               }}
             />
           ),
@@ -171,7 +171,6 @@ type NodeOverridesType<T extends NodeNameType> = Pick<
   PlasmicFullpagewidthSlide__OverridesType,
   DescendantsType<T>
 >;
-
 type NodeComponentProps<T extends NodeNameType> =
   // Explicitly specify variants, args, and overrides as objects
   {

@@ -36,6 +36,7 @@ import {
   deriveRenderOpts,
   ensureGlobalVariants
 } from "@plasmicapp/react-web";
+import Button2 from "../../Button2"; // plasmic-import: yEsI5slGwPm/component
 
 import { useScreenVariants as useScreenVariants_6Hzia3M7Np4Ulu } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6hzia3m7Np4ulu/globalVariant
 
@@ -44,6 +45,9 @@ import "@plasmicapp/react-web/lib/plasmic.css";
 import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic_antd_5_hostless.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
 import projectcss from "./plasmic_jbs_storefront.module.css"; // plasmic-import: heL2P6rJiLNgtnBJPb6i1m/projectcss
 import sty from "./PlasmicProductCardNew.module.css"; // plasmic-import: Wsp5Dvtab1WW/css
+
+import ChecksvgIcon from "./icons/PlasmicIcon__Checksvg"; // plasmic-import: ew07hyuAC0c/icon
+import Icon38Icon from "./icons/PlasmicIcon__Icon38"; // plasmic-import: 3r4KXWygi9v/icon
 
 createPlasmicElementProxy;
 
@@ -62,9 +66,9 @@ export const PlasmicProductCardNew__ArgProps = new Array<ArgPropType>(
 
 export type PlasmicProductCardNew__OverridesType = {
   root?: p.Flex<"div">;
-  img?: p.Flex<typeof p.PlasmicImg>;
+  link?: p.Flex<"a"> & Partial<LinkProps>;
   freeBox?: p.Flex<"div">;
-  text?: p.Flex<"div">;
+  button2?: p.Flex<typeof Button2>;
 };
 
 export interface DefaultProductCardNewProps {
@@ -103,11 +107,6 @@ function PlasmicProductCardNew__RenderFunc(props: {
 
   const currentUser = p.useCurrentUser?.() || {};
 
-  const [isRootHover, triggerRootHoverProps] = useTrigger("useHover", {});
-  const triggers = {
-    hover_root: isRootHover
-  };
-
   const globalVariants = ensureGlobalVariants({
     screen: useScreenVariants_6Hzia3M7Np4Ulu()
   });
@@ -127,10 +126,11 @@ function PlasmicProductCardNew__RenderFunc(props: {
         plasmic_antd_5_hostless_css.plasmic_tokens,
         sty.root
       )}
-      data-plasmic-trigger-props={[triggerRootHoverProps]}
     >
       <p.PlasmicLink
-        className={classNames(projectcss.all, projectcss.a, sty.link__niWhG)}
+        data-plasmic-name={"link"}
+        data-plasmic-override={overrides.link}
+        className={classNames(projectcss.all, projectcss.a, sty.link)}
         component={Link}
         href={`/product/${(() => {
           try {
@@ -148,47 +148,55 @@ function PlasmicProductCardNew__RenderFunc(props: {
         platform={"nextjs"}
       >
         <p.PlasmicImg
-          data-plasmic-name={"img"}
-          data-plasmic-override={overrides.img}
           alt={""}
-          className={classNames(sty.img)}
+          className={classNames(sty.img__pwpzg)}
           displayHeight={
-            hasVariant(globalVariants, "screen", "mobileOnly") ? "15em" : "20em"
+            hasVariant(globalVariants, "screen", "mobileOnly") ? "15em" : "auto"
           }
           displayMaxHeight={"none"}
           displayMaxWidth={"100%"}
           displayMinHeight={"0"}
           displayMinWidth={"0"}
           displayWidth={"100%"}
-          src={
-            triggers.hover_root
-              ? (() => {
-                  try {
-                    return $props.currentItem.images[1].url;
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return "https://static1.plasmic.app/components/react-slick/slide1.png";
-                    }
-                    throw e;
-                  }
-                })()
-              : (() => {
-                  try {
-                    return $props.currentItem.images[0].url;
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return "https://static1.plasmic.app/components/react-slick/slide1.png";
-                    }
-                    throw e;
-                  }
-                })()
+          src={(() => {
+            try {
+              return $props.currentItem.images[0].url;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return "https://static1.plasmic.app/components/react-slick/slide1.png";
+              }
+              throw e;
+            }
+          })()}
+        />
+
+        <p.PlasmicImg
+          alt={""}
+          className={classNames(sty.img__mn7Uj)}
+          displayHeight={
+            hasVariant(globalVariants, "screen", "mobileOnly") ? "15em" : "auto"
           }
+          displayMaxHeight={"none"}
+          displayMaxWidth={"100%"}
+          displayMinHeight={"0"}
+          displayMinWidth={"0"}
+          displayWidth={"auto"}
+          src={(() => {
+            try {
+              return $props.currentItem.images[1].url;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return "https://static1.plasmic.app/components/react-slick/slide1.png";
+              }
+              throw e;
+            }
+          })()}
         />
       </p.PlasmicLink>
       <div
@@ -196,81 +204,56 @@ function PlasmicProductCardNew__RenderFunc(props: {
         data-plasmic-override={overrides.freeBox}
         className={classNames(projectcss.all, sty.freeBox)}
       >
-        <p.PlasmicLink
-          className={classNames(
-            projectcss.all,
-            projectcss.a,
-            projectcss.__wab_text,
-            sty.link___6Abdn
-          )}
-          component={Link}
-          onClick={async event => {
-            const $steps = {};
-
-            $steps["goToProductPage"] = true
-              ? (() => {
-                  const actionArgs = {
-                    destination: `/product/${(() => {
-                      try {
-                        return $props.currentItem.slug;
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return undefined;
-                        }
-                        throw e;
-                      }
-                    })()}`
-                  };
-                  return (({ destination }) => {
-                    if (
-                      typeof destination === "string" &&
-                      destination.startsWith("#")
-                    ) {
-                      document
-                        .getElementById(destination.substr(1))
-                        .scrollIntoView({ behavior: "smooth" });
-                    } else {
-                      __nextRouter?.push(destination);
-                    }
-                  })?.apply(null, [actionArgs]);
-                })()
-              : undefined;
-            if (
-              $steps["goToProductPage"] != null &&
-              typeof $steps["goToProductPage"] === "object" &&
-              typeof $steps["goToProductPage"].then === "function"
-            ) {
-              $steps["goToProductPage"] = await $steps["goToProductPage"];
-            }
-          }}
-          platform={"nextjs"}
-        >
-          <React.Fragment>
-            {(() => {
-              try {
-                return $props.currentItem.name;
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return "";
-                }
-                throw e;
+        <Button2
+          data-plasmic-name={"button2"}
+          data-plasmic-override={overrides.button2}
+          alignment={"leftAligned"}
+          className={classNames("__wab_instance", sty.button2)}
+          color={"clear"}
+          link={`/product/${(() => {
+            try {
+              return $props.currentItem.slug;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
               }
-            })()}
-          </React.Fragment>
-        </p.PlasmicLink>
+              throw e;
+            }
+          })()}`}
+          size={"minimal"}
+        >
+          <div
+            className={classNames(
+              projectcss.all,
+              projectcss.__wab_text,
+              sty.text___2Gz7E
+            )}
+          >
+            <React.Fragment>
+              {(() => {
+                try {
+                  return $props.currentItem.name;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return "";
+                  }
+                  throw e;
+                }
+              })()}
+            </React.Fragment>
+          </div>
+        </Button2>
         <div
-          data-plasmic-name={"text"}
-          data-plasmic-override={overrides.text}
           className={classNames(
             projectcss.all,
             projectcss.__wab_text,
-            sty.text
+            sty.text___0LF
           )}
         >
           <React.Fragment>
@@ -295,19 +278,19 @@ function PlasmicProductCardNew__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "img", "freeBox", "text"],
-  img: ["img"],
-  freeBox: ["freeBox", "text"],
-  text: ["text"]
+  root: ["root", "link", "freeBox", "button2"],
+  link: ["link"],
+  freeBox: ["freeBox", "button2"],
+  button2: ["button2"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
-  img: typeof p.PlasmicImg;
+  link: "a";
   freeBox: "div";
-  text: "div";
+  button2: typeof Button2;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -315,7 +298,6 @@ type NodeOverridesType<T extends NodeNameType> = Pick<
   PlasmicProductCardNew__OverridesType,
   DescendantsType<T>
 >;
-
 type NodeComponentProps<T extends NodeNameType> =
   // Explicitly specify variants, args, and overrides as objects
   {
@@ -371,9 +353,9 @@ export const PlasmicProductCardNew = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
-    img: makeNodeComponent("img"),
+    link: makeNodeComponent("link"),
     freeBox: makeNodeComponent("freeBox"),
-    text: makeNodeComponent("text"),
+    button2: makeNodeComponent("button2"),
 
     // Metadata about props expected for PlasmicProductCardNew
     internalVariantProps: PlasmicProductCardNew__VariantProps,

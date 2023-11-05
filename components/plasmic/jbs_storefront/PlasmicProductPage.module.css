@@ -70,8 +70,8 @@
     flex-direction: row;
     flex-wrap: wrap;
     min-width: 0;
-    margin-top: calc(0px - var(--token-Tf_KtjkxGdsv));
-    height: calc(100% + var(--token-Tf_KtjkxGdsv));
+    margin-top: calc(0px - 0px);
+    height: calc(100% + 0px);
   }
 }
 @media (min-width: 0px) and (max-width: 768px) {
@@ -83,7 +83,7 @@
     > :global(.__wab_slot)
     > picture
     > img {
-    margin-top: var(--token-Tf_KtjkxGdsv);
+    margin-top: 0px;
   }
 }
 @media (min-width: 0px) and (max-width: 768px) {
@@ -116,34 +116,34 @@
   max-width: 100%;
   object-fit: cover;
 }
-.sliderCarousel:global(.__wab_instance) {
-  width: 100%;
-  max-width: 100%;
-  flex-direction: column;
-  object-fit: cover;
-  position: relative;
-  min-width: 0;
-}
-.freeBox__ojNe {
+.freeBox__hnKz {
   display: flex;
-  flex-direction: column;
   position: relative;
-  height: auto;
-  max-width: 100%;
-  justify-content: flex-start;
+  flex-direction: column;
   align-items: center;
+  justify-content: flex-start;
   width: 100%;
+  height: 67vw;
+  max-width: 100%;
+  overflow: auto;
   min-width: 0;
 }
-.img {
-  object-fit: cover;
+@media (min-width: 0px) and (max-width: 768px) {
+  .freeBox__hnKz {
+    height: 134vw;
+    display: flex;
+    flex-direction: row;
+  }
+}
+.productMedia:global(.__wab_instance) {
   max-width: 100%;
-}
-.img > picture > img {
   object-fit: cover;
 }
-.img > :global(.__wab_img-spacer) > img {
-  object-fit: cover;
+@media (min-width: 0px) and (max-width: 768px) {
+  .productMedia:global(.__wab_instance) {
+    height: 100%;
+    min-height: 0;
+  }
 }
 .column__vIqh5 {
   display: flex;
@@ -155,7 +155,7 @@
   border-left-style: solid;
   border-left-width: 2px;
   min-width: 0;
-  padding: var(--token-02IfQLozsPKb) 0px;
+  padding: 80px 0px var(--token-02IfQLozsPKb);
 }
 .column__vIqh5 > :global(.__wab_flex-container) {
   flex-direction: column;
@@ -250,57 +250,6 @@
     font-size: 1.2rem;
   }
 }
-.freeBox__ulo4R {
-  display: flex;
-  flex-direction: row;
-  align-items: stretch;
-  justify-content: flex-start;
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  min-width: 0;
-}
-.productCollection:global(.__wab_instance) {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(4em, 1fr));
-  grid-row-gap: 8px;
-  grid-column-gap: 8px;
-  max-width: 100%;
-  object-fit: cover;
-  position: relative;
-  padding: 8px;
-}
-.freeBox__iXi43 {
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  width: 4em;
-  height: 4em;
-  max-width: 100%;
-  justify-content: center;
-  align-items: center;
-  min-width: 0;
-  overflow: hidden;
-  border-radius: 50%;
-}
-.productMedia:global(.__wab_instance) {
-  max-width: 100%;
-  object-fit: cover;
-}
-.text__u3Se9 {
-  position: relative;
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  min-width: 0;
-}
-.text__tkX2R {
-  position: relative;
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  min-width: 0;
-}
 .productVariantPicker:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
@@ -309,10 +258,13 @@
   flex-direction: row;
   align-items: flex-start;
   justify-content: flex-start;
-  background: var(--token-ZGgUq6H0D);
+  background: var(--token-qoXYsQ1lS);
   color: var(--token-jgohepLVeKvh);
   width: auto;
+  border-radius: 8px;
   padding: 8px;
+  border-width: 1px;
+  border-style: none;
 }
 .productTextField__bQZeN:global(.__wab_instance) {
   max-width: 100%;
@@ -440,7 +392,6 @@
 .section:global(.__wab_instance) {
   max-width: 100%;
   position: relative;
-  margin-bottom: 48px;
 }
 .freeBox__uIStc {
   display: flex;
@@ -529,4 +480,41 @@
   position: relative;
   height: 100%;
   min-height: 0;
+}
+.freeBox__sytZ {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+}
+.button2:global(.__wab_instance) {
+  max-width: 100%;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+}
+.svg__f0Q5H {
+  position: relative;
+  object-fit: cover;
+  width: auto;
+  height: 1em;
+}
+.text__vp07P {
+  text-transform: uppercase;
+  font-style: italic;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+.svg {
+  position: relative;
+  object-fit: cover;
+  width: auto;
+  height: 1em;
 }

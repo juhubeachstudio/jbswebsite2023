@@ -1109,6 +1109,46 @@
           "scheme": "blackbox",
           "componentType": "page",
           "path": "/terms-and-conditions"
+        },
+        {
+          "id": "iT6In2ggLenM",
+          "name": "GoToCartButton",
+          "type": "managed",
+          "projectId": "heL2P6rJiLNgtnBJPb6i1m",
+          "renderModuleFilePath": "plasmic/jbs_storefront/PlasmicGoToCartButton.tsx",
+          "importSpec": {
+            "modulePath": "GoToCartButton.tsx"
+          },
+          "cssFilePath": "plasmic/jbs_storefront/PlasmicGoToCartButton.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "iURTST31N2A8",
+          "name": "Categories",
+          "type": "managed",
+          "projectId": "heL2P6rJiLNgtnBJPb6i1m",
+          "renderModuleFilePath": "plasmic/jbs_storefront/PlasmicCategories.tsx",
+          "importSpec": {
+            "modulePath": "../pages/categories.tsx"
+          },
+          "cssFilePath": "plasmic/jbs_storefront/PlasmicCategories.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/categories"
+        },
+        {
+          "id": "VOdWaLC8FIM5",
+          "name": "CategoryCard",
+          "type": "managed",
+          "projectId": "heL2P6rJiLNgtnBJPb6i1m",
+          "renderModuleFilePath": "plasmic/jbs_storefront/PlasmicCategoryCard.tsx",
+          "importSpec": {
+            "modulePath": "CategoryCard.tsx"
+          },
+          "cssFilePath": "plasmic/jbs_storefront/PlasmicCategoryCard.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [
@@ -1226,6 +1266,11 @@
           "id": "EORfQy0Jztah",
           "name": "MinussvgIcon",
           "moduleFilePath": "plasmic/jbs_storefront/icons/PlasmicIcon__Minussvg.tsx"
+        },
+        {
+          "id": "69HLYm9NeIDx",
+          "name": "Facebook176SvgrepoComsvg2Icon",
+          "moduleFilePath": "plasmic/jbs_storefront/icons/PlasmicIcon__Facebook176SvgrepoComsvg2.tsx"
         }
       ],
       "images": [
@@ -1236,8 +1281,8 @@
         },
         {
           "id": "OB4grk6zK4kj",
-          "name": "AI_Image.png",
-          "filePath": "../public/plasmic/jbs_storefront/images/aiImagepng.png"
+          "name": "Footer BG",
+          "filePath": "../public/plasmic/jbs_storefront/images/footerBg.webp"
         },
         {
           "id": "eDRCskeshUo8",
@@ -1275,44 +1320,19 @@
           "filePath": "../public/plasmic/jbs_storefront/images/aboutBeachpng.png"
         },
         {
-          "id": "16LEgSo00zx_",
-          "name": "fashion rev.jpeg",
-          "filePath": "../public/plasmic/jbs_storefront/images/fashionRevjpeg.jpg"
-        },
-        {
           "id": "rK5OEMjUg-xl",
           "name": "IMG_5704.JPG",
           "filePath": "../public/plasmic/jbs_storefront/images/img5704Jpg.jpg"
         },
         {
-          "id": "8eI9kcrFpQPr",
-          "name": "Asset 58.png",
-          "filePath": "../public/plasmic/jbs_storefront/images/asset58Png.png"
-        },
-        {
-          "id": "jA_wEiwHy1_L",
-          "name": "Asset 59.png",
-          "filePath": "../public/plasmic/jbs_storefront/images/asset59Png.png"
-        },
-        {
-          "id": "RPBV81mI8ueB",
-          "name": "Asset 60.png",
-          "filePath": "../public/plasmic/jbs_storefront/images/asset60Png.png"
-        },
-        {
           "id": "U_cw3ymfh31v",
-          "name": "Asset 51.png",
-          "filePath": "../public/plasmic/jbs_storefront/images/asset51Png.png"
+          "name": "Beach BG",
+          "filePath": "../public/plasmic/jbs_storefront/images/beachBg.webp"
         },
         {
           "id": "5uAH6JGZtSb-",
           "name": "Asset 76.png",
           "filePath": "../public/plasmic/jbs_storefront/images/asset76Png.png"
-        },
-        {
-          "id": "UxlzhC7ipPut",
-          "name": "Asset 79.png",
-          "filePath": "../public/plasmic/jbs_storefront/images/asset79Png.png"
         },
         {
           "id": "1vWX7rIifnQf",
@@ -1335,11 +1355,6 @@
           "filePath": "../public/plasmic/jbs_storefront/images/asset9Png.png"
         },
         {
-          "id": "IkvGr5pnwx2K",
-          "name": "Asset 10.png",
-          "filePath": "../public/plasmic/jbs_storefront/images/asset10Png.png"
-        },
-        {
           "id": "jFerVGnw4BO9",
           "name": "Asset 11.png",
           "filePath": "../public/plasmic/jbs_storefront/images/asset11Png.png"
@@ -1360,19 +1375,9 @@
           "filePath": "../public/plasmic/jbs_storefront/images/asset31Png.png"
         },
         {
-          "id": "7VdZ0wNfEKE_",
-          "name": "Asset 62.png",
-          "filePath": "../public/plasmic/jbs_storefront/images/asset62Png.png"
-        },
-        {
           "id": "c2Y05iXxHpBP",
           "name": "Asset 63.png",
           "filePath": "../public/plasmic/jbs_storefront/images/asset63Png.png"
-        },
-        {
-          "id": "j7vlAi7wdEHP",
-          "name": "Asset 64.png 2",
-          "filePath": "../public/plasmic/jbs_storefront/images/asset64Png2.png"
         },
         {
           "id": "HtR9PBDIn-aZ",
@@ -1385,26 +1390,6 @@
           "filePath": "../public/plasmic/jbs_storefront/images/asset582Png.png"
         },
         {
-          "id": "2c34mwyWKOQf",
-          "name": "Asset 75.png",
-          "filePath": "../public/plasmic/jbs_storefront/images/asset75Png.png"
-        },
-        {
-          "id": "Bl9SmtwMkmN2",
-          "name": "Asset 75_2.png",
-          "filePath": "../public/plasmic/jbs_storefront/images/asset752Png.png"
-        },
-        {
-          "id": "sA0Fq06MeuNJ",
-          "name": "IMG_3309.PNG 2",
-          "filePath": "../public/plasmic/jbs_storefront/images/img3309Png2.png"
-        },
-        {
-          "id": "RcUDlMms_6tL",
-          "name": "Asset 68.png",
-          "filePath": "../public/plasmic/jbs_storefront/images/asset68Png.png"
-        },
-        {
           "id": "2AHSoKNvpgsk",
           "name": "Asset 52.png",
           "filePath": "../public/plasmic/jbs_storefront/images/asset52Png.png"
@@ -1413,11 +1398,6 @@
           "id": "rX8pFXqiG7DS",
           "name": "Asset 52_2.png",
           "filePath": "../public/plasmic/jbs_storefront/images/asset522Png.png"
-        },
-        {
-          "id": "rQLkeYUPeTY6",
-          "name": "Asset 68.png 2",
-          "filePath": "../public/plasmic/jbs_storefront/images/asset68Png2.png"
         },
         {
           "id": "wfg6pBimwWgO",
@@ -1450,24 +1430,9 @@
           "filePath": "../public/plasmic/jbs_storefront/images/asset75Png2.png"
         },
         {
-          "id": "BUIgZZq8PXsC",
-          "name": "Asset 7.png",
-          "filePath": "../public/plasmic/jbs_storefront/images/asset7Png.png"
-        },
-        {
           "id": "XK1zPOsyKvYX",
           "name": "Asset 8.png",
           "filePath": "../public/plasmic/jbs_storefront/images/asset8Png.png"
-        },
-        {
-          "id": "0xQk86hQdXRf",
-          "name": "Asset 18.png",
-          "filePath": "../public/plasmic/jbs_storefront/images/asset18Png.png"
-        },
-        {
-          "id": "_m4U0aVvCaKd",
-          "name": "Asset 3.png 2",
-          "filePath": "../public/plasmic/jbs_storefront/images/asset3Png2.png"
         },
         {
           "id": "aU7oO5qZFnoC",
@@ -1485,11 +1450,6 @@
           "filePath": "../public/plasmic/jbs_storefront/images/asset49Png.png"
         },
         {
-          "id": "VWOOPYL6XgL8",
-          "name": "Asset 50.png",
-          "filePath": "../public/plasmic/jbs_storefront/images/asset50Png.png"
-        },
-        {
           "id": "ciGpNVWV6wrv",
           "name": "Asset 51.png 2",
           "filePath": "../public/plasmic/jbs_storefront/images/asset51Png2.png"
@@ -1503,16 +1463,6 @@
           "id": "3QXwTWGWaufv",
           "name": "Asset 53.png",
           "filePath": "../public/plasmic/jbs_storefront/images/asset53Png.png"
-        },
-        {
-          "id": "8Ll4YW9YH2JZ",
-          "name": "new flower.png",
-          "filePath": "../public/plasmic/jbs_storefront/images/newFlowerpng.png"
-        },
-        {
-          "id": "YNh4IFp6L5bK",
-          "name": "new.png",
-          "filePath": "../public/plasmic/jbs_storefront/images/newpng.png"
         },
         {
           "id": "3ew4vJssytaD",
@@ -1531,8 +1481,8 @@
         },
         {
           "id": "Qcs7yLJsqeZU",
-          "name": "Drawing-Pin-blue.png 2",
-          "filePath": "../public/plasmic/jbs_storefront/images/drawingPinBluepng2.png"
+          "name": "Drawing-Pin-blue.png",
+          "filePath": "../public/plasmic/jbs_storefront/images/drawingPinBluepng.webp"
         },
         {
           "id": "42TWZnCWUs7J",
@@ -1545,19 +1495,9 @@
           "filePath": "../public/plasmic/jbs_storefront/images/asset13Png.png"
         },
         {
-          "id": "1hj6TdI67AMM",
-          "name": "new bg.png",
-          "filePath": "../public/plasmic/jbs_storefront/images/newBgpng.png"
-        },
-        {
           "id": "bm198W4T_5Lu",
-          "name": "Asset 93.png",
-          "filePath": "../public/plasmic/jbs_storefront/images/asset93Png.png"
-        },
-        {
-          "id": "E4QfM6x6sQhh",
-          "name": "Asset 85 (1).png",
-          "filePath": "../public/plasmic/jbs_storefront/images/asset851Png.png"
+          "name": "Flowery BG 2",
+          "filePath": "../public/plasmic/jbs_storefront/images/floweryBg2.webp"
         },
         {
           "id": "vIoVusG566d_",
@@ -1568,41 +1508,6 @@
           "id": "z0nLtX02LAg9",
           "name": "Asset 81.png",
           "filePath": "../public/plasmic/jbs_storefront/images/asset81Png.png"
-        },
-        {
-          "id": "qtYoLOrQYfGg",
-          "name": "Asset 88.png 2",
-          "filePath": "../public/plasmic/jbs_storefront/images/asset88Png2.png"
-        },
-        {
-          "id": "2HJyTgKemrp8",
-          "name": "Asset 90.png",
-          "filePath": "../public/plasmic/jbs_storefront/images/asset90Png.png"
-        },
-        {
-          "id": "U1YrRz-lpl8p",
-          "name": "Asset 86.png 2",
-          "filePath": "../public/plasmic/jbs_storefront/images/asset86Png2.png"
-        },
-        {
-          "id": "D2uc8Pl3cWcg",
-          "name": "Asset 87.png",
-          "filePath": "../public/plasmic/jbs_storefront/images/asset87Png.png"
-        },
-        {
-          "id": "WRkonaG9DR38",
-          "name": "Asset 89.png",
-          "filePath": "../public/plasmic/jbs_storefront/images/asset89Png.png"
-        },
-        {
-          "id": "NQUXgVmbZt-p",
-          "name": "Asset 92.png",
-          "filePath": "../public/plasmic/jbs_storefront/images/asset92Png.png"
-        },
-        {
-          "id": "BhBoPuljqGGj",
-          "name": "Asset 91.png",
-          "filePath": "../public/plasmic/jbs_storefront/images/asset91Png.png"
         },
         {
           "id": "v5ydVUcJNXr1",
@@ -1651,8 +1556,8 @@
         },
         {
           "id": "sedPH_504UVW",
-          "name": "File_001.png",
-          "filePath": "../public/plasmic/jbs_storefront/images/file001Png.png"
+          "name": "GemsClip.webp",
+          "filePath": "../public/plasmic/jbs_storefront/images/gemsClipwebp.webp"
         },
         {
           "id": "sKuGvziwCsl6",
@@ -1698,6 +1603,371 @@
           "id": "EJrz8Mk6rSFK",
           "name": "Asset 101.png",
           "filePath": "../public/plasmic/jbs_storefront/images/asset101Png.png"
+        },
+        {
+          "id": "DomACiRa_E1R",
+          "name": "Bucket Hat Banner.webp",
+          "filePath": "../public/plasmic/jbs_storefront/images/bucketHatBannerwebp.webp"
+        },
+        {
+          "id": "cnK6pQpf6gby",
+          "name": "Flower Hat Banner",
+          "filePath": "../public/plasmic/jbs_storefront/images/flowerHatBanner.webp"
+        },
+        {
+          "id": "XGynGy37SVFJ",
+          "name": "Love you forever.webp",
+          "filePath": "../public/plasmic/jbs_storefront/images/loveYouForeverwebp.webp"
+        },
+        {
+          "id": "l2rmIRh18XnV",
+          "name": "Heart Frame.webp",
+          "filePath": "../public/plasmic/jbs_storefront/images/heartFramewebp.webp"
+        },
+        {
+          "id": "xcLLk6-VICh2",
+          "name": "Strawberries.webp",
+          "filePath": "../public/plasmic/jbs_storefront/images/strawberrieswebp.webp"
+        },
+        {
+          "id": "5Ru3NdfXQ5uP",
+          "name": "Chakhna cat.webp",
+          "filePath": "../public/plasmic/jbs_storefront/images/chakhnaCatwebp.webp"
+        },
+        {
+          "id": "5kjM3OXmdSlw",
+          "name": "Banner Orange Yellow Bucket Hat.webp",
+          "filePath": "../public/plasmic/jbs_storefront/images/bannerOrangeYellowBucketHatwebp.webp"
+        },
+        {
+          "id": "CyyOhDed0FNY",
+          "name": "Banner Rose Collar.webp",
+          "filePath": "../public/plasmic/jbs_storefront/images/bannerRoseCollarwebp.webp"
+        },
+        {
+          "id": "Dvk5tCz0nv7q",
+          "name": "Banner Mehfil Lights Cigarettes.webp",
+          "filePath": "../public/plasmic/jbs_storefront/images/bannerMehfilLightsCigaretteswebp.webp"
+        },
+        {
+          "id": "T47pPW-_cxcP",
+          "name": "Banner Custom Hearts.webp",
+          "filePath": "../public/plasmic/jbs_storefront/images/bannerCustomHeartswebp.webp"
+        },
+        {
+          "id": "i7_ZQmN7YG1O",
+          "name": "Banner Heart Frame.webp",
+          "filePath": "../public/plasmic/jbs_storefront/images/bannerHeartFramewebp.webp"
+        },
+        {
+          "id": "s87CGnDlf48S",
+          "name": "Banner Dil Tote.webp",
+          "filePath": "../public/plasmic/jbs_storefront/images/bannerDilTotewebp.webp"
+        },
+        {
+          "id": "xDnfB61bjs7B",
+          "name": "Banner Aashiq Cap Lavender.webp",
+          "filePath": "../public/plasmic/jbs_storefront/images/bannerAashiqCapLavenderwebp.webp"
+        },
+        {
+          "id": "sCBWN9j6nuFN",
+          "name": "Banner Yellow Orange Bucket Hat.webp",
+          "filePath": "../public/plasmic/jbs_storefront/images/bannerYellowOrangeBucketHatwebp.webp"
+        },
+        {
+          "id": "O4_cx28tO0L5",
+          "name": "Banner Caps Animation.webp",
+          "filePath": "../public/plasmic/jbs_storefront/images/bannerCapsAnimationwebp.webp"
+        },
+        {
+          "id": "OSXgwxbJqUjF",
+          "name": "Chakhna Chappal.webp",
+          "filePath": "../public/plasmic/jbs_storefront/images/chakhnaChappalwebp.webp"
+        },
+        {
+          "id": "xq4JwV99ZCGu",
+          "name": "Chakhna Ants.webp",
+          "filePath": "../public/plasmic/jbs_storefront/images/chakhnaAntswebp.webp"
+        },
+        {
+          "id": "sAtNS8-YXil3",
+          "name": "Banner Chakhna Slippers.webp",
+          "filePath": "../public/plasmic/jbs_storefront/images/bannerChakhnaSlipperswebp.webp"
+        },
+        {
+          "id": "qQ8NGu57P2xa",
+          "name": "Banner Chakhna Cat.webp",
+          "filePath": "../public/plasmic/jbs_storefront/images/bannerChakhnaCatwebp.webp"
+        },
+        {
+          "id": "9LbHUBMqgWza",
+          "name": "Banner Chakhna Ants.webp",
+          "filePath": "../public/plasmic/jbs_storefront/images/bannerChakhnaAntswebp.webp"
+        },
+        {
+          "id": "lF9Zg6SHxpbu",
+          "name": "Clam.webp",
+          "filePath": "../public/plasmic/jbs_storefront/images/clamwebp.webp"
+        },
+        {
+          "id": "Muh4apjoPfXq",
+          "name": "Sea of Waste Wide.webp",
+          "filePath": "../public/plasmic/jbs_storefront/images/seaOfWasteWidewebp.webp"
+        },
+        {
+          "id": "cMopkdbIQV-e",
+          "name": "Sea of Waste Narrow.webp",
+          "filePath": "../public/plasmic/jbs_storefront/images/seaOfWasteNarrowwebp.webp"
+        },
+        {
+          "id": "wspNExGlEm0m",
+          "name": "Profile Prakruthi.webp",
+          "filePath": "../public/plasmic/jbs_storefront/images/profilePrakruthiwebp.webp"
+        },
+        {
+          "id": "kkoARAuLajoM",
+          "name": "Profile Akshara.webp",
+          "filePath": "../public/plasmic/jbs_storefront/images/profileAksharawebp.webp"
+        },
+        {
+          "id": "4DlKgqYJVtgA",
+          "name": "We are Juhu.webp",
+          "filePath": "../public/plasmic/jbs_storefront/images/weAreJuhuwebp.webp"
+        },
+        {
+          "id": "rqFwWH3sGFTz",
+          "name": "We are Juhu narrow.webp",
+          "filePath": "../public/plasmic/jbs_storefront/images/weAreJuhuNarrowwebp.webp"
+        },
+        {
+          "id": "SE7Af39RgXX9",
+          "name": "How we started 1.webp",
+          "filePath": "../public/plasmic/jbs_storefront/images/howWeStarted1Webp.webp"
+        },
+        {
+          "id": "y8ICI-jdGZn-",
+          "name": "How we started 2.webp",
+          "filePath": "../public/plasmic/jbs_storefront/images/howWeStarted2Webp.webp"
+        },
+        {
+          "id": "P6mevrRMtpl3",
+          "name": "How we started 3.webp",
+          "filePath": "../public/plasmic/jbs_storefront/images/howWeStarted3Webp.webp"
+        },
+        {
+          "id": "hYfiDq0D7hw8",
+          "name": "The Juhu Beach.webp",
+          "filePath": "../public/plasmic/jbs_storefront/images/theJuhuBeachwebp.webp"
+        },
+        {
+          "id": "d3HJNOCougV9",
+          "name": "asset85Largepng_result.webp",
+          "filePath": "../public/plasmic/jbs_storefront/images/asset85LargepngResultwebp.webp"
+        },
+        {
+          "id": "RclwS_2lUgJ3",
+          "name": "Banner Team.webp",
+          "filePath": "../public/plasmic/jbs_storefront/images/bannerTeamwebp.webp"
+        },
+        {
+          "id": "EJ9T2bExdAkH",
+          "name": "Team group 1.webp",
+          "filePath": "../public/plasmic/jbs_storefront/images/teamGroup1Webp.webp"
+        },
+        {
+          "id": "agoThIoXo7Q8",
+          "name": "Team Group 2.webp",
+          "filePath": "../public/plasmic/jbs_storefront/images/teamGroup2Webp.webp"
+        },
+        {
+          "id": "77ZyH-01xlb6",
+          "name": "Banner Process.webp",
+          "filePath": "../public/plasmic/jbs_storefront/images/bannerProcesswebp.webp"
+        },
+        {
+          "id": "M7lLqRwqcwuD",
+          "name": "Sourcing 1.webp",
+          "filePath": "../public/plasmic/jbs_storefront/images/sourcing1Webp.webp"
+        },
+        {
+          "id": "TpRUMLJ_aIPq",
+          "name": "Sourcing 2.webp",
+          "filePath": "../public/plasmic/jbs_storefront/images/sourcing2Webp.webp"
+        },
+        {
+          "id": "Dnuh9IbAH3D4",
+          "name": "Sourcing 3.webp",
+          "filePath": "../public/plasmic/jbs_storefront/images/sourcing3Webp.webp"
+        },
+        {
+          "id": "Su36w9c7UTIl",
+          "name": "Sourcing 4.webp",
+          "filePath": "../public/plasmic/jbs_storefront/images/sourcing4Webp.webp"
+        },
+        {
+          "id": "CVPaP0bqmTIG",
+          "name": "Sourcing 5.webp",
+          "filePath": "../public/plasmic/jbs_storefront/images/sourcing5Webp.webp"
+        },
+        {
+          "id": "Oz1P22WeVGQn",
+          "name": "Sourcing 6.webp",
+          "filePath": "../public/plasmic/jbs_storefront/images/sourcing6Webp.webp"
+        },
+        {
+          "id": "9ijghzzi2ibC",
+          "name": "Sourcing 7.webp",
+          "filePath": "../public/plasmic/jbs_storefront/images/sourcing7Webp.webp"
+        },
+        {
+          "id": "DM32AB2mzjwA",
+          "name": "Sourcing 8.webp",
+          "filePath": "../public/plasmic/jbs_storefront/images/sourcing8Webp.webp"
+        },
+        {
+          "id": "1Y9MAEIKb8W3",
+          "name": "Sourcing 9.webp",
+          "filePath": "../public/plasmic/jbs_storefront/images/sourcing9Webp.webp"
+        },
+        {
+          "id": "J-2rkhWxiReF",
+          "name": "Materials Deadstock.webp",
+          "filePath": "../public/plasmic/jbs_storefront/images/materialsDeadstockwebp.webp"
+        },
+        {
+          "id": "fWBN3Gvk7La3",
+          "name": "Materials Chindi.webp",
+          "filePath": "../public/plasmic/jbs_storefront/images/materialsChindiwebp.webp"
+        },
+        {
+          "id": "vfORh9kPBWnr",
+          "name": "Materials Surplus.webp",
+          "filePath": "../public/plasmic/jbs_storefront/images/materialsSurpluswebp.webp"
+        },
+        {
+          "id": "pPU4nXsIy25h",
+          "name": "Materials Damaged.webp",
+          "filePath": "../public/plasmic/jbs_storefront/images/materialsDamagedwebp.webp"
+        },
+        {
+          "id": "pa2orkzHqHex",
+          "name": "Designing 1.webp",
+          "filePath": "../public/plasmic/jbs_storefront/images/designing1Webp.webp"
+        },
+        {
+          "id": "IEUT2XNc_aWp",
+          "name": "Designing 2.webp",
+          "filePath": "../public/plasmic/jbs_storefront/images/designing2Webp.webp"
+        },
+        {
+          "id": "B3x5BpyKr484",
+          "name": "Designing 3.webp",
+          "filePath": "../public/plasmic/jbs_storefront/images/designing3Webp.webp"
+        },
+        {
+          "id": "sZw1VeWlwZUW",
+          "name": "Designing 4.webp",
+          "filePath": "../public/plasmic/jbs_storefront/images/designing4Webp.webp"
+        },
+        {
+          "id": "OPOzip67DWym",
+          "name": "Designing 5.webp",
+          "filePath": "../public/plasmic/jbs_storefront/images/designing5Webp.webp"
+        },
+        {
+          "id": "rF0miulM3LyZ",
+          "name": "Designing 6.webp",
+          "filePath": "../public/plasmic/jbs_storefront/images/designing6Webp.webp"
+        },
+        {
+          "id": "Nmuywl0VBoEQ",
+          "name": "Designing 7.webp",
+          "filePath": "../public/plasmic/jbs_storefront/images/designing7Webp.webp"
+        },
+        {
+          "id": "kbEf-RDhfIJE",
+          "name": "Designing 8.webp",
+          "filePath": "../public/plasmic/jbs_storefront/images/designing8Webp.webp"
+        },
+        {
+          "id": "O7uvUKxMJKhv",
+          "name": "Designing 9.webp",
+          "filePath": "../public/plasmic/jbs_storefront/images/designing9Webp.webp"
+        },
+        {
+          "id": "XFrJZ1koJ77m",
+          "name": "Designing 10.webp",
+          "filePath": "../public/plasmic/jbs_storefront/images/designing10Webp.webp"
+        },
+        {
+          "id": "O_veSQ2LaqL9",
+          "name": "Production 1.webp",
+          "filePath": "../public/plasmic/jbs_storefront/images/production1Webp.webp"
+        },
+        {
+          "id": "pNtKZBEPSdti",
+          "name": "Production 2.webp",
+          "filePath": "../public/plasmic/jbs_storefront/images/production2Webp.webp"
+        },
+        {
+          "id": "HsKS36SqH13z",
+          "name": "Production 3.webp",
+          "filePath": "../public/plasmic/jbs_storefront/images/production3Webp.webp"
+        },
+        {
+          "id": "qTi3AneTVOfv",
+          "name": "Production 4.webp",
+          "filePath": "../public/plasmic/jbs_storefront/images/production4Webp.webp"
+        },
+        {
+          "id": "6Mjnp4DThs0W",
+          "name": "Production 5.webp",
+          "filePath": "../public/plasmic/jbs_storefront/images/production5Webp.webp"
+        },
+        {
+          "id": "ZnC6yPI_bT9a",
+          "name": "Production 6.webp",
+          "filePath": "../public/plasmic/jbs_storefront/images/production6Webp.webp"
+        },
+        {
+          "id": "osT3lalBPjiQ",
+          "name": "Agenda Clothes Pile.webp",
+          "filePath": "../public/plasmic/jbs_storefront/images/agendaClothesPilewebp.webp"
+        },
+        {
+          "id": "_fSabu0mVXlV",
+          "name": "Agenda Mouse.webp",
+          "filePath": "../public/plasmic/jbs_storefront/images/agendaMousewebp.webp"
+        },
+        {
+          "id": "h09ZFilH3EAS",
+          "name": "Agenda Coconut.webp",
+          "filePath": "../public/plasmic/jbs_storefront/images/agendaCoconutwebp.webp"
+        },
+        {
+          "id": "bfjPIxsLRE9T",
+          "name": "Agenda Hammer.webp",
+          "filePath": "../public/plasmic/jbs_storefront/images/agendaHammerwebp.webp"
+        },
+        {
+          "id": "xQPsc459hLmU",
+          "name": "Agenda Treasure.webp",
+          "filePath": "../public/plasmic/jbs_storefront/images/agendaTreasurewebp.webp"
+        },
+        {
+          "id": "jzVLmJzZ8KVS",
+          "name": "The Juhu Beach narrow.webp",
+          "filePath": "../public/plasmic/jbs_storefront/images/theJuhuBeachNarrowwebp.webp"
+        },
+        {
+          "id": "UKU_qyW0orck",
+          "name": "The Juhu Beach narrow.webp 2",
+          "filePath": "../public/plasmic/jbs_storefront/images/theJuhuBeachNarrowwebp2.webp"
+        },
+        {
+          "id": "xm6KS1uDpvOh",
+          "name": "The Juhu Beach wide.webp",
+          "filePath": "../public/plasmic/jbs_storefront/images/theJuhuBeachWidewebp.webp"
         }
       ],
       "indirect": false,

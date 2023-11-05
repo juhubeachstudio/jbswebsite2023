@@ -41,7 +41,6 @@ import Section from "../../Section"; // plasmic-import: GMAR4VOl00/component
 import { SliderWrapper } from "@plasmicpkgs/react-slick"; // plasmic-import: HOQUyOpClJ/codeComponent
 import { sliderHelpers as SliderWrapper_Helpers } from "@plasmicpkgs/react-slick"; // plasmic-import: HOQUyOpClJ/codeComponentHelper
 import Blackyellowborder from "../../Blackyellowborder"; // plasmic-import: qeyEUvMFwY/component
-import { Reveal } from "@plasmicpkgs/react-awesome-reveal"; // plasmic-import: R6s1FdhksG/codeComponent
 
 import { useScreenVariants as useScreenVariants_6Hzia3M7Np4Ulu } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6hzia3m7Np4ulu/globalVariant
 
@@ -50,6 +49,8 @@ import "@plasmicapp/react-web/lib/plasmic.css";
 import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic_antd_5_hostless.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
 import projectcss from "./plasmic_jbs_storefront.module.css"; // plasmic-import: heL2P6rJiLNgtnBJPb6i1m/projectcss
 import sty from "./PlasmicAbout.module.css"; // plasmic-import: R6tZZ6EQ-gsb/css
+
+import Icon38Icon from "./icons/PlasmicIcon__Icon38"; // plasmic-import: 3r4KXWygi9v/icon
 
 createPlasmicElementProxy;
 
@@ -69,8 +70,8 @@ export type PlasmicAbout__OverridesType = {
   h1?: p.Flex<"h1">;
   sliderCarousel2?: p.Flex<typeof SliderWrapper>;
   sliderCarousel3?: p.Flex<typeof SliderWrapper>;
-  reveal?: p.Flex<typeof Reveal>;
-  sliderCarousel4?: p.Flex<typeof SliderWrapper>;
+  svg?: p.Flex<"svg">;
+  sliderCarousel5?: p.Flex<typeof SliderWrapper>;
 };
 
 export interface DefaultAboutProps {}
@@ -145,19 +146,18 @@ function PlasmicAbout__RenderFunc(props: {
         )
       },
       {
-        path: "sliderCarousel4.currentSlide",
+        path: "sliderCarousel5.currentSlide",
         type: "private",
         variableType: "number",
         initFunc: ({ $props, $state, $queries, $ctx }) => 0,
 
-        refName: "sliderCarousel4",
+        refName: "sliderCarousel5",
         onMutate: p.generateOnMutateForSpec(
           "currentSlide",
           SliderWrapper_Helpers
         )
       }
     ],
-
     [$props, $ctx, $refs]
   );
   const $state = p.useDollarState(stateSpecs, {
@@ -222,9 +222,9 @@ function PlasmicAbout__RenderFunc(props: {
                     displayWidth={"auto"}
                     loading={"lazy"}
                     src={{
-                      src: "/plasmic/jbs_storefront/images/asset2Png.png",
-                      fullWidth: 7607,
-                      fullHeight: 3055,
+                      src: "/plasmic/jbs_storefront/images/weAreJuhuwebp.webp",
+                      fullWidth: 4096,
+                      fullHeight: 1645,
                       aspectRatio: undefined
                     }}
                   />
@@ -240,7 +240,7 @@ function PlasmicAbout__RenderFunc(props: {
                   displayWidth={"auto"}
                   loading={"lazy"}
                   src={{
-                    src: "/plasmic/jbs_storefront/images/asset31Png2.png",
+                    src: "/plasmic/jbs_storefront/images/weAreJuhuNarrowwebp.webp",
                     fullWidth: 895,
                     fullHeight: 558,
                     aspectRatio: undefined
@@ -264,7 +264,7 @@ function PlasmicAbout__RenderFunc(props: {
                     displayWidth={"100%"}
                     loading={"lazy"}
                     src={{
-                      src: "/plasmic/jbs_storefront/images/asset98Png.png",
+                      src: "/plasmic/jbs_storefront/images/profileAksharawebp.webp",
                       fullWidth: 3641,
                       fullHeight: 2487,
                       aspectRatio: undefined
@@ -283,7 +283,7 @@ function PlasmicAbout__RenderFunc(props: {
                     displayWidth={"100%"}
                     loading={"lazy"}
                     src={{
-                      src: "/plasmic/jbs_storefront/images/asset99Png.png",
+                      src: "/plasmic/jbs_storefront/images/profilePrakruthiwebp.webp",
                       fullWidth: 3497,
                       fullHeight: 2519,
                       aspectRatio: undefined
@@ -351,6 +351,11 @@ function PlasmicAbout__RenderFunc(props: {
                 <div className={classNames(projectcss.all, sty.column__u114A)}>
                   {(() => {
                     const child$Props = {
+                      adaptiveHeight: true,
+                      arrowColor: true ? "#0F0F0F" : undefined,
+                      arrows: hasVariant(globalVariants, "screen", "mobileOnly")
+                        ? false
+                        : true,
                       autoplay: true,
                       beforeChange:
                         p.generateStateOnChangePropForCodeComponents(
@@ -363,6 +368,7 @@ function PlasmicAbout__RenderFunc(props: {
                         "__wab_instance",
                         sty.sliderCarousel
                       ),
+                      dots: true,
                       editingSlide: p.generateStateValueProp($state, [
                         "sliderCarousel",
                         "currentSlide"
@@ -381,7 +387,6 @@ function PlasmicAbout__RenderFunc(props: {
                           plasmicStateName: "sliderCarousel.currentSlide"
                         }
                       ],
-
                       [],
                       SliderWrapper_Helpers ?? {},
                       child$Props
@@ -409,7 +414,7 @@ function PlasmicAbout__RenderFunc(props: {
                             displayMinWidth={"0"}
                             displayWidth={"auto"}
                             src={{
-                              src: "/plasmic/jbs_storefront/images/asset83Png.png",
+                              src: "/plasmic/jbs_storefront/images/howWeStarted1Webp.webp",
                               fullWidth: 2612,
                               fullHeight: 3485,
                               aspectRatio: undefined
@@ -432,7 +437,7 @@ function PlasmicAbout__RenderFunc(props: {
                             displayMinWidth={"0"}
                             displayWidth={"auto"}
                             src={{
-                              src: "/plasmic/jbs_storefront/images/asset84Png.png",
+                              src: "/plasmic/jbs_storefront/images/howWeStarted2Webp.webp",
                               fullWidth: 2615,
                               fullHeight: 3487,
                               aspectRatio: undefined
@@ -455,7 +460,7 @@ function PlasmicAbout__RenderFunc(props: {
                             displayMinWidth={"0"}
                             displayWidth={"auto"}
                             src={{
-                              src: "/plasmic/jbs_storefront/images/asset82Png.png",
+                              src: "/plasmic/jbs_storefront/images/howWeStarted3Webp.webp",
                               fullWidth: 2612,
                               fullHeight: 3478,
                               aspectRatio: undefined
@@ -520,6 +525,55 @@ function PlasmicAbout__RenderFunc(props: {
                   </p.Stack>
                 </p.Stack>
               </div>
+              <div className={classNames(projectcss.all, sty.freeBox__luyD)}>
+                <p.Stack
+                  as={"div"}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.columns__vGb4)}
+                >
+                  <div
+                    className={classNames(projectcss.all, sty.column__aAkHu)}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__k3Evy
+                      )}
+                    >
+                      {"What's a Juhu Beach"}
+                    </div>
+                  </div>
+                  <p.Stack
+                    as={"div"}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.column__wyZtk)}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__hX1Kb
+                      )}
+                    >
+                      {
+                        "It\u2019s the most wholesome place in Mumbai, and our favourite part of the city. People from all walks of life come here to chill, run with their dogs, practice a skill, everyone is so happy to escape from the craziness of real life for a little bit to just sit by the water, eat some bhel and daydream."
+                      }
+                    </div>
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__saS0P
+                      )}
+                    >
+                      {
+                        "This is basically how we wanted this brand to feel too, just like at the beach, everyone is welcome, anything can happen, no cynicism, just vibes. While real life may be inescapable you can always make it more fun"
+                      }
+                    </div>
+                  </p.Stack>
+                </p.Stack>
+              </div>
             </Section>
             <Section
               className={classNames("__wab_instance", sty.section__zxezt)}
@@ -552,7 +606,6 @@ function PlasmicAbout__RenderFunc(props: {
                         {"waste fellows "}
                       </h1>
                     }
-
                     <React.Fragment>{""}</React.Fragment>
                   </React.Fragment>
                 </div>
@@ -568,7 +621,7 @@ function PlasmicAbout__RenderFunc(props: {
                     displayWidth={"auto"}
                     loading={"lazy"}
                     src={{
-                      src: "/plasmic/jbs_storefront/images/drawingPinBluepng2.png",
+                      src: "/plasmic/jbs_storefront/images/drawingPinBluepng.webp",
                       fullWidth: 181,
                       fullHeight: 400,
                       aspectRatio: undefined
@@ -586,7 +639,7 @@ function PlasmicAbout__RenderFunc(props: {
                     displayWidth={"auto"}
                     loading={"lazy"}
                     src={{
-                      src: "/plasmic/jbs_storefront/images/drawingPinBluepng2.png",
+                      src: "/plasmic/jbs_storefront/images/drawingPinBluepng.webp",
                       fullWidth: 181,
                       fullHeight: 400,
                       aspectRatio: undefined
@@ -604,7 +657,7 @@ function PlasmicAbout__RenderFunc(props: {
                   displayWidth={"auto"}
                   loading={"lazy"}
                   src={{
-                    src: "/plasmic/jbs_storefront/images/asset85Largepng.png",
+                    src: "/plasmic/jbs_storefront/images/asset85LargepngResultwebp.webp",
                     fullWidth: 1658,
                     fullHeight: 1080,
                     aspectRatio: undefined
@@ -779,9 +832,9 @@ function PlasmicAbout__RenderFunc(props: {
                   displayWidth={"auto"}
                   loading={"lazy"}
                   src={{
-                    src: "/plasmic/jbs_storefront/images/asset88Png.png",
-                    fullWidth: 3500,
-                    fullHeight: 5600,
+                    src: "/plasmic/jbs_storefront/images/teamGroup1Webp.webp",
+                    fullWidth: 2560,
+                    fullHeight: 4096,
                     aspectRatio: undefined
                   }}
                 />
@@ -798,9 +851,9 @@ function PlasmicAbout__RenderFunc(props: {
                   displayWidth={"auto"}
                   loading={"lazy"}
                   src={{
-                    src: "/plasmic/jbs_storefront/images/asset11Png2.png",
-                    fullWidth: 3500,
-                    fullHeight: 5600,
+                    src: "/plasmic/jbs_storefront/images/teamGroup2Webp.webp",
+                    fullWidth: 2560,
+                    fullHeight: 4096,
                     aspectRatio: undefined
                   }}
                 />
@@ -910,6 +963,10 @@ function PlasmicAbout__RenderFunc(props: {
               >
                 {(() => {
                   const child$Props = {
+                    arrowColor: true ? "#0F0F0F" : undefined,
+                    arrows: hasVariant(globalVariants, "screen", "mobileOnly")
+                      ? false
+                      : undefined,
                     autoplay: true,
                     beforeChange: p.generateStateOnChangePropForCodeComponents(
                       $state,
@@ -922,6 +979,7 @@ function PlasmicAbout__RenderFunc(props: {
                       "__wab_instance",
                       sty.sliderCarousel2
                     ),
+                    dots: true,
                     editingSlide: p.generateStateValueProp($state, [
                       "sliderCarousel2",
                       "currentSlide"
@@ -940,7 +998,6 @@ function PlasmicAbout__RenderFunc(props: {
                         plasmicStateName: "sliderCarousel2.currentSlide"
                       }
                     ],
-
                     [],
                     SliderWrapper_Helpers ?? {},
                     child$Props
@@ -968,9 +1025,9 @@ function PlasmicAbout__RenderFunc(props: {
                           displayMinWidth={"0"}
                           displayWidth={"auto"}
                           src={{
-                            src: "/plasmic/jbs_storefront/images/asset54Png2.png",
-                            fullWidth: 4721,
-                            fullHeight: 2658,
+                            src: "/plasmic/jbs_storefront/images/sourcing1Webp.webp",
+                            fullWidth: 4096,
+                            fullHeight: 2306,
                             aspectRatio: undefined
                           }}
                         />
@@ -991,9 +1048,9 @@ function PlasmicAbout__RenderFunc(props: {
                           displayMinWidth={"0"}
                           displayWidth={"auto"}
                           src={{
-                            src: "/plasmic/jbs_storefront/images/asset55Png2.png",
-                            fullWidth: 4730,
-                            fullHeight: 2653,
+                            src: "/plasmic/jbs_storefront/images/sourcing2Webp.webp",
+                            fullWidth: 4096,
+                            fullHeight: 2297,
                             aspectRatio: undefined
                           }}
                         />
@@ -1014,9 +1071,147 @@ function PlasmicAbout__RenderFunc(props: {
                           displayMinWidth={"0"}
                           displayWidth={"auto"}
                           src={{
-                            src: "/plasmic/jbs_storefront/images/asset56Png.png",
+                            src: "/plasmic/jbs_storefront/images/sourcing3Webp.webp",
+                            fullWidth: 4096,
+                            fullHeight: 2313,
+                            aspectRatio: undefined
+                          }}
+                        />
+                      </div>
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__sNaVf
+                        )}
+                      >
+                        <p.PlasmicImg
+                          alt={""}
+                          className={classNames(sty.img__rmO8)}
+                          displayHeight={"auto"}
+                          displayMaxHeight={"none"}
+                          displayMaxWidth={"100%"}
+                          displayMinHeight={"0"}
+                          displayMinWidth={"0"}
+                          displayWidth={"auto"}
+                          src={{
+                            src: "/plasmic/jbs_storefront/images/sourcing4Webp.webp",
+                            fullWidth: 4712,
+                            fullHeight: 2651,
+                            aspectRatio: undefined
+                          }}
+                        />
+                      </div>
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__lOwR0
+                        )}
+                      >
+                        <p.PlasmicImg
+                          alt={""}
+                          className={classNames(sty.img__f2HcN)}
+                          displayHeight={"auto"}
+                          displayMaxHeight={"none"}
+                          displayMaxWidth={"100%"}
+                          displayMinHeight={"0"}
+                          displayMinWidth={"0"}
+                          displayWidth={"auto"}
+                          src={{
+                            src: "/plasmic/jbs_storefront/images/sourcing5Webp.webp",
+                            fullWidth: 4723,
+                            fullHeight: 2662,
+                            aspectRatio: undefined
+                          }}
+                        />
+                      </div>
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__ooPor
+                        )}
+                      >
+                        <p.PlasmicImg
+                          alt={""}
+                          className={classNames(sty.img__kIwZ7)}
+                          displayHeight={"auto"}
+                          displayMaxHeight={"none"}
+                          displayMaxWidth={"100%"}
+                          displayMinHeight={"0"}
+                          displayMinWidth={"0"}
+                          displayWidth={"auto"}
+                          src={{
+                            src: "/plasmic/jbs_storefront/images/sourcing6Webp.webp",
+                            fullWidth: 4710,
+                            fullHeight: 2649,
+                            aspectRatio: undefined
+                          }}
+                        />
+                      </div>
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox___0JRWt
+                        )}
+                      >
+                        <p.PlasmicImg
+                          alt={""}
+                          className={classNames(sty.img___43JAc)}
+                          displayHeight={"auto"}
+                          displayMaxHeight={"none"}
+                          displayMaxWidth={"100%"}
+                          displayMinHeight={"0"}
+                          displayMinWidth={"0"}
+                          displayWidth={"auto"}
+                          src={{
+                            src: "/plasmic/jbs_storefront/images/sourcing7Webp.webp",
                             fullWidth: 4706,
-                            fullHeight: 2657,
+                            fullHeight: 2648,
+                            aspectRatio: undefined
+                          }}
+                        />
+                      </div>
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__yimR
+                        )}
+                      >
+                        <p.PlasmicImg
+                          alt={""}
+                          className={classNames(sty.img__dsPrD)}
+                          displayHeight={"auto"}
+                          displayMaxHeight={"none"}
+                          displayMaxWidth={"100%"}
+                          displayMinHeight={"0"}
+                          displayMinWidth={"0"}
+                          displayWidth={"auto"}
+                          src={{
+                            src: "/plasmic/jbs_storefront/images/sourcing8Webp.webp",
+                            fullWidth: 4717,
+                            fullHeight: 2661,
+                            aspectRatio: undefined
+                          }}
+                        />
+                      </div>
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__yaMtX
+                        )}
+                      >
+                        <p.PlasmicImg
+                          alt={""}
+                          className={classNames(sty.img___6UzEr)}
+                          displayHeight={"auto"}
+                          displayMaxHeight={"none"}
+                          displayMaxWidth={"100%"}
+                          displayMinHeight={"0"}
+                          displayMinWidth={"0"}
+                          displayWidth={"auto"}
+                          src={{
+                            src: "/plasmic/jbs_storefront/images/sourcing9Webp.webp",
+                            fullWidth: 4704,
+                            fullHeight: 2646,
                             aspectRatio: undefined
                           }}
                         />
@@ -1122,7 +1317,7 @@ function PlasmicAbout__RenderFunc(props: {
                         displayWidth={"auto"}
                         loading={"lazy"}
                         src={{
-                          src: "/plasmic/jbs_storefront/images/file001Png.png",
+                          src: "/plasmic/jbs_storefront/images/gemsClipwebp.webp",
                           fullWidth: 242,
                           fullHeight: 460,
                           aspectRatio: undefined
@@ -1178,7 +1373,7 @@ function PlasmicAbout__RenderFunc(props: {
                           displayWidth={"auto"}
                           loading={"lazy"}
                           src={{
-                            src: "/plasmic/jbs_storefront/images/asset25Png.png",
+                            src: "/plasmic/jbs_storefront/images/materialsDeadstockwebp.webp",
                             fullWidth: 2179,
                             fullHeight: 1360,
                             aspectRatio: undefined
@@ -1204,7 +1399,7 @@ function PlasmicAbout__RenderFunc(props: {
                         displayWidth={"auto"}
                         loading={"lazy"}
                         src={{
-                          src: "/plasmic/jbs_storefront/images/file001Png.png",
+                          src: "/plasmic/jbs_storefront/images/gemsClipwebp.webp",
                           fullWidth: 242,
                           fullHeight: 460,
                           aspectRatio: undefined
@@ -1257,7 +1452,7 @@ function PlasmicAbout__RenderFunc(props: {
                           displayWidth={"auto"}
                           loading={"lazy"}
                           src={{
-                            src: "/plasmic/jbs_storefront/images/asset27Png.png",
+                            src: "/plasmic/jbs_storefront/images/materialsChindiwebp.webp",
                             fullWidth: 2146,
                             fullHeight: 1334,
                             aspectRatio: undefined
@@ -1286,7 +1481,7 @@ function PlasmicAbout__RenderFunc(props: {
                         displayWidth={"auto"}
                         loading={"lazy"}
                         src={{
-                          src: "/plasmic/jbs_storefront/images/file001Png.png",
+                          src: "/plasmic/jbs_storefront/images/gemsClipwebp.webp",
                           fullWidth: 242,
                           fullHeight: 460,
                           aspectRatio: undefined
@@ -1315,7 +1510,7 @@ function PlasmicAbout__RenderFunc(props: {
                           displayWidth={"auto"}
                           loading={"lazy"}
                           src={{
-                            src: "/plasmic/jbs_storefront/images/asset26Png.png",
+                            src: "/plasmic/jbs_storefront/images/materialsSurpluswebp.webp",
                             fullWidth: 2168,
                             fullHeight: 1357,
                             aspectRatio: undefined
@@ -1368,7 +1563,7 @@ function PlasmicAbout__RenderFunc(props: {
                         displayWidth={"auto"}
                         loading={"lazy"}
                         src={{
-                          src: "/plasmic/jbs_storefront/images/file001Png.png",
+                          src: "/plasmic/jbs_storefront/images/gemsClipwebp.webp",
                           fullWidth: 242,
                           fullHeight: 460,
                           aspectRatio: undefined
@@ -1394,7 +1589,7 @@ function PlasmicAbout__RenderFunc(props: {
                           displayWidth={"auto"}
                           loading={"lazy"}
                           src={{
-                            src: "/plasmic/jbs_storefront/images/asset28Png.png",
+                            src: "/plasmic/jbs_storefront/images/materialsDamagedwebp.webp",
                             fullWidth: 2048,
                             fullHeight: 1379,
                             aspectRatio: undefined
@@ -1440,6 +1635,10 @@ function PlasmicAbout__RenderFunc(props: {
               >
                 {(() => {
                   const child$Props = {
+                    arrowColor: true ? "#0F0F0F" : undefined,
+                    arrows: hasVariant(globalVariants, "screen", "mobileOnly")
+                      ? false
+                      : undefined,
                     autoplay: true,
                     beforeChange: p.generateStateOnChangePropForCodeComponents(
                       $state,
@@ -1447,10 +1646,12 @@ function PlasmicAbout__RenderFunc(props: {
                       ["sliderCarousel3", "currentSlide"],
                       SliderWrapper_Helpers
                     ),
+                    centerMode: false,
                     className: classNames(
                       "__wab_instance",
                       sty.sliderCarousel3
                     ),
+                    dots: true,
                     editingSlide: p.generateStateValueProp($state, [
                       "sliderCarousel3",
                       "currentSlide"
@@ -1469,7 +1670,6 @@ function PlasmicAbout__RenderFunc(props: {
                         plasmicStateName: "sliderCarousel3.currentSlide"
                       }
                     ],
-
                     [],
                     SliderWrapper_Helpers ?? {},
                     child$Props
@@ -1484,22 +1684,229 @@ function PlasmicAbout__RenderFunc(props: {
                       <div
                         className={classNames(
                           projectcss.all,
-                          sty.freeBox__g9Sra
+                          sty.freeBox__k6FU
                         )}
                       >
                         <p.PlasmicImg
                           alt={""}
-                          className={classNames(sty.img___1Je1H)}
+                          className={classNames(sty.img__gVb8J)}
                           displayHeight={"auto"}
                           displayMaxHeight={"none"}
                           displayMaxWidth={"100%"}
                           displayMinHeight={"0"}
                           displayMinWidth={"0"}
-                          displayWidth={"100%"}
+                          displayWidth={"auto"}
                           src={{
-                            src: "/plasmic/jbs_storefront/images/asset75Png2.png",
-                            fullWidth: 4720,
+                            src: "/plasmic/jbs_storefront/images/designing1Webp.webp",
+                            fullWidth: 4719,
                             fullHeight: 2655,
+                            aspectRatio: undefined
+                          }}
+                        />
+                      </div>
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__iwBfR
+                        )}
+                      >
+                        <p.PlasmicImg
+                          alt={""}
+                          className={classNames(sty.img__azK5T)}
+                          displayHeight={"auto"}
+                          displayMaxHeight={"none"}
+                          displayMaxWidth={"100%"}
+                          displayMinHeight={"0"}
+                          displayMinWidth={"0"}
+                          displayWidth={"auto"}
+                          src={{
+                            src: "/plasmic/jbs_storefront/images/designing2Webp.webp",
+                            fullWidth: 4695,
+                            fullHeight: 2670,
+                            aspectRatio: undefined
+                          }}
+                        />
+                      </div>
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__cHOl1
+                        )}
+                      >
+                        <p.PlasmicImg
+                          alt={""}
+                          className={classNames(sty.img__z7VDw)}
+                          displayHeight={"auto"}
+                          displayMaxHeight={"none"}
+                          displayMaxWidth={"100%"}
+                          displayMinHeight={"0"}
+                          displayMinWidth={"0"}
+                          displayWidth={"auto"}
+                          src={{
+                            src: "/plasmic/jbs_storefront/images/designing3Webp.webp",
+                            fullWidth: 4726,
+                            fullHeight: 2676,
+                            aspectRatio: undefined
+                          }}
+                        />
+                      </div>
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__xhzGi
+                        )}
+                      >
+                        <p.PlasmicImg
+                          alt={""}
+                          className={classNames(sty.img___2O22M)}
+                          displayHeight={"auto"}
+                          displayMaxHeight={"none"}
+                          displayMaxWidth={"100%"}
+                          displayMinHeight={"0"}
+                          displayMinWidth={"0"}
+                          displayWidth={"auto"}
+                          src={{
+                            src: "/plasmic/jbs_storefront/images/designing4Webp.webp",
+                            fullWidth: 4734,
+                            fullHeight: 2670,
+                            aspectRatio: undefined
+                          }}
+                        />
+                      </div>
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__k7Iup
+                        )}
+                      >
+                        <p.PlasmicImg
+                          alt={""}
+                          className={classNames(sty.img__tfNB)}
+                          displayHeight={"auto"}
+                          displayMaxHeight={"none"}
+                          displayMaxWidth={"100%"}
+                          displayMinHeight={"0"}
+                          displayMinWidth={"0"}
+                          displayWidth={"auto"}
+                          src={{
+                            src: "/plasmic/jbs_storefront/images/designing5Webp.webp",
+                            fullWidth: 4730,
+                            fullHeight: 2675,
+                            aspectRatio: undefined
+                          }}
+                        />
+                      </div>
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox___9YhyC
+                        )}
+                      >
+                        <p.PlasmicImg
+                          alt={""}
+                          className={classNames(sty.img___8HCxs)}
+                          displayHeight={"auto"}
+                          displayMaxHeight={"none"}
+                          displayMaxWidth={"100%"}
+                          displayMinHeight={"0"}
+                          displayMinWidth={"0"}
+                          displayWidth={"auto"}
+                          src={{
+                            src: "/plasmic/jbs_storefront/images/designing6Webp.webp",
+                            fullWidth: 4684,
+                            fullHeight: 2636,
+                            aspectRatio: undefined
+                          }}
+                        />
+                      </div>
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__gfZmb
+                        )}
+                      >
+                        <p.PlasmicImg
+                          alt={""}
+                          className={classNames(sty.img__ppVj)}
+                          displayHeight={"auto"}
+                          displayMaxHeight={"none"}
+                          displayMaxWidth={"100%"}
+                          displayMinHeight={"0"}
+                          displayMinWidth={"0"}
+                          displayWidth={"auto"}
+                          src={{
+                            src: "/plasmic/jbs_storefront/images/designing7Webp.webp",
+                            fullWidth: 4720,
+                            fullHeight: 2682,
+                            aspectRatio: undefined
+                          }}
+                        />
+                      </div>
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__kDlY
+                        )}
+                      >
+                        <p.PlasmicImg
+                          alt={""}
+                          className={classNames(sty.img__kbXHf)}
+                          displayHeight={"auto"}
+                          displayMaxHeight={"none"}
+                          displayMaxWidth={"100%"}
+                          displayMinHeight={"0"}
+                          displayMinWidth={"0"}
+                          displayWidth={"auto"}
+                          src={{
+                            src: "/plasmic/jbs_storefront/images/designing8Webp.webp",
+                            fullWidth: 4722,
+                            fullHeight: 2683,
+                            aspectRatio: undefined
+                          }}
+                        />
+                      </div>
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox___9Mfu2
+                        )}
+                      >
+                        <p.PlasmicImg
+                          alt={""}
+                          className={classNames(sty.img__fTm9S)}
+                          displayHeight={"auto"}
+                          displayMaxHeight={"none"}
+                          displayMaxWidth={"100%"}
+                          displayMinHeight={"0"}
+                          displayMinWidth={"0"}
+                          displayWidth={"auto"}
+                          src={{
+                            src: "/plasmic/jbs_storefront/images/designing9Webp.webp",
+                            fullWidth: 4739,
+                            fullHeight: 2672,
+                            aspectRatio: undefined
+                          }}
+                        />
+                      </div>
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__oXqh1
+                        )}
+                      >
+                        <p.PlasmicImg
+                          alt={""}
+                          className={classNames(sty.img__ub9Ek)}
+                          displayHeight={"auto"}
+                          displayMaxHeight={"none"}
+                          displayMaxWidth={"100%"}
+                          displayMinHeight={"0"}
+                          displayMinWidth={"0"}
+                          displayWidth={"auto"}
+                          src={{
+                            src: "/plasmic/jbs_storefront/images/designing10Webp.webp",
+                            fullWidth: 4722,
+                            fullHeight: 2656,
                             aspectRatio: undefined
                           }}
                         />
@@ -1535,24 +1942,6 @@ function PlasmicAbout__RenderFunc(props: {
                 </p.Stack>
               </p.Stack>
             </Section>
-            <Reveal
-              data-plasmic-name={"reveal"}
-              data-plasmic-override={overrides.reveal}
-              className={classNames("__wab_instance", sty.reveal)}
-              triggerOnce={true}
-            >
-              <p.PlasmicImg
-                alt={""}
-                className={classNames(sty.img___669G)}
-                displayHeight={"auto"}
-                displayMaxHeight={"none"}
-                displayMaxWidth={"none"}
-                displayMinHeight={"0"}
-                displayMinWidth={"0"}
-                displayWidth={"auto"}
-                src={"https://placekitten.com/300/200"}
-              />
-            </Reveal>
             <div className={classNames(projectcss.all, sty.freeBox___8IWHu)}>
               <div className={classNames(projectcss.all, sty.freeBox__twvWp)}>
                 <div
@@ -1562,8 +1951,16 @@ function PlasmicAbout__RenderFunc(props: {
                     sty.text__hhmSt
                   )}
                 >
-                  {"1125 mts of textile waste"}
+                  {"1125 mts \nof textile waste"}
                 </div>
+              </div>
+              <div className={classNames(projectcss.all, sty.freeBox__gVTD)}>
+                <Icon38Icon
+                  data-plasmic-name={"svg"}
+                  data-plasmic-override={overrides.svg}
+                  className={classNames(projectcss.all, sty.svg)}
+                  role={"img"}
+                />
               </div>
               <div className={classNames(projectcss.all, sty.freeBox__dVDa)}>
                 <div
@@ -1587,35 +1984,41 @@ function PlasmicAbout__RenderFunc(props: {
               >
                 {(() => {
                   const child$Props = {
+                    arrowColor: true ? "#0F0F0F" : undefined,
+                    arrows: hasVariant(globalVariants, "screen", "mobileOnly")
+                      ? false
+                      : undefined,
+                    autoplay: true,
                     beforeChange: p.generateStateOnChangePropForCodeComponents(
                       $state,
                       "currentSlide",
-                      ["sliderCarousel4", "currentSlide"],
+                      ["sliderCarousel5", "currentSlide"],
                       SliderWrapper_Helpers
                     ),
+                    centerMode: false,
                     className: classNames(
                       "__wab_instance",
-                      sty.sliderCarousel4
+                      sty.sliderCarousel5
                     ),
+                    dots: true,
                     editingSlide: p.generateStateValueProp($state, [
-                      "sliderCarousel4",
+                      "sliderCarousel5",
                       "currentSlide"
                     ]),
                     initialSlide: 0,
                     ref: ref => {
-                      $refs["sliderCarousel4"] = ref;
+                      $refs["sliderCarousel5"] = ref;
                     },
-                    sliderScopeClassName: sty["sliderCarousel4__slider"]
+                    sliderScopeClassName: sty["sliderCarousel5__slider"]
                   };
                   p.initializeCodeComponentStates(
                     $state,
                     [
                       {
                         name: "currentSlide",
-                        plasmicStateName: "sliderCarousel4.currentSlide"
+                        plasmicStateName: "sliderCarousel5.currentSlide"
                       }
                     ],
-
                     [],
                     SliderWrapper_Helpers ?? {},
                     child$Props
@@ -1623,27 +2026,27 @@ function PlasmicAbout__RenderFunc(props: {
 
                   return (
                     <SliderWrapper
-                      data-plasmic-name={"sliderCarousel4"}
-                      data-plasmic-override={overrides.sliderCarousel4}
+                      data-plasmic-name={"sliderCarousel5"}
+                      data-plasmic-override={overrides.sliderCarousel5}
                       {...child$Props}
                     >
                       <div
                         className={classNames(
                           projectcss.all,
-                          sty.freeBox__knjVe
+                          sty.freeBox__uXuQ3
                         )}
                       >
                         <p.PlasmicImg
                           alt={""}
-                          className={classNames(sty.img__jsrOk)}
+                          className={classNames(sty.img__weVMp)}
                           displayHeight={"auto"}
                           displayMaxHeight={"none"}
                           displayMaxWidth={"100%"}
                           displayMinHeight={"0"}
                           displayMinWidth={"0"}
-                          displayWidth={"100%"}
+                          displayWidth={"auto"}
                           src={{
-                            src: "/plasmic/jbs_storefront/images/asset76Png2.png",
+                            src: "/plasmic/jbs_storefront/images/production1Webp.webp",
                             fullWidth: 4697,
                             fullHeight: 2643,
                             aspectRatio: undefined
@@ -1653,22 +2056,22 @@ function PlasmicAbout__RenderFunc(props: {
                       <div
                         className={classNames(
                           projectcss.all,
-                          sty.freeBox___3MPTm
+                          sty.freeBox__n23UD
                         )}
                       >
                         <p.PlasmicImg
                           alt={""}
-                          className={classNames(sty.img___5KfaQ)}
+                          className={classNames(sty.img__ki9Zx)}
                           displayHeight={"auto"}
                           displayMaxHeight={"none"}
                           displayMaxWidth={"100%"}
                           displayMinHeight={"0"}
                           displayMinWidth={"0"}
-                          displayWidth={"100%"}
+                          displayWidth={"auto"}
                           src={{
-                            src: "/plasmic/jbs_storefront/images/asset76Png2.png",
-                            fullWidth: 4697,
-                            fullHeight: 2643,
+                            src: "/plasmic/jbs_storefront/images/production2Webp.webp",
+                            fullWidth: 4716,
+                            fullHeight: 2654,
                             aspectRatio: undefined
                           }}
                         />
@@ -1676,22 +2079,22 @@ function PlasmicAbout__RenderFunc(props: {
                       <div
                         className={classNames(
                           projectcss.all,
-                          sty.freeBox__uNjVx
+                          sty.freeBox__btEhT
                         )}
                       >
                         <p.PlasmicImg
                           alt={""}
-                          className={classNames(sty.img__sR3Z5)}
+                          className={classNames(sty.img__guRpA)}
                           displayHeight={"auto"}
                           displayMaxHeight={"none"}
                           displayMaxWidth={"100%"}
                           displayMinHeight={"0"}
                           displayMinWidth={"0"}
-                          displayWidth={"100%"}
+                          displayWidth={"auto"}
                           src={{
-                            src: "/plasmic/jbs_storefront/images/asset76Png2.png",
-                            fullWidth: 4697,
-                            fullHeight: 2643,
+                            src: "/plasmic/jbs_storefront/images/production3Webp.webp",
+                            fullWidth: 4709,
+                            fullHeight: 2650,
                             aspectRatio: undefined
                           }}
                         />
@@ -1699,22 +2102,68 @@ function PlasmicAbout__RenderFunc(props: {
                       <div
                         className={classNames(
                           projectcss.all,
-                          sty.freeBox__nmTqa
+                          sty.freeBox___9Bd5
                         )}
                       >
                         <p.PlasmicImg
                           alt={""}
-                          className={classNames(sty.img__y3B8U)}
+                          className={classNames(sty.img__hYvbw)}
                           displayHeight={"auto"}
                           displayMaxHeight={"none"}
                           displayMaxWidth={"100%"}
                           displayMinHeight={"0"}
                           displayMinWidth={"0"}
-                          displayWidth={"100%"}
+                          displayWidth={"auto"}
                           src={{
-                            src: "/plasmic/jbs_storefront/images/asset76Png2.png",
-                            fullWidth: 4697,
-                            fullHeight: 2643,
+                            src: "/plasmic/jbs_storefront/images/production4Webp.webp",
+                            fullWidth: 4724,
+                            fullHeight: 2657,
+                            aspectRatio: undefined
+                          }}
+                        />
+                      </div>
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__m7Wm
+                        )}
+                      >
+                        <p.PlasmicImg
+                          alt={""}
+                          className={classNames(sty.img__sRgI0)}
+                          displayHeight={"auto"}
+                          displayMaxHeight={"none"}
+                          displayMaxWidth={"100%"}
+                          displayMinHeight={"0"}
+                          displayMinWidth={"0"}
+                          displayWidth={"auto"}
+                          src={{
+                            src: "/plasmic/jbs_storefront/images/production5Webp.webp",
+                            fullWidth: 4725,
+                            fullHeight: 2658,
+                            aspectRatio: undefined
+                          }}
+                        />
+                      </div>
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox___1Gj2D
+                        )}
+                      >
+                        <p.PlasmicImg
+                          alt={""}
+                          className={classNames(sty.img___88WI0)}
+                          displayHeight={"auto"}
+                          displayMaxHeight={"none"}
+                          displayMaxWidth={"100%"}
+                          displayMinHeight={"0"}
+                          displayMinWidth={"0"}
+                          displayWidth={"auto"}
+                          src={{
+                            src: "/plasmic/jbs_storefront/images/production6Webp.webp",
+                            fullWidth: 4725,
+                            fullHeight: 2684,
                             aspectRatio: undefined
                           }}
                         />
@@ -1789,7 +2238,7 @@ function PlasmicAbout__RenderFunc(props: {
                     displayWidth={"auto"}
                     loading={"lazy"}
                     src={{
-                      src: "/plasmic/jbs_storefront/images/asset105Png.png",
+                      src: "/plasmic/jbs_storefront/images/agendaClothesPilewebp.webp",
                       fullWidth: 1066,
                       fullHeight: 1021,
                       aspectRatio: undefined
@@ -1820,7 +2269,7 @@ function PlasmicAbout__RenderFunc(props: {
                     displayWidth={"auto"}
                     loading={"lazy"}
                     src={{
-                      src: "/plasmic/jbs_storefront/images/asset104Png.png",
+                      src: "/plasmic/jbs_storefront/images/agendaMousewebp.webp",
                       fullWidth: 1066,
                       fullHeight: 1022,
                       aspectRatio: undefined
@@ -1851,7 +2300,7 @@ function PlasmicAbout__RenderFunc(props: {
                     displayWidth={"auto"}
                     loading={"lazy"}
                     src={{
-                      src: "/plasmic/jbs_storefront/images/asset103Png.png",
+                      src: "/plasmic/jbs_storefront/images/agendaCoconutwebp.webp",
                       fullWidth: 1066,
                       fullHeight: 1022,
                       aspectRatio: undefined
@@ -1882,7 +2331,7 @@ function PlasmicAbout__RenderFunc(props: {
                     displayWidth={"auto"}
                     loading={"lazy"}
                     src={{
-                      src: "/plasmic/jbs_storefront/images/asset102Png.png",
+                      src: "/plasmic/jbs_storefront/images/agendaHammerwebp.webp",
                       fullWidth: 1066,
                       fullHeight: 1022,
                       aspectRatio: undefined
@@ -1913,7 +2362,7 @@ function PlasmicAbout__RenderFunc(props: {
                     displayWidth={"auto"}
                     loading={"lazy"}
                     src={{
-                      src: "/plasmic/jbs_storefront/images/asset101Png.png",
+                      src: "/plasmic/jbs_storefront/images/agendaTreasurewebp.webp",
                       fullWidth: 1066,
                       fullHeight: 1021,
                       aspectRatio: undefined
@@ -1949,26 +2398,24 @@ const PlasmicDescendants = {
     "h1",
     "sliderCarousel2",
     "sliderCarousel3",
-    "reveal",
-    "sliderCarousel4"
+    "svg",
+    "sliderCarousel5"
   ],
-
   fullPage: [
     "fullPage",
     "sliderCarousel",
     "h1",
     "sliderCarousel2",
     "sliderCarousel3",
-    "reveal",
-    "sliderCarousel4"
+    "svg",
+    "sliderCarousel5"
   ],
-
   sliderCarousel: ["sliderCarousel"],
   h1: ["h1"],
   sliderCarousel2: ["sliderCarousel2"],
   sliderCarousel3: ["sliderCarousel3"],
-  reveal: ["reveal"],
-  sliderCarousel4: ["sliderCarousel4"]
+  svg: ["svg"],
+  sliderCarousel5: ["sliderCarousel5"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -1980,8 +2427,8 @@ type NodeDefaultElementType = {
   h1: "h1";
   sliderCarousel2: typeof SliderWrapper;
   sliderCarousel3: typeof SliderWrapper;
-  reveal: typeof Reveal;
-  sliderCarousel4: typeof SliderWrapper;
+  svg: "svg";
+  sliderCarousel5: typeof SliderWrapper;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -1989,7 +2436,6 @@ type NodeOverridesType<T extends NodeNameType> = Pick<
   PlasmicAbout__OverridesType,
   DescendantsType<T>
 >;
-
 type NodeComponentProps<T extends NodeNameType> =
   // Explicitly specify variants, args, and overrides as objects
   {
@@ -2050,8 +2496,8 @@ export const PlasmicAbout = Object.assign(
     h1: makeNodeComponent("h1"),
     sliderCarousel2: makeNodeComponent("sliderCarousel2"),
     sliderCarousel3: makeNodeComponent("sliderCarousel3"),
-    reveal: makeNodeComponent("reveal"),
-    sliderCarousel4: makeNodeComponent("sliderCarousel4"),
+    svg: makeNodeComponent("svg"),
+    sliderCarousel5: makeNodeComponent("sliderCarousel5"),
 
     // Metadata about props expected for PlasmicAbout
     internalVariantProps: PlasmicAbout__VariantProps,

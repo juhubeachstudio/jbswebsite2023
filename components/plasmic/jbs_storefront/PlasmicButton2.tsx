@@ -71,6 +71,7 @@ export type PlasmicButton2__VariantMembers = {
     | "link";
   shadow: "blackShadow" | "darkGreenShadow";
   border: "blackBorder";
+  alignment: "centreAligned" | "leftAligned";
 };
 export type PlasmicButton2__VariantsArgs = {
   showStartIcon?: SingleBooleanChoiceArg<"showStartIcon">;
@@ -93,9 +94,9 @@ export type PlasmicButton2__VariantsArgs = {
     | "clear"
     | "link"
   >;
-
   shadow?: MultiChoiceArg<"blackShadow" | "darkGreenShadow">;
   border?: MultiChoiceArg<"blackBorder">;
+  alignment?: SingleChoiceArg<"centreAligned" | "leftAligned">;
 };
 type VariantPropType = keyof PlasmicButton2__VariantsArgs;
 export const PlasmicButton2__VariantProps = new Array<VariantPropType>(
@@ -106,7 +107,8 @@ export const PlasmicButton2__VariantProps = new Array<VariantPropType>(
   "size",
   "color",
   "shadow",
-  "border"
+  "border",
+  "alignment"
 );
 
 export type PlasmicButton2__ArgsType = {
@@ -154,9 +156,9 @@ export interface DefaultButton2Props extends pp.BaseButtonProps {
     | "clear"
     | "link"
   >;
-
   shadow?: MultiChoiceArg<"blackShadow" | "darkGreenShadow">;
   border?: MultiChoiceArg<"blackBorder">;
+  alignment?: SingleChoiceArg<"centreAligned" | "leftAligned">;
 }
 
 const $$ = {};
@@ -239,9 +241,14 @@ function PlasmicButton2__RenderFunc(props: {
         type: "private",
         variableType: "variant",
         initFunc: ({ $props, $state, $queries, $ctx }) => $props.border
+      },
+      {
+        path: "alignment",
+        type: "private",
+        variableType: "variant",
+        initFunc: ({ $props, $state, $queries, $ctx }) => $props.alignment
       }
     ],
-
     [$props, $ctx, $refs]
   );
   const $state = p.useDollarState(stateSpecs, {
@@ -278,6 +285,16 @@ function PlasmicButton2__RenderFunc(props: {
         sty.root,
         {
           [sty.root___focusVisibleWithin]: triggers.focusVisibleWithin_root,
+          [sty.rootalignment_centreAligned]: hasVariant(
+            $state,
+            "alignment",
+            "centreAligned"
+          ),
+          [sty.rootalignment_leftAligned]: hasVariant(
+            $state,
+            "alignment",
+            "leftAligned"
+          ),
           [sty.rootborder_blackBorder]: hasVariant(
             $state,
             "border",
@@ -721,7 +738,6 @@ type NodeOverridesType<T extends NodeNameType> = Pick<
   PlasmicButton2__OverridesType,
   DescendantsType<T>
 >;
-
 type NodeComponentProps<T extends NodeNameType> =
   // Explicitly specify variants, args, and overrides as objects
   {

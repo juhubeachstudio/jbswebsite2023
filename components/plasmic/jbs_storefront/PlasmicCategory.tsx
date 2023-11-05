@@ -40,6 +40,7 @@ import FullPage from "../../FullPage"; // plasmic-import: VpRM2nIn0R/component
 import Section from "../../Section"; // plasmic-import: GMAR4VOl00/component
 import { CategoryCollection } from "@plasmicpkgs/commerce"; // plasmic-import: ny07p45F84c_/codeComponent
 import { CategoryField } from "@plasmicpkgs/commerce"; // plasmic-import: hzqiq--xdG5T/codeComponent
+import TextInput from "../../TextInput"; // plasmic-import: Y6q1pqli4zM/component
 import { ProductCollection } from "@plasmicpkgs/commerce"; // plasmic-import: vU2jzVAnFP/codeComponent
 import ProductCardJbs from "../../ProductCardJbs"; // plasmic-import: Ft4Mem_Zab/component
 import Button2 from "../../Button2"; // plasmic-import: yEsI5slGwPm/component
@@ -50,6 +51,7 @@ import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic_antd_5_hostl
 import projectcss from "./plasmic_jbs_storefront.module.css"; // plasmic-import: heL2P6rJiLNgtnBJPb6i1m/projectcss
 import sty from "./PlasmicCategory.module.css"; // plasmic-import: PSeXEG18MHGr/css
 
+import SearchsvgIcon from "./icons/PlasmicIcon__Searchsvg"; // plasmic-import: iGJtLc9clP/icon
 import ChecksvgIcon from "./icons/PlasmicIcon__Checksvg"; // plasmic-import: ew07hyuAC0c/icon
 import Icon38Icon from "./icons/PlasmicIcon__Icon38"; // plasmic-import: 3r4KXWygi9v/icon
 
@@ -70,6 +72,8 @@ export type PlasmicCategory__OverridesType = {
   section?: p.Flex<typeof Section>;
   categoryCollection?: p.Flex<typeof CategoryCollection>;
   categoryField?: p.Flex<typeof CategoryField>;
+  textInput?: p.Flex<typeof TextInput>;
+  svg?: p.Flex<"svg">;
   productCollection?: p.Flex<typeof ProductCollection>;
   productCardJbs?: p.Flex<typeof ProductCardJbs>;
 };
@@ -106,6 +110,24 @@ function PlasmicCategory__RenderFunc(props: {
   const $refs = refsRef.current;
 
   const currentUser = p.useCurrentUser?.() || {};
+
+  const stateSpecs: Parameters<typeof p.useDollarState>[0] = React.useMemo(
+    () => [
+      {
+        path: "textInput.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      }
+    ],
+    [$props, $ctx, $refs]
+  );
+  const $state = p.useDollarState(stateSpecs, {
+    $props,
+    $ctx,
+    $queries: {},
+    $refs
+  });
 
   return (
     <React.Fragment>
@@ -154,7 +176,7 @@ function PlasmicCategory__RenderFunc(props: {
                       e instanceof TypeError ||
                       e?.plasmicType === "PlasmicUndefinedDataError"
                     ) {
-                      return undefined;
+                      return "gid://shopify/Collection/455454818600";
                     }
                     throw e;
                   }
@@ -206,6 +228,42 @@ function PlasmicCategory__RenderFunc(props: {
                         field={"name"}
                       />
 
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__vLBny
+                        )}
+                      >
+                        <TextInput
+                          data-plasmic-name={"textInput"}
+                          data-plasmic-override={overrides.textInput}
+                          className={classNames(
+                            "__wab_instance",
+                            sty.textInput
+                          )}
+                          endIcon={
+                            <ChecksvgIcon
+                              data-plasmic-name={"svg"}
+                              data-plasmic-override={overrides.svg}
+                              className={classNames(projectcss.all, sty.svg)}
+                              role={"img"}
+                            />
+                          }
+                          onChange={(...eventArgs) => {
+                            p.generateStateOnChangeProp($state, [
+                              "textInput",
+                              "value"
+                            ])((e => e.target?.value).apply(null, eventArgs));
+                          }}
+                          showStartIcon={true}
+                          value={
+                            p.generateStateValueProp($state, [
+                              "textInput",
+                              "value"
+                            ]) ?? ""
+                          }
+                        />
+                      </div>
                       <ProductCollection
                         data-plasmic-name={"productCollection"}
                         data-plasmic-override={overrides.productCollection}
@@ -243,6 +301,20 @@ function PlasmicCategory__RenderFunc(props: {
                             )}
                           </ph.DataCtxReader>
                         }
+                        search={(() => {
+                          try {
+                            return $state.textInput.value;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()}
+                        sort={"trending-desc"}
                       >
                         <ph.DataCtxReader>
                           {$ctx => (
@@ -268,6 +340,8 @@ function PlasmicCategory__RenderFunc(props: {
               >
                 <Button2
                   className={classNames("__wab_instance", sty.button2___2Yksa)}
+                  color={"red"}
+                  link={`/categories`}
                 >
                   <div
                     className={classNames(
@@ -281,6 +355,8 @@ function PlasmicCategory__RenderFunc(props: {
                 </Button2>
                 <Button2
                   className={classNames("__wab_instance", sty.button2__ofyzo)}
+                  color={"red"}
+                  link={`/category/${"all"}`}
                 >
                   <div
                     className={classNames(
@@ -308,35 +384,41 @@ const PlasmicDescendants = {
     "section",
     "categoryCollection",
     "categoryField",
+    "textInput",
+    "svg",
     "productCollection",
     "productCardJbs"
   ],
-
   fullPage: [
     "fullPage",
     "section",
     "categoryCollection",
     "categoryField",
+    "textInput",
+    "svg",
     "productCollection",
     "productCardJbs"
   ],
-
   section: [
     "section",
     "categoryCollection",
     "categoryField",
+    "textInput",
+    "svg",
     "productCollection",
     "productCardJbs"
   ],
-
   categoryCollection: [
     "categoryCollection",
     "categoryField",
+    "textInput",
+    "svg",
     "productCollection",
     "productCardJbs"
   ],
-
   categoryField: ["categoryField"],
+  textInput: ["textInput", "svg"],
+  svg: ["svg"],
   productCollection: ["productCollection", "productCardJbs"],
   productCardJbs: ["productCardJbs"]
 } as const;
@@ -349,6 +431,8 @@ type NodeDefaultElementType = {
   section: typeof Section;
   categoryCollection: typeof CategoryCollection;
   categoryField: typeof CategoryField;
+  textInput: typeof TextInput;
+  svg: "svg";
   productCollection: typeof ProductCollection;
   productCardJbs: typeof ProductCardJbs;
 };
@@ -358,7 +442,6 @@ type NodeOverridesType<T extends NodeNameType> = Pick<
   PlasmicCategory__OverridesType,
   DescendantsType<T>
 >;
-
 type NodeComponentProps<T extends NodeNameType> =
   // Explicitly specify variants, args, and overrides as objects
   {
@@ -418,6 +501,8 @@ export const PlasmicCategory = Object.assign(
     section: makeNodeComponent("section"),
     categoryCollection: makeNodeComponent("categoryCollection"),
     categoryField: makeNodeComponent("categoryField"),
+    textInput: makeNodeComponent("textInput"),
+    svg: makeNodeComponent("svg"),
     productCollection: makeNodeComponent("productCollection"),
     productCardJbs: makeNodeComponent("productCardJbs"),
 

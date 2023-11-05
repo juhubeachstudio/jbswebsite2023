@@ -117,6 +117,7 @@ function PlasmicTickertext__RenderFunc(props: {
         data-plasmic-override={overrides.marquee}
         autoFill={true}
         className={classNames("__wab_instance", sty.marquee)}
+        play={true}
       >
         <div
           data-plasmic-name={"text"}
@@ -127,16 +128,9 @@ function PlasmicTickertext__RenderFunc(props: {
             sty.text
           )}
         >
-          <React.Fragment>
-            <span
-              className={"plasmic_default__all plasmic_default__span"}
-              style={{ fontStyle: "italic", fontWeight: 700 }}
-            >
-              {
-                "WASTE FELLOWS    ///    HANDMADE  ///   MADE IN INDIA!!!   ///    "
-              }
-            </span>
-          </React.Fragment>
+          {
+            "Limited edition pieces, Handcrafted in Mumbai. Made from Textile waste | First 100 Customers get a discount. Use SWEEDY | "
+          }
         </div>
       </Marquee>
     </div>
@@ -162,7 +156,6 @@ type NodeOverridesType<T extends NodeNameType> = Pick<
   PlasmicTickertext__OverridesType,
   DescendantsType<T>
 >;
-
 type NodeComponentProps<T extends NodeNameType> =
   // Explicitly specify variants, args, and overrides as objects
   {

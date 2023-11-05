@@ -139,18 +139,17 @@ function PlasmicProductCardJbs__RenderFunc(props: {
           }
         })()}`}
         platform={"nextjs"}
-        target={"_blank"}
       >
         <ProductMedia
           className={classNames("__wab_instance", sty.productMedia__rUWyF)}
           mediaIndex={0}
         />
-      </p.PlasmicLink>
-      <ProductMedia
-        className={classNames("__wab_instance", sty.productMedia__zreYd)}
-        mediaIndex={triggers.hover_root ? 1 : 1}
-      />
 
+        <ProductMedia
+          className={classNames("__wab_instance", sty.productMedia__zreYd)}
+          mediaIndex={triggers.hover_root ? 1 : 1}
+        />
+      </p.PlasmicLink>
       <p.Stack
         as={"div"}
         data-plasmic-name={"freeBox"}
@@ -201,7 +200,6 @@ type NodeOverridesType<T extends NodeNameType> = Pick<
   PlasmicProductCardJbs__OverridesType,
   DescendantsType<T>
 >;
-
 type NodeComponentProps<T extends NodeNameType> =
   // Explicitly specify variants, args, and overrides as objects
   {

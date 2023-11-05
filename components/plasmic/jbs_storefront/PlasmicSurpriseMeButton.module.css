@@ -23,7 +23,7 @@
   transform: scaleX(1.2) scaleY(1.2) scaleZ(1.2) rotateX(0deg) rotateY(0deg)
     rotateZ(-7deg);
   cursor: pointer;
-  filter: drop-shadow(0px 0px 5px #a5df36);
+  filter: drop-shadow(0px 0px 5px var(--token-qoXYsQ1lS));
   transform-style: preserve-3d;
 }
 .root:hover * {

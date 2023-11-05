@@ -17,6 +17,8 @@
   --plasmic-token-jbsgreendark: var(--token-058m_r2f2);
   --token-qU3kou0hv: #29abe2;
   --plasmic-token-jbsblue: var(--token-qU3kou0hv);
+  --token-dsDMnV1ab3HP: #000000;
+  --plasmic-token-absolute-black: var(--token-dsDMnV1ab3HP);
 }
 
 .plasmic_tokens {

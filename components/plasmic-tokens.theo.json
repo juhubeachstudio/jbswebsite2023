@@ -1,6 +1,16 @@
 {
   "props": [
     {
+      "name": "Absolute Black",
+      "type": "color",
+      "value": "#000000",
+      "category": "color",
+      "meta": {
+        "projectId": "heL2P6rJiLNgtnBJPb6i1m",
+        "id": "dsDMnV1ab3HP"
+      }
+    },
+    {
       "name": "System: Bg Container",
       "type": "color",
       "value": "var(--antd-colorBgContainer)",

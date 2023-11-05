@@ -88,7 +88,7 @@ export type PlasmicHomepage__OverridesType = {
   root?: p.Flex<"div">;
   fullPage?: p.Flex<typeof FullPage>;
   sliderCarousel?: p.Flex<typeof SliderWrapper>;
-  sliderCarousel8?: p.Flex<typeof SliderWrapper>;
+  sliderCarousel12?: p.Flex<typeof SliderWrapper>;
   categoryCollection?: p.Flex<typeof CategoryCollection>;
   sliderCarousel2?: p.Flex<typeof SliderWrapper>;
   sliderCarousel9?: p.Flex<typeof SliderWrapper>;
@@ -100,6 +100,7 @@ export type PlasmicHomepage__OverridesType = {
   surpriseMeButton?: p.Flex<typeof SurpriseMeButton>;
   sliderCarousel6?: p.Flex<typeof SliderWrapper>;
   sliderCarousel7?: p.Flex<typeof SliderWrapper>;
+  sliderCarousel8?: p.Flex<typeof SliderWrapper>;
   marquee?: p.Flex<typeof Marquee>;
   svg?: p.Flex<"svg">;
 };
@@ -167,7 +168,7 @@ function PlasmicHomepage__RenderFunc(props: {
         path: "sliderCarousel3.currentSlide",
         type: "private",
         variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) => 0,
+        initFunc: ({ $props, $state, $queries, $ctx }) => 1,
 
         refName: "sliderCarousel3",
         onMutate: p.generateOnMutateForSpec(
@@ -203,7 +204,8 @@ function PlasmicHomepage__RenderFunc(props: {
         path: "sliderCarousel6.currentSlide",
         type: "private",
         variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) => 1,
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          hasVariant(globalVariants, "screen", "mobileOnly") ? 1 : 1,
 
         refName: "sliderCarousel6",
         onMutate: p.generateOnMutateForSpec(
@@ -218,18 +220,6 @@ function PlasmicHomepage__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => 0,
 
         refName: "sliderCarousel7",
-        onMutate: p.generateOnMutateForSpec(
-          "currentSlide",
-          SliderWrapper_Helpers
-        )
-      },
-      {
-        path: "sliderCarousel8.currentSlide",
-        type: "private",
-        variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) => 1,
-
-        refName: "sliderCarousel8",
         onMutate: p.generateOnMutateForSpec(
           "currentSlide",
           SliderWrapper_Helpers
@@ -270,9 +260,32 @@ function PlasmicHomepage__RenderFunc(props: {
           "currentSlide",
           SliderWrapper_Helpers
         )
+      },
+      {
+        path: "sliderCarousel8.currentSlide",
+        type: "private",
+        variableType: "number",
+        initFunc: ({ $props, $state, $queries, $ctx }) => 0,
+
+        refName: "sliderCarousel8",
+        onMutate: p.generateOnMutateForSpec(
+          "currentSlide",
+          SliderWrapper_Helpers
+        )
+      },
+      {
+        path: "sliderCarousel12.currentSlide",
+        type: "private",
+        variableType: "number",
+        initFunc: ({ $props, $state, $queries, $ctx }) => 1,
+
+        refName: "sliderCarousel12",
+        onMutate: p.generateOnMutateForSpec(
+          "currentSlide",
+          SliderWrapper_Helpers
+        )
       }
     ],
-
     [$props, $ctx, $refs]
   );
   const $state = p.useDollarState(stateSpecs, {
@@ -320,7 +333,8 @@ function PlasmicHomepage__RenderFunc(props: {
             {(hasVariant(globalVariants, "screen", "mobileOnly") ? false : true)
               ? (() => {
                   const child$Props = {
-                    autoplay: true,
+                    arrows: false,
+                    autoplay: false,
                     autoplaySpeed: 2000,
                     beforeChange: p.generateStateOnChangePropForCodeComponents(
                       $state,
@@ -335,6 +349,7 @@ function PlasmicHomepage__RenderFunc(props: {
                       "currentSlide"
                     ]),
                     initialSlide: 0,
+                    pauseOnHover: false,
                     ref: ref => {
                       $refs["sliderCarousel"] = ref;
                     },
@@ -349,7 +364,6 @@ function PlasmicHomepage__RenderFunc(props: {
                         plasmicStateName: "sliderCarousel.currentSlide"
                       }
                     ],
-
                     [],
                     SliderWrapper_Helpers ?? {},
                     child$Props
@@ -364,50 +378,36 @@ function PlasmicHomepage__RenderFunc(props: {
                       <FullpageheightSlide
                         className={classNames(
                           "__wab_instance",
-                          sty.fullpageheightSlide__wlbCj
-                        )}
-                        slot={"Bucket Hats"}
-                        slot2={"Reversible Topis in lots of juicy colours"}
-                      >
-                        <p.PlasmicImg
-                          alt={""}
-                          className={classNames(sty.img__fbuK1)}
-                          displayHeight={"100%"}
-                          displayMaxHeight={"none"}
-                          displayMaxWidth={"100%"}
-                          displayMinHeight={"0"}
-                          displayMinWidth={"0"}
-                          displayWidth={"auto"}
-                          src={{
-                            src: "/plasmic/jbs_storefront/images/asset90Png.png",
-                            fullWidth: 2660,
-                            fullHeight: 3488,
-                            aspectRatio: undefined
-                          }}
-                        />
-                      </FullpageheightSlide>
-                      <FullpageheightSlide
-                        className={classNames(
-                          "__wab_instance",
                           sty.fullpageheightSlide__fmp4
                         )}
                       >
-                        <p.PlasmicImg
-                          alt={""}
-                          className={classNames(sty.img__a3Vuy)}
-                          displayHeight={"100%"}
-                          displayMaxHeight={"none"}
-                          displayMaxWidth={"100%"}
-                          displayMinHeight={"0"}
-                          displayMinWidth={"0"}
-                          displayWidth={"100%"}
-                          src={{
-                            src: "/plasmic/jbs_storefront/images/asset91Png.png",
-                            fullWidth: 2660,
-                            fullHeight: 3489,
-                            aspectRatio: undefined
-                          }}
-                        />
+                        <p.PlasmicLink
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.a,
+                            sty.link__loRam
+                          )}
+                          component={Link}
+                          href={`/product/${"my-precious-baby-collar"}`}
+                          platform={"nextjs"}
+                        >
+                          <p.PlasmicImg
+                            alt={""}
+                            className={classNames(sty.img__a3Vuy)}
+                            displayHeight={"100%"}
+                            displayMaxHeight={"none"}
+                            displayMaxWidth={"100%"}
+                            displayMinHeight={"0"}
+                            displayMinWidth={"0"}
+                            displayWidth={"100%"}
+                            src={{
+                              src: "/plasmic/jbs_storefront/images/bannerRoseCollarwebp.webp",
+                              fullWidth: 2660,
+                              fullHeight: 3489,
+                              aspectRatio: undefined
+                            }}
+                          />
+                        </p.PlasmicLink>
                       </FullpageheightSlide>
                       <FullpageheightSlide
                         className={classNames(
@@ -417,22 +417,69 @@ function PlasmicHomepage__RenderFunc(props: {
                         slot={"Mehfil Lights"}
                         slot2={"Pre lit fabric cigarettes chakhnas"}
                       >
-                        <p.PlasmicImg
-                          alt={""}
-                          className={classNames(sty.img__maMc)}
-                          displayHeight={"100%"}
-                          displayMaxHeight={"none"}
-                          displayMaxWidth={"100%"}
-                          displayMinHeight={"0"}
-                          displayMinWidth={"0"}
-                          displayWidth={"auto"}
-                          src={{
-                            src: "/plasmic/jbs_storefront/images/asset92Png.png",
-                            fullWidth: 2660,
-                            fullHeight: 3491,
-                            aspectRatio: undefined
-                          }}
-                        />
+                        <p.PlasmicLink
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.a,
+                            sty.link__qqfE8
+                          )}
+                          component={Link}
+                          href={`/product/${"mehfil-lights-fabric-suttas"}`}
+                          platform={"nextjs"}
+                        >
+                          <p.PlasmicImg
+                            alt={""}
+                            className={classNames(sty.img__maMc)}
+                            displayHeight={"100%"}
+                            displayMaxHeight={"none"}
+                            displayMaxWidth={"100%"}
+                            displayMinHeight={"0"}
+                            displayMinWidth={"0"}
+                            displayWidth={"auto"}
+                            src={{
+                              src: "/plasmic/jbs_storefront/images/bannerMehfilLightsCigaretteswebp.webp",
+                              fullWidth: 2660,
+                              fullHeight: 3491,
+                              aspectRatio: undefined
+                            }}
+                          />
+                        </p.PlasmicLink>
+                      </FullpageheightSlide>
+                      <FullpageheightSlide
+                        className={classNames(
+                          "__wab_instance",
+                          sty.fullpageheightSlide__wlbCj
+                        )}
+                        slot={"Bucket Hats"}
+                        slot2={"Reversible Topis in lots of juicy colours"}
+                      >
+                        <p.PlasmicLink
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.a,
+                            sty.link__wyWZm
+                          )}
+                          component={Link}
+                          href={`/category/${"bucket-hats"}`}
+                          platform={"nextjs"}
+                        >
+                          <p.PlasmicImg
+                            alt={""}
+                            className={classNames(sty.img__fbuK1)}
+                            displayHeight={"100%"}
+                            displayMaxHeight={"none"}
+                            displayMaxWidth={"100%"}
+                            displayMinHeight={"0"}
+                            displayMinWidth={"0"}
+                            displayWidth={"auto"}
+                            src={{
+                              src: "/plasmic/jbs_storefront/images/bannerYellowOrangeBucketHatwebp.webp",
+                              fullWidth: 2663,
+                              fullHeight: 3500,
+                              aspectRatio: undefined
+                            }}
+                          />
+                        </p.PlasmicLink>
                       </FullpageheightSlide>
                       <FullpageheightSlide
                         className={classNames(
@@ -442,72 +489,69 @@ function PlasmicHomepage__RenderFunc(props: {
                         slot={"Custom Heart  Chakhna"}
                         slot2={"Get any embroidered text of your choice"}
                       >
-                        <p.PlasmicImg
-                          alt={""}
-                          className={classNames(sty.img__kn1Ug)}
-                          displayHeight={"100%"}
-                          displayMaxHeight={"none"}
-                          displayMaxWidth={"100%"}
-                          displayMinHeight={"0"}
-                          displayMinWidth={"0"}
-                          displayWidth={"100%"}
-                          src={{
-                            src: "/plasmic/jbs_storefront/images/asset89Png.png",
-                            fullWidth: 2659,
-                            fullHeight: 3488,
-                            aspectRatio: undefined
-                          }}
-                        />
+                        <p.PlasmicLink
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.a,
+                            sty.link__xVpH
+                          )}
+                          component={Link}
+                          href={`/product/${"customisable-hearts"}`}
+                          platform={"nextjs"}
+                        >
+                          <p.PlasmicImg
+                            alt={""}
+                            className={classNames(sty.img__kn1Ug)}
+                            displayHeight={"100%"}
+                            displayMaxHeight={"none"}
+                            displayMaxWidth={"100%"}
+                            displayMinHeight={"0"}
+                            displayMinWidth={"0"}
+                            displayWidth={"100%"}
+                            src={{
+                              src: "/plasmic/jbs_storefront/images/bannerCustomHeartswebp.webp",
+                              fullWidth: 2659,
+                              fullHeight: 3488,
+                              aspectRatio: undefined
+                            }}
+                          />
+                        </p.PlasmicLink>
                       </FullpageheightSlide>
                       <FullpageheightSlide
                         className={classNames(
                           "__wab_instance",
-                          sty.fullpageheightSlide__lfSj
+                          sty.fullpageheightSlide__eG5Ig
                         )}
-                        slot={"Heart Frame"}
-                        slot2={"For all your special memories"}
+                        slot={"Aashiq Topi"}
+                        slot2={"Dedicated to all you lovers out there"}
                       >
-                        <p.PlasmicImg
-                          alt={""}
-                          className={classNames(sty.img__hGljC)}
-                          displayHeight={"100%"}
-                          displayMaxHeight={"none"}
-                          displayMaxWidth={"100%"}
-                          displayMinHeight={"0"}
-                          displayMinWidth={"0"}
-                          displayWidth={"100%"}
-                          src={{
-                            src: "/plasmic/jbs_storefront/images/asset87Png.png",
-                            fullWidth: 2659,
-                            fullHeight: 3488,
-                            aspectRatio: undefined
-                          }}
-                        />
-                      </FullpageheightSlide>
-                      <FullpageheightSlide
-                        className={classNames(
-                          "__wab_instance",
-                          sty.fullpageheightSlide__bZeW8
-                        )}
-                        slot={"Tote-e-Dil"}
-                        slot2={"For all your baggage"}
-                      >
-                        <p.PlasmicImg
-                          alt={""}
-                          className={classNames(sty.img___7ZkK3)}
-                          displayHeight={"100%"}
-                          displayMaxHeight={"none"}
-                          displayMaxWidth={"100%"}
-                          displayMinHeight={"0"}
-                          displayMinWidth={"0"}
-                          displayWidth={"auto"}
-                          src={{
-                            src: "/plasmic/jbs_storefront/images/asset86Png2.png",
-                            fullWidth: 2659,
-                            fullHeight: 3488,
-                            aspectRatio: undefined
-                          }}
-                        />
+                        <p.PlasmicLink
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.a,
+                            sty.link___3PNaq
+                          )}
+                          component={Link}
+                          href={`/category/${"caps"}`}
+                          platform={"nextjs"}
+                        >
+                          <p.PlasmicImg
+                            alt={""}
+                            className={classNames(sty.img___5Al6)}
+                            displayHeight={"100%"}
+                            displayMaxHeight={"none"}
+                            displayMaxWidth={"100%"}
+                            displayMinHeight={"0"}
+                            displayMinWidth={"0"}
+                            displayWidth={"auto"}
+                            src={{
+                              src: "/plasmic/jbs_storefront/images/bannerAashiqCapLavenderwebp.webp",
+                              fullWidth: 2659,
+                              fullHeight: 3488,
+                              aspectRatio: undefined
+                            }}
+                          />
+                        </p.PlasmicLink>
                       </FullpageheightSlide>
                       <FullpageheightSlide
                         className={classNames(
@@ -519,47 +563,105 @@ function PlasmicHomepage__RenderFunc(props: {
                           "Available in lots of different flavours and sizes"
                         }
                       >
-                        <p.PlasmicImg
-                          alt={""}
-                          className={classNames(sty.img__ez6Ph)}
-                          displayHeight={"100%"}
-                          displayMaxHeight={"none"}
-                          displayMaxWidth={"100%"}
-                          displayMinHeight={"0"}
-                          displayMinWidth={"0"}
-                          displayWidth={"auto"}
-                          src={{
-                            src: "/plasmic/jbs_storefront/images/untitledArtwork1Mingif.gif",
-                            fullWidth: 2111,
-                            fullHeight: 2772,
-                            aspectRatio: undefined
-                          }}
-                        />
+                        <p.PlasmicLink
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.a,
+                            sty.link___3Dryk
+                          )}
+                          component={Link}
+                          href={`/category/${"caps"}`}
+                          platform={"nextjs"}
+                        >
+                          <p.PlasmicImg
+                            alt={""}
+                            className={classNames(sty.img__ez6Ph)}
+                            displayHeight={"100%"}
+                            displayMaxHeight={"none"}
+                            displayMaxWidth={"100%"}
+                            displayMinHeight={"0"}
+                            displayMinWidth={"0"}
+                            displayWidth={"auto"}
+                            src={{
+                              src: "/plasmic/jbs_storefront/images/bannerCapsAnimationwebp.webp",
+                              fullWidth: 2111,
+                              fullHeight: 2767,
+                              aspectRatio: undefined
+                            }}
+                          />
+                        </p.PlasmicLink>
                       </FullpageheightSlide>
                       <FullpageheightSlide
                         className={classNames(
                           "__wab_instance",
-                          sty.fullpageheightSlide__eG5Ig
+                          sty.fullpageheightSlide__lfSj
                         )}
-                        slot={"Aashiq Topi"}
-                        slot2={"Dedicated to all you lovers out there"}
+                        slot={"Photo Frames"}
+                        slot2={"For all your special memories"}
                       >
-                        <p.PlasmicImg
-                          alt={""}
-                          className={classNames(sty.img___5Al6)}
-                          displayHeight={"100%"}
-                          displayMaxHeight={"none"}
-                          displayMaxWidth={"100%"}
-                          displayMinHeight={"0"}
-                          displayMinWidth={"0"}
-                          displayWidth={"auto"}
-                          src={{
-                            src: "/plasmic/jbs_storefront/images/asset88Png2.png",
-                            fullWidth: 2659,
-                            fullHeight: 3488,
-                            aspectRatio: undefined
-                          }}
-                        />
+                        <p.PlasmicLink
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.a,
+                            sty.link__pPqLb
+                          )}
+                          component={Link}
+                          href={`/category/${"shiny-heart-photo-frame"}`}
+                          platform={"nextjs"}
+                        >
+                          <p.PlasmicImg
+                            alt={""}
+                            className={classNames(sty.img__hGljC)}
+                            displayHeight={"100%"}
+                            displayMaxHeight={"none"}
+                            displayMaxWidth={"100%"}
+                            displayMinHeight={"0"}
+                            displayMinWidth={"0"}
+                            displayWidth={"100%"}
+                            src={{
+                              src: "/plasmic/jbs_storefront/images/bannerHeartFramewebp.webp",
+                              fullWidth: 2659,
+                              fullHeight: 3488,
+                              aspectRatio: undefined
+                            }}
+                          />
+                        </p.PlasmicLink>
+                      </FullpageheightSlide>
+                      <FullpageheightSlide
+                        className={classNames(
+                          "__wab_instance",
+                          sty.fullpageheightSlide__bZeW8
+                        )}
+                        slot={"Tote-e-Dil"}
+                        slot2={"For all your baggage"}
+                      >
+                        <p.PlasmicLink
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.a,
+                            sty.link__nkiim
+                          )}
+                          component={Link}
+                          href={`/category/${"bags"}`}
+                          platform={"nextjs"}
+                        >
+                          <p.PlasmicImg
+                            alt={""}
+                            className={classNames(sty.img___7ZkK3)}
+                            displayHeight={"100%"}
+                            displayMaxHeight={"none"}
+                            displayMaxWidth={"100%"}
+                            displayMinHeight={"0"}
+                            displayMinWidth={"0"}
+                            displayWidth={"auto"}
+                            src={{
+                              src: "/plasmic/jbs_storefront/images/bannerDilTotewebp.webp",
+                              fullWidth: 2659,
+                              fullHeight: 3488,
+                              aspectRatio: undefined
+                            }}
+                          />
+                        </p.PlasmicLink>
                       </FullpageheightSlide>
                     </SliderWrapper>
                   );
@@ -567,25 +669,27 @@ function PlasmicHomepage__RenderFunc(props: {
               : null}
             {(() => {
               const child$Props = {
-                autoplay: true,
+                arrows: false,
+                autoplay: false,
                 autoplaySpeed: 2000,
                 beforeChange: p.generateStateOnChangePropForCodeComponents(
                   $state,
                   "currentSlide",
-                  ["sliderCarousel8", "currentSlide"],
+                  ["sliderCarousel12", "currentSlide"],
                   SliderWrapper_Helpers
                 ),
-                className: classNames("__wab_instance", sty.sliderCarousel8),
+                className: classNames("__wab_instance", sty.sliderCarousel12),
                 dots: true,
                 editingSlide: p.generateStateValueProp($state, [
-                  "sliderCarousel8",
+                  "sliderCarousel12",
                   "currentSlide"
                 ]),
                 initialSlide: 0,
+                pauseOnHover: false,
                 ref: ref => {
-                  $refs["sliderCarousel8"] = ref;
+                  $refs["sliderCarousel12"] = ref;
                 },
-                sliderScopeClassName: sty["sliderCarousel8__slider"],
+                sliderScopeClassName: sty["sliderCarousel12__slider"],
                 slidesToShow: 1
               };
               p.initializeCodeComponentStates(
@@ -593,10 +697,9 @@ function PlasmicHomepage__RenderFunc(props: {
                 [
                   {
                     name: "currentSlide",
-                    plasmicStateName: "sliderCarousel8.currentSlide"
+                    plasmicStateName: "sliderCarousel12.currentSlide"
                   }
                 ],
-
                 [],
                 SliderWrapper_Helpers ?? {},
                 child$Props
@@ -604,207 +707,295 @@ function PlasmicHomepage__RenderFunc(props: {
 
               return (
                 <SliderWrapper
-                  data-plasmic-name={"sliderCarousel8"}
-                  data-plasmic-override={overrides.sliderCarousel8}
+                  data-plasmic-name={"sliderCarousel12"}
+                  data-plasmic-override={overrides.sliderCarousel12}
                   {...child$Props}
                 >
                   <FullpageheightSlide
                     className={classNames(
                       "__wab_instance",
-                      sty.fullpageheightSlide__fDF3
+                      sty.fullpageheightSlide__oO44
                     )}
-                    slot={"Bucket Hats"}
-                    slot2={"Reversible Topis in lots of juicy colours"}
                   >
-                    <p.PlasmicImg
-                      alt={""}
-                      className={classNames(sty.img__oTchu)}
-                      displayHeight={"100%"}
-                      displayMaxHeight={"none"}
-                      displayMaxWidth={"100%"}
-                      displayMinHeight={"0"}
-                      displayMinWidth={"0"}
-                      displayWidth={"auto"}
-                      src={{
-                        src: "/plasmic/jbs_storefront/images/asset90Png.png",
-                        fullWidth: 2660,
-                        fullHeight: 3488,
-                        aspectRatio: undefined
-                      }}
-                    />
+                    <p.PlasmicLink
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.a,
+                        sty.link___3Bsy6
+                      )}
+                      component={Link}
+                      href={`/product/${"my-precious-baby-collar"}`}
+                      platform={"nextjs"}
+                    >
+                      <p.PlasmicImg
+                        alt={""}
+                        className={classNames(sty.img__jfnqm)}
+                        displayHeight={"100%"}
+                        displayMaxHeight={"none"}
+                        displayMaxWidth={"100%"}
+                        displayMinHeight={"0"}
+                        displayMinWidth={"0"}
+                        displayWidth={"100%"}
+                        src={{
+                          src: "/plasmic/jbs_storefront/images/bannerRoseCollarwebp.webp",
+                          fullWidth: 2660,
+                          fullHeight: 3489,
+                          aspectRatio: undefined
+                        }}
+                      />
+                    </p.PlasmicLink>
                   </FullpageheightSlide>
                   <FullpageheightSlide
                     className={classNames(
                       "__wab_instance",
-                      sty.fullpageheightSlide__jnlI
-                    )}
-                  >
-                    <p.PlasmicImg
-                      alt={""}
-                      className={classNames(sty.img__aWiIw)}
-                      displayHeight={"100%"}
-                      displayMaxHeight={"none"}
-                      displayMaxWidth={"100%"}
-                      displayMinHeight={"0"}
-                      displayMinWidth={"0"}
-                      displayWidth={"100%"}
-                      src={{
-                        src: "/plasmic/jbs_storefront/images/asset91Png.png",
-                        fullWidth: 2660,
-                        fullHeight: 3489,
-                        aspectRatio: undefined
-                      }}
-                    />
-                  </FullpageheightSlide>
-                  <FullpageheightSlide
-                    className={classNames(
-                      "__wab_instance",
-                      sty.fullpageheightSlide__vhZGz
+                      sty.fullpageheightSlide__ajwov
                     )}
                     slot={"Mehfil Lights"}
                     slot2={"Pre lit fabric cigarettes chakhnas"}
                   >
-                    <p.PlasmicImg
-                      alt={""}
-                      className={classNames(sty.img__iDfp)}
-                      displayHeight={"100%"}
-                      displayMaxHeight={"none"}
-                      displayMaxWidth={"100%"}
-                      displayMinHeight={"0"}
-                      displayMinWidth={"0"}
-                      displayWidth={"auto"}
-                      src={{
-                        src: "/plasmic/jbs_storefront/images/asset92Png.png",
-                        fullWidth: 2660,
-                        fullHeight: 3491,
-                        aspectRatio: undefined
-                      }}
-                    />
+                    <p.PlasmicLink
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.a,
+                        sty.link__se1HA
+                      )}
+                      component={Link}
+                      href={`/product/${"mehfil-lights-fabric-suttas"}`}
+                      platform={"nextjs"}
+                    >
+                      <p.PlasmicImg
+                        alt={""}
+                        className={classNames(sty.img__gzkOn)}
+                        displayHeight={"100%"}
+                        displayMaxHeight={"none"}
+                        displayMaxWidth={"100%"}
+                        displayMinHeight={"0"}
+                        displayMinWidth={"0"}
+                        displayWidth={"auto"}
+                        src={{
+                          src: "/plasmic/jbs_storefront/images/bannerMehfilLightsCigaretteswebp.webp",
+                          fullWidth: 2660,
+                          fullHeight: 3491,
+                          aspectRatio: undefined
+                        }}
+                      />
+                    </p.PlasmicLink>
                   </FullpageheightSlide>
                   <FullpageheightSlide
                     className={classNames(
                       "__wab_instance",
-                      sty.fullpageheightSlide__uspA
+                      sty.fullpageheightSlide__mW6C
+                    )}
+                    slot={"Bucket Hats"}
+                    slot2={"Reversible Topis in lots of juicy colours"}
+                  >
+                    <p.PlasmicLink
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.a,
+                        sty.link__kehKl
+                      )}
+                      component={Link}
+                      href={`/category/${"bucket-hats"}`}
+                      platform={"nextjs"}
+                    >
+                      <p.PlasmicImg
+                        alt={""}
+                        className={classNames(sty.img__fg3Ce)}
+                        displayHeight={"100%"}
+                        displayMaxHeight={"none"}
+                        displayMaxWidth={"100%"}
+                        displayMinHeight={"0"}
+                        displayMinWidth={"0"}
+                        displayWidth={"auto"}
+                        src={{
+                          src: "/plasmic/jbs_storefront/images/bannerYellowOrangeBucketHatwebp.webp",
+                          fullWidth: 2663,
+                          fullHeight: 3500,
+                          aspectRatio: undefined
+                        }}
+                      />
+                    </p.PlasmicLink>
+                  </FullpageheightSlide>
+                  <FullpageheightSlide
+                    className={classNames(
+                      "__wab_instance",
+                      sty.fullpageheightSlide__xWdwr
                     )}
                     slot={"Custom Heart  Chakhna"}
                     slot2={"Get any embroidered text of your choice"}
                   >
-                    <p.PlasmicImg
-                      alt={""}
-                      className={classNames(sty.img__djq9Q)}
-                      displayHeight={"100%"}
-                      displayMaxHeight={"none"}
-                      displayMaxWidth={"100%"}
-                      displayMinHeight={"0"}
-                      displayMinWidth={"0"}
-                      displayWidth={"100%"}
-                      src={{
-                        src: "/plasmic/jbs_storefront/images/asset89Png.png",
-                        fullWidth: 2659,
-                        fullHeight: 3488,
-                        aspectRatio: undefined
-                      }}
-                    />
+                    <p.PlasmicLink
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.a,
+                        sty.link__rLtZm
+                      )}
+                      component={Link}
+                      href={`/product/${"customisable-hearts"}`}
+                      platform={"nextjs"}
+                    >
+                      <p.PlasmicImg
+                        alt={""}
+                        className={classNames(sty.img__dRg4V)}
+                        displayHeight={"100%"}
+                        displayMaxHeight={"none"}
+                        displayMaxWidth={"100%"}
+                        displayMinHeight={"0"}
+                        displayMinWidth={"0"}
+                        displayWidth={"100%"}
+                        src={{
+                          src: "/plasmic/jbs_storefront/images/bannerCustomHeartswebp.webp",
+                          fullWidth: 2659,
+                          fullHeight: 3488,
+                          aspectRatio: undefined
+                        }}
+                      />
+                    </p.PlasmicLink>
                   </FullpageheightSlide>
                   <FullpageheightSlide
                     className={classNames(
                       "__wab_instance",
-                      sty.fullpageheightSlide__fiGfl
-                    )}
-                    slot={"Heart Frame"}
-                    slot2={"For all your special memories"}
-                  >
-                    <p.PlasmicImg
-                      alt={""}
-                      className={classNames(sty.img__oqddv)}
-                      displayHeight={"100%"}
-                      displayMaxHeight={"none"}
-                      displayMaxWidth={"100%"}
-                      displayMinHeight={"0"}
-                      displayMinWidth={"0"}
-                      displayWidth={"100%"}
-                      src={{
-                        src: "/plasmic/jbs_storefront/images/asset87Png.png",
-                        fullWidth: 2659,
-                        fullHeight: 3488,
-                        aspectRatio: undefined
-                      }}
-                    />
-                  </FullpageheightSlide>
-                  <FullpageheightSlide
-                    className={classNames(
-                      "__wab_instance",
-                      sty.fullpageheightSlide__zHQL
-                    )}
-                    slot={"Tote-e-Dil"}
-                    slot2={"For all your baggage"}
-                  >
-                    <p.PlasmicImg
-                      alt={""}
-                      className={classNames(sty.img___9JfM)}
-                      displayHeight={"100%"}
-                      displayMaxHeight={"none"}
-                      displayMaxWidth={"100%"}
-                      displayMinHeight={"0"}
-                      displayMinWidth={"0"}
-                      displayWidth={"auto"}
-                      src={{
-                        src: "/plasmic/jbs_storefront/images/asset86Png2.png",
-                        fullWidth: 2659,
-                        fullHeight: 3488,
-                        aspectRatio: undefined
-                      }}
-                    />
-                  </FullpageheightSlide>
-                  <FullpageheightSlide
-                    className={classNames(
-                      "__wab_instance",
-                      sty.fullpageheightSlide__eodbA
-                    )}
-                    slot={"Tote-e-Dil"}
-                    slot2={"For all your baggage"}
-                  >
-                    <p.PlasmicImg
-                      alt={""}
-                      className={classNames(sty.img__jyTkd)}
-                      displayHeight={"100%"}
-                      displayMaxHeight={"none"}
-                      displayMaxWidth={"100%"}
-                      displayMinHeight={"0"}
-                      displayMinWidth={"0"}
-                      displayWidth={"auto"}
-                      src={{
-                        src: "/plasmic/jbs_storefront/images/untitledArtwork1Mingif.gif",
-                        fullWidth: 2111,
-                        fullHeight: 2772,
-                        aspectRatio: undefined
-                      }}
-                    />
-                  </FullpageheightSlide>
-                  <FullpageheightSlide
-                    className={classNames(
-                      "__wab_instance",
-                      sty.fullpageheightSlide__td35E
+                      sty.fullpageheightSlide__rn0UO
                     )}
                     slot={"Aashiq Topi"}
                     slot2={"Dedicated to all you lovers out there"}
                   >
-                    <p.PlasmicImg
-                      alt={""}
-                      className={classNames(sty.img__sDhlx)}
-                      displayHeight={"100%"}
-                      displayMaxHeight={"none"}
-                      displayMaxWidth={"100%"}
-                      displayMinHeight={"0"}
-                      displayMinWidth={"0"}
-                      displayWidth={"auto"}
-                      src={{
-                        src: "/plasmic/jbs_storefront/images/asset88Png2.png",
-                        fullWidth: 2659,
-                        fullHeight: 3488,
-                        aspectRatio: undefined
-                      }}
-                    />
+                    <p.PlasmicLink
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.a,
+                        sty.link__sfOMf
+                      )}
+                      component={Link}
+                      href={`/category/${"caps"}`}
+                      platform={"nextjs"}
+                    >
+                      <p.PlasmicImg
+                        alt={""}
+                        className={classNames(sty.img__mOrn8)}
+                        displayHeight={"100%"}
+                        displayMaxHeight={"none"}
+                        displayMaxWidth={"100%"}
+                        displayMinHeight={"0"}
+                        displayMinWidth={"0"}
+                        displayWidth={"auto"}
+                        src={{
+                          src: "/plasmic/jbs_storefront/images/bannerAashiqCapLavenderwebp.webp",
+                          fullWidth: 2659,
+                          fullHeight: 3488,
+                          aspectRatio: undefined
+                        }}
+                      />
+                    </p.PlasmicLink>
+                  </FullpageheightSlide>
+                  <FullpageheightSlide
+                    className={classNames(
+                      "__wab_instance",
+                      sty.fullpageheightSlide___9477
+                    )}
+                    slot={"AASHIQ TOPI"}
+                    slot2={"Available in lots of different flavours and sizes"}
+                  >
+                    <p.PlasmicLink
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.a,
+                        sty.link__mItGv
+                      )}
+                      component={Link}
+                      href={`/category/${"caps"}`}
+                      platform={"nextjs"}
+                    >
+                      <p.PlasmicImg
+                        alt={""}
+                        className={classNames(sty.img__g5C5C)}
+                        displayHeight={"100%"}
+                        displayMaxHeight={"none"}
+                        displayMaxWidth={"100%"}
+                        displayMinHeight={"0"}
+                        displayMinWidth={"0"}
+                        displayWidth={"auto"}
+                        src={{
+                          src: "/plasmic/jbs_storefront/images/bannerCapsAnimationwebp.webp",
+                          fullWidth: 2111,
+                          fullHeight: 2767,
+                          aspectRatio: undefined
+                        }}
+                      />
+                    </p.PlasmicLink>
+                  </FullpageheightSlide>
+                  <FullpageheightSlide
+                    className={classNames(
+                      "__wab_instance",
+                      sty.fullpageheightSlide__lcKab
+                    )}
+                    slot={"Photo Frames"}
+                    slot2={"For all your special memories"}
+                  >
+                    <p.PlasmicLink
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.a,
+                        sty.link__otkC
+                      )}
+                      component={Link}
+                      href={`/category/${"shiny-heart-photo-frame"}`}
+                      platform={"nextjs"}
+                    >
+                      <p.PlasmicImg
+                        alt={""}
+                        className={classNames(sty.img__xpx4D)}
+                        displayHeight={"100%"}
+                        displayMaxHeight={"none"}
+                        displayMaxWidth={"100%"}
+                        displayMinHeight={"0"}
+                        displayMinWidth={"0"}
+                        displayWidth={"100%"}
+                        src={{
+                          src: "/plasmic/jbs_storefront/images/bannerHeartFramewebp.webp",
+                          fullWidth: 2659,
+                          fullHeight: 3488,
+                          aspectRatio: undefined
+                        }}
+                      />
+                    </p.PlasmicLink>
+                  </FullpageheightSlide>
+                  <FullpageheightSlide
+                    className={classNames(
+                      "__wab_instance",
+                      sty.fullpageheightSlide__xO7E
+                    )}
+                    slot={"Tote-e-Dil"}
+                    slot2={"For all your baggage"}
+                  >
+                    <p.PlasmicLink
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.a,
+                        sty.link__uUwEz
+                      )}
+                      component={Link}
+                      href={`/category/${"bags"}`}
+                      platform={"nextjs"}
+                    >
+                      <p.PlasmicImg
+                        alt={""}
+                        className={classNames(sty.img__ajjks)}
+                        displayHeight={"100%"}
+                        displayMaxHeight={"none"}
+                        displayMaxWidth={"100%"}
+                        displayMinHeight={"0"}
+                        displayMinWidth={"0"}
+                        displayWidth={"auto"}
+                        src={{
+                          src: "/plasmic/jbs_storefront/images/bannerDilTotewebp.webp",
+                          fullWidth: 2659,
+                          fullHeight: 3488,
+                          aspectRatio: undefined
+                        }}
+                      />
+                    </p.PlasmicLink>
                   </FullpageheightSlide>
                 </SliderWrapper>
               );
@@ -837,9 +1028,9 @@ function PlasmicHomepage__RenderFunc(props: {
                     displayWidth={"auto"}
                     loading={"lazy"}
                     src={{
-                      src: "/plasmic/jbs_storefront/images/asset79Png.png",
-                      fullWidth: 1592,
-                      fullHeight: 863,
+                      src: "/plasmic/jbs_storefront/images/loveYouForeverwebp.webp",
+                      fullWidth: 952,
+                      fullHeight: 408,
                       aspectRatio: undefined
                     }}
                   />
@@ -937,6 +1128,9 @@ function PlasmicHomepage__RenderFunc(props: {
                       <React.Fragment>
                         {(() => {
                           const child$Props = {
+                            arrowColor: true
+                              ? "var(--antd-colorWhite)"
+                              : undefined,
                             autoplay: true,
                             autoplaySpeed: 1500,
                             beforeChange:
@@ -955,6 +1149,7 @@ function PlasmicHomepage__RenderFunc(props: {
                               "currentSlide"
                             ]),
                             initialSlide: 0,
+                            pauseOnHover: false,
                             ref: ref => {
                               $refs["sliderCarousel2"] = ref;
                             },
@@ -971,7 +1166,6 @@ function PlasmicHomepage__RenderFunc(props: {
                                 plasmicStateName: "sliderCarousel2.currentSlide"
                               }
                             ],
-
                             [],
                             SliderWrapper_Helpers ?? {},
                             child$Props
@@ -1040,7 +1234,7 @@ function PlasmicHomepage__RenderFunc(props: {
                                       <p.PlasmicImg
                                         alt={""}
                                         className={classNames(sty.img___1TGgh)}
-                                        displayHeight={"100%"}
+                                        displayHeight={"auto"}
                                         displayMaxHeight={"none"}
                                         displayMaxWidth={"none"}
                                         displayMinHeight={"0"}
@@ -1093,176 +1287,163 @@ function PlasmicHomepage__RenderFunc(props: {
                             </SliderWrapper>
                           );
                         })()}
-                        {(
-                          hasVariant(globalVariants, "screen", "mobileOnly")
-                            ? true
-                            : false
-                        )
-                          ? (() => {
-                              const child$Props = {
-                                autoplay: true,
-                                autoplaySpeed: 1500,
-                                beforeChange:
-                                  p.generateStateOnChangePropForCodeComponents(
-                                    $state,
-                                    "currentSlide",
-                                    ["sliderCarousel9", "currentSlide"],
-                                    SliderWrapper_Helpers
-                                  ),
-                                className: classNames(
-                                  "__wab_instance",
-                                  sty.sliderCarousel9
-                                ),
-                                editingSlide: p.generateStateValueProp($state, [
-                                  "sliderCarousel9",
-                                  "currentSlide"
-                                ]),
-                                initialSlide: 0,
-                                ref: ref => {
-                                  $refs["sliderCarousel9"] = ref;
-                                },
-                                sliderScopeClassName:
-                                  sty["sliderCarousel9__slider"],
-                                slidesToShow: 2,
-                                swipeToSlide: true
-                              };
-                              p.initializeCodeComponentStates(
+                        {(() => {
+                          const child$Props = {
+                            autoplay: true,
+                            autoplaySpeed: 1500,
+                            beforeChange:
+                              p.generateStateOnChangePropForCodeComponents(
                                 $state,
-                                [
-                                  {
-                                    name: "currentSlide",
-                                    plasmicStateName:
-                                      "sliderCarousel9.currentSlide"
-                                  }
-                                ],
+                                "currentSlide",
+                                ["sliderCarousel9", "currentSlide"],
+                                SliderWrapper_Helpers
+                              ),
+                            className: classNames(
+                              "__wab_instance",
+                              sty.sliderCarousel9
+                            ),
+                            editingSlide: p.generateStateValueProp($state, [
+                              "sliderCarousel9",
+                              "currentSlide"
+                            ]),
+                            initialSlide: 0,
+                            ref: ref => {
+                              $refs["sliderCarousel9"] = ref;
+                            },
+                            sliderScopeClassName:
+                              sty["sliderCarousel9__slider"],
+                            slidesToShow: 2,
+                            swipeToSlide: true
+                          };
+                          p.initializeCodeComponentStates(
+                            $state,
+                            [
+                              {
+                                name: "currentSlide",
+                                plasmicStateName: "sliderCarousel9.currentSlide"
+                              }
+                            ],
+                            [],
+                            SliderWrapper_Helpers ?? {},
+                            child$Props
+                          );
 
-                                [],
-                                SliderWrapper_Helpers ?? {},
-                                child$Props
-                              );
-
-                              return (
-                                <SliderWrapper
-                                  data-plasmic-name={"sliderCarousel9"}
-                                  data-plasmic-override={
-                                    overrides.sliderCarousel9
+                          return (
+                            <SliderWrapper
+                              data-plasmic-name={"sliderCarousel9"}
+                              data-plasmic-override={overrides.sliderCarousel9}
+                              {...child$Props}
+                            >
+                              {(_par =>
+                                !_par
+                                  ? []
+                                  : Array.isArray(_par)
+                                  ? _par
+                                  : [_par])(
+                                (() => {
+                                  try {
+                                    return $ctx.categories;
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return [];
+                                    }
+                                    throw e;
                                   }
-                                  {...child$Props}
-                                >
-                                  {(_par =>
-                                    !_par
-                                      ? []
-                                      : Array.isArray(_par)
-                                      ? _par
-                                      : [_par])(
-                                    (() => {
-                                      try {
-                                        return $ctx.categories;
-                                      } catch (e) {
-                                        if (
-                                          e instanceof TypeError ||
-                                          e?.plasmicType ===
-                                            "PlasmicUndefinedDataError"
-                                        ) {
-                                          return [];
+                                })()
+                              ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                                const currentItem = __plasmic_item_0;
+                                const currentIndex = __plasmic_idx_0;
+                                return (
+                                  <div
+                                    className={classNames(
+                                      projectcss.all,
+                                      sty.freeBox__ktbqo
+                                    )}
+                                    key={currentIndex}
+                                  >
+                                    <p.PlasmicLink
+                                      className={classNames(
+                                        projectcss.all,
+                                        projectcss.a,
+                                        sty.link__lqpxu
+                                      )}
+                                      component={Link}
+                                      href={`/category/${(() => {
+                                        try {
+                                          return currentItem.slug;
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return undefined;
+                                          }
+                                          throw e;
                                         }
-                                        throw e;
-                                      }
-                                    })()
-                                  ).map((__plasmic_item_0, __plasmic_idx_0) => {
-                                    const currentItem = __plasmic_item_0;
-                                    const currentIndex = __plasmic_idx_0;
-                                    return (
+                                      })()}`}
+                                      platform={"nextjs"}
+                                    >
+                                      <p.PlasmicImg
+                                        alt={""}
+                                        className={classNames(sty.img___76TeL)}
+                                        displayHeight={"auto"}
+                                        displayMaxHeight={"none"}
+                                        displayMaxWidth={"none"}
+                                        displayMinHeight={"0"}
+                                        displayMinWidth={"0"}
+                                        displayWidth={"100%"}
+                                        src={(() => {
+                                          try {
+                                            return currentItem.images[0].url;
+                                          } catch (e) {
+                                            if (
+                                              e instanceof TypeError ||
+                                              e?.plasmicType ===
+                                                "PlasmicUndefinedDataError"
+                                            ) {
+                                              return "https://static1.plasmic.app/components/react-slick/slide1.png";
+                                            }
+                                            throw e;
+                                          }
+                                        })()}
+                                      />
+
                                       <div
                                         className={classNames(
                                           projectcss.all,
-                                          sty.freeBox__ktbqo
+                                          projectcss.__wab_text,
+                                          sty.text__hSUp8
                                         )}
-                                        key={currentIndex}
                                       >
-                                        <p.PlasmicLink
-                                          className={classNames(
-                                            projectcss.all,
-                                            projectcss.a,
-                                            sty.link__lqpxu
-                                          )}
-                                          component={Link}
-                                          href={`/category/${(() => {
+                                        <React.Fragment>
+                                          {(() => {
                                             try {
-                                              return currentItem.slug;
+                                              return currentItem.name;
                                             } catch (e) {
                                               if (
                                                 e instanceof TypeError ||
                                                 e?.plasmicType ===
                                                   "PlasmicUndefinedDataError"
                                               ) {
-                                                return undefined;
+                                                return "";
                                               }
                                               throw e;
                                             }
-                                          })()}`}
-                                          platform={"nextjs"}
-                                        >
-                                          <p.PlasmicImg
-                                            alt={""}
-                                            className={classNames(
-                                              sty.img___76TeL
-                                            )}
-                                            displayHeight={"100%"}
-                                            displayMaxHeight={"none"}
-                                            displayMaxWidth={"none"}
-                                            displayMinHeight={"0"}
-                                            displayMinWidth={"0"}
-                                            displayWidth={"100%"}
-                                            src={(() => {
-                                              try {
-                                                return currentItem.images[0]
-                                                  .url;
-                                              } catch (e) {
-                                                if (
-                                                  e instanceof TypeError ||
-                                                  e?.plasmicType ===
-                                                    "PlasmicUndefinedDataError"
-                                                ) {
-                                                  return "https://static1.plasmic.app/components/react-slick/slide1.png";
-                                                }
-                                                throw e;
-                                              }
-                                            })()}
-                                          />
-
-                                          <div
-                                            className={classNames(
-                                              projectcss.all,
-                                              projectcss.__wab_text,
-                                              sty.text__hSUp8
-                                            )}
-                                          >
-                                            <React.Fragment>
-                                              {(() => {
-                                                try {
-                                                  return currentItem.name;
-                                                } catch (e) {
-                                                  if (
-                                                    e instanceof TypeError ||
-                                                    e?.plasmicType ===
-                                                      "PlasmicUndefinedDataError"
-                                                  ) {
-                                                    return "";
-                                                  }
-                                                  throw e;
-                                                }
-                                              })()}
-                                            </React.Fragment>
-                                          </div>
-                                        </p.PlasmicLink>
+                                          })()}
+                                        </React.Fragment>
                                       </div>
-                                    );
-                                  })}
-                                </SliderWrapper>
-                              );
-                            })()
-                          : null}
+                                    </p.PlasmicLink>
+                                  </div>
+                                );
+                              })}
+                            </SliderWrapper>
+                          );
+                        })()}
                       </React.Fragment>
                     )}
                   </ph.DataCtxReader>
@@ -1306,7 +1487,6 @@ function PlasmicHomepage__RenderFunc(props: {
                       plasmicStateName: "sliderCarousel3.currentSlide"
                     }
                   ],
-
                   [],
                   SliderWrapper_Helpers ?? {},
                   child$Props
@@ -1334,7 +1514,7 @@ function PlasmicHomepage__RenderFunc(props: {
                         displayMinWidth={"0"}
                         displayWidth={"100%"}
                         src={{
-                          src: "/plasmic/jbs_storefront/images/asset7Png.png",
+                          src: "/plasmic/jbs_storefront/images/bannerChakhnaCatwebp.webp",
                           fullWidth: 856,
                           fullHeight: 1254,
                           aspectRatio: undefined
@@ -1357,7 +1537,7 @@ function PlasmicHomepage__RenderFunc(props: {
                         displayMinWidth={"0"}
                         displayWidth={"100%"}
                         src={{
-                          src: "/plasmic/jbs_storefront/images/asset8Png.png",
+                          src: "/plasmic/jbs_storefront/images/bannerChakhnaSlipperswebp.webp",
                           fullWidth: 855,
                           fullHeight: 1255,
                           aspectRatio: undefined
@@ -1380,9 +1560,9 @@ function PlasmicHomepage__RenderFunc(props: {
                         displayMinWidth={"0"}
                         displayWidth={"100%"}
                         src={{
-                          src: "/plasmic/jbs_storefront/images/asset77Png.png",
-                          fullWidth: 5319,
-                          fullHeight: 2943,
+                          src: "/plasmic/jbs_storefront/images/bannerChakhnaAntswebp.webp",
+                          fullWidth: 5375,
+                          fullHeight: 7960,
                           aspectRatio: undefined
                         }}
                       />
@@ -1401,7 +1581,7 @@ function PlasmicHomepage__RenderFunc(props: {
                 <div className={classNames(projectcss.all, sty.freeBox__l88HA)}>
                   {p.renderPlasmicSlot({
                     defaultContents:
-                      "Life is a party, these are the snacks our \ndelightful new Textile Collectibles ",
+                      "Life is a party, these are the snacks \nour delightful new Textile Collectibles ",
                     value: args.slot2,
                     className: classNames(sty.slotTargetSlot2)
                   })}
@@ -1414,11 +1594,19 @@ function PlasmicHomepage__RenderFunc(props: {
                         sty.button2__fCyO0
                       )}
                       color={"red"}
+                      link={`/category/${"chakhna"}`}
                     >
-                      {"Shop all Chakhna"}
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__rp9Ax
+                        )}
+                      >
+                        {"Shop all Chakhna"}
+                      </div>
                     </Button2>
                   ),
-
                   value: args.slot3
                 })}
               </div>
@@ -1498,7 +1686,6 @@ function PlasmicHomepage__RenderFunc(props: {
                               plasmicStateName: "sliderCarousel4.currentSlide"
                             }
                           ],
-
                           [],
                           SliderWrapper_Helpers ?? {},
                           child$Props
@@ -1575,7 +1762,6 @@ function PlasmicHomepage__RenderFunc(props: {
                               plasmicStateName: "sliderCarousel10.currentSlide"
                             }
                           ],
-
                           [],
                           SliderWrapper_Helpers ?? {},
                           child$Props
@@ -1686,7 +1872,6 @@ function PlasmicHomepage__RenderFunc(props: {
                           plasmicStateName: "sliderCarousel5.currentSlide"
                         }
                       ],
-
                       [],
                       SliderWrapper_Helpers ?? {},
                       child$Props
@@ -1772,26 +1957,72 @@ function PlasmicHomepage__RenderFunc(props: {
                                           sty.freeBox__qz0IF
                                         )}
                                       >
-                                        <ProductMedia
+                                        <p.PlasmicLink
                                           className={classNames(
-                                            "__wab_instance",
-                                            sty.productMedia__apBfu
+                                            projectcss.all,
+                                            projectcss.a,
+                                            sty.link__w3LCy
                                           )}
-                                        />
-
+                                          component={Link}
+                                          href={`/product/${(() => {
+                                            try {
+                                              return $ctx.currentProduct.slug;
+                                            } catch (e) {
+                                              if (
+                                                e instanceof TypeError ||
+                                                e?.plasmicType ===
+                                                  "PlasmicUndefinedDataError"
+                                              ) {
+                                                return undefined;
+                                              }
+                                              throw e;
+                                            }
+                                          })()}`}
+                                          platform={"nextjs"}
+                                        >
+                                          <ProductMedia
+                                            className={classNames(
+                                              "__wab_instance",
+                                              sty.productMedia__apBfu
+                                            )}
+                                          />
+                                        </p.PlasmicLink>
                                         <div
                                           className={classNames(
                                             projectcss.all,
                                             sty.freeBox__iwSo5
                                           )}
                                         >
-                                          <ProductTextField
+                                          <Button2
                                             className={classNames(
                                               "__wab_instance",
-                                              sty.productTextField__v59P4
+                                              sty.button2__wqp2C
                                             )}
-                                            field={"name"}
-                                          />
+                                            color={"clear"}
+                                            link={`/product/${(() => {
+                                              try {
+                                                return $ctx.currentProduct.slug;
+                                              } catch (e) {
+                                                if (
+                                                  e instanceof TypeError ||
+                                                  e?.plasmicType ===
+                                                    "PlasmicUndefinedDataError"
+                                                ) {
+                                                  return undefined;
+                                                }
+                                                throw e;
+                                              }
+                                            })()}`}
+                                            size={"minimal"}
+                                          >
+                                            <ProductTextField
+                                              className={classNames(
+                                                "__wab_instance",
+                                                sty.productTextField__v59P4
+                                              )}
+                                              field={"name"}
+                                            />
+                                          </Button2>
                                         </div>
                                       </div>
                                     )}
@@ -1804,14 +2035,14 @@ function PlasmicHomepage__RenderFunc(props: {
                         <div
                           className={classNames(
                             projectcss.all,
-                            sty.freeBox__yv5Ub
+                            sty.freeBox__gTmv3
                           )}
                         >
                           <ProductCollection
                             category={"gid://shopify/Collection/455454490920"}
                             className={classNames(
                               "__wab_instance",
-                              sty.productCollection__aRqFi
+                              sty.productCollection__lgQow
                             )}
                             emptyMessage={
                               <ph.DataCtxReader>
@@ -1820,7 +2051,7 @@ function PlasmicHomepage__RenderFunc(props: {
                                     className={classNames(
                                       projectcss.all,
                                       projectcss.__wab_text,
-                                      sty.text___2A8S
+                                      sty.text__vkSwh
                                     )}
                                   >
                                     {"No product found!"}
@@ -1835,7 +2066,7 @@ function PlasmicHomepage__RenderFunc(props: {
                                     className={classNames(
                                       projectcss.all,
                                       projectcss.__wab_text,
-                                      sty.text__gJjdB
+                                      sty.text___9Qa07
                                     )}
                                   >
                                     {"Loading..."}
@@ -1850,7 +2081,7 @@ function PlasmicHomepage__RenderFunc(props: {
                                 <ProductBox
                                   className={classNames(
                                     "__wab_instance",
-                                    sty.productBox__zdDtC
+                                    sty.productBox__noBec
                                   )}
                                   id={(() => {
                                     try {
@@ -1872,29 +2103,75 @@ function PlasmicHomepage__RenderFunc(props: {
                                       <div
                                         className={classNames(
                                           projectcss.all,
-                                          sty.freeBox__hshZ
+                                          sty.freeBox__ghkn2
                                         )}
                                       >
-                                        <ProductMedia
+                                        <p.PlasmicLink
                                           className={classNames(
-                                            "__wab_instance",
-                                            sty.productMedia__ddPbU
+                                            projectcss.all,
+                                            projectcss.a,
+                                            sty.link__tRrQo
                                           )}
-                                        />
-
+                                          component={Link}
+                                          href={`/product/${(() => {
+                                            try {
+                                              return $ctx.currentProduct.slug;
+                                            } catch (e) {
+                                              if (
+                                                e instanceof TypeError ||
+                                                e?.plasmicType ===
+                                                  "PlasmicUndefinedDataError"
+                                              ) {
+                                                return undefined;
+                                              }
+                                              throw e;
+                                            }
+                                          })()}`}
+                                          platform={"nextjs"}
+                                        >
+                                          <ProductMedia
+                                            className={classNames(
+                                              "__wab_instance",
+                                              sty.productMedia__lHrgz
+                                            )}
+                                          />
+                                        </p.PlasmicLink>
                                         <div
                                           className={classNames(
                                             projectcss.all,
-                                            sty.freeBox__mEn7W
+                                            sty.freeBox__xBdj4
                                           )}
                                         >
-                                          <ProductTextField
+                                          <Button2
                                             className={classNames(
                                               "__wab_instance",
-                                              sty.productTextField__tqvqg
+                                              sty.button2__oXg9B
                                             )}
-                                            field={"name"}
-                                          />
+                                            color={"clear"}
+                                            link={`/product/${(() => {
+                                              try {
+                                                return $ctx.currentProduct.slug;
+                                              } catch (e) {
+                                                if (
+                                                  e instanceof TypeError ||
+                                                  e?.plasmicType ===
+                                                    "PlasmicUndefinedDataError"
+                                                ) {
+                                                  return undefined;
+                                                }
+                                                throw e;
+                                              }
+                                            })()}`}
+                                            size={"minimal"}
+                                          >
+                                            <ProductTextField
+                                              className={classNames(
+                                                "__wab_instance",
+                                                sty.productTextField__vq4Qt
+                                              )}
+                                              field={"name"}
+                                            />
+                                          </Button2>
                                         </div>
                                       </div>
                                     )}
@@ -1907,14 +2184,14 @@ function PlasmicHomepage__RenderFunc(props: {
                         <div
                           className={classNames(
                             projectcss.all,
-                            sty.freeBox__gAfPz
+                            sty.freeBox___2SWwm
                           )}
                         >
                           <ProductCollection
                             category={"gid://shopify/Collection/455454785832"}
                             className={classNames(
                               "__wab_instance",
-                              sty.productCollection__eCmky
+                              sty.productCollection__xkbqD
                             )}
                             emptyMessage={
                               <ph.DataCtxReader>
@@ -1923,7 +2200,7 @@ function PlasmicHomepage__RenderFunc(props: {
                                     className={classNames(
                                       projectcss.all,
                                       projectcss.__wab_text,
-                                      sty.text__a9EeI
+                                      sty.text__fgnQl
                                     )}
                                   >
                                     {"No product found!"}
@@ -1938,7 +2215,7 @@ function PlasmicHomepage__RenderFunc(props: {
                                     className={classNames(
                                       projectcss.all,
                                       projectcss.__wab_text,
-                                      sty.text__yFsOj
+                                      sty.text__svevE
                                     )}
                                   >
                                     {"Loading..."}
@@ -1953,7 +2230,7 @@ function PlasmicHomepage__RenderFunc(props: {
                                 <ProductBox
                                   className={classNames(
                                     "__wab_instance",
-                                    sty.productBox__q58Ho
+                                    sty.productBox__khUzh
                                   )}
                                   id={(() => {
                                     try {
@@ -1975,29 +2252,75 @@ function PlasmicHomepage__RenderFunc(props: {
                                       <div
                                         className={classNames(
                                           projectcss.all,
-                                          sty.freeBox___95U2Q
+                                          sty.freeBox__s9E
                                         )}
                                       >
-                                        <ProductMedia
+                                        <p.PlasmicLink
                                           className={classNames(
-                                            "__wab_instance",
-                                            sty.productMedia__aMvF1
+                                            projectcss.all,
+                                            projectcss.a,
+                                            sty.link__s244
                                           )}
-                                        />
-
+                                          component={Link}
+                                          href={`/product/${(() => {
+                                            try {
+                                              return $ctx.currentProduct.slug;
+                                            } catch (e) {
+                                              if (
+                                                e instanceof TypeError ||
+                                                e?.plasmicType ===
+                                                  "PlasmicUndefinedDataError"
+                                              ) {
+                                                return undefined;
+                                              }
+                                              throw e;
+                                            }
+                                          })()}`}
+                                          platform={"nextjs"}
+                                        >
+                                          <ProductMedia
+                                            className={classNames(
+                                              "__wab_instance",
+                                              sty.productMedia__vRmNk
+                                            )}
+                                          />
+                                        </p.PlasmicLink>
                                         <div
                                           className={classNames(
                                             projectcss.all,
-                                            sty.freeBox__up8Mq
+                                            sty.freeBox__jk8S1
                                           )}
                                         >
-                                          <ProductTextField
+                                          <Button2
                                             className={classNames(
                                               "__wab_instance",
-                                              sty.productTextField__i9XWc
+                                              sty.button2__oXjkn
                                             )}
-                                            field={"name"}
-                                          />
+                                            color={"clear"}
+                                            link={`/product/${(() => {
+                                              try {
+                                                return $ctx.currentProduct.slug;
+                                              } catch (e) {
+                                                if (
+                                                  e instanceof TypeError ||
+                                                  e?.plasmicType ===
+                                                    "PlasmicUndefinedDataError"
+                                                ) {
+                                                  return undefined;
+                                                }
+                                                throw e;
+                                              }
+                                            })()}`}
+                                            size={"minimal"}
+                                          >
+                                            <ProductTextField
+                                              className={classNames(
+                                                "__wab_instance",
+                                                sty.productTextField__xn4Jk
+                                              )}
+                                              field={"name"}
+                                            />
+                                          </Button2>
                                         </div>
                                       </div>
                                     )}
@@ -2044,7 +2367,6 @@ function PlasmicHomepage__RenderFunc(props: {
                           plasmicStateName: "sliderCarousel11.currentSlide"
                         }
                       ],
-
                       [],
                       SliderWrapper_Helpers ?? {},
                       child$Props
@@ -2427,7 +2749,6 @@ function PlasmicHomepage__RenderFunc(props: {
                                         Math.random() * $ctx.products.length
                                       )
                                     ];
-
                                   return randomProduct.slug;
                                 })();
                               } catch (e) {
@@ -2476,23 +2797,15 @@ function PlasmicHomepage__RenderFunc(props: {
                     <p.PlasmicImg
                       alt={""}
                       className={classNames(sty.img__f3JA)}
-                      displayHeight={
-                        hasVariant(globalVariants, "screen", "mobileOnly")
-                          ? "auto"
-                          : "auto"
-                      }
+                      displayHeight={"auto"}
                       displayMaxHeight={"none"}
                       displayMaxWidth={"none"}
                       displayMinHeight={"0"}
                       displayMinWidth={"0"}
-                      displayWidth={
-                        hasVariant(globalVariants, "screen", "mobileOnly")
-                          ? "100%"
-                          : "100%"
-                      }
+                      displayWidth={"100%"}
                       loading={"lazy"}
                       src={{
-                        src: "/plasmic/jbs_storefront/images/framepng.png",
+                        src: "/plasmic/jbs_storefront/images/heartFramewebp.webp",
                         fullWidth: 1046,
                         fullHeight: 876,
                         aspectRatio: undefined
@@ -2520,19 +2833,7 @@ function PlasmicHomepage__RenderFunc(props: {
                         "__wab_instance",
                         sty.button2__uhJjf
                       )}
-                      link={`/category/${(() => {
-                        try {
-                          return undefined;
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return undefined;
-                          }
-                          throw e;
-                        }
-                      })()}`}
+                      link={`/category/${"giftsss"}`}
                     >
                       {"gift here!"}
                     </Button2>
@@ -2543,11 +2844,7 @@ function PlasmicHomepage__RenderFunc(props: {
                     <p.PlasmicImg
                       alt={""}
                       className={classNames(sty.img__p06FD)}
-                      displayHeight={
-                        hasVariant(globalVariants, "screen", "mobileOnly")
-                          ? "auto"
-                          : "100%"
-                      }
+                      displayHeight={"auto"}
                       displayMaxHeight={"none"}
                       displayMaxWidth={"none"}
                       displayMinHeight={"0"}
@@ -2555,7 +2852,7 @@ function PlasmicHomepage__RenderFunc(props: {
                       displayWidth={"100%"}
                       loading={"lazy"}
                       src={{
-                        src: "/plasmic/jbs_storefront/images/img3309Png2.png",
+                        src: "/plasmic/jbs_storefront/images/strawberrieswebp.webp",
                         fullWidth: 1311,
                         fullHeight: 1326,
                         aspectRatio: undefined
@@ -2576,6 +2873,8 @@ function PlasmicHomepage__RenderFunc(props: {
             >
               {(() => {
                 const child$Props = {
+                  arrows: false,
+                  autoplay: true,
                   beforeChange: p.generateStateOnChangePropForCodeComponents(
                     $state,
                     "currentSlide",
@@ -2601,7 +2900,6 @@ function PlasmicHomepage__RenderFunc(props: {
                       plasmicStateName: "sliderCarousel6.currentSlide"
                     }
                   ],
-
                   [],
                   SliderWrapper_Helpers ?? {},
                   child$Props
@@ -2667,6 +2965,7 @@ function PlasmicHomepage__RenderFunc(props: {
                             sty.button2__cjr7B
                           )}
                           color={"red"}
+                          link={`/category/${"bucket-hats"}`}
                         >
                           <div
                             className={classNames(
@@ -2675,7 +2974,7 @@ function PlasmicHomepage__RenderFunc(props: {
                               sty.text__wsr9R
                             )}
                           >
-                            {"Shop all Caps"}
+                            {"Shop all Bucket Hats"}
                           </div>
                         </Button2>
                       }
@@ -2690,9 +2989,9 @@ function PlasmicHomepage__RenderFunc(props: {
                         displayMinWidth={"0"}
                         displayWidth={"100%"}
                         src={{
-                          src: "/plasmic/jbs_storefront/images/asset851Png.png",
-                          fullWidth: 5323,
-                          fullHeight: 2898,
+                          src: "/plasmic/jbs_storefront/images/bucketHatBannerwebp.webp",
+                          fullWidth: 4096,
+                          fullHeight: 2230,
                           aspectRatio: undefined
                         }}
                       />
@@ -2708,23 +3007,23 @@ function PlasmicHomepage__RenderFunc(props: {
                           hasGap={true}
                           className={classNames(
                             projectcss.all,
-                            sty.freeBox__u1Zcr
+                            sty.freeBox__oCcH
                           )}
                         >
                           <div
                             className={classNames(
                               projectcss.all,
                               projectcss.__wab_text,
-                              sty.text__alf4Z
+                              sty.text__gW7Ez
                             )}
                           >
-                            {"Flower\n"}
+                            {"Flower"}
                           </div>
                           <div
                             className={classNames(
                               projectcss.all,
                               projectcss.__wab_text,
-                              sty.text__ga1Ub
+                              sty.text___2Rj5D
                             )}
                           >
                             {"Topi"}
@@ -2751,9 +3050,9 @@ function PlasmicHomepage__RenderFunc(props: {
                             sty.button2__imimv
                           )}
                           color={"red"}
-                          link={`/category/${"cap"}`}
+                          link={`/category/${"flower-hat"}`}
                         >
-                          {"Shop all Caps"}
+                          {"Flower hats"}
                         </Button2>
                       }
                     >
@@ -2767,9 +3066,9 @@ function PlasmicHomepage__RenderFunc(props: {
                         displayMinWidth={"0"}
                         displayWidth={"100%"}
                         src={{
-                          src: "/plasmic/jbs_storefront/images/asset84Png2.png",
-                          fullWidth: 5323,
-                          fullHeight: 2898,
+                          src: "/plasmic/jbs_storefront/images/flowerHatBanner.webp",
+                          fullWidth: 4096,
+                          fullHeight: 2230,
                           aspectRatio: undefined
                         }}
                       />
@@ -2818,85 +3117,172 @@ function PlasmicHomepage__RenderFunc(props: {
                   noLayout={true}
                 >
                   <ph.DataCtxReader>
-                    {$ctx =>
-                      (() => {
-                        const child$Props = {
-                          beforeChange:
-                            p.generateStateOnChangePropForCodeComponents(
-                              $state,
-                              "currentSlide",
-                              ["sliderCarousel7", "currentSlide"],
-                              SliderWrapper_Helpers
+                    {$ctx => (
+                      <React.Fragment>
+                        {(() => {
+                          const child$Props = {
+                            beforeChange:
+                              p.generateStateOnChangePropForCodeComponents(
+                                $state,
+                                "currentSlide",
+                                ["sliderCarousel7", "currentSlide"],
+                                SliderWrapper_Helpers
+                              ),
+                            className: classNames(
+                              "__wab_instance",
+                              sty.sliderCarousel7
                             ),
-                          className: classNames(
-                            "__wab_instance",
-                            sty.sliderCarousel7
-                          ),
-                          editingSlide: p.generateStateValueProp($state, [
-                            "sliderCarousel7",
-                            "currentSlide"
-                          ]),
-                          initialSlide: 0,
-                          ref: ref => {
-                            $refs["sliderCarousel7"] = ref;
-                          },
-                          sliderScopeClassName: sty["sliderCarousel7__slider"],
-                          slidesPerRow: 5
-                        };
-                        p.initializeCodeComponentStates(
-                          $state,
-                          [
-                            {
-                              name: "currentSlide",
-                              plasmicStateName: "sliderCarousel7.currentSlide"
-                            }
-                          ],
+                            editingSlide: p.generateStateValueProp($state, [
+                              "sliderCarousel7",
+                              "currentSlide"
+                            ]),
+                            initialSlide: 0,
+                            ref: ref => {
+                              $refs["sliderCarousel7"] = ref;
+                            },
+                            sliderScopeClassName:
+                              sty["sliderCarousel7__slider"],
+                            slidesPerRow: 5
+                          };
+                          p.initializeCodeComponentStates(
+                            $state,
+                            [
+                              {
+                                name: "currentSlide",
+                                plasmicStateName: "sliderCarousel7.currentSlide"
+                              }
+                            ],
+                            [],
+                            SliderWrapper_Helpers ?? {},
+                            child$Props
+                          );
 
-                          [],
-                          SliderWrapper_Helpers ?? {},
-                          child$Props
-                        );
-
-                        return (
-                          <SliderWrapper
-                            data-plasmic-name={"sliderCarousel7"}
-                            data-plasmic-override={overrides.sliderCarousel7}
-                            {...child$Props}
-                          >
-                            {(_par =>
-                              !_par ? [] : Array.isArray(_par) ? _par : [_par])(
-                              (() => {
-                                try {
-                                  return $ctx.products;
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return [];
+                          return (
+                            <SliderWrapper
+                              data-plasmic-name={"sliderCarousel7"}
+                              data-plasmic-override={overrides.sliderCarousel7}
+                              {...child$Props}
+                            >
+                              {(_par =>
+                                !_par
+                                  ? []
+                                  : Array.isArray(_par)
+                                  ? _par
+                                  : [_par])(
+                                (() => {
+                                  try {
+                                    return $ctx.products;
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return [];
+                                    }
+                                    throw e;
                                   }
-                                  throw e;
-                                }
-                              })()
-                            ).map((__plasmic_item_0, __plasmic_idx_0) => {
-                              const currentItem = __plasmic_item_0;
-                              const currentIndex = __plasmic_idx_0;
-                              return (
-                                <ProductCardNew
-                                  className={classNames(
-                                    "__wab_instance",
-                                    sty.productCardNew__iddV2
-                                  )}
-                                  currentItem={currentItem}
-                                  key={currentIndex}
-                                />
-                              );
-                            })}
-                          </SliderWrapper>
-                        );
-                      })()
-                    }
+                                })()
+                              ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                                const currentItem = __plasmic_item_0;
+                                const currentIndex = __plasmic_idx_0;
+                                return (
+                                  <ProductCardNew
+                                    className={classNames(
+                                      "__wab_instance",
+                                      sty.productCardNew__iddV2
+                                    )}
+                                    currentItem={currentItem}
+                                    key={currentIndex}
+                                  />
+                                );
+                              })}
+                            </SliderWrapper>
+                          );
+                        })()}
+                        {(() => {
+                          const child$Props = {
+                            beforeChange:
+                              p.generateStateOnChangePropForCodeComponents(
+                                $state,
+                                "currentSlide",
+                                ["sliderCarousel8", "currentSlide"],
+                                SliderWrapper_Helpers
+                              ),
+                            className: classNames(
+                              "__wab_instance",
+                              sty.sliderCarousel8
+                            ),
+                            editingSlide: p.generateStateValueProp($state, [
+                              "sliderCarousel8",
+                              "currentSlide"
+                            ]),
+                            initialSlide: 0,
+                            ref: ref => {
+                              $refs["sliderCarousel8"] = ref;
+                            },
+                            sliderScopeClassName:
+                              sty["sliderCarousel8__slider"],
+                            slidesPerRow: 2
+                          };
+                          p.initializeCodeComponentStates(
+                            $state,
+                            [
+                              {
+                                name: "currentSlide",
+                                plasmicStateName: "sliderCarousel8.currentSlide"
+                              }
+                            ],
+                            [],
+                            SliderWrapper_Helpers ?? {},
+                            child$Props
+                          );
+
+                          return (
+                            <SliderWrapper
+                              data-plasmic-name={"sliderCarousel8"}
+                              data-plasmic-override={overrides.sliderCarousel8}
+                              {...child$Props}
+                            >
+                              {(_par =>
+                                !_par
+                                  ? []
+                                  : Array.isArray(_par)
+                                  ? _par
+                                  : [_par])(
+                                (() => {
+                                  try {
+                                    return $ctx.products;
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return [];
+                                    }
+                                    throw e;
+                                  }
+                                })()
+                              ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                                const currentItem = __plasmic_item_0;
+                                const currentIndex = __plasmic_idx_0;
+                                return (
+                                  <ProductCardNew
+                                    className={classNames(
+                                      "__wab_instance",
+                                      sty.productCardNew__txNs1
+                                    )}
+                                    currentItem={currentItem}
+                                    key={currentIndex}
+                                  />
+                                );
+                              })}
+                            </SliderWrapper>
+                          );
+                        })()}
+                      </React.Fragment>
+                    )}
                   </ph.DataCtxReader>
                 </ProductCollection>
               </div>
@@ -2931,7 +3317,7 @@ function PlasmicHomepage__RenderFunc(props: {
                   displayWidth={"100%"}
                   loading={"lazy"}
                   src={{
-                    src: "/plasmic/jbs_storefront/images/image3.gif",
+                    src: "/plasmic/jbs_storefront/images/clamwebp.webp",
                     fullWidth: 2000,
                     fullHeight: 3496,
                     aspectRatio: undefined
@@ -2967,142 +3353,147 @@ function PlasmicHomepage__RenderFunc(props: {
                 )}
               />
 
-              <div className={classNames(projectcss.all, sty.freeBox__vUUfy)}>
-                <div className={classNames(projectcss.all, sty.freeBox__r9H7F)}>
-                  <Marquee
-                    data-plasmic-name={"marquee"}
-                    data-plasmic-override={overrides.marquee}
-                    autoFill={true}
-                    className={classNames("__wab_instance", sty.marquee)}
-                    direction={"right"}
+              <div className={classNames(projectcss.all, sty.freeBox__r9H7F)}>
+                <Marquee
+                  data-plasmic-name={"marquee"}
+                  data-plasmic-override={overrides.marquee}
+                  autoFill={true}
+                  className={classNames("__wab_instance", sty.marquee)}
+                  direction={"right"}
+                >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__dHqP3
+                    )}
+                  >
+                    {
+                      " made from waste // women run // limited editions // handcrafted in mumbai //"
+                    }
+                  </div>
+                </Marquee>
+              </div>
+              <div className={classNames(projectcss.all, sty.freeBox__riipX)}>
+                <p.PlasmicImg
+                  alt={""}
+                  className={classNames(sty.img__gx5Wa)}
+                  displayHeight={"auto"}
+                  displayMaxHeight={"none"}
+                  displayMaxWidth={"100%"}
+                  displayMinHeight={"0"}
+                  displayMinWidth={"0"}
+                  displayWidth={"auto"}
+                  loading={"lazy"}
+                  src={{
+                    src: "/plasmic/jbs_storefront/images/seaOfWasteWidewebp.webp",
+                    fullWidth: 2558,
+                    fullHeight: 858,
+                    aspectRatio: undefined
+                  }}
+                />
+
+                <p.PlasmicImg
+                  alt={""}
+                  className={classNames(sty.img__tPjZ4)}
+                  displayHeight={"auto"}
+                  displayMaxHeight={"none"}
+                  displayMaxWidth={"100%"}
+                  displayMinHeight={"0"}
+                  displayMinWidth={"0"}
+                  displayWidth={"auto"}
+                  loading={"lazy"}
+                  src={{
+                    src: "/plasmic/jbs_storefront/images/seaOfWasteNarrowwebp.webp",
+                    fullWidth: 860,
+                    fullHeight: 1038,
+                    aspectRatio: undefined
+                  }}
+                />
+              </div>
+              <p.Stack
+                as={"div"}
+                hasGap={true}
+                className={classNames(projectcss.all, sty.freeBox__gNDo7)}
+              >
+                <p.Stack
+                  as={"div"}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.columns__mkbQx)}
+                >
+                  <div
+                    className={classNames(projectcss.all, sty.column__ejCnz)}
                   >
                     <div
                       className={classNames(
                         projectcss.all,
                         projectcss.__wab_text,
-                        sty.text__dHqP3
+                        sty.text__aBxSm
                       )}
                     >
                       {
-                        " made from waste // women run // limited editions // handcrafted in mumbai //"
+                        "Welcome to Juhu Beach Studio, we are a tiny studio based in Mumbai and we work exclusively with textile waste :O"
                       }
                     </div>
-                  </Marquee>
-                </div>
-                <div className={classNames(projectcss.all, sty.freeBox__riipX)}>
-                  <p.PlasmicImg
-                    alt={""}
-                    className={classNames(sty.img__gx5Wa)}
-                    displayHeight={"auto"}
-                    displayMaxHeight={"none"}
-                    displayMaxWidth={"100%"}
-                    displayMinHeight={"0"}
-                    displayMinWidth={"0"}
-                    displayWidth={"auto"}
-                    loading={"lazy"}
-                    src={{
-                      src: "/plasmic/jbs_storefront/images/asset54Png.png",
-                      fullWidth: 5339,
-                      fullHeight: 2036,
-                      aspectRatio: undefined
-                    }}
-                  />
-
-                  <p.PlasmicImg
-                    alt={""}
-                    className={classNames(sty.img__tPjZ4)}
-                    displayHeight={"auto"}
-                    displayMaxHeight={"none"}
-                    displayMaxWidth={"100%"}
-                    displayMinHeight={"0"}
-                    displayMinWidth={"0"}
-                    displayWidth={"auto"}
-                    loading={"lazy"}
-                    src={{
-                      src: "/plasmic/jbs_storefront/images/asset13Png.png",
-                      fullWidth: 860,
-                      fullHeight: 1038,
-                      aspectRatio: undefined
-                    }}
-                  />
-                </div>
-                <div className={classNames(projectcss.all, sty.freeBox__gNDo7)}>
-                  <div
-                    className={classNames(projectcss.all, sty.columns__mkbQx)}
-                  >
-                    <div
-                      className={classNames(projectcss.all, sty.column__ejCnz)}
-                    >
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text__aBxSm
-                        )}
-                      >
-                        {
-                          "Welcome to Juhu Beach Studio, we are a tiny studio based in Mumbai and we work exclusively with textile waste :O"
-                        }
-                      </div>
-                    </div>
-                    <div
-                      className={classNames(projectcss.all, sty.column__f9Q7Z)}
-                    >
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text__cQmWl
-                        )}
-                      >
-                        {
-                          "We collect fabrics (above) and transform them into delightful, lifestyle accessory products, which are handcrafted in small batches by our amazing team of women."
-                        }
-                      </div>
-                    </div>
-                    <p.Stack
-                      as={"div"}
-                      hasGap={true}
-                      className={classNames(projectcss.all, sty.column__uGeWu)}
-                    >
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text__eFLx4
-                        )}
-                      >
-                        {
-                          "Our products celebrate the weird and wonderful, conceptness of life, as we build a people + planet + future friendly enterprise"
-                        }
-                      </div>
-                    </p.Stack>
                   </div>
-                  <Button2
-                    className={classNames("__wab_instance", sty.button2__u8Fkr)}
-                    color={"red"}
-                    endIcon={
-                      <Icon38Icon
-                        data-plasmic-name={"svg"}
-                        data-plasmic-override={overrides.svg}
-                        className={classNames(projectcss.all, sty.svg)}
-                        role={"img"}
-                      />
-                    }
-                    showEndIcon={true}
+                  <div
+                    className={classNames(projectcss.all, sty.column__f9Q7Z)}
                   >
                     <div
                       className={classNames(
                         projectcss.all,
                         projectcss.__wab_text,
-                        sty.text__oOzB
+                        sty.text__cQmWl
                       )}
                     >
-                      {"Wanna know how we do it?"}
+                      {
+                        "We collect fabrics (above) and transform them into delightful, lifestyle accessory products, which are handcrafted in small batches by our amazing team of women."
+                      }
                     </div>
-                  </Button2>
-                </div>
-              </div>
+                  </div>
+                  <p.Stack
+                    as={"div"}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.column__uGeWu)}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__eFLx4
+                      )}
+                    >
+                      {
+                        "Our products celebrate the weird and wonderful, conceptness of life, as we build a people + planet + future friendly enterprise"
+                      }
+                    </div>
+                  </p.Stack>
+                </p.Stack>
+                <Button2
+                  className={classNames("__wab_instance", sty.button2__u8Fkr)}
+                  color={"red"}
+                  endIcon={
+                    <Icon38Icon
+                      data-plasmic-name={"svg"}
+                      data-plasmic-override={overrides.svg}
+                      className={classNames(projectcss.all, sty.svg)}
+                      role={"img"}
+                    />
+                  }
+                  link={`/about`}
+                  showEndIcon={true}
+                >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__oOzB
+                    )}
+                  >
+                    {"Wanna know how we do it?"}
+                  </div>
+                </Button2>
+              </p.Stack>
             </Section>
           </FullPage>
         </div>
@@ -3116,7 +3507,7 @@ const PlasmicDescendants = {
     "root",
     "fullPage",
     "sliderCarousel",
-    "sliderCarousel8",
+    "sliderCarousel12",
     "categoryCollection",
     "sliderCarousel2",
     "sliderCarousel9",
@@ -3128,14 +3519,14 @@ const PlasmicDescendants = {
     "surpriseMeButton",
     "sliderCarousel6",
     "sliderCarousel7",
+    "sliderCarousel8",
     "marquee",
     "svg"
   ],
-
   fullPage: [
     "fullPage",
     "sliderCarousel",
-    "sliderCarousel8",
+    "sliderCarousel12",
     "categoryCollection",
     "sliderCarousel2",
     "sliderCarousel9",
@@ -3147,18 +3538,17 @@ const PlasmicDescendants = {
     "surpriseMeButton",
     "sliderCarousel6",
     "sliderCarousel7",
+    "sliderCarousel8",
     "marquee",
     "svg"
   ],
-
   sliderCarousel: ["sliderCarousel"],
-  sliderCarousel8: ["sliderCarousel8"],
+  sliderCarousel12: ["sliderCarousel12"],
   categoryCollection: [
     "categoryCollection",
     "sliderCarousel2",
     "sliderCarousel9"
   ],
-
   sliderCarousel2: ["sliderCarousel2"],
   sliderCarousel9: ["sliderCarousel9"],
   sliderCarousel3: ["sliderCarousel3"],
@@ -3169,6 +3559,7 @@ const PlasmicDescendants = {
   surpriseMeButton: ["surpriseMeButton"],
   sliderCarousel6: ["sliderCarousel6"],
   sliderCarousel7: ["sliderCarousel7"],
+  sliderCarousel8: ["sliderCarousel8"],
   marquee: ["marquee"],
   svg: ["svg"]
 } as const;
@@ -3179,7 +3570,7 @@ type NodeDefaultElementType = {
   root: "div";
   fullPage: typeof FullPage;
   sliderCarousel: typeof SliderWrapper;
-  sliderCarousel8: typeof SliderWrapper;
+  sliderCarousel12: typeof SliderWrapper;
   categoryCollection: typeof CategoryCollection;
   sliderCarousel2: typeof SliderWrapper;
   sliderCarousel9: typeof SliderWrapper;
@@ -3191,6 +3582,7 @@ type NodeDefaultElementType = {
   surpriseMeButton: typeof SurpriseMeButton;
   sliderCarousel6: typeof SliderWrapper;
   sliderCarousel7: typeof SliderWrapper;
+  sliderCarousel8: typeof SliderWrapper;
   marquee: typeof Marquee;
   svg: "svg";
 };
@@ -3200,7 +3592,6 @@ type NodeOverridesType<T extends NodeNameType> = Pick<
   PlasmicHomepage__OverridesType,
   DescendantsType<T>
 >;
-
 type NodeComponentProps<T extends NodeNameType> =
   // Explicitly specify variants, args, and overrides as objects
   {
@@ -3258,7 +3649,7 @@ export const PlasmicHomepage = Object.assign(
     // Helper components rendering sub-elements
     fullPage: makeNodeComponent("fullPage"),
     sliderCarousel: makeNodeComponent("sliderCarousel"),
-    sliderCarousel8: makeNodeComponent("sliderCarousel8"),
+    sliderCarousel12: makeNodeComponent("sliderCarousel12"),
     categoryCollection: makeNodeComponent("categoryCollection"),
     sliderCarousel2: makeNodeComponent("sliderCarousel2"),
     sliderCarousel9: makeNodeComponent("sliderCarousel9"),
@@ -3270,6 +3661,7 @@ export const PlasmicHomepage = Object.assign(
     surpriseMeButton: makeNodeComponent("surpriseMeButton"),
     sliderCarousel6: makeNodeComponent("sliderCarousel6"),
     sliderCarousel7: makeNodeComponent("sliderCarousel7"),
+    sliderCarousel8: makeNodeComponent("sliderCarousel8"),
     marquee: makeNodeComponent("marquee"),
     svg: makeNodeComponent("svg"),
 

@@ -104,8 +104,8 @@ export const PlasmicTextInput__ArgProps = new Array<ArgPropType>(
 
 export type PlasmicTextInput__OverridesType = {
   root?: p.Flex<"div">;
-  input?: p.Flex<"input">;
   startIconContainer?: p.Flex<"div">;
+  input?: p.Flex<"input">;
   endIconContainer?: p.Flex<"div">;
 };
 
@@ -255,39 +255,6 @@ function PlasmicTextInput__RenderFunc(props: {
       )}
       data-plasmic-trigger-props={[triggerRootFocusVisibleWithinProps]}
     >
-      <input
-        data-plasmic-name={"input"}
-        data-plasmic-override={overrides.input}
-        aria-label={args["aria-label"]}
-        aria-labelledby={args["aria-labelledby"]}
-        className={classNames(projectcss.all, projectcss.input, sty.input, {
-          [sty.input___focusVisibleWithin]: triggers.focusVisibleWithin_root,
-          [sty.inputcolor_dark]: hasVariant($state, "color", "dark"),
-          [sty.inputisDisabled]: hasVariant($state, "isDisabled", "isDisabled"),
-          [sty.inputshowStartIcon]: hasVariant(
-            $state,
-            "showStartIcon",
-            "showStartIcon"
-          )
-        })}
-        disabled={
-          hasVariant($state, "isDisabled", "isDisabled") ? true : undefined
-        }
-        name={args.name}
-        onChange={e => {
-          p.generateStateOnChangeProp($state, ["input", "value"])(
-            e.target.value
-          );
-        }}
-        placeholder={args.placeholder}
-        ref={ref => {
-          $refs["input"] = ref;
-        }}
-        required={args.required}
-        type={args.type}
-        value={p.generateStateValueProp($state, ["input", "value"]) ?? ""}
-      />
-
       <div
         data-plasmic-name={"startIconContainer"}
         data-plasmic-override={overrides.startIconContainer}
@@ -334,6 +301,39 @@ function PlasmicTextInput__RenderFunc(props: {
           })
         })}
       </div>
+      <input
+        data-plasmic-name={"input"}
+        data-plasmic-override={overrides.input}
+        aria-label={args["aria-label"]}
+        aria-labelledby={args["aria-labelledby"]}
+        className={classNames(projectcss.all, projectcss.input, sty.input, {
+          [sty.input___focusVisibleWithin]: triggers.focusVisibleWithin_root,
+          [sty.inputcolor_dark]: hasVariant($state, "color", "dark"),
+          [sty.inputisDisabled]: hasVariant($state, "isDisabled", "isDisabled"),
+          [sty.inputshowStartIcon]: hasVariant(
+            $state,
+            "showStartIcon",
+            "showStartIcon"
+          )
+        })}
+        disabled={
+          hasVariant($state, "isDisabled", "isDisabled") ? true : undefined
+        }
+        name={args.name}
+        onChange={e => {
+          p.generateStateOnChangeProp($state, ["input", "value"])(
+            e.target.value
+          );
+        }}
+        placeholder={args.placeholder}
+        ref={ref => {
+          $refs["input"] = ref;
+        }}
+        required={args.required}
+        type={args.type}
+        value={p.generateStateValueProp($state, ["input", "value"]) ?? ""}
+      />
+
       <div
         data-plasmic-name={"endIconContainer"}
         data-plasmic-override={overrides.endIconContainer}
@@ -397,9 +397,9 @@ function useBehavior<P extends pp.PlumeTextInputProps>(
 }
 
 const PlasmicDescendants = {
-  root: ["root", "input", "startIconContainer", "endIconContainer"],
-  input: ["input"],
+  root: ["root", "startIconContainer", "input", "endIconContainer"],
   startIconContainer: ["startIconContainer"],
+  input: ["input"],
   endIconContainer: ["endIconContainer"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
@@ -407,8 +407,8 @@ type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
-  input: "input";
   startIconContainer: "div";
+  input: "input";
   endIconContainer: "div";
 };
 
@@ -473,8 +473,8 @@ export const PlasmicTextInput = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
-    input: makeNodeComponent("input"),
     startIconContainer: makeNodeComponent("startIconContainer"),
+    input: makeNodeComponent("input"),
     endIconContainer: makeNodeComponent("endIconContainer"),
 
     // Metadata about props expected for PlasmicTextInput

@@ -147,10 +147,10 @@ function PlasmicFullpagewidthSlide2__RenderFunc(props: {
               displayMinWidth={"0"}
               displayWidth={"auto"}
               src={{
-                src: "/plasmic/jbs_storefront/images/asset84Png2.png",
-                fullWidth: 5323,
-                fullHeight: 2898,
-                aspectRatio: undefined
+                src: "/plasmic/jbs_storefront/images/image.svg",
+                fullWidth: 150,
+                fullHeight: 150,
+                aspectRatio: 1
               }}
             />
           ),
@@ -183,7 +183,6 @@ function PlasmicFullpagewidthSlide2__RenderFunc(props: {
               {"Shop all Chakhna"}
             </Button2>
           ),
-
           value: args.slot3
         })}
       </div>
@@ -206,7 +205,6 @@ type NodeOverridesType<T extends NodeNameType> = Pick<
   PlasmicFullpagewidthSlide2__OverridesType,
   DescendantsType<T>
 >;
-
 type NodeComponentProps<T extends NodeNameType> =
   // Explicitly specify variants, args, and overrides as objects
   {
