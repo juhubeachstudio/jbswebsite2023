@@ -123,6 +123,7 @@ function PlasmicFooter__RenderFunc(props: {
         data-plasmic-name={"blackyellowborder"}
         data-plasmic-override={overrides.blackyellowborder}
         className={classNames("__wab_instance", sty.blackyellowborder)}
+        play={true}
       />
 
       <div className={classNames(projectcss.all, sty.freeBox__anaXj)}>
@@ -431,7 +432,7 @@ function makeNodeComponent<NodeName extends NodeNameType>(nodeName: NodeName) {
       () =>
         deriveRenderOpts(props, {
           name: nodeName,
-          descendantNames: [...PlasmicDescendants[nodeName]],
+          descendantNames: PlasmicDescendants[nodeName],
           internalArgPropNames: PlasmicFooter__ArgProps,
           internalVariantPropNames: PlasmicFooter__VariantProps
         }),

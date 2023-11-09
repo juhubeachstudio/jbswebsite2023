@@ -269,6 +269,7 @@ const PlasmicDescendants = {
     "productCollection",
     "productCardJbs"
   ],
+
   fullPage: [
     "fullPage",
     "section",
@@ -278,6 +279,7 @@ const PlasmicDescendants = {
     "productCollection",
     "productCardJbs"
   ],
+
   section: [
     "section",
     "categoryCollection",
@@ -286,6 +288,7 @@ const PlasmicDescendants = {
     "productCollection",
     "productCardJbs"
   ],
+
   categoryCollection: [
     "categoryCollection",
     "freeBox",
@@ -293,6 +296,7 @@ const PlasmicDescendants = {
     "productCollection",
     "productCardJbs"
   ],
+
   freeBox: ["freeBox", "categoryField", "productCollection", "productCardJbs"],
   categoryField: ["categoryField"],
   productCollection: ["productCollection", "productCardJbs"],
@@ -317,6 +321,7 @@ type NodeOverridesType<T extends NodeNameType> = Pick<
   PlasmicShop__OverridesType,
   DescendantsType<T>
 >;
+
 type NodeComponentProps<T extends NodeNameType> =
   // Explicitly specify variants, args, and overrides as objects
   {
@@ -346,7 +351,7 @@ function makeNodeComponent<NodeName extends NodeNameType>(nodeName: NodeName) {
       () =>
         deriveRenderOpts(props, {
           name: nodeName,
-          descendantNames: [...PlasmicDescendants[nodeName]],
+          descendantNames: PlasmicDescendants[nodeName],
           internalArgPropNames: PlasmicShop__ArgProps,
           internalVariantPropNames: PlasmicShop__VariantProps
         }),

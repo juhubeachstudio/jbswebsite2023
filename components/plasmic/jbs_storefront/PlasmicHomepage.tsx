@@ -1042,7 +1042,7 @@ function PlasmicHomepage__RenderFunc(props: {
                     )}
                   >
                     {
-                      "Welcome to Juhu Beach Studio!\nWe love to love thingsss. So for our first ever collection, we present to you\nproducts inspired by all the things we will literally love forever."
+                      "Welcome to Juhu Beach Studio!\nWe love to love thingsss. So for our first ever collection, we present to you products inspired by all the things we will literally love forever."
                     }
                   </div>
                 </div>
@@ -1185,7 +1185,9 @@ function PlasmicHomepage__RenderFunc(props: {
                                   : [_par])(
                                 (() => {
                                   try {
-                                    return $ctx.categories;
+                                    return $ctx.categories.filter(
+                                      category => category.name !== "Headwear"
+                                    );
                                   } catch (e) {
                                     if (
                                       e instanceof TypeError ||
@@ -3095,7 +3097,7 @@ function PlasmicHomepage__RenderFunc(props: {
               })()}
               <div className={classNames(projectcss.all, sty.freeBox__gnDfX)}>
                 <ProductCollection
-                  category={"gid://shopify/Collection/455454327080"}
+                  category={"gid://shopify/Collection/467855180072"}
                   className={classNames(
                     "__wab_instance",
                     sty.productCollection__oNdeW
@@ -3656,7 +3658,7 @@ function makeNodeComponent<NodeName extends NodeNameType>(nodeName: NodeName) {
       () =>
         deriveRenderOpts(props, {
           name: nodeName,
-          descendantNames: [...PlasmicDescendants[nodeName]],
+          descendantNames: PlasmicDescendants[nodeName],
           internalArgPropNames: PlasmicHomepage__ArgProps,
           internalVariantPropNames: PlasmicHomepage__VariantProps
         }),

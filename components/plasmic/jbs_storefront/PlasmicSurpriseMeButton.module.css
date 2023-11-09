@@ -11,9 +11,6 @@
 .root > picture > img {
   object-fit: contain;
 }
-.root > :global(.__wab_img-spacer) > img {
-  object-fit: contain;
-}
 @media (min-width: 0px) and (max-width: 768px) {
   .root {
     width: 150px;

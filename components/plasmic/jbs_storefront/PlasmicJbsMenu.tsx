@@ -37,8 +37,6 @@ import {
   ensureGlobalVariants
 } from "@plasmicapp/react-web";
 import Button2 from "../../Button2"; // plasmic-import: yEsI5slGwPm/component
-import { CategoryCollection } from "@plasmicpkgs/commerce"; // plasmic-import: ny07p45F84c_/codeComponent
-import { CategoryField } from "@plasmicpkgs/commerce"; // plasmic-import: hzqiq--xdG5T/codeComponent
 
 import { useScreenVariants as useScreenVariants_6Hzia3M7Np4Ulu } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6hzia3m7Np4ulu/globalVariant
 
@@ -75,9 +73,6 @@ export const PlasmicJbsMenu__ArgProps = new Array<ArgPropType>();
 export type PlasmicJbsMenu__OverridesType = {
   root?: p.Flex<"div">;
   svg?: p.Flex<"svg">;
-  freeBox?: p.Flex<"div">;
-  categoryCollection?: p.Flex<typeof CategoryCollection>;
-  categoryField?: p.Flex<typeof CategoryField>;
 };
 
 export interface DefaultJbsMenuProps {
@@ -188,13 +183,9 @@ function PlasmicJbsMenu__RenderFunc(props: {
         onClick={async event => {
           const $steps = {};
 
-          $steps["updateRevealMenu"] = true
+          $steps["updateRevealSubMenu"] = true
             ? (() => {
-                const actionArgs = {
-                  vgroup: "revealMenu",
-                  operation: 2,
-                  value: "revealMenu"
-                };
+                const actionArgs = { vgroup: "revealSubMenu", operation: 2 };
                 return (({ vgroup, value }) => {
                   if (typeof value === "string") {
                     value = [value];
@@ -207,11 +198,11 @@ function PlasmicJbsMenu__RenderFunc(props: {
               })()
             : undefined;
           if (
-            $steps["updateRevealMenu"] != null &&
-            typeof $steps["updateRevealMenu"] === "object" &&
-            typeof $steps["updateRevealMenu"].then === "function"
+            $steps["updateRevealSubMenu"] != null &&
+            typeof $steps["updateRevealSubMenu"] === "object" &&
+            typeof $steps["updateRevealSubMenu"].then === "function"
           ) {
-            $steps["updateRevealMenu"] = await $steps["updateRevealMenu"];
+            $steps["updateRevealSubMenu"] = await $steps["updateRevealSubMenu"];
           }
         }}
         size={"minimal"}
@@ -245,6 +236,7 @@ function PlasmicJbsMenu__RenderFunc(props: {
         })}
         color={hasVariant($state, "revealMenu", "revealMenu") ? "red" : "red"}
         link={`/`}
+        shape={"sharp"}
         size={"minimal"}
       >
         <div
@@ -284,6 +276,7 @@ function PlasmicJbsMenu__RenderFunc(props: {
         })}
         color={hasVariant($state, "revealMenu", "revealMenu") ? "red" : "red"}
         link={`/about`}
+        shape={"sharp"}
         size={"minimal"}
       >
         <div
@@ -309,15 +302,13 @@ function PlasmicJbsMenu__RenderFunc(props: {
         </div>
       </Button2>
       <div
-        data-plasmic-name={"freeBox"}
-        data-plasmic-override={overrides.freeBox}
-        className={classNames(projectcss.all, sty.freeBox, {
-          [sty.freeBoxrevealMenu]: hasVariant(
+        className={classNames(projectcss.all, sty.freeBox__wjmov, {
+          [sty.freeBoxrevealMenu__wjmovxT6MH]: hasVariant(
             $state,
             "revealMenu",
             "revealMenu"
           ),
-          [sty.freeBoxrevealSubMenu]: hasVariant(
+          [sty.freeBoxrevealSubMenu__wjmovBjo1Y]: hasVariant(
             $state,
             "revealSubMenu",
             "revealSubMenu"
@@ -365,6 +356,7 @@ function PlasmicJbsMenu__RenderFunc(props: {
               ];
             }
           }}
+          shape={"sharp"}
           size={"minimal"}
         >
           <div
@@ -389,192 +381,893 @@ function PlasmicJbsMenu__RenderFunc(props: {
             {"Shop"}
           </div>
         </Button2>
-        <Button2
-          alignment={"leftAligned"}
-          className={classNames("__wab_instance", sty.button2__cQnou, {
-            [sty.button2revealMenu__cQnoUxT6MH]: hasVariant(
+        <div
+          className={classNames(projectcss.all, sty.freeBox__o2Iiw, {
+            [sty.freeBoxrevealMenu__o2IiWxT6MH]: hasVariant(
               $state,
               "revealMenu",
               "revealMenu"
             ),
-            [sty.button2revealSubMenu__cQnouBjo1Y]: hasVariant(
+            [sty.freeBoxrevealSubMenu__o2IiwBjo1Y]: hasVariant(
               $state,
               "revealSubMenu",
               "revealSubMenu"
             )
           })}
-          color={hasVariant($state, "revealMenu", "revealMenu") ? "red" : "red"}
-          link={`/categories`}
-          onClick={async event => {
-            const $steps = {};
-
-            $steps["updateRevealSubMenu"] = true
-              ? (() => {
-                  const actionArgs = { vgroup: "revealSubMenu", operation: 2 };
-                  return (({ vgroup, value }) => {
-                    if (typeof value === "string") {
-                      value = [value];
-                    }
-
-                    const oldValue = p.get($state, vgroup);
-                    p.set($state, vgroup, !oldValue);
-                    return !oldValue;
-                  })?.apply(null, [actionArgs]);
-                })()
-              : undefined;
-            if (
-              $steps["updateRevealSubMenu"] != null &&
-              typeof $steps["updateRevealSubMenu"] === "object" &&
-              typeof $steps["updateRevealSubMenu"].then === "function"
-            ) {
-              $steps["updateRevealSubMenu"] = await $steps[
-                "updateRevealSubMenu"
-              ];
+        >
+          <Button2
+            alignment={"leftAligned"}
+            className={classNames("__wab_instance", sty.button2__cQnou, {
+              [sty.button2revealMenu__cQnoUxT6MH]: hasVariant(
+                $state,
+                "revealMenu",
+                "revealMenu"
+              ),
+              [sty.button2revealSubMenu__cQnouBjo1Y]: hasVariant(
+                $state,
+                "revealSubMenu",
+                "revealSubMenu"
+              )
+            })}
+            color={
+              hasVariant($state, "revealMenu", "revealMenu") ? "red" : "red"
             }
-          }}
-          size={"compact"}
-        >
-          <div
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text__pTqo5,
-              {
-                [sty.textrevealMenu__pTqo5XT6MH]: hasVariant(
-                  $state,
-                  "revealMenu",
-                  "revealMenu"
-                ),
-                [sty.textrevealSubMenu__pTqo5Bjo1Y]: hasVariant(
-                  $state,
-                  "revealSubMenu",
-                  "revealSubMenu"
-                )
+            link={`/categories`}
+            onClick={async event => {
+              const $steps = {};
+
+              $steps["updateRevealSubMenu"] = true
+                ? (() => {
+                    const actionArgs = {
+                      vgroup: "revealSubMenu",
+                      operation: 2
+                    };
+                    return (({ vgroup, value }) => {
+                      if (typeof value === "string") {
+                        value = [value];
+                      }
+
+                      const oldValue = p.get($state, vgroup);
+                      p.set($state, vgroup, !oldValue);
+                      return !oldValue;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateRevealSubMenu"] != null &&
+                typeof $steps["updateRevealSubMenu"] === "object" &&
+                typeof $steps["updateRevealSubMenu"].then === "function"
+              ) {
+                $steps["updateRevealSubMenu"] = await $steps[
+                  "updateRevealSubMenu"
+                ];
               }
-            )}
+            }}
+            size={"compact"}
           >
-            {"View Categories"}
-          </div>
-        </Button2>
-        <CategoryCollection
-          data-plasmic-name={"categoryCollection"}
-          data-plasmic-override={overrides.categoryCollection}
-          className={classNames("__wab_instance", sty.categoryCollection, {
-            [sty.categoryCollectionrevealMenu]: hasVariant(
-              $state,
-              "revealMenu",
-              "revealMenu"
-            ),
-            [sty.categoryCollectionrevealSubMenu]: hasVariant(
-              $state,
-              "revealSubMenu",
-              "revealSubMenu"
-            )
-          })}
-          emptyMessage={
-            <ph.DataCtxReader>
-              {$ctx => (
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__coRT,
-                    {
-                      [sty.textrevealMenu__coRTxT6MH]: hasVariant(
-                        $state,
-                        "revealMenu",
-                        "revealMenu"
-                      )
-                    }
-                  )}
-                >
-                  {"No collection found!"}
-                </div>
-              )}
-            </ph.DataCtxReader>
-          }
-          loadingMessage={
-            <ph.DataCtxReader>
-              {$ctx => (
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__bxrNg,
-                    {
-                      [sty.textrevealMenu__bxrNGxT6MH]: hasVariant(
-                        $state,
-                        "revealMenu",
-                        "revealMenu"
-                      )
-                    }
-                  )}
-                >
-                  {"Loading..."}
-                </div>
-              )}
-            </ph.DataCtxReader>
-          }
-        >
-          <ph.DataCtxReader>
-            {$ctx => (
-              <Button2
-                alignment={"leftAligned"}
-                className={classNames("__wab_instance", sty.button2__j93E8, {
-                  [sty.button2revealMenu__j93E8XT6MH]: hasVariant(
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__pTqo5,
+                {
+                  [sty.textrevealMenu__pTqo5XT6MH]: hasVariant(
                     $state,
                     "revealMenu",
                     "revealMenu"
                   ),
-                  [sty.button2revealSubMenu__j93E8Bjo1Y]: hasVariant(
+                  [sty.textrevealSubMenu__pTqo5Bjo1Y]: hasVariant(
                     $state,
                     "revealSubMenu",
                     "revealSubMenu"
                   )
-                })}
-                color={"red"}
-                link={`/category/${(() => {
-                  try {
-                    return $ctx.currentCategory.slug;
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return undefined;
-                    }
-                    throw e;
-                  }
-                })()}`}
-                size={"compact"}
-              >
-                <CategoryField
-                  data-plasmic-name={"categoryField"}
-                  data-plasmic-override={overrides.categoryField}
-                  className={classNames("__wab_instance", sty.categoryField, {
-                    [sty.categoryFieldrevealSubMenu]: hasVariant(
-                      $state,
-                      "revealSubMenu",
-                      "revealSubMenu"
-                    )
-                  })}
-                  field={"name"}
-                />
-              </Button2>
-            )}
-          </ph.DataCtxReader>
-        </CategoryCollection>
+                }
+              )}
+            >
+              {"View Categories"}
+            </div>
+          </Button2>
+          <Button2
+            alignment={"leftAligned"}
+            className={classNames("__wab_instance", sty.button2___7ZQk5, {
+              [sty.button2revealMenu___7ZQk5XT6MH]: hasVariant(
+                $state,
+                "revealMenu",
+                "revealMenu"
+              ),
+              [sty.button2revealSubMenu___7ZQk5Bjo1Y]: hasVariant(
+                $state,
+                "revealSubMenu",
+                "revealSubMenu"
+              )
+            })}
+            color={
+              hasVariant($state, "revealMenu", "revealMenu") ? "red" : "red"
+            }
+            link={`/category/${"all"}`}
+            onClick={async event => {
+              const $steps = {};
+
+              $steps["updateRevealSubMenu"] = true
+                ? (() => {
+                    const actionArgs = {
+                      vgroup: "revealSubMenu",
+                      operation: 2
+                    };
+                    return (({ vgroup, value }) => {
+                      if (typeof value === "string") {
+                        value = [value];
+                      }
+
+                      const oldValue = p.get($state, vgroup);
+                      p.set($state, vgroup, !oldValue);
+                      return !oldValue;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateRevealSubMenu"] != null &&
+                typeof $steps["updateRevealSubMenu"] === "object" &&
+                typeof $steps["updateRevealSubMenu"].then === "function"
+              ) {
+                $steps["updateRevealSubMenu"] = await $steps[
+                  "updateRevealSubMenu"
+                ];
+              }
+            }}
+            size={"compact"}
+          >
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text___5Oofg,
+                {
+                  [sty.textrevealMenu___5OofGxT6MH]: hasVariant(
+                    $state,
+                    "revealMenu",
+                    "revealMenu"
+                  ),
+                  [sty.textrevealSubMenu___5OofgBjo1Y]: hasVariant(
+                    $state,
+                    "revealSubMenu",
+                    "revealSubMenu"
+                  )
+                }
+              )}
+            >
+              {"All"}
+            </div>
+          </Button2>
+          <Button2
+            alignment={"leftAligned"}
+            className={classNames("__wab_instance", sty.button2__ydw9F, {
+              [sty.button2revealMenu__ydw9FxT6MH]: hasVariant(
+                $state,
+                "revealMenu",
+                "revealMenu"
+              ),
+              [sty.button2revealSubMenu__ydw9FBjo1Y]: hasVariant(
+                $state,
+                "revealSubMenu",
+                "revealSubMenu"
+              )
+            })}
+            color={
+              hasVariant($state, "revealMenu", "revealMenu") ? "red" : "red"
+            }
+            link={`/category/${"caps"}`}
+            onClick={async event => {
+              const $steps = {};
+
+              $steps["updateRevealSubMenu"] = true
+                ? (() => {
+                    const actionArgs = {
+                      vgroup: "revealSubMenu",
+                      operation: 2
+                    };
+                    return (({ vgroup, value }) => {
+                      if (typeof value === "string") {
+                        value = [value];
+                      }
+
+                      const oldValue = p.get($state, vgroup);
+                      p.set($state, vgroup, !oldValue);
+                      return !oldValue;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateRevealSubMenu"] != null &&
+                typeof $steps["updateRevealSubMenu"] === "object" &&
+                typeof $steps["updateRevealSubMenu"].then === "function"
+              ) {
+                $steps["updateRevealSubMenu"] = await $steps[
+                  "updateRevealSubMenu"
+                ];
+              }
+            }}
+            size={"compact"}
+          >
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__jnlS1,
+                {
+                  [sty.textrevealMenu__jnlS1XT6MH]: hasVariant(
+                    $state,
+                    "revealMenu",
+                    "revealMenu"
+                  ),
+                  [sty.textrevealSubMenu__jnlS1Bjo1Y]: hasVariant(
+                    $state,
+                    "revealSubMenu",
+                    "revealSubMenu"
+                  )
+                }
+              )}
+            >
+              {"Caps"}
+            </div>
+          </Button2>
+          <Button2
+            alignment={"leftAligned"}
+            className={classNames("__wab_instance", sty.button2__jaHHp, {
+              [sty.button2revealMenu__jaHHpxT6MH]: hasVariant(
+                $state,
+                "revealMenu",
+                "revealMenu"
+              ),
+              [sty.button2revealSubMenu__jaHHpBjo1Y]: hasVariant(
+                $state,
+                "revealSubMenu",
+                "revealSubMenu"
+              )
+            })}
+            color={
+              hasVariant($state, "revealMenu", "revealMenu") ? "red" : "red"
+            }
+            link={`/category/${"flower-hat"}`}
+            onClick={async event => {
+              const $steps = {};
+
+              $steps["updateRevealSubMenu"] = true
+                ? (() => {
+                    const actionArgs = {
+                      vgroup: "revealSubMenu",
+                      operation: 2
+                    };
+                    return (({ vgroup, value }) => {
+                      if (typeof value === "string") {
+                        value = [value];
+                      }
+
+                      const oldValue = p.get($state, vgroup);
+                      p.set($state, vgroup, !oldValue);
+                      return !oldValue;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateRevealSubMenu"] != null &&
+                typeof $steps["updateRevealSubMenu"] === "object" &&
+                typeof $steps["updateRevealSubMenu"].then === "function"
+              ) {
+                $steps["updateRevealSubMenu"] = await $steps[
+                  "updateRevealSubMenu"
+                ];
+              }
+            }}
+            size={"compact"}
+          >
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__wrUrn,
+                {
+                  [sty.textrevealMenu__wrUrnxT6MH]: hasVariant(
+                    $state,
+                    "revealMenu",
+                    "revealMenu"
+                  ),
+                  [sty.textrevealSubMenu__wrUrnBjo1Y]: hasVariant(
+                    $state,
+                    "revealSubMenu",
+                    "revealSubMenu"
+                  )
+                }
+              )}
+            >
+              {"Flower Hats"}
+            </div>
+          </Button2>
+          <Button2
+            alignment={"leftAligned"}
+            className={classNames("__wab_instance", sty.button2___6Vtfj, {
+              [sty.button2revealMenu___6VtfjxT6MH]: hasVariant(
+                $state,
+                "revealMenu",
+                "revealMenu"
+              ),
+              [sty.button2revealSubMenu___6VtfjBjo1Y]: hasVariant(
+                $state,
+                "revealSubMenu",
+                "revealSubMenu"
+              )
+            })}
+            color={
+              hasVariant($state, "revealMenu", "revealMenu") ? "red" : "red"
+            }
+            link={`/category/${"bucket-hats"}`}
+            onClick={async event => {
+              const $steps = {};
+
+              $steps["updateRevealSubMenu"] = true
+                ? (() => {
+                    const actionArgs = {
+                      vgroup: "revealSubMenu",
+                      operation: 2
+                    };
+                    return (({ vgroup, value }) => {
+                      if (typeof value === "string") {
+                        value = [value];
+                      }
+
+                      const oldValue = p.get($state, vgroup);
+                      p.set($state, vgroup, !oldValue);
+                      return !oldValue;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateRevealSubMenu"] != null &&
+                typeof $steps["updateRevealSubMenu"] === "object" &&
+                typeof $steps["updateRevealSubMenu"].then === "function"
+              ) {
+                $steps["updateRevealSubMenu"] = await $steps[
+                  "updateRevealSubMenu"
+                ];
+              }
+            }}
+            size={"compact"}
+          >
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__nSvHx,
+                {
+                  [sty.textrevealMenu__nSvHxxT6MH]: hasVariant(
+                    $state,
+                    "revealMenu",
+                    "revealMenu"
+                  ),
+                  [sty.textrevealSubMenu__nSvHxBjo1Y]: hasVariant(
+                    $state,
+                    "revealSubMenu",
+                    "revealSubMenu"
+                  )
+                }
+              )}
+            >
+              {"Bucket Hats"}
+            </div>
+          </Button2>
+          <Button2
+            alignment={"leftAligned"}
+            className={classNames("__wab_instance", sty.button2__e4Kzw, {
+              [sty.button2revealMenu__e4KzWxT6MH]: hasVariant(
+                $state,
+                "revealMenu",
+                "revealMenu"
+              ),
+              [sty.button2revealSubMenu__e4KzwBjo1Y]: hasVariant(
+                $state,
+                "revealSubMenu",
+                "revealSubMenu"
+              )
+            })}
+            color={
+              hasVariant($state, "revealMenu", "revealMenu") ? "red" : "red"
+            }
+            link={`/category/${"collars"}`}
+            onClick={async event => {
+              const $steps = {};
+
+              $steps["updateRevealSubMenu"] = true
+                ? (() => {
+                    const actionArgs = {
+                      vgroup: "revealSubMenu",
+                      operation: 2
+                    };
+                    return (({ vgroup, value }) => {
+                      if (typeof value === "string") {
+                        value = [value];
+                      }
+
+                      const oldValue = p.get($state, vgroup);
+                      p.set($state, vgroup, !oldValue);
+                      return !oldValue;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateRevealSubMenu"] != null &&
+                typeof $steps["updateRevealSubMenu"] === "object" &&
+                typeof $steps["updateRevealSubMenu"].then === "function"
+              ) {
+                $steps["updateRevealSubMenu"] = await $steps[
+                  "updateRevealSubMenu"
+                ];
+              }
+            }}
+            size={"compact"}
+          >
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__fLeqy,
+                {
+                  [sty.textrevealMenu__fLeqyxT6MH]: hasVariant(
+                    $state,
+                    "revealMenu",
+                    "revealMenu"
+                  ),
+                  [sty.textrevealSubMenu__fLeqyBjo1Y]: hasVariant(
+                    $state,
+                    "revealSubMenu",
+                    "revealSubMenu"
+                  )
+                }
+              )}
+            >
+              {"Collars"}
+            </div>
+          </Button2>
+          <Button2
+            alignment={"leftAligned"}
+            className={classNames("__wab_instance", sty.button2__xZk2H, {
+              [sty.button2revealMenu__xZk2HxT6MH]: hasVariant(
+                $state,
+                "revealMenu",
+                "revealMenu"
+              ),
+              [sty.button2revealSubMenu__xZk2HBjo1Y]: hasVariant(
+                $state,
+                "revealSubMenu",
+                "revealSubMenu"
+              )
+            })}
+            color={
+              hasVariant($state, "revealMenu", "revealMenu") ? "red" : "red"
+            }
+            link={`/category/${"bags"}`}
+            onClick={async event => {
+              const $steps = {};
+
+              $steps["updateRevealSubMenu"] = true
+                ? (() => {
+                    const actionArgs = {
+                      vgroup: "revealSubMenu",
+                      operation: 2
+                    };
+                    return (({ vgroup, value }) => {
+                      if (typeof value === "string") {
+                        value = [value];
+                      }
+
+                      const oldValue = p.get($state, vgroup);
+                      p.set($state, vgroup, !oldValue);
+                      return !oldValue;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateRevealSubMenu"] != null &&
+                typeof $steps["updateRevealSubMenu"] === "object" &&
+                typeof $steps["updateRevealSubMenu"].then === "function"
+              ) {
+                $steps["updateRevealSubMenu"] = await $steps[
+                  "updateRevealSubMenu"
+                ];
+              }
+            }}
+            size={"compact"}
+          >
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text___4Bnfn,
+                {
+                  [sty.textrevealMenu___4BnfnxT6MH]: hasVariant(
+                    $state,
+                    "revealMenu",
+                    "revealMenu"
+                  ),
+                  [sty.textrevealSubMenu___4BnfnBjo1Y]: hasVariant(
+                    $state,
+                    "revealSubMenu",
+                    "revealSubMenu"
+                  )
+                }
+              )}
+            >
+              {"Bags"}
+            </div>
+          </Button2>
+          <Button2
+            alignment={"leftAligned"}
+            className={classNames("__wab_instance", sty.button2__ctUk7, {
+              [sty.button2revealMenu__ctUk7XT6MH]: hasVariant(
+                $state,
+                "revealMenu",
+                "revealMenu"
+              ),
+              [sty.button2revealSubMenu__ctUk7Bjo1Y]: hasVariant(
+                $state,
+                "revealSubMenu",
+                "revealSubMenu"
+              )
+            })}
+            color={
+              hasVariant($state, "revealMenu", "revealMenu") ? "red" : "red"
+            }
+            link={`/category/${"chakhna"}`}
+            onClick={async event => {
+              const $steps = {};
+
+              $steps["updateRevealSubMenu"] = true
+                ? (() => {
+                    const actionArgs = {
+                      vgroup: "revealSubMenu",
+                      operation: 2
+                    };
+                    return (({ vgroup, value }) => {
+                      if (typeof value === "string") {
+                        value = [value];
+                      }
+
+                      const oldValue = p.get($state, vgroup);
+                      p.set($state, vgroup, !oldValue);
+                      return !oldValue;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateRevealSubMenu"] != null &&
+                typeof $steps["updateRevealSubMenu"] === "object" &&
+                typeof $steps["updateRevealSubMenu"].then === "function"
+              ) {
+                $steps["updateRevealSubMenu"] = await $steps[
+                  "updateRevealSubMenu"
+                ];
+              }
+            }}
+            size={"compact"}
+          >
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__fvFu1,
+                {
+                  [sty.textrevealMenu__fvFu1XT6MH]: hasVariant(
+                    $state,
+                    "revealMenu",
+                    "revealMenu"
+                  ),
+                  [sty.textrevealSubMenu__fvFu1Bjo1Y]: hasVariant(
+                    $state,
+                    "revealSubMenu",
+                    "revealSubMenu"
+                  )
+                }
+              )}
+            >
+              {"Chakhna"}
+            </div>
+          </Button2>
+          <Button2
+            alignment={"leftAligned"}
+            className={classNames("__wab_instance", sty.button2__zSoiz, {
+              [sty.button2revealMenu__zSoizxT6MH]: hasVariant(
+                $state,
+                "revealMenu",
+                "revealMenu"
+              ),
+              [sty.button2revealSubMenu__zSoizBjo1Y]: hasVariant(
+                $state,
+                "revealSubMenu",
+                "revealSubMenu"
+              )
+            })}
+            color={
+              hasVariant($state, "revealMenu", "revealMenu") ? "red" : "red"
+            }
+            link={`/category/${"pet-stuff"}`}
+            onClick={async event => {
+              const $steps = {};
+
+              $steps["updateRevealSubMenu"] = true
+                ? (() => {
+                    const actionArgs = {
+                      vgroup: "revealSubMenu",
+                      operation: 2
+                    };
+                    return (({ vgroup, value }) => {
+                      if (typeof value === "string") {
+                        value = [value];
+                      }
+
+                      const oldValue = p.get($state, vgroup);
+                      p.set($state, vgroup, !oldValue);
+                      return !oldValue;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateRevealSubMenu"] != null &&
+                typeof $steps["updateRevealSubMenu"] === "object" &&
+                typeof $steps["updateRevealSubMenu"].then === "function"
+              ) {
+                $steps["updateRevealSubMenu"] = await $steps[
+                  "updateRevealSubMenu"
+                ];
+              }
+            }}
+            size={"compact"}
+          >
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__bqbyw,
+                {
+                  [sty.textrevealMenu__bqbywxT6MH]: hasVariant(
+                    $state,
+                    "revealMenu",
+                    "revealMenu"
+                  ),
+                  [sty.textrevealSubMenu__bqbywBjo1Y]: hasVariant(
+                    $state,
+                    "revealSubMenu",
+                    "revealSubMenu"
+                  )
+                }
+              )}
+            >
+              {"Pet Stuff"}
+            </div>
+          </Button2>
+          <Button2
+            alignment={"leftAligned"}
+            className={classNames("__wab_instance", sty.button2___9WiLd, {
+              [sty.button2revealMenu___9WiLdxT6MH]: hasVariant(
+                $state,
+                "revealMenu",
+                "revealMenu"
+              ),
+              [sty.button2revealSubMenu___9WiLdBjo1Y]: hasVariant(
+                $state,
+                "revealSubMenu",
+                "revealSubMenu"
+              )
+            })}
+            color={
+              hasVariant($state, "revealMenu", "revealMenu") ? "red" : "red"
+            }
+            link={`/category/${"decor"}`}
+            onClick={async event => {
+              const $steps = {};
+
+              $steps["updateRevealSubMenu"] = true
+                ? (() => {
+                    const actionArgs = {
+                      vgroup: "revealSubMenu",
+                      operation: 2
+                    };
+                    return (({ vgroup, value }) => {
+                      if (typeof value === "string") {
+                        value = [value];
+                      }
+
+                      const oldValue = p.get($state, vgroup);
+                      p.set($state, vgroup, !oldValue);
+                      return !oldValue;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateRevealSubMenu"] != null &&
+                typeof $steps["updateRevealSubMenu"] === "object" &&
+                typeof $steps["updateRevealSubMenu"].then === "function"
+              ) {
+                $steps["updateRevealSubMenu"] = await $steps[
+                  "updateRevealSubMenu"
+                ];
+              }
+            }}
+            size={"compact"}
+          >
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__zSy8,
+                {
+                  [sty.textrevealMenu__zSy8XT6MH]: hasVariant(
+                    $state,
+                    "revealMenu",
+                    "revealMenu"
+                  ),
+                  [sty.textrevealSubMenu__zSy8Bjo1Y]: hasVariant(
+                    $state,
+                    "revealSubMenu",
+                    "revealSubMenu"
+                  )
+                }
+              )}
+            >
+              {"Decor"}
+            </div>
+          </Button2>
+          <Button2
+            alignment={"leftAligned"}
+            className={classNames("__wab_instance", sty.button2__llNb, {
+              [sty.button2revealMenu__llNbxT6MH]: hasVariant(
+                $state,
+                "revealMenu",
+                "revealMenu"
+              ),
+              [sty.button2revealSubMenu__llNbBjo1Y]: hasVariant(
+                $state,
+                "revealSubMenu",
+                "revealSubMenu"
+              )
+            })}
+            color={
+              hasVariant($state, "revealMenu", "revealMenu") ? "red" : "red"
+            }
+            link={`/category/${"giftsss"}`}
+            onClick={async event => {
+              const $steps = {};
+
+              $steps["updateRevealSubMenu"] = true
+                ? (() => {
+                    const actionArgs = {
+                      vgroup: "revealSubMenu",
+                      operation: 2
+                    };
+                    return (({ vgroup, value }) => {
+                      if (typeof value === "string") {
+                        value = [value];
+                      }
+
+                      const oldValue = p.get($state, vgroup);
+                      p.set($state, vgroup, !oldValue);
+                      return !oldValue;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateRevealSubMenu"] != null &&
+                typeof $steps["updateRevealSubMenu"] === "object" &&
+                typeof $steps["updateRevealSubMenu"].then === "function"
+              ) {
+                $steps["updateRevealSubMenu"] = await $steps[
+                  "updateRevealSubMenu"
+                ];
+              }
+            }}
+            size={"compact"}
+          >
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__iEr0G,
+                {
+                  [sty.textrevealMenu__iEr0GxT6MH]: hasVariant(
+                    $state,
+                    "revealMenu",
+                    "revealMenu"
+                  ),
+                  [sty.textrevealSubMenu__iEr0GBjo1Y]: hasVariant(
+                    $state,
+                    "revealSubMenu",
+                    "revealSubMenu"
+                  )
+                }
+              )}
+            >
+              {"Giftsss"}
+            </div>
+          </Button2>
+          <Button2
+            alignment={"leftAligned"}
+            className={classNames("__wab_instance", sty.button2__yguV, {
+              [sty.button2revealMenu__yguVxT6MH]: hasVariant(
+                $state,
+                "revealMenu",
+                "revealMenu"
+              ),
+              [sty.button2revealSubMenu__yguVBjo1Y]: hasVariant(
+                $state,
+                "revealSubMenu",
+                "revealSubMenu"
+              )
+            })}
+            color={
+              hasVariant($state, "revealMenu", "revealMenu") ? "red" : "red"
+            }
+            link={`/category/${"mystery-boxes"}`}
+            onClick={async event => {
+              const $steps = {};
+
+              $steps["updateRevealSubMenu"] = true
+                ? (() => {
+                    const actionArgs = {
+                      vgroup: "revealSubMenu",
+                      operation: 2
+                    };
+                    return (({ vgroup, value }) => {
+                      if (typeof value === "string") {
+                        value = [value];
+                      }
+
+                      const oldValue = p.get($state, vgroup);
+                      p.set($state, vgroup, !oldValue);
+                      return !oldValue;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateRevealSubMenu"] != null &&
+                typeof $steps["updateRevealSubMenu"] === "object" &&
+                typeof $steps["updateRevealSubMenu"].then === "function"
+              ) {
+                $steps["updateRevealSubMenu"] = await $steps[
+                  "updateRevealSubMenu"
+                ];
+              }
+            }}
+            size={"compact"}
+          >
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__nrmAr,
+                {
+                  [sty.textrevealMenu__nrmARxT6MH]: hasVariant(
+                    $state,
+                    "revealMenu",
+                    "revealMenu"
+                  ),
+                  [sty.textrevealSubMenu__nrmArBjo1Y]: hasVariant(
+                    $state,
+                    "revealSubMenu",
+                    "revealSubMenu"
+                  )
+                }
+              )}
+            >
+              {"Mystery Boxes"}
+            </div>
+          </Button2>
+        </div>
       </div>
     </p.Stack>
   ) as React.ReactElement | null;
 }
 
 const PlasmicDescendants = {
-  root: ["root", "svg", "freeBox", "categoryCollection", "categoryField"],
-  svg: ["svg"],
-  freeBox: ["freeBox", "categoryCollection", "categoryField"],
-  categoryCollection: ["categoryCollection", "categoryField"],
-  categoryField: ["categoryField"]
+  root: ["root", "svg"],
+  svg: ["svg"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -582,9 +1275,6 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   svg: "svg";
-  freeBox: "div";
-  categoryCollection: typeof CategoryCollection;
-  categoryField: typeof CategoryField;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -621,7 +1311,7 @@ function makeNodeComponent<NodeName extends NodeNameType>(nodeName: NodeName) {
       () =>
         deriveRenderOpts(props, {
           name: nodeName,
-          descendantNames: [...PlasmicDescendants[nodeName]],
+          descendantNames: PlasmicDescendants[nodeName],
           internalArgPropNames: PlasmicJbsMenu__ArgProps,
           internalVariantPropNames: PlasmicJbsMenu__VariantProps
         }),
@@ -648,9 +1338,6 @@ export const PlasmicJbsMenu = Object.assign(
   {
     // Helper components rendering sub-elements
     svg: makeNodeComponent("svg"),
-    freeBox: makeNodeComponent("freeBox"),
-    categoryCollection: makeNodeComponent("categoryCollection"),
-    categoryField: makeNodeComponent("categoryField"),
 
     // Metadata about props expected for PlasmicJbsMenu
     internalVariantProps: PlasmicJbsMenu__VariantProps,

@@ -183,7 +183,7 @@
   background: #f0c000;
 }
 .rootcolor_red:active {
-  background: #cd090d;
+  background: var(--token-qoXYsQ1lS);
 }
 .rootcolor_sand:active {
   background: #a1a09a;
@@ -450,7 +450,7 @@
   outline: none;
 }
 .rootcolor_red:active .slotTargetChildrencolor_red {
-  color: var(--token-KUFb4wcAz);
+  color: var(--token-sn6Zb6km7CqW);
 }
 .rootcolor_clear:active .slotTargetChildrencolor_clear {
   color: var(--token-058m_r2f2);

@@ -36,10 +36,9 @@ import {
   deriveRenderOpts,
   ensureGlobalVariants
 } from "@plasmicapp/react-web";
-import Navbar from "../../Navbar"; // plasmic-import: zY4oOp60G2/component
+import FullPage from "../../FullPage"; // plasmic-import: VpRM2nIn0R/component
 import Section from "../../Section"; // plasmic-import: GMAR4VOl00/component
 import Cart2 from "../../Cart2"; // plasmic-import: 4iMp3co2mNSz/component
-import Footer from "../../Footer"; // plasmic-import: mZogRkwS1rd/component
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources"; // plasmic-import: 1xopR4ZBZs2K4b/codeComponent
 
 import "@plasmicapp/react-web/lib/plasmic.css";
@@ -61,10 +60,9 @@ export const PlasmicCart__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicCart__OverridesType = {
   root?: p.Flex<"div">;
-  navbar?: p.Flex<typeof Navbar>;
+  fullPage?: p.Flex<typeof FullPage>;
   section?: p.Flex<typeof Section>;
   cart2?: p.Flex<typeof Cart2>;
-  footer?: p.Flex<typeof Footer>;
 };
 
 export interface DefaultCartProps {}
@@ -126,28 +124,23 @@ function PlasmicCart__RenderFunc(props: {
             sty.root
           )}
         >
-          <Navbar
-            data-plasmic-name={"navbar"}
-            data-plasmic-override={overrides.navbar}
-            className={classNames("__wab_instance", sty.navbar)}
-          />
-
-          <Section
-            data-plasmic-name={"section"}
-            data-plasmic-override={overrides.section}
-            className={classNames("__wab_instance", sty.section)}
+          <FullPage
+            data-plasmic-name={"fullPage"}
+            data-plasmic-override={overrides.fullPage}
+            className={classNames("__wab_instance", sty.fullPage)}
           >
-            <Cart2
-              data-plasmic-name={"cart2"}
-              data-plasmic-override={overrides.cart2}
-              className={classNames("__wab_instance", sty.cart2)}
-            />
-          </Section>
-          <Footer
-            data-plasmic-name={"footer"}
-            data-plasmic-override={overrides.footer}
-            className={classNames("__wab_instance", sty.footer)}
-          />
+            <Section
+              data-plasmic-name={"section"}
+              data-plasmic-override={overrides.section}
+              className={classNames("__wab_instance", sty.section)}
+            >
+              <Cart2
+                data-plasmic-name={"cart2"}
+                data-plasmic-override={overrides.cart2}
+                className={classNames("__wab_instance", sty.cart2)}
+              />
+            </Section>
+          </FullPage>
         </div>
       </div>
     </React.Fragment>
@@ -155,21 +148,19 @@ function PlasmicCart__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "navbar", "section", "cart2", "footer"],
-  navbar: ["navbar"],
+  root: ["root", "fullPage", "section", "cart2"],
+  fullPage: ["fullPage", "section", "cart2"],
   section: ["section", "cart2"],
-  cart2: ["cart2"],
-  footer: ["footer"]
+  cart2: ["cart2"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
-  navbar: typeof Navbar;
+  fullPage: typeof FullPage;
   section: typeof Section;
   cart2: typeof Cart2;
-  footer: typeof Footer;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -206,7 +197,7 @@ function makeNodeComponent<NodeName extends NodeNameType>(nodeName: NodeName) {
       () =>
         deriveRenderOpts(props, {
           name: nodeName,
-          descendantNames: [...PlasmicDescendants[nodeName]],
+          descendantNames: PlasmicDescendants[nodeName],
           internalArgPropNames: PlasmicCart__ArgProps,
           internalVariantPropNames: PlasmicCart__VariantProps
         }),
@@ -232,10 +223,9 @@ export const PlasmicCart = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
-    navbar: makeNodeComponent("navbar"),
+    fullPage: makeNodeComponent("fullPage"),
     section: makeNodeComponent("section"),
     cart2: makeNodeComponent("cart2"),
-    footer: makeNodeComponent("footer"),
 
     // Metadata about props expected for PlasmicCart
     internalVariantProps: PlasmicCart__VariantProps,

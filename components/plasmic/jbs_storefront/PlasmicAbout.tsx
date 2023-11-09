@@ -36,7 +36,6 @@ import {
   deriveRenderOpts,
   ensureGlobalVariants
 } from "@plasmicapp/react-web";
-import Navbar from "../../Navbar"; // plasmic-import: zY4oOp60G2/component
 import FullPage from "../../FullPage"; // plasmic-import: VpRM2nIn0R/component
 import Section from "../../Section"; // plasmic-import: GMAR4VOl00/component
 import { SliderWrapper } from "@plasmicpkgs/react-slick"; // plasmic-import: HOQUyOpClJ/codeComponent
@@ -66,7 +65,6 @@ export const PlasmicAbout__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicAbout__OverridesType = {
   root?: p.Flex<"div">;
-  navbar?: p.Flex<typeof Navbar>;
   fullPage?: p.Flex<typeof FullPage>;
   sliderCarousel?: p.Flex<typeof SliderWrapper>;
   h1?: p.Flex<"h1">;
@@ -212,12 +210,6 @@ function PlasmicAbout__RenderFunc(props: {
             sty.root
           )}
         >
-          <Navbar
-            data-plasmic-name={"navbar"}
-            data-plasmic-override={overrides.navbar}
-            className={classNames("__wab_instance", sty.navbar)}
-          />
-
           <FullPage
             data-plasmic-name={"fullPage"}
             data-plasmic-override={overrides.fullPage}
@@ -2690,7 +2682,6 @@ function PlasmicAbout__RenderFunc(props: {
 const PlasmicDescendants = {
   root: [
     "root",
-    "navbar",
     "fullPage",
     "sliderCarousel",
     "h1",
@@ -2700,7 +2691,6 @@ const PlasmicDescendants = {
     "sliderCarousel5",
     "sliderCarousel6"
   ],
-  navbar: ["navbar"],
   fullPage: [
     "fullPage",
     "sliderCarousel",
@@ -2724,7 +2714,6 @@ type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
-  navbar: typeof Navbar;
   fullPage: typeof FullPage;
   sliderCarousel: typeof SliderWrapper;
   h1: "h1";
@@ -2769,7 +2758,7 @@ function makeNodeComponent<NodeName extends NodeNameType>(nodeName: NodeName) {
       () =>
         deriveRenderOpts(props, {
           name: nodeName,
-          descendantNames: [...PlasmicDescendants[nodeName]],
+          descendantNames: PlasmicDescendants[nodeName],
           internalArgPropNames: PlasmicAbout__ArgProps,
           internalVariantPropNames: PlasmicAbout__VariantProps
         }),
@@ -2795,7 +2784,6 @@ export const PlasmicAbout = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
-    navbar: makeNodeComponent("navbar"),
     fullPage: makeNodeComponent("fullPage"),
     sliderCarousel: makeNodeComponent("sliderCarousel"),
     h1: makeNodeComponent("h1"),

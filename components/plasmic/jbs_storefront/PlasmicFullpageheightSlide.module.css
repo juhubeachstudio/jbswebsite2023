@@ -20,9 +20,6 @@
 .img__stRcb > picture > img {
   object-fit: cover;
 }
-.img__stRcb > :global(.__wab_img-spacer) > img {
-  object-fit: cover;
-}
 .freeBox__h0V7A {
   position: absolute;
   top: auto;

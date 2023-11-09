@@ -813,19 +813,6 @@
           "componentType": "component"
         },
         {
-          "id": "VMG_STrhr9",
-          "name": "AddToWishlist",
-          "type": "managed",
-          "projectId": "heL2P6rJiLNgtnBJPb6i1m",
-          "renderModuleFilePath": "plasmic/jbs_storefront/PlasmicAddToWishlist.tsx",
-          "importSpec": {
-            "modulePath": "AddToWishlist.tsx"
-          },
-          "cssFilePath": "plasmic/jbs_storefront/PlasmicAddToWishlist.module.css",
-          "scheme": "blackbox",
-          "componentType": "component"
-        },
-        {
           "id": "NFEkw9xPSE",
           "name": "JbsMenu",
           "type": "managed",

@@ -586,10 +586,10 @@
   dependencies:
     react-awesome-reveal "^3.8.0"
 
-"@plasmicpkgs/react-slick@^0.0.189":
-  version "0.0.189"
-  resolved "https://registry.yarnpkg.com/@plasmicpkgs/react-slick/-/react-slick-0.0.189.tgz#1500776d52b5685e9c226181d61f0cac101fc606"
-  integrity sha512-MAW3sW4yVO8B7FdvBs2xhF5iPtoRnXmWfEaG0GsyR8hLVEbRy3jIus+MZazdlrvzdjqLzEDgfTF/lEtVI/szDQ==
+"@plasmicpkgs/react-slick@^0.0.192":
+  version "0.0.192"
+  resolved "https://registry.yarnpkg.com/@plasmicpkgs/react-slick/-/react-slick-0.0.192.tgz#69983cc525033fb92f8f5615cb06a93903edd058"
+  integrity sha512-XhMFTuHuASkPzIr8Ka9f5SjBkoC1kOipp014DxNTcTzvi+3rKAdcclqlG9RkO+WzLRnUe2JuYKt2IPbv1nwJrQ==
   dependencies:
     "@seznam/compose-react-refs" "^1.0.6"
     antd "^4.23.4"

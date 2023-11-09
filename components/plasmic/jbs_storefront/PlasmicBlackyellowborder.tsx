@@ -163,6 +163,7 @@ type NodeOverridesType<T extends NodeNameType> = Pick<
   PlasmicBlackyellowborder__OverridesType,
   DescendantsType<T>
 >;
+
 type NodeComponentProps<T extends NodeNameType> =
   // Explicitly specify variants, args, and overrides as objects
   {
@@ -192,7 +193,7 @@ function makeNodeComponent<NodeName extends NodeNameType>(nodeName: NodeName) {
       () =>
         deriveRenderOpts(props, {
           name: nodeName,
-          descendantNames: [...PlasmicDescendants[nodeName]],
+          descendantNames: PlasmicDescendants[nodeName],
           internalArgPropNames: PlasmicBlackyellowborder__ArgProps,
           internalVariantPropNames: PlasmicBlackyellowborder__VariantProps
         }),

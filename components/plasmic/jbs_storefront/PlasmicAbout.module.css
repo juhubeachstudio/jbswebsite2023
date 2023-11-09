@@ -21,16 +21,6 @@
 .root > * {
   grid-column: 4;
 }
-.navbar:global(.__wab_instance) {
-  max-width: 100%;
-  position: sticky;
-  width: 100%;
-  left: 0px;
-  top: 0px;
-  z-index: 1;
-  grid-column-start: 1 !important;
-  grid-column-end: -1 !important;
-}
 .fullPage:global(.__wab_instance) {
   max-width: 100%;
   position: relative;
@@ -59,9 +49,6 @@
 .img__vprZ4 > picture > img {
   object-fit: cover;
 }
-.img__vprZ4 > :global(.__wab_img-spacer) > img {
-  object-fit: cover;
-}
 .img__nTwgc {
   position: relative;
   object-fit: cover;
@@ -69,9 +56,6 @@
   display: none !important;
 }
 .img__nTwgc > picture > img {
-  object-fit: cover;
-}
-.img__nTwgc > :global(.__wab_img-spacer) > img {
   object-fit: cover;
 }
 @media (min-width: 0px) and (max-width: 768px) {
@@ -142,9 +126,6 @@
 .img__r0Jpl > picture > img {
   object-fit: contain;
 }
-.img__r0Jpl > :global(.__wab_img-spacer) > img {
-  object-fit: contain;
-}
 .column__o3W3R {
   display: flex;
   position: relative;
@@ -166,9 +147,6 @@
   min-width: 0;
 }
 .img__o24D5 > picture > img {
-  object-fit: contain;
-}
-.img__o24D5 > :global(.__wab_img-spacer) > img {
   object-fit: contain;
 }
 .section__ppS85:global(.__wab_instance) {
@@ -385,9 +363,6 @@
 .img__tx1Lb > picture > img {
   object-fit: cover;
 }
-.img__tx1Lb > :global(.__wab_img-spacer) > img {
-  object-fit: cover;
-}
 .freeBox__yqC2R {
   display: flex;
   flex-direction: column;
@@ -406,9 +381,6 @@
 .img__shPbV > picture > img {
   object-fit: cover;
 }
-.img__shPbV > :global(.__wab_img-spacer) > img {
-  object-fit: cover;
-}
 .freeBox__iVLw {
   display: flex;
   flex-direction: column;
@@ -425,9 +397,6 @@
   max-width: 100%;
 }
 .img___2J70B > picture > img {
-  object-fit: cover;
-}
-.img___2J70B > :global(.__wab_img-spacer) > img {
   object-fit: cover;
 }
 .section__j2Fxj:global(.__wab_instance) {
@@ -875,9 +844,6 @@
 .img__fbg3T > picture > img {
   object-fit: contain;
 }
-.img__fbg3T > :global(.__wab_img-spacer) > img {
-  object-fit: contain;
-}
 .img___96Gh {
   position: relative;
   object-fit: contain;
@@ -891,18 +857,12 @@
 .img___96Gh > picture > img {
   object-fit: contain;
 }
-.img___96Gh > :global(.__wab_img-spacer) > img {
-  object-fit: contain;
-}
 .img__u8Xf {
   position: relative;
   object-fit: cover;
   max-width: 100%;
 }
 .img__u8Xf > picture > img {
-  object-fit: cover;
-}
-.img__u8Xf > :global(.__wab_img-spacer) > img {
   object-fit: cover;
 }
 .freeBox__dqUkO {
@@ -1195,9 +1155,6 @@
 .img__lsP7Y > picture > img {
   object-fit: cover;
 }
-.img__lsP7Y > :global(.__wab_img-spacer) > img {
-  object-fit: cover;
-}
 .column__rz8Li {
   display: flex;
   position: relative;
@@ -1215,9 +1172,6 @@
   max-width: 100%;
 }
 .img___0IuIu > picture > img {
-  object-fit: cover;
-}
-.img___0IuIu > :global(.__wab_img-spacer) > img {
   object-fit: cover;
 }
 .section__mbbOa:global(.__wab_instance) {
@@ -1457,9 +1411,6 @@
 .img___4GGb > picture > img {
   object-fit: cover;
 }
-.img___4GGb > :global(.__wab_img-spacer) > img {
-  object-fit: cover;
-}
 .freeBox__ytN4 {
   display: flex;
   flex-direction: column;
@@ -1476,9 +1427,6 @@
   max-width: 100%;
 }
 .img__fpOPm > picture > img {
-  object-fit: cover;
-}
-.img__fpOPm > :global(.__wab_img-spacer) > img {
   object-fit: cover;
 }
 .freeBox__lcPjv {
@@ -1499,9 +1447,6 @@
 .img__rMuuQ > picture > img {
   object-fit: cover;
 }
-.img__rMuuQ > :global(.__wab_img-spacer) > img {
-  object-fit: cover;
-}
 .freeBox__sNaVf {
   display: flex;
   flex-direction: column;
@@ -1518,9 +1463,6 @@
   max-width: 100%;
 }
 .img__rmO8 > picture > img {
-  object-fit: cover;
-}
-.img__rmO8 > :global(.__wab_img-spacer) > img {
   object-fit: cover;
 }
 .freeBox__lOwR0 {
@@ -1541,9 +1483,6 @@
 .img__f2HcN > picture > img {
   object-fit: cover;
 }
-.img__f2HcN > :global(.__wab_img-spacer) > img {
-  object-fit: cover;
-}
 .freeBox__ooPor {
   display: flex;
   flex-direction: column;
@@ -1560,9 +1499,6 @@
   max-width: 100%;
 }
 .img__kIwZ7 > picture > img {
-  object-fit: cover;
-}
-.img__kIwZ7 > :global(.__wab_img-spacer) > img {
   object-fit: cover;
 }
 .freeBox___0JRWt {
@@ -1583,9 +1519,6 @@
 .img___43JAc > picture > img {
   object-fit: cover;
 }
-.img___43JAc > :global(.__wab_img-spacer) > img {
-  object-fit: cover;
-}
 .freeBox__yimR {
   display: flex;
   flex-direction: column;
@@ -1604,9 +1537,6 @@
 .img__dsPrD > picture > img {
   object-fit: cover;
 }
-.img__dsPrD > :global(.__wab_img-spacer) > img {
-  object-fit: cover;
-}
 .freeBox__yaMtX {
   display: flex;
   flex-direction: column;
@@ -1623,9 +1553,6 @@
   max-width: 100%;
 }
 .img___6UzEr > picture > img {
-  object-fit: cover;
-}
-.img___6UzEr > :global(.__wab_img-spacer) > img {
   object-fit: cover;
 }
 .freeBox__v3B0S {
@@ -1789,9 +1716,6 @@
 .img__su3Rw > picture > img {
   object-fit: contain;
 }
-.img__su3Rw > :global(.__wab_img-spacer) > img {
-  object-fit: contain;
-}
 .columns__ykBke {
   display: flex;
   position: relative;
@@ -1902,9 +1826,6 @@
 .img__g016Y > picture > img {
   object-fit: cover;
 }
-.img__g016Y > :global(.__wab_img-spacer) > img {
-  object-fit: cover;
-}
 .freeBox__t43Mk {
   display: flex;
   position: relative;
@@ -1941,9 +1862,6 @@
   transform: rotateX(0deg) rotateY(0deg) rotateZ(-32deg);
 }
 .img__rbd8W > picture > img {
-  object-fit: contain;
-}
-.img__rbd8W > :global(.__wab_img-spacer) > img {
   object-fit: contain;
 }
 .columns__j7Us5 {
@@ -2056,9 +1974,6 @@
 .img___46KI1 > picture > img {
   object-fit: cover;
 }
-.img___46KI1 > :global(.__wab_img-spacer) > img {
-  object-fit: cover;
-}
 .freeBox__lSPcz {
   display: flex;
   position: relative;
@@ -2093,9 +2008,6 @@
   z-index: 10;
 }
 .img__bCa6 > picture > img {
-  object-fit: contain;
-}
-.img__bCa6 > :global(.__wab_img-spacer) > img {
   object-fit: contain;
 }
 .columns___2V9K {
@@ -2176,9 +2088,6 @@
 .img__eO7H0 > picture > img {
   object-fit: cover;
 }
-.img__eO7H0 > :global(.__wab_img-spacer) > img {
-  object-fit: cover;
-}
 .column__hCc4Z {
   display: flex;
   position: relative;
@@ -2247,9 +2156,6 @@
   transform: rotateX(0deg) rotateY(0deg) rotateZ(-32deg);
 }
 .img__qd9Xe > picture > img {
-  object-fit: contain;
-}
-.img__qd9Xe > :global(.__wab_img-spacer) > img {
   object-fit: contain;
 }
 .columns__gx4Jz {
@@ -2328,9 +2234,6 @@
   min-height: 0;
 }
 .img___36Ik > picture > img {
-  object-fit: cover;
-}
-.img___36Ik > :global(.__wab_img-spacer) > img {
   object-fit: cover;
 }
 .column__ysd7 {
@@ -2430,9 +2333,6 @@
 .img__gVb8J > picture > img {
   object-fit: cover;
 }
-.img__gVb8J > :global(.__wab_img-spacer) > img {
-  object-fit: cover;
-}
 .freeBox__iwBfR {
   display: flex;
   flex-direction: column;
@@ -2449,9 +2349,6 @@
   max-width: 100%;
 }
 .img__azK5T > picture > img {
-  object-fit: cover;
-}
-.img__azK5T > :global(.__wab_img-spacer) > img {
   object-fit: cover;
 }
 .freeBox__cHOl1 {
@@ -2472,9 +2369,6 @@
 .img__z7VDw > picture > img {
   object-fit: cover;
 }
-.img__z7VDw > :global(.__wab_img-spacer) > img {
-  object-fit: cover;
-}
 .freeBox__xhzGi {
   display: flex;
   flex-direction: column;
@@ -2491,9 +2385,6 @@
   max-width: 100%;
 }
 .img___2O22M > picture > img {
-  object-fit: cover;
-}
-.img___2O22M > :global(.__wab_img-spacer) > img {
   object-fit: cover;
 }
 .freeBox__k7Iup {
@@ -2514,9 +2405,6 @@
 .img__tfNB > picture > img {
   object-fit: cover;
 }
-.img__tfNB > :global(.__wab_img-spacer) > img {
-  object-fit: cover;
-}
 .freeBox___9YhyC {
   display: flex;
   flex-direction: column;
@@ -2533,9 +2421,6 @@
   max-width: 100%;
 }
 .img___8HCxs > picture > img {
-  object-fit: cover;
-}
-.img___8HCxs > :global(.__wab_img-spacer) > img {
   object-fit: cover;
 }
 .freeBox__gfZmb {
@@ -2556,9 +2441,6 @@
 .img__ppVj > picture > img {
   object-fit: cover;
 }
-.img__ppVj > :global(.__wab_img-spacer) > img {
-  object-fit: cover;
-}
 .freeBox__kDlY {
   display: flex;
   flex-direction: column;
@@ -2575,9 +2457,6 @@
   max-width: 100%;
 }
 .img__kbXHf > picture > img {
-  object-fit: cover;
-}
-.img__kbXHf > :global(.__wab_img-spacer) > img {
   object-fit: cover;
 }
 .freeBox___9Mfu2 {
@@ -2598,9 +2477,6 @@
 .img__fTm9S > picture > img {
   object-fit: cover;
 }
-.img__fTm9S > :global(.__wab_img-spacer) > img {
-  object-fit: cover;
-}
 .freeBox__oXqh1 {
   display: flex;
   flex-direction: column;
@@ -2617,9 +2493,6 @@
   max-width: 100%;
 }
 .img__ub9Ek > picture > img {
-  object-fit: cover;
-}
-.img__ub9Ek > :global(.__wab_img-spacer) > img {
   object-fit: cover;
 }
 .freeBox__sKvnY {
@@ -2844,9 +2717,6 @@
 .img__weVMp > picture > img {
   object-fit: cover;
 }
-.img__weVMp > :global(.__wab_img-spacer) > img {
-  object-fit: cover;
-}
 .freeBox__n23UD {
   display: flex;
   flex-direction: column;
@@ -2863,9 +2733,6 @@
   max-width: 100%;
 }
 .img__ki9Zx > picture > img {
-  object-fit: cover;
-}
-.img__ki9Zx > :global(.__wab_img-spacer) > img {
   object-fit: cover;
 }
 .freeBox__btEhT {
@@ -2886,9 +2753,6 @@
 .img__guRpA > picture > img {
   object-fit: cover;
 }
-.img__guRpA > :global(.__wab_img-spacer) > img {
-  object-fit: cover;
-}
 .freeBox___9Bd5 {
   display: flex;
   flex-direction: column;
@@ -2905,9 +2769,6 @@
   max-width: 100%;
 }
 .img__hYvbw > picture > img {
-  object-fit: cover;
-}
-.img__hYvbw > :global(.__wab_img-spacer) > img {
   object-fit: cover;
 }
 .freeBox__m7Wm {
@@ -2928,9 +2789,6 @@
 .img__sRgI0 > picture > img {
   object-fit: cover;
 }
-.img__sRgI0 > :global(.__wab_img-spacer) > img {
-  object-fit: cover;
-}
 .freeBox___1Gj2D {
   display: flex;
   flex-direction: column;
@@ -2947,9 +2805,6 @@
   max-width: 100%;
 }
 .img___88WI0 > picture > img {
-  object-fit: cover;
-}
-.img___88WI0 > :global(.__wab_img-spacer) > img {
   object-fit: cover;
 }
 .freeBox__eARsP {
@@ -3091,9 +2946,6 @@
 .img__vCli7 > picture > img {
   object-fit: contain;
 }
-.img__vCli7 > :global(.__wab_img-spacer) > img {
-  object-fit: contain;
-}
 .text___30NE {
   position: relative;
   width: 100%;
@@ -3132,9 +2984,6 @@
 .img__bgq7B > picture > img {
   object-fit: contain;
 }
-.img__bgq7B > :global(.__wab_img-spacer) > img {
-  object-fit: contain;
-}
 .text__ulhZ0 {
   position: relative;
   width: 100%;
@@ -3171,9 +3020,6 @@
   max-width: 100%;
 }
 .img__kAbar > picture > img {
-  object-fit: contain;
-}
-.img__kAbar > :global(.__wab_img-spacer) > img {
   object-fit: contain;
 }
 .text__hOqXh {
@@ -3215,9 +3061,6 @@
 .img__tNcCq > picture > img {
   object-fit: contain;
 }
-.img__tNcCq > :global(.__wab_img-spacer) > img {
-  object-fit: contain;
-}
 .text___6DcfN {
   position: relative;
   width: 100%;
@@ -3254,9 +3097,6 @@
   max-width: 100%;
 }
 .img__nujIn > picture > img {
-  object-fit: contain;
-}
-.img__nujIn > :global(.__wab_img-spacer) > img {
   object-fit: contain;
 }
 .text___8CNtD {
@@ -3324,9 +3164,6 @@
 .img__wahg6 > picture > img {
   object-fit: contain;
 }
-.img__wahg6 > :global(.__wab_img-spacer) > img {
-  object-fit: contain;
-}
 .text__abGbq {
   position: relative;
   width: 100%;
@@ -3365,9 +3202,6 @@
 .img__h1BYg > picture > img {
   object-fit: contain;
 }
-.img__h1BYg > :global(.__wab_img-spacer) > img {
-  object-fit: contain;
-}
 .text___2TuBq {
   position: relative;
   width: 100%;
@@ -3404,9 +3238,6 @@
   max-width: 100%;
 }
 .img__seB1F > picture > img {
-  object-fit: contain;
-}
-.img__seB1F > :global(.__wab_img-spacer) > img {
   object-fit: contain;
 }
 .text___08Ce7 {
@@ -3448,9 +3279,6 @@
 .img__kcCf > picture > img {
   object-fit: contain;
 }
-.img__kcCf > :global(.__wab_img-spacer) > img {
-  object-fit: contain;
-}
 .text__r0Rf6 {
   position: relative;
   width: 100%;
@@ -3487,9 +3315,6 @@
   max-width: 100%;
 }
 .img__jq1PA > picture > img {
-  object-fit: contain;
-}
-.img__jq1PA > :global(.__wab_img-spacer) > img {
   object-fit: contain;
 }
 .text__r4MGv {

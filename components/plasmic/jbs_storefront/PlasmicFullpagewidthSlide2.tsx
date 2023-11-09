@@ -183,6 +183,7 @@ function PlasmicFullpagewidthSlide2__RenderFunc(props: {
               {"Shop all Chakhna"}
             </Button2>
           ),
+
           value: args.slot3
         })}
       </div>
@@ -205,6 +206,7 @@ type NodeOverridesType<T extends NodeNameType> = Pick<
   PlasmicFullpagewidthSlide2__OverridesType,
   DescendantsType<T>
 >;
+
 type NodeComponentProps<T extends NodeNameType> =
   // Explicitly specify variants, args, and overrides as objects
   {
@@ -234,7 +236,7 @@ function makeNodeComponent<NodeName extends NodeNameType>(nodeName: NodeName) {
       () =>
         deriveRenderOpts(props, {
           name: nodeName,
-          descendantNames: [...PlasmicDescendants[nodeName]],
+          descendantNames: PlasmicDescendants[nodeName],
           internalArgPropNames: PlasmicFullpagewidthSlide2__ArgProps,
           internalVariantPropNames: PlasmicFullpagewidthSlide2__VariantProps
         }),

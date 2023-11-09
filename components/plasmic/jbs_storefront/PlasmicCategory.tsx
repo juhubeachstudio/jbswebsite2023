@@ -120,6 +120,7 @@ function PlasmicCategory__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => ""
       }
     ],
+
     [$props, $ctx, $refs]
   );
   const $state = p.useDollarState(stateSpecs, {
@@ -389,6 +390,7 @@ const PlasmicDescendants = {
     "productCollection",
     "productCardJbs"
   ],
+
   fullPage: [
     "fullPage",
     "section",
@@ -399,6 +401,7 @@ const PlasmicDescendants = {
     "productCollection",
     "productCardJbs"
   ],
+
   section: [
     "section",
     "categoryCollection",
@@ -408,6 +411,7 @@ const PlasmicDescendants = {
     "productCollection",
     "productCardJbs"
   ],
+
   categoryCollection: [
     "categoryCollection",
     "categoryField",
@@ -416,6 +420,7 @@ const PlasmicDescendants = {
     "productCollection",
     "productCardJbs"
   ],
+
   categoryField: ["categoryField"],
   textInput: ["textInput", "svg"],
   svg: ["svg"],
@@ -442,6 +447,7 @@ type NodeOverridesType<T extends NodeNameType> = Pick<
   PlasmicCategory__OverridesType,
   DescendantsType<T>
 >;
+
 type NodeComponentProps<T extends NodeNameType> =
   // Explicitly specify variants, args, and overrides as objects
   {
@@ -471,7 +477,7 @@ function makeNodeComponent<NodeName extends NodeNameType>(nodeName: NodeName) {
       () =>
         deriveRenderOpts(props, {
           name: nodeName,
-          descendantNames: [...PlasmicDescendants[nodeName]],
+          descendantNames: PlasmicDescendants[nodeName],
           internalArgPropNames: PlasmicCategory__ArgProps,
           internalVariantPropNames: PlasmicCategory__VariantProps
         }),

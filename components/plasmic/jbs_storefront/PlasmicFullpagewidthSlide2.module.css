@@ -42,10 +42,6 @@
   object-fit: cover;
   object-position: 25% 50%;
 }
-.img__fMSf > :global(.__wab_img-spacer) > img {
-  object-fit: cover;
-  object-position: 25% 50%;
-}
 .freeBox___6Zvm9 {
   display: flex;
   position: absolute;

@@ -35,9 +35,6 @@
 .img__pwpzg > picture > img {
   object-fit: cover;
 }
-.img__pwpzg > :global(.__wab_img-spacer) > img {
-  object-fit: cover;
-}
 @media (min-width: 0px) and (max-width: 768px) {
   .img__pwpzg {
     height: 15em;
@@ -62,9 +59,6 @@
   -webkit-transition-duration: 0.2s;
 }
 .img__mn7Uj > picture > img {
-  object-fit: cover;
-}
-.img__mn7Uj > :global(.__wab_img-spacer) > img {
   object-fit: cover;
 }
 @media (min-width: 0px) and (max-width: 768px) {
