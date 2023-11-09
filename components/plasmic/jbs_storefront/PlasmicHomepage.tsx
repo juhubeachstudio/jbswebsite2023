@@ -43,6 +43,7 @@ import FullpageheightSlide from "../../FullpageheightSlide"; // plasmic-import: 
 import Section from "../../Section"; // plasmic-import: GMAR4VOl00/component
 import Blackyellowborder from "../../Blackyellowborder"; // plasmic-import: qeyEUvMFwY/component
 import { CategoryCollection } from "@plasmicpkgs/commerce"; // plasmic-import: ny07p45F84c_/codeComponent
+import Marquee from "react-fast-marquee"; // plasmic-import: m9EkGU-jS0/codeComponent
 import FullpagewidthSlide from "../../FullpagewidthSlide"; // plasmic-import: DUKvgkpbeBWf/component
 import Button2 from "../../Button2"; // plasmic-import: yEsI5slGwPm/component
 import { ProductCollection } from "@plasmicpkgs/commerce"; // plasmic-import: vU2jzVAnFP/codeComponent
@@ -52,7 +53,6 @@ import { ProductMedia } from "@plasmicpkgs/commerce"; // plasmic-import: qpULM0w
 import { ProductTextField } from "@plasmicpkgs/commerce"; // plasmic-import: S1F4q0wN6b/codeComponent
 import SurpriseMeButton from "../../SurpriseMeButton"; // plasmic-import: cuLrZTUy4Zrk/component
 import FullpagewidthSlide2 from "../../FullpagewidthSlide2"; // plasmic-import: dIysgpuSQtRE/component
-import Marquee from "react-fast-marquee"; // plasmic-import: m9EkGU-jS0/codeComponent
 
 import { useScreenVariants as useScreenVariants_6Hzia3M7Np4Ulu } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6hzia3m7Np4ulu/globalVariant
 
@@ -101,7 +101,6 @@ export type PlasmicHomepage__OverridesType = {
   sliderCarousel6?: p.Flex<typeof SliderWrapper>;
   sliderCarousel7?: p.Flex<typeof SliderWrapper>;
   sliderCarousel8?: p.Flex<typeof SliderWrapper>;
-  marquee?: p.Flex<typeof Marquee>;
   svg?: p.Flex<"svg">;
 };
 
@@ -1347,7 +1346,9 @@ function PlasmicHomepage__RenderFunc(props: {
                                   : [_par])(
                                 (() => {
                                   try {
-                                    return $ctx.categories;
+                                    return $ctx.categories.filter(
+                                      category => category.name !== "Headwear"
+                                    );
                                   } catch (e) {
                                     if (
                                       e instanceof TypeError ||
@@ -1458,13 +1459,24 @@ function PlasmicHomepage__RenderFunc(props: {
             <Section
               className={classNames("__wab_instance", sty.section__kbatp)}
             >
-              <Blackyellowborder
-                className={classNames(
-                  "__wab_instance",
-                  sty.blackyellowborder__kkJjt
-                )}
-              />
-
+              <div className={classNames(projectcss.all, sty.freeBox__jv4Mt)}>
+                <Marquee
+                  autoFill={true}
+                  className={classNames("__wab_instance", sty.marquee__s7ZZl)}
+                  direction={"right"}
+                  play={true}
+                >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__sH11P
+                    )}
+                  >
+                    {"       Discount code for first 100 shoppers     "}
+                  </div>
+                </Marquee>
+              </div>
               {(() => {
                 const child$Props = {
                   autoplay: true,
@@ -3388,10 +3400,8 @@ function PlasmicHomepage__RenderFunc(props: {
 
               <div className={classNames(projectcss.all, sty.freeBox__r9H7F)}>
                 <Marquee
-                  data-plasmic-name={"marquee"}
-                  data-plasmic-override={overrides.marquee}
                   autoFill={true}
-                  className={classNames("__wab_instance", sty.marquee)}
+                  className={classNames("__wab_instance", sty.marquee__hmz1V)}
                   direction={"right"}
                 >
                   <div
@@ -3557,7 +3567,6 @@ const PlasmicDescendants = {
     "sliderCarousel6",
     "sliderCarousel7",
     "sliderCarousel8",
-    "marquee",
     "svg"
   ],
   fullPage: [
@@ -3576,7 +3585,6 @@ const PlasmicDescendants = {
     "sliderCarousel6",
     "sliderCarousel7",
     "sliderCarousel8",
-    "marquee",
     "svg"
   ],
   sliderCarousel: ["sliderCarousel"],
@@ -3597,7 +3605,6 @@ const PlasmicDescendants = {
   sliderCarousel6: ["sliderCarousel6"],
   sliderCarousel7: ["sliderCarousel7"],
   sliderCarousel8: ["sliderCarousel8"],
-  marquee: ["marquee"],
   svg: ["svg"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
@@ -3620,7 +3627,6 @@ type NodeDefaultElementType = {
   sliderCarousel6: typeof SliderWrapper;
   sliderCarousel7: typeof SliderWrapper;
   sliderCarousel8: typeof SliderWrapper;
-  marquee: typeof Marquee;
   svg: "svg";
 };
 
@@ -3699,7 +3705,6 @@ export const PlasmicHomepage = Object.assign(
     sliderCarousel6: makeNodeComponent("sliderCarousel6"),
     sliderCarousel7: makeNodeComponent("sliderCarousel7"),
     sliderCarousel8: makeNodeComponent("sliderCarousel8"),
-    marquee: makeNodeComponent("marquee"),
     svg: makeNodeComponent("svg"),
 
     // Metadata about props expected for PlasmicHomepage

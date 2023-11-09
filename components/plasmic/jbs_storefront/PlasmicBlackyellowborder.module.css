@@ -16,8 +16,8 @@
 }
 .freeBox {
   display: flex;
-  width: 2em;
-  height: 1em;
+  width: 2rem;
+  height: 0.8rem;
   background: linear-gradient(
       90deg,
       var(--token-KUFb4wcAz) 50%,
