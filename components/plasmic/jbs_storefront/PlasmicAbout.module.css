@@ -1312,7 +1312,7 @@
   height: auto;
   max-width: 100%;
   font-size: 20px;
-  text-align: justify;
+  text-align: left;
   color: var(--token-ZGgUq6H0D);
   min-width: 0;
 }
@@ -1339,7 +1339,7 @@
   max-width: 100%;
   padding-top: 0px;
   font-size: 20px;
-  text-align: justify;
+  text-align: left;
   color: var(--token-ZGgUq6H0D);
   min-width: 0;
 }
@@ -1604,7 +1604,7 @@
   width: 100%;
   height: auto;
   max-width: 100%;
-  text-align: justify;
+  text-align: left;
   font-size: 20px;
   min-width: 0;
 }
@@ -2544,7 +2544,7 @@
   width: 100%;
   height: auto;
   max-width: 100%;
-  text-align: justify;
+  text-align: left;
   font-size: 20px;
   min-width: 0;
 }
@@ -2856,7 +2856,7 @@
   width: 100%;
   height: auto;
   max-width: 100%;
-  text-align: justify;
+  text-align: left;
   font-size: 20px;
   min-width: 0;
 }

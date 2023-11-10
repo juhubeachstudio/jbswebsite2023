@@ -521,7 +521,7 @@ function PlasmicAbout__RenderFunc(props: {
                       )}
                     >
                       {
-                        "It\u2019s the most wholesome place in Mumbai, and our favourite part of the city. People from all walks of life come here to chill, run with their dogs, practice a skill, everyone is so happy to escape from the craziness of real life for a little bit to just sit by the water, eat some bhel and daydream."
+                        "It\u2019s the most wholesome place in Mumbai, and our favourite part of the city. People from all walks of life come here to chill, run with their dogs, practice a skill. Everyone is so happy to escape from the craziness of real life for a little bit to just sit by the water, eat some bhel and daydream."
                       }
                     </div>
                     <div
@@ -720,7 +720,7 @@ function PlasmicAbout__RenderFunc(props: {
                     )}
                   >
                     {
-                      "Someone who takes timepass very seriously and may appear to be into random pointlessstuff (timepass) and may be dismissed as good for nothing, but the stuff they\u2019re into is actually quite fascinating and theyre super passionate about it and you love that about them. \n\u201cDude they\u2019re such waste fellows i love itt\u201d"
+                      "Someone who takes timepass very seriously and may appear to be into random pointlessstuff (timepass) and may be dismissed as good for nothing, but the stuff they\u2019re into is actually quite fascinating and they're super passionate about it and you love that about them. \n\u201cDude they\u2019re such waste fellows i love itt\u201d"
                     }
                   </div>
                 </p.Stack>
@@ -891,7 +891,7 @@ function PlasmicAbout__RenderFunc(props: {
                     </span>
                     <React.Fragment>
                       {
-                        "so the process is quite painful now x but making these products is also our favourite thing about this business cuz when things work out its the best feeling ever, our nasha of choice X."
+                        "so the process is quite painful now but making these products is also our favourite thing about this business cuz when things work out it's the best feeling ever, our nasha of choice X."
                       }
                     </React.Fragment>
                   </React.Fragment>
@@ -1245,7 +1245,7 @@ function PlasmicAbout__RenderFunc(props: {
                         {"NEVER find the same material twice"}
                       </span>
                       <React.Fragment>
-                        {" (thats why limited edition)."}
+                        {" (that's why limited edition)."}
                       </React.Fragment>
                     </React.Fragment>
                   </div>
@@ -1391,7 +1391,7 @@ function PlasmicAbout__RenderFunc(props: {
                             sty.text__rka1S
                           )}
                         >
-                          {"Chindhi"}
+                          {"Chindi"}
                         </div>
                         <div
                           className={classNames(
@@ -1401,7 +1401,7 @@ function PlasmicAbout__RenderFunc(props: {
                           )}
                         >
                           {
-                            "Chindi/fabric offcuts are the leftover scrap pieces of fabric that happen once the patterns have been cut. Every galli ka tailor shop produces two big bags of chindi a week. Imagine how much factories produce :\u2019) Chindi is very very difficult to work with and is almost\nalways thrown way :("
+                            "Chindi/fabric offcuts are the leftover scrap pieces of fabric that happen once the patterns have been cut. Every galli ka tailor shop produces two big bags of chindi a week. Imagine how much factories produce :\u2019) Chindi is very difficult to work with and is almost\nalways thrown way :("
                           }
                         </div>
                       </div>
@@ -1510,7 +1510,7 @@ function PlasmicAbout__RenderFunc(props: {
                           )}
                         >
                           {
-                            "When manufacturing anything on a monstrous scale, overproduction is very normal. Either as a precaution cuz most products don't survive quality check and its good to have extra, or because of large MOQs. Surplus is either destroyed, or dumped landfills or sent to 3rd world countries."
+                            "When manufacturing anything on a monstrous scale, overproduction is very normal. Either as a precaution cuz most products don't survive quality check and it's good to have extra, or because of large MOQs. Surplus is either destroyed, or dumped landfills or sent to 3rd world countries."
                           }
                         </div>
                       </div>
@@ -1586,7 +1586,7 @@ function PlasmicAbout__RenderFunc(props: {
                           )}
                         >
                           {
-                            "During manufacturing, fabrics are bought/made in large lots of 1000s of meters. If a tiny rip or stain is found anywhere on it, either, a 20 meter bolt around the damage is chopped and thrown away or the whole lot is discarded and sent back, so it either gets resold or dumped."
+                            "During manufacturing, fabrics are bought/made in large lots of 1000s of meters. If a tiny rip or stain is found anywhere on it, either a 20 meter bolt around the damage is chopped and thrown away or the whole lot is discarded and sent back, so it either gets resold or dumped."
                           }
                         </div>
                       </div>
@@ -1906,7 +1906,7 @@ function PlasmicAbout__RenderFunc(props: {
                     )}
                   >
                     {
-                      "Once materials are aquired, we start by making lots of sketches of diff. versions of things based on how much/what fabric we have, what colors we have etc. This is quite challenging and we have to get really creative till something hits. Then we make lotss of samples (most of which are super bizarre) that we test and rework over and over again till all the details are perfect and everything hits."
+                      "Our product ideas come from lots of different places. Moments from our own lives, objects we would love to use ourselves, stuff that makes us laugh, all these things appear as amusing little details on the products, packaging, etc which make up our unique Juhu Beach Studio design language. Any limitations a material poses force us to get super creative with what we make out of it. And since we make limited quantites we can really go nuts and experiment with unusual designs."
                     }
                   </div>
                 </p.Stack>
@@ -2163,7 +2163,7 @@ function PlasmicAbout__RenderFunc(props: {
                     )}
                   >
                     {
-                      "After making a perfect final sample, all our fabrics are washed and then we then train our girlz to make the things. While that happens, we desperately try to optimize the number of patterns that can be cut from a piece of fabric, plan everyones schedules, make detailed specification sheets, quality check everything, make hundreds of calls and lists till all our sketches turn into finished productssss."
+                      "Because of our irregular raw materials, we can make lotsss of different products but only as limited editions. We also like to use a mix of machine and handwork which gives us so much room to create one of a kind details and make everything sturdy and high quality. After drawing, cutting, stitching, ironing, embroidery, etc all of the sketches are finally turned into our beautiful finished products."
                     }
                   </div>
                 </p.Stack>
