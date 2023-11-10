@@ -169,7 +169,7 @@ function PlasmicFullpagewidthSlide2__RenderFunc(props: {
         <div className={classNames(projectcss.all, sty.freeBox___2DWCq)}>
           {p.renderPlasmicSlot({
             defaultContents:
-              "Life is a party, these are the snacks our \ndelightful new Textile Collectibles ",
+              "Life is a party, these are the snacks our delightful new Textile Collectibles ",
             value: args.slot2,
             className: classNames(sty.slotTargetSlot2)
           })}
@@ -180,10 +180,17 @@ function PlasmicFullpagewidthSlide2__RenderFunc(props: {
               className={classNames("__wab_instance", sty.button2__pTyOk)}
               color={"red"}
             >
-              {"Shop all Chakhna"}
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__vOjfh
+                )}
+              >
+                {"Shop all Chakhna"}
+              </div>
             </Button2>
           ),
-
           value: args.slot3
         })}
       </div>
@@ -206,7 +213,6 @@ type NodeOverridesType<T extends NodeNameType> = Pick<
   PlasmicFullpagewidthSlide2__OverridesType,
   DescendantsType<T>
 >;
-
 type NodeComponentProps<T extends NodeNameType> =
   // Explicitly specify variants, args, and overrides as objects
   {

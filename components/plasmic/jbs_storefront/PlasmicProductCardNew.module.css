@@ -83,7 +83,7 @@
   max-width: 100%;
   overflow: hidden;
   min-width: 0;
-  padding: 8px;
+  padding: 1rem;
 }
 .button2:global(.__wab_instance) {
   position: relative;

@@ -48,19 +48,21 @@
   flex-direction: column;
   align-items: flex-end;
   justify-content: flex-start;
-  width: auto;
+  width: 100%;
   height: auto;
   max-width: 100%;
   left: auto;
   top: auto;
   bottom: 0px;
   right: 0px;
-  padding: 0px 5% 5% 0px;
+  min-width: 0;
+  padding: 0px 5% 5%;
 }
 @media (min-width: 0px) and (max-width: 768px) {
   .freeBox___6Zvm9 {
     padding-right: 10%;
     padding-bottom: 10%;
+    padding-left: 10%;
   }
 }
 .freeBox___1WXf6 {
@@ -95,13 +97,14 @@
 }
 .freeBox___2DWCq {
   position: relative;
-  width: auto;
+  width: 100%;
   height: auto;
   max-width: 100%;
   justify-content: flex-end;
   display: flex;
   flex-direction: row;
   filter: drop-shadow(2px 2px 0px #000000);
+  min-width: 0;
   padding: 0px 0px 24px;
 }
 @media (min-width: 0px) and (max-width: 768px) {
@@ -110,7 +113,7 @@
   }
 }
 .slotTargetSlot2 {
-  font-size: var(--token-BwOcdtoxJOlu);
+  font-size: 1.4rem;
   font-weight: 700;
   color: var(--token-Yq556PvPjGii);
   text-align: right;
@@ -118,7 +121,7 @@
 }
 @media (min-width: 0px) and (max-width: 768px) {
   .slotTargetSlot2 {
-    font-size: var(--token-7z5Kw5B89TZR);
+    font-size: 1rem;
   }
 }
 .button2__pTyOk:global(.__wab_instance) {
@@ -130,6 +133,9 @@
   object-fit: cover;
   width: auto;
   height: 1em;
+}
+.text__vOjfh {
+  text-transform: none;
 }
 .svg__mfAli {
   position: relative;

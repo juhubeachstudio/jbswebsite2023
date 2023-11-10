@@ -194,7 +194,9 @@ function PlasmicCategories__RenderFunc(props: {
                         !_par ? [] : Array.isArray(_par) ? _par : [_par])(
                         (() => {
                           try {
-                            return $ctx.categories;
+                            return $ctx.categories.filter(
+                              category => category.name !== "Headwear"
+                            );
                           } catch (e) {
                             if (
                               e instanceof TypeError ||
@@ -265,7 +267,6 @@ const PlasmicDescendants = {
     "categoryCard",
     "button2"
   ],
-
   fullPage: [
     "fullPage",
     "section",
@@ -273,7 +274,6 @@ const PlasmicDescendants = {
     "categoryCard",
     "button2"
   ],
-
   section: ["section", "categoryCollection", "categoryCard", "button2"],
   categoryCollection: ["categoryCollection", "categoryCard"],
   categoryCard: ["categoryCard"],
@@ -296,7 +296,6 @@ type NodeOverridesType<T extends NodeNameType> = Pick<
   PlasmicCategories__OverridesType,
   DescendantsType<T>
 >;
-
 type NodeComponentProps<T extends NodeNameType> =
   // Explicitly specify variants, args, and overrides as objects
   {

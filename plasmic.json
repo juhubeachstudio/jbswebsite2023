@@ -1136,6 +1136,19 @@
           "cssFilePath": "plasmic/jbs_storefront/PlasmicCategoryCard.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "bpUxZE49TfJM",
+          "name": "SomethingNewSlider2",
+          "type": "managed",
+          "projectId": "heL2P6rJiLNgtnBJPb6i1m",
+          "renderModuleFilePath": "plasmic/jbs_storefront/PlasmicSomethingNewSlider2.tsx",
+          "importSpec": {
+            "modulePath": "SomethingNewSlider2.tsx"
+          },
+          "cssFilePath": "plasmic/jbs_storefront/PlasmicSomethingNewSlider2.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [

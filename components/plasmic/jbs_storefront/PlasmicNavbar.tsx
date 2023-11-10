@@ -144,7 +144,7 @@ function PlasmicNavbar__RenderFunc(props: {
             )}
           >
             {
-              "Limited edition pieces, Handcrafted in Mumbai. Made from Textile waste | First 100 Customers get a discount. Use SWEEDY | "
+              "Limited edition pieces | Made from 100% textile waste | Handcrafted | Made in mumbai | "
             }
           </div>
         </Marquee>
