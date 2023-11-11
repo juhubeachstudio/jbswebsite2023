@@ -1031,6 +1031,8 @@
     width: 100%;
     height: auto;
     flex-direction: row;
+    padding-right: 8px;
+    padding-left: 8px;
     min-width: 0;
   }
 }
@@ -1280,6 +1282,8 @@
     width: 100%;
     height: auto;
     flex-direction: row;
+    padding-right: 8px;
+    padding-left: 8px;
     min-width: 0;
   }
 }

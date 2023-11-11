@@ -285,7 +285,6 @@ function PlasmicHomepage__RenderFunc(props: {
         )
       }
     ],
-
     [$props, $ctx, $refs]
   );
   const $state = p.useDollarState(stateSpecs, {
@@ -365,7 +364,6 @@ function PlasmicHomepage__RenderFunc(props: {
                     plasmicStateName: "sliderCarousel.currentSlide"
                   }
                 ],
-
                 [],
                 SliderWrapper_Helpers ?? {},
                 child$Props
@@ -699,7 +697,6 @@ function PlasmicHomepage__RenderFunc(props: {
                     plasmicStateName: "sliderCarousel12.currentSlide"
                   }
                 ],
-
                 [],
                 SliderWrapper_Helpers ?? {},
                 child$Props
@@ -1168,7 +1165,6 @@ function PlasmicHomepage__RenderFunc(props: {
                                 plasmicStateName: "sliderCarousel2.currentSlide"
                               }
                             ],
-
                             [],
                             SliderWrapper_Helpers ?? {},
                             child$Props
@@ -1331,7 +1327,6 @@ function PlasmicHomepage__RenderFunc(props: {
                                 plasmicStateName: "sliderCarousel9.currentSlide"
                               }
                             ],
-
                             [],
                             SliderWrapper_Helpers ?? {},
                             child$Props
@@ -1511,7 +1506,6 @@ function PlasmicHomepage__RenderFunc(props: {
                       plasmicStateName: "sliderCarousel3.currentSlide"
                     }
                   ],
-
                   [],
                   SliderWrapper_Helpers ?? {},
                   child$Props
@@ -1632,7 +1626,6 @@ function PlasmicHomepage__RenderFunc(props: {
                       </div>
                     </Button2>
                   ),
-
                   value: args.slot3
                 })}
               </div>
@@ -1714,7 +1707,6 @@ function PlasmicHomepage__RenderFunc(props: {
                               plasmicStateName: "sliderCarousel4.currentSlide"
                             }
                           ],
-
                           [],
                           SliderWrapper_Helpers ?? {},
                           child$Props
@@ -1793,7 +1785,6 @@ function PlasmicHomepage__RenderFunc(props: {
                               plasmicStateName: "sliderCarousel10.currentSlide"
                             }
                           ],
-
                           [],
                           SliderWrapper_Helpers ?? {},
                           child$Props
@@ -1907,7 +1898,6 @@ function PlasmicHomepage__RenderFunc(props: {
                           plasmicStateName: "sliderCarousel5.currentSlide"
                         }
                       ],
-
                       [],
                       SliderWrapper_Helpers ?? {},
                       child$Props
@@ -2408,7 +2398,6 @@ function PlasmicHomepage__RenderFunc(props: {
                           plasmicStateName: "sliderCarousel11.currentSlide"
                         }
                       ],
-
                       [],
                       SliderWrapper_Helpers ?? {},
                       child$Props
@@ -2932,7 +2921,6 @@ function PlasmicHomepage__RenderFunc(props: {
                                         Math.random() * $ctx.products.length
                                       )
                                     ];
-
                                   return randomProduct.slug;
                                 })();
                               } catch (e) {
@@ -3088,7 +3076,6 @@ function PlasmicHomepage__RenderFunc(props: {
                       plasmicStateName: "sliderCarousel6.currentSlide"
                     }
                   ],
-
                   [],
                   SliderWrapper_Helpers ?? {},
                   child$Props
@@ -3343,7 +3330,6 @@ function PlasmicHomepage__RenderFunc(props: {
                                 plasmicStateName: "sliderCarousel7.currentSlide"
                               }
                             ],
-
                             [],
                             SliderWrapper_Helpers ?? {},
                             child$Props
@@ -3427,7 +3413,6 @@ function PlasmicHomepage__RenderFunc(props: {
                                 plasmicStateName: "sliderCarousel8.currentSlide"
                               }
                             ],
-
                             [],
                             SliderWrapper_Helpers ?? {},
                             child$Props
@@ -3729,7 +3714,6 @@ const PlasmicDescendants = {
     "sliderCarousel8",
     "svg"
   ],
-
   fullPage: [
     "fullPage",
     "sliderCarousel",
@@ -3748,7 +3732,6 @@ const PlasmicDescendants = {
     "sliderCarousel8",
     "svg"
   ],
-
   sliderCarousel: ["sliderCarousel"],
   sliderCarousel12: ["sliderCarousel12"],
   categoryCollection: [
@@ -3756,7 +3739,6 @@ const PlasmicDescendants = {
     "sliderCarousel2",
     "sliderCarousel9"
   ],
-
   sliderCarousel2: ["sliderCarousel2"],
   sliderCarousel9: ["sliderCarousel9"],
   sliderCarousel3: ["sliderCarousel3"],
@@ -3798,7 +3780,6 @@ type NodeOverridesType<T extends NodeNameType> = Pick<
   PlasmicHomepage__OverridesType,
   DescendantsType<T>
 >;
-
 type NodeComponentProps<T extends NodeNameType> =
   // Explicitly specify variants, args, and overrides as objects
   {
