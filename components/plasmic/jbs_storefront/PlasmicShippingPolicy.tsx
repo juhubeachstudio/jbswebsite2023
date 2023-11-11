@@ -190,6 +190,7 @@ function PlasmicShippingPolicy__RenderFunc(props: {
                         </li>
                       </ul>
                     }
+
                     <React.Fragment>
                       {
                         "\nOrders that require customisation, will be shipped within 2 weeks of the order being placed.\nUnless a reason for further delay is specifically mentioned along with the product.\n\nIn the case of extraordinary circumstances, orders may take longer to be shipped and you will be informed of the delay via email. Circumstances such as -\n"
@@ -245,6 +246,7 @@ function PlasmicShippingPolicy__RenderFunc(props: {
                         </li>
                       </ul>
                     }
+
                     <React.Fragment>{""}</React.Fragment>
                   </React.Fragment>
                 </div>
@@ -280,6 +282,7 @@ type NodeOverridesType<T extends NodeNameType> = Pick<
   PlasmicShippingPolicy__OverridesType,
   DescendantsType<T>
 >;
+
 type NodeComponentProps<T extends NodeNameType> =
   // Explicitly specify variants, args, and overrides as objects
   {

@@ -159,6 +159,7 @@ function PlasmicCart2__RenderFunc(props: {
                   <Button2
                     className={classNames("__wab_instance", sty.button2__w6F7L)}
                     color={"red"}
+                    link={`/category/${"all"}`}
                     showEndIcon={true}
                   >
                     <div

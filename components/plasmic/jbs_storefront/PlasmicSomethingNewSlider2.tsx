@@ -117,6 +117,7 @@ function PlasmicSomethingNewSlider2__RenderFunc(props: {
         )
       }
     ],
+
     [$props, $ctx, $refs]
   );
   const $state = p.useDollarState(stateSpecs, {
@@ -171,6 +172,7 @@ function PlasmicSomethingNewSlider2__RenderFunc(props: {
           plasmicStateName: "sliderCarousel11.currentSlide"
         }
       ],
+
       [],
       SliderWrapper_Helpers ?? {},
       child$Props
@@ -492,6 +494,7 @@ type NodeOverridesType<T extends NodeNameType> = Pick<
   PlasmicSomethingNewSlider2__OverridesType,
   DescendantsType<T>
 >;
+
 type NodeComponentProps<T extends NodeNameType> =
   // Explicitly specify variants, args, and overrides as objects
   {

@@ -267,6 +267,7 @@ const PlasmicDescendants = {
     "categoryCard",
     "button2"
   ],
+
   fullPage: [
     "fullPage",
     "section",
@@ -274,6 +275,7 @@ const PlasmicDescendants = {
     "categoryCard",
     "button2"
   ],
+
   section: ["section", "categoryCollection", "categoryCard", "button2"],
   categoryCollection: ["categoryCollection", "categoryCard"],
   categoryCard: ["categoryCard"],
@@ -296,6 +298,7 @@ type NodeOverridesType<T extends NodeNameType> = Pick<
   PlasmicCategories__OverridesType,
   DescendantsType<T>
 >;
+
 type NodeComponentProps<T extends NodeNameType> =
   // Explicitly specify variants, args, and overrides as objects
   {

@@ -191,6 +191,7 @@ function PlasmicFullpagewidthSlide2__RenderFunc(props: {
               </div>
             </Button2>
           ),
+
           value: args.slot3
         })}
       </div>
@@ -213,6 +214,7 @@ type NodeOverridesType<T extends NodeNameType> = Pick<
   PlasmicFullpagewidthSlide2__OverridesType,
   DescendantsType<T>
 >;
+
 type NodeComponentProps<T extends NodeNameType> =
   // Explicitly specify variants, args, and overrides as objects
   {

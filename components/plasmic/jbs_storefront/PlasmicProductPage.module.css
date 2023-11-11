@@ -229,6 +229,7 @@
   font-weight: 700;
   text-transform: uppercase;
   line-height: 1.2;
+  color: var(--token-ZGgUq6H0D);
 }
 @media (min-width: 0px) and (max-width: 768px) {
   .productTextField__kxHmd:global(.__wab_instance) {
@@ -244,6 +245,7 @@
   font-weight: 400;
   height: auto;
   user-select: text;
+  color: var(--token-ZGgUq6H0D);
 }
 @media (min-width: 0px) and (max-width: 768px) {
   .productPrice:global(.__wab_instance) {
@@ -272,6 +274,8 @@
   height: auto;
   display: block;
   white-space: pre-wrap;
+  color: var(--token-ZGgUq6H0D);
+  font-size: 1rem;
 }
 .addToCartCustomButton:global(.__wab_instance) {
   position: relative;
@@ -282,6 +286,7 @@
   object-fit: cover;
   position: relative;
   background: var(--token-Yq556PvPjGii);
+  color: var(--token-ZGgUq6H0D);
   min-width: 0;
 }
 .accordionItem__cyA7Q:global(.__wab_instance) {
@@ -299,6 +304,7 @@
   height: auto;
   max-width: 100%;
   font-size: 1.2rem;
+  color: var(--token-ZGgUq6H0D);
   min-width: 0;
 }
 @media (min-width: 0px) and (max-width: 768px) {
@@ -317,6 +323,9 @@
   width: 100%;
   height: auto;
   max-width: 100%;
+  color: var(--token-ZGgUq6H0D);
+  text-transform: capitalize;
+  font-size: 1rem;
   min-width: 0;
 }
 .accordionItem__jPeb:global(.__wab_instance) {
@@ -334,6 +343,7 @@
   height: auto;
   max-width: 100%;
   font-size: 1.2rem;
+  color: var(--token-ZGgUq6H0D);
   min-width: 0;
 }
 @media (min-width: 0px) and (max-width: 768px) {
@@ -352,6 +362,9 @@
   width: 100%;
   height: auto;
   max-width: 100%;
+  color: var(--token-ZGgUq6H0D);
+  text-transform: capitalize;
+  font-size: 1rem;
   min-width: 0;
 }
 .accordionItem__sMj4I:global(.__wab_instance) {
@@ -369,6 +382,7 @@
   height: auto;
   max-width: 100%;
   font-size: 1.2rem;
+  color: var(--token-ZGgUq6H0D);
   min-width: 0;
 }
 @media (min-width: 0px) and (max-width: 768px) {
@@ -387,6 +401,9 @@
   width: 100%;
   height: auto;
   max-width: 100%;
+  color: var(--token-ZGgUq6H0D);
+  text-transform: capitalize;
+  font-size: 1rem;
   min-width: 0;
 }
 .section:global(.__wab_instance) {
