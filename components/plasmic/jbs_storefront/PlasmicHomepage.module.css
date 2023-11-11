@@ -1295,7 +1295,7 @@
 }
 @media (min-width: 0px) and (max-width: 768px) {
   .sliderCarousel11:global(.__wab_instance) {
-    display: none;
+    display: flex;
   }
 }
 .productCollection__s8XSc:global(.__wab_instance) {

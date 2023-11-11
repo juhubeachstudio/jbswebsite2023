@@ -3007,6 +3007,7 @@ function PlasmicHomepage__RenderFunc(props: {
                       )}
                       color={"red"}
                       link={`/category/${"giftsss"}`}
+                      size={"compact"}
                     >
                       {"gifts here!"}
                     </Button2>
