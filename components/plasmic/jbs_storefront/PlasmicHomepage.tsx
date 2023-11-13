@@ -1697,7 +1697,7 @@ function PlasmicHomepage__RenderFunc(props: {
                             $refs["sliderCarousel4"] = ref;
                           },
                           sliderScopeClassName: sty["sliderCarousel4__slider"],
-                          slidesPerRow: 5
+                          slidesToShow: 5
                         };
                         p.initializeCodeComponentStates(
                           $state,
@@ -3320,7 +3320,8 @@ function PlasmicHomepage__RenderFunc(props: {
                             },
                             sliderScopeClassName:
                               sty["sliderCarousel7__slider"],
-                            slidesPerRow: 5
+                            slidesToShow: 5,
+                            swipeToSlide: true
                           };
                           p.initializeCodeComponentStates(
                             $state,
@@ -3403,7 +3404,7 @@ function PlasmicHomepage__RenderFunc(props: {
                             },
                             sliderScopeClassName:
                               sty["sliderCarousel8__slider"],
-                            slidesPerRow: 2
+                            slidesToShow: 2
                           };
                           p.initializeCodeComponentStates(
                             $state,
