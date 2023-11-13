@@ -1271,6 +1271,16 @@
           "id": "69HLYm9NeIDx",
           "name": "Facebook176SvgrepoComsvg2Icon",
           "moduleFilePath": "plasmic/jbs_storefront/icons/PlasmicIcon__Facebook176SvgrepoComsvg2.tsx"
+        },
+        {
+          "id": "702HjvGFR37U",
+          "name": "Icon4Icon",
+          "moduleFilePath": "plasmic/jbs_storefront/icons/PlasmicIcon__Icon4.tsx"
+        },
+        {
+          "id": "Y-g0iNOCQe_3",
+          "name": "Icon5Icon",
+          "moduleFilePath": "plasmic/jbs_storefront/icons/PlasmicIcon__Icon5.tsx"
         }
       ],
       "images": [
@@ -1303,16 +1313,6 @@
           "id": "QwzskVu1ipCB",
           "name": "image 2",
           "filePath": "../public/plasmic/jbs_storefront/images/image2.png"
-        },
-        {
-          "id": "JnfSfo07oMhv",
-          "name": "about_beach.png",
-          "filePath": "../public/plasmic/jbs_storefront/images/aboutBeachpng.png"
-        },
-        {
-          "id": "rK5OEMjUg-xl",
-          "name": "IMG_5704.JPG",
-          "filePath": "../public/plasmic/jbs_storefront/images/img5704Jpg.jpg"
         },
         {
           "id": "U_cw3ymfh31v",
