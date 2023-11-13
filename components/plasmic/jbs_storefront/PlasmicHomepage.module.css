@@ -759,8 +759,9 @@
 }
 @media (min-width: 0px) and (max-width: 768px) {
   .sliderCarousel3:global(.__wab_instance) {
-    height: 100vh;
+    height: 100%;
     background: var(--token-ZGgUq6H0D);
+    min-height: 0;
   }
 }
 .fullpagewidthSlide___3IreU:global(.__wab_instance) {
@@ -1887,7 +1888,8 @@
 }
 @media (min-width: 0px) and (max-width: 768px) {
   .sliderCarousel6:global(.__wab_instance) {
-    height: 100vh;
+    height: 100%;
+    min-height: 0;
   }
 }
 .fullpagewidthSlide2__hJkVl:global(.__wab_instance) {
