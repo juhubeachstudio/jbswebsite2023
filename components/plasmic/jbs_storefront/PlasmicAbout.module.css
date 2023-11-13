@@ -412,7 +412,7 @@
   width: 100%;
   height: auto;
   max-width: 100%;
-  background: url("/plasmic/jbs_storefront/images/theJuhuBeachWidewebp.webp") top 50% left 50% / contain repeat-x;
+  background: url("/plasmic/jbs_storefront/images/theJuhuBeachWidewebp.webp") top 50% left 50% / cover repeat-x;
   min-height: 100vh;
   transition-property: all;
   transition-duration: 1s;
@@ -598,6 +598,7 @@
 @media (min-width: 0px) and (max-width: 768px) {
   .freeBox__luyD {
     padding-bottom: 9%;
+    background: url("/plasmic/jbs_storefront/images/theJuhuBeachNarrowwebp2.webp") top 50% left 50% / cover repeat-x;
     display: flex;
   }
 }
