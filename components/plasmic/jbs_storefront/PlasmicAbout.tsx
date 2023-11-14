@@ -489,42 +489,6 @@ function PlasmicAbout__RenderFunc(props: {
             <Section
               className={classNames("__wab_instance", sty.section__j2Fxj)}
             >
-              <p.PlasmicImg
-                alt={""}
-                className={classNames(sty.img__gsycf)}
-                displayHeight={"auto"}
-                displayMaxHeight={"none"}
-                displayMaxWidth={"100%"}
-                displayMinHeight={"0"}
-                displayMinWidth={"0"}
-                displayWidth={"100%"}
-                loading={"lazy"}
-                src={{
-                  src: "/plasmic/jbs_storefront/images/theJuhuBeachWidewebp.webp",
-                  fullWidth: 7239,
-                  fullHeight: 5047,
-                  aspectRatio: undefined
-                }}
-              />
-
-              <p.PlasmicImg
-                alt={""}
-                className={classNames(sty.img__wqvbi)}
-                displayHeight={"auto"}
-                displayMaxHeight={"none"}
-                displayMaxWidth={"100%"}
-                displayMinHeight={"0"}
-                displayMinWidth={"0"}
-                displayWidth={"100%"}
-                loading={"lazy"}
-                src={{
-                  src: "/plasmic/jbs_storefront/images/theJuhuBeachNarrowwebp2.webp",
-                  fullWidth: 879,
-                  fullHeight: 1484,
-                  aspectRatio: undefined
-                }}
-              />
-
               <div className={classNames(projectcss.all, sty.freeBox__ihiLy)}>
                 <p.Stack
                   as={"div"}
@@ -569,6 +533,55 @@ function PlasmicAbout__RenderFunc(props: {
                     >
                       {
                         "This is basically how we wanted this brand to feel too, just like at the beach, everyone is welcome, anything can happen, no cynicism, just vibes. But because real life might actually be inescapable you can always make it more fun!"
+                      }
+                    </div>
+                  </p.Stack>
+                </p.Stack>
+              </div>
+              <div className={classNames(projectcss.all, sty.freeBox__luyD)}>
+                <p.Stack
+                  as={"div"}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.columns__vGb4)}
+                >
+                  <div
+                    className={classNames(projectcss.all, sty.column__aAkHu)}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__k3Evy
+                      )}
+                    >
+                      {"What's a Juhu Beach"}
+                    </div>
+                  </div>
+                  <p.Stack
+                    as={"div"}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.column__wyZtk)}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__hX1Kb
+                      )}
+                    >
+                      {
+                        "It\u2019s the most wholesome place in Mumbai, and our favourite part of the city. People from all walks of life come here to chill, run with their dogs, practice a skill, everyone is so happy to escape from the craziness of real life for a little bit to just sit by the water, eat some bhel and daydream."
+                      }
+                    </div>
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__saS0P
+                      )}
+                    >
+                      {
+                        "This is basically how we wanted this brand to feel too, just like at the beach, everyone is welcome, anything can happen, no cynicism, just vibes. While real life may be inescapable you can always make it more fun"
                       }
                     </div>
                   </p.Stack>

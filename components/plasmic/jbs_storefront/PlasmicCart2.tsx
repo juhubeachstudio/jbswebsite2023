@@ -45,10 +45,10 @@ import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic_antd_5_hostl
 import projectcss from "./plasmic_jbs_storefront.module.css"; // plasmic-import: heL2P6rJiLNgtnBJPb6i1m/projectcss
 import sty from "./PlasmicCart2.module.css"; // plasmic-import: 4iMp3co2mNSz/css
 
-import ChevronDownsvgIcon from "./icons/PlasmicIcon__ChevronDownsvg"; // plasmic-import: V7YDwEX2Uw9/icon
-import MinussvgIcon from "./icons/PlasmicIcon__Minussvg"; // plasmic-import: EORfQy0Jztah/icon
 import ChecksvgIcon from "./icons/PlasmicIcon__Checksvg"; // plasmic-import: ew07hyuAC0c/icon
 import Icon38Icon from "./icons/PlasmicIcon__Icon38"; // plasmic-import: 3r4KXWygi9v/icon
+import ChevronDownsvgIcon from "./icons/PlasmicIcon__ChevronDownsvg"; // plasmic-import: V7YDwEX2Uw9/icon
+import MinussvgIcon from "./icons/PlasmicIcon__Minussvg"; // plasmic-import: EORfQy0Jztah/icon
 import PlussvgIcon from "./icons/PlasmicIcon__Plussvg"; // plasmic-import: PQQuz_M9AHH3/icon
 
 createPlasmicElementProxy;
@@ -129,6 +129,51 @@ function PlasmicCart2__RenderFunc(props: {
         <ph.DataCtxReader>
           {$ctx => (
             <React.Fragment>
+              {(() => {
+                try {
+                  return $ctx.cart.lineItems.length === 0;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return true;
+                  }
+                  throw e;
+                }
+              })() ? (
+                <p.Stack
+                  as={"div"}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.freeBox___28Ya1)}
+                >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__dpvDu
+                    )}
+                  >
+                    {"No items have been added to the cart!"}
+                  </div>
+                  <Button2
+                    className={classNames("__wab_instance", sty.button2__w6F7L)}
+                    color={"red"}
+                    link={`/category/${"all"}`}
+                    showEndIcon={true}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__zKH
+                      )}
+                    >
+                      {"Seel all our products"}
+                    </div>
+                  </Button2>
+                </p.Stack>
+              ) : null}
               {(() => {
                 try {
                   return $ctx.cart.lineItems.length > 0;
@@ -558,51 +603,6 @@ function PlasmicCart2__RenderFunc(props: {
                     </Button2>
                   </div>
                 </div>
-              ) : null}
-              {(() => {
-                try {
-                  return $ctx.cart.lineItems.length === 0;
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return true;
-                  }
-                  throw e;
-                }
-              })() ? (
-                <p.Stack
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox___28Ya1)}
-                >
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__dpvDu
-                    )}
-                  >
-                    {"No items have been added to the cart!"}
-                  </div>
-                  <Button2
-                    className={classNames("__wab_instance", sty.button2__w6F7L)}
-                    color={"red"}
-                    link={`/category/${"all"}`}
-                    showEndIcon={true}
-                  >
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text__zKH
-                      )}
-                    >
-                      {"Seel all our products"}
-                    </div>
-                  </Button2>
-                </p.Stack>
               ) : null}
             </React.Fragment>
           )}

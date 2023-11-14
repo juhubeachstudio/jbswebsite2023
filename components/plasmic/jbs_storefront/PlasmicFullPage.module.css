@@ -34,5 +34,4 @@
 .footer:global(.__wab_instance) {
   max-width: 100%;
   position: relative;
-  height: 550px;
 }
