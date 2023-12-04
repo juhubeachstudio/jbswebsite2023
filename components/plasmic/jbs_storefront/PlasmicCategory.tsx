@@ -38,12 +38,14 @@ import {
 } from "@plasmicapp/react-web";
 import FullPage from "../../FullPage"; // plasmic-import: VpRM2nIn0R/component
 import Section from "../../Section"; // plasmic-import: GMAR4VOl00/component
-import { CategoryCollection } from "@plasmicpkgs/commerce"; // plasmic-import: ny07p45F84c_/codeComponent
-import { CategoryField } from "@plasmicpkgs/commerce"; // plasmic-import: hzqiq--xdG5T/codeComponent
+import { CategoryCollection } from "@plasmicpkgs/commerce";
+import { CategoryField } from "@plasmicpkgs/commerce";
 import TextInput from "../../TextInput"; // plasmic-import: Y6q1pqli4zM/component
-import { ProductCollection } from "@plasmicpkgs/commerce"; // plasmic-import: vU2jzVAnFP/codeComponent
+import { ProductCollection } from "@plasmicpkgs/commerce";
 import ProductCardJbs from "../../ProductCardJbs"; // plasmic-import: Ft4Mem_Zab/component
-import Button2 from "../../Button2"; // plasmic-import: yEsI5slGwPm/component
+import { ProductMedia } from "@plasmicpkgs/commerce";
+import Button from "../../Button"; // plasmic-import: yEsI5slGwPm/component
+import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -76,6 +78,7 @@ export type PlasmicCategory__OverridesType = {
   svg?: p.Flex<"svg">;
   productCollection?: p.Flex<typeof ProductCollection>;
   productCardJbs?: p.Flex<typeof ProductCardJbs>;
+  productMedia?: p.Flex<typeof ProductMedia>;
 };
 
 export interface DefaultCategoryProps {}
@@ -117,10 +120,9 @@ function PlasmicCategory__RenderFunc(props: {
         path: "textInput.value",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+        initFunc: ({ $props, $state, $queries, $ctx }) => ``
       }
     ],
-
     [$props, $ctx, $refs]
   );
   const $state = p.useDollarState(stateSpecs, {
@@ -250,13 +252,59 @@ function PlasmicCategory__RenderFunc(props: {
                               role={"img"}
                             />
                           }
-                          onChange={(...eventArgs) => {
-                            p.generateStateOnChangeProp($state, [
-                              "textInput",
-                              "value"
-                            ])((e => e.target?.value).apply(null, eventArgs));
+                          onChange={async (...eventArgs: any) => {
+                            ((...eventArgs) => {
+                              p.generateStateOnChangeProp($state, [
+                                "textInput",
+                                "value"
+                              ])((e => e.target?.value).apply(null, eventArgs));
+                            }).apply(null, eventArgs);
+                            (async event => {
+                              const $steps = {};
+
+                              $steps["updateTextInputValue"] = true
+                                ? (() => {
+                                    const actionArgs = {
+                                      variable: {
+                                        objRoot: $state,
+                                        variablePath: ["textInput", "value"]
+                                      },
+                                      operation: 0,
+                                      value: $state.textInput.value
+                                    };
+                                    return (({
+                                      variable,
+                                      value,
+                                      startIndex,
+                                      deleteCount
+                                    }) => {
+                                      if (!variable) {
+                                        return;
+                                      }
+                                      const { objRoot, variablePath } =
+                                        variable;
+
+                                      p.set(objRoot, variablePath, value);
+                                      return value;
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
+                              if (
+                                $steps["updateTextInputValue"] != null &&
+                                typeof $steps["updateTextInputValue"] ===
+                                  "object" &&
+                                typeof $steps["updateTextInputValue"].then ===
+                                  "function"
+                              ) {
+                                $steps["updateTextInputValue"] = await $steps[
+                                  "updateTextInputValue"
+                                ];
+                              }
+                            }).apply(null, eventArgs);
                           }}
+                          required={false}
                           showStartIcon={true}
+                          type={"text"}
                           value={
                             p.generateStateValueProp($state, [
                               "textInput",
@@ -272,6 +320,7 @@ function PlasmicCategory__RenderFunc(props: {
                           "__wab_instance",
                           sty.productCollection
                         )}
+                        count={3}
                         emptyMessage={
                           <ph.DataCtxReader>
                             {$ctx => (
@@ -290,18 +339,29 @@ function PlasmicCategory__RenderFunc(props: {
                         loadingMessage={
                           <ph.DataCtxReader>
                             {$ctx => (
-                              <div
-                                className={classNames(
-                                  projectcss.all,
-                                  projectcss.__wab_text,
-                                  sty.text__n5Hqi
-                                )}
-                              >
-                                {"Loading..."}
-                              </div>
+                              <React.Fragment>
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    projectcss.__wab_text,
+                                    sty.text__n5Hqi
+                                  )}
+                                >
+                                  {"Loading..."}
+                                </div>
+                                <ProductMedia
+                                  data-plasmic-name={"productMedia"}
+                                  data-plasmic-override={overrides.productMedia}
+                                  className={classNames(
+                                    "__wab_instance",
+                                    sty.productMedia
+                                  )}
+                                />
+                              </React.Fragment>
                             )}
                           </ph.DataCtxReader>
                         }
+                        noLayout={false}
                         search={(() => {
                           try {
                             return $state.textInput.value;
@@ -319,14 +379,21 @@ function PlasmicCategory__RenderFunc(props: {
                       >
                         <ph.DataCtxReader>
                           {$ctx => (
-                            <ProductCardJbs
-                              data-plasmic-name={"productCardJbs"}
-                              data-plasmic-override={overrides.productCardJbs}
+                            <div
                               className={classNames(
-                                "__wab_instance",
-                                sty.productCardJbs
+                                projectcss.all,
+                                sty.freeBox__jy2A1
                               )}
-                            />
+                            >
+                              <ProductCardJbs
+                                data-plasmic-name={"productCardJbs"}
+                                data-plasmic-override={overrides.productCardJbs}
+                                className={classNames(
+                                  "__wab_instance",
+                                  sty.productCardJbs
+                                )}
+                              />
+                            </div>
                           )}
                         </ph.DataCtxReader>
                       </ProductCollection>
@@ -339,8 +406,8 @@ function PlasmicCategory__RenderFunc(props: {
                 hasGap={true}
                 className={classNames(projectcss.all, sty.freeBox__bS8Cu)}
               >
-                <Button2
-                  className={classNames("__wab_instance", sty.button2___2Yksa)}
+                <Button
+                  className={classNames("__wab_instance", sty.button___2Yksa)}
                   color={"red"}
                   link={`/categories`}
                 >
@@ -353,9 +420,9 @@ function PlasmicCategory__RenderFunc(props: {
                   >
                     {"See all Categories"}
                   </div>
-                </Button2>
-                <Button2
-                  className={classNames("__wab_instance", sty.button2__ofyzo)}
+                </Button>
+                <Button
+                  className={classNames("__wab_instance", sty.button__ofyzo)}
                   color={"red"}
                   link={`/category/${"all"}`}
                 >
@@ -368,7 +435,7 @@ function PlasmicCategory__RenderFunc(props: {
                   >
                     {"Shop all"}
                   </div>
-                </Button2>
+                </Button>
               </p.Stack>
             </Section>
           </FullPage>
@@ -388,9 +455,9 @@ const PlasmicDescendants = {
     "textInput",
     "svg",
     "productCollection",
-    "productCardJbs"
+    "productCardJbs",
+    "productMedia"
   ],
-
   fullPage: [
     "fullPage",
     "section",
@@ -399,9 +466,9 @@ const PlasmicDescendants = {
     "textInput",
     "svg",
     "productCollection",
-    "productCardJbs"
+    "productCardJbs",
+    "productMedia"
   ],
-
   section: [
     "section",
     "categoryCollection",
@@ -409,23 +476,24 @@ const PlasmicDescendants = {
     "textInput",
     "svg",
     "productCollection",
-    "productCardJbs"
+    "productCardJbs",
+    "productMedia"
   ],
-
   categoryCollection: [
     "categoryCollection",
     "categoryField",
     "textInput",
     "svg",
     "productCollection",
-    "productCardJbs"
+    "productCardJbs",
+    "productMedia"
   ],
-
   categoryField: ["categoryField"],
   textInput: ["textInput", "svg"],
   svg: ["svg"],
-  productCollection: ["productCollection", "productCardJbs"],
-  productCardJbs: ["productCardJbs"]
+  productCollection: ["productCollection", "productCardJbs", "productMedia"],
+  productCardJbs: ["productCardJbs"],
+  productMedia: ["productMedia"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -440,6 +508,7 @@ type NodeDefaultElementType = {
   svg: "svg";
   productCollection: typeof ProductCollection;
   productCardJbs: typeof ProductCardJbs;
+  productMedia: typeof ProductMedia;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -447,7 +516,6 @@ type NodeOverridesType<T extends NodeNameType> = Pick<
   PlasmicCategory__OverridesType,
   DescendantsType<T>
 >;
-
 type NodeComponentProps<T extends NodeNameType> =
   // Explicitly specify variants, args, and overrides as objects
   {
@@ -511,6 +579,7 @@ export const PlasmicCategory = Object.assign(
     svg: makeNodeComponent("svg"),
     productCollection: makeNodeComponent("productCollection"),
     productCardJbs: makeNodeComponent("productCardJbs"),
+    productMedia: makeNodeComponent("productMedia"),
 
     // Metadata about props expected for PlasmicCategory
     internalVariantProps: PlasmicCategory__VariantProps,

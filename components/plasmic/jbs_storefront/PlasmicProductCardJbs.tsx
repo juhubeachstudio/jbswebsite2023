@@ -36,10 +36,10 @@ import {
   deriveRenderOpts,
   ensureGlobalVariants
 } from "@plasmicapp/react-web";
-import { ProductMedia } from "@plasmicpkgs/commerce"; // plasmic-import: qpULM0wwWW/codeComponent
-import { ProductTextField } from "@plasmicpkgs/commerce"; // plasmic-import: S1F4q0wN6b/codeComponent
-import { ProductPriceComponent } from "@plasmicpkgs/commerce"; // plasmic-import: _PaJxGc8gf/codeComponent
-import { Fetcher } from "@plasmicapp/react-web/lib/data-sources"; // plasmic-import: 1xopR4ZBZs2K4b/codeComponent
+import { ProductMedia } from "@plasmicpkgs/commerce";
+import { ProductTextField } from "@plasmicpkgs/commerce";
+import { ProductPriceComponent } from "@plasmicpkgs/commerce";
+import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -200,7 +200,6 @@ type NodeOverridesType<T extends NodeNameType> = Pick<
   PlasmicProductCardJbs__OverridesType,
   DescendantsType<T>
 >;
-
 type NodeComponentProps<T extends NodeNameType> =
   // Explicitly specify variants, args, and overrides as objects
   {

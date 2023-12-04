@@ -6,7 +6,7 @@
 
 import * as React from "react";
 import { hasVariant, ensureGlobalVariants } from "@plasmicapp/react-web";
-import { CommerceProviderComponent } from "@plasmicpkgs/commerce-shopify"; // plasmic-import: jKXfoEXfU9R/codeComponent
+import { CommerceProviderComponent } from "@plasmicpkgs/commerce-shopify";
 
 export interface GlobalContextsProviderProps {
   children?: React.ReactElement;

@@ -36,8 +36,8 @@ import {
   deriveRenderOpts,
   ensureGlobalVariants
 } from "@plasmicapp/react-web";
-import Button2 from "../../Button2"; // plasmic-import: yEsI5slGwPm/component
-import { CartProvider } from "@plasmicpkgs/commerce"; // plasmic-import: -7iA_UBq8qca/codeComponent
+import Button from "../../Button"; // plasmic-import: yEsI5slGwPm/component
+import { CartProvider } from "@plasmicpkgs/commerce";
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -46,8 +46,6 @@ import projectcss from "./plasmic_jbs_storefront.module.css"; // plasmic-import:
 import sty from "./PlasmicGoToCartButton.module.css"; // plasmic-import: iT6In2ggLenM/css
 
 import Cart1SvgIcon from "./icons/PlasmicIcon__Cart1Svg"; // plasmic-import: RqINMsIJ-W/icon
-import ChecksvgIcon from "./icons/PlasmicIcon__Checksvg"; // plasmic-import: ew07hyuAC0c/icon
-import Icon38Icon from "./icons/PlasmicIcon__Icon38"; // plasmic-import: 3r4KXWygi9v/icon
 
 createPlasmicElementProxy;
 
@@ -61,10 +59,10 @@ type ArgPropType = keyof PlasmicGoToCartButton__ArgsType;
 export const PlasmicGoToCartButton__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicGoToCartButton__OverridesType = {
-  root?: p.Flex<typeof Button2>;
+  root?: p.Flex<typeof Button>;
   svg?: p.Flex<"svg">;
   cartProvider?: p.Flex<typeof CartProvider>;
-  text?: p.Flex<"div">;
+  p?: p.Flex<"p">;
 };
 
 export interface DefaultGoToCartButtonProps {
@@ -103,15 +101,17 @@ function PlasmicGoToCartButton__RenderFunc(props: {
   const currentUser = p.useCurrentUser?.() || {};
 
   return (
-    <Button2
+    <Button
       data-plasmic-name={"root"}
       data-plasmic-override={overrides.root}
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames("__wab_instance", sty.root)}
       color={"clear"}
+      endIcon={null}
       link={`/cart`}
       size={"minimal"}
+      startIcon={null}
     >
       <Cart1SvgIcon
         data-plasmic-name={"svg"}
@@ -130,7 +130,7 @@ function PlasmicGoToCartButton__RenderFunc(props: {
             {$ctx =>
               (() => {
                 try {
-                  return $ctx.cart.lineItems.lenghth > 0;
+                  return $ctx.cart.lineItems.length > 0;
                 } catch (e) {
                   if (
                     e instanceof TypeError ||
@@ -142,19 +142,23 @@ function PlasmicGoToCartButton__RenderFunc(props: {
                 }
               })() ? (
                 <div className={classNames(projectcss.all, sty.freeBox__nj3Ba)}>
-                  <div
-                    data-plasmic-name={"text"}
-                    data-plasmic-override={overrides.text}
+                  <p
+                    data-plasmic-name={"p"}
+                    data-plasmic-override={overrides.p}
                     className={classNames(
                       projectcss.all,
+                      projectcss.p,
                       projectcss.__wab_text,
-                      sty.text
+                      sty.p
                     )}
                   >
                     <React.Fragment>
                       {(() => {
                         try {
-                          return $ctx.cart.lineItems.length;
+                          return $ctx.cart.lineItems.reduce(
+                            (total, item) => total + item.quantity,
+                            0
+                          );
                         } catch (e) {
                           if (
                             e instanceof TypeError ||
@@ -166,31 +170,31 @@ function PlasmicGoToCartButton__RenderFunc(props: {
                         }
                       })()}
                     </React.Fragment>
-                  </div>
+                  </p>
                 </div>
               ) : null
             }
           </ph.DataCtxReader>
         </CartProvider>
       </div>
-    </Button2>
+    </Button>
   ) as React.ReactElement | null;
 }
 
 const PlasmicDescendants = {
-  root: ["root", "svg", "cartProvider", "text"],
+  root: ["root", "svg", "cartProvider", "p"],
   svg: ["svg"],
-  cartProvider: ["cartProvider", "text"],
-  text: ["text"]
+  cartProvider: ["cartProvider", "p"],
+  p: ["p"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
-  root: typeof Button2;
+  root: typeof Button;
   svg: "svg";
   cartProvider: typeof CartProvider;
-  text: "div";
+  p: "p";
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -198,7 +202,6 @@ type NodeOverridesType<T extends NodeNameType> = Pick<
   PlasmicGoToCartButton__OverridesType,
   DescendantsType<T>
 >;
-
 type NodeComponentProps<T extends NodeNameType> =
   // Explicitly specify variants, args, and overrides as objects
   {
@@ -256,7 +259,7 @@ export const PlasmicGoToCartButton = Object.assign(
     // Helper components rendering sub-elements
     svg: makeNodeComponent("svg"),
     cartProvider: makeNodeComponent("cartProvider"),
-    text: makeNodeComponent("text"),
+    p: makeNodeComponent("p"),
 
     // Metadata about props expected for PlasmicGoToCartButton
     internalVariantProps: PlasmicGoToCartButton__VariantProps,
