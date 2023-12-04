@@ -124,7 +124,7 @@
     font-size: 1rem;
   }
 }
-.button2__pTyOk:global(.__wab_instance) {
+.button__pTyOk:global(.__wab_instance) {
   max-width: 100%;
   position: relative;
 }

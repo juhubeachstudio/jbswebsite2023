@@ -38,9 +38,9 @@ import {
 } from "@plasmicapp/react-web";
 import FullPage from "../../FullPage"; // plasmic-import: VpRM2nIn0R/component
 import Section from "../../Section"; // plasmic-import: GMAR4VOl00/component
-import { CategoryCollection } from "@plasmicpkgs/commerce"; // plasmic-import: ny07p45F84c_/codeComponent
-import { CategoryField } from "@plasmicpkgs/commerce"; // plasmic-import: hzqiq--xdG5T/codeComponent
-import { ProductCollection } from "@plasmicpkgs/commerce"; // plasmic-import: vU2jzVAnFP/codeComponent
+import { CategoryCollection } from "@plasmicpkgs/commerce";
+import { CategoryField } from "@plasmicpkgs/commerce";
+import { ProductCollection } from "@plasmicpkgs/commerce";
 import ProductCardJbs from "../../ProductCardJbs"; // plasmic-import: Ft4Mem_Zab/component
 
 import "@plasmicapp/react-web/lib/plasmic.css";
@@ -231,7 +231,7 @@ function PlasmicShop__RenderFunc(props: {
                             )}
                           </ph.DataCtxReader>
                         }
-                        sort={"price-desc"}
+                        sort={"trending-desc"}
                       >
                         <ph.DataCtxReader>
                           {$ctx => (
@@ -269,7 +269,6 @@ const PlasmicDescendants = {
     "productCollection",
     "productCardJbs"
   ],
-
   fullPage: [
     "fullPage",
     "section",
@@ -279,7 +278,6 @@ const PlasmicDescendants = {
     "productCollection",
     "productCardJbs"
   ],
-
   section: [
     "section",
     "categoryCollection",
@@ -288,7 +286,6 @@ const PlasmicDescendants = {
     "productCollection",
     "productCardJbs"
   ],
-
   categoryCollection: [
     "categoryCollection",
     "freeBox",
@@ -296,7 +293,6 @@ const PlasmicDescendants = {
     "productCollection",
     "productCardJbs"
   ],
-
   freeBox: ["freeBox", "categoryField", "productCollection", "productCardJbs"],
   categoryField: ["categoryField"],
   productCollection: ["productCollection", "productCardJbs"],
@@ -321,7 +317,6 @@ type NodeOverridesType<T extends NodeNameType> = Pick<
   PlasmicShop__OverridesType,
   DescendantsType<T>
 >;
-
 type NodeComponentProps<T extends NodeNameType> =
   // Explicitly specify variants, args, and overrides as objects
   {

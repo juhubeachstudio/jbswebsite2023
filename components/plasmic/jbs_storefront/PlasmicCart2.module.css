@@ -56,7 +56,7 @@
   height: auto;
   max-width: 100%;
 }
-.button2__w6F7L:global(.__wab_instance) {
+.button__w6F7L:global(.__wab_instance) {
   max-width: 100%;
   position: relative;
 }
@@ -215,7 +215,7 @@
   height: auto;
   flex-shrink: 0;
 }
-.button2__fcEjs:global(.__wab_instance) {
+.button__fcEjs:global(.__wab_instance) {
   max-width: 100%;
   position: relative;
 }
@@ -244,7 +244,7 @@
   text-align: center;
   min-width: 0;
 }
-.button2___4W2A8:global(.__wab_instance) {
+.button___4W2A8:global(.__wab_instance) {
   position: relative;
   max-width: 100%;
 }
@@ -303,6 +303,29 @@
     font-weight: 700;
   }
 }
+.freeBox__g3ALw {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+  padding: 16px 8px;
+}
+.p {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  font-weight: 700;
+  min-width: 0;
+}
+.specialInstructionsInput:global(.__wab_instance):global(.__wab_instance) {
+  position: relative;
+}
 .freeBox__dON3 {
   display: flex;
   position: relative;
@@ -315,7 +338,7 @@
   min-width: 0;
   padding: 16px 8px;
 }
-.button2__ywrkm:global(.__wab_instance) {
+.button__ywrkm:global(.__wab_instance) {
   max-width: 100%;
   position: relative;
 }
@@ -329,6 +352,25 @@
   text-transform: uppercase;
 }
 .svg__hfoC {
+  position: relative;
+  object-fit: cover;
+  width: auto;
+  height: 1em;
+}
+.button__wg6Q2:global(.__wab_instance) {
+  max-width: 100%;
+  position: relative;
+}
+.svg__ti2Pg {
+  position: relative;
+  object-fit: cover;
+  width: auto;
+  height: 1em;
+}
+.checkout2Button {
+  text-transform: uppercase;
+}
+.svg__wxscO {
   position: relative;
   object-fit: cover;
   width: auto;

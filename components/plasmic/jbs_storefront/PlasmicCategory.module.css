@@ -113,6 +113,18 @@
     grid-template-columns: repeat(auto-fill, minmax(45vw, 1fr));
   }
 }
+.freeBox__jy2A1 {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+  padding: 8px;
+}
 .productCardJbs:global(.__wab_instance) {
   max-width: 100%;
 }
@@ -129,6 +141,11 @@
   height: auto;
   max-width: 100%;
   min-width: 0;
+}
+.productMedia:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+  position: relative;
 }
 .text___2Ayx {
   position: relative;
@@ -172,7 +189,7 @@
   > img {
   margin-left: 38px;
 }
-.button2___2Yksa:global(.__wab_instance) {
+.button___2Yksa:global(.__wab_instance) {
   max-width: 100%;
 }
 .svg__ufk2C {
@@ -191,7 +208,7 @@
   width: auto;
   height: 1em;
 }
-.button2__ofyzo:global(.__wab_instance) {
+.button__ofyzo:global(.__wab_instance) {
   max-width: 100%;
 }
 .svg__sntmU {

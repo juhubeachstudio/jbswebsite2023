@@ -47,8 +47,7 @@
           "componentImportPath": "@plasmicpkgs/plasmic-query"
         }
       ],
-      "customFunctions": [],
-      "jsBundleThemes": []
+      "customFunctions": []
     },
     {
       "projectId": "i3z63WaCLuRiSZRBwZC8d1",
@@ -70,8 +69,7 @@
           "componentImportPath": "@plasmicpkgs/commerce-shopify"
         }
       ],
-      "customFunctions": [],
-      "jsBundleThemes": []
+      "customFunctions": []
     },
     {
       "projectId": "xp1p7dmg329XVLHyuEUxD2",
@@ -189,8 +187,7 @@
           "componentImportPath": "@plasmicpkgs/commerce"
         }
       ],
-      "customFunctions": [],
-      "jsBundleThemes": []
+      "customFunctions": []
     },
     {
       "projectId": "r3ASNrnyvLLLAtDvzUioQ",
@@ -216,8 +213,7 @@
           }
         }
       ],
-      "customFunctions": [],
-      "jsBundleThemes": []
+      "customFunctions": []
     },
     {
       "projectId": "ohDidvG9XsCeFumugENU3J",
@@ -356,29 +352,29 @@
           "id": "TgJFzUZpvQ",
           "name": "FormWrapper",
           "displayName": "plasmic-antd5-form",
-          "componentImportPath": "@plasmicpkgs/antd5/skinny/registerForm",
+          "componentImportPath": "@plasmicpkgs/antd5/skinny/SchemaForm",
           "helper": {
             "name": "formHelpers",
-            "importPath": "@plasmicpkgs/antd5/skinny/registerForm"
+            "importPath": "@plasmicpkgs/antd5/skinny/Form"
           }
         },
         {
           "id": "EYHwZh9ILg",
           "name": "FormItemWrapper",
           "displayName": "plasmic-antd5-form-item",
-          "componentImportPath": "@plasmicpkgs/antd5/skinny/registerForm"
+          "componentImportPath": "@plasmicpkgs/antd5/skinny/FormItem"
         },
         {
           "id": "zEXrWX9naj",
           "name": "FormGroup",
           "displayName": "plasmic-antd5-form-group",
-          "componentImportPath": "@plasmicpkgs/antd5/skinny/registerForm"
+          "componentImportPath": "@plasmicpkgs/antd5/skinny/FormGroup"
         },
         {
           "id": "M2mN_XzxO4",
           "name": "FormListWrapper",
           "displayName": "plasmic-antd5-form-list",
-          "componentImportPath": "@plasmicpkgs/antd5/skinny/registerForm"
+          "componentImportPath": "@plasmicpkgs/antd5/skinny/FormList"
         },
         {
           "id": "Vf5hntD2SZ5",
@@ -605,8 +601,7 @@
           }
         }
       ],
-      "customFunctions": [],
-      "jsBundleThemes": []
+      "customFunctions": []
     },
     {
       "projectId": "7nJ7UcFmq9UzB6eXfC5z4a",
@@ -628,8 +623,7 @@
           "componentImportPath": "@plasmicpkgs/plasmic-nav"
         }
       ],
-      "customFunctions": [],
-      "jsBundleThemes": []
+      "customFunctions": []
     },
     {
       "projectId": "heL2P6rJiLNgtnBJPb6i1m",
@@ -690,20 +684,6 @@
           "cssFilePath": "plasmic/jbs_storefront/PlasmicFullpageheight.module.css",
           "scheme": "blackbox",
           "componentType": "component"
-        },
-        {
-          "id": "yEsI5slGwPm",
-          "name": "Button2",
-          "type": "managed",
-          "projectId": "heL2P6rJiLNgtnBJPb6i1m",
-          "renderModuleFilePath": "plasmic/jbs_storefront/PlasmicButton2.tsx",
-          "importSpec": {
-            "modulePath": "Button2.tsx"
-          },
-          "cssFilePath": "plasmic/jbs_storefront/PlasmicButton2.module.css",
-          "scheme": "blackbox",
-          "componentType": "component",
-          "plumeType": "button"
         },
         {
           "id": "mZogRkwS1rd",
@@ -1149,6 +1129,72 @@
           "cssFilePath": "plasmic/jbs_storefront/PlasmicSomethingNewSlider2.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "yEsI5slGwPm",
+          "name": "Button",
+          "type": "managed",
+          "projectId": "heL2P6rJiLNgtnBJPb6i1m",
+          "renderModuleFilePath": "plasmic/jbs_storefront/PlasmicButton.tsx",
+          "importSpec": {
+            "modulePath": "Button.tsx"
+          },
+          "cssFilePath": "plasmic/jbs_storefront/PlasmicButton.module.css",
+          "scheme": "blackbox",
+          "componentType": "component",
+          "plumeType": "button"
+        },
+        {
+          "id": "3Ndtrkcj4d1_",
+          "name": "HomepageCategoryCollection",
+          "type": "managed",
+          "projectId": "heL2P6rJiLNgtnBJPb6i1m",
+          "renderModuleFilePath": "plasmic/jbs_storefront/PlasmicHomepageCategoryCollection.tsx",
+          "importSpec": {
+            "modulePath": "HomepageCategoryCollection.tsx"
+          },
+          "cssFilePath": "plasmic/jbs_storefront/PlasmicHomepageCategoryCollection.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "znFTM0nXx5O6",
+          "name": "SpecialInstructionsInput",
+          "type": "managed",
+          "projectId": "heL2P6rJiLNgtnBJPb6i1m",
+          "renderModuleFilePath": "plasmic/jbs_storefront/PlasmicSpecialInstructionsInput.tsx",
+          "importSpec": {
+            "modulePath": "SpecialInstructionsInput.tsx"
+          },
+          "cssFilePath": "plasmic/jbs_storefront/PlasmicSpecialInstructionsInput.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "757cVg1UQoNd",
+          "name": "CustomButton",
+          "type": "managed",
+          "projectId": "heL2P6rJiLNgtnBJPb6i1m",
+          "renderModuleFilePath": "plasmic/jbs_storefront/PlasmicCustomButton.tsx",
+          "importSpec": {
+            "modulePath": "CustomButton.tsx"
+          },
+          "cssFilePath": "plasmic/jbs_storefront/PlasmicCustomButton.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "ygJs84GAOvt9",
+          "name": "CtaButton",
+          "type": "managed",
+          "projectId": "heL2P6rJiLNgtnBJPb6i1m",
+          "renderModuleFilePath": "plasmic/jbs_storefront/PlasmicCtaButton.tsx",
+          "importSpec": {
+            "modulePath": "CtaButton.tsx"
+          },
+          "cssFilePath": "plasmic/jbs_storefront/PlasmicCtaButton.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [
@@ -1271,6 +1317,41 @@
           "id": "69HLYm9NeIDx",
           "name": "Facebook176SvgrepoComsvg2Icon",
           "moduleFilePath": "plasmic/jbs_storefront/icons/PlasmicIcon__Facebook176SvgrepoComsvg2.tsx"
+        },
+        {
+          "id": "UJbuthH60ZPo",
+          "name": "PhonesvgIcon",
+          "moduleFilePath": "plasmic/jbs_storefront/icons/PlasmicIcon__Phonesvg.tsx"
+        },
+        {
+          "id": "lU94bZH3x1Vg",
+          "name": "Icon4Icon",
+          "moduleFilePath": "plasmic/jbs_storefront/icons/PlasmicIcon__Icon4.tsx"
+        },
+        {
+          "id": "cE8hTbS6ohpL",
+          "name": "Icon5Icon",
+          "moduleFilePath": "plasmic/jbs_storefront/icons/PlasmicIcon__Icon5.tsx"
+        },
+        {
+          "id": "5oICJGFIO-9r",
+          "name": "SlideRightIcon",
+          "moduleFilePath": "plasmic/jbs_storefront/icons/PlasmicIcon__SlideRight.tsx"
+        },
+        {
+          "id": "2DBjn0QV9XuJ",
+          "name": "SlideLeftIcon",
+          "moduleFilePath": "plasmic/jbs_storefront/icons/PlasmicIcon__SlideLeft.tsx"
+        },
+        {
+          "id": "igWE0GYF7JlT",
+          "name": "NextArrowIcon",
+          "moduleFilePath": "plasmic/jbs_storefront/icons/PlasmicIcon__NextArrow.tsx"
+        },
+        {
+          "id": "ESn-GSFA8a73",
+          "name": "PreviousArrowIcon",
+          "moduleFilePath": "plasmic/jbs_storefront/icons/PlasmicIcon__PreviousArrow.tsx"
         }
       ],
       "images": [
@@ -1973,6 +2054,11 @@
           "id": "jzVLmJzZ8KVS",
           "name": "The Juhu Beach narrow.webp",
           "filePath": "../public/plasmic/jbs_storefront/images/theJuhuBeachNarrowwebp.webp"
+        },
+        {
+          "id": "J53w0pmbF_Z8",
+          "name": "_Popping Cat Meme _ Sticker for Sale by Merch-On.jpeg",
+          "filePath": "../public/plasmic/jbs_storefront/images/poppingCatMemeStickerForSaleByMerchOnjpeg.jpg"
         }
       ],
       "indirect": false,
@@ -2056,8 +2142,7 @@
           "componentImportPath": "@plasmicpkgs/plasmic-basic-components"
         }
       ],
-      "customFunctions": [],
-      "jsBundleThemes": []
+      "customFunctions": []
     },
     {
       "projectId": "58GpZjZCWTaJ8AUhpCwt2K",
@@ -2079,8 +2164,7 @@
           "componentImportPath": "@plasmicpkgs/react-awesome-reveal"
         }
       ],
-      "customFunctions": [],
-      "jsBundleThemes": []
+      "customFunctions": []
     }
   ],
   "globalVariants": {
@@ -2097,6 +2181,6 @@
   "nextjsConfig": {
     "pagesDir": "../pages"
   },
-  "cliVersion": "0.1.322",
-  "$schema": "https://unpkg.com/@plasmicapp/cli@0.1.322/dist/plasmic.schema.json"
+  "cliVersion": "0.1.323",
+  "$schema": "https://unpkg.com/@plasmicapp/cli@0.1.323/dist/plasmic.schema.json"
 }

@@ -37,20 +37,21 @@ import {
   ensureGlobalVariants
 } from "@plasmicapp/react-web";
 import FullPage from "../../FullPage"; // plasmic-import: VpRM2nIn0R/component
-import { SliderWrapper } from "@plasmicpkgs/react-slick"; // plasmic-import: HOQUyOpClJ/codeComponent
-import { sliderHelpers as SliderWrapper_Helpers } from "@plasmicpkgs/react-slick"; // plasmic-import: HOQUyOpClJ/codeComponentHelper
+import { SliderWrapper } from "@plasmicpkgs/react-slick";
+import { sliderHelpers as SliderWrapper_Helpers } from "@plasmicpkgs/react-slick";
 import FullpageheightSlide from "../../FullpageheightSlide"; // plasmic-import: 50I_Uslx5bS3/component
 import Section from "../../Section"; // plasmic-import: GMAR4VOl00/component
 import Blackyellowborder from "../../Blackyellowborder"; // plasmic-import: qeyEUvMFwY/component
-import { CategoryCollection } from "@plasmicpkgs/commerce"; // plasmic-import: ny07p45F84c_/codeComponent
+import { CategoryCollection } from "@plasmicpkgs/commerce";
 import Marquee from "react-fast-marquee"; // plasmic-import: m9EkGU-jS0/codeComponent
+import CustomButton from "../../CustomButton"; // plasmic-import: 757cVg1UQoNd/component
 import FullpagewidthSlide from "../../FullpagewidthSlide"; // plasmic-import: DUKvgkpbeBWf/component
-import Button2 from "../../Button2"; // plasmic-import: yEsI5slGwPm/component
-import { ProductCollection } from "@plasmicpkgs/commerce"; // plasmic-import: vU2jzVAnFP/codeComponent
-import ProductCardNew from "../../ProductCardNew"; // plasmic-import: Wsp5Dvtab1WW/component
-import { ProductBox } from "@plasmicpkgs/commerce"; // plasmic-import: 1gYJf_XBZUAD/codeComponent
-import { ProductMedia } from "@plasmicpkgs/commerce"; // plasmic-import: qpULM0wwWW/codeComponent
-import { ProductTextField } from "@plasmicpkgs/commerce"; // plasmic-import: S1F4q0wN6b/codeComponent
+import Button from "../../Button"; // plasmic-import: yEsI5slGwPm/component
+import HomepageCategoryCollection from "../../HomepageCategoryCollection"; // plasmic-import: 3Ndtrkcj4d1_/component
+import { ProductCollection } from "@plasmicpkgs/commerce";
+import { ProductBox } from "@plasmicpkgs/commerce";
+import { ProductMedia } from "@plasmicpkgs/commerce";
+import { ProductTextField } from "@plasmicpkgs/commerce";
 import SurpriseMeButton from "../../SurpriseMeButton"; // plasmic-import: cuLrZTUy4Zrk/component
 import FullpagewidthSlide2 from "../../FullpagewidthSlide2"; // plasmic-import: dIysgpuSQtRE/component
 
@@ -62,6 +63,10 @@ import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic_antd_5_hostl
 import projectcss from "./plasmic_jbs_storefront.module.css"; // plasmic-import: heL2P6rJiLNgtnBJPb6i1m/projectcss
 import sty from "./PlasmicHomepage.module.css"; // plasmic-import: HsoJyy15p4bPd/css
 
+import PreviousArrowIcon from "./icons/PlasmicIcon__PreviousArrow"; // plasmic-import: ESn-GSFA8a73/icon
+import NextArrowIcon from "./icons/PlasmicIcon__NextArrow"; // plasmic-import: igWE0GYF7JlT/icon
+import SlideRightIcon from "./icons/PlasmicIcon__SlideRight"; // plasmic-import: 5oICJGFIO-9r/icon
+import SlideLeftIcon from "./icons/PlasmicIcon__SlideLeft"; // plasmic-import: 2DBjn0QV9XuJ/icon
 import ChecksvgIcon from "./icons/PlasmicIcon__Checksvg"; // plasmic-import: ew07hyuAC0c/icon
 import Icon38Icon from "./icons/PlasmicIcon__Icon38"; // plasmic-import: 3r4KXWygi9v/icon
 
@@ -89,19 +94,16 @@ export type PlasmicHomepage__OverridesType = {
   fullPage?: p.Flex<typeof FullPage>;
   sliderCarousel?: p.Flex<typeof SliderWrapper>;
   sliderCarousel12?: p.Flex<typeof SliderWrapper>;
+  previous?: p.Flex<"svg">;
+  next?: p.Flex<"svg">;
   categoryCollection?: p.Flex<typeof CategoryCollection>;
   sliderCarousel2?: p.Flex<typeof SliderWrapper>;
   sliderCarousel9?: p.Flex<typeof SliderWrapper>;
   sliderCarousel3?: p.Flex<typeof SliderWrapper>;
-  sliderCarousel4?: p.Flex<typeof SliderWrapper>;
-  sliderCarousel10?: p.Flex<typeof SliderWrapper>;
   sliderCarousel5?: p.Flex<typeof SliderWrapper>;
   sliderCarousel11?: p.Flex<typeof SliderWrapper>;
   surpriseMeButton?: p.Flex<typeof SurpriseMeButton>;
   sliderCarousel6?: p.Flex<typeof SliderWrapper>;
-  sliderCarousel7?: p.Flex<typeof SliderWrapper>;
-  sliderCarousel8?: p.Flex<typeof SliderWrapper>;
-  svg?: p.Flex<"svg">;
 };
 
 export interface DefaultHomepageProps {}
@@ -143,9 +145,21 @@ function PlasmicHomepage__RenderFunc(props: {
         path: "sliderCarousel.currentSlide",
         type: "private",
         variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) => 1,
+        initFunc: ({ $props, $state, $queries, $ctx }) => 0,
 
         refName: "sliderCarousel",
+        onMutate: p.generateOnMutateForSpec(
+          "currentSlide",
+          SliderWrapper_Helpers
+        )
+      },
+      {
+        path: "sliderCarousel12.currentSlide",
+        type: "private",
+        variableType: "number",
+        initFunc: ({ $props, $state, $queries, $ctx }) => 0,
+
+        refName: "sliderCarousel12",
         onMutate: p.generateOnMutateForSpec(
           "currentSlide",
           SliderWrapper_Helpers
@@ -164,24 +178,24 @@ function PlasmicHomepage__RenderFunc(props: {
         )
       },
       {
-        path: "sliderCarousel3.currentSlide",
+        path: "sliderCarousel9.currentSlide",
         type: "private",
         variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) => 1,
+        initFunc: ({ $props, $state, $queries, $ctx }) => 0,
 
-        refName: "sliderCarousel3",
+        refName: "sliderCarousel9",
         onMutate: p.generateOnMutateForSpec(
           "currentSlide",
           SliderWrapper_Helpers
         )
       },
       {
-        path: "sliderCarousel4.currentSlide",
+        path: "sliderCarousel3.currentSlide",
         type: "private",
         variableType: "number",
         initFunc: ({ $props, $state, $queries, $ctx }) => 0,
 
-        refName: "sliderCarousel4",
+        refName: "sliderCarousel3",
         onMutate: p.generateOnMutateForSpec(
           "currentSlide",
           SliderWrapper_Helpers
@@ -200,85 +214,24 @@ function PlasmicHomepage__RenderFunc(props: {
         )
       },
       {
-        path: "sliderCarousel6.currentSlide",
-        type: "private",
-        variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
-          hasVariant(globalVariants, "screen", "mobileOnly") ? 1 : 0,
-
-        refName: "sliderCarousel6",
-        onMutate: p.generateOnMutateForSpec(
-          "currentSlide",
-          SliderWrapper_Helpers
-        )
-      },
-      {
-        path: "sliderCarousel7.currentSlide",
-        type: "private",
-        variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) => 0,
-
-        refName: "sliderCarousel7",
-        onMutate: p.generateOnMutateForSpec(
-          "currentSlide",
-          SliderWrapper_Helpers
-        )
-      },
-      {
-        path: "sliderCarousel9.currentSlide",
-        type: "private",
-        variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) => 0,
-
-        refName: "sliderCarousel9",
-        onMutate: p.generateOnMutateForSpec(
-          "currentSlide",
-          SliderWrapper_Helpers
-        )
-      },
-      {
-        path: "sliderCarousel10.currentSlide",
-        type: "private",
-        variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) => 0,
-
-        refName: "sliderCarousel10",
-        onMutate: p.generateOnMutateForSpec(
-          "currentSlide",
-          SliderWrapper_Helpers
-        )
-      },
-      {
-        path: "sliderCarousel8.currentSlide",
-        type: "private",
-        variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) => 0,
-
-        refName: "sliderCarousel8",
-        onMutate: p.generateOnMutateForSpec(
-          "currentSlide",
-          SliderWrapper_Helpers
-        )
-      },
-      {
-        path: "sliderCarousel12.currentSlide",
-        type: "private",
-        variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) => 1,
-
-        refName: "sliderCarousel12",
-        onMutate: p.generateOnMutateForSpec(
-          "currentSlide",
-          SliderWrapper_Helpers
-        )
-      },
-      {
         path: "sliderCarousel11.currentSlide",
         type: "private",
         variableType: "number",
         initFunc: ({ $props, $state, $queries, $ctx }) => 0,
 
         refName: "sliderCarousel11",
+        onMutate: p.generateOnMutateForSpec(
+          "currentSlide",
+          SliderWrapper_Helpers
+        )
+      },
+      {
+        path: "sliderCarousel6.currentSlide",
+        type: "private",
+        variableType: "number",
+        initFunc: ({ $props, $state, $queries, $ctx }) => 0,
+
+        refName: "sliderCarousel6",
         onMutate: p.generateOnMutateForSpec(
           "currentSlide",
           SliderWrapper_Helpers
@@ -331,6 +284,7 @@ function PlasmicHomepage__RenderFunc(props: {
           >
             {(() => {
               const child$Props = {
+                adaptiveHeight: false,
                 arrows: false,
                 autoplay: true,
                 autoplaySpeed: 2000,
@@ -341,12 +295,10 @@ function PlasmicHomepage__RenderFunc(props: {
                   SliderWrapper_Helpers
                 ),
                 className: classNames("__wab_instance", sty.sliderCarousel),
-                dots: false,
-                editingSlide: p.generateStateValueProp($state, [
+                initialSlide: p.generateStateValueProp($state, [
                   "sliderCarousel",
                   "currentSlide"
                 ]),
-                initialSlide: 0,
                 pauseOnHover: false,
                 ref: ref => {
                   $refs["sliderCarousel"] = ref;
@@ -446,10 +398,6 @@ function PlasmicHomepage__RenderFunc(props: {
                     </p.PlasmicLink>
                   </FullpageheightSlide>
                   <FullpageheightSlide
-                    className={classNames(
-                      "__wab_instance",
-                      sty.fullpageheightSlide__wlbCj
-                    )}
                     slot={"Bucket Hats"}
                     slot2={"Reversible Topis in lots of juicy colours"}
                   >
@@ -467,7 +415,7 @@ function PlasmicHomepage__RenderFunc(props: {
                         alt={""}
                         className={classNames(sty.img__fbuK1)}
                         displayHeight={"100%"}
-                        displayMaxHeight={"none"}
+                        displayMaxHeight={"100%"}
                         displayMaxWidth={"100%"}
                         displayMinHeight={"0"}
                         displayMinWidth={"0"}
@@ -677,11 +625,10 @@ function PlasmicHomepage__RenderFunc(props: {
                 ),
                 className: classNames("__wab_instance", sty.sliderCarousel12),
                 dots: true,
-                editingSlide: p.generateStateValueProp($state, [
+                initialSlide: p.generateStateValueProp($state, [
                   "sliderCarousel12",
                   "currentSlide"
                 ]),
-                initialSlide: 0,
                 pauseOnHover: false,
                 ref: ref => {
                   $refs["sliderCarousel12"] = ref;
@@ -1073,13 +1020,86 @@ function PlasmicHomepage__RenderFunc(props: {
 
               <div className={classNames(projectcss.all, sty.freeBox__ai3H)}>
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__fLro1
-                  )}
+                  className={classNames(projectcss.all, sty.freeBox___9Qpdv)}
                 >
-                  {"Shop Categories"}
+                  <PreviousArrowIcon
+                    data-plasmic-name={"previous"}
+                    data-plasmic-override={overrides.previous}
+                    className={classNames(projectcss.all, sty.previous)}
+                    onClick={async event => {
+                      const $steps = {};
+
+                      $steps["runActionOnSliderCarousel2"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              tplRef: "sliderCarousel2",
+                              action: "slickPrev"
+                            };
+                            return (({ tplRef, action, args }) => {
+                              return $refs?.[tplRef]?.[action]?.(
+                                ...(args ?? [])
+                              );
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["runActionOnSliderCarousel2"] != null &&
+                        typeof $steps["runActionOnSliderCarousel2"] ===
+                          "object" &&
+                        typeof $steps["runActionOnSliderCarousel2"].then ===
+                          "function"
+                      ) {
+                        $steps["runActionOnSliderCarousel2"] = await $steps[
+                          "runActionOnSliderCarousel2"
+                        ];
+                      }
+                    }}
+                    role={"img"}
+                  />
+
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__fLro1
+                    )}
+                  >
+                    {"Shop Categories"}
+                  </div>
+                  <NextArrowIcon
+                    data-plasmic-name={"next"}
+                    data-plasmic-override={overrides.next}
+                    className={classNames(projectcss.all, sty.next)}
+                    onClick={async event => {
+                      const $steps = {};
+
+                      $steps["runActionOnSliderCarousel2"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              tplRef: "sliderCarousel2",
+                              action: "slickNext"
+                            };
+                            return (({ tplRef, action, args }) => {
+                              return $refs?.[tplRef]?.[action]?.(
+                                ...(args ?? [])
+                              );
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["runActionOnSliderCarousel2"] != null &&
+                        typeof $steps["runActionOnSliderCarousel2"] ===
+                          "object" &&
+                        typeof $steps["runActionOnSliderCarousel2"].then ===
+                          "function"
+                      ) {
+                        $steps["runActionOnSliderCarousel2"] = await $steps[
+                          "runActionOnSliderCarousel2"
+                        ];
+                      }
+                    }}
+                    role={"img"}
+                  />
                 </div>
                 <CategoryCollection
                   data-plasmic-name={"categoryCollection"}
@@ -1128,6 +1148,7 @@ function PlasmicHomepage__RenderFunc(props: {
                             arrowColor: true
                               ? "var(--antd-colorWhite)"
                               : undefined,
+                            arrows: false,
                             autoplay: true,
                             autoplaySpeed: 1500,
                             beforeChange:
@@ -1143,12 +1164,12 @@ function PlasmicHomepage__RenderFunc(props: {
                               sty.sliderCarousel2
                             ),
                             dots: true,
-                            editingSlide: p.generateStateValueProp($state, [
+                            initialSlide: p.generateStateValueProp($state, [
                               "sliderCarousel2",
                               "currentSlide"
                             ]),
-                            initialSlide: 0,
-                            pauseOnHover: false,
+                            pauseOnDotsHover: true,
+                            pauseOnHover: true,
                             ref: ref => {
                               $refs["sliderCarousel2"] = ref;
                             },
@@ -1301,21 +1322,22 @@ function PlasmicHomepage__RenderFunc(props: {
                                 SliderWrapper_Helpers
                               ),
                             centerMode: true,
+                            centerPadding: "30px",
                             className: classNames(
                               "__wab_instance",
                               sty.sliderCarousel9
                             ),
-                            dots: true,
-                            editingSlide: p.generateStateValueProp($state, [
+                            dots: false,
+                            initialSlide: p.generateStateValueProp($state, [
                               "sliderCarousel9",
                               "currentSlide"
                             ]),
-                            initialSlide: 0,
                             ref: ref => {
                               $refs["sliderCarousel9"] = ref;
                             },
                             sliderScopeClassName:
                               sty["sliderCarousel9__slider"],
+                            slidesPerRow: 2,
                             slidesToShow: 1,
                             swipeToSlide: true
                           };
@@ -1397,7 +1419,7 @@ function PlasmicHomepage__RenderFunc(props: {
                                       <p.PlasmicImg
                                         alt={""}
                                         className={classNames(sty.img___76TeL)}
-                                        displayHeight={"auto"}
+                                        displayHeight={"100%"}
                                         displayMaxHeight={"none"}
                                         displayMaxWidth={"none"}
                                         displayMinHeight={"0"}
@@ -1477,119 +1499,209 @@ function PlasmicHomepage__RenderFunc(props: {
                   </div>
                 </Marquee>
               </div>
-              {(() => {
-                const child$Props = {
-                  autoplay: true,
-                  autoplaySpeed: 2000,
-                  beforeChange: p.generateStateOnChangePropForCodeComponents(
-                    $state,
-                    "currentSlide",
-                    ["sliderCarousel3", "currentSlide"],
-                    SliderWrapper_Helpers
-                  ),
-                  className: classNames("__wab_instance", sty.sliderCarousel3),
-                  editingSlide: p.generateStateValueProp($state, [
-                    "sliderCarousel3",
-                    "currentSlide"
-                  ]),
-                  initialSlide: 0,
-                  ref: ref => {
-                    $refs["sliderCarousel3"] = ref;
-                  },
-                  sliderScopeClassName: sty["sliderCarousel3__slider"]
-                };
-                p.initializeCodeComponentStates(
-                  $state,
-                  [
-                    {
-                      name: "currentSlide",
-                      plasmicStateName: "sliderCarousel3.currentSlide"
-                    }
-                  ],
-                  [],
-                  SliderWrapper_Helpers ?? {},
-                  child$Props
-                );
+              <div className={classNames(projectcss.all, sty.freeBox__lGztE)}>
+                <CustomButton
+                  className={classNames(
+                    "__wab_instance",
+                    sty.customButton__tvyLj
+                  )}
+                  onClick={async event => {
+                    const $steps = {};
 
-                return (
-                  <SliderWrapper
-                    data-plasmic-name={"sliderCarousel3"}
-                    data-plasmic-override={overrides.sliderCarousel3}
-                    {...child$Props}
-                  >
-                    <FullpagewidthSlide
-                      className={classNames(
-                        "__wab_instance",
-                        sty.fullpagewidthSlide___3IreU
-                      )}
+                    $steps["runActionOnSliderCarousel3"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            tplRef: "sliderCarousel3",
+                            action: "slickNext"
+                          };
+                          return (({ tplRef, action, args }) => {
+                            return $refs?.[tplRef]?.[action]?.(...(args ?? []));
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["runActionOnSliderCarousel3"] != null &&
+                      typeof $steps["runActionOnSliderCarousel3"] ===
+                        "object" &&
+                      typeof $steps["runActionOnSliderCarousel3"].then ===
+                        "function"
+                    ) {
+                      $steps["runActionOnSliderCarousel3"] = await $steps[
+                        "runActionOnSliderCarousel3"
+                      ];
+                    }
+                  }}
+                >
+                  <SlideRightIcon
+                    className={classNames(projectcss.all, sty.svg__dA3So)}
+                    role={"img"}
+                  />
+                </CustomButton>
+                <CustomButton
+                  className={classNames(
+                    "__wab_instance",
+                    sty.customButton__agbs
+                  )}
+                  onClick={async event => {
+                    const $steps = {};
+
+                    $steps["runActionOnSliderCarousel3"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            tplRef: "sliderCarousel3",
+                            action: "slickPrev"
+                          };
+                          return (({ tplRef, action, args }) => {
+                            return $refs?.[tplRef]?.[action]?.(...(args ?? []));
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["runActionOnSliderCarousel3"] != null &&
+                      typeof $steps["runActionOnSliderCarousel3"] ===
+                        "object" &&
+                      typeof $steps["runActionOnSliderCarousel3"].then ===
+                        "function"
+                    ) {
+                      $steps["runActionOnSliderCarousel3"] = await $steps[
+                        "runActionOnSliderCarousel3"
+                      ];
+                    }
+                  }}
+                >
+                  <SlideLeftIcon
+                    className={classNames(projectcss.all, sty.svg__p9Drp)}
+                    role={"img"}
+                  />
+                </CustomButton>
+                {(() => {
+                  const child$Props = {
+                    arrows: false,
+                    autoplay: true,
+                    autoplaySpeed: 2000,
+                    beforeChange: p.generateStateOnChangePropForCodeComponents(
+                      $state,
+                      "currentSlide",
+                      ["sliderCarousel3", "currentSlide"],
+                      SliderWrapper_Helpers
+                    ),
+                    centerMode: false,
+                    className: classNames(
+                      "__wab_instance",
+                      sty.sliderCarousel3
+                    ),
+                    initialSlide: p.generateStateValueProp($state, [
+                      "sliderCarousel3",
+                      "currentSlide"
+                    ]),
+                    pauseOnDotsHover: true,
+                    ref: ref => {
+                      $refs["sliderCarousel3"] = ref;
+                    },
+                    sliderScopeClassName: sty["sliderCarousel3__slider"]
+                  };
+                  p.initializeCodeComponentStates(
+                    $state,
+                    [
+                      {
+                        name: "currentSlide",
+                        plasmicStateName: "sliderCarousel3.currentSlide"
+                      }
+                    ],
+                    [],
+                    SliderWrapper_Helpers ?? {},
+                    child$Props
+                  );
+
+                  return (
+                    <SliderWrapper
+                      data-plasmic-name={"sliderCarousel3"}
+                      data-plasmic-override={overrides.sliderCarousel3}
+                      {...child$Props}
                     >
-                      <p.PlasmicImg
-                        alt={""}
-                        className={classNames(sty.img___2P15K)}
-                        displayHeight={"100%"}
-                        displayMaxHeight={"none"}
-                        displayMaxWidth={"none"}
-                        displayMinHeight={"0"}
-                        displayMinWidth={"0"}
-                        displayWidth={"100%"}
-                        src={{
-                          src: "/plasmic/jbs_storefront/images/bannerChakhnaCatwebp.webp",
-                          fullWidth: 856,
-                          fullHeight: 1254,
-                          aspectRatio: undefined
-                        }}
-                      />
-                    </FullpagewidthSlide>
-                    <FullpagewidthSlide
-                      className={classNames(
-                        "__wab_instance",
-                        sty.fullpagewidthSlide__rOnB
-                      )}
-                    >
-                      <p.PlasmicImg
-                        alt={""}
-                        className={classNames(sty.img___5Sw5)}
-                        displayHeight={"100%"}
-                        displayMaxHeight={"none"}
-                        displayMaxWidth={"none"}
-                        displayMinHeight={"0"}
-                        displayMinWidth={"0"}
-                        displayWidth={"100%"}
-                        src={{
-                          src: "/plasmic/jbs_storefront/images/bannerChakhnaSlipperswebp.webp",
-                          fullWidth: 855,
-                          fullHeight: 1255,
-                          aspectRatio: undefined
-                        }}
-                      />
-                    </FullpagewidthSlide>
-                    <FullpagewidthSlide
-                      className={classNames(
-                        "__wab_instance",
-                        sty.fullpagewidthSlide__ozUiu
-                      )}
-                    >
-                      <p.PlasmicImg
-                        alt={""}
-                        className={classNames(sty.img__yv4Fp)}
-                        displayHeight={"100%"}
-                        displayMaxHeight={"none"}
-                        displayMaxWidth={"none"}
-                        displayMinHeight={"0"}
-                        displayMinWidth={"0"}
-                        displayWidth={"100%"}
-                        src={{
-                          src: "/plasmic/jbs_storefront/images/bannerChakhnaAntswebp.webp",
-                          fullWidth: 5375,
-                          fullHeight: 7960,
-                          aspectRatio: undefined
-                        }}
-                      />
-                    </FullpagewidthSlide>
-                  </SliderWrapper>
-                );
-              })()}
+                      <FullpagewidthSlide
+                        className={classNames(
+                          "__wab_instance",
+                          sty.fullpagewidthSlide__ozUiu
+                        )}
+                      >
+                        <p.PlasmicImg
+                          alt={""}
+                          className={classNames(sty.img___2P15K)}
+                          displayHeight={"100%"}
+                          displayMaxHeight={"none"}
+                          displayMaxWidth={"none"}
+                          displayMinHeight={"0"}
+                          displayMinWidth={"0"}
+                          displayWidth={"100%"}
+                          src={{
+                            src: "/plasmic/jbs_storefront/images/bannerChakhnaCatwebp.webp",
+                            fullWidth: 856,
+                            fullHeight: 1254,
+                            aspectRatio: undefined
+                          }}
+                        />
+                      </FullpagewidthSlide>
+                      <FullpagewidthSlide
+                        className={classNames(
+                          "__wab_instance",
+                          sty.fullpagewidthSlide___3IreU
+                        )}
+                      >
+                        <p.PlasmicImg
+                          alt={""}
+                          className={classNames(sty.img__yv4Fp)}
+                          displayHeight={"100%"}
+                          displayMaxHeight={"none"}
+                          displayMaxWidth={"none"}
+                          displayMinHeight={"0"}
+                          displayMinWidth={"0"}
+                          displayWidth={"100%"}
+                          src={{
+                            src: "/plasmic/jbs_storefront/images/bannerChakhnaAntswebp.webp",
+                            fullWidth: 5375,
+                            fullHeight: 7960,
+                            aspectRatio: undefined
+                          }}
+                        />
+                      </FullpagewidthSlide>
+                      <FullpagewidthSlide
+                        className={classNames(
+                          "__wab_instance",
+                          sty.fullpagewidthSlide__rOnB
+                        )}
+                      >
+                        <p.PlasmicImg
+                          alt={""}
+                          className={classNames(sty.img___5Sw5)}
+                          displayHeight={"100%"}
+                          displayMaxHeight={"none"}
+                          displayMaxWidth={"none"}
+                          displayMinHeight={"0"}
+                          displayMinWidth={"0"}
+                          displayWidth={"100%"}
+                          src={{
+                            src: "/plasmic/jbs_storefront/images/bannerChakhnaSlipperswebp.webp",
+                            fullWidth: 855,
+                            fullHeight: 1255,
+                            aspectRatio: undefined
+                          }}
+                        />
+                      </FullpagewidthSlide>
+                    </SliderWrapper>
+                  );
+                })()}
+              </div>
               <div className={classNames(projectcss.all, sty.freeBox__aKsCx)}>
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__eymJe
+                  )}
+                >
+                  {"Presenting"}
+                </div>
                 <div className={classNames(projectcss.all, sty.freeBox__mHaDk)}>
                   {p.renderPlasmicSlot({
                     defaultContents: "Chakhna",
@@ -1607,13 +1719,14 @@ function PlasmicHomepage__RenderFunc(props: {
                 </div>
                 {p.renderPlasmicSlot({
                   defaultContents: (
-                    <Button2
+                    <Button
                       className={classNames(
                         "__wab_instance",
-                        sty.button2__fCyO0
+                        sty.button__fCyO0
                       )}
-                      color={"red"}
+                      color={"redJbs"}
                       link={`/category/${"chakhna"}`}
+                      size={"minimal"}
                     >
                       <div
                         className={classNames(
@@ -1624,215 +1737,20 @@ function PlasmicHomepage__RenderFunc(props: {
                       >
                         {"Shop all Chakhna"}
                       </div>
-                    </Button2>
+                    </Button>
                   ),
                   value: args.slot3
                 })}
               </div>
             </Section>
             <div className={classNames(projectcss.all, sty.freeBox__gynRd)}>
-              <ProductCollection
+              <HomepageCategoryCollection
                 category={"gid://shopify/Collection/456658977064"}
                 className={classNames(
                   "__wab_instance",
-                  sty.productCollection__xe29Q
+                  sty.homepageCategoryCollection___68I01
                 )}
-                emptyMessage={
-                  <ph.DataCtxReader>
-                    {$ctx => (
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text__ePlfr
-                        )}
-                      >
-                        {"No product found!"}
-                      </div>
-                    )}
-                  </ph.DataCtxReader>
-                }
-                loadingMessage={
-                  <ph.DataCtxReader>
-                    {$ctx => (
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text__xIY
-                        )}
-                      >
-                        {"Loading..."}
-                      </div>
-                    )}
-                  </ph.DataCtxReader>
-                }
-                noAutoRepeat={true}
-                noLayout={true}
-              >
-                <ph.DataCtxReader>
-                  {$ctx => (
-                    <React.Fragment>
-                      {(() => {
-                        const child$Props = {
-                          autoplay: true,
-                          autoplaySpeed: 1500,
-                          beforeChange:
-                            p.generateStateOnChangePropForCodeComponents(
-                              $state,
-                              "currentSlide",
-                              ["sliderCarousel4", "currentSlide"],
-                              SliderWrapper_Helpers
-                            ),
-                          className: classNames(
-                            "__wab_instance",
-                            sty.sliderCarousel4
-                          ),
-                          editingSlide: p.generateStateValueProp($state, [
-                            "sliderCarousel4",
-                            "currentSlide"
-                          ]),
-                          initialSlide: 0,
-                          ref: ref => {
-                            $refs["sliderCarousel4"] = ref;
-                          },
-                          sliderScopeClassName: sty["sliderCarousel4__slider"],
-                          slidesPerRow: 5
-                        };
-                        p.initializeCodeComponentStates(
-                          $state,
-                          [
-                            {
-                              name: "currentSlide",
-                              plasmicStateName: "sliderCarousel4.currentSlide"
-                            }
-                          ],
-                          [],
-                          SliderWrapper_Helpers ?? {},
-                          child$Props
-                        );
-
-                        return (
-                          <SliderWrapper
-                            data-plasmic-name={"sliderCarousel4"}
-                            data-plasmic-override={overrides.sliderCarousel4}
-                            {...child$Props}
-                          >
-                            {(_par =>
-                              !_par ? [] : Array.isArray(_par) ? _par : [_par])(
-                              (() => {
-                                try {
-                                  return $ctx.products;
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return [];
-                                  }
-                                  throw e;
-                                }
-                              })()
-                            ).map((__plasmic_item_0, __plasmic_idx_0) => {
-                              const currentItem = __plasmic_item_0;
-                              const currentIndex = __plasmic_idx_0;
-                              return (
-                                <ProductCardNew
-                                  className={classNames(
-                                    "__wab_instance",
-                                    sty.productCardNew__fksmj
-                                  )}
-                                  currentItem={currentItem}
-                                  key={currentIndex}
-                                />
-                              );
-                            })}
-                          </SliderWrapper>
-                        );
-                      })()}
-                      {(() => {
-                        const child$Props = {
-                          autoplay: true,
-                          autoplaySpeed: 1500,
-                          beforeChange:
-                            p.generateStateOnChangePropForCodeComponents(
-                              $state,
-                              "currentSlide",
-                              ["sliderCarousel10", "currentSlide"],
-                              SliderWrapper_Helpers
-                            ),
-                          className: classNames(
-                            "__wab_instance",
-                            sty.sliderCarousel10
-                          ),
-                          editingSlide: p.generateStateValueProp($state, [
-                            "sliderCarousel10",
-                            "currentSlide"
-                          ]),
-                          initialSlide: 0,
-                          ref: ref => {
-                            $refs["sliderCarousel10"] = ref;
-                          },
-                          sliderScopeClassName: sty["sliderCarousel10__slider"],
-                          slidesToShow: 2
-                        };
-                        p.initializeCodeComponentStates(
-                          $state,
-                          [
-                            {
-                              name: "currentSlide",
-                              plasmicStateName: "sliderCarousel10.currentSlide"
-                            }
-                          ],
-                          [],
-                          SliderWrapper_Helpers ?? {},
-                          child$Props
-                        );
-
-                        return (
-                          <SliderWrapper
-                            data-plasmic-name={"sliderCarousel10"}
-                            data-plasmic-override={overrides.sliderCarousel10}
-                            {...child$Props}
-                          >
-                            {(_par =>
-                              !_par ? [] : Array.isArray(_par) ? _par : [_par])(
-                              (() => {
-                                try {
-                                  return $ctx.products;
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return [];
-                                  }
-                                  throw e;
-                                }
-                              })()
-                            ).map((__plasmic_item_0, __plasmic_idx_0) => {
-                              const currentItem = __plasmic_item_0;
-                              const currentIndex = __plasmic_idx_0;
-                              return (
-                                <ProductCardNew
-                                  className={classNames(
-                                    "__wab_instance",
-                                    sty.productCardNew__r3I9T
-                                  )}
-                                  currentItem={currentItem}
-                                  key={currentIndex}
-                                />
-                              );
-                            })}
-                          </SliderWrapper>
-                        );
-                      })()}
-                    </React.Fragment>
-                  )}
-                </ph.DataCtxReader>
-              </ProductCollection>
+              />
             </div>
             <Section
               className={classNames("__wab_instance", sty.section___3Ew)}
@@ -1879,11 +1797,10 @@ function PlasmicHomepage__RenderFunc(props: {
                         sty.sliderCarousel5
                       ),
                       dots: true,
-                      editingSlide: p.generateStateValueProp($state, [
+                      initialSlide: p.generateStateValueProp($state, [
                         "sliderCarousel5",
                         "currentSlide"
                       ]),
-                      initialSlide: 0,
                       ref: ref => {
                         $refs["sliderCarousel5"] = ref;
                       },
@@ -2379,11 +2296,10 @@ function PlasmicHomepage__RenderFunc(props: {
                         sty.sliderCarousel11
                       ),
                       dots: true,
-                      editingSlide: p.generateStateValueProp($state, [
+                      initialSlide: p.generateStateValueProp($state, [
                         "sliderCarousel11",
                         "currentSlide"
                       ]),
-                      initialSlide: 0,
                       ref: ref => {
                         $refs["sliderCarousel11"] = ref;
                       },
@@ -3000,17 +2916,25 @@ function PlasmicHomepage__RenderFunc(props: {
                         "All of our products make incredible gifts, \nhere are some of our favourites"
                       }
                     </div>
-                    <Button2
+                    <Button
                       className={classNames(
                         "__wab_instance",
-                        sty.button2__uhJjf
+                        sty.button__uhJjf
                       )}
-                      color={"red"}
+                      color={"redJbs"}
                       link={`/category/${"giftsss"}`}
-                      size={"compact"}
+                      size={"minimal"}
                     >
-                      {"gifts here!"}
-                    </Button2>
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text___71BH
+                        )}
+                      >
+                        {"gifts here!"}
+                      </div>
+                    </Button>
                   </p.Stack>
                   <div
                     className={classNames(projectcss.all, sty.freeBox__b9AXi)}
@@ -3045,426 +2969,300 @@ function PlasmicHomepage__RenderFunc(props: {
             <Section
               className={classNames("__wab_instance", sty.section__xrVwI)}
             >
-              {(() => {
-                const child$Props = {
-                  arrows: false,
-                  autoplay: true,
-                  autoplaySpeed: 2000,
-                  beforeChange: p.generateStateOnChangePropForCodeComponents(
-                    $state,
-                    "currentSlide",
-                    ["sliderCarousel6", "currentSlide"],
-                    SliderWrapper_Helpers
-                  ),
-                  className: classNames("__wab_instance", sty.sliderCarousel6),
-                  editingSlide: p.generateStateValueProp($state, [
-                    "sliderCarousel6",
-                    "currentSlide"
-                  ]),
-                  initialSlide: 0,
-                  ref: ref => {
-                    $refs["sliderCarousel6"] = ref;
-                  },
-                  sliderScopeClassName: sty["sliderCarousel6__slider"],
-                  swipeToSlide: true
-                };
-                p.initializeCodeComponentStates(
-                  $state,
-                  [
-                    {
-                      name: "currentSlide",
-                      plasmicStateName: "sliderCarousel6.currentSlide"
-                    }
-                  ],
-                  [],
-                  SliderWrapper_Helpers ?? {},
-                  child$Props
-                );
-
-                return (
-                  <SliderWrapper
-                    data-plasmic-name={"sliderCarousel6"}
-                    data-plasmic-override={overrides.sliderCarousel6}
-                    {...child$Props}
-                  >
-                    <FullpagewidthSlide2
-                      className={classNames(
-                        "__wab_instance",
-                        sty.fullpagewidthSlide2__hJkVl
-                      )}
-                      slot={
-                        <p.Stack
-                          as={"div"}
-                          hasGap={true}
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__dEnIl
-                          )}
-                        >
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              projectcss.__wab_text,
-                              sty.text___32Kg5
-                            )}
-                          >
-                            {"Bucket"}
-                          </div>
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              projectcss.__wab_text,
-                              sty.text__a5EqD
-                            )}
-                          >
-                            {"Hats"}
-                          </div>
-                        </p.Stack>
-                      }
-                      slot2={
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text__ihlPw
-                          )}
-                        >
-                          {
-                            "A Juhu Beach essential, gorgeous double sided bucket hats and their strange embroidered siblings"
-                          }
-                        </div>
-                      }
-                      slot3={
-                        <Button2
-                          className={classNames(
-                            "__wab_instance",
-                            sty.button2__cjr7B
-                          )}
-                          color={"red"}
-                          link={`/category/${"bucket-hats"}`}
-                        >
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              projectcss.__wab_text,
-                              sty.text__wsr9R
-                            )}
-                          >
-                            {"Shop all Bucket Hats"}
-                          </div>
-                        </Button2>
-                      }
-                    >
-                      <p.PlasmicImg
-                        alt={""}
-                        className={classNames(sty.img__jb9Bo)}
-                        displayHeight={"auto"}
-                        displayMaxHeight={"100%"}
-                        displayMaxWidth={"100%"}
-                        displayMinHeight={"0"}
-                        displayMinWidth={"0"}
-                        displayWidth={"100%"}
-                        src={{
-                          src: "/plasmic/jbs_storefront/images/bucketHatBannerwebp.webp",
-                          fullWidth: 4096,
-                          fullHeight: 2230,
-                          aspectRatio: undefined
-                        }}
-                      />
-                    </FullpagewidthSlide2>
-                    <FullpagewidthSlide2
-                      className={classNames(
-                        "__wab_instance",
-                        sty.fullpagewidthSlide2__esgQ
-                      )}
-                      slot={
-                        <p.Stack
-                          as={"div"}
-                          hasGap={true}
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__oCcH
-                          )}
-                        >
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              projectcss.__wab_text,
-                              sty.text__gW7Ez
-                            )}
-                          >
-                            {"Flower"}
-                          </div>
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              projectcss.__wab_text,
-                              sty.text___2Rj5D
-                            )}
-                          >
-                            {"Topi"}
-                          </div>
-                        </p.Stack>
-                      }
-                      slot2={
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text__ip4Eu
-                          )}
-                        >
-                          {
-                            "A whimsical flower shaped bucket hat,\ncuz you're literally a fairy, we made this just for you"
-                          }
-                        </div>
-                      }
-                      slot3={
-                        <Button2
-                          className={classNames(
-                            "__wab_instance",
-                            sty.button2__imimv
-                          )}
-                          color={"red"}
-                          link={`/category/${"flower-hat"}`}
-                        >
-                          {"Flower hats"}
-                        </Button2>
-                      }
-                    >
-                      <p.PlasmicImg
-                        alt={""}
-                        className={classNames(sty.img__oRta7)}
-                        displayHeight={"100%"}
-                        displayMaxHeight={"none"}
-                        displayMaxWidth={"none"}
-                        displayMinHeight={"0"}
-                        displayMinWidth={"0"}
-                        displayWidth={"100%"}
-                        src={{
-                          src: "/plasmic/jbs_storefront/images/flowerHatBanner.webp",
-                          fullWidth: 4096,
-                          fullHeight: 2230,
-                          aspectRatio: undefined
-                        }}
-                      />
-                    </FullpagewidthSlide2>
-                  </SliderWrapper>
-                );
-              })()}
-              <div className={classNames(projectcss.all, sty.freeBox__gnDfX)}>
-                <ProductCollection
-                  category={"gid://shopify/Collection/467855180072"}
+              <div className={classNames(projectcss.all, sty.freeBox__bx8Z5)}>
+                <CustomButton
                   className={classNames(
                     "__wab_instance",
-                    sty.productCollection__oNdeW
+                    sty.customButton__u8Lnd
                   )}
-                  emptyMessage={
-                    <ph.DataCtxReader>
-                      {$ctx => (
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text__bCs1A
-                          )}
-                        >
-                          {"No product found!"}
-                        </div>
-                      )}
-                    </ph.DataCtxReader>
-                  }
-                  loadingMessage={
-                    <ph.DataCtxReader>
-                      {$ctx => (
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text__eIt2N
-                          )}
-                        >
-                          {"Loading..."}
-                        </div>
-                      )}
-                    </ph.DataCtxReader>
-                  }
-                  noAutoRepeat={true}
-                  noLayout={true}
+                  onClick={async event => {
+                    const $steps = {};
+
+                    $steps["runActionOnSliderCarousel6"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            tplRef: "sliderCarousel6",
+                            action: "slickNext"
+                          };
+                          return (({ tplRef, action, args }) => {
+                            return $refs?.[tplRef]?.[action]?.(...(args ?? []));
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["runActionOnSliderCarousel6"] != null &&
+                      typeof $steps["runActionOnSliderCarousel6"] ===
+                        "object" &&
+                      typeof $steps["runActionOnSliderCarousel6"].then ===
+                        "function"
+                    ) {
+                      $steps["runActionOnSliderCarousel6"] = await $steps[
+                        "runActionOnSliderCarousel6"
+                      ];
+                    }
+                  }}
                 >
-                  <ph.DataCtxReader>
-                    {$ctx => (
-                      <React.Fragment>
-                        {(() => {
-                          const child$Props = {
-                            autoplay: true,
-                            autoplaySpeed: 1500,
-                            beforeChange:
-                              p.generateStateOnChangePropForCodeComponents(
-                                $state,
-                                "currentSlide",
-                                ["sliderCarousel7", "currentSlide"],
-                                SliderWrapper_Helpers
-                              ),
-                            className: classNames(
-                              "__wab_instance",
-                              sty.sliderCarousel7
-                            ),
-                            editingSlide: p.generateStateValueProp($state, [
-                              "sliderCarousel7",
-                              "currentSlide"
-                            ]),
-                            initialSlide: 0,
-                            ref: ref => {
-                              $refs["sliderCarousel7"] = ref;
-                            },
-                            sliderScopeClassName:
-                              sty["sliderCarousel7__slider"],
-                            slidesPerRow: 5
-                          };
-                          p.initializeCodeComponentStates(
-                            $state,
-                            [
-                              {
-                                name: "currentSlide",
-                                plasmicStateName: "sliderCarousel7.currentSlide"
-                              }
-                            ],
-                            [],
-                            SliderWrapper_Helpers ?? {},
-                            child$Props
-                          );
+                  <SlideRightIcon
+                    className={classNames(projectcss.all, sty.svg___1Z6PB)}
+                    role={"img"}
+                  />
+                </CustomButton>
+                <CustomButton
+                  className={classNames(
+                    "__wab_instance",
+                    sty.customButton___0GlJb
+                  )}
+                  onClick={async event => {
+                    const $steps = {};
 
-                          return (
-                            <SliderWrapper
-                              data-plasmic-name={"sliderCarousel7"}
-                              data-plasmic-override={overrides.sliderCarousel7}
-                              {...child$Props}
-                            >
-                              {(_par =>
-                                !_par
-                                  ? []
-                                  : Array.isArray(_par)
-                                  ? _par
-                                  : [_par])(
-                                (() => {
-                                  try {
-                                    return $ctx.products;
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return [];
-                                    }
-                                    throw e;
-                                  }
-                                })()
-                              ).map((__plasmic_item_0, __plasmic_idx_0) => {
-                                const currentItem = __plasmic_item_0;
-                                const currentIndex = __plasmic_idx_0;
-                                return (
-                                  <ProductCardNew
-                                    className={classNames(
-                                      "__wab_instance",
-                                      sty.productCardNew__iddV2
-                                    )}
-                                    currentItem={currentItem}
-                                    key={currentIndex}
-                                  />
-                                );
-                              })}
-                            </SliderWrapper>
-                          );
-                        })()}
-                        {(() => {
-                          const child$Props = {
-                            autoplay: true,
-                            autoplaySpeed: 1500,
-                            beforeChange:
-                              p.generateStateOnChangePropForCodeComponents(
-                                $state,
-                                "currentSlide",
-                                ["sliderCarousel8", "currentSlide"],
-                                SliderWrapper_Helpers
-                              ),
-                            className: classNames(
-                              "__wab_instance",
-                              sty.sliderCarousel8
-                            ),
-                            editingSlide: p.generateStateValueProp($state, [
-                              "sliderCarousel8",
-                              "currentSlide"
-                            ]),
-                            initialSlide: 0,
-                            ref: ref => {
-                              $refs["sliderCarousel8"] = ref;
-                            },
-                            sliderScopeClassName:
-                              sty["sliderCarousel8__slider"],
-                            slidesPerRow: 2
+                    $steps["runActionOnSliderCarousel6"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            tplRef: "sliderCarousel6",
+                            action: "slickPrev"
                           };
-                          p.initializeCodeComponentStates(
-                            $state,
-                            [
-                              {
-                                name: "currentSlide",
-                                plasmicStateName: "sliderCarousel8.currentSlide"
-                              }
-                            ],
-                            [],
-                            SliderWrapper_Helpers ?? {},
-                            child$Props
-                          );
+                          return (({ tplRef, action, args }) => {
+                            return $refs?.[tplRef]?.[action]?.(...(args ?? []));
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["runActionOnSliderCarousel6"] != null &&
+                      typeof $steps["runActionOnSliderCarousel6"] ===
+                        "object" &&
+                      typeof $steps["runActionOnSliderCarousel6"].then ===
+                        "function"
+                    ) {
+                      $steps["runActionOnSliderCarousel6"] = await $steps[
+                        "runActionOnSliderCarousel6"
+                      ];
+                    }
+                  }}
+                >
+                  <SlideLeftIcon
+                    className={classNames(projectcss.all, sty.svg__bnODj)}
+                    role={"img"}
+                  />
+                </CustomButton>
+                {(() => {
+                  const child$Props = {
+                    arrows: false,
+                    autoplay: true,
+                    autoplaySpeed: 2000,
+                    beforeChange: p.generateStateOnChangePropForCodeComponents(
+                      $state,
+                      "currentSlide",
+                      ["sliderCarousel6", "currentSlide"],
+                      SliderWrapper_Helpers
+                    ),
+                    className: classNames(
+                      "__wab_instance",
+                      sty.sliderCarousel6
+                    ),
+                    initialSlide: p.generateStateValueProp($state, [
+                      "sliderCarousel6",
+                      "currentSlide"
+                    ]),
+                    ref: ref => {
+                      $refs["sliderCarousel6"] = ref;
+                    },
+                    sliderScopeClassName: sty["sliderCarousel6__slider"],
+                    swipeToSlide: true,
+                    useCSS: true
+                  };
+                  p.initializeCodeComponentStates(
+                    $state,
+                    [
+                      {
+                        name: "currentSlide",
+                        plasmicStateName: "sliderCarousel6.currentSlide"
+                      }
+                    ],
+                    [],
+                    SliderWrapper_Helpers ?? {},
+                    child$Props
+                  );
 
-                          return (
-                            <SliderWrapper
-                              data-plasmic-name={"sliderCarousel8"}
-                              data-plasmic-override={overrides.sliderCarousel8}
-                              {...child$Props}
+                  return (
+                    <SliderWrapper
+                      data-plasmic-name={"sliderCarousel6"}
+                      data-plasmic-override={overrides.sliderCarousel6}
+                      {...child$Props}
+                    >
+                      <FullpagewidthSlide2
+                        className={classNames(
+                          "__wab_instance",
+                          sty.fullpagewidthSlide2__hJkVl
+                        )}
+                        slot={
+                          <p.Stack
+                            as={"div"}
+                            hasGap={true}
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox__dEnIl
+                            )}
+                          >
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.text___32Kg5
+                              )}
                             >
-                              {(_par =>
-                                !_par
-                                  ? []
-                                  : Array.isArray(_par)
-                                  ? _par
-                                  : [_par])(
-                                (() => {
-                                  try {
-                                    return $ctx.products;
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return [];
-                                    }
-                                    throw e;
-                                  }
-                                })()
-                              ).map((__plasmic_item_0, __plasmic_idx_0) => {
-                                const currentItem = __plasmic_item_0;
-                                const currentIndex = __plasmic_idx_0;
-                                return (
-                                  <ProductCardNew
-                                    className={classNames(
-                                      "__wab_instance",
-                                      sty.productCardNew__txNs1
-                                    )}
-                                    currentItem={currentItem}
-                                    key={currentIndex}
-                                  />
-                                );
-                              })}
-                            </SliderWrapper>
-                          );
-                        })()}
-                      </React.Fragment>
-                    )}
-                  </ph.DataCtxReader>
-                </ProductCollection>
+                              {"Bucket"}
+                            </div>
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.text__a5EqD
+                              )}
+                            >
+                              {"Hats"}
+                            </div>
+                          </p.Stack>
+                        }
+                        slot2={
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text__ihlPw
+                            )}
+                          >
+                            {
+                              "A Juhu Beach essential, gorgeous double sided bucket hats and their strange embroidered siblings"
+                            }
+                          </div>
+                        }
+                        slot3={
+                          <Button
+                            className={classNames(
+                              "__wab_instance",
+                              sty.button__cjr7B
+                            )}
+                            color={"red"}
+                            link={`/category/${"bucket-hats"}`}
+                            size={"minimal"}
+                          >
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.text__wsr9R
+                              )}
+                            >
+                              {"Shop all Bucket Hats"}
+                            </div>
+                          </Button>
+                        }
+                      >
+                        <p.PlasmicImg
+                          alt={""}
+                          className={classNames(sty.img__jb9Bo)}
+                          displayHeight={"auto"}
+                          displayMaxHeight={"100%"}
+                          displayMaxWidth={"100%"}
+                          displayMinHeight={"0"}
+                          displayMinWidth={"0"}
+                          displayWidth={"100%"}
+                          src={{
+                            src: "/plasmic/jbs_storefront/images/bucketHatBannerwebp.webp",
+                            fullWidth: 4096,
+                            fullHeight: 2230,
+                            aspectRatio: undefined
+                          }}
+                        />
+                      </FullpagewidthSlide2>
+                      <FullpagewidthSlide2
+                        className={classNames(
+                          "__wab_instance",
+                          sty.fullpagewidthSlide2__esgQ
+                        )}
+                        slot={
+                          <p.Stack
+                            as={"div"}
+                            hasGap={true}
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox__oCcH
+                            )}
+                          >
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.text__gW7Ez
+                              )}
+                            >
+                              {"Flower"}
+                            </div>
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.text___2Rj5D
+                              )}
+                            >
+                              {"Topi"}
+                            </div>
+                          </p.Stack>
+                        }
+                        slot2={
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text__ip4Eu
+                            )}
+                          >
+                            {
+                              "A whimsical flower shaped bucket hat,\ncuz you're literally a fairy, we made this just for you"
+                            }
+                          </div>
+                        }
+                        slot3={
+                          <Button
+                            className={classNames(
+                              "__wab_instance",
+                              sty.button__imimv
+                            )}
+                            color={"red"}
+                            link={`/category/${"flower-hat"}`}
+                          >
+                            {"Flower hats"}
+                          </Button>
+                        }
+                      >
+                        <p.PlasmicImg
+                          alt={""}
+                          className={classNames(sty.img__oRta7)}
+                          displayHeight={"100%"}
+                          displayMaxHeight={"none"}
+                          displayMaxWidth={"none"}
+                          displayMinHeight={"0"}
+                          displayMinWidth={"0"}
+                          displayWidth={"100%"}
+                          src={{
+                            src: "/plasmic/jbs_storefront/images/flowerHatBanner.webp",
+                            fullWidth: 4096,
+                            fullHeight: 2230,
+                            aspectRatio: undefined
+                          }}
+                        />
+                      </FullpagewidthSlide2>
+                    </SliderWrapper>
+                  );
+                })()}
+              </div>
+              <div className={classNames(projectcss.all, sty.freeBox__gnDfX)}>
+                <HomepageCategoryCollection
+                  className={classNames(
+                    "__wab_instance",
+                    sty.homepageCategoryCollection__vVg8
+                  )}
+                />
               </div>
             </Section>
             <Section
@@ -3513,24 +3311,25 @@ function PlasmicHomepage__RenderFunc(props: {
                       aspectRatio: undefined
                     }}
                   />
+
+                  <p.PlasmicImg
+                    alt={""}
+                    className={classNames(sty.img__fdlkx)}
+                    displayHeight={"auto"}
+                    displayMaxHeight={"none"}
+                    displayMaxWidth={"1000px"}
+                    displayMinHeight={"0"}
+                    displayMinWidth={"0"}
+                    displayWidth={"100%"}
+                    loading={"lazy"}
+                    src={{
+                      src: "/plasmic/jbs_storefront/images/asset94Png2.png",
+                      fullWidth: 2822,
+                      fullHeight: 588,
+                      aspectRatio: undefined
+                    }}
+                  />
                 </p.PlasmicLink>
-                <p.PlasmicImg
-                  alt={""}
-                  className={classNames(sty.img__fdlkx)}
-                  displayHeight={"auto"}
-                  displayMaxHeight={"none"}
-                  displayMaxWidth={"1000px"}
-                  displayMinHeight={"0"}
-                  displayMinWidth={"0"}
-                  displayWidth={"100%"}
-                  loading={"lazy"}
-                  src={{
-                    src: "/plasmic/jbs_storefront/images/asset94Png2.png",
-                    fullWidth: 2822,
-                    fullHeight: 588,
-                    aspectRatio: undefined
-                  }}
-                />
               </div>
             </Section>
             <Section
@@ -3655,23 +3454,21 @@ function PlasmicHomepage__RenderFunc(props: {
                         "Exploring textile waste\u2019s as a raw material for a scaleable + sustainable enterprise."
                       }
                     </div>
-                    <Button2
+                    <Button
                       className={classNames(
                         "__wab_instance",
-                        sty.button2__u8Fkr
+                        sty.button__u8Fkr
                       )}
-                      color={"red"}
+                      color={"redJbs"}
                       endIcon={
                         <Icon38Icon
-                          data-plasmic-name={"svg"}
-                          data-plasmic-override={overrides.svg}
-                          className={classNames(projectcss.all, sty.svg)}
+                          className={classNames(projectcss.all, sty.svg__sYyPb)}
                           role={"img"}
                         />
                       }
                       link={`/about`}
                       showEndIcon={true}
-                      size={"compact"}
+                      size={"minimal"}
                     >
                       <div
                         className={classNames(
@@ -3682,7 +3479,7 @@ function PlasmicHomepage__RenderFunc(props: {
                       >
                         {"Want to know how we do it?"}
                       </div>
-                    </Button2>
+                    </Button>
                   </p.Stack>
                 </p.Stack>
               </p.Stack>
@@ -3700,40 +3497,36 @@ const PlasmicDescendants = {
     "fullPage",
     "sliderCarousel",
     "sliderCarousel12",
+    "previous",
+    "next",
     "categoryCollection",
     "sliderCarousel2",
     "sliderCarousel9",
     "sliderCarousel3",
-    "sliderCarousel4",
-    "sliderCarousel10",
     "sliderCarousel5",
     "sliderCarousel11",
     "surpriseMeButton",
-    "sliderCarousel6",
-    "sliderCarousel7",
-    "sliderCarousel8",
-    "svg"
+    "sliderCarousel6"
   ],
   fullPage: [
     "fullPage",
     "sliderCarousel",
     "sliderCarousel12",
+    "previous",
+    "next",
     "categoryCollection",
     "sliderCarousel2",
     "sliderCarousel9",
     "sliderCarousel3",
-    "sliderCarousel4",
-    "sliderCarousel10",
     "sliderCarousel5",
     "sliderCarousel11",
     "surpriseMeButton",
-    "sliderCarousel6",
-    "sliderCarousel7",
-    "sliderCarousel8",
-    "svg"
+    "sliderCarousel6"
   ],
   sliderCarousel: ["sliderCarousel"],
   sliderCarousel12: ["sliderCarousel12"],
+  previous: ["previous"],
+  next: ["next"],
   categoryCollection: [
     "categoryCollection",
     "sliderCarousel2",
@@ -3742,15 +3535,10 @@ const PlasmicDescendants = {
   sliderCarousel2: ["sliderCarousel2"],
   sliderCarousel9: ["sliderCarousel9"],
   sliderCarousel3: ["sliderCarousel3"],
-  sliderCarousel4: ["sliderCarousel4"],
-  sliderCarousel10: ["sliderCarousel10"],
   sliderCarousel5: ["sliderCarousel5"],
   sliderCarousel11: ["sliderCarousel11"],
   surpriseMeButton: ["surpriseMeButton"],
-  sliderCarousel6: ["sliderCarousel6"],
-  sliderCarousel7: ["sliderCarousel7"],
-  sliderCarousel8: ["sliderCarousel8"],
-  svg: ["svg"]
+  sliderCarousel6: ["sliderCarousel6"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -3760,19 +3548,16 @@ type NodeDefaultElementType = {
   fullPage: typeof FullPage;
   sliderCarousel: typeof SliderWrapper;
   sliderCarousel12: typeof SliderWrapper;
+  previous: "svg";
+  next: "svg";
   categoryCollection: typeof CategoryCollection;
   sliderCarousel2: typeof SliderWrapper;
   sliderCarousel9: typeof SliderWrapper;
   sliderCarousel3: typeof SliderWrapper;
-  sliderCarousel4: typeof SliderWrapper;
-  sliderCarousel10: typeof SliderWrapper;
   sliderCarousel5: typeof SliderWrapper;
   sliderCarousel11: typeof SliderWrapper;
   surpriseMeButton: typeof SurpriseMeButton;
   sliderCarousel6: typeof SliderWrapper;
-  sliderCarousel7: typeof SliderWrapper;
-  sliderCarousel8: typeof SliderWrapper;
-  svg: "svg";
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -3838,19 +3623,16 @@ export const PlasmicHomepage = Object.assign(
     fullPage: makeNodeComponent("fullPage"),
     sliderCarousel: makeNodeComponent("sliderCarousel"),
     sliderCarousel12: makeNodeComponent("sliderCarousel12"),
+    previous: makeNodeComponent("previous"),
+    next: makeNodeComponent("next"),
     categoryCollection: makeNodeComponent("categoryCollection"),
     sliderCarousel2: makeNodeComponent("sliderCarousel2"),
     sliderCarousel9: makeNodeComponent("sliderCarousel9"),
     sliderCarousel3: makeNodeComponent("sliderCarousel3"),
-    sliderCarousel4: makeNodeComponent("sliderCarousel4"),
-    sliderCarousel10: makeNodeComponent("sliderCarousel10"),
     sliderCarousel5: makeNodeComponent("sliderCarousel5"),
     sliderCarousel11: makeNodeComponent("sliderCarousel11"),
     surpriseMeButton: makeNodeComponent("surpriseMeButton"),
     sliderCarousel6: makeNodeComponent("sliderCarousel6"),
-    sliderCarousel7: makeNodeComponent("sliderCarousel7"),
-    sliderCarousel8: makeNodeComponent("sliderCarousel8"),
-    svg: makeNodeComponent("svg"),
 
     // Metadata about props expected for PlasmicHomepage
     internalVariantProps: PlasmicHomepage__VariantProps,

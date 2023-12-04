@@ -37,7 +37,7 @@ import {
   ensureGlobalVariants
 } from "@plasmicapp/react-web";
 import Blackyellowborder from "../../Blackyellowborder"; // plasmic-import: qeyEUvMFwY/component
-import Button2 from "../../Button2"; // plasmic-import: yEsI5slGwPm/component
+import Button from "../../Button"; // plasmic-import: yEsI5slGwPm/component
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -50,6 +50,7 @@ import Icon38Icon from "./icons/PlasmicIcon__Icon38"; // plasmic-import: 3r4KXWy
 import Facebook176SvgrepoComsvg2Icon from "./icons/PlasmicIcon__Facebook176SvgrepoComsvg2"; // plasmic-import: 69HLYm9NeIDx/icon
 import InstagramSvgrepoComsvgIcon from "./icons/PlasmicIcon__InstagramSvgrepoComsvg"; // plasmic-import: oo9zvXXIVhzp/icon
 import WhatsappSvgrepoComsvgIcon from "./icons/PlasmicIcon__WhatsappSvgrepoComsvg"; // plasmic-import: MwIlfRiCxnsi/icon
+import PhonesvgIcon from "./icons/PlasmicIcon__Phonesvg"; // plasmic-import: UJbuthH60ZPo/icon
 
 createPlasmicElementProxy;
 
@@ -66,6 +67,7 @@ export type PlasmicFooter__OverridesType = {
   root?: p.Flex<"div">;
   blackyellowborder?: p.Flex<typeof Blackyellowborder>;
   h5?: p.Flex<"h5">;
+  emailButton?: p.Flex<typeof Button>;
 };
 
 export interface DefaultFooterProps {
@@ -103,6 +105,12 @@ function PlasmicFooter__RenderFunc(props: {
 
   const currentUser = p.useCurrentUser?.() || {};
 
+  const [isRootHover, triggerRootHoverProps] = useTrigger("useHover", {});
+  const [isRootActive, triggerRootActiveProps] = useTrigger("usePressed", {});
+  const triggers = {
+    hoverActive_root: isRootHover && isRootActive
+  };
+
   return (
     <div
       data-plasmic-name={"root"}
@@ -118,6 +126,10 @@ function PlasmicFooter__RenderFunc(props: {
         plasmic_antd_5_hostless_css.plasmic_tokens,
         sty.root
       )}
+      data-plasmic-trigger-props={[
+        triggerRootHoverProps,
+        triggerRootActiveProps
+      ]}
     >
       <Blackyellowborder
         data-plasmic-name={"blackyellowborder"}
@@ -158,15 +170,32 @@ function PlasmicFooter__RenderFunc(props: {
               <React.Fragment>{""}</React.Fragment>
             </React.Fragment>
           </div>
-          <Button2
+          <Button
+            data-plasmic-name={"emailButton"}
+            data-plasmic-override={overrides.emailButton}
             alignment={"leftAligned"}
-            className={classNames("__wab_instance", sty.button2__p6Lu)}
-            color={"red"}
+            className={classNames("__wab_instance", sty.emailButton)}
+            color={triggers.hoverActive_root ? "darkRedJbs" : "red"}
+            endIcon={
+              <Icon38Icon
+                className={classNames(projectcss.all, sty.svg__s13Hn)}
+                role={"img"}
+              />
+            }
             link={"mailto:juhubeachstudio@gmail.com"}
             showEndIcon={true}
+            size={"minimal"}
           >
-            {"juhubeachstudio@gmail.com"}
-          </Button2>
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__daoP
+              )}
+            >
+              {"juhubeachstudio@gmail.com"}
+            </div>
+          </Button>
           <p.Stack
             as={"div"}
             hasGap={true}
@@ -186,8 +215,8 @@ function PlasmicFooter__RenderFunc(props: {
               hasGap={true}
               className={classNames(projectcss.all, sty.freeBox___394L7)}
             >
-              <Button2
-                className={classNames("__wab_instance", sty.button2__uU4)}
+              <Button
+                className={classNames("__wab_instance", sty.button__uU4)}
                 color={"white"}
                 link={"https://www.facebook.com/profile.php?id=100067678451857"}
                 shape={"round"}
@@ -198,9 +227,9 @@ function PlasmicFooter__RenderFunc(props: {
                   className={classNames(projectcss.all, sty.svg__kDpUm)}
                   role={"img"}
                 />
-              </Button2>
-              <Button2
-                className={classNames("__wab_instance", sty.button2__nMadE)}
+              </Button>
+              <Button
+                className={classNames("__wab_instance", sty.button__nMadE)}
                 color={"white"}
                 link={"https://www.instagram.com/juhubeachstudio/"}
                 shape={"round"}
@@ -211,9 +240,9 @@ function PlasmicFooter__RenderFunc(props: {
                   className={classNames(projectcss.all, sty.svg__vu2Zs)}
                   role={"img"}
                 />
-              </Button2>
-              <Button2
-                className={classNames("__wab_instance", sty.button2__uDJjx)}
+              </Button>
+              <Button
+                className={classNames("__wab_instance", sty.button__uDJjx)}
                 color={"white"}
                 link={"https://wa.me/message/5UQ7HPIFA5JMF1"}
                 shape={"round"}
@@ -224,7 +253,20 @@ function PlasmicFooter__RenderFunc(props: {
                   className={classNames(projectcss.all, sty.svg__fStXc)}
                   role={"img"}
                 />
-              </Button2>
+              </Button>
+              <Button
+                className={classNames("__wab_instance", sty.button__ty55X)}
+                color={"white"}
+                link={"tel:000000000"}
+                shape={"round"}
+                size={"compact"}
+                target={true}
+              >
+                <PhonesvgIcon
+                  className={classNames(projectcss.all, sty.svg__hYigm)}
+                  role={"img"}
+                />
+              </Button>
             </p.Stack>
           </p.Stack>
           <p.Stack
@@ -232,8 +274,8 @@ function PlasmicFooter__RenderFunc(props: {
             hasGap={true}
             className={classNames(projectcss.all, sty.freeBox___3Bhqm)}
           >
-            <Button2
-              className={classNames("__wab_instance", sty.button2__eOh2R)}
+            <Button
+              className={classNames("__wab_instance", sty.button__eOh2R)}
               color={"clear"}
               endIcon={
                 <Icon38Icon
@@ -260,9 +302,9 @@ function PlasmicFooter__RenderFunc(props: {
               >
                 {"About"}
               </div>
-            </Button2>
-            <Button2
-              className={classNames("__wab_instance", sty.button2__kVkyq)}
+            </Button>
+            <Button
+              className={classNames("__wab_instance", sty.button__kVkyq)}
               color={"clear"}
               endIcon={
                 <Icon38Icon
@@ -289,9 +331,9 @@ function PlasmicFooter__RenderFunc(props: {
               >
                 {"Shipping policy"}
               </div>
-            </Button2>
-            <Button2
-              className={classNames("__wab_instance", sty.button2__q9Zwf)}
+            </Button>
+            <Button
+              className={classNames("__wab_instance", sty.button__q9Zwf)}
               color={"clear"}
               endIcon={
                 <Icon38Icon
@@ -318,9 +360,9 @@ function PlasmicFooter__RenderFunc(props: {
               >
                 {"Returns and exchange policy"}
               </div>
-            </Button2>
-            <Button2
-              className={classNames("__wab_instance", sty.button2__lzpR0)}
+            </Button>
+            <Button
+              className={classNames("__wab_instance", sty.button__lzpR0)}
               color={"clear"}
               endIcon={
                 <Icon38Icon
@@ -347,9 +389,9 @@ function PlasmicFooter__RenderFunc(props: {
               >
                 {"Privacy policy"}
               </div>
-            </Button2>
-            <Button2
-              className={classNames("__wab_instance", sty.button2__zXssn)}
+            </Button>
+            <Button
+              className={classNames("__wab_instance", sty.button__zXssn)}
               color={"clear"}
               endIcon={
                 <Icon38Icon
@@ -376,7 +418,7 @@ function PlasmicFooter__RenderFunc(props: {
               >
                 {"Terms of Use"}
               </div>
-            </Button2>
+            </Button>
           </p.Stack>
         </p.Stack>
       </div>
@@ -385,9 +427,10 @@ function PlasmicFooter__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "blackyellowborder", "h5"],
+  root: ["root", "blackyellowborder", "h5", "emailButton"],
   blackyellowborder: ["blackyellowborder"],
-  h5: ["h5"]
+  h5: ["h5"],
+  emailButton: ["emailButton"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -396,6 +439,7 @@ type NodeDefaultElementType = {
   root: "div";
   blackyellowborder: typeof Blackyellowborder;
   h5: "h5";
+  emailButton: typeof Button;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -460,6 +504,7 @@ export const PlasmicFooter = Object.assign(
     // Helper components rendering sub-elements
     blackyellowborder: makeNodeComponent("blackyellowborder"),
     h5: makeNodeComponent("h5"),
+    emailButton: makeNodeComponent("emailButton"),
 
     // Metadata about props expected for PlasmicFooter
     internalVariantProps: PlasmicFooter__VariantProps,

@@ -38,8 +38,8 @@ import {
 } from "@plasmicapp/react-web";
 import FullPage from "../../FullPage"; // plasmic-import: VpRM2nIn0R/component
 import Section from "../../Section"; // plasmic-import: GMAR4VOl00/component
-import { SliderWrapper } from "@plasmicpkgs/react-slick"; // plasmic-import: HOQUyOpClJ/codeComponent
-import { sliderHelpers as SliderWrapper_Helpers } from "@plasmicpkgs/react-slick"; // plasmic-import: HOQUyOpClJ/codeComponentHelper
+import { SliderWrapper } from "@plasmicpkgs/react-slick";
+import { sliderHelpers as SliderWrapper_Helpers } from "@plasmicpkgs/react-slick";
 import Blackyellowborder from "../../Blackyellowborder"; // plasmic-import: qeyEUvMFwY/component
 
 import { useScreenVariants as useScreenVariants_6Hzia3M7Np4Ulu } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6hzia3m7Np4ulu/globalVariant
@@ -382,11 +382,10 @@ function PlasmicAbout__RenderFunc(props: {
                         sty.sliderCarousel
                       ),
                       dots: true,
-                      editingSlide: p.generateStateValueProp($state, [
+                      initialSlide: p.generateStateValueProp($state, [
                         "sliderCarousel",
                         "currentSlide"
                       ]),
-                      initialSlide: 0,
                       ref: ref => {
                         $refs["sliderCarousel"] = ref;
                       },
@@ -950,11 +949,10 @@ function PlasmicAbout__RenderFunc(props: {
                       sty.sliderCarousel2
                     ),
                     dots: true,
-                    editingSlide: p.generateStateValueProp($state, [
+                    initialSlide: p.generateStateValueProp($state, [
                       "sliderCarousel2",
                       "currentSlide"
                     ]),
-                    initialSlide: 0,
                     ref: ref => {
                       $refs["sliderCarousel2"] = ref;
                     },
@@ -1622,11 +1620,10 @@ function PlasmicAbout__RenderFunc(props: {
                       sty.sliderCarousel3
                     ),
                     dots: true,
-                    editingSlide: p.generateStateValueProp($state, [
+                    initialSlide: p.generateStateValueProp($state, [
                       "sliderCarousel3",
                       "currentSlide"
                     ]),
-                    initialSlide: 0,
                     ref: ref => {
                       $refs["sliderCarousel3"] = ref;
                     },
@@ -1971,11 +1968,10 @@ function PlasmicAbout__RenderFunc(props: {
                       sty.sliderCarousel5
                     ),
                     dots: true,
-                    editingSlide: p.generateStateValueProp($state, [
+                    initialSlide: p.generateStateValueProp($state, [
                       "sliderCarousel5",
                       "currentSlide"
                     ]),
-                    initialSlide: 0,
                     ref: ref => {
                       $refs["sliderCarousel5"] = ref;
                     },
@@ -2412,11 +2408,10 @@ function PlasmicAbout__RenderFunc(props: {
                       sty.sliderCarousel6
                     ),
                     dots: true,
-                    editingSlide: p.generateStateValueProp($state, [
+                    initialSlide: p.generateStateValueProp($state, [
                       "sliderCarousel6",
                       "currentSlide"
                     ]),
-                    initialSlide: 0,
                     ref: ref => {
                       $refs["sliderCarousel6"] = ref;
                     },
