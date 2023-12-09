@@ -38,8 +38,8 @@ import {
 } from "@plasmicapp/react-web";
 import FullPage from "../../FullPage"; // plasmic-import: VpRM2nIn0R/component
 import Section from "../../Section"; // plasmic-import: GMAR4VOl00/component
-import { SliderWrapper } from "@plasmicpkgs/react-slick"; // plasmic-import: HOQUyOpClJ/codeComponent
-import { sliderHelpers as SliderWrapper_Helpers } from "@plasmicpkgs/react-slick"; // plasmic-import: HOQUyOpClJ/codeComponentHelper
+import { SliderWrapper } from "@plasmicpkgs/react-slick";
+import { sliderHelpers as SliderWrapper_Helpers } from "@plasmicpkgs/react-slick";
 import Blackyellowborder from "../../Blackyellowborder"; // plasmic-import: qeyEUvMFwY/component
 
 import { useScreenVariants as useScreenVariants_6Hzia3M7Np4Ulu } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6hzia3m7Np4ulu/globalVariant
@@ -382,11 +382,10 @@ function PlasmicAbout__RenderFunc(props: {
                         sty.sliderCarousel
                       ),
                       dots: true,
-                      editingSlide: p.generateStateValueProp($state, [
+                      initialSlide: p.generateStateValueProp($state, [
                         "sliderCarousel",
                         "currentSlide"
                       ]),
-                      initialSlide: 0,
                       ref: ref => {
                         $refs["sliderCarousel"] = ref;
                       },
@@ -490,6 +489,24 @@ function PlasmicAbout__RenderFunc(props: {
               className={classNames("__wab_instance", sty.section__j2Fxj)}
             >
               <div className={classNames(projectcss.all, sty.freeBox__ihiLy)}>
+                <p.PlasmicImg
+                  alt={""}
+                  className={classNames(sty.img__qyg4T)}
+                  displayHeight={"auto"}
+                  displayMaxHeight={"none"}
+                  displayMaxWidth={"100%"}
+                  displayMinHeight={"0"}
+                  displayMinWidth={"0"}
+                  displayWidth={"auto"}
+                  loading={"lazy"}
+                  src={{
+                    src: "/plasmic/jbs_storefront/images/theJuhuBeachWidewebp.webp",
+                    fullWidth: 7239,
+                    fullHeight: 5047,
+                    aspectRatio: undefined
+                  }}
+                />
+
                 <p.Stack
                   as={"div"}
                   hasGap={true}
@@ -539,6 +556,24 @@ function PlasmicAbout__RenderFunc(props: {
                 </p.Stack>
               </div>
               <div className={classNames(projectcss.all, sty.freeBox__luyD)}>
+                <p.PlasmicImg
+                  alt={""}
+                  className={classNames(sty.img__dBzrS)}
+                  displayHeight={"auto"}
+                  displayMaxHeight={"none"}
+                  displayMaxWidth={"100%"}
+                  displayMinHeight={"0"}
+                  displayMinWidth={"0"}
+                  displayWidth={"auto"}
+                  loading={"lazy"}
+                  src={{
+                    src: "/plasmic/jbs_storefront/images/theJuhuBeachNarrowwebp2.webp",
+                    fullWidth: 879,
+                    fullHeight: 1484,
+                    aspectRatio: undefined
+                  }}
+                />
+
                 <p.Stack
                   as={"div"}
                   hasGap={true}
@@ -670,7 +705,7 @@ function PlasmicAbout__RenderFunc(props: {
                   displayWidth={"auto"}
                   loading={"lazy"}
                   src={{
-                    src: "/plasmic/jbs_storefront/images/asset85LargepngResultwebp.webp",
+                    src: "/plasmic/jbs_storefront/images/wasteFellowsAutowebp.webp",
                     fullWidth: 1658,
                     fullHeight: 1080,
                     aspectRatio: undefined
@@ -741,6 +776,24 @@ function PlasmicAbout__RenderFunc(props: {
                 hasGap={true}
                 className={classNames(projectcss.all, sty.freeBox__oOVd)}
               >
+                <p.PlasmicImg
+                  alt={""}
+                  className={classNames(sty.img__k5HgV)}
+                  displayHeight={"auto"}
+                  displayMaxHeight={"none"}
+                  displayMaxWidth={"100%"}
+                  displayMinHeight={"0"}
+                  displayMinWidth={"0"}
+                  displayWidth={"auto"}
+                  loading={"lazy"}
+                  src={{
+                    src: "/plasmic/jbs_storefront/images/bannerTeamwebp.webp",
+                    fullWidth: 4096,
+                    fullHeight: 3009,
+                    aspectRatio: undefined
+                  }}
+                />
+
                 <div
                   className={classNames(projectcss.all, sty.freeBox___30VTk)}
                 >
@@ -846,6 +899,24 @@ function PlasmicAbout__RenderFunc(props: {
               />
 
               <div className={classNames(projectcss.all, sty.freeBox__xxwor)}>
+                <p.PlasmicImg
+                  alt={""}
+                  className={classNames(sty.img___4I0S7)}
+                  displayHeight={"auto"}
+                  displayMaxHeight={"none"}
+                  displayMaxWidth={"100%"}
+                  displayMinHeight={"0"}
+                  displayMinWidth={"0"}
+                  displayWidth={"auto"}
+                  loading={"lazy"}
+                  src={{
+                    src: "/plasmic/jbs_storefront/images/bannerProcesswebp.webp",
+                    fullWidth: 4096,
+                    fullHeight: 2304,
+                    aspectRatio: undefined
+                  }}
+                />
+
                 <div className={classNames(projectcss.all, sty.freeBox__de3Oj)}>
                   <div
                     className={classNames(
@@ -950,11 +1021,10 @@ function PlasmicAbout__RenderFunc(props: {
                       sty.sliderCarousel2
                     ),
                     dots: true,
-                    editingSlide: p.generateStateValueProp($state, [
+                    initialSlide: p.generateStateValueProp($state, [
                       "sliderCarousel2",
                       "currentSlide"
                     ]),
-                    initialSlide: 0,
                     ref: ref => {
                       $refs["sliderCarousel2"] = ref;
                     },
@@ -1622,11 +1692,10 @@ function PlasmicAbout__RenderFunc(props: {
                       sty.sliderCarousel3
                     ),
                     dots: true,
-                    editingSlide: p.generateStateValueProp($state, [
+                    initialSlide: p.generateStateValueProp($state, [
                       "sliderCarousel3",
                       "currentSlide"
                     ]),
-                    initialSlide: 0,
                     ref: ref => {
                       $refs["sliderCarousel3"] = ref;
                     },
@@ -1971,11 +2040,10 @@ function PlasmicAbout__RenderFunc(props: {
                       sty.sliderCarousel5
                     ),
                     dots: true,
-                    editingSlide: p.generateStateValueProp($state, [
+                    initialSlide: p.generateStateValueProp($state, [
                       "sliderCarousel5",
                       "currentSlide"
                     ]),
-                    initialSlide: 0,
                     ref: ref => {
                       $refs["sliderCarousel5"] = ref;
                     },
@@ -2412,11 +2480,10 @@ function PlasmicAbout__RenderFunc(props: {
                       sty.sliderCarousel6
                     ),
                     dots: true,
-                    editingSlide: p.generateStateValueProp($state, [
+                    initialSlide: p.generateStateValueProp($state, [
                       "sliderCarousel6",
                       "currentSlide"
                     ]),
-                    initialSlide: 0,
                     ref: ref => {
                       $refs["sliderCarousel6"] = ref;
                     },

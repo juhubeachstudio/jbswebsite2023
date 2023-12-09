@@ -403,6 +403,11 @@
   max-width: 100%;
   position: relative;
 }
+@media (min-width: 0px) and (max-width: 768px) {
+  .section__j2Fxj:global(.__wab_instance) {
+    flex-grow: 0;
+  }
+}
 .freeBox__ihiLy {
   display: flex;
   position: relative;
@@ -412,7 +417,7 @@
   width: 100%;
   height: auto;
   max-width: 100%;
-  background: url("/plasmic/jbs_storefront/images/theJuhuBeachWidewebp.webp") top 50% left 50% / contain repeat-x;
+  background: none;
   min-height: 100vh;
   transition-property: all;
   transition-duration: 1s;
@@ -429,19 +434,35 @@
     display: none;
   }
 }
+.img__qyg4T {
+  position: absolute;
+  object-fit: cover;
+  max-width: 100%;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: auto;
+  height: auto;
+}
+.img__qyg4T > picture > img {
+  object-fit: cover;
+}
 .columns__bZln9 {
   display: flex;
-  width: 1280px;
+  width: 100%;
   height: auto;
   flex-shrink: 1;
   flex-direction: row;
   background: none;
+  min-width: 0;
   padding: 0px;
 }
 .columns__bZln9 > :global(.__wab_flex-container) {
   align-items: stretch;
   flex-direction: row;
   flex-wrap: nowrap;
+  min-width: 0;
   margin-left: calc(0px - var(--token-oW80B2Q_Cufz));
   width: calc(100% + var(--token-oW80B2Q_Cufz));
   --plsmc-rc-col-gap: var(--token-oW80B2Q_Cufz);
@@ -584,7 +605,7 @@
   width: 100%;
   height: auto;
   max-width: 100%;
-  background: url("/plasmic/jbs_storefront/images/theJuhuBeachNarrowwebp2.webp") top 50% left 50% / cover repeat-x;
+  background: url("/plasmic/jbs_storefront/images/theJuhuBeachNarrowwebp2.webp") top 50% left 50% / cover no-repeat;
   transition-property: all;
   transition-duration: 1s;
   min-height: 100vh;
@@ -598,8 +619,29 @@
 @media (min-width: 0px) and (max-width: 768px) {
   .freeBox__luyD {
     padding-bottom: 9%;
+    background: none;
+    height: auto;
+    width: 100%;
+    flex-grow: 0;
+    flex-shrink: 1;
+    max-width: 100%;
+    min-width: 0;
     display: flex;
   }
+}
+.img__dBzrS {
+  position: absolute;
+  object-fit: cover;
+  max-width: 100%;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: auto;
+  height: auto;
+}
+.img__dBzrS > picture > img {
+  object-fit: cover;
 }
 .columns__vGb4 {
   display: flex;
@@ -950,6 +992,20 @@
   > img {
   margin-top: 32px;
 }
+.img__k5HgV {
+  position: absolute;
+  object-fit: cover;
+  max-width: 100%;
+  left: 0;
+  top: 0;
+  width: auto;
+  height: auto;
+  right: 0;
+  bottom: 0;
+}
+.img__k5HgV > picture > img {
+  object-fit: cover;
+}
 .freeBox___30VTk {
   display: flex;
   position: relative;
@@ -958,7 +1014,7 @@
   justify-content: flex-start;
   width: 100%;
   max-width: 100%;
-  background: url("/plasmic/jbs_storefront/images/bannerTeamwebp.webp") top 50% left 50% / cover repeat;
+  background: none;
   height: 100vh;
   min-width: 0;
   flex-shrink: 0;
@@ -1199,6 +1255,20 @@
   grid-column-start: 1 !important;
   grid-column-end: -1 !important;
 }
+.img___4I0S7 {
+  position: absolute;
+  object-fit: cover;
+  max-width: 100%;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: auto;
+  height: auto;
+}
+.img___4I0S7 > picture > img {
+  object-fit: cover;
+}
 .freeBox__de3Oj {
   display: flex;
   position: relative;
@@ -1207,7 +1277,7 @@
   justify-content: flex-start;
   width: 100%;
   max-width: 100%;
-  background: url("/plasmic/jbs_storefront/images/bannerProcesswebp.webp") top 50% left 50% / cover repeat;
+  background: none;
   height: 100vh;
   min-width: 0;
   flex-shrink: 0;

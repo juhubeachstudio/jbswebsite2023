@@ -1,0 +1,28 @@
+.root:global(.__wab_instance) {
+  max-width: 100%;
+  position: relative;
+  max-height: var(--token-oYI7ebdZitcv);
+}
+.svg__gZirR {
+  position: relative;
+  object-fit: cover;
+  width: auto;
+  height: 1em;
+}
+.text {
+  font-size: var(--token-hYndcje43OGL);
+  font-weight: 800;
+  color: #ffffff;
+  text-transform: none;
+  line-height: 1;
+  white-space: pre-wrap;
+  letter-spacing: -0.5px;
+  font-family: "Karla", sans-serif;
+  padding: 6px 16px;
+}
+.svg__lpdxe {
+  position: relative;
+  object-fit: cover;
+  width: auto;
+  height: 1em;
+}

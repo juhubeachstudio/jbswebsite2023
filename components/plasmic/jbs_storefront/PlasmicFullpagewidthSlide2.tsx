@@ -36,7 +36,7 @@ import {
   deriveRenderOpts,
   ensureGlobalVariants
 } from "@plasmicapp/react-web";
-import Button2 from "../../Button2"; // plasmic-import: yEsI5slGwPm/component
+import Button from "../../Button"; // plasmic-import: yEsI5slGwPm/component
 
 import { useScreenVariants as useScreenVariants_6Hzia3M7Np4Ulu } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6hzia3m7Np4ulu/globalVariant
 
@@ -176,8 +176,8 @@ function PlasmicFullpagewidthSlide2__RenderFunc(props: {
         </div>
         {p.renderPlasmicSlot({
           defaultContents: (
-            <Button2
-              className={classNames("__wab_instance", sty.button2__pTyOk)}
+            <Button
+              className={classNames("__wab_instance", sty.button__pTyOk)}
               color={"red"}
             >
               <div
@@ -189,9 +189,8 @@ function PlasmicFullpagewidthSlide2__RenderFunc(props: {
               >
                 {"Shop all Chakhna"}
               </div>
-            </Button2>
+            </Button>
           ),
-
           value: args.slot3
         })}
       </div>
@@ -214,7 +213,6 @@ type NodeOverridesType<T extends NodeNameType> = Pick<
   PlasmicFullpagewidthSlide2__OverridesType,
   DescendantsType<T>
 >;
-
 type NodeComponentProps<T extends NodeNameType> =
   // Explicitly specify variants, args, and overrides as objects
   {

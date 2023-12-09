@@ -39,7 +39,6 @@ import {
 import FullPage from "../../FullPage"; // plasmic-import: VpRM2nIn0R/component
 import Section from "../../Section"; // plasmic-import: GMAR4VOl00/component
 import Cart2 from "../../Cart2"; // plasmic-import: 4iMp3co2mNSz/component
-import { Fetcher } from "@plasmicapp/react-web/lib/data-sources"; // plasmic-import: 1xopR4ZBZs2K4b/codeComponent
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -168,7 +167,6 @@ type NodeOverridesType<T extends NodeNameType> = Pick<
   PlasmicCart__OverridesType,
   DescendantsType<T>
 >;
-
 type NodeComponentProps<T extends NodeNameType> =
   // Explicitly specify variants, args, and overrides as objects
   {

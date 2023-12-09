@@ -36,8 +36,10 @@ import {
   deriveRenderOpts,
   ensureGlobalVariants
 } from "@plasmicapp/react-web";
-import { CartProvider } from "@plasmicpkgs/commerce"; // plasmic-import: -7iA_UBq8qca/codeComponent
-import Button2 from "../../Button2"; // plasmic-import: yEsI5slGwPm/component
+import { CartProvider } from "@plasmicpkgs/commerce";
+import Button from "../../Button"; // plasmic-import: yEsI5slGwPm/component
+import SpecialInstructionsInput from "../../SpecialInstructionsInput"; // plasmic-import: znFTM0nXx5O6/component
+import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -66,6 +68,8 @@ export type PlasmicCart2__OverridesType = {
   root?: p.Flex<"div">;
   cartProvider?: p.Flex<typeof CartProvider>;
   img?: p.Flex<typeof p.PlasmicImg>;
+  p?: p.Flex<"p">;
+  specialInstructionsInput?: p.Flex<typeof SpecialInstructionsInput>;
 };
 
 export interface DefaultCart2Props {
@@ -104,6 +108,24 @@ function PlasmicCart2__RenderFunc(props: {
   const $globalActions = ph.useGlobalActions?.();
 
   const currentUser = p.useCurrentUser?.() || {};
+
+  const stateSpecs: Parameters<typeof p.useDollarState>[0] = React.useMemo(
+    () => [
+      {
+        path: "specialInstructionsInput.specialInstructions",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      }
+    ],
+    [$props, $ctx, $refs]
+  );
+  const $state = p.useDollarState(stateSpecs, {
+    $props,
+    $ctx,
+    $queries: {},
+    $refs
+  });
 
   return (
     <div
@@ -156,8 +178,8 @@ function PlasmicCart2__RenderFunc(props: {
                   >
                     {"No items have been added to the cart!"}
                   </div>
-                  <Button2
-                    className={classNames("__wab_instance", sty.button2__w6F7L)}
+                  <Button
+                    className={classNames("__wab_instance", sty.button__w6F7L)}
                     color={"red"}
                     link={`/category/${"all"}`}
                     showEndIcon={true}
@@ -171,7 +193,7 @@ function PlasmicCart2__RenderFunc(props: {
                     >
                       {"Seel all our products"}
                     </div>
-                  </Button2>
+                  </Button>
                 </p.Stack>
               ) : null}
               {(() => {
@@ -220,7 +242,19 @@ function PlasmicCart2__RenderFunc(props: {
                           <p.PlasmicImg
                             data-plasmic-name={"img"}
                             data-plasmic-override={overrides.img}
-                            alt={""}
+                            alt={(() => {
+                              try {
+                                return currentItem.name;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return undefined;
+                                }
+                                throw e;
+                              }
+                            })()}
                             className={classNames(sty.img)}
                             displayHeight={"100%"}
                             displayMaxHeight={"none"}
@@ -344,10 +378,10 @@ function PlasmicCart2__RenderFunc(props: {
                                   sty.freeBox__dnYb5
                                 )}
                               >
-                                <Button2
+                                <Button
                                   className={classNames(
                                     "__wab_instance",
-                                    sty.button2__fcEjs
+                                    sty.button__fcEjs
                                   )}
                                   color={"clear"}
                                   onClick={async event => {
@@ -356,38 +390,42 @@ function PlasmicCart2__RenderFunc(props: {
                                     $steps["updateItemInCart"] = true
                                       ? (() => {
                                           const actionArgs = {
-                                            lineItemId: (() => {
-                                              try {
-                                                return currentItem.id;
-                                              } catch (e) {
-                                                if (
-                                                  e instanceof TypeError ||
-                                                  e?.plasmicType ===
-                                                    "PlasmicUndefinedDataError"
-                                                ) {
-                                                  return undefined;
+                                            args: [
+                                              (() => {
+                                                try {
+                                                  return currentItem.id;
+                                                } catch (e) {
+                                                  if (
+                                                    e instanceof TypeError ||
+                                                    e?.plasmicType ===
+                                                      "PlasmicUndefinedDataError"
+                                                  ) {
+                                                    return undefined;
+                                                  }
+                                                  throw e;
                                                 }
-                                                throw e;
-                                              }
-                                            })(),
-                                            quantity: (() => {
-                                              try {
-                                                return currentItem.quantity - 1;
-                                              } catch (e) {
-                                                if (
-                                                  e instanceof TypeError ||
-                                                  e?.plasmicType ===
-                                                    "PlasmicUndefinedDataError"
-                                                ) {
-                                                  return undefined;
+                                              })(),
+                                              (() => {
+                                                try {
+                                                  return (
+                                                    currentItem.quantity - 1
+                                                  );
+                                                } catch (e) {
+                                                  if (
+                                                    e instanceof TypeError ||
+                                                    e?.plasmicType ===
+                                                      "PlasmicUndefinedDataError"
+                                                  ) {
+                                                    return undefined;
+                                                  }
+                                                  throw e;
                                                 }
-                                                throw e;
-                                              }
-                                            })()
+                                              })()
+                                            ]
                                           };
                                           return $globalActions[
                                             "plasmic-commerce-shopify-provider.updateItem"
-                                          ]?.apply(null, [actionArgs]);
+                                          ]?.apply(null, [...actionArgs.args]);
                                         })()
                                       : undefined;
                                     if (
@@ -412,7 +450,7 @@ function PlasmicCart2__RenderFunc(props: {
                                     )}
                                     role={"img"}
                                   />
-                                </Button2>
+                                </Button>
                                 <div
                                   className={classNames(
                                     projectcss.all,
@@ -437,10 +475,10 @@ function PlasmicCart2__RenderFunc(props: {
                                     })()}
                                   </React.Fragment>
                                 </div>
-                                <Button2
+                                <Button
                                   className={classNames(
                                     "__wab_instance",
-                                    sty.button2___4W2A8
+                                    sty.button___4W2A8
                                   )}
                                   color={"clear"}
                                   onClick={async event => {
@@ -449,38 +487,42 @@ function PlasmicCart2__RenderFunc(props: {
                                     $steps["updateItemInCart"] = true
                                       ? (() => {
                                           const actionArgs = {
-                                            lineItemId: (() => {
-                                              try {
-                                                return currentItem.id;
-                                              } catch (e) {
-                                                if (
-                                                  e instanceof TypeError ||
-                                                  e?.plasmicType ===
-                                                    "PlasmicUndefinedDataError"
-                                                ) {
-                                                  return undefined;
+                                            args: [
+                                              (() => {
+                                                try {
+                                                  return currentItem.id;
+                                                } catch (e) {
+                                                  if (
+                                                    e instanceof TypeError ||
+                                                    e?.plasmicType ===
+                                                      "PlasmicUndefinedDataError"
+                                                  ) {
+                                                    return undefined;
+                                                  }
+                                                  throw e;
                                                 }
-                                                throw e;
-                                              }
-                                            })(),
-                                            quantity: (() => {
-                                              try {
-                                                return currentItem.quantity + 1;
-                                              } catch (e) {
-                                                if (
-                                                  e instanceof TypeError ||
-                                                  e?.plasmicType ===
-                                                    "PlasmicUndefinedDataError"
-                                                ) {
-                                                  return undefined;
+                                              })(),
+                                              (() => {
+                                                try {
+                                                  return (
+                                                    currentItem.quantity + 1
+                                                  );
+                                                } catch (e) {
+                                                  if (
+                                                    e instanceof TypeError ||
+                                                    e?.plasmicType ===
+                                                      "PlasmicUndefinedDataError"
+                                                  ) {
+                                                    return undefined;
+                                                  }
+                                                  throw e;
                                                 }
-                                                throw e;
-                                              }
-                                            })()
+                                              })()
+                                            ]
                                           };
                                           return $globalActions[
                                             "plasmic-commerce-shopify-provider.updateItem"
-                                          ]?.apply(null, [actionArgs]);
+                                          ]?.apply(null, [...actionArgs.args]);
                                         })()
                                       : undefined;
                                     if (
@@ -505,7 +547,7 @@ function PlasmicCart2__RenderFunc(props: {
                                     )}
                                     role={"img"}
                                   />
-                                </Button2>
+                                </Button>
                               </div>
                               <div
                                 className={classNames(
@@ -569,12 +611,99 @@ function PlasmicCart2__RenderFunc(props: {
                     </div>
                   </div>
                   <div
-                    className={classNames(projectcss.all, sty.freeBox__dON3)}
+                    className={classNames(projectcss.all, sty.freeBox__g3ALw)}
                   >
-                    <Button2
+                    <p
+                      data-plasmic-name={"p"}
+                      data-plasmic-override={overrides.p}
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.p,
+                        projectcss.__wab_text,
+                        sty.p
+                      )}
+                    >
+                      {"Special Instructions"}
+                    </p>
+                    <SpecialInstructionsInput
+                      data-plasmic-name={"specialInstructionsInput"}
+                      data-plasmic-override={overrides.specialInstructionsInput}
                       className={classNames(
                         "__wab_instance",
-                        sty.button2__ywrkm
+                        sty.specialInstructionsInput
+                      )}
+                      onSpecialInstructionsChange={async (
+                        ...eventArgs: any
+                      ) => {
+                        p.generateStateOnChangeProp($state, [
+                          "specialInstructionsInput",
+                          "specialInstructions"
+                        ]).apply(null, eventArgs);
+                        (async val => {
+                          const $steps = {};
+
+                          $steps["updateStateVariable"] = true
+                            ? (() => {
+                                const actionArgs = {};
+                                return (({
+                                  variable,
+                                  value,
+                                  startIndex,
+                                  deleteCount
+                                }) => {
+                                  if (!variable) {
+                                    return;
+                                  }
+                                  const { objRoot, variablePath } = variable;
+                                  undefined;
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                          if (
+                            $steps["updateStateVariable"] != null &&
+                            typeof $steps["updateStateVariable"] === "object" &&
+                            typeof $steps["updateStateVariable"].then ===
+                              "function"
+                          ) {
+                            $steps["updateStateVariable"] = await $steps[
+                              "updateStateVariable"
+                            ];
+                          }
+
+                          $steps["updateStateVariable2"] = true
+                            ? (() => {
+                                const actionArgs = {
+                                  customFunction: async () => {
+                                    return undefined;
+                                  }
+                                };
+                                return (({ customFunction }) => {
+                                  return customFunction();
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                          if (
+                            $steps["updateStateVariable2"] != null &&
+                            typeof $steps["updateStateVariable2"] ===
+                              "object" &&
+                            typeof $steps["updateStateVariable2"].then ===
+                              "function"
+                          ) {
+                            $steps["updateStateVariable2"] = await $steps[
+                              "updateStateVariable2"
+                            ];
+                          }
+                        }).apply(null, eventArgs);
+                      }}
+                    />
+                  </div>
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__dON3)}
+                  >
+                    <Button
+                      className={classNames(
+                        "__wab_instance",
+                        sty.button__ywrkm
                       )}
                       color={"red"}
                       link={(() => {
@@ -600,7 +729,7 @@ function PlasmicCart2__RenderFunc(props: {
                       >
                         {"Proceed to Checkout"}
                       </div>
-                    </Button2>
+                    </Button>
                   </div>
                 </div>
               ) : null}
@@ -613,9 +742,11 @@ function PlasmicCart2__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "cartProvider", "img"],
-  cartProvider: ["cartProvider", "img"],
-  img: ["img"]
+  root: ["root", "cartProvider", "img", "p", "specialInstructionsInput"],
+  cartProvider: ["cartProvider", "img", "p", "specialInstructionsInput"],
+  img: ["img"],
+  p: ["p"],
+  specialInstructionsInput: ["specialInstructionsInput"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -624,6 +755,8 @@ type NodeDefaultElementType = {
   root: "div";
   cartProvider: typeof CartProvider;
   img: typeof p.PlasmicImg;
+  p: "p";
+  specialInstructionsInput: typeof SpecialInstructionsInput;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -688,6 +821,8 @@ export const PlasmicCart2 = Object.assign(
     // Helper components rendering sub-elements
     cartProvider: makeNodeComponent("cartProvider"),
     img: makeNodeComponent("img"),
+    p: makeNodeComponent("p"),
+    specialInstructionsInput: makeNodeComponent("specialInstructionsInput"),
 
     // Metadata about props expected for PlasmicCart2
     internalVariantProps: PlasmicCart2__VariantProps,
