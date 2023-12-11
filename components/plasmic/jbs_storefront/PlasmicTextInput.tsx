@@ -210,7 +210,6 @@ function PlasmicTextInput__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => $props["value"]
       }
     ],
-
     [$props, $ctx, $refs]
   );
   const $state = p.useDollarState(stateSpecs, {
@@ -320,10 +319,43 @@ function PlasmicTextInput__RenderFunc(props: {
           hasVariant($state, "isDisabled", "isDisabled") ? true : undefined
         }
         name={args.name}
-        onChange={e => {
-          p.generateStateOnChangeProp($state, ["input", "value"])(
-            e.target.value
-          );
+        onChange={async (...eventArgs: any) => {
+          (e => {
+            p.generateStateOnChangeProp($state, ["input", "value"])(
+              e.target.value
+            );
+          }).apply(null, eventArgs);
+          (async event => {
+            const $steps = {};
+
+            $steps["updateValue"] = true
+              ? (() => {
+                  const actionArgs = {
+                    variable: {
+                      objRoot: $state,
+                      variablePath: ["value"]
+                    },
+                    operation: 0
+                  };
+                  return (({ variable, value, startIndex, deleteCount }) => {
+                    if (!variable) {
+                      return;
+                    }
+                    const { objRoot, variablePath } = variable;
+
+                    p.set(objRoot, variablePath, value);
+                    return value;
+                  })?.apply(null, [actionArgs]);
+                })()
+              : undefined;
+            if (
+              $steps["updateValue"] != null &&
+              typeof $steps["updateValue"] === "object" &&
+              typeof $steps["updateValue"].then === "function"
+            ) {
+              $steps["updateValue"] = await $steps["updateValue"];
+            }
+          }).apply(null, eventArgs);
         }}
         placeholder={args.placeholder}
         ref={ref => {
@@ -417,7 +449,6 @@ type NodeOverridesType<T extends NodeNameType> = Pick<
   PlasmicTextInput__OverridesType,
   DescendantsType<T>
 >;
-
 type NodeComponentProps<T extends NodeNameType> =
   // Explicitly specify variants, args, and overrides as objects
   {

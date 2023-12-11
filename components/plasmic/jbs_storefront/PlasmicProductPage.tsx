@@ -37,21 +37,20 @@ import {
   ensureGlobalVariants
 } from "@plasmicapp/react-web";
 import FullPage from "../../FullPage"; // plasmic-import: VpRM2nIn0R/component
-import { ProductBox } from "@plasmicpkgs/commerce"; // plasmic-import: 1gYJf_XBZUAD/codeComponent
-import { PlasmicHead } from "@plasmicapp/react-web"; // plasmic-import: Y-3ZgxdS1wv60n/codeComponent
-import { ProductMedia } from "@plasmicpkgs/commerce"; // plasmic-import: qpULM0wwWW/codeComponent
-import { ProductTextField } from "@plasmicpkgs/commerce"; // plasmic-import: S1F4q0wN6b/codeComponent
-import { ProductPriceComponent } from "@plasmicpkgs/commerce"; // plasmic-import: _PaJxGc8gf/codeComponent
-import { ProductVariantPicker } from "@plasmicpkgs/commerce"; // plasmic-import: i3vHZr7erKX/codeComponent
+import { ProductBox } from "@plasmicpkgs/commerce";
+import { PlasmicHead } from "@plasmicapp/react-web";
+import { ProductMedia } from "@plasmicpkgs/commerce";
+import { ProductTextField } from "@plasmicpkgs/commerce";
+import { ProductPriceComponent } from "@plasmicpkgs/commerce";
+import { ProductVariantPicker } from "@plasmicpkgs/commerce";
 import AddToCartCustomButton from "../../AddToCartCustomButton"; // plasmic-import: AyNa8RYOflZ1/component
-import { AntdAccordion } from "@plasmicpkgs/antd5/skinny/registerCollapse"; // plasmic-import: oPUhN99n4VXI/codeComponent
-import { accordionHelpers as AntdAccordion_Helpers } from "@plasmicpkgs/antd5/skinny/registerCollapse"; // plasmic-import: oPUhN99n4VXI/codeComponentHelper
-import { AntdAccordionItem } from "@plasmicpkgs/antd5/skinny/registerCollapse"; // plasmic-import: 4mmDdnlyWx2k/codeComponent
-import { GraphqlFetcher } from "@plasmicpkgs/plasmic-query"; // plasmic-import: 0DrxdjD45dkx/codeComponent
+import { AntdAccordion } from "@plasmicpkgs/antd5/skinny/registerCollapse";
+import { accordionHelpers as AntdAccordion_Helpers } from "@plasmicpkgs/antd5/skinny/registerCollapse";
+import { AntdAccordionItem } from "@plasmicpkgs/antd5/skinny/registerCollapse";
+import { GraphqlFetcher } from "@plasmicpkgs/plasmic-query";
 import Section from "../../Section"; // plasmic-import: GMAR4VOl00/component
 import ProductCardJbs from "../../ProductCardJbs"; // plasmic-import: Ft4Mem_Zab/component
-import Button2 from "../../Button2"; // plasmic-import: yEsI5slGwPm/component
-import { Fetcher } from "@plasmicapp/react-web/lib/data-sources"; // plasmic-import: 1xopR4ZBZs2K4b/codeComponent
+import Button from "../../Button"; // plasmic-import: yEsI5slGwPm/component
 
 import { useScreenVariants as useScreenVariants_6Hzia3M7Np4Ulu } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6hzia3m7Np4ulu/globalVariant
 
@@ -87,7 +86,7 @@ export type PlasmicProductPage__OverridesType = {
   accordion?: p.Flex<typeof AntdAccordion>;
   section?: p.Flex<typeof Section>;
   productCardJbs?: p.Flex<typeof ProductCardJbs>;
-  button2?: p.Flex<typeof Button2>;
+  button?: p.Flex<typeof Button>;
   svg?: p.Flex<"svg">;
 };
 
@@ -138,7 +137,6 @@ function PlasmicProductPage__RenderFunc(props: {
         )
       }
     ],
-
     [$props, $ctx, $refs]
   );
   const $state = p.useDollarState(stateSpecs, {
@@ -209,6 +207,7 @@ function PlasmicProductPage__RenderFunc(props: {
                       throw e;
                     }
                   })()}
+                  noLayout={true}
                 >
                   <ph.DataCtxReader>
                     {$ctx => (
@@ -222,7 +221,7 @@ function PlasmicProductPage__RenderFunc(props: {
                           )}
                           description={(() => {
                             try {
-                              return undefined;
+                              return $ctx.currentProduct.description;
                             } catch (e) {
                               if (
                                 e instanceof TypeError ||
@@ -728,7 +727,6 @@ function PlasmicProductPage__RenderFunc(props: {
                                 </AntdAccordionItem>
                               </React.Fragment>
                             ),
-
                             onChange:
                               p.generateStateOnChangePropForCodeComponents(
                                 $state,
@@ -746,7 +744,6 @@ function PlasmicProductPage__RenderFunc(props: {
                                 plasmicStateName: "accordion.activePanelId"
                               }
                             ],
-
                             [],
                             AntdAccordion_Helpers ?? {},
                             child$Props
@@ -928,12 +925,12 @@ function PlasmicProductPage__RenderFunc(props: {
                                 sty.freeBox__sytZ
                               )}
                             >
-                              <Button2
-                                data-plasmic-name={"button2"}
-                                data-plasmic-override={overrides.button2}
+                              <Button
+                                data-plasmic-name={"button"}
+                                data-plasmic-override={overrides.button}
                                 className={classNames(
                                   "__wab_instance",
-                                  sty.button2
+                                  sty.button
                                 )}
                                 color={"clear"}
                                 endIcon={
@@ -960,7 +957,7 @@ function PlasmicProductPage__RenderFunc(props: {
                                 >
                                   {"See all"}
                                 </div>
-                              </Button2>
+                              </Button>
                             </div>
                           </div>
                         )}
@@ -990,10 +987,9 @@ const PlasmicDescendants = {
     "accordion",
     "section",
     "productCardJbs",
-    "button2",
+    "button",
     "svg"
   ],
-
   fullPage: [
     "fullPage",
     "columns",
@@ -1005,10 +1001,9 @@ const PlasmicDescendants = {
     "accordion",
     "section",
     "productCardJbs",
-    "button2",
+    "button",
     "svg"
   ],
-
   columns: [
     "columns",
     "pageMetadataOverride",
@@ -1018,16 +1013,15 @@ const PlasmicDescendants = {
     "addToCartCustomButton",
     "accordion"
   ],
-
   pageMetadataOverride: ["pageMetadataOverride"],
   productMedia: ["productMedia"],
   productPrice: ["productPrice"],
   productVariantPicker: ["productVariantPicker"],
   addToCartCustomButton: ["addToCartCustomButton"],
   accordion: ["accordion"],
-  section: ["section", "productCardJbs", "button2", "svg"],
+  section: ["section", "productCardJbs", "button", "svg"],
   productCardJbs: ["productCardJbs"],
-  button2: ["button2", "svg"],
+  button: ["button", "svg"],
   svg: ["svg"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
@@ -1045,7 +1039,7 @@ type NodeDefaultElementType = {
   accordion: typeof AntdAccordion;
   section: typeof Section;
   productCardJbs: typeof ProductCardJbs;
-  button2: typeof Button2;
+  button: typeof Button;
   svg: "svg";
 };
 
@@ -1054,7 +1048,6 @@ type NodeOverridesType<T extends NodeNameType> = Pick<
   PlasmicProductPage__OverridesType,
   DescendantsType<T>
 >;
-
 type NodeComponentProps<T extends NodeNameType> =
   // Explicitly specify variants, args, and overrides as objects
   {
@@ -1120,7 +1113,7 @@ export const PlasmicProductPage = Object.assign(
     accordion: makeNodeComponent("accordion"),
     section: makeNodeComponent("section"),
     productCardJbs: makeNodeComponent("productCardJbs"),
-    button2: makeNodeComponent("button2"),
+    button: makeNodeComponent("button"),
     svg: makeNodeComponent("svg"),
 
     // Metadata about props expected for PlasmicProductPage

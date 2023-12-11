@@ -36,12 +36,12 @@ import {
   deriveRenderOpts,
   ensureGlobalVariants
 } from "@plasmicapp/react-web";
-import { SliderWrapper } from "@plasmicpkgs/react-slick"; // plasmic-import: HOQUyOpClJ/codeComponent
-import { sliderHelpers as SliderWrapper_Helpers } from "@plasmicpkgs/react-slick"; // plasmic-import: HOQUyOpClJ/codeComponentHelper
-import { ProductCollection } from "@plasmicpkgs/commerce"; // plasmic-import: vU2jzVAnFP/codeComponent
-import { ProductBox } from "@plasmicpkgs/commerce"; // plasmic-import: 1gYJf_XBZUAD/codeComponent
-import { ProductMedia } from "@plasmicpkgs/commerce"; // plasmic-import: qpULM0wwWW/codeComponent
-import { ProductTextField } from "@plasmicpkgs/commerce"; // plasmic-import: S1F4q0wN6b/codeComponent
+import { SliderWrapper } from "@plasmicpkgs/react-slick";
+import { sliderHelpers as SliderWrapper_Helpers } from "@plasmicpkgs/react-slick";
+import { ProductCollection } from "@plasmicpkgs/commerce";
+import { ProductBox } from "@plasmicpkgs/commerce";
+import { ProductMedia } from "@plasmicpkgs/commerce";
+import { ProductTextField } from "@plasmicpkgs/commerce";
 
 import { useScreenVariants as useScreenVariants_6Hzia3M7Np4Ulu } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6hzia3m7Np4ulu/globalVariant
 
@@ -117,7 +117,6 @@ function PlasmicSomethingNewSlider2__RenderFunc(props: {
         )
       }
     ],
-
     [$props, $ctx, $refs]
   );
   const $state = p.useDollarState(stateSpecs, {
@@ -153,11 +152,10 @@ function PlasmicSomethingNewSlider2__RenderFunc(props: {
         sty.sliderCarousel11
       ),
       dots: true,
-      editingSlide: p.generateStateValueProp($state, [
+      initialSlide: p.generateStateValueProp($state, [
         "sliderCarousel11",
         "currentSlide"
       ]),
-      initialSlide: 0,
       ref: ref => {
         $refs["sliderCarousel11"] = ref;
       },
@@ -172,7 +170,6 @@ function PlasmicSomethingNewSlider2__RenderFunc(props: {
           plasmicStateName: "sliderCarousel11.currentSlide"
         }
       ],
-
       [],
       SliderWrapper_Helpers ?? {},
       child$Props
@@ -494,7 +491,6 @@ type NodeOverridesType<T extends NodeNameType> = Pick<
   PlasmicSomethingNewSlider2__OverridesType,
   DescendantsType<T>
 >;
-
 type NodeComponentProps<T extends NodeNameType> =
   // Explicitly specify variants, args, and overrides as objects
   {

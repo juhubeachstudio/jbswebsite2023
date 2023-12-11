@@ -38,9 +38,9 @@ import {
 } from "@plasmicapp/react-web";
 import FullPage from "../../FullPage"; // plasmic-import: VpRM2nIn0R/component
 import Section from "../../Section"; // plasmic-import: GMAR4VOl00/component
-import { CategoryCollection } from "@plasmicpkgs/commerce"; // plasmic-import: ny07p45F84c_/codeComponent
+import { CategoryCollection } from "@plasmicpkgs/commerce";
 import CategoryCard from "../../CategoryCard"; // plasmic-import: VOdWaLC8FIM5/component
-import Button2 from "../../Button2"; // plasmic-import: yEsI5slGwPm/component
+import Button from "../../Button"; // plasmic-import: yEsI5slGwPm/component
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -68,7 +68,7 @@ export type PlasmicCategories__OverridesType = {
   section?: p.Flex<typeof Section>;
   categoryCollection?: p.Flex<typeof CategoryCollection>;
   categoryCard?: p.Flex<typeof CategoryCard>;
-  button2?: p.Flex<typeof Button2>;
+  button?: p.Flex<typeof Button>;
 };
 
 export interface DefaultCategoriesProps {}
@@ -232,10 +232,10 @@ function PlasmicCategories__RenderFunc(props: {
                 hasGap={true}
                 className={classNames(projectcss.all, sty.freeBox__onkfy)}
               >
-                <Button2
-                  data-plasmic-name={"button2"}
-                  data-plasmic-override={overrides.button2}
-                  className={classNames("__wab_instance", sty.button2)}
+                <Button
+                  data-plasmic-name={"button"}
+                  data-plasmic-override={overrides.button}
+                  className={classNames("__wab_instance", sty.button)}
                   color={"red"}
                   link={`/category/${"all"}`}
                 >
@@ -248,7 +248,7 @@ function PlasmicCategories__RenderFunc(props: {
                   >
                     {"Shop all"}
                   </div>
-                </Button2>
+                </Button>
               </p.Stack>
             </Section>
           </FullPage>
@@ -265,21 +265,19 @@ const PlasmicDescendants = {
     "section",
     "categoryCollection",
     "categoryCard",
-    "button2"
+    "button"
   ],
-
   fullPage: [
     "fullPage",
     "section",
     "categoryCollection",
     "categoryCard",
-    "button2"
+    "button"
   ],
-
-  section: ["section", "categoryCollection", "categoryCard", "button2"],
+  section: ["section", "categoryCollection", "categoryCard", "button"],
   categoryCollection: ["categoryCollection", "categoryCard"],
   categoryCard: ["categoryCard"],
-  button2: ["button2"]
+  button: ["button"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -290,7 +288,7 @@ type NodeDefaultElementType = {
   section: typeof Section;
   categoryCollection: typeof CategoryCollection;
   categoryCard: typeof CategoryCard;
-  button2: typeof Button2;
+  button: typeof Button;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -298,7 +296,6 @@ type NodeOverridesType<T extends NodeNameType> = Pick<
   PlasmicCategories__OverridesType,
   DescendantsType<T>
 >;
-
 type NodeComponentProps<T extends NodeNameType> =
   // Explicitly specify variants, args, and overrides as objects
   {
@@ -358,7 +355,7 @@ export const PlasmicCategories = Object.assign(
     section: makeNodeComponent("section"),
     categoryCollection: makeNodeComponent("categoryCollection"),
     categoryCard: makeNodeComponent("categoryCard"),
-    button2: makeNodeComponent("button2"),
+    button: makeNodeComponent("button"),
 
     // Metadata about props expected for PlasmicCategories
     internalVariantProps: PlasmicCategories__VariantProps,

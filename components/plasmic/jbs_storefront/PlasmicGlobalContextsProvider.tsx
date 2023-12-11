@@ -6,25 +6,32 @@
 
 import * as React from "react";
 import { hasVariant, ensureGlobalVariants } from "@plasmicapp/react-web";
-import { AntdConfigProvider } from "@plasmicpkgs/antd5/skinny/registerConfigProvider"; // plasmic-import: DmrLLHGTjGTE/codeComponent
-import { CommerceProviderComponent } from "@plasmicpkgs/commerce-shopify"; // plasmic-import: jKXfoEXfU9R/codeComponent
+import { AntdConfigProvider } from "@plasmicpkgs/antd5/skinny/registerConfigProvider";
+import { CommerceProviderComponent } from "@plasmicpkgs/commerce-shopify";
+import { ParallaxProviderWrapper } from "@plasmicpkgs/react-scroll-parallax";
 
 export interface GlobalContextsProviderProps {
   children?: React.ReactElement;
   antdConfigProviderProps?: Partial<
     Omit<React.ComponentProps<typeof AntdConfigProvider>, "children">
   >;
-
   commerceProviderComponentProps?: Partial<
     Omit<React.ComponentProps<typeof CommerceProviderComponent>, "children">
+  >;
+  parallaxProviderWrapperProps?: Partial<
+    Omit<React.ComponentProps<typeof ParallaxProviderWrapper>, "children">
   >;
 }
 
 export default function GlobalContextsProvider(
   props: GlobalContextsProviderProps
 ) {
-  const { children, antdConfigProviderProps, commerceProviderComponentProps } =
-    props;
+  const {
+    children,
+    antdConfigProviderProps,
+    commerceProviderComponentProps,
+    parallaxProviderWrapperProps
+  } = props;
 
   return (
     <AntdConfigProvider
@@ -134,7 +141,17 @@ export default function GlobalContextsProvider(
             : "juhubeachstudio.myshopify.com"
         }
       >
-        {children}
+        <ParallaxProviderWrapper
+          {...parallaxProviderWrapperProps}
+          scrollAxis={
+            parallaxProviderWrapperProps &&
+            "scrollAxis" in parallaxProviderWrapperProps
+              ? parallaxProviderWrapperProps.scrollAxis!
+              : undefined
+          }
+        >
+          {children}
+        </ParallaxProviderWrapper>
       </CommerceProviderComponent>
     </AntdConfigProvider>
   );

@@ -56,7 +56,7 @@
   height: auto;
   max-width: 100%;
 }
-.button2__w6F7L:global(.__wab_instance) {
+.button__w6F7L:global(.__wab_instance) {
   max-width: 100%;
   position: relative;
 }
@@ -109,6 +109,9 @@
   border-width: 1px;
   border-style: solid;
 }
+.link___09Wjv {
+  display: flex;
+}
 .img {
   object-fit: cover;
   height: 100%;
@@ -135,18 +138,19 @@
   max-width: 100%;
   min-width: 0;
 }
-.freeBox__fWwMv {
+.link__fWwMv {
   display: flex;
   position: relative;
   flex-direction: column;
   width: 100%;
   height: 100%;
   max-width: 100%;
+  color: var(--token-ZGgUq6H0D);
   min-width: 0;
   min-height: 0;
   padding: 8px;
 }
-.freeBox__fWwMv > :global(.__wab_flex-container) {
+.link__fWwMv > :global(.__wab_flex-container) {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
@@ -155,10 +159,10 @@
   margin-top: calc(0px - 8px);
   height: calc(100% + 8px);
 }
-.freeBox__fWwMv > :global(.__wab_flex-container) > *,
-.freeBox__fWwMv > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
-.freeBox__fWwMv > :global(.__wab_flex-container) > picture > img,
-.freeBox__fWwMv
+.link__fWwMv > :global(.__wab_flex-container) > *,
+.link__fWwMv > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.link__fWwMv > :global(.__wab_flex-container) > picture > img,
+.link__fWwMv
   > :global(.__wab_flex-container)
   > :global(.__wab_slot)
   > picture
@@ -180,13 +184,6 @@
   height: auto;
   max-width: 100%;
   min-width: 0;
-}
-.svg__xyYr {
-  position: relative;
-  object-fit: cover;
-  max-width: 100%;
-  height: 1em;
-  flex-shrink: 0;
 }
 .freeBox__aoOh {
   display: flex;
@@ -215,7 +212,7 @@
   height: auto;
   flex-shrink: 0;
 }
-.button2__fcEjs:global(.__wab_instance) {
+.button__fcEjs:global(.__wab_instance) {
   max-width: 100%;
   position: relative;
 }
@@ -244,7 +241,7 @@
   text-align: center;
   min-width: 0;
 }
-.button2___4W2A8:global(.__wab_instance) {
+.button___4W2A8:global(.__wab_instance) {
   position: relative;
   max-width: 100%;
 }
@@ -303,19 +300,47 @@
     font-weight: 700;
   }
 }
-.freeBox__dON3 {
-  display: flex;
+.freeBox__g3ALw {
   position: relative;
-  flex-direction: row;
+  flex-direction: column;
   align-items: flex-start;
   justify-content: center;
   width: 100%;
   height: auto;
   max-width: 100%;
   min-width: 0;
+  display: none;
   padding: 16px 8px;
+  border-width: 1px;
+  border-style: solid;
 }
-.button2__ywrkm:global(.__wab_instance) {
+.p {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  font-weight: 700;
+  min-width: 0;
+}
+.specialInstructionsInput:global(.__wab_instance):global(.__wab_instance) {
+  position: relative;
+  align-self: stretch;
+}
+.freeBox__dON3 {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-top: 16px;
+  min-width: 0;
+}
+.button__ywrkm:global(.__wab_instance) {
   max-width: 100%;
   position: relative;
 }

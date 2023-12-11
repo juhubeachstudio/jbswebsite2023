@@ -36,7 +36,7 @@ import {
   deriveRenderOpts,
   ensureGlobalVariants
 } from "@plasmicapp/react-web";
-import Button2 from "../../Button2"; // plasmic-import: yEsI5slGwPm/component
+import Button from "../../Button"; // plasmic-import: yEsI5slGwPm/component
 
 import { useScreenVariants as useScreenVariants_6Hzia3M7Np4Ulu } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6hzia3m7Np4ulu/globalVariant
 
@@ -68,7 +68,7 @@ export type PlasmicProductCardNew__OverridesType = {
   root?: p.Flex<"div">;
   link?: p.Flex<"a"> & Partial<LinkProps>;
   freeBox?: p.Flex<"div">;
-  button2?: p.Flex<typeof Button2>;
+  button?: p.Flex<typeof Button>;
 };
 
 export interface DefaultProductCardNewProps {
@@ -204,11 +204,11 @@ function PlasmicProductCardNew__RenderFunc(props: {
         data-plasmic-override={overrides.freeBox}
         className={classNames(projectcss.all, sty.freeBox)}
       >
-        <Button2
-          data-plasmic-name={"button2"}
-          data-plasmic-override={overrides.button2}
+        <Button
+          data-plasmic-name={"button"}
+          data-plasmic-override={overrides.button}
           alignment={"leftAligned"}
-          className={classNames("__wab_instance", sty.button2)}
+          className={classNames("__wab_instance", sty.button)}
           color={"clear"}
           link={`/product/${(() => {
             try {
@@ -248,7 +248,7 @@ function PlasmicProductCardNew__RenderFunc(props: {
               })()}
             </React.Fragment>
           </div>
-        </Button2>
+        </Button>
         <div
           className={classNames(
             projectcss.all,
@@ -278,10 +278,10 @@ function PlasmicProductCardNew__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "link", "freeBox", "button2"],
+  root: ["root", "link", "freeBox", "button"],
   link: ["link"],
-  freeBox: ["freeBox", "button2"],
-  button2: ["button2"]
+  freeBox: ["freeBox", "button"],
+  button: ["button"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -290,7 +290,7 @@ type NodeDefaultElementType = {
   root: "div";
   link: "a";
   freeBox: "div";
-  button2: typeof Button2;
+  button: typeof Button;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -298,7 +298,6 @@ type NodeOverridesType<T extends NodeNameType> = Pick<
   PlasmicProductCardNew__OverridesType,
   DescendantsType<T>
 >;
-
 type NodeComponentProps<T extends NodeNameType> =
   // Explicitly specify variants, args, and overrides as objects
   {
@@ -356,7 +355,7 @@ export const PlasmicProductCardNew = Object.assign(
     // Helper components rendering sub-elements
     link: makeNodeComponent("link"),
     freeBox: makeNodeComponent("freeBox"),
-    button2: makeNodeComponent("button2"),
+    button: makeNodeComponent("button"),
 
     // Metadata about props expected for PlasmicProductCardNew
     internalVariantProps: PlasmicProductCardNew__VariantProps,

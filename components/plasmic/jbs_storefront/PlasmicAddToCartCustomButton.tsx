@@ -36,7 +36,7 @@ import {
   deriveRenderOpts,
   ensureGlobalVariants
 } from "@plasmicapp/react-web";
-import { AddToCartButton } from "@plasmicpkgs/commerce"; // plasmic-import: NR7KYUJmEqx/codeComponent
+import { AddToCartButton } from "@plasmicpkgs/commerce";
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -46,11 +46,15 @@ import sty from "./PlasmicAddToCartCustomButton.module.css"; // plasmic-import: 
 
 createPlasmicElementProxy;
 
-export type PlasmicAddToCartCustomButton__VariantMembers = {};
-export type PlasmicAddToCartCustomButton__VariantsArgs = {};
+export type PlasmicAddToCartCustomButton__VariantMembers = {
+  addedToCartVariant: "addedToCartVariant";
+};
+export type PlasmicAddToCartCustomButton__VariantsArgs = {
+  addedToCartVariant?: SingleBooleanChoiceArg<"addedToCartVariant">;
+};
 type VariantPropType = keyof PlasmicAddToCartCustomButton__VariantsArgs;
 export const PlasmicAddToCartCustomButton__VariantProps =
-  new Array<VariantPropType>();
+  new Array<VariantPropType>("addedToCartVariant");
 
 export type PlasmicAddToCartCustomButton__ArgsType = {};
 type ArgPropType = keyof PlasmicAddToCartCustomButton__ArgsType;
@@ -63,6 +67,7 @@ export type PlasmicAddToCartCustomButton__OverridesType = {
 };
 
 export interface DefaultAddToCartCustomButtonProps {
+  addedToCartVariant?: SingleBooleanChoiceArg<"addedToCartVariant">;
   className?: string;
 }
 
@@ -95,7 +100,34 @@ function PlasmicAddToCartCustomButton__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
+  const $globalActions = ph.useGlobalActions?.();
+
   const currentUser = p.useCurrentUser?.() || {};
+
+  const stateSpecs: Parameters<typeof p.useDollarState>[0] = React.useMemo(
+    () => [
+      {
+        path: "addedToCart",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "addedToCartVariant",
+        type: "private",
+        variableType: "variant",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          $props.addedToCartVariant
+      }
+    ],
+    [$props, $ctx, $refs]
+  );
+  const $state = p.useDollarState(stateSpecs, {
+    $props,
+    $ctx,
+    $queries: {},
+    $refs
+  });
 
   return (
     <div
@@ -110,7 +142,14 @@ function PlasmicAddToCartCustomButton__RenderFunc(props: {
         projectcss.plasmic_mixins,
         projectcss.plasmic_tokens,
         plasmic_antd_5_hostless_css.plasmic_tokens,
-        sty.root
+        sty.root,
+        {
+          [sty.rootaddedToCartVariant]: hasVariant(
+            $state,
+            "addedToCartVariant",
+            "addedToCartVariant"
+          )
+        }
       )}
     >
       <AddToCartButton
@@ -125,8 +164,123 @@ function PlasmicAddToCartCustomButton__RenderFunc(props: {
             projectcss.all,
             projectcss.button,
             projectcss.__wab_text,
-            sty.button
+            sty.button,
+            {
+              [sty.buttonaddedToCartVariant]: hasVariant(
+                $state,
+                "addedToCartVariant",
+                "addedToCartVariant"
+              )
+            }
           )}
+          onClick={async event => {
+            const $steps = {};
+
+            $steps["updatedVariant"] = false
+              ? (() => {
+                  const actionArgs = {
+                    vgroup: "addedToCartVariant",
+                    operation: 4
+                  };
+                  return (({ vgroup, value }) => {
+                    if (typeof value === "string") {
+                      value = [value];
+                    }
+
+                    p.set($state, vgroup, true);
+                    return true;
+                  })?.apply(null, [actionArgs]);
+                })()
+              : undefined;
+            if (
+              $steps["updatedVariant"] != null &&
+              typeof $steps["updatedVariant"] === "object" &&
+              typeof $steps["updatedVariant"].then === "function"
+            ) {
+              $steps["updatedVariant"] = await $steps["updatedVariant"];
+            }
+
+            $steps["showNotification"] = true
+              ? (() => {
+                  const actionArgs = {
+                    args: [
+                      "success",
+                      "Item added to cart!",
+                      (() => {
+                        try {
+                          return $ctx.currentProduct.name;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return undefined;
+                          }
+                          throw e;
+                        }
+                      })(),
+                      3
+                    ]
+                  };
+                  return $globalActions[
+                    "plasmic-antd5-config-provider.showNotification"
+                  ]?.apply(null, [...actionArgs.args]);
+                })()
+              : undefined;
+            if (
+              $steps["showNotification"] != null &&
+              typeof $steps["showNotification"] === "object" &&
+              typeof $steps["showNotification"].then === "function"
+            ) {
+              $steps["showNotification"] = await $steps["showNotification"];
+            }
+
+            $steps["waitFor2Seconds"] = false
+              ? (() => {
+                  const actionArgs = {
+                    customFunction: async () => {
+                      return setTimeout(() => {}, 2000);
+                    }
+                  };
+                  return (({ customFunction }) => {
+                    return customFunction();
+                  })?.apply(null, [actionArgs]);
+                })()
+              : undefined;
+            if (
+              $steps["waitFor2Seconds"] != null &&
+              typeof $steps["waitFor2Seconds"] === "object" &&
+              typeof $steps["waitFor2Seconds"].then === "function"
+            ) {
+              $steps["waitFor2Seconds"] = await $steps["waitFor2Seconds"];
+            }
+
+            $steps["revertVariantToBase"] = false
+              ? (() => {
+                  const actionArgs = {
+                    vgroup: "addedToCartVariant",
+                    operation: 6
+                  };
+                  return (({ vgroup, value }) => {
+                    if (typeof value === "string") {
+                      value = [value];
+                    }
+
+                    p.set($state, vgroup, false);
+                    return false;
+                  })?.apply(null, [actionArgs]);
+                })()
+              : undefined;
+            if (
+              $steps["revertVariantToBase"] != null &&
+              typeof $steps["revertVariantToBase"] === "object" &&
+              typeof $steps["revertVariantToBase"].then === "function"
+            ) {
+              $steps["revertVariantToBase"] = await $steps[
+                "revertVariantToBase"
+              ];
+            }
+          }}
         >
           {"Add To Cart"}
         </button>
@@ -154,7 +308,6 @@ type NodeOverridesType<T extends NodeNameType> = Pick<
   PlasmicAddToCartCustomButton__OverridesType,
   DescendantsType<T>
 >;
-
 type NodeComponentProps<T extends NodeNameType> =
   // Explicitly specify variants, args, and overrides as objects
   {
