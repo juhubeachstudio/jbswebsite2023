@@ -107,7 +107,7 @@ function PlasmicGoToCartButton__RenderFunc(props: {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames("__wab_instance", sty.root)}
-      color={"clear"}
+      color={"redJbs"}
       endIcon={null}
       link={`/cart`}
       size={"minimal"}
@@ -164,7 +164,7 @@ function PlasmicGoToCartButton__RenderFunc(props: {
                             e instanceof TypeError ||
                             e?.plasmicType === "PlasmicUndefinedDataError"
                           ) {
-                            return "";
+                            return "0";
                           }
                           throw e;
                         }

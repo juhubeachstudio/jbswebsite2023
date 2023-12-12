@@ -1,6 +1,22 @@
+.root {
+  display: inline-flex;
+  position: relative;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  justify-self: flex-start;
+}
+.root:focus-within {
+  outline: none;
+}
+.root___focusVisibleWithin {
+  outline: none;
+}
 .button {
   display: flex;
-  position: relative;
   flex-direction: row;
   background: #232320;
   cursor: pointer;
@@ -133,96 +149,96 @@
 .buttonshape_round_size_compact {
   padding: 6px;
 }
-.button:hover {
+.root:hover .button {
   background: var(--token-qoXYsQ1lS);
 }
-.buttoncolor_blue:hover {
+.rootcolor_blue:hover .buttoncolor_blue {
   background: #369eff;
 }
-.buttoncolor_green:hover {
+.rootcolor_green:hover .buttoncolor_green {
   background: #3cb179;
 }
-.buttoncolor_yellow:hover {
+.rootcolor_yellow:hover .buttoncolor_yellow {
   background: #ffef5c;
 }
-.buttoncolor_red:hover {
+.rootcolor_red:hover .buttoncolor_red {
   background: var(--token-qoXYsQ1lS);
 }
-.buttoncolor_sand:hover {
+.rootcolor_sand:hover .buttoncolor_sand {
   background: #7f7e77;
 }
-.buttoncolor_white:hover {
+.rootcolor_white:hover .buttoncolor_white {
   background: #ffef5c;
 }
-.buttoncolor_softBlue:hover {
+.rootcolor_softBlue:hover .buttoncolor_softBlue {
   background: #e1f0ff;
 }
-.buttoncolor_softGreen:hover {
+.rootcolor_softGreen:hover .buttoncolor_softGreen {
   background: #ddf3e4;
 }
-.buttoncolor_softYellow:hover {
+.rootcolor_softYellow:hover .buttoncolor_softYellow {
   background: #fff8bb;
 }
-.buttoncolor_softRed:hover {
+.rootcolor_softRed:hover .buttoncolor_softRed {
   background: #ffe6e2;
 }
-.buttoncolor_softSand:hover {
+.rootcolor_softSand:hover .buttoncolor_softSand {
   background: #e9e9e6;
 }
-.buttoncolor_clear:hover {
+.rootcolor_clear:hover .buttoncolor_clear {
   background: none;
 }
-.buttoncolor_link:hover {
+.rootcolor_link:hover .buttoncolor_link {
   background: #ffffff00;
 }
-.button:focus-within {
+.root:focus-within .button {
   box-shadow: none;
   outline: none;
 }
-.button___focusVisibleWithin {
+.root .button___focusVisibleWithin {
   box-shadow: none;
   outline: none;
 }
-.button:active {
+.root:active .button {
   background: var(--token-rsXupMq7yfBJ);
 }
-.buttoncolor_blue:active {
+.rootcolor_blue:active .buttoncolor_blue {
   background: #52a9ff;
 }
-.buttoncolor_green:active {
+.rootcolor_green:active .buttoncolor_green {
   background: #4cc38a;
 }
-.buttoncolor_yellow:active {
+.rootcolor_yellow:active .buttoncolor_yellow {
   background: #f0c000;
 }
-.buttoncolor_red:active {
+.rootcolor_red:active .buttoncolor_red {
   background: var(--token-qoXYsQ1lS);
 }
-.buttoncolor_sand:active {
+.rootcolor_sand:active .buttoncolor_sand {
   background: #a1a09a;
 }
-.buttoncolor_white:active {
+.rootcolor_white:active .buttoncolor_white {
   background: #f0c000;
 }
-.buttoncolor_softBlue:active {
+.rootcolor_softBlue:active .buttoncolor_softBlue {
   background: #cee7fe;
 }
-.buttoncolor_softGreen:active {
+.rootcolor_softGreen:active .buttoncolor_softGreen {
   background: #ccebd7;
 }
-.buttoncolor_softYellow:active {
+.rootcolor_softYellow:active .buttoncolor_softYellow {
   background: #fef2a4;
 }
-.buttoncolor_softRed:active {
+.rootcolor_softRed:active .buttoncolor_softRed {
   background: #fdd8d3;
 }
-.buttoncolor_softSand:active {
+.rootcolor_softSand:active .buttoncolor_softSand {
   background: #e3e3e0;
 }
-.buttoncolor_clear:active {
+.rootcolor_clear:active .buttoncolor_clear {
   background: none;
 }
-.buttoncolor_link:active {
+.rootcolor_link:active .buttoncolor_link {
   background: #ffffff00;
 }
 .startIconContainer {
@@ -265,10 +281,10 @@
 .slotTargetStartIconcolor_link {
   color: #0091ff;
 }
-.buttoncolor_link:hover .slotTargetStartIconcolor_link {
+.rootcolor_link:hover .slotTargetStartIconcolor_link {
   color: #0081f1;
 }
-.buttoncolor_link:active .slotTargetStartIconcolor_link {
+.rootcolor_link:active .slotTargetStartIconcolor_link {
   color: #006adc;
 }
 .svg__eRnuS {
@@ -288,7 +304,7 @@
   width: 100%;
   min-width: 0;
 }
-.button .contentContainer___focusVisibleWithin {
+.root .contentContainer___focusVisibleWithin {
   outline: none;
 }
 .slotTargetChildren {
@@ -340,65 +356,65 @@
 .slotTargetChildrencolor_link {
   color: #0091ff;
 }
-.button:hover .slotTargetChildren {
+.root:hover .slotTargetChildren {
   color: var(--token-KUFb4wcAz);
 }
-.buttoncolor_red:hover .slotTargetChildrencolor_red {
+.rootcolor_red:hover .slotTargetChildrencolor_red {
   color: var(--token-KUFb4wcAz);
 }
-.buttoncolor_clear:hover .slotTargetChildrencolor_clear {
+.rootcolor_clear:hover .slotTargetChildrencolor_clear {
   color: var(--token-vg8USqXsf);
 }
-.buttoncolor_link:hover .slotTargetChildrencolor_link {
+.rootcolor_link:hover .slotTargetChildrencolor_link {
   color: #0081f1;
 }
-.buttoncolor_link:hover .slotTargetChildrencolor_link > :global(.__wab_text),
-.buttoncolor_link:hover
+.rootcolor_link:hover .slotTargetChildrencolor_link > :global(.__wab_text),
+.rootcolor_link:hover
   .slotTargetChildrencolor_link
   > :global(.__wab_expr_html_text),
-.buttoncolor_link:hover
+.rootcolor_link:hover
   .slotTargetChildrencolor_link
   > :global(.__wab_slot-string-wrapper),
-.buttoncolor_link:hover
+.rootcolor_link:hover
   .slotTargetChildrencolor_link
   > :global(.__wab_slot)
   > :global(.__wab_text),
-.buttoncolor_link:hover
+.rootcolor_link:hover
   .slotTargetChildrencolor_link
   > :global(.__wab_slot)
   > :global(.__wab_expr_html_text),
-.buttoncolor_link:hover
+.rootcolor_link:hover
   .slotTargetChildrencolor_link
   > :global(.__wab_slot)
   > :global(.__wab_slot-string-wrapper),
-.buttoncolor_link:hover
+.rootcolor_link:hover
   .slotTargetChildrencolor_link
   > :global(.__wab_slot)
   > :global(.__wab_slot)
   > :global(.__wab_text),
-.buttoncolor_link:hover
+.rootcolor_link:hover
   .slotTargetChildrencolor_link
   > :global(.__wab_slot)
   > :global(.__wab_slot)
   > :global(.__wab_expr_html_text),
-.buttoncolor_link:hover
+.rootcolor_link:hover
   .slotTargetChildrencolor_link
   > :global(.__wab_slot)
   > :global(.__wab_slot)
   > :global(.__wab_slot-string-wrapper),
-.buttoncolor_link:hover
+.rootcolor_link:hover
   .slotTargetChildrencolor_link
   > :global(.__wab_slot)
   > :global(.__wab_slot)
   > :global(.__wab_slot)
   > :global(.__wab_text),
-.buttoncolor_link:hover
+.rootcolor_link:hover
   .slotTargetChildrencolor_link
   > :global(.__wab_slot)
   > :global(.__wab_slot)
   > :global(.__wab_slot)
   > :global(.__wab_expr_html_text),
-.buttoncolor_link:hover
+.rootcolor_link:hover
   .slotTargetChildrencolor_link
   > :global(.__wab_slot)
   > :global(.__wab_slot)
@@ -406,28 +422,28 @@
   > :global(.__wab_slot-string-wrapper) {
   text-decoration-line: underline;
 }
-.button:focus-within .slotTargetChildren > *,
-.button:focus-within .slotTargetChildren > :global(.__wab_slot) > *,
-.button:focus-within
+.root:focus-within .slotTargetChildren > *,
+.root:focus-within .slotTargetChildren > :global(.__wab_slot) > *,
+.root:focus-within
   .slotTargetChildren
   > :global(.__wab_slot)
   > :global(.__wab_slot)
   > *,
-.button:focus-within
+.root:focus-within
   .slotTargetChildren
   > :global(.__wab_slot)
   > :global(.__wab_slot)
   > :global(.__wab_slot)
   > *,
-.button:focus-within .slotTargetChildren > picture > img,
-.button:focus-within .slotTargetChildren > :global(.__wab_slot) > picture > img,
-.button:focus-within
+.root:focus-within .slotTargetChildren > picture > img,
+.root:focus-within .slotTargetChildren > :global(.__wab_slot) > picture > img,
+.root:focus-within
   .slotTargetChildren
   > :global(.__wab_slot)
   > :global(.__wab_slot)
   > picture
   > img,
-.button:focus-within
+.root:focus-within
   .slotTargetChildren
   > :global(.__wab_slot)
   > :global(.__wab_slot)
@@ -436,32 +452,32 @@
   > img {
   outline: none;
 }
-.button .slotTargetChildren___focusVisibleWithin > *,
-.button .slotTargetChildren___focusVisibleWithin > :global(.__wab_slot) > *,
-.button
+.root .slotTargetChildren___focusVisibleWithin > *,
+.root .slotTargetChildren___focusVisibleWithin > :global(.__wab_slot) > *,
+.root
   .slotTargetChildren___focusVisibleWithin
   > :global(.__wab_slot)
   > :global(.__wab_slot)
   > *,
-.button
+.root
   .slotTargetChildren___focusVisibleWithin
   > :global(.__wab_slot)
   > :global(.__wab_slot)
   > :global(.__wab_slot)
   > *,
-.button .slotTargetChildren___focusVisibleWithin > picture > img,
-.button
+.root .slotTargetChildren___focusVisibleWithin > picture > img,
+.root
   .slotTargetChildren___focusVisibleWithin
   > :global(.__wab_slot)
   > picture
   > img,
-.button
+.root
   .slotTargetChildren___focusVisibleWithin
   > :global(.__wab_slot)
   > :global(.__wab_slot)
   > picture
   > img,
-.button
+.root
   .slotTargetChildren___focusVisibleWithin
   > :global(.__wab_slot)
   > :global(.__wab_slot)
@@ -470,16 +486,16 @@
   > img {
   outline: none;
 }
-.button:active .slotTargetChildren {
+.root:active .slotTargetChildren {
   color: var(--token-KUFb4wcAz);
 }
-.buttoncolor_red:active .slotTargetChildrencolor_red {
+.rootcolor_red:active .slotTargetChildrencolor_red {
   color: var(--token-sn6Zb6km7CqW);
 }
-.buttoncolor_clear:active .slotTargetChildrencolor_clear {
+.rootcolor_clear:active .slotTargetChildrencolor_clear {
   color: var(--token-058m_r2f2);
 }
-.buttoncolor_link:active .slotTargetChildrencolor_link {
+.rootcolor_link:active .slotTargetChildrencolor_link {
   color: #006adc;
 }
 .endIconContainer {
@@ -522,10 +538,10 @@
 .slotTargetEndIconcolor_link {
   color: #0091ff;
 }
-.buttoncolor_link:hover .slotTargetEndIconcolor_link {
+.rootcolor_link:hover .slotTargetEndIconcolor_link {
   color: #0081f1;
 }
-.buttoncolor_link:active .slotTargetEndIconcolor_link {
+.rootcolor_link:active .slotTargetEndIconcolor_link {
   color: #006adc;
 }
 .svg__hgyn {

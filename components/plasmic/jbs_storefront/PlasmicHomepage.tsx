@@ -97,6 +97,7 @@ export type PlasmicHomepage__OverridesType = {
   next?: p.Flex<"svg">;
   categoryCollection?: p.Flex<typeof CategoryCollection>;
   sliderCarousel2?: p.Flex<typeof SliderWrapper>;
+  span?: p.Flex<"span">;
   sliderCarousel9?: p.Flex<typeof SliderWrapper>;
   sliderCarousel3?: p.Flex<typeof SliderWrapper>;
   sliderCarousel5?: p.Flex<typeof SliderWrapper>;
@@ -916,7 +917,13 @@ function PlasmicHomepage__RenderFunc(props: {
                               : undefined,
                             arrows: false,
                             autoplay: true,
-                            autoplaySpeed: 1500,
+                            autoplaySpeed: hasVariant(
+                              globalVariants,
+                              "screen",
+                              "mobileOnly"
+                            )
+                              ? 1500
+                              : 2000,
                             beforeChange:
                               p.generateStateOnChangePropForCodeComponents(
                                 $state,
@@ -924,25 +931,51 @@ function PlasmicHomepage__RenderFunc(props: {
                                 ["sliderCarousel2", "currentSlide"],
                                 SliderWrapper_Helpers
                               ),
-                            centerMode: false,
+                            centerMode: hasVariant(
+                              globalVariants,
+                              "screen",
+                              "mobileOnly"
+                            )
+                              ? true
+                              : false,
+                            centerPadding: hasVariant(
+                              globalVariants,
+                              "screen",
+                              "mobileOnly"
+                            )
+                              ? "30px"
+                              : undefined,
                             className: classNames(
                               "__wab_instance",
                               sty.sliderCarousel2
                             ),
-                            dots: true,
+                            dots: false,
                             initialSlide: p.generateStateValueProp($state, [
                               "sliderCarousel2",
                               "currentSlide"
                             ]),
-                            pauseOnDotsHover: true,
+                            pauseOnDotsHover: false,
+                            pauseOnFocus: true,
                             pauseOnHover: true,
                             ref: ref => {
                               $refs["sliderCarousel2"] = ref;
                             },
                             sliderScopeClassName:
                               sty["sliderCarousel2__slider"],
-                            slidesToScroll: 3,
-                            slidesToShow: 5,
+                            slidesToScroll: hasVariant(
+                              globalVariants,
+                              "screen",
+                              "mobileOnly"
+                            )
+                              ? 1
+                              : 3,
+                            slidesToShow: hasVariant(
+                              globalVariants,
+                              "screen",
+                              "mobileOnly"
+                            )
+                              ? 2
+                              : 5,
                             swipeToSlide: true
                           };
                           p.initializeCodeComponentStates(
@@ -990,10 +1023,13 @@ function PlasmicHomepage__RenderFunc(props: {
                                 const currentItem = __plasmic_item_0;
                                 const currentIndex = __plasmic_idx_0;
                                 return (
-                                  <div
+                                  <span
+                                    data-plasmic-name={"span"}
+                                    data-plasmic-override={overrides.span}
                                     className={classNames(
                                       projectcss.all,
-                                      sty.freeBox__fhh6D
+                                      projectcss.span,
+                                      sty.span
                                     )}
                                     key={currentIndex}
                                   >
@@ -1001,29 +1037,32 @@ function PlasmicHomepage__RenderFunc(props: {
                                       className={classNames(
                                         projectcss.all,
                                         projectcss.a,
-                                        sty.link__in97Q
+                                        sty.link__fhh6D
                                       )}
                                       component={Link}
-                                      href={`/category/${(() => {
-                                        try {
-                                          return currentItem.slug;
-                                        } catch (e) {
-                                          if (
-                                            e instanceof TypeError ||
-                                            e?.plasmicType ===
-                                              "PlasmicUndefinedDataError"
-                                          ) {
-                                            return undefined;
-                                          }
-                                          throw e;
-                                        }
-                                      })()}`}
+                                      href={
+                                        hasVariant(
+                                          globalVariants,
+                                          "screen",
+                                          "mobileOnly"
+                                        )
+                                          ? `/category/${"currentItem.slug"}`
+                                          : undefined
+                                      }
                                       platform={"nextjs"}
                                     >
                                       <p.PlasmicImg
                                         alt={""}
                                         className={classNames(sty.img___1TGgh)}
-                                        displayHeight={"auto"}
+                                        displayHeight={
+                                          hasVariant(
+                                            globalVariants,
+                                            "screen",
+                                            "mobileOnly"
+                                          )
+                                            ? "100%"
+                                            : "auto"
+                                        }
                                         displayMaxHeight={"none"}
                                         displayMaxWidth={"none"}
                                         displayMinHeight={"0"}
@@ -1069,8 +1108,31 @@ function PlasmicHomepage__RenderFunc(props: {
                                           })()}
                                         </React.Fragment>
                                       </div>
+                                      <p.PlasmicLink
+                                        className={classNames(
+                                          projectcss.all,
+                                          projectcss.a,
+                                          sty.link__in97Q
+                                        )}
+                                        component={Link}
+                                        href={`/category/${(() => {
+                                          try {
+                                            return currentItem.slug;
+                                          } catch (e) {
+                                            if (
+                                              e instanceof TypeError ||
+                                              e?.plasmicType ===
+                                                "PlasmicUndefinedDataError"
+                                            ) {
+                                              return undefined;
+                                            }
+                                            throw e;
+                                          }
+                                        })()}`}
+                                        platform={"nextjs"}
+                                      />
                                     </p.PlasmicLink>
-                                  </div>
+                                  </span>
                                 );
                               })}
                             </SliderWrapper>
@@ -1322,23 +1384,29 @@ function PlasmicHomepage__RenderFunc(props: {
                       >
                         <p.PlasmicImg
                           alt={""}
-                          className={classNames(sty.img___2P15K)}
-                          displayHeight={
-                            hasVariant(globalVariants, "screen", "mobileOnly")
-                              ? "100%"
-                              : "100%"
-                          }
+                          className={classNames(sty.img__xhgra)}
+                          displayHeight={"auto"}
                           displayMaxHeight={"none"}
-                          displayMaxWidth={"none"}
+                          displayMaxWidth={"100%"}
                           displayMinHeight={"0"}
                           displayMinWidth={"0"}
-                          displayWidth={"100%"}
-                          src={{
-                            src: "/plasmic/jbs_storefront/images/asset76Png.png",
-                            fullWidth: 5319,
-                            fullHeight: 2949,
-                            aspectRatio: undefined
-                          }}
+                          displayWidth={"auto"}
+                          loading={"lazy"}
+                          src={
+                            hasVariant(globalVariants, "screen", "mobileOnly")
+                              ? {
+                                  src: "/plasmic/jbs_storefront/images/chakhnaCatwebp.webp",
+                                  fullWidth: 856,
+                                  fullHeight: 1254,
+                                  aspectRatio: undefined
+                                }
+                              : {
+                                  src: "/plasmic/jbs_storefront/images/catChakhnaDesktop.png",
+                                  fullWidth: 5319,
+                                  fullHeight: 2949,
+                                  aspectRatio: undefined
+                                }
+                          }
                         />
                       </FullpagewidthSlide>
                       <FullpagewidthSlide
@@ -1356,12 +1424,21 @@ function PlasmicHomepage__RenderFunc(props: {
                           displayMinHeight={"0"}
                           displayMinWidth={"0"}
                           displayWidth={"100%"}
-                          src={{
-                            src: "/plasmic/jbs_storefront/images/bannerChaknaAntsDesktop.png",
-                            fullWidth: 5319,
-                            fullHeight: 2943,
-                            aspectRatio: undefined
-                          }}
+                          src={
+                            hasVariant(globalVariants, "screen", "mobileOnly")
+                              ? {
+                                  src: "/plasmic/jbs_storefront/images/chakhnaAntswebp.webp",
+                                  fullWidth: 5375,
+                                  fullHeight: 7960,
+                                  aspectRatio: undefined
+                                }
+                              : {
+                                  src: "/plasmic/jbs_storefront/images/bannerChaknaAntsDesktop.png",
+                                  fullWidth: 5319,
+                                  fullHeight: 2943,
+                                  aspectRatio: undefined
+                                }
+                          }
                         />
                       </FullpagewidthSlide>
                       <FullpagewidthSlide
@@ -1383,12 +1460,21 @@ function PlasmicHomepage__RenderFunc(props: {
                               ? "100%"
                               : "100%"
                           }
-                          src={{
-                            src: "/plasmic/jbs_storefront/images/bannerChaknaSlippersDesktop.png",
-                            fullWidth: 5319,
-                            fullHeight: 2948,
-                            aspectRatio: undefined
-                          }}
+                          src={
+                            hasVariant(globalVariants, "screen", "mobileOnly")
+                              ? {
+                                  src: "/plasmic/jbs_storefront/images/bannerChakhnaSlipperswebp.webp",
+                                  fullWidth: 855,
+                                  fullHeight: 1255,
+                                  aspectRatio: undefined
+                                }
+                              : {
+                                  src: "/plasmic/jbs_storefront/images/bannerChaknaSlippersDesktop.png",
+                                  fullWidth: 5319,
+                                  fullHeight: 2948,
+                                  aspectRatio: undefined
+                                }
+                          }
                         />
                       </FullpagewidthSlide>
                     </SliderWrapper>
@@ -3349,6 +3435,7 @@ const PlasmicDescendants = {
     "next",
     "categoryCollection",
     "sliderCarousel2",
+    "span",
     "sliderCarousel9",
     "sliderCarousel3",
     "sliderCarousel5",
@@ -3364,6 +3451,7 @@ const PlasmicDescendants = {
     "next",
     "categoryCollection",
     "sliderCarousel2",
+    "span",
     "sliderCarousel9",
     "sliderCarousel3",
     "sliderCarousel5",
@@ -3378,9 +3466,11 @@ const PlasmicDescendants = {
   categoryCollection: [
     "categoryCollection",
     "sliderCarousel2",
+    "span",
     "sliderCarousel9"
   ],
-  sliderCarousel2: ["sliderCarousel2"],
+  sliderCarousel2: ["sliderCarousel2", "span"],
+  span: ["span"],
   sliderCarousel9: ["sliderCarousel9"],
   sliderCarousel3: ["sliderCarousel3"],
   sliderCarousel5: ["sliderCarousel5"],
@@ -3400,6 +3490,7 @@ type NodeDefaultElementType = {
   next: "svg";
   categoryCollection: typeof CategoryCollection;
   sliderCarousel2: typeof SliderWrapper;
+  span: "span";
   sliderCarousel9: typeof SliderWrapper;
   sliderCarousel3: typeof SliderWrapper;
   sliderCarousel5: typeof SliderWrapper;
@@ -3475,6 +3566,7 @@ export const PlasmicHomepage = Object.assign(
     next: makeNodeComponent("next"),
     categoryCollection: makeNodeComponent("categoryCollection"),
     sliderCarousel2: makeNodeComponent("sliderCarousel2"),
+    span: makeNodeComponent("span"),
     sliderCarousel9: makeNodeComponent("sliderCarousel9"),
     sliderCarousel3: makeNodeComponent("sliderCarousel3"),
     sliderCarousel5: makeNodeComponent("sliderCarousel5"),

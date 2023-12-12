@@ -509,13 +509,37 @@
 }
 @media (min-width: 0px) and (max-width: 768px) {
   .sliderCarousel2:global(.__wab_instance) {
-    display: none;
+    display: flex;
   }
 }
-.freeBox__fhh6D {
+.span {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+  padding: 8px;
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .span {
+    height: 100%;
+    width: 100%;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    flex-grow: 1;
+    flex-shrink: 0;
+    min-width: 0;
+    min-height: 0;
+    margin: 0px;
+  }
+}
+.link__fhh6D {
   display: flex;
   flex-direction: column;
-  position: relative;
   width: 100%;
   max-width: 100%;
   justify-content: flex-start;
@@ -524,9 +548,47 @@
   padding: 16px;
 }
 @media (min-width: 0px) and (max-width: 768px) {
-  .freeBox__fhh6D {
-    padding: 12px;
+  .link__fhh6D {
+    width: 100%;
+    overflow: hidden;
+    height: 15rem;
+    min-width: 0;
+    border-radius: 8px;
+    padding: 0px;
+    border: 2px solid var(--token-ZGgUq6H0D);
   }
+}
+.img___1TGgh {
+  object-fit: cover;
+  height: auto;
+  width: 100%;
+  min-width: 0;
+}
+.img___1TGgh > picture > img {
+  object-fit: cover;
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .img___1TGgh {
+    height: 100%;
+    min-height: 0;
+  }
+}
+.text___8Bsa7 {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  text-align: center;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  color: var(--token-ZGgUq6H0D);
+  background: #ffffff;
+  line-height: 1;
+  border-top-style: solid;
+  border-top-width: 2px;
+  min-width: 0;
+  padding: var(--token-oYI7ebdZitcv);
 }
 .link__in97Q {
   display: flex;
@@ -548,33 +610,8 @@
   .link__in97Q {
     height: 15rem;
     flex-shrink: 0;
+    display: none;
   }
-}
-.img___1TGgh {
-  object-fit: cover;
-  height: auto;
-  width: 100%;
-  min-width: 0;
-}
-.img___1TGgh > picture > img {
-  object-fit: cover;
-}
-.text___8Bsa7 {
-  position: relative;
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  text-align: center;
-  font-weight: 700;
-  text-transform: uppercase;
-  font-size: 1.2rem;
-  color: var(--token-ZGgUq6H0D);
-  background: #ffffff;
-  line-height: 1;
-  border-top-style: solid;
-  border-top-width: 2px;
-  min-width: 0;
-  padding: var(--token-oYI7ebdZitcv);
 }
 .sliderCarousel9:global(.__wab_instance) {
   max-width: 100%;
@@ -587,7 +624,7 @@
 }
 @media (min-width: 0px) and (max-width: 768px) {
   .sliderCarousel9:global(.__wab_instance) {
-    display: flex;
+    display: none;
   }
 }
 .freeBox__ktbqo {
@@ -750,22 +787,22 @@
     min-height: 0;
   }
 }
-.img___2P15K {
+.img__xhgra {
+  position: relative;
   object-fit: cover;
-  height: 100%;
-  object-position: center center;
-  width: 100%;
-  min-width: 0;
-  min-height: 0;
+  max-width: 100%;
 }
-.img___2P15K > picture > img {
+.img__xhgra > picture > img {
   object-fit: cover;
-  object-position: center center;
 }
 @media (min-width: 0px) and (max-width: 768px) {
-  .img___2P15K {
-    height: 100%;
-    min-height: 0;
+  .img__xhgra {
+    object-position: left 50%;
+  }
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .img__xhgra > picture > img {
+    object-position: left 50%;
   }
 }
 .fullpagewidthSlide___3IreU:global(.__wab_instance) {
@@ -971,7 +1008,7 @@
   flex-shrink: 1;
   width: auto;
 }
-.svg__wgxr {
+.svg__m185P {
   position: relative;
   object-fit: cover;
   width: auto;
@@ -989,7 +1026,7 @@
   width: auto;
   padding: 6px 16px;
 }
-.svg__k7JbE {
+.svg__aIPq {
   position: relative;
   object-fit: cover;
   width: auto;
@@ -1768,7 +1805,7 @@
   max-width: 100%;
   position: relative;
 }
-.svg__l6U0R {
+.svg___7OnYq {
   position: relative;
   object-fit: cover;
   width: auto;
@@ -1790,7 +1827,7 @@
     font-size: 1rem;
   }
 }
-.svg__ut7G4 {
+.svg__kb4NF {
   position: relative;
   object-fit: cover;
   width: auto;
@@ -2014,7 +2051,7 @@
   max-width: 100%;
   position: relative;
 }
-.svg__lD1Vl {
+.svg__uavEd {
   position: relative;
   object-fit: cover;
   width: auto;
@@ -2036,7 +2073,7 @@
     font-size: 1rem;
   }
 }
-.svg___4PaVf {
+.svg__mzJF {
   position: relative;
   object-fit: cover;
   width: auto;
@@ -2143,13 +2180,13 @@
   max-width: 100%;
   position: relative;
 }
-.svg__fgjAb {
+.svg___50VgH {
   position: relative;
   object-fit: cover;
   width: auto;
   height: 1em;
 }
-.svg___4Yq99 {
+.svg___3Q0Ro {
   position: relative;
   object-fit: cover;
   width: auto;
@@ -2663,7 +2700,7 @@
     min-width: 0;
   }
 }
-.svg__c8KLx {
+.svg__aa3Mb {
   position: relative;
   object-fit: cover;
   width: auto;
