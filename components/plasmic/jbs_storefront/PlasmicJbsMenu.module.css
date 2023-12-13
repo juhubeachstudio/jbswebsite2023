@@ -314,6 +314,8 @@
 }
 @media (min-width: 0px) and (max-width: 768px) {
   .freeBox__wjmov {
+    width: 100%;
+    min-width: 0;
     display: none;
   }
 }
@@ -381,6 +383,11 @@
   display: none;
   border-radius: 0px 0px 8px 8px;
 }
+@media (min-width: 0px) and (max-width: 768px) {
+  .freeBox__o2Iiw {
+    width: auto;
+  }
+}
 .freeBoxrevealMenu__o2IiWxT6MH {
   display: none;
 }
@@ -394,6 +401,8 @@
 }
 @media (min-width: 0px) and (max-width: 768px) {
   .button__cQnou:global(.__wab_instance) {
+    width: 100%;
+    min-width: 0;
     display: none;
   }
 }

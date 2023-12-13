@@ -202,7 +202,7 @@ function PlasmicProductInSlider__RenderFunc(props: {
                     e instanceof TypeError ||
                     e?.plasmicType === "PlasmicUndefinedDataError"
                   ) {
-                    return undefined;
+                    return "https://site-assets.plasmic.app/5de007f59ab2febed8e1b1cc462e17f1.svg";
                   }
                   throw e;
                 }
@@ -232,7 +232,7 @@ function PlasmicProductInSlider__RenderFunc(props: {
                   e instanceof TypeError ||
                   e?.plasmicType === "PlasmicUndefinedDataError"
                 ) {
-                  return "";
+                  return "Product Name";
                 }
                 throw e;
               }
@@ -255,7 +255,7 @@ function PlasmicProductInSlider__RenderFunc(props: {
                   e instanceof TypeError ||
                   e?.plasmicType === "PlasmicUndefinedDataError"
                 ) {
-                  return "";
+                  return "\u20b9$$$";
                 }
                 throw e;
               }

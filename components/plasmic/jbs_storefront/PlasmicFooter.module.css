@@ -145,6 +145,8 @@
 @media (min-width: 0px) and (max-width: 768px) {
   .text__daoP {
     white-space: pre-wrap;
+    width: auto;
+    font-size: 1rem;
   }
 }
 .root:hover:active .text__daoP {

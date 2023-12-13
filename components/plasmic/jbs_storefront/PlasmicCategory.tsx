@@ -42,10 +42,9 @@ import { CategoryCollection } from "@plasmicpkgs/commerce";
 import { CategoryField } from "@plasmicpkgs/commerce";
 import TextInput from "../../TextInput"; // plasmic-import: Y6q1pqli4zM/component
 import { ProductCollection } from "@plasmicpkgs/commerce";
+import { ProductBox } from "@plasmicpkgs/commerce";
 import ProductCardJbs from "../../ProductCardJbs"; // plasmic-import: Ft4Mem_Zab/component
-import { ProductMedia } from "@plasmicpkgs/commerce";
 import Button from "../../Button"; // plasmic-import: yEsI5slGwPm/component
-import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -77,8 +76,8 @@ export type PlasmicCategory__OverridesType = {
   textInput?: p.Flex<typeof TextInput>;
   svg?: p.Flex<"svg">;
   productCollection?: p.Flex<typeof ProductCollection>;
+  productBox?: p.Flex<typeof ProductBox>;
   productCardJbs?: p.Flex<typeof ProductCardJbs>;
-  productMedia?: p.Flex<typeof ProductMedia>;
 };
 
 export interface DefaultCategoryProps {}
@@ -320,7 +319,6 @@ function PlasmicCategory__RenderFunc(props: {
                           "__wab_instance",
                           sty.productCollection
                         )}
-                        count={3}
                         emptyMessage={
                           <ph.DataCtxReader>
                             {$ctx => (
@@ -339,28 +337,19 @@ function PlasmicCategory__RenderFunc(props: {
                         loadingMessage={
                           <ph.DataCtxReader>
                             {$ctx => (
-                              <React.Fragment>
-                                <div
-                                  className={classNames(
-                                    projectcss.all,
-                                    projectcss.__wab_text,
-                                    sty.text__n5Hqi
-                                  )}
-                                >
-                                  {"Loading..."}
-                                </div>
-                                <ProductMedia
-                                  data-plasmic-name={"productMedia"}
-                                  data-plasmic-override={overrides.productMedia}
-                                  className={classNames(
-                                    "__wab_instance",
-                                    sty.productMedia
-                                  )}
-                                />
-                              </React.Fragment>
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  projectcss.__wab_text,
+                                  sty.text__n5Hqi
+                                )}
+                              >
+                                {"Loading..."}
+                              </div>
                             )}
                           </ph.DataCtxReader>
                         }
+                        noAutoRepeat={true}
                         noLayout={false}
                         search={(() => {
                           try {
@@ -378,23 +367,89 @@ function PlasmicCategory__RenderFunc(props: {
                         sort={"trending-desc"}
                       >
                         <ph.DataCtxReader>
-                          {$ctx => (
-                            <div
-                              className={classNames(
-                                projectcss.all,
-                                sty.freeBox__jy2A1
-                              )}
-                            >
-                              <ProductCardJbs
-                                data-plasmic-name={"productCardJbs"}
-                                data-plasmic-override={overrides.productCardJbs}
-                                className={classNames(
-                                  "__wab_instance",
-                                  sty.productCardJbs
-                                )}
-                              />
-                            </div>
-                          )}
+                          {$ctx =>
+                            (_par =>
+                              !_par ? [] : Array.isArray(_par) ? _par : [_par])(
+                              (() => {
+                                try {
+                                  return $ctx.products;
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return [];
+                                  }
+                                  throw e;
+                                }
+                              })()
+                            ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                              const currentProduct = __plasmic_item_0;
+                              const productIndex = __plasmic_idx_0;
+                              return (
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.freeBox__jy2A1
+                                  )}
+                                  key={productIndex}
+                                >
+                                  <ProductBox
+                                    data-plasmic-name={"productBox"}
+                                    data-plasmic-override={overrides.productBox}
+                                    className={classNames(
+                                      "__wab_instance",
+                                      sty.productBox
+                                    )}
+                                    id={(() => {
+                                      try {
+                                        return currentProduct.id;
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return undefined;
+                                        }
+                                        throw e;
+                                      }
+                                    })()}
+                                  >
+                                    <ph.DataCtxReader>
+                                      {$ctx => (
+                                        <ProductCardJbs
+                                          data-plasmic-name={"productCardJbs"}
+                                          data-plasmic-override={
+                                            overrides.productCardJbs
+                                          }
+                                          className={classNames(
+                                            "__wab_instance",
+                                            sty.productCardJbs
+                                          )}
+                                          currentItem={(() => {
+                                            try {
+                                              return currentProduct;
+                                            } catch (e) {
+                                              if (
+                                                e instanceof TypeError ||
+                                                e?.plasmicType ===
+                                                  "PlasmicUndefinedDataError"
+                                              ) {
+                                                return undefined;
+                                              }
+                                              throw e;
+                                            }
+                                          })()}
+                                        />
+                                      )}
+                                    </ph.DataCtxReader>
+                                  </ProductBox>
+                                </div>
+                              );
+                            })
+                          }
                         </ph.DataCtxReader>
                       </ProductCollection>
                     </div>
@@ -455,8 +510,8 @@ const PlasmicDescendants = {
     "textInput",
     "svg",
     "productCollection",
-    "productCardJbs",
-    "productMedia"
+    "productBox",
+    "productCardJbs"
   ],
   fullPage: [
     "fullPage",
@@ -466,8 +521,8 @@ const PlasmicDescendants = {
     "textInput",
     "svg",
     "productCollection",
-    "productCardJbs",
-    "productMedia"
+    "productBox",
+    "productCardJbs"
   ],
   section: [
     "section",
@@ -476,8 +531,8 @@ const PlasmicDescendants = {
     "textInput",
     "svg",
     "productCollection",
-    "productCardJbs",
-    "productMedia"
+    "productBox",
+    "productCardJbs"
   ],
   categoryCollection: [
     "categoryCollection",
@@ -485,15 +540,15 @@ const PlasmicDescendants = {
     "textInput",
     "svg",
     "productCollection",
-    "productCardJbs",
-    "productMedia"
+    "productBox",
+    "productCardJbs"
   ],
   categoryField: ["categoryField"],
   textInput: ["textInput", "svg"],
   svg: ["svg"],
-  productCollection: ["productCollection", "productCardJbs", "productMedia"],
-  productCardJbs: ["productCardJbs"],
-  productMedia: ["productMedia"]
+  productCollection: ["productCollection", "productBox", "productCardJbs"],
+  productBox: ["productBox", "productCardJbs"],
+  productCardJbs: ["productCardJbs"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -507,8 +562,8 @@ type NodeDefaultElementType = {
   textInput: typeof TextInput;
   svg: "svg";
   productCollection: typeof ProductCollection;
+  productBox: typeof ProductBox;
   productCardJbs: typeof ProductCardJbs;
-  productMedia: typeof ProductMedia;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -578,8 +633,8 @@ export const PlasmicCategory = Object.assign(
     textInput: makeNodeComponent("textInput"),
     svg: makeNodeComponent("svg"),
     productCollection: makeNodeComponent("productCollection"),
+    productBox: makeNodeComponent("productBox"),
     productCardJbs: makeNodeComponent("productCardJbs"),
-    productMedia: makeNodeComponent("productMedia"),
 
     // Metadata about props expected for PlasmicCategory
     internalVariantProps: PlasmicCategory__VariantProps,

@@ -100,6 +100,13 @@
   padding-right: 8px;
   min-width: 0;
 }
+@media (min-width: 0px) and (max-width: 768px) {
+  .freeBox__xNppI {
+    height: auto;
+    width: 100%;
+    min-width: 0;
+  }
+}
 .jbsMenu:global(.__wab_instance) {
   position: relative;
   align-self: auto;

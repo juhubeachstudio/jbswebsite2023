@@ -912,6 +912,20 @@ function PlasmicProductPage__RenderFunc(props: {
                                             "__wab_instance",
                                             sty.productCardJbs
                                           )}
+                                          currentItem={(() => {
+                                            try {
+                                              return $ctx.currentProduct;
+                                            } catch (e) {
+                                              if (
+                                                e instanceof TypeError ||
+                                                e?.plasmicType ===
+                                                  "PlasmicUndefinedDataError"
+                                              ) {
+                                                return undefined;
+                                              }
+                                              throw e;
+                                            }
+                                          })()}
                                         />
                                       )}
                                     </ph.DataCtxReader>

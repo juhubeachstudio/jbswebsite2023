@@ -39,7 +39,6 @@ import {
 import { ProductMedia } from "@plasmicpkgs/commerce";
 import { ProductTextField } from "@plasmicpkgs/commerce";
 import { ProductPriceComponent } from "@plasmicpkgs/commerce";
-import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -54,9 +53,13 @@ export type PlasmicProductCardJbs__VariantsArgs = {};
 type VariantPropType = keyof PlasmicProductCardJbs__VariantsArgs;
 export const PlasmicProductCardJbs__VariantProps = new Array<VariantPropType>();
 
-export type PlasmicProductCardJbs__ArgsType = {};
+export type PlasmicProductCardJbs__ArgsType = {
+  currentItem?: string;
+};
 type ArgPropType = keyof PlasmicProductCardJbs__ArgsType;
-export const PlasmicProductCardJbs__ArgProps = new Array<ArgPropType>();
+export const PlasmicProductCardJbs__ArgProps = new Array<ArgPropType>(
+  "currentItem"
+);
 
 export type PlasmicProductCardJbs__OverridesType = {
   root?: p.Flex<"div">;
@@ -66,6 +69,7 @@ export type PlasmicProductCardJbs__OverridesType = {
 };
 
 export interface DefaultProductCardJbsProps {
+  currentItem?: string;
   className?: string;
 }
 
@@ -127,13 +131,13 @@ function PlasmicProductCardJbs__RenderFunc(props: {
         component={Link}
         href={`/product/${(() => {
           try {
-            return $ctx.currentProduct.slug;
+            return $props.currentItem.slug;
           } catch (e) {
             if (
               e instanceof TypeError ||
               e?.plasmicType === "PlasmicUndefinedDataError"
             ) {
-              return undefined;
+              return "undefined";
             }
             throw e;
           }
@@ -160,6 +164,19 @@ function PlasmicProductCardJbs__RenderFunc(props: {
         <p.PlasmicLink
           className={classNames(projectcss.all, projectcss.a, sty.link___7Zco)}
           component={Link}
+          href={`/product/${(() => {
+            try {
+              return undefined;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()}`}
           platform={"nextjs"}
         >
           <ProductTextField

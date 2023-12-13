@@ -205,30 +205,27 @@ function PlasmicJbsMenu__RenderFunc(props: {
             $steps["updateRevealSubMenu"] = await $steps["updateRevealSubMenu"];
           }
 
-          $steps["updateRevealMenu"] = true
+          $steps["updateRevealSubMenu2"] = true
             ? (() => {
-                const actionArgs = {
-                  vgroup: "revealMenu",
-                  operation: 2,
-                  value: "revealMenu"
-                };
+                const actionArgs = { vgroup: "revealSubMenu", operation: 6 };
                 return (({ vgroup, value }) => {
                   if (typeof value === "string") {
                     value = [value];
                   }
 
-                  const oldValue = p.get($state, vgroup);
-                  p.set($state, vgroup, !oldValue);
-                  return !oldValue;
+                  p.set($state, vgroup, false);
+                  return false;
                 })?.apply(null, [actionArgs]);
               })()
             : undefined;
           if (
-            $steps["updateRevealMenu"] != null &&
-            typeof $steps["updateRevealMenu"] === "object" &&
-            typeof $steps["updateRevealMenu"].then === "function"
+            $steps["updateRevealSubMenu2"] != null &&
+            typeof $steps["updateRevealSubMenu2"] === "object" &&
+            typeof $steps["updateRevealSubMenu2"].then === "function"
           ) {
-            $steps["updateRevealMenu"] = await $steps["updateRevealMenu"];
+            $steps["updateRevealSubMenu2"] = await $steps[
+              "updateRevealSubMenu2"
+            ];
           }
         }}
         size={"minimal"}

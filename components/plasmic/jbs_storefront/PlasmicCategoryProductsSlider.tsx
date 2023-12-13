@@ -234,12 +234,20 @@ function PlasmicCategoryProductsSlider__RenderFunc(props: {
                 slidesPerRow: hasVariant(globalVariants, "screen", "mobileOnly")
                   ? 1
                   : 1,
-                slidesToScroll: 3,
+                slidesToScroll: hasVariant(
+                  globalVariants,
+                  "screen",
+                  "mobileOnly"
+                )
+                  ? 2
+                  : 3,
                 slidesToShow: hasVariant(globalVariants, "screen", "mobileOnly")
-                  ? 3
+                  ? 2
                   : 5,
                 speed: 1000,
-                swipeToSlide: true
+                swipeToSlide: hasVariant(globalVariants, "screen", "mobileOnly")
+                  ? false
+                  : true
               };
               p.initializeCodeComponentStates(
                 $state,

@@ -95,10 +95,9 @@ export type PlasmicHomepage__OverridesType = {
   sliderCarousel?: p.Flex<typeof SliderWrapper>;
   previous?: p.Flex<"svg">;
   next?: p.Flex<"svg">;
-  categoryCollection?: p.Flex<typeof CategoryCollection>;
-  sliderCarousel2?: p.Flex<typeof SliderWrapper>;
+  categoriesDataProvider?: p.Flex<typeof CategoryCollection>;
+  shopCategoriesSlides?: p.Flex<typeof SliderWrapper>;
   span?: p.Flex<"span">;
-  sliderCarousel9?: p.Flex<typeof SliderWrapper>;
   sliderCarousel3?: p.Flex<typeof SliderWrapper>;
   sliderCarousel5?: p.Flex<typeof SliderWrapper>;
   sliderCarousel11?: p.Flex<typeof SliderWrapper>;
@@ -155,24 +154,12 @@ function PlasmicHomepage__RenderFunc(props: {
         )
       },
       {
-        path: "sliderCarousel2.currentSlide",
+        path: "shopCategoriesSlides.currentSlide",
         type: "private",
         variableType: "number",
         initFunc: ({ $props, $state, $queries, $ctx }) => 0,
 
-        refName: "sliderCarousel2",
-        onMutate: p.generateOnMutateForSpec(
-          "currentSlide",
-          SliderWrapper_Helpers
-        )
-      },
-      {
-        path: "sliderCarousel9.currentSlide",
-        type: "private",
-        variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) => 0,
-
-        refName: "sliderCarousel9",
+        refName: "shopCategoriesSlides",
         onMutate: p.generateOnMutateForSpec(
           "currentSlide",
           SliderWrapper_Helpers
@@ -799,7 +786,7 @@ function PlasmicHomepage__RenderFunc(props: {
                       $steps["runActionOnSliderCarousel2"] = true
                         ? (() => {
                             const actionArgs = {
-                              tplRef: "sliderCarousel2",
+                              tplRef: "shopCategoriesSlides",
                               action: "slickPrev"
                             };
                             return (({ tplRef, action, args }) => {
@@ -843,7 +830,7 @@ function PlasmicHomepage__RenderFunc(props: {
                       $steps["runActionOnSliderCarousel2"] = true
                         ? (() => {
                             const actionArgs = {
-                              tplRef: "sliderCarousel2",
+                              tplRef: "shopCategoriesSlides",
                               action: "slickNext"
                             };
                             return (({ tplRef, action, args }) => {
@@ -869,11 +856,11 @@ function PlasmicHomepage__RenderFunc(props: {
                   />
                 </div>
                 <CategoryCollection
-                  data-plasmic-name={"categoryCollection"}
-                  data-plasmic-override={overrides.categoryCollection}
+                  data-plasmic-name={"categoriesDataProvider"}
+                  data-plasmic-override={overrides.categoriesDataProvider}
                   className={classNames(
                     "__wab_instance",
-                    sty.categoryCollection
+                    sty.categoriesDataProvider
                   )}
                   emptyMessage={
                     <ph.DataCtxReader>
@@ -908,403 +895,231 @@ function PlasmicHomepage__RenderFunc(props: {
                   noAutoRepeat={true}
                 >
                   <ph.DataCtxReader>
-                    {$ctx => (
-                      <React.Fragment>
-                        {(() => {
-                          const child$Props = {
-                            arrowColor: true
-                              ? "var(--antd-colorWhite)"
-                              : undefined,
-                            arrows: false,
-                            autoplay: true,
-                            autoplaySpeed: hasVariant(
-                              globalVariants,
-                              "screen",
-                              "mobileOnly"
-                            )
-                              ? 1500
-                              : 2000,
-                            beforeChange:
-                              p.generateStateOnChangePropForCodeComponents(
-                                $state,
-                                "currentSlide",
-                                ["sliderCarousel2", "currentSlide"],
-                                SliderWrapper_Helpers
-                              ),
-                            centerMode: hasVariant(
-                              globalVariants,
-                              "screen",
-                              "mobileOnly"
-                            )
-                              ? true
-                              : false,
-                            centerPadding: hasVariant(
-                              globalVariants,
-                              "screen",
-                              "mobileOnly"
-                            )
-                              ? "30px"
-                              : undefined,
-                            className: classNames(
-                              "__wab_instance",
-                              sty.sliderCarousel2
+                    {$ctx =>
+                      (() => {
+                        const child$Props = {
+                          arrowColor: true
+                            ? "var(--antd-colorWhite)"
+                            : undefined,
+                          arrows: false,
+                          autoplay: true,
+                          autoplaySpeed: hasVariant(
+                            globalVariants,
+                            "screen",
+                            "mobileOnly"
+                          )
+                            ? 1500
+                            : 2000,
+                          beforeChange:
+                            p.generateStateOnChangePropForCodeComponents(
+                              $state,
+                              "currentSlide",
+                              ["shopCategoriesSlides", "currentSlide"],
+                              SliderWrapper_Helpers
                             ),
-                            dots: false,
-                            initialSlide: p.generateStateValueProp($state, [
-                              "sliderCarousel2",
-                              "currentSlide"
-                            ]),
-                            pauseOnDotsHover: false,
-                            pauseOnFocus: true,
-                            pauseOnHover: true,
-                            ref: ref => {
-                              $refs["sliderCarousel2"] = ref;
-                            },
-                            sliderScopeClassName:
-                              sty["sliderCarousel2__slider"],
-                            slidesToScroll: hasVariant(
-                              globalVariants,
-                              "screen",
-                              "mobileOnly"
-                            )
-                              ? 1
-                              : 3,
-                            slidesToShow: hasVariant(
-                              globalVariants,
-                              "screen",
-                              "mobileOnly"
-                            )
-                              ? 2
-                              : 5,
-                            swipeToSlide: true
-                          };
-                          p.initializeCodeComponentStates(
-                            $state,
-                            [
-                              {
-                                name: "currentSlide",
-                                plasmicStateName: "sliderCarousel2.currentSlide"
-                              }
-                            ],
-                            [],
-                            SliderWrapper_Helpers ?? {},
-                            child$Props
-                          );
+                          centerMode: hasVariant(
+                            globalVariants,
+                            "screen",
+                            "mobileOnly"
+                          )
+                            ? true
+                            : false,
+                          centerPadding: hasVariant(
+                            globalVariants,
+                            "screen",
+                            "mobileOnly"
+                          )
+                            ? "30px"
+                            : undefined,
+                          className: classNames(
+                            "__wab_instance",
+                            sty.shopCategoriesSlides
+                          ),
+                          dots: false,
+                          initialSlide: p.generateStateValueProp($state, [
+                            "shopCategoriesSlides",
+                            "currentSlide"
+                          ]),
+                          pauseOnDotsHover: false,
+                          pauseOnFocus: true,
+                          pauseOnHover: true,
+                          ref: ref => {
+                            $refs["shopCategoriesSlides"] = ref;
+                          },
+                          sliderScopeClassName:
+                            sty["shopCategoriesSlides__slider"],
+                          slidesToScroll: hasVariant(
+                            globalVariants,
+                            "screen",
+                            "mobileOnly"
+                          )
+                            ? 1
+                            : 3,
+                          slidesToShow: hasVariant(
+                            globalVariants,
+                            "screen",
+                            "mobileOnly"
+                          )
+                            ? 2
+                            : 5,
+                          swipeToSlide: hasVariant(
+                            globalVariants,
+                            "screen",
+                            "mobileOnly"
+                          )
+                            ? false
+                            : true
+                        };
+                        p.initializeCodeComponentStates(
+                          $state,
+                          [
+                            {
+                              name: "currentSlide",
+                              plasmicStateName:
+                                "shopCategoriesSlides.currentSlide"
+                            }
+                          ],
+                          [],
+                          SliderWrapper_Helpers ?? {},
+                          child$Props
+                        );
 
-                          return (
-                            <SliderWrapper
-                              data-plasmic-name={"sliderCarousel2"}
-                              data-plasmic-override={overrides.sliderCarousel2}
-                              {...child$Props}
-                            >
-                              {(_par =>
-                                !_par
-                                  ? []
-                                  : Array.isArray(_par)
-                                  ? _par
-                                  : [_par])(
-                                (() => {
-                                  try {
-                                    return $ctx.categories.filter(
-                                      category => category.name !== "Headwear"
-                                    );
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return [];
-                                    }
-                                    throw e;
+                        return (
+                          <SliderWrapper
+                            data-plasmic-name={"shopCategoriesSlides"}
+                            data-plasmic-override={
+                              overrides.shopCategoriesSlides
+                            }
+                            {...child$Props}
+                          >
+                            {(_par =>
+                              !_par ? [] : Array.isArray(_par) ? _par : [_par])(
+                              (() => {
+                                try {
+                                  return $ctx.categories.filter(
+                                    category => category.name !== "Headwear"
+                                  );
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return [];
                                   }
-                                })()
-                              ).map((__plasmic_item_0, __plasmic_idx_0) => {
-                                const currentItem = __plasmic_item_0;
-                                const currentIndex = __plasmic_idx_0;
-                                return (
-                                  <span
-                                    data-plasmic-name={"span"}
-                                    data-plasmic-override={overrides.span}
+                                  throw e;
+                                }
+                              })()
+                            ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                              const currentItem = __plasmic_item_0;
+                              const currentIndex = __plasmic_idx_0;
+                              return (
+                                <span
+                                  data-plasmic-name={"span"}
+                                  data-plasmic-override={overrides.span}
+                                  className={classNames(
+                                    projectcss.all,
+                                    projectcss.span,
+                                    sty.span
+                                  )}
+                                  key={currentIndex}
+                                >
+                                  <p.PlasmicLink
                                     className={classNames(
                                       projectcss.all,
-                                      projectcss.span,
-                                      sty.span
+                                      projectcss.a,
+                                      sty.link__fhh6D
                                     )}
-                                    key={currentIndex}
-                                  >
-                                    <p.PlasmicLink
-                                      className={classNames(
-                                        projectcss.all,
-                                        projectcss.a,
-                                        sty.link__fhh6D
-                                      )}
-                                      component={Link}
-                                      href={
-                                        hasVariant(
-                                          globalVariants,
-                                          "screen",
-                                          "mobileOnly"
-                                        )
-                                          ? `/category/${"currentItem.slug"}`
-                                          : undefined
-                                      }
-                                      platform={"nextjs"}
-                                    >
-                                      <p.PlasmicImg
-                                        alt={""}
-                                        className={classNames(sty.img___1TGgh)}
-                                        displayHeight={
-                                          hasVariant(
-                                            globalVariants,
-                                            "screen",
-                                            "mobileOnly"
-                                          )
-                                            ? "100%"
-                                            : "auto"
-                                        }
-                                        displayMaxHeight={"none"}
-                                        displayMaxWidth={"none"}
-                                        displayMinHeight={"0"}
-                                        displayMinWidth={"0"}
-                                        displayWidth={"100%"}
-                                        src={(() => {
-                                          try {
-                                            return currentItem.images[0].url;
-                                          } catch (e) {
-                                            if (
-                                              e instanceof TypeError ||
-                                              e?.plasmicType ===
-                                                "PlasmicUndefinedDataError"
-                                            ) {
-                                              return "https://static1.plasmic.app/components/react-slick/slide1.png";
-                                            }
-                                            throw e;
-                                          }
-                                        })()}
-                                      />
-
-                                      <div
-                                        className={classNames(
-                                          projectcss.all,
-                                          projectcss.__wab_text,
-                                          sty.text___8Bsa7
-                                        )}
-                                      >
-                                        <React.Fragment>
-                                          {(() => {
+                                    component={Link}
+                                    href={
+                                      hasVariant(
+                                        globalVariants,
+                                        "screen",
+                                        "mobileOnly"
+                                      )
+                                        ? `/category/${"currentItem.slug"}`
+                                        : `/category/${(() => {
                                             try {
-                                              return currentItem.name;
+                                              return currentItem.slug;
                                             } catch (e) {
                                               if (
                                                 e instanceof TypeError ||
                                                 e?.plasmicType ===
                                                   "PlasmicUndefinedDataError"
                                               ) {
-                                                return "";
+                                                return undefined;
                                               }
                                               throw e;
                                             }
-                                          })()}
-                                        </React.Fragment>
-                                      </div>
-                                      <p.PlasmicLink
-                                        className={classNames(
-                                          projectcss.all,
-                                          projectcss.a,
-                                          sty.link__in97Q
-                                        )}
-                                        component={Link}
-                                        href={`/category/${(() => {
-                                          try {
-                                            return currentItem.slug;
-                                          } catch (e) {
-                                            if (
-                                              e instanceof TypeError ||
-                                              e?.plasmicType ===
-                                                "PlasmicUndefinedDataError"
-                                            ) {
-                                              return undefined;
-                                            }
-                                            throw e;
-                                          }
-                                        })()}`}
-                                        platform={"nextjs"}
-                                      />
-                                    </p.PlasmicLink>
-                                  </span>
-                                );
-                              })}
-                            </SliderWrapper>
-                          );
-                        })()}
-                        {(() => {
-                          const child$Props = {
-                            adaptiveHeight: false,
-                            arrows: false,
-                            autoplay: true,
-                            autoplaySpeed: 1500,
-                            beforeChange:
-                              p.generateStateOnChangePropForCodeComponents(
-                                $state,
-                                "currentSlide",
-                                ["sliderCarousel9", "currentSlide"],
-                                SliderWrapper_Helpers
-                              ),
-                            centerMode: true,
-                            centerPadding: "30",
-                            className: classNames(
-                              "__wab_instance",
-                              sty.sliderCarousel9
-                            ),
-                            dots: false,
-                            initialSlide: p.generateStateValueProp($state, [
-                              "sliderCarousel9",
-                              "currentSlide"
-                            ]),
-                            pauseOnFocus: true,
-                            ref: ref => {
-                              $refs["sliderCarousel9"] = ref;
-                            },
-                            sliderScopeClassName:
-                              sty["sliderCarousel9__slider"],
-                            slidesPerRow: 2,
-                            slidesToShow: 1,
-                            swipeToSlide: true
-                          };
-                          p.initializeCodeComponentStates(
-                            $state,
-                            [
-                              {
-                                name: "currentSlide",
-                                plasmicStateName: "sliderCarousel9.currentSlide"
-                              }
-                            ],
-                            [],
-                            SliderWrapper_Helpers ?? {},
-                            child$Props
-                          );
-
-                          return (
-                            <SliderWrapper
-                              data-plasmic-name={"sliderCarousel9"}
-                              data-plasmic-override={overrides.sliderCarousel9}
-                              {...child$Props}
-                            >
-                              {(_par =>
-                                !_par
-                                  ? []
-                                  : Array.isArray(_par)
-                                  ? _par
-                                  : [_par])(
-                                (() => {
-                                  try {
-                                    return $ctx.categories.filter(
-                                      category => category.name !== "Headwear"
-                                    );
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return [];
+                                          })()}`
                                     }
-                                    throw e;
-                                  }
-                                })()
-                              ).map((__plasmic_item_0, __plasmic_idx_0) => {
-                                const currentItem = __plasmic_item_0;
-                                const currentIndex = __plasmic_idx_0;
-                                return (
-                                  <div
-                                    className={classNames(
-                                      projectcss.all,
-                                      sty.freeBox__ktbqo
-                                    )}
-                                    key={currentIndex}
+                                    platform={"nextjs"}
                                   >
-                                    <p.PlasmicLink
-                                      className={classNames(
-                                        projectcss.all,
-                                        projectcss.a,
-                                        sty.link__lqpxu
-                                      )}
-                                      component={Link}
-                                      href={`/category/${(() => {
+                                    <p.PlasmicImg
+                                      alt={""}
+                                      className={classNames(sty.img___1TGgh)}
+                                      displayHeight={
+                                        hasVariant(
+                                          globalVariants,
+                                          "screen",
+                                          "mobileOnly"
+                                        )
+                                          ? "100%"
+                                          : "100%"
+                                      }
+                                      displayMaxHeight={"none"}
+                                      displayMaxWidth={"none"}
+                                      displayMinHeight={"0"}
+                                      displayMinWidth={"0"}
+                                      displayWidth={"100%"}
+                                      src={(() => {
                                         try {
-                                          return currentItem.slug;
+                                          return currentItem.images[0].url;
                                         } catch (e) {
                                           if (
                                             e instanceof TypeError ||
                                             e?.plasmicType ===
                                               "PlasmicUndefinedDataError"
                                           ) {
-                                            return undefined;
+                                            return "https://static1.plasmic.app/components/react-slick/slide1.png";
                                           }
                                           throw e;
                                         }
-                                      })()}`}
-                                      platform={"nextjs"}
+                                      })()}
+                                    />
+
+                                    <div
+                                      className={classNames(
+                                        projectcss.all,
+                                        projectcss.__wab_text,
+                                        sty.text___8Bsa7
+                                      )}
                                     >
-                                      <p.PlasmicImg
-                                        alt={""}
-                                        className={classNames(sty.img___76TeL)}
-                                        displayHeight={"100%"}
-                                        displayMaxHeight={"none"}
-                                        displayMaxWidth={"none"}
-                                        displayMinHeight={"0"}
-                                        displayMinWidth={"0"}
-                                        displayWidth={"100%"}
-                                        src={(() => {
+                                      <React.Fragment>
+                                        {(() => {
                                           try {
-                                            return currentItem.images[0].url;
+                                            return currentItem.name;
                                           } catch (e) {
                                             if (
                                               e instanceof TypeError ||
                                               e?.plasmicType ===
                                                 "PlasmicUndefinedDataError"
                                             ) {
-                                              return "https://static1.plasmic.app/components/react-slick/slide1.png";
+                                              return "";
                                             }
                                             throw e;
                                           }
                                         })()}
-                                      />
-
-                                      <div
-                                        className={classNames(
-                                          projectcss.all,
-                                          projectcss.__wab_text,
-                                          sty.text__hSUp8
-                                        )}
-                                      >
-                                        <React.Fragment>
-                                          {(() => {
-                                            try {
-                                              return currentItem.name;
-                                            } catch (e) {
-                                              if (
-                                                e instanceof TypeError ||
-                                                e?.plasmicType ===
-                                                  "PlasmicUndefinedDataError"
-                                              ) {
-                                                return "";
-                                              }
-                                              throw e;
-                                            }
-                                          })()}
-                                        </React.Fragment>
-                                      </div>
-                                    </p.PlasmicLink>
-                                  </div>
-                                );
-                              })}
-                            </SliderWrapper>
-                          );
-                        })()}
-                      </React.Fragment>
-                    )}
+                                      </React.Fragment>
+                                    </div>
+                                  </p.PlasmicLink>
+                                </span>
+                              );
+                            })}
+                          </SliderWrapper>
+                        );
+                      })()
+                    }
                   </ph.DataCtxReader>
                 </CategoryCollection>
               </div>
@@ -2711,35 +2526,69 @@ function PlasmicHomepage__RenderFunc(props: {
                     >
                       <ph.DataCtxReader>
                         {$ctx => (
-                          <p.PlasmicLink
+                          <button
                             className={classNames(
                               projectcss.all,
-                              projectcss.a,
-                              sty.link__ayR2O
+                              projectcss.button,
+                              sty.button__ayR2O
                             )}
-                            component={Link}
-                            href={`/product/${(() => {
-                              try {
-                                return (() => {
-                                  const randomProduct =
-                                    $ctx.products[
-                                      Math.floor(
-                                        Math.random() * $ctx.products.length
-                                      )
-                                    ];
-                                  return randomProduct.slug;
-                                })();
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return undefined;
-                                }
-                                throw e;
+                            onClick={async event => {
+                              const $steps = {};
+
+                              $steps["goToProductPage"] = true
+                                ? (() => {
+                                    const actionArgs = {
+                                      destination: `/product/${(() => {
+                                        try {
+                                          return (() => {
+                                            const randomProduct =
+                                              $ctx.products[
+                                                Math.floor(
+                                                  Math.random() *
+                                                    $ctx.products.length
+                                                )
+                                              ];
+                                            return randomProduct.slug;
+                                          })();
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return undefined;
+                                          }
+                                          throw e;
+                                        }
+                                      })()}`
+                                    };
+                                    return (({ destination }) => {
+                                      if (
+                                        typeof destination === "string" &&
+                                        destination.startsWith("#")
+                                      ) {
+                                        document
+                                          .getElementById(destination.substr(1))
+                                          .scrollIntoView({
+                                            behavior: "smooth"
+                                          });
+                                      } else {
+                                        __nextRouter?.push(destination);
+                                      }
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
+                              if (
+                                $steps["goToProductPage"] != null &&
+                                typeof $steps["goToProductPage"] === "object" &&
+                                typeof $steps["goToProductPage"].then ===
+                                  "function"
+                              ) {
+                                $steps["goToProductPage"] = await $steps[
+                                  "goToProductPage"
+                                ];
                               }
-                            })()}`}
-                            platform={"nextjs"}
+                            }}
                           >
                             <SurpriseMeButton
                               data-plasmic-name={"surpriseMeButton"}
@@ -2749,7 +2598,7 @@ function PlasmicHomepage__RenderFunc(props: {
                                 sty.surpriseMeButton
                               )}
                             />
-                          </p.PlasmicLink>
+                          </button>
                         )}
                       </ph.DataCtxReader>
                     </ProductCollection>
@@ -3067,7 +2916,15 @@ function PlasmicHomepage__RenderFunc(props: {
                             color={"red"}
                             link={`/category/${"flower-hat"}`}
                           >
-                            {"Flower hats"}
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.text__oaeqF
+                              )}
+                            >
+                              {"Flower hats"}
+                            </div>
                           </Button>
                         }
                       >
@@ -3433,10 +3290,9 @@ const PlasmicDescendants = {
     "sliderCarousel",
     "previous",
     "next",
-    "categoryCollection",
-    "sliderCarousel2",
+    "categoriesDataProvider",
+    "shopCategoriesSlides",
     "span",
-    "sliderCarousel9",
     "sliderCarousel3",
     "sliderCarousel5",
     "sliderCarousel11",
@@ -3449,10 +3305,9 @@ const PlasmicDescendants = {
     "sliderCarousel",
     "previous",
     "next",
-    "categoryCollection",
-    "sliderCarousel2",
+    "categoriesDataProvider",
+    "shopCategoriesSlides",
     "span",
-    "sliderCarousel9",
     "sliderCarousel3",
     "sliderCarousel5",
     "sliderCarousel11",
@@ -3463,15 +3318,13 @@ const PlasmicDescendants = {
   sliderCarousel: ["sliderCarousel"],
   previous: ["previous"],
   next: ["next"],
-  categoryCollection: [
-    "categoryCollection",
-    "sliderCarousel2",
-    "span",
-    "sliderCarousel9"
+  categoriesDataProvider: [
+    "categoriesDataProvider",
+    "shopCategoriesSlides",
+    "span"
   ],
-  sliderCarousel2: ["sliderCarousel2", "span"],
+  shopCategoriesSlides: ["shopCategoriesSlides", "span"],
   span: ["span"],
-  sliderCarousel9: ["sliderCarousel9"],
   sliderCarousel3: ["sliderCarousel3"],
   sliderCarousel5: ["sliderCarousel5"],
   sliderCarousel11: ["sliderCarousel11"],
@@ -3488,10 +3341,9 @@ type NodeDefaultElementType = {
   sliderCarousel: typeof SliderWrapper;
   previous: "svg";
   next: "svg";
-  categoryCollection: typeof CategoryCollection;
-  sliderCarousel2: typeof SliderWrapper;
+  categoriesDataProvider: typeof CategoryCollection;
+  shopCategoriesSlides: typeof SliderWrapper;
   span: "span";
-  sliderCarousel9: typeof SliderWrapper;
   sliderCarousel3: typeof SliderWrapper;
   sliderCarousel5: typeof SliderWrapper;
   sliderCarousel11: typeof SliderWrapper;
@@ -3564,10 +3416,9 @@ export const PlasmicHomepage = Object.assign(
     sliderCarousel: makeNodeComponent("sliderCarousel"),
     previous: makeNodeComponent("previous"),
     next: makeNodeComponent("next"),
-    categoryCollection: makeNodeComponent("categoryCollection"),
-    sliderCarousel2: makeNodeComponent("sliderCarousel2"),
+    categoriesDataProvider: makeNodeComponent("categoriesDataProvider"),
+    shopCategoriesSlides: makeNodeComponent("shopCategoriesSlides"),
     span: makeNodeComponent("span"),
-    sliderCarousel9: makeNodeComponent("sliderCarousel9"),
     sliderCarousel3: makeNodeComponent("sliderCarousel3"),
     sliderCarousel5: makeNodeComponent("sliderCarousel5"),
     sliderCarousel11: makeNodeComponent("sliderCarousel11"),
