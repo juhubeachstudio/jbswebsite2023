@@ -617,7 +617,8 @@
           "componentImportPath": "@plasmicpkgs/antd5/skinny/registerBreadcrumb"
         }
       ],
-      "customFunctions": []
+      "customFunctions": [],
+      "jsBundleThemes": []
     },
     {
       "projectId": "7nJ7UcFmq9UzB6eXfC5z4a",
@@ -1301,6 +1302,46 @@
             "modulePath": "Testproduct.tsx"
           },
           "cssFilePath": "plasmic/jbs_storefront/PlasmicTestproduct.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "hBMlaSlEdFWj",
+          "name": "LaunchingSoon",
+          "type": "managed",
+          "projectId": "heL2P6rJiLNgtnBJPb6i1m",
+          "renderModuleFilePath": "plasmic/jbs_storefront/PlasmicLaunchingSoon.tsx",
+          "importSpec": {
+            "modulePath": "../pages/launching-soon.tsx"
+          },
+          "cssFilePath": "plasmic/jbs_storefront/PlasmicLaunchingSoon.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/launching-soon"
+        },
+        {
+          "id": "Tu3iaahTzpLP",
+          "name": "CountdownNumber",
+          "type": "managed",
+          "projectId": "heL2P6rJiLNgtnBJPb6i1m",
+          "renderModuleFilePath": "plasmic/jbs_storefront/PlasmicCountdownNumber.tsx",
+          "importSpec": {
+            "modulePath": "CountdownNumber.tsx"
+          },
+          "cssFilePath": "plasmic/jbs_storefront/PlasmicCountdownNumber.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "si44vJRCqCM3",
+          "name": "Countdown",
+          "type": "managed",
+          "projectId": "heL2P6rJiLNgtnBJPb6i1m",
+          "renderModuleFilePath": "plasmic/jbs_storefront/PlasmicCountdown.tsx",
+          "importSpec": {
+            "modulePath": "Countdown.tsx"
+          },
+          "cssFilePath": "plasmic/jbs_storefront/PlasmicCountdown.module.css",
           "scheme": "blackbox",
           "componentType": "component"
         }
@@ -2201,7 +2242,7 @@
       ],
       "indirect": false,
       "globalContextsFilePath": "plasmic/jbs_storefront/PlasmicGlobalContextsProvider.tsx",
-      "splitsProviderFilePath": "",
+      "splitsProviderFilePath": "plasmic/jbs_storefront/PlasmicSplitsProvider.tsx",
       "codeComponents": [
         {
           "id": "Y-3ZgxdS1wv60n",
@@ -2343,6 +2384,12 @@
         "name": "Screen",
         "projectId": "heL2P6rJiLNgtnBJPb6i1m",
         "contextFilePath": "plasmic/jbs_storefront/PlasmicGlobalVariant__Screen.tsx"
+      },
+      {
+        "id": "zd5JVdnkSq7D",
+        "name": "Schedule",
+        "projectId": "heL2P6rJiLNgtnBJPb6i1m",
+        "contextFilePath": "plasmic/jbs_storefront/PlasmicGlobalVariant__Schedule.tsx"
       }
     ]
   },
@@ -2350,6 +2397,6 @@
   "nextjsConfig": {
     "pagesDir": "../pages"
   },
-  "cliVersion": "0.1.324",
-  "$schema": "https://unpkg.com/@plasmicapp/cli@0.1.324/dist/plasmic.schema.json"
+  "cliVersion": "0.1.325",
+  "$schema": "https://unpkg.com/@plasmicapp/cli@0.1.325/dist/plasmic.schema.json"
 }

@@ -43,7 +43,8 @@
   );
 }
 
-.plasmic_default_styles {
+.plasmic_default_styles,
+.plasmic_default_styles:where(.global_schedule_override) {
   --mixin-kWmnnX9WwNUPIB_font-family: "Karla", sans-serif;
   --mixin-kWmnnX9WwNUPIB_font-size: 16px;
   --mixin-kWmnnX9WwNUPIB_font-weight: 400;
@@ -167,7 +168,8 @@
   --mixin-e_r9W1tCgR-us-_white-space: pre-wrap;
 }
 
-.plasmic_mixins {
+.plasmic_mixins,
+.plasmic_mixins:where(.global_schedule_override) {
   --mixin-OP2DU2w2y_white-space: pre-wrap;
   --plasmic-mixin-karla_white-space: var(--mixin-OP2DU2w2y_white-space);
   --mixin-yiqnKS2MOboK_white-space: pre-wrap;

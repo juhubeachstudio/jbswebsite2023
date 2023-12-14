@@ -54,7 +54,9 @@ import { ProductTextField } from "@plasmicpkgs/commerce";
 import SurpriseMeButton from "../../SurpriseMeButton"; // plasmic-import: cuLrZTUy4Zrk/component
 import HeaderSlide from "../../HeaderSlide"; // plasmic-import: dIysgpuSQtRE/component
 import { AntdSliderMark } from "@plasmicpkgs/antd5/skinny/registerSlider";
+import Countdown from "../../Countdown"; // plasmic-import: si44vJRCqCM3/component
 
+import { ScheduleValue, useSchedule } from "./PlasmicGlobalVariant__Schedule"; // plasmic-import: zd5JVdnkSq7D/globalVariant
 import { useScreenVariants as useScreenVariants_6Hzia3M7Np4Ulu } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6hzia3m7Np4ulu/globalVariant
 
 import "@plasmicapp/react-web/lib/plasmic.css";
@@ -104,6 +106,7 @@ export type PlasmicHomepage__OverridesType = {
   surpriseMeButton?: p.Flex<typeof SurpriseMeButton>;
   sliderCarousel6?: p.Flex<typeof SliderWrapper>;
   sliderMark?: p.Flex<typeof AntdSliderMark>;
+  countdown?: p.Flex<typeof Countdown>;
 };
 
 export interface DefaultHomepageProps {}
@@ -224,6 +227,7 @@ function PlasmicHomepage__RenderFunc(props: {
   });
 
   const globalVariants = ensureGlobalVariants({
+    schedule: useSchedule(),
     screen: useScreenVariants_6Hzia3M7Np4Ulu()
   });
 
@@ -250,13 +254,26 @@ function PlasmicHomepage__RenderFunc(props: {
             projectcss.plasmic_mixins,
             projectcss.plasmic_tokens,
             plasmic_antd_5_hostless_css.plasmic_tokens,
-            sty.root
+            sty.root,
+            {
+              [sty.rootglobal_schedule_override]: hasVariant(
+                globalVariants,
+                "schedule",
+                "override"
+              )
+            }
           )}
         >
           <FullPage
             data-plasmic-name={"fullPage"}
             data-plasmic-override={overrides.fullPage}
-            className={classNames("__wab_instance", sty.fullPage)}
+            className={classNames("__wab_instance", sty.fullPage, {
+              [sty.fullPageglobal_schedule_override]: hasVariant(
+                globalVariants,
+                "schedule",
+                "override"
+              )
+            })}
           >
             <div className={classNames(projectcss.all, sty.freeBox__zflhR)}>
               {(() => {
@@ -1141,7 +1158,9 @@ function PlasmicHomepage__RenderFunc(props: {
                       sty.text__sH11P
                     )}
                   >
-                    {"Discount code for first 100 shoppers \u2728 "}
+                    {
+                      "Discount code for the first 100 shoppers \u2728 SWEEDY \u2728 "
+                    }
                   </div>
                 </Marquee>
               </div>
@@ -3277,6 +3296,18 @@ function PlasmicHomepage__RenderFunc(props: {
               </p.Stack>
             </Section>
           </FullPage>
+          <Countdown
+            data-plasmic-name={"countdown"}
+            data-plasmic-override={overrides.countdown}
+            className={classNames("__wab_instance", sty.countdown, {
+              [sty.countdownglobal_schedule_override]: hasVariant(
+                globalVariants,
+                "schedule",
+                "override"
+              )
+            })}
+            targetTimeUtc={"2023-12-14T07:10:00.000Z"}
+          />
         </div>
       </div>
     </React.Fragment>
@@ -3298,7 +3329,8 @@ const PlasmicDescendants = {
     "sliderCarousel11",
     "surpriseMeButton",
     "sliderCarousel6",
-    "sliderMark"
+    "sliderMark",
+    "countdown"
   ],
   fullPage: [
     "fullPage",
@@ -3330,7 +3362,8 @@ const PlasmicDescendants = {
   sliderCarousel11: ["sliderCarousel11"],
   surpriseMeButton: ["surpriseMeButton"],
   sliderCarousel6: ["sliderCarousel6"],
-  sliderMark: ["sliderMark"]
+  sliderMark: ["sliderMark"],
+  countdown: ["countdown"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -3350,6 +3383,7 @@ type NodeDefaultElementType = {
   surpriseMeButton: typeof SurpriseMeButton;
   sliderCarousel6: typeof SliderWrapper;
   sliderMark: typeof AntdSliderMark;
+  countdown: typeof Countdown;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -3425,6 +3459,7 @@ export const PlasmicHomepage = Object.assign(
     surpriseMeButton: makeNodeComponent("surpriseMeButton"),
     sliderCarousel6: makeNodeComponent("sliderCarousel6"),
     sliderMark: makeNodeComponent("sliderMark"),
+    countdown: makeNodeComponent("countdown"),
 
     // Metadata about props expected for PlasmicHomepage
     internalVariantProps: PlasmicHomepage__VariantProps,
