@@ -529,21 +529,21 @@
   width: auto;
   height: auto;
 }
-.svg__pcHiC {
+.svg__iYtIq {
   position: relative;
   object-fit: cover;
   width: auto;
   height: 1em;
 }
-.text__vp07P {
-  text-transform: uppercase;
+.text__fpTmC {
   font-style: italic;
-  font-size: 1.5rem;
+  font-size: var(--token-Vzl0MpjGDjfd);
   font-weight: 700;
 }
 .svg {
   position: relative;
   object-fit: cover;
-  width: auto;
-  height: 1em;
+  width: 1.2rem;
+  height: 100%;
+  min-height: 0;
 }

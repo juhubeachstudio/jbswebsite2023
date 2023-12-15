@@ -54,7 +54,6 @@ import { ProductTextField } from "@plasmicpkgs/commerce";
 import SurpriseMeButton from "../../SurpriseMeButton"; // plasmic-import: cuLrZTUy4Zrk/component
 import HeaderSlide from "../../HeaderSlide"; // plasmic-import: dIysgpuSQtRE/component
 import { AntdSliderMark } from "@plasmicpkgs/antd5/skinny/registerSlider";
-import Countdown from "../../Countdown"; // plasmic-import: si44vJRCqCM3/component
 
 import { ScheduleValue, useSchedule } from "./PlasmicGlobalVariant__Schedule"; // plasmic-import: zd5JVdnkSq7D/globalVariant
 import { useScreenVariants as useScreenVariants_6Hzia3M7Np4Ulu } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6hzia3m7Np4ulu/globalVariant
@@ -106,7 +105,6 @@ export type PlasmicHomepage__OverridesType = {
   surpriseMeButton?: p.Flex<typeof SurpriseMeButton>;
   sliderCarousel6?: p.Flex<typeof SliderWrapper>;
   sliderMark?: p.Flex<typeof AntdSliderMark>;
-  countdown?: p.Flex<typeof Countdown>;
 };
 
 export interface DefaultHomepageProps {}
@@ -372,7 +370,7 @@ function PlasmicHomepage__RenderFunc(props: {
                         sty.fullpageheightSlide__gwBsl
                       )}
                       slot={"Mehfil Lights"}
-                      slot2={"Pre lit fabric cigarettes chakhnas"}
+                      slot2={"Pre lit fabric cigarettes"}
                     >
                       <p.PlasmicLink
                         className={classNames(
@@ -513,7 +511,15 @@ function PlasmicHomepage__RenderFunc(props: {
                       )}
                       slot={"AASHIQ TOPI"}
                       slot2={
-                        "Available in lots of different flavours and sizes"
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__zaZ6K
+                          )}
+                        >
+                          {"Available in lots of different flavours and sizes"}
+                        </div>
                       }
                     >
                       <p.PlasmicLink
@@ -725,9 +731,9 @@ function PlasmicHomepage__RenderFunc(props: {
                     displayWidth={"auto"}
                     loading={"lazy"}
                     src={{
-                      src: "/plasmic/jbs_storefront/images/loveYouForeverwebp.webp",
-                      fullWidth: 952,
-                      fullHeight: 408,
+                      src: "/plasmic/jbs_storefront/images/loveYouForever2.png",
+                      fullWidth: 1592,
+                      fullHeight: 863,
                       aspectRatio: undefined
                     }}
                   />
@@ -1414,38 +1420,13 @@ function PlasmicHomepage__RenderFunc(props: {
                         )}
                         color={"redJbs"}
                         link={`/category/${"chakhna"}`}
-                        size={"minimal"}
                       >
                         <div
                           className={classNames(
                             projectcss.all,
                             projectcss.__wab_text,
-                            sty.text__rp9Ax
+                            sty.text__kNkvs
                           )}
-                          onMouseOver={async event => {
-                            const $steps = {};
-
-                            $steps["updateVariant"] = true
-                              ? (() => {
-                                  const actionArgs = {};
-                                  return (({ vgroup, value }) => {
-                                    if (typeof value === "string") {
-                                      value = [value];
-                                    }
-                                    undefined;
-                                  })?.apply(null, [actionArgs]);
-                                })()
-                              : undefined;
-                            if (
-                              $steps["updateVariant"] != null &&
-                              typeof $steps["updateVariant"] === "object" &&
-                              typeof $steps["updateVariant"].then === "function"
-                            ) {
-                              $steps["updateVariant"] = await $steps[
-                                "updateVariant"
-                              ];
-                            }
-                          }}
                         >
                           {"Shop all Chakhna"}
                         </div>
@@ -2545,16 +2526,15 @@ function PlasmicHomepage__RenderFunc(props: {
                     >
                       <ph.DataCtxReader>
                         {$ctx => (
-                          <button
+                          <div
                             className={classNames(
                               projectcss.all,
-                              projectcss.button,
-                              sty.button__ayR2O
+                              sty.freeBox__dg5S3
                             )}
                             onClick={async event => {
                               const $steps = {};
 
-                              $steps["goToProductPage"] = true
+                              $steps["goToRandomProductPage"] = true
                                 ? (() => {
                                     const actionArgs = {
                                       destination: `/product/${(() => {
@@ -2598,13 +2578,14 @@ function PlasmicHomepage__RenderFunc(props: {
                                   })()
                                 : undefined;
                               if (
-                                $steps["goToProductPage"] != null &&
-                                typeof $steps["goToProductPage"] === "object" &&
-                                typeof $steps["goToProductPage"].then ===
+                                $steps["goToRandomProductPage"] != null &&
+                                typeof $steps["goToRandomProductPage"] ===
+                                  "object" &&
+                                typeof $steps["goToRandomProductPage"].then ===
                                   "function"
                               ) {
-                                $steps["goToProductPage"] = await $steps[
-                                  "goToProductPage"
+                                $steps["goToRandomProductPage"] = await $steps[
+                                  "goToRandomProductPage"
                                 ];
                               }
                             }}
@@ -2617,7 +2598,7 @@ function PlasmicHomepage__RenderFunc(props: {
                                 sty.surpriseMeButton
                               )}
                             />
-                          </button>
+                          </div>
                         )}
                       </ph.DataCtxReader>
                     </ProductCollection>
@@ -2681,13 +2662,12 @@ function PlasmicHomepage__RenderFunc(props: {
                       )}
                       color={"redJbs"}
                       link={`/category/${"giftsss"}`}
-                      size={"minimal"}
                     >
                       <div
                         className={classNames(
                           projectcss.all,
                           projectcss.__wab_text,
-                          sty.text___71BH
+                          sty.text__qe6Fn
                         )}
                       >
                         {"gifts here!"}
@@ -2828,13 +2808,12 @@ function PlasmicHomepage__RenderFunc(props: {
                             )}
                             color={"red"}
                             link={`/category/${"bucket-hats"}`}
-                            size={"minimal"}
                           >
                             <div
                               className={classNames(
                                 projectcss.all,
                                 projectcss.__wab_text,
-                                sty.text__wsr9R
+                                sty.text__luFst
                               )}
                             >
                               {"Shop all Bucket Hats"}
@@ -2939,10 +2918,10 @@ function PlasmicHomepage__RenderFunc(props: {
                               className={classNames(
                                 projectcss.all,
                                 projectcss.__wab_text,
-                                sty.text__oaeqF
+                                sty.text__tp8G6
                               )}
                             >
-                              {"Flower hats"}
+                              {"Shop all Flower Hats"}
                             </div>
                           </Button>
                         }
@@ -3268,19 +3247,18 @@ function PlasmicHomepage__RenderFunc(props: {
                       color={"redJbs"}
                       endIcon={
                         <Icon38Icon
-                          className={classNames(projectcss.all, sty.svg__sYyPb)}
+                          className={classNames(projectcss.all, sty.svg__yru8)}
                           role={"img"}
                         />
                       }
                       link={`/about`}
                       showEndIcon={true}
-                      size={"minimal"}
                     >
                       <div
                         className={classNames(
                           projectcss.all,
                           projectcss.__wab_text,
-                          sty.text__oOzB
+                          sty.text__kaKiF
                         )}
                       >
                         {"Want to know how we do it?"}
@@ -3296,18 +3274,6 @@ function PlasmicHomepage__RenderFunc(props: {
               </p.Stack>
             </Section>
           </FullPage>
-          <Countdown
-            data-plasmic-name={"countdown"}
-            data-plasmic-override={overrides.countdown}
-            className={classNames("__wab_instance", sty.countdown, {
-              [sty.countdownglobal_schedule_override]: hasVariant(
-                globalVariants,
-                "schedule",
-                "override"
-              )
-            })}
-            targetTimeUtc={"2023-12-14T07:10:00.000Z"}
-          />
         </div>
       </div>
     </React.Fragment>
@@ -3329,8 +3295,7 @@ const PlasmicDescendants = {
     "sliderCarousel11",
     "surpriseMeButton",
     "sliderCarousel6",
-    "sliderMark",
-    "countdown"
+    "sliderMark"
   ],
   fullPage: [
     "fullPage",
@@ -3362,8 +3327,7 @@ const PlasmicDescendants = {
   sliderCarousel11: ["sliderCarousel11"],
   surpriseMeButton: ["surpriseMeButton"],
   sliderCarousel6: ["sliderCarousel6"],
-  sliderMark: ["sliderMark"],
-  countdown: ["countdown"]
+  sliderMark: ["sliderMark"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -3383,7 +3347,6 @@ type NodeDefaultElementType = {
   surpriseMeButton: typeof SurpriseMeButton;
   sliderCarousel6: typeof SliderWrapper;
   sliderMark: typeof AntdSliderMark;
-  countdown: typeof Countdown;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -3459,7 +3422,6 @@ export const PlasmicHomepage = Object.assign(
     surpriseMeButton: makeNodeComponent("surpriseMeButton"),
     sliderCarousel6: makeNodeComponent("sliderCarousel6"),
     sliderMark: makeNodeComponent("sliderMark"),
-    countdown: makeNodeComponent("countdown"),
 
     // Metadata about props expected for PlasmicHomepage
     internalVariantProps: PlasmicHomepage__VariantProps,

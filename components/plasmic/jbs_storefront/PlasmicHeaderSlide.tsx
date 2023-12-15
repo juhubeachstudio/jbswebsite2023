@@ -178,18 +178,9 @@ function PlasmicHeaderSlide__RenderFunc(props: {
             <Button
               className={classNames("__wab_instance", sty.button__pTyOk)}
               color={"red"}
-            >
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__vOjfh
-                )}
-              >
-                {"Shop all Chakhna"}
-              </div>
-            </Button>
+            />
           ),
+
           value: args.slot3
         })}
       </div>

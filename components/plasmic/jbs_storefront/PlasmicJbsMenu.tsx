@@ -46,7 +46,6 @@ import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic_antd_5_hostl
 import projectcss from "./plasmic_jbs_storefront.module.css"; // plasmic-import: heL2P6rJiLNgtnBJPb6i1m/projectcss
 import sty from "./PlasmicJbsMenu.module.css"; // plasmic-import: NFEkw9xPSE/css
 
-import HamburgersvgIcon from "./icons/PlasmicIcon__Hamburgersvg"; // plasmic-import: QybYSQyE3W/icon
 import ChecksvgIcon from "./icons/PlasmicIcon__Checksvg"; // plasmic-import: ew07hyuAC0c/icon
 import Icon38Icon from "./icons/PlasmicIcon__Icon38"; // plasmic-import: 3r4KXWygi9v/icon
 
@@ -72,7 +71,7 @@ export const PlasmicJbsMenu__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicJbsMenu__OverridesType = {
   root?: p.Flex<"div">;
-  svg?: p.Flex<"svg">;
+  homeMenuItem?: p.Flex<"div">;
 };
 
 export interface DefaultJbsMenuProps {
@@ -229,21 +228,8 @@ function PlasmicJbsMenu__RenderFunc(props: {
           }
         }}
         size={"minimal"}
-      >
-        <HamburgersvgIcon
-          data-plasmic-name={"svg"}
-          data-plasmic-override={overrides.svg}
-          className={classNames(projectcss.all, sty.svg, {
-            [sty.svgrevealMenu]: hasVariant($state, "revealMenu", "revealMenu"),
-            [sty.svgrevealSubMenu]: hasVariant(
-              $state,
-              "revealSubMenu",
-              "revealSubMenu"
-            )
-          })}
-          role={"img"}
-        />
-      </Button>
+      />
+
       <Button
         className={classNames("__wab_instance", sty.button__zu9X, {
           [sty.buttonrevealMenu__zu9XxT6MH]: hasVariant(
@@ -263,25 +249,15 @@ function PlasmicJbsMenu__RenderFunc(props: {
         size={"minimal"}
       >
         <div
+          data-plasmic-name={"homeMenuItem"}
+          data-plasmic-override={overrides.homeMenuItem}
           className={classNames(
             projectcss.all,
             projectcss.__wab_text,
-            sty.text__oPaqX,
-            {
-              [sty.textrevealMenu__oPaqXxT6MH]: hasVariant(
-                $state,
-                "revealMenu",
-                "revealMenu"
-              ),
-              [sty.textrevealSubMenu__oPaqXBjo1Y]: hasVariant(
-                $state,
-                "revealSubMenu",
-                "revealSubMenu"
-              )
-            }
+            sty.homeMenuItem
           )}
         >
-          {"Home"}
+          {"HOME"}
         </div>
       </Button>
       <Button
@@ -306,22 +282,10 @@ function PlasmicJbsMenu__RenderFunc(props: {
           className={classNames(
             projectcss.all,
             projectcss.__wab_text,
-            sty.text__llyAo,
-            {
-              [sty.textrevealMenu__llyAOxT6MH]: hasVariant(
-                $state,
-                "revealMenu",
-                "revealMenu"
-              ),
-              [sty.textrevealSubMenu__llyAoBjo1Y]: hasVariant(
-                $state,
-                "revealSubMenu",
-                "revealSubMenu"
-              )
-            }
+            sty.text__aV3Bq
           )}
         >
-          {"About"}
+          {"ABOUT"}
         </div>
       </Button>
       <div
@@ -386,22 +350,10 @@ function PlasmicJbsMenu__RenderFunc(props: {
             className={classNames(
               projectcss.all,
               projectcss.__wab_text,
-              sty.text__vmlsA,
-              {
-                [sty.textrevealMenu__vmlsAxT6MH]: hasVariant(
-                  $state,
-                  "revealMenu",
-                  "revealMenu"
-                ),
-                [sty.textrevealSubMenu__vmlsABjo1Y]: hasVariant(
-                  $state,
-                  "revealSubMenu",
-                  "revealSubMenu"
-                )
-              }
+              sty.text__kfRf6
             )}
           >
-            {"Shop"}
+            {"SHOP"}
           </div>
         </Button>
         <div
@@ -472,22 +424,10 @@ function PlasmicJbsMenu__RenderFunc(props: {
               className={classNames(
                 projectcss.all,
                 projectcss.__wab_text,
-                sty.text__pTqo5,
-                {
-                  [sty.textrevealMenu__pTqo5XT6MH]: hasVariant(
-                    $state,
-                    "revealMenu",
-                    "revealMenu"
-                  ),
-                  [sty.textrevealSubMenu__pTqo5Bjo1Y]: hasVariant(
-                    $state,
-                    "revealSubMenu",
-                    "revealSubMenu"
-                  )
-                }
+                sty.text__aqLhj
               )}
             >
-              {"View Categories"}
+              {"VIEW CATEGORIES"}
             </div>
           </Button>
           <Button
@@ -540,27 +480,7 @@ function PlasmicJbsMenu__RenderFunc(props: {
             }}
             size={"compact"}
           >
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text___5Oofg,
-                {
-                  [sty.textrevealMenu___5OofGxT6MH]: hasVariant(
-                    $state,
-                    "revealMenu",
-                    "revealMenu"
-                  ),
-                  [sty.textrevealSubMenu___5OofgBjo1Y]: hasVariant(
-                    $state,
-                    "revealSubMenu",
-                    "revealSubMenu"
-                  )
-                }
-              )}
-            >
-              {"All"}
-            </div>
+            {"ALL"}
           </Button>
           <Button
             alignment={"leftAligned"}
@@ -616,22 +536,10 @@ function PlasmicJbsMenu__RenderFunc(props: {
               className={classNames(
                 projectcss.all,
                 projectcss.__wab_text,
-                sty.text__jnlS1,
-                {
-                  [sty.textrevealMenu__jnlS1XT6MH]: hasVariant(
-                    $state,
-                    "revealMenu",
-                    "revealMenu"
-                  ),
-                  [sty.textrevealSubMenu__jnlS1Bjo1Y]: hasVariant(
-                    $state,
-                    "revealSubMenu",
-                    "revealSubMenu"
-                  )
-                }
+                sty.text__fWbw9
               )}
             >
-              {"Caps"}
+              {"AASHIQ CAPS"}
             </div>
           </Button>
           <Button
@@ -684,27 +592,7 @@ function PlasmicJbsMenu__RenderFunc(props: {
             }}
             size={"compact"}
           >
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__wrUrn,
-                {
-                  [sty.textrevealMenu__wrUrnxT6MH]: hasVariant(
-                    $state,
-                    "revealMenu",
-                    "revealMenu"
-                  ),
-                  [sty.textrevealSubMenu__wrUrnBjo1Y]: hasVariant(
-                    $state,
-                    "revealSubMenu",
-                    "revealSubMenu"
-                  )
-                }
-              )}
-            >
-              {"Flower Hats"}
-            </div>
+            {"FLOWER HATS"}
           </Button>
           <Button
             alignment={"leftAligned"}
@@ -760,22 +648,10 @@ function PlasmicJbsMenu__RenderFunc(props: {
               className={classNames(
                 projectcss.all,
                 projectcss.__wab_text,
-                sty.text__nSvHx,
-                {
-                  [sty.textrevealMenu__nSvHxxT6MH]: hasVariant(
-                    $state,
-                    "revealMenu",
-                    "revealMenu"
-                  ),
-                  [sty.textrevealSubMenu__nSvHxBjo1Y]: hasVariant(
-                    $state,
-                    "revealSubMenu",
-                    "revealSubMenu"
-                  )
-                }
+                sty.text__wpJat
               )}
             >
-              {"Bucket Hats"}
+              {"BUCKET HATS"}
             </div>
           </Button>
           <Button
@@ -828,27 +704,7 @@ function PlasmicJbsMenu__RenderFunc(props: {
             }}
             size={"compact"}
           >
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__fLeqy,
-                {
-                  [sty.textrevealMenu__fLeqyxT6MH]: hasVariant(
-                    $state,
-                    "revealMenu",
-                    "revealMenu"
-                  ),
-                  [sty.textrevealSubMenu__fLeqyBjo1Y]: hasVariant(
-                    $state,
-                    "revealSubMenu",
-                    "revealSubMenu"
-                  )
-                }
-              )}
-            >
-              {"Collars"}
-            </div>
+            {"COLLARS"}
           </Button>
           <Button
             alignment={"leftAligned"}
@@ -900,27 +756,7 @@ function PlasmicJbsMenu__RenderFunc(props: {
             }}
             size={"compact"}
           >
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text___4Bnfn,
-                {
-                  [sty.textrevealMenu___4BnfnxT6MH]: hasVariant(
-                    $state,
-                    "revealMenu",
-                    "revealMenu"
-                  ),
-                  [sty.textrevealSubMenu___4BnfnBjo1Y]: hasVariant(
-                    $state,
-                    "revealSubMenu",
-                    "revealSubMenu"
-                  )
-                }
-              )}
-            >
-              {"Bags"}
-            </div>
+            {"BAGS"}
           </Button>
           <Button
             alignment={"leftAligned"}
@@ -972,27 +808,7 @@ function PlasmicJbsMenu__RenderFunc(props: {
             }}
             size={"compact"}
           >
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__fvFu1,
-                {
-                  [sty.textrevealMenu__fvFu1XT6MH]: hasVariant(
-                    $state,
-                    "revealMenu",
-                    "revealMenu"
-                  ),
-                  [sty.textrevealSubMenu__fvFu1Bjo1Y]: hasVariant(
-                    $state,
-                    "revealSubMenu",
-                    "revealSubMenu"
-                  )
-                }
-              )}
-            >
-              {"Chakhna"}
-            </div>
+            {"CHAKHNA"}
           </Button>
           <Button
             alignment={"leftAligned"}
@@ -1044,27 +860,7 @@ function PlasmicJbsMenu__RenderFunc(props: {
             }}
             size={"compact"}
           >
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__bqbyw,
-                {
-                  [sty.textrevealMenu__bqbywxT6MH]: hasVariant(
-                    $state,
-                    "revealMenu",
-                    "revealMenu"
-                  ),
-                  [sty.textrevealSubMenu__bqbywBjo1Y]: hasVariant(
-                    $state,
-                    "revealSubMenu",
-                    "revealSubMenu"
-                  )
-                }
-              )}
-            >
-              {"Pet Stuff"}
-            </div>
+            {"PET STUFF"}
           </Button>
           <Button
             alignment={"leftAligned"}
@@ -1116,27 +912,7 @@ function PlasmicJbsMenu__RenderFunc(props: {
             }}
             size={"compact"}
           >
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__zSy8,
-                {
-                  [sty.textrevealMenu__zSy8XT6MH]: hasVariant(
-                    $state,
-                    "revealMenu",
-                    "revealMenu"
-                  ),
-                  [sty.textrevealSubMenu__zSy8Bjo1Y]: hasVariant(
-                    $state,
-                    "revealSubMenu",
-                    "revealSubMenu"
-                  )
-                }
-              )}
-            >
-              {"Decor"}
-            </div>
+            {"DECOR"}
           </Button>
           <Button
             alignment={"leftAligned"}
@@ -1188,27 +964,7 @@ function PlasmicJbsMenu__RenderFunc(props: {
             }}
             size={"compact"}
           >
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__iEr0G,
-                {
-                  [sty.textrevealMenu__iEr0GxT6MH]: hasVariant(
-                    $state,
-                    "revealMenu",
-                    "revealMenu"
-                  ),
-                  [sty.textrevealSubMenu__iEr0GBjo1Y]: hasVariant(
-                    $state,
-                    "revealSubMenu",
-                    "revealSubMenu"
-                  )
-                }
-              )}
-            >
-              {"Giftsss"}
-            </div>
+            {"GIFTSSS"}
           </Button>
           <Button
             alignment={"leftAligned"}
@@ -1260,27 +1016,7 @@ function PlasmicJbsMenu__RenderFunc(props: {
             }}
             size={"compact"}
           >
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__nrmAr,
-                {
-                  [sty.textrevealMenu__nrmARxT6MH]: hasVariant(
-                    $state,
-                    "revealMenu",
-                    "revealMenu"
-                  ),
-                  [sty.textrevealSubMenu__nrmArBjo1Y]: hasVariant(
-                    $state,
-                    "revealSubMenu",
-                    "revealSubMenu"
-                  )
-                }
-              )}
-            >
-              {"Mystery Boxes"}
-            </div>
+            {"MYSTERY BOX"}
           </Button>
         </div>
       </div>
@@ -1289,15 +1025,15 @@ function PlasmicJbsMenu__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "svg"],
-  svg: ["svg"]
+  root: ["root", "homeMenuItem"],
+  homeMenuItem: ["homeMenuItem"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
-  svg: "svg";
+  homeMenuItem: "div";
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -1360,7 +1096,7 @@ export const PlasmicJbsMenu = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
-    svg: makeNodeComponent("svg"),
+    homeMenuItem: makeNodeComponent("homeMenuItem"),
 
     // Metadata about props expected for PlasmicJbsMenu
     internalVariantProps: PlasmicJbsMenu__VariantProps,

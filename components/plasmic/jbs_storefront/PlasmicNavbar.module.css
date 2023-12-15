@@ -142,10 +142,10 @@
 .svg {
   object-fit: cover;
   height: 100%;
-  color: var(--token-vg8USqXsf);
   width: 100%;
   align-self: auto;
   z-index: 11;
+  color: var(--token-AzWGadODdUBA);
   min-width: 0;
   min-height: 0;
 }
@@ -185,4 +185,7 @@
 }
 .goToCartButton:global(.__wab_instance):global(.__wab_instance) {
   position: relative;
+  height: 100%;
+  align-self: center;
+  min-height: 0;
 }

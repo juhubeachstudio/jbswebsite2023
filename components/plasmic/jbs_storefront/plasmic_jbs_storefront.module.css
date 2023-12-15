@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Karla%3Aital%2Cwght%400%2C400%3B0%2C500%3B0%2C600%3B0%2C700%3B0%2C800%3B1%2C400%3B1%2C500%3B1%2C600%3B1%2C700%3B1%2C800&family=Inconsolata%3Aital%2Cwght%400%2C400%3B0%2C500%3B0%2C600%3B0%2C700%3B0%2C800&family=Fraunces%3Aital%2Cwght%400%2C400%3B0%2C500%3B0%2C600%3B0%2C700%3B0%2C800%3B1%2C400%3B1%2C500%3B1%2C600%3B1%2C700%3B1%2C800&family=BIZ+UDMincho%3Aital%2Cwght%400%2C400%3B0%2C700&family=Inter%3Aital%2Cwght%400%2C400%3B0%2C500%3B0%2C600%3B0%2C700%3B0%2C800&family=Abril+Fatface%3Aital%2Cwght%400%2C400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Karla%3Aital%2Cwght%400%2C400%3B0%2C500%3B0%2C600%3B0%2C700%3B0%2C800%3B1%2C400%3B1%2C500%3B1%2C600%3B1%2C700%3B1%2C800&family=Inconsolata%3Aital%2Cwght%400%2C400%3B0%2C500%3B0%2C600%3B0%2C700%3B0%2C800&family=Fraunces%3Aital%2Cwght%400%2C400%3B0%2C500%3B0%2C600%3B0%2C700%3B0%2C800%3B1%2C400%3B1%2C500%3B1%2C600%3B1%2C700%3B1%2C800&family=BIZ+UDMincho%3Aital%2Cwght%400%2C400%3B0%2C700&family=Inter%3Aital%2Cwght%400%2C400%3B0%2C500%3B0%2C600%3B0%2C700%3B0%2C800&family=IBM+Plex+Serif%3Aital%2Cwght%400%2C400%3B0%2C500%3B0%2C600%3B0%2C700%3B1%2C400%3B1%2C500%3B1%2C600%3B1%2C700&family=Abril+Fatface%3Aital%2Cwght%400%2C400&family=Faustina%3Aital%2Cwght%400%2C400%3B0%2C500%3B0%2C600%3B0%2C700%3B0%2C800%3B1%2C400%3B1%2C500%3B1%2C600%3B1%2C700%3B1%2C800&display=swap");
 
 .plasmic_tokens {
   --token-2-VBppQua: #faad14;
@@ -20,17 +20,21 @@
   --token-dsDMnV1ab3HP: #000000;
   --plasmic-token-absolute-black: var(--token-dsDMnV1ab3HP);
   --token-2XemaP11eshr: 0px;
-  --plasmic-token-13-bottom-margin: var(--token-2XemaP11eshr);
+  --plasmic-token-0-margin: var(--token-2XemaP11eshr);
   --token-LLtYyXCq9_W3: -13px;
   --plasmic-token-13-margin-bottom: var(--token-LLtYyXCq9_W3);
   --token--CJyLZMWTKlG: #ffffff;
-  --plasmic-token-unnamed-style-token-2: var(--token--CJyLZMWTKlG);
+  --plasmic-token-white: var(--token--CJyLZMWTKlG);
   --token-NFuccOPmd1HH: #ffffff00;
   --plasmic-token-clear: var(--token-NFuccOPmd1HH);
   --token-PRXcbfHAgLy8: #fff;
   --plasmic-token-unnamed-style-token-3: var(--token-PRXcbfHAgLy8);
   --token-rsXupMq7yfBJ: #bf0d10;
   --plasmic-token-darkredjsbs: var(--token-rsXupMq7yfBJ);
+  --token-AzWGadODdUBA: #b3e860;
+  --plasmic-token-jbs-logo: var(--token-AzWGadODdUBA);
+  --token-Vzl0MpjGDjfd: 1.2rem;
+  --plasmic-token-buttons-1-2-rem: var(--token-Vzl0MpjGDjfd);
 }
 
 .plasmic_tokens {
@@ -186,6 +190,8 @@
   --plasmic-mixin-previous-slider-button_white-space: var(
     --mixin-rDwN6NxlHDc5_white-space
   );
+  --mixin-t6tYof1R173b_white-space: pre-wrap;
+  --plasmic-mixin-countdown_white-space: var(--mixin-t6tYof1R173b_white-space);
 }
 
 :where(.all) {

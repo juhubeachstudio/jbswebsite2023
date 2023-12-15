@@ -542,7 +542,7 @@ function PlasmicProductPage__RenderFunc(props: {
                                         sty.text__chhbz
                                       )}
                                     >
-                                      {"Wash+Care Instructions"}
+                                      {"Wash + Care Instructions"}
                                     </div>
                                   }
                                   showArrow={true}
@@ -966,10 +966,10 @@ function PlasmicProductPage__RenderFunc(props: {
                                   className={classNames(
                                     projectcss.all,
                                     projectcss.__wab_text,
-                                    sty.text__vp07P
+                                    sty.text__fpTmC
                                   )}
                                 >
-                                  {"See all"}
+                                  {"SEE ALL"}
                                 </div>
                               </Button>
                             </div>

@@ -55,13 +55,11 @@ type VariantPropType = keyof PlasmicCustomButton__VariantsArgs;
 export const PlasmicCustomButton__VariantProps = new Array<VariantPropType>();
 
 export type PlasmicCustomButton__ArgsType = {
-  children?: React.ReactNode;
   onClick?: (event: any) => void;
   bgColor?: string;
 };
 type ArgPropType = keyof PlasmicCustomButton__ArgsType;
 export const PlasmicCustomButton__ArgProps = new Array<ArgPropType>(
-  "children",
   "onClick",
   "bgColor"
 );
@@ -72,7 +70,6 @@ export type PlasmicCustomButton__OverridesType = {
 };
 
 export interface DefaultCustomButtonProps {
-  children?: React.ReactNode;
   onClick?: (event: any) => void;
   bgColor?: string;
   className?: string;
@@ -152,18 +149,7 @@ function PlasmicCustomButton__RenderFunc(props: {
           }
         })()}
         onClick={args.onClick}
-      >
-        {p.renderPlasmicSlot({
-          defaultContents: (
-            <svg
-              className={classNames(projectcss.all, sty.svg__nLxcx)}
-              role={"img"}
-            />
-          ),
-
-          value: args.children
-        })}
-      </Button>
+      />
     </div>
   ) as React.ReactElement | null;
 }

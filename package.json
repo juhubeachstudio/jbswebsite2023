@@ -14,6 +14,7 @@
     "@plasmicpkgs/antd5": "^0.0.201",
     "@plasmicpkgs/commerce": "^0.0.183",
     "@plasmicpkgs/commerce-shopify": "^0.0.190",
+    "@plasmicpkgs/lottie-react": "^0.0.172",
     "@plasmicpkgs/plasmic-basic-components": "^0.0.204",
     "@plasmicpkgs/plasmic-nav": "^0.0.155",
     "@plasmicpkgs/plasmic-query": "^0.0.202",

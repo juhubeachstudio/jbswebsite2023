@@ -125,38 +125,17 @@
     width: auto;
   }
 }
-.svg__oMPaO {
+.svg___5M0Ib {
   position: relative;
   object-fit: cover;
   width: auto;
   height: 1em;
 }
-.text__daoP {
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: var(--token-Yq556PvPjGii);
-  text-transform: none;
-  line-height: 1;
-  white-space: pre-wrap;
-  letter-spacing: -0.5px;
-  font-family: "Karla", sans-serif;
-  padding: 6px 16px;
-}
-@media (min-width: 0px) and (max-width: 768px) {
-  .text__daoP {
-    white-space: pre-wrap;
-    width: auto;
-    font-size: 1rem;
-  }
-}
-.root:hover:active .text__daoP {
-  color: var(--token-KUFb4wcAz);
-}
-.svg__s13Hn {
+.svg__dGkJ {
   position: relative;
   object-fit: cover;
-  width: 3rem;
-  height: 2rem;
+  width: auto;
+  height: 1.2rem;
 }
 .freeBox__ovOtb {
   display: flex;
@@ -240,20 +219,21 @@
   max-width: 100%;
   position: relative;
 }
-.svg__zLtl {
+.svg__yfz9W {
   position: relative;
   object-fit: cover;
   width: auto;
   height: 1em;
 }
-.svg__kDpUm {
+.svg__adS8R {
   position: relative;
   object-fit: cover;
   max-width: 100%;
-  width: var(--token-02IfQLozsPKb);
-  height: var(--token-02IfQLozsPKb);
+  width: 2rem;
+  height: 2rem;
+  margin: 2px;
 }
-.svg__aiwJv {
+.svg__wqnP {
   position: relative;
   object-fit: cover;
   width: auto;
@@ -263,20 +243,21 @@
   max-width: 100%;
   position: relative;
 }
-.svg__ilJ2A {
+.svg__bAJ6 {
   position: relative;
   object-fit: cover;
   width: auto;
   height: 1em;
 }
-.svg__vu2Zs {
+.svg__pccuH {
   position: relative;
   object-fit: cover;
   max-width: 100%;
-  width: var(--token-02IfQLozsPKb);
-  height: var(--token-02IfQLozsPKb);
+  width: 2rem;
+  height: 2rem;
+  margin: 2px;
 }
-.svg__u3A8W {
+.svg__wJMm {
   position: relative;
   object-fit: cover;
   width: auto;
@@ -286,20 +267,21 @@
   max-width: 100%;
   position: relative;
 }
-.svg__lSfq {
+.svg__b2Ju {
   position: relative;
   object-fit: cover;
   width: auto;
   height: 1em;
 }
-.svg__fStXc {
+.svg___8Oc15 {
   position: relative;
   object-fit: cover;
   max-width: 100%;
-  width: var(--token-02IfQLozsPKb);
-  height: var(--token-02IfQLozsPKb);
+  width: 2rem;
+  height: 2rem;
+  margin: 2px;
 }
-.svg__rk7S {
+.svg__jdmyB {
   position: relative;
   object-fit: cover;
   width: auto;
@@ -309,20 +291,21 @@
   max-width: 100%;
   position: relative;
 }
-.svg__sZBw4 {
+.svg__c1Wcy {
   position: relative;
   object-fit: cover;
   width: auto;
   height: 1em;
 }
-.svg__hYigm {
+.svg__iqJo {
   position: relative;
   object-fit: cover;
   max-width: 100%;
-  width: var(--token-02IfQLozsPKb);
-  height: var(--token-02IfQLozsPKb);
+  width: 2rem;
+  height: 2rem;
+  margin: 2px;
 }
-.svg__l3M01 {
+.svg__ufFEz {
   position: relative;
   object-fit: cover;
   width: auto;
@@ -364,28 +347,16 @@
 .button__eOh2R:global(.__wab_instance) {
   position: relative;
 }
-.svg___7Cjna {
+.svg__xnHja {
   position: relative;
   object-fit: cover;
   width: auto;
   height: 1em;
 }
-.text__el2Z4 {
-  color: var(--token-Yq556PvPjGii);
-  font-family: "Karla", sans-serif;
-  font-size: 16px;
-  font-weight: 500;
-  font-style: normal;
-  text-align: left;
-  text-transform: none;
-  line-height: 1.5;
-  letter-spacing: normal;
-  white-space: pre;
-  user-select: text;
-  text-decoration-line: none !important;
-  text-overflow: clip !important;
+.text___22Uf2 {
+  color: var(--token--CJyLZMWTKlG);
 }
-.svg__eD0U1 {
+.svg__bFQvQ {
   position: relative;
   object-fit: cover;
   width: auto;
@@ -394,28 +365,16 @@
 .button__kVkyq:global(.__wab_instance) {
   position: relative;
 }
-.svg__h2MMg {
+.svg__vPw2E {
   position: relative;
   object-fit: cover;
   width: auto;
   height: 1em;
 }
-.text__i2MJ {
-  color: var(--token-Yq556PvPjGii);
-  font-family: "Karla", sans-serif;
-  font-size: 16px;
-  font-weight: 500;
-  font-style: normal;
-  text-align: left;
-  text-transform: none;
-  line-height: 1.5;
-  letter-spacing: normal;
-  white-space: pre;
-  user-select: text;
-  text-decoration-line: none !important;
-  text-overflow: clip !important;
+.text__p9Hxx {
+  color: var(--token--CJyLZMWTKlG);
 }
-.svg__vvUwx {
+.svg___7NQYe {
   position: relative;
   object-fit: cover;
   width: auto;
@@ -424,28 +383,16 @@
 .button__q9Zwf:global(.__wab_instance) {
   position: relative;
 }
-.svg__bw6Nu {
+.svg___14Wib {
   position: relative;
   object-fit: cover;
   width: auto;
   height: 1em;
 }
-.text__tkJrT {
-  color: var(--token-Yq556PvPjGii);
-  font-family: "Karla", sans-serif;
-  font-size: 16px;
-  font-weight: 500;
-  font-style: normal;
-  text-align: left;
-  text-transform: none;
-  line-height: 1.5;
-  letter-spacing: normal;
-  white-space: pre;
-  user-select: text;
-  text-decoration-line: none !important;
-  text-overflow: clip !important;
+.text__hse {
+  color: var(--token--CJyLZMWTKlG);
 }
-.svg__rTRx {
+.svg__a6Wl {
   position: relative;
   object-fit: cover;
   width: auto;
@@ -454,28 +401,16 @@
 .button__lzpR0:global(.__wab_instance) {
   position: relative;
 }
-.svg__qdoWv {
+.svg__yRqRe {
   position: relative;
   object-fit: cover;
   width: auto;
   height: 1em;
 }
-.text__zyeqo {
-  color: var(--token-Yq556PvPjGii);
-  font-family: "Karla", sans-serif;
-  font-size: 16px;
-  font-weight: 500;
-  font-style: normal;
-  text-align: left;
-  text-transform: none;
-  line-height: 1.5;
-  letter-spacing: normal;
-  white-space: pre;
-  user-select: text;
-  text-decoration-line: none !important;
-  text-overflow: clip !important;
+.text__oWkYa {
+  color: var(--token--CJyLZMWTKlG);
 }
-.svg__bqFw {
+.svg__uSsGl {
   position: relative;
   object-fit: cover;
   width: auto;
@@ -484,28 +419,16 @@
 .button__zXssn:global(.__wab_instance) {
   position: relative;
 }
-.svg__jRsVm {
+.svg__sSanU {
   position: relative;
   object-fit: cover;
   width: auto;
   height: 1em;
 }
-.text__bJvl9 {
-  color: var(--token-Yq556PvPjGii);
-  font-family: "Karla", sans-serif;
-  font-size: 16px;
-  font-weight: 500;
-  font-style: normal;
-  text-align: left;
-  text-transform: none;
-  line-height: 1.5;
-  letter-spacing: normal;
-  white-space: pre;
-  user-select: text;
-  text-decoration-line: none !important;
-  text-overflow: clip !important;
+.text___2R5R8 {
+  color: var(--token--CJyLZMWTKlG);
 }
-.svg__gkIli {
+.svg__g1Tip {
   position: relative;
   object-fit: cover;
   width: auto;

@@ -69,6 +69,7 @@ export type PlasmicProductCardNew__OverridesType = {
   link?: p.Flex<"a"> & Partial<LinkProps>;
   freeBox?: p.Flex<"div">;
   button?: p.Flex<typeof Button>;
+  text?: p.Flex<"div">;
 };
 
 export interface DefaultProductCardNewProps {
@@ -224,36 +225,15 @@ function PlasmicProductCardNew__RenderFunc(props: {
             }
           })()}`}
           size={"minimal"}
-        >
-          <div
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text___2Gz7E
-            )}
-          >
-            <React.Fragment>
-              {(() => {
-                try {
-                  return $props.currentItem.name;
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return "";
-                  }
-                  throw e;
-                }
-              })()}
-            </React.Fragment>
-          </div>
-        </Button>
+        />
+
         <div
+          data-plasmic-name={"text"}
+          data-plasmic-override={overrides.text}
           className={classNames(
             projectcss.all,
             projectcss.__wab_text,
-            sty.text___0LF
+            sty.text
           )}
         >
           <React.Fragment>
@@ -278,10 +258,11 @@ function PlasmicProductCardNew__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "link", "freeBox", "button"],
+  root: ["root", "link", "freeBox", "button", "text"],
   link: ["link"],
-  freeBox: ["freeBox", "button"],
-  button: ["button"]
+  freeBox: ["freeBox", "button", "text"],
+  button: ["button"],
+  text: ["text"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -291,6 +272,7 @@ type NodeDefaultElementType = {
   link: "a";
   freeBox: "div";
   button: typeof Button;
+  text: "div";
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -356,6 +338,7 @@ export const PlasmicProductCardNew = Object.assign(
     link: makeNodeComponent("link"),
     freeBox: makeNodeComponent("freeBox"),
     button: makeNodeComponent("button"),
+    text: makeNodeComponent("text"),
 
     // Metadata about props expected for PlasmicProductCardNew
     internalVariantProps: PlasmicProductCardNew__VariantProps,

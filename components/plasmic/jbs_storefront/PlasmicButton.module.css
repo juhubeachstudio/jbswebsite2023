@@ -9,6 +9,12 @@
   max-width: 100%;
   justify-self: flex-start;
 }
+.rootcolor_redJbs {
+  justify-self: flex-start;
+  display: inline-flex;
+  flex-direction: row;
+  width: auto;
+}
 .root:focus-within {
   outline: none;
 }
@@ -20,13 +26,17 @@
   flex-direction: row;
   background: #232320;
   cursor: pointer;
-  transition-property: background;
-  transition-duration: 0.5s;
+  transition-property: background, all;
+  transition-duration: 0.5s, 0.5s;
   backdrop-filter: none;
   filter: none;
+  transition-timing-function: ease, ease-in-out;
+  transition-delay: 0s, 0.5s;
   -webkit-backdrop-filter: none;
-  -webkit-transition-property: background;
-  -webkit-transition-duration: 0.5s;
+  -webkit-transition-property: background, all;
+  -webkit-transition-timing-function: ease, ease-in-out;
+  -webkit-transition-duration: 0.5s, 0.5s;
+  -webkit-transition-delay: 0s, 0.5s;
   border-radius: 8px;
   padding: 4px 16px;
   border-width: 0px;
@@ -118,6 +128,11 @@
 }
 .buttoncolor_redJbs {
   background: var(--token-qoXYsQ1lS);
+  backdrop-filter: none;
+  position: relative;
+  left: auto;
+  top: auto;
+  -webkit-backdrop-filter: none;
 }
 .buttoncolor_darkRedJbs {
   background: #c20f12;
@@ -193,6 +208,9 @@
 }
 .root:focus-within .button {
   box-shadow: none;
+  outline: none;
+}
+.rootcolor_redJbs:focus-within .buttoncolor_redJbs {
   outline: none;
 }
 .root .button___focusVisibleWithin {
@@ -287,7 +305,7 @@
 .rootcolor_link:active .slotTargetStartIconcolor_link {
   color: #006adc;
 }
-.svg__eRnuS {
+.svg__ufY50 {
   position: relative;
   object-fit: cover;
   width: auto;
@@ -303,6 +321,9 @@
 .contentContainercolor_clear {
   width: 100%;
   min-width: 0;
+}
+.rootcolor_redJbs:focus-within .contentContainercolor_redJbs {
+  outline: none;
 }
 .root .contentContainer___focusVisibleWithin {
   outline: none;
@@ -355,6 +376,9 @@
 }
 .slotTargetChildrencolor_link {
   color: #0091ff;
+}
+.slotTargetChildrencolor_redJbs {
+  color: var(--token--CJyLZMWTKlG);
 }
 .root:hover .slotTargetChildren {
   color: var(--token-KUFb4wcAz);
@@ -445,6 +469,46 @@
   > img,
 .root:focus-within
   .slotTargetChildren
+  > :global(.__wab_slot)
+  > :global(.__wab_slot)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  outline: none;
+}
+.rootcolor_redJbs:focus-within .slotTargetChildrencolor_redJbs {
+  color: var(--token-2-VBppQua);
+}
+.rootcolor_redJbs:focus-within .slotTargetChildrencolor_redJbs > *,
+.rootcolor_redJbs:focus-within
+  .slotTargetChildrencolor_redJbs
+  > :global(.__wab_slot)
+  > *,
+.rootcolor_redJbs:focus-within
+  .slotTargetChildrencolor_redJbs
+  > :global(.__wab_slot)
+  > :global(.__wab_slot)
+  > *,
+.rootcolor_redJbs:focus-within
+  .slotTargetChildrencolor_redJbs
+  > :global(.__wab_slot)
+  > :global(.__wab_slot)
+  > :global(.__wab_slot)
+  > *,
+.rootcolor_redJbs:focus-within .slotTargetChildrencolor_redJbs > picture > img,
+.rootcolor_redJbs:focus-within
+  .slotTargetChildrencolor_redJbs
+  > :global(.__wab_slot)
+  > picture
+  > img,
+.rootcolor_redJbs:focus-within
+  .slotTargetChildrencolor_redJbs
+  > :global(.__wab_slot)
+  > :global(.__wab_slot)
+  > picture
+  > img,
+.rootcolor_redJbs:focus-within
+  .slotTargetChildrencolor_redJbs
   > :global(.__wab_slot)
   > :global(.__wab_slot)
   > :global(.__wab_slot)
@@ -544,7 +608,7 @@
 .rootcolor_link:active .slotTargetEndIconcolor_link {
   color: #006adc;
 }
-.svg__hgyn {
+.svg__dHltu {
   position: relative;
   object-fit: cover;
   width: auto;

@@ -1,0 +1,9 @@
+.dec1712PmCountdown:global(.__wab_instance) {
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+  flex-grow: 0;
+  flex-shrink: 1;
+  position: relative;
+  min-width: 0;
+}

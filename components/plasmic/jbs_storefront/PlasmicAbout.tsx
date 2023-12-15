@@ -2018,7 +2018,7 @@ function PlasmicAbout__RenderFunc(props: {
                       className={classNames(
                         projectcss.all,
                         projectcss.__wab_text,
-                        sty.text__m6Luk
+                        sty.text___1Wz8P
                       )}
                     >
                       <React.Fragment>
@@ -2100,7 +2100,7 @@ function PlasmicAbout__RenderFunc(props: {
                           className={
                             "plasmic_default__all plasmic_default__span"
                           }
-                          style={{ color: "#0F0F0F" }}
+                          style={{ color: "var(--token-ZGgUq6H0D)" }}
                         >
                           {"products"}
                         </span>

@@ -45,7 +45,9 @@ import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic_antd_5_hostl
 import projectcss from "./plasmic_jbs_storefront.module.css"; // plasmic-import: heL2P6rJiLNgtnBJPb6i1m/projectcss
 import sty from "./PlasmicGoToCartButton.module.css"; // plasmic-import: iT6In2ggLenM/css
 
+import ChecksvgIcon from "./icons/PlasmicIcon__Checksvg"; // plasmic-import: ew07hyuAC0c/icon
 import Cart1SvgIcon from "./icons/PlasmicIcon__Cart1Svg"; // plasmic-import: RqINMsIJ-W/icon
+import Icon38Icon from "./icons/PlasmicIcon__Icon38"; // plasmic-import: 3r4KXWygi9v/icon
 
 createPlasmicElementProxy;
 
@@ -61,8 +63,9 @@ export const PlasmicGoToCartButton__ArgProps = new Array<ArgPropType>();
 export type PlasmicGoToCartButton__OverridesType = {
   root?: p.Flex<typeof Button>;
   svg?: p.Flex<"svg">;
+  freeBox?: p.Flex<"div">;
   cartProvider?: p.Flex<typeof CartProvider>;
-  p?: p.Flex<"p">;
+  text?: p.Flex<"div">;
 };
 
 export interface DefaultGoToCartButtonProps {
@@ -108,10 +111,8 @@ function PlasmicGoToCartButton__RenderFunc(props: {
       data-plasmic-for-node={forNode}
       className={classNames("__wab_instance", sty.root)}
       color={"redJbs"}
-      endIcon={null}
       link={`/cart`}
       size={"minimal"}
-      startIcon={null}
     >
       <Cart1SvgIcon
         data-plasmic-name={"svg"}
@@ -120,60 +121,49 @@ function PlasmicGoToCartButton__RenderFunc(props: {
         role={"img"}
       />
 
-      <div className={classNames(projectcss.all, sty.freeBox__x6XnG)}>
+      <div
+        data-plasmic-name={"freeBox"}
+        data-plasmic-override={overrides.freeBox}
+        className={classNames(projectcss.all, sty.freeBox)}
+      >
         <CartProvider
           data-plasmic-name={"cartProvider"}
           data-plasmic-override={overrides.cartProvider}
           className={classNames("__wab_instance", sty.cartProvider)}
         >
           <ph.DataCtxReader>
-            {$ctx =>
-              (() => {
-                try {
-                  return $ctx.cart.lineItems.length > 0;
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return true;
-                  }
-                  throw e;
-                }
-              })() ? (
-                <div className={classNames(projectcss.all, sty.freeBox__nj3Ba)}>
-                  <p
-                    data-plasmic-name={"p"}
-                    data-plasmic-override={overrides.p}
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.p,
-                      projectcss.__wab_text,
-                      sty.p
-                    )}
-                  >
-                    <React.Fragment>
-                      {(() => {
-                        try {
-                          return $ctx.cart.lineItems.reduce(
-                            (total, item) => total + item.quantity,
-                            0
-                          );
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return "0";
-                          }
-                          throw e;
-                        }
-                      })()}
-                    </React.Fragment>
-                  </p>
-                </div>
-              ) : null
-            }
+            {$ctx => (
+              <div
+                data-plasmic-name={"text"}
+                data-plasmic-override={overrides.text}
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text
+                )}
+              >
+                <React.Fragment>
+                  {(() => {
+                    try {
+                      return (
+                        $ctx.cart.lineItems.reduce(
+                          (total, item) => total + item.quantity,
+                          0
+                        ) || undefined
+                      );
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return "";
+                      }
+                      throw e;
+                    }
+                  })()}
+                </React.Fragment>
+              </div>
+            )}
           </ph.DataCtxReader>
         </CartProvider>
       </div>
@@ -182,10 +172,11 @@ function PlasmicGoToCartButton__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "svg", "cartProvider", "p"],
+  root: ["root", "svg", "freeBox", "cartProvider", "text"],
   svg: ["svg"],
-  cartProvider: ["cartProvider", "p"],
-  p: ["p"]
+  freeBox: ["freeBox", "cartProvider", "text"],
+  cartProvider: ["cartProvider", "text"],
+  text: ["text"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -193,8 +184,9 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: typeof Button;
   svg: "svg";
+  freeBox: "div";
   cartProvider: typeof CartProvider;
-  p: "p";
+  text: "div";
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -258,8 +250,9 @@ export const PlasmicGoToCartButton = Object.assign(
   {
     // Helper components rendering sub-elements
     svg: makeNodeComponent("svg"),
+    freeBox: makeNodeComponent("freeBox"),
     cartProvider: makeNodeComponent("cartProvider"),
-    p: makeNodeComponent("p"),
+    text: makeNodeComponent("text"),
 
     // Metadata about props expected for PlasmicGoToCartButton
     internalVariantProps: PlasmicGoToCartButton__VariantProps,

@@ -1306,20 +1306,6 @@
           "componentType": "component"
         },
         {
-          "id": "hBMlaSlEdFWj",
-          "name": "LaunchingSoon",
-          "type": "managed",
-          "projectId": "heL2P6rJiLNgtnBJPb6i1m",
-          "renderModuleFilePath": "plasmic/jbs_storefront/PlasmicLaunchingSoon.tsx",
-          "importSpec": {
-            "modulePath": "../pages/launching-soon.tsx"
-          },
-          "cssFilePath": "plasmic/jbs_storefront/PlasmicLaunchingSoon.module.css",
-          "scheme": "blackbox",
-          "componentType": "page",
-          "path": "/launching-soon"
-        },
-        {
           "id": "Tu3iaahTzpLP",
           "name": "CountdownNumber",
           "type": "managed",
@@ -1334,6 +1320,45 @@
         },
         {
           "id": "si44vJRCqCM3",
+          "name": "Countdown",
+          "type": "managed",
+          "projectId": "heL2P6rJiLNgtnBJPb6i1m",
+          "renderModuleFilePath": "plasmic/jbs_storefront/PlasmicCountdown.tsx",
+          "importSpec": {
+            "modulePath": "Countdown.tsx"
+          },
+          "cssFilePath": "plasmic/jbs_storefront/PlasmicCountdown.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "s9nFwVvBxOV3",
+          "name": "CountdownJbs",
+          "type": "managed",
+          "projectId": "heL2P6rJiLNgtnBJPb6i1m",
+          "renderModuleFilePath": "plasmic/jbs_storefront/PlasmicCountdownJbs.tsx",
+          "importSpec": {
+            "modulePath": "CountdownJbs.tsx"
+          },
+          "cssFilePath": "plasmic/jbs_storefront/PlasmicCountdownJbs.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "wHIYrv4suznQ",
+          "name": "CountdownNumber",
+          "type": "managed",
+          "projectId": "heL2P6rJiLNgtnBJPb6i1m",
+          "renderModuleFilePath": "plasmic/jbs_storefront/PlasmicCountdownNumber.tsx",
+          "importSpec": {
+            "modulePath": "CountdownNumber.tsx"
+          },
+          "cssFilePath": "plasmic/jbs_storefront/PlasmicCountdownNumber.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "zowCfpHLJi3H",
           "name": "Countdown",
           "type": "managed",
           "projectId": "heL2P6rJiLNgtnBJPb6i1m",
@@ -2238,6 +2263,26 @@
           "id": "9MnkLIGlmDa7",
           "name": "previous-product-button",
           "filePath": "../public/plasmic/jbs_storefront/images/previousProductButton.svg"
+        },
+        {
+          "id": "OzfUJ_BN-U8W",
+          "name": "Launching.png",
+          "filePath": "../public/plasmic/jbs_storefront/images/launchingpng.png"
+        },
+        {
+          "id": "t7cVQs5gxq0N",
+          "name": "JBS Logo (2.0)",
+          "filePath": "../public/plasmic/jbs_storefront/images/jbsLogo20.svg"
+        },
+        {
+          "id": "ZSJOEAoGGhUH",
+          "name": "LoveYouForever (2)",
+          "filePath": "../public/plasmic/jbs_storefront/images/loveYouForever2.png"
+        },
+        {
+          "id": "vGkAfT8MVk4h",
+          "name": "Footer (resized)",
+          "filePath": "../public/plasmic/jbs_storefront/images/footerResized.jpg"
         }
       ],
       "indirect": false,
@@ -2375,6 +2420,34 @@
       ],
       "customFunctions": [],
       "jsBundleThemes": []
+    },
+    {
+      "projectId": "5dGW8Awro3qq8Hh5MveXLP",
+      "projectApiToken": "wVHvHSTRyoO1MQddr5ypmW8AfwiMMy7h0Iaj4Q2YmYLLEo2A4L6pLn8Fydm8wQkTAJV9uAD5bJPo8bmGg",
+      "projectName": "lottie-react",
+      "version": ">0.0.0",
+      "cssFilePath": "plasmic/lottie_react/plasmic_lottie_react.module.css",
+      "components": [],
+      "icons": [],
+      "images": [],
+      "indirect": true,
+      "globalContextsFilePath": "",
+      "splitsProviderFilePath": "",
+      "codeComponents": [
+        {
+          "id": "BPNsJ2qis6",
+          "name": "LottieWrapper",
+          "displayName": "hostless-lottie-react",
+          "componentImportPath": "@plasmicpkgs/lottie-react"
+        },
+        {
+          "id": "vbTFHH9P-cuM",
+          "name": "AsyncLottieWrapper",
+          "displayName": "hostless-lottie-async-react",
+          "componentImportPath": "@plasmicpkgs/lottie-react"
+        }
+      ],
+      "customFunctions": []
     }
   ],
   "globalVariants": {

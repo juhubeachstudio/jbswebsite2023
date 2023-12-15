@@ -238,17 +238,7 @@ function PlasmicCategories__RenderFunc(props: {
                   className={classNames("__wab_instance", sty.button)}
                   color={"red"}
                   link={`/category/${"all"}`}
-                >
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__nghJx
-                    )}
-                  >
-                    {"Shop all"}
-                  </div>
-                </Button>
+                />
               </p.Stack>
             </Section>
           </FullPage>

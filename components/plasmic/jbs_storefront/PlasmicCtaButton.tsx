@@ -76,7 +76,6 @@ export const PlasmicCtaButton__ArgProps = new Array<ArgPropType>(
 
 export type PlasmicCtaButton__OverridesType = {
   root?: p.Flex<typeof Button>;
-  text?: p.Flex<"div">;
 };
 
 export interface DefaultCtaButtonProps {
@@ -233,42 +232,18 @@ function PlasmicCtaButton__RenderFunc(props: {
         }
       }}
       target={args.newTab}
-    >
-      <div
-        data-plasmic-name={"text"}
-        data-plasmic-override={overrides.text}
-        className={classNames(projectcss.all, projectcss.__wab_text, sty.text)}
-      >
-        <React.Fragment>
-          {(() => {
-            try {
-              return $props.content;
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return "CTA Button";
-              }
-              throw e;
-            }
-          })()}
-        </React.Fragment>
-      </div>
-    </Button>
+    />
   ) as React.ReactElement | null;
 }
 
 const PlasmicDescendants = {
-  root: ["root", "text"],
-  text: ["text"]
+  root: ["root"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: typeof Button;
-  text: "div";
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -331,7 +306,6 @@ export const PlasmicCtaButton = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
-    text: makeNodeComponent("text"),
 
     // Metadata about props expected for PlasmicCtaButton
     internalVariantProps: PlasmicCtaButton__VariantProps,

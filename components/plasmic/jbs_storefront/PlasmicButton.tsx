@@ -116,23 +116,23 @@ export const PlasmicButton__VariantProps = new Array<VariantPropType>(
 );
 
 export type PlasmicButton__ArgsType = {
-  children?: React.ReactNode;
-  startIcon?: React.ReactNode;
-  endIcon?: React.ReactNode;
   link?: string;
   submitsForm?: boolean;
   target?: boolean;
   onClick?: (event: any) => void;
+  startIcon?: React.ReactNode;
+  children?: React.ReactNode;
+  endIcon?: React.ReactNode;
 };
 type ArgPropType = keyof PlasmicButton__ArgsType;
 export const PlasmicButton__ArgProps = new Array<ArgPropType>(
-  "children",
-  "startIcon",
-  "endIcon",
   "link",
   "submitsForm",
   "target",
-  "onClick"
+  "onClick",
+  "startIcon",
+  "children",
+  "endIcon"
 );
 
 export type PlasmicButton__OverridesType = {
@@ -508,7 +508,7 @@ function PlasmicButton__RenderFunc(props: {
             {p.renderPlasmicSlot({
               defaultContents: (
                 <ChecksvgIcon
-                  className={classNames(projectcss.all, sty.svg__eRnuS)}
+                  className={classNames(projectcss.all, sty.svg__ufY50)}
                   role={"img"}
                 />
               ),
@@ -585,6 +585,11 @@ function PlasmicButton__RenderFunc(props: {
               "color",
               "clear"
             ),
+            [sty.contentContainercolor_redJbs]: hasVariant(
+              $state,
+              "color",
+              "redJbs"
+            ),
             [sty.contentContainercolor_red]: hasVariant($state, "color", "red"),
             [sty.contentContainerisDisabled]: hasVariant(
               $state,
@@ -642,6 +647,11 @@ function PlasmicButton__RenderFunc(props: {
               [sty.slotTargetChildrencolor_link_size_minimal]:
                 hasVariant($state, "color", "link") &&
                 hasVariant($state, "size", "minimal"),
+              [sty.slotTargetChildrencolor_redJbs]: hasVariant(
+                $state,
+                "color",
+                "redJbs"
+              ),
               [sty.slotTargetChildrencolor_red]: hasVariant(
                 $state,
                 "color",
@@ -745,7 +755,7 @@ function PlasmicButton__RenderFunc(props: {
             {p.renderPlasmicSlot({
               defaultContents: (
                 <Icon38Icon
-                  className={classNames(projectcss.all, sty.svg__hgyn)}
+                  className={classNames(projectcss.all, sty.svg__dHltu)}
                   role={"img"}
                 />
               ),

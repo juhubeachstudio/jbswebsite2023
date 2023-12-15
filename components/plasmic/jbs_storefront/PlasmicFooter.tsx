@@ -39,8 +39,6 @@ import {
 import Blackyellowborder from "../../Blackyellowborder"; // plasmic-import: qeyEUvMFwY/component
 import Button from "../../Button"; // plasmic-import: yEsI5slGwPm/component
 
-import { useScreenVariants as useScreenVariants_6Hzia3M7Np4Ulu } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6hzia3m7Np4ulu/globalVariant
-
 import "@plasmicapp/react-web/lib/plasmic.css";
 
 import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic_antd_5_hostless.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
@@ -49,7 +47,7 @@ import sty from "./PlasmicFooter.module.css"; // plasmic-import: mZogRkwS1rd/css
 
 import ChecksvgIcon from "./icons/PlasmicIcon__Checksvg"; // plasmic-import: ew07hyuAC0c/icon
 import Icon38Icon from "./icons/PlasmicIcon__Icon38"; // plasmic-import: 3r4KXWygi9v/icon
-import Facebook176SvgrepoComsvg2Icon from "./icons/PlasmicIcon__Facebook176SvgrepoComsvg2"; // plasmic-import: 69HLYm9NeIDx/icon
+import FacebookSvgrepoComsvgIcon from "./icons/PlasmicIcon__FacebookSvgrepoComsvg"; // plasmic-import: ZrO-7nzknCPT/icon
 import InstagramSvgrepoComsvgIcon from "./icons/PlasmicIcon__InstagramSvgrepoComsvg"; // plasmic-import: oo9zvXXIVhzp/icon
 import WhatsappSvgrepoComsvgIcon from "./icons/PlasmicIcon__WhatsappSvgrepoComsvg"; // plasmic-import: MwIlfRiCxnsi/icon
 import PhonesvgIcon from "./icons/PlasmicIcon__Phonesvg"; // plasmic-import: UJbuthH60ZPo/icon
@@ -114,10 +112,6 @@ function PlasmicFooter__RenderFunc(props: {
     hoverActive_root: isRootHover && isRootActive
   };
 
-  const globalVariants = ensureGlobalVariants({
-    screen: useScreenVariants_6Hzia3M7Np4Ulu()
-  });
-
   return (
     <div
       data-plasmic-name={"root"}
@@ -151,9 +145,9 @@ function PlasmicFooter__RenderFunc(props: {
         displayWidth={"auto"}
         loading={"lazy"}
         src={{
-          src: "/plasmic/jbs_storefront/images/footerBg.webp",
-          fullWidth: 5338,
-          fullHeight: 2162,
+          src: "/plasmic/jbs_storefront/images/footerResized.jpg",
+          fullWidth: 1600,
+          fullHeight: 648,
           aspectRatio: undefined
         }}
       />
@@ -205,25 +199,14 @@ function PlasmicFooter__RenderFunc(props: {
             color={triggers.hoverActive_root ? "darkRedJbs" : "red"}
             endIcon={
               <Icon38Icon
-                className={classNames(projectcss.all, sty.svg__s13Hn)}
+                className={classNames(projectcss.all, sty.svg__dGkJ)}
                 role={"img"}
               />
             }
             link={"mailto:juhubeachstudio@gmail.com"}
             showEndIcon={true}
-            size={"minimal"}
           >
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__daoP
-              )}
-            >
-              {hasVariant(globalVariants, "screen", "mobileOnly")
-                ? "Email Us"
-                : "juhubeachstudio@gmail.com"}
-            </div>
+            {"juhubeachstudio@gmail.com"}
           </Button>
           <p.Stack
             as={"div"}
@@ -252,8 +235,8 @@ function PlasmicFooter__RenderFunc(props: {
                 size={"compact"}
                 target={true}
               >
-                <Facebook176SvgrepoComsvg2Icon
-                  className={classNames(projectcss.all, sty.svg__kDpUm)}
+                <FacebookSvgrepoComsvgIcon
+                  className={classNames(projectcss.all, sty.svg__adS8R)}
                   role={"img"}
                 />
               </Button>
@@ -266,7 +249,7 @@ function PlasmicFooter__RenderFunc(props: {
                 target={true}
               >
                 <InstagramSvgrepoComsvgIcon
-                  className={classNames(projectcss.all, sty.svg__vu2Zs)}
+                  className={classNames(projectcss.all, sty.svg__pccuH)}
                   role={"img"}
                 />
               </Button>
@@ -279,7 +262,7 @@ function PlasmicFooter__RenderFunc(props: {
                 target={true}
               >
                 <WhatsappSvgrepoComsvgIcon
-                  className={classNames(projectcss.all, sty.svg__fStXc)}
+                  className={classNames(projectcss.all, sty.svg___8Oc15)}
                   role={"img"}
                 />
               </Button>
@@ -292,7 +275,7 @@ function PlasmicFooter__RenderFunc(props: {
                 target={true}
               >
                 <PhonesvgIcon
-                  className={classNames(projectcss.all, sty.svg__hYigm)}
+                  className={classNames(projectcss.all, sty.svg__iqJo)}
                   role={"img"}
                 />
               </Button>
@@ -306,27 +289,15 @@ function PlasmicFooter__RenderFunc(props: {
             <Button
               className={classNames("__wab_instance", sty.button__eOh2R)}
               color={"clear"}
-              endIcon={
-                <Icon38Icon
-                  className={classNames(projectcss.all, sty.svg__eD0U1)}
-                  role={"img"}
-                />
-              }
               link={`/about`}
               size={"minimal"}
-              startIcon={
-                <ChecksvgIcon
-                  className={classNames(projectcss.all, sty.svg___7Cjna)}
-                  role={"img"}
-                />
-              }
               submitsForm={true}
             >
               <div
                 className={classNames(
                   projectcss.all,
                   projectcss.__wab_text,
-                  sty.text__el2Z4
+                  sty.text___22Uf2
                 )}
               >
                 {"About"}
@@ -335,27 +306,15 @@ function PlasmicFooter__RenderFunc(props: {
             <Button
               className={classNames("__wab_instance", sty.button__kVkyq)}
               color={"clear"}
-              endIcon={
-                <Icon38Icon
-                  className={classNames(projectcss.all, sty.svg__vvUwx)}
-                  role={"img"}
-                />
-              }
               link={`/shipping-policy`}
               size={"minimal"}
-              startIcon={
-                <ChecksvgIcon
-                  className={classNames(projectcss.all, sty.svg__h2MMg)}
-                  role={"img"}
-                />
-              }
               submitsForm={true}
             >
               <div
                 className={classNames(
                   projectcss.all,
                   projectcss.__wab_text,
-                  sty.text__i2MJ
+                  sty.text__p9Hxx
                 )}
               >
                 {"Shipping policy"}
@@ -364,27 +323,15 @@ function PlasmicFooter__RenderFunc(props: {
             <Button
               className={classNames("__wab_instance", sty.button__q9Zwf)}
               color={"clear"}
-              endIcon={
-                <Icon38Icon
-                  className={classNames(projectcss.all, sty.svg__rTRx)}
-                  role={"img"}
-                />
-              }
               link={`/cancellation-and-refund-policy`}
               size={"minimal"}
-              startIcon={
-                <ChecksvgIcon
-                  className={classNames(projectcss.all, sty.svg__bw6Nu)}
-                  role={"img"}
-                />
-              }
               submitsForm={true}
             >
               <div
                 className={classNames(
                   projectcss.all,
                   projectcss.__wab_text,
-                  sty.text__tkJrT
+                  sty.text__hse
                 )}
               >
                 {"Returns and exchange policy"}
@@ -393,27 +340,15 @@ function PlasmicFooter__RenderFunc(props: {
             <Button
               className={classNames("__wab_instance", sty.button__lzpR0)}
               color={"clear"}
-              endIcon={
-                <Icon38Icon
-                  className={classNames(projectcss.all, sty.svg__bqFw)}
-                  role={"img"}
-                />
-              }
               link={`/privacy-policy`}
               size={"minimal"}
-              startIcon={
-                <ChecksvgIcon
-                  className={classNames(projectcss.all, sty.svg__qdoWv)}
-                  role={"img"}
-                />
-              }
               submitsForm={true}
             >
               <div
                 className={classNames(
                   projectcss.all,
                   projectcss.__wab_text,
-                  sty.text__zyeqo
+                  sty.text__oWkYa
                 )}
               >
                 {"Privacy policy"}
@@ -422,30 +357,18 @@ function PlasmicFooter__RenderFunc(props: {
             <Button
               className={classNames("__wab_instance", sty.button__zXssn)}
               color={"clear"}
-              endIcon={
-                <Icon38Icon
-                  className={classNames(projectcss.all, sty.svg__gkIli)}
-                  role={"img"}
-                />
-              }
               link={`/terms-and-conditions`}
               size={"minimal"}
-              startIcon={
-                <ChecksvgIcon
-                  className={classNames(projectcss.all, sty.svg__jRsVm)}
-                  role={"img"}
-                />
-              }
               submitsForm={true}
             >
               <div
                 className={classNames(
                   projectcss.all,
                   projectcss.__wab_text,
-                  sty.text__bJvl9
+                  sty.text___2R5R8
                 )}
               >
-                {"Terms of Use"}
+                {"Terms of use"}
               </div>
             </Button>
           </p.Stack>

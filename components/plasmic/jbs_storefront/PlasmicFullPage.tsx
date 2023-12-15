@@ -38,6 +38,11 @@ import {
 } from "@plasmicapp/react-web";
 import Navbar from "../../Navbar"; // plasmic-import: zY4oOp60G2/component
 import Footer from "../../Footer"; // plasmic-import: mZogRkwS1rd/component
+import Marquee from "react-fast-marquee"; // plasmic-import: m9EkGU-jS0/codeComponent
+import Countdown from "../../Countdown"; // plasmic-import: zowCfpHLJi3H/component
+
+import { ScheduleValue, useSchedule } from "./PlasmicGlobalVariant__Schedule"; // plasmic-import: zd5JVdnkSq7D/globalVariant
+import { useScreenVariants as useScreenVariants_6Hzia3M7Np4Ulu } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6hzia3m7Np4ulu/globalVariant
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -62,6 +67,13 @@ export type PlasmicFullPage__OverridesType = {
   root?: p.Flex<"div">;
   navbar?: p.Flex<typeof Navbar>;
   footer?: p.Flex<typeof Footer>;
+  section?: p.Flex<"section">;
+  juhuBeachBg?: p.Flex<typeof p.PlasmicImg>;
+  marquee?: p.Flex<typeof Marquee>;
+  text?: p.Flex<"div">;
+  img?: p.Flex<typeof p.PlasmicImg>;
+  countdown?: p.Flex<typeof Countdown>;
+  h1?: p.Flex<"h1">;
 };
 
 export interface DefaultFullPageProps {
@@ -118,6 +130,11 @@ function PlasmicFullPage__RenderFunc(props: {
     $refs
   });
 
+  const globalVariants = ensureGlobalVariants({
+    schedule: useSchedule(),
+    screen: useScreenVariants_6Hzia3M7Np4Ulu()
+  });
+
   return (
     <div
       data-plasmic-name={"root"}
@@ -131,32 +148,342 @@ function PlasmicFullPage__RenderFunc(props: {
         projectcss.plasmic_mixins,
         projectcss.plasmic_tokens,
         plasmic_antd_5_hostless_css.plasmic_tokens,
-        sty.root
+        sty.root,
+        {
+          [sty.rootglobal_schedule_override]: hasVariant(
+            globalVariants,
+            "schedule",
+            "override"
+          )
+        }
       )}
     >
-      <Navbar
-        data-plasmic-name={"navbar"}
-        data-plasmic-override={overrides.navbar}
-        className={classNames("__wab_instance", sty.navbar)}
-      />
+      {(hasVariant(globalVariants, "schedule", "override") ? false : true) ? (
+        <Navbar
+          data-plasmic-name={"navbar"}
+          data-plasmic-override={overrides.navbar}
+          className={classNames("__wab_instance", sty.navbar, {
+            [sty.navbarglobal_schedule_override]: hasVariant(
+              globalVariants,
+              "schedule",
+              "override"
+            )
+          })}
+        />
+      ) : null}
+      {(hasVariant(globalVariants, "schedule", "override") ? false : true)
+        ? p.renderPlasmicSlot({
+            defaultContents: null,
+            value: args.children
+          })
+        : null}
+      {(hasVariant(globalVariants, "schedule", "override") ? false : true) ? (
+        <Footer
+          data-plasmic-name={"footer"}
+          data-plasmic-override={overrides.footer}
+          className={classNames("__wab_instance", sty.footer, {
+            [sty.footerglobal_schedule_override]: hasVariant(
+              globalVariants,
+              "schedule",
+              "override"
+            )
+          })}
+        />
+      ) : null}
+      <section
+        data-plasmic-name={"section"}
+        data-plasmic-override={overrides.section}
+        className={classNames(projectcss.all, sty.section, {
+          [sty.sectionglobal_schedule_override]: hasVariant(
+            globalVariants,
+            "schedule",
+            "override"
+          )
+        })}
+      >
+        <p.PlasmicImg
+          data-plasmic-name={"juhuBeachBg"}
+          data-plasmic-override={overrides.juhuBeachBg}
+          alt={""}
+          className={classNames(sty.juhuBeachBg, {
+            [sty.juhuBeachBgglobal_schedule_override]: hasVariant(
+              globalVariants,
+              "schedule",
+              "override"
+            )
+          })}
+          displayHeight={
+            hasVariant(globalVariants, "schedule", "override") &&
+            hasVariant(globalVariants, "screen", "mobileOnly")
+              ? "auto"
+              : hasVariant(globalVariants, "schedule", "override")
+              ? "auto"
+              : "auto"
+          }
+          displayMaxHeight={"none"}
+          displayMaxWidth={"100%"}
+          displayMinHeight={"0"}
+          displayMinWidth={
+            hasVariant(globalVariants, "schedule", "override") ? "100%" : "0"
+          }
+          displayWidth={
+            hasVariant(globalVariants, "schedule", "override") &&
+            hasVariant(globalVariants, "screen", "mobileOnly")
+              ? "auto"
+              : hasVariant(globalVariants, "schedule", "override")
+              ? "auto"
+              : "auto"
+          }
+          loading={
+            hasVariant(globalVariants, "schedule", "override")
+              ? "eager"
+              : "lazy"
+          }
+          src={
+            hasVariant(globalVariants, "schedule", "override") &&
+            hasVariant(globalVariants, "screen", "mobileOnly")
+              ? {
+                  src: "/plasmic/jbs_storefront/images/theJuhuBeachNarrowwebp2.webp",
+                  fullWidth: 879,
+                  fullHeight: 1484,
+                  aspectRatio: undefined
+                }
+              : hasVariant(globalVariants, "schedule", "override")
+              ? {
+                  src: "/plasmic/jbs_storefront/images/theJuhuBeachWidewebp.webp",
+                  fullWidth: 7239,
+                  fullHeight: 5047,
+                  aspectRatio: undefined
+                }
+              : {
+                  src: "/plasmic/jbs_storefront/images/theJuhuBeachNarrowwebp2.webp",
+                  fullWidth: 879,
+                  fullHeight: 1484,
+                  aspectRatio: undefined
+                }
+          }
+        />
 
-      {p.renderPlasmicSlot({
-        defaultContents: null,
-        value: args.children
-      })}
-      <Footer
-        data-plasmic-name={"footer"}
-        data-plasmic-override={overrides.footer}
-        className={classNames("__wab_instance", sty.footer)}
-      />
+        <div
+          className={classNames(projectcss.all, sty.freeBox__xGsSb, {
+            [sty.freeBoxglobal_schedule_override__xGsSb2BEqj]: hasVariant(
+              globalVariants,
+              "schedule",
+              "override"
+            )
+          })}
+        >
+          <div
+            className={classNames(projectcss.all, sty.freeBox__s7Hxr, {
+              [sty.freeBoxglobal_schedule_override__s7Hxr2BEqj]: hasVariant(
+                globalVariants,
+                "schedule",
+                "override"
+              )
+            })}
+          >
+            <Marquee
+              data-plasmic-name={"marquee"}
+              data-plasmic-override={overrides.marquee}
+              autoFill={true}
+              className={classNames("__wab_instance", sty.marquee, {
+                [sty.marqueeglobal_schedule_override]: hasVariant(
+                  globalVariants,
+                  "schedule",
+                  "override"
+                )
+              })}
+              play={true}
+            >
+              <div
+                data-plasmic-name={"text"}
+                data-plasmic-override={overrides.text}
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text,
+                  {
+                    [sty.textglobal_schedule_override]: hasVariant(
+                      globalVariants,
+                      "schedule",
+                      "override"
+                    )
+                  }
+                )}
+              >
+                {
+                  "Limited edition pieces | Made from 100% textile waste | Handcrafted | Made in mumbai | "
+                }
+              </div>
+            </Marquee>
+          </div>
+          <div
+            className={classNames(projectcss.all, sty.freeBox__flz3E, {
+              [sty.freeBoxglobal_schedule_override__flz3E2BEqj]: hasVariant(
+                globalVariants,
+                "schedule",
+                "override"
+              )
+            })}
+          />
+
+          <p.PlasmicImg
+            data-plasmic-name={"img"}
+            data-plasmic-override={overrides.img}
+            alt={""}
+            className={classNames(sty.img, {
+              [sty.imgglobal_schedule_override]: hasVariant(
+                globalVariants,
+                "schedule",
+                "override"
+              )
+            })}
+            displayHeight={
+              hasVariant(globalVariants, "schedule", "override") &&
+              hasVariant(globalVariants, "screen", "mobileOnly")
+                ? "auto"
+                : hasVariant(globalVariants, "schedule", "override")
+                ? "auto"
+                : "auto"
+            }
+            displayMaxHeight={"none"}
+            displayMaxWidth={
+              hasVariant(globalVariants, "schedule", "override") &&
+              hasVariant(globalVariants, "screen", "mobileOnly")
+                ? "30%"
+                : hasVariant(globalVariants, "schedule", "override")
+                ? "auto"
+                : "100%"
+            }
+            displayMinHeight={"0"}
+            displayMinWidth={
+              hasVariant(globalVariants, "schedule", "override") &&
+              hasVariant(globalVariants, "screen", "mobileOnly")
+                ? "20%"
+                : "0"
+            }
+            displayWidth={
+              hasVariant(globalVariants, "schedule", "override") &&
+              hasVariant(globalVariants, "screen", "mobileOnly")
+                ? "auto"
+                : hasVariant(globalVariants, "schedule", "override")
+                ? "10%"
+                : "auto"
+            }
+            loading={
+              hasVariant(globalVariants, "schedule", "override")
+                ? "eager"
+                : "lazy"
+            }
+            src={
+              hasVariant(globalVariants, "schedule", "override")
+                ? {
+                    src: "/plasmic/jbs_storefront/images/jbsLogo20.svg",
+                    fullWidth: 179,
+                    fullHeight: 150,
+                    aspectRatio: 1.194498
+                  }
+                : undefined
+            }
+          />
+
+          <div
+            className={classNames(projectcss.all, sty.freeBox__u76Au, {
+              [sty.freeBoxglobal_schedule_override__u76Au2BEqj]: hasVariant(
+                globalVariants,
+                "schedule",
+                "override"
+              )
+            })}
+          >
+            <Countdown
+              data-plasmic-name={"countdown"}
+              data-plasmic-override={overrides.countdown}
+              className={classNames("__wab_instance", sty.countdown, {
+                [sty.countdownglobal_schedule_override]: hasVariant(
+                  globalVariants,
+                  "schedule",
+                  "override"
+                )
+              })}
+              targetTimeUtc={
+                hasVariant(globalVariants, "schedule", "override")
+                  ? "2023-12-19T13:30:00.000Z"
+                  : undefined
+              }
+            />
+
+            <div
+              className={classNames(projectcss.all, sty.freeBox___5Jaxi, {
+                [sty.freeBoxglobal_schedule_override___5Jaxi2BEqj]: hasVariant(
+                  globalVariants,
+                  "schedule",
+                  "override"
+                )
+              })}
+            >
+              <h1
+                data-plasmic-name={"h1"}
+                data-plasmic-override={overrides.h1}
+                className={classNames(
+                  projectcss.all,
+                  projectcss.h1,
+                  projectcss.__wab_text,
+                  sty.h1,
+                  {
+                    [sty.h1global_schedule_override]: hasVariant(
+                      globalVariants,
+                      "schedule",
+                      "override"
+                    )
+                  }
+                )}
+              >
+                {hasVariant(globalVariants, "schedule", "override") &&
+                hasVariant(globalVariants, "screen", "mobileOnly")
+                  ? "~ see you soon sweedy ~"
+                  : hasVariant(globalVariants, "schedule", "override")
+                  ? "~ see you soon sweedy ~"
+                  : "You won't believe what happens next."}
+              </h1>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   ) as React.ReactElement | null;
 }
 
 const PlasmicDescendants = {
-  root: ["root", "navbar", "footer"],
+  root: [
+    "root",
+    "navbar",
+    "footer",
+    "section",
+    "juhuBeachBg",
+    "marquee",
+    "text",
+    "img",
+    "countdown",
+    "h1"
+  ],
   navbar: ["navbar"],
-  footer: ["footer"]
+  footer: ["footer"],
+  section: [
+    "section",
+    "juhuBeachBg",
+    "marquee",
+    "text",
+    "img",
+    "countdown",
+    "h1"
+  ],
+  juhuBeachBg: ["juhuBeachBg"],
+  marquee: ["marquee", "text"],
+  text: ["text"],
+  img: ["img"],
+  countdown: ["countdown"],
+  h1: ["h1"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -165,6 +492,13 @@ type NodeDefaultElementType = {
   root: "div";
   navbar: typeof Navbar;
   footer: typeof Footer;
+  section: "section";
+  juhuBeachBg: typeof p.PlasmicImg;
+  marquee: typeof Marquee;
+  text: "div";
+  img: typeof p.PlasmicImg;
+  countdown: typeof Countdown;
+  h1: "h1";
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -229,6 +563,13 @@ export const PlasmicFullPage = Object.assign(
     // Helper components rendering sub-elements
     navbar: makeNodeComponent("navbar"),
     footer: makeNodeComponent("footer"),
+    section: makeNodeComponent("section"),
+    juhuBeachBg: makeNodeComponent("juhuBeachBg"),
+    marquee: makeNodeComponent("marquee"),
+    text: makeNodeComponent("text"),
+    img: makeNodeComponent("img"),
+    countdown: makeNodeComponent("countdown"),
+    h1: makeNodeComponent("h1"),
 
     // Metadata about props expected for PlasmicFullPage
     internalVariantProps: PlasmicFullPage__VariantProps,

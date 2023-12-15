@@ -195,29 +195,13 @@
     display: flex;
   }
 }
-.svg {
-  position: relative;
-  object-fit: cover;
-  height: 100%;
-  flex-shrink: 1;
-  width: 22px;
-  min-height: 0;
-  margin: 4px;
-}
-.svgrevealMenu {
-  color: var(--token-Yq556PvPjGii);
-  margin-bottom: 0px;
-}
-.svgrevealSubMenu {
-  color: var(--token-Yq556PvPjGii);
-}
-.svg__iIHua {
+.svg___4Dw3K {
   position: relative;
   object-fit: cover;
   width: auto;
   height: 1em;
 }
-.svg__jjrxN {
+.svg__io5Zc {
   position: relative;
   object-fit: cover;
   width: auto;
@@ -241,21 +225,17 @@
     display: flex;
   }
 }
-.svg__qFaNq {
+.svg__laaHf {
   position: relative;
   object-fit: cover;
   width: auto;
   height: 1em;
 }
-.text__oPaqX {
-  color: var(--token-Yq556PvPjGii);
+.homeMenuItem {
+  font-size: var(--token-Vzl0MpjGDjfd);
   font-weight: 700;
-  text-transform: uppercase;
-  font-size: 1.2rem;
-  padding-right: 4px;
-  padding-left: 4px;
 }
-.svg__ibLdV {
+.svg__psTus {
   position: relative;
   object-fit: cover;
   width: auto;
@@ -279,21 +259,17 @@
     display: flex;
   }
 }
-.svg___7Q5Yq {
+.svg__r5Qm {
   position: relative;
   object-fit: cover;
   width: auto;
   height: 1em;
 }
-.text__llyAo {
+.text__aV3Bq {
   font-weight: 700;
-  text-transform: uppercase;
-  color: var(--token-Yq556PvPjGii);
-  font-size: 1.2rem;
-  padding-right: 4px;
-  padding-left: 4px;
+  font-size: var(--token-Vzl0MpjGDjfd);
 }
-.svg___1FPn {
+.svg__wDMyp {
   position: relative;
   object-fit: cover;
   width: auto;
@@ -351,21 +327,17 @@
     display: flex;
   }
 }
-.svg__fnSa {
+.svg___16KRn {
   position: relative;
   object-fit: cover;
   width: auto;
   height: 1em;
 }
-.text__vmlsA {
+.text__kfRf6 {
   font-weight: 700;
-  text-transform: uppercase;
-  color: var(--token-Yq556PvPjGii);
-  font-size: 1.2rem;
-  padding-right: 4px;
-  padding-left: 4px;
+  font-size: var(--token-Vzl0MpjGDjfd);
 }
-.svg__rcqk7 {
+.svg__skAiP {
   position: relative;
   object-fit: cover;
   width: auto;
@@ -419,19 +391,16 @@
     display: flex;
   }
 }
-.svg__fQt2M {
+.svg__g7PzX {
   position: relative;
   object-fit: cover;
   width: auto;
   height: 1em;
 }
-.text__pTqo5 {
-  font-weight: 700;
-  text-transform: uppercase;
-  color: var(--token-Yq556PvPjGii);
-  font-size: 1rem;
+.text__aqLhj {
+  font-weight: 500;
 }
-.svg__uhZA {
+.svg__sqr8F {
   position: relative;
   object-fit: cover;
   width: auto;
@@ -460,19 +429,13 @@
     display: flex;
   }
 }
-.svg__cN6FV {
+.svg___3Dcke {
   position: relative;
   object-fit: cover;
   width: auto;
   height: 1em;
 }
-.text___5Oofg {
-  font-weight: 700;
-  text-transform: uppercase;
-  color: var(--token-Yq556PvPjGii);
-  font-size: 1rem;
-}
-.svg__hapIb {
+.svg__suS3E {
   position: relative;
   object-fit: cover;
   width: auto;
@@ -501,19 +464,16 @@
     display: flex;
   }
 }
-.svg__v2Buu {
+.svg__o5Fts {
   position: relative;
   object-fit: cover;
   width: auto;
   height: 1em;
 }
-.text__jnlS1 {
-  font-weight: 700;
-  text-transform: uppercase;
-  color: var(--token-Yq556PvPjGii);
-  font-size: 1rem;
+.text__fWbw9 {
+  padding-bottom: 0px;
 }
-.svg___1COz {
+.svg__lqaGh {
   position: relative;
   object-fit: cover;
   width: auto;
@@ -542,20 +502,13 @@
     display: flex;
   }
 }
-.svg__idvYj {
+.svg__npI {
   position: relative;
   object-fit: cover;
   width: auto;
   height: 1em;
 }
-.text__wrUrn {
-  font-weight: 700;
-  text-transform: uppercase;
-  color: var(--token-Yq556PvPjGii);
-  font-size: 1rem;
-  padding-right: 0px;
-}
-.svg__nhZw {
+.svg__ynMu {
   position: relative;
   object-fit: cover;
   width: auto;
@@ -584,19 +537,16 @@
     display: flex;
   }
 }
-.svg__obv1E {
+.svg__kVhaP {
   position: relative;
   object-fit: cover;
   width: auto;
   height: 1em;
 }
-.text__nSvHx {
-  font-weight: 700;
-  text-transform: uppercase;
-  color: var(--token-Yq556PvPjGii);
-  font-size: 1rem;
+.text__wpJat {
+  padding-bottom: 0px;
 }
-.svg__nm5Vi {
+.svg__uLa8Z {
   position: relative;
   object-fit: cover;
   width: auto;
@@ -625,19 +575,13 @@
     display: flex;
   }
 }
-.svg___1KuM {
+.svg__x8Hl8 {
   position: relative;
   object-fit: cover;
   width: auto;
   height: 1em;
 }
-.text__fLeqy {
-  font-weight: 700;
-  text-transform: uppercase;
-  color: var(--token-Yq556PvPjGii);
-  font-size: 1rem;
-}
-.svg__wN7 {
+.svg__b9M7T {
   position: relative;
   object-fit: cover;
   width: auto;
@@ -666,19 +610,13 @@
     display: flex;
   }
 }
-.svg__vAgSu {
+.svg___2Pyji {
   position: relative;
   object-fit: cover;
   width: auto;
   height: 1em;
 }
-.text___4Bnfn {
-  font-weight: 700;
-  text-transform: uppercase;
-  color: var(--token-Yq556PvPjGii);
-  font-size: 1rem;
-}
-.svg___4OVdb {
+.svg__cbqGr {
   position: relative;
   object-fit: cover;
   width: auto;
@@ -707,19 +645,13 @@
     display: flex;
   }
 }
-.svg__zxFeP {
+.svg__xbBbE {
   position: relative;
   object-fit: cover;
   width: auto;
   height: 1em;
 }
-.text__fvFu1 {
-  font-weight: 700;
-  text-transform: uppercase;
-  color: var(--token-Yq556PvPjGii);
-  font-size: 1rem;
-}
-.svg___3VAkb {
+.svg__mqCLt {
   position: relative;
   object-fit: cover;
   width: auto;
@@ -748,19 +680,13 @@
     display: flex;
   }
 }
-.svg__rcciw {
+.svg__t9A36 {
   position: relative;
   object-fit: cover;
   width: auto;
   height: 1em;
 }
-.text__bqbyw {
-  font-weight: 700;
-  text-transform: uppercase;
-  color: var(--token-Yq556PvPjGii);
-  font-size: 1rem;
-}
-.svg__xww0D {
+.svg__mTfOh {
   position: relative;
   object-fit: cover;
   width: auto;
@@ -789,19 +715,13 @@
     display: flex;
   }
 }
-.svg__qkOZv {
+.svg__nqArR {
   position: relative;
   object-fit: cover;
   width: auto;
   height: 1em;
 }
-.text__zSy8 {
-  font-weight: 700;
-  text-transform: uppercase;
-  color: var(--token-Yq556PvPjGii);
-  font-size: 1rem;
-}
-.svg___9YNfn {
+.svg___64Xbr {
   position: relative;
   object-fit: cover;
   width: auto;
@@ -830,19 +750,13 @@
     display: flex;
   }
 }
-.svg__gN131 {
+.svg__xU5UH {
   position: relative;
   object-fit: cover;
   width: auto;
   height: 1em;
 }
-.text__iEr0G {
-  font-weight: 700;
-  text-transform: uppercase;
-  color: var(--token-Yq556PvPjGii);
-  font-size: 1rem;
-}
-.svg__pc1VM {
+.svg__x7AOb {
   position: relative;
   object-fit: cover;
   width: auto;
@@ -871,19 +785,13 @@
     display: flex;
   }
 }
-.svg___81DKw {
+.svg__qRc7 {
   position: relative;
   object-fit: cover;
   width: auto;
   height: 1em;
 }
-.text__nrmAr {
-  font-weight: 700;
-  text-transform: uppercase;
-  color: var(--token-Yq556PvPjGii);
-  font-size: 1rem;
-}
-.svg__ouEja {
+.svg__v5WfR {
   position: relative;
   object-fit: cover;
   width: auto;

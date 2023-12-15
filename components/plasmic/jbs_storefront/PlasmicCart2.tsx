@@ -48,8 +48,6 @@ import sty from "./PlasmicCart2.module.css"; // plasmic-import: 4iMp3co2mNSz/css
 
 import ChecksvgIcon from "./icons/PlasmicIcon__Checksvg"; // plasmic-import: ew07hyuAC0c/icon
 import Icon38Icon from "./icons/PlasmicIcon__Icon38"; // plasmic-import: 3r4KXWygi9v/icon
-import MinussvgIcon from "./icons/PlasmicIcon__Minussvg"; // plasmic-import: EORfQy0Jztah/icon
-import PlussvgIcon from "./icons/PlasmicIcon__Plussvg"; // plasmic-import: PQQuz_M9AHH3/icon
 
 createPlasmicElementProxy;
 
@@ -181,17 +179,7 @@ function PlasmicCart2__RenderFunc(props: {
                     color={"red"}
                     link={`/category/${"all"}`}
                     showEndIcon={true}
-                  >
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text__zKH
-                      )}
-                    >
-                      {"Seel all our products"}
-                    </div>
-                  </Button>
+                  />
                 </p.Stack>
               ) : null}
               {(() => {
@@ -476,13 +464,15 @@ function PlasmicCart2__RenderFunc(props: {
                                   shape={"round"}
                                   size={"compact"}
                                 >
-                                  <MinussvgIcon
+                                  <div
                                     className={classNames(
                                       projectcss.all,
-                                      sty.svg__cebhF
+                                      projectcss.__wab_text,
+                                      sty.text___0Qkpp
                                     )}
-                                    role={"img"}
-                                  />
+                                  >
+                                    {"-"}
+                                  </div>
                                 </Button>
                                 <div
                                   className={classNames(
@@ -573,13 +563,7 @@ function PlasmicCart2__RenderFunc(props: {
                                   shape={"round"}
                                   size={"compact"}
                                 >
-                                  <PlussvgIcon
-                                    className={classNames(
-                                      projectcss.all,
-                                      sty.svg__kYbeC
-                                    )}
-                                    role={"img"}
-                                  />
+                                  {"+"}
                                 </Button>
                               </div>
                               <div
@@ -729,10 +713,10 @@ function PlasmicCart2__RenderFunc(props: {
                         className={classNames(
                           projectcss.all,
                           projectcss.__wab_text,
-                          sty.text__sZv3I
+                          sty.text__b8Xci
                         )}
                       >
-                        {"Proceed to Checkout"}
+                        {"PROCEED TO CHECKOUT"}
                       </div>
                     </Button>
                   </div>

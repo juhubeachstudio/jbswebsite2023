@@ -41,6 +41,7 @@ import JbsMenu from "../../JbsMenu"; // plasmic-import: NFEkw9xPSE/component
 import GoToCartButton from "../../GoToCartButton"; // plasmic-import: iT6In2ggLenM/component
 
 import { useScreenVariants as useScreenVariants_6Hzia3M7Np4Ulu } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6hzia3m7Np4ulu/globalVariant
+import { ScheduleValue, useSchedule } from "./PlasmicGlobalVariant__Schedule"; // plasmic-import: zd5JVdnkSq7D/globalVariant
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -107,7 +108,8 @@ function PlasmicNavbar__RenderFunc(props: {
   const currentUser = p.useCurrentUser?.() || {};
 
   const globalVariants = ensureGlobalVariants({
-    screen: useScreenVariants_6Hzia3M7Np4Ulu()
+    screen: useScreenVariants_6Hzia3M7Np4Ulu(),
+    schedule: useSchedule()
   });
 
   return (
@@ -173,7 +175,13 @@ function PlasmicNavbar__RenderFunc(props: {
             <LogowithbordersvgIcon
               data-plasmic-name={"svg"}
               data-plasmic-override={overrides.svg}
-              className={classNames(projectcss.all, sty.svg)}
+              className={classNames(projectcss.all, sty.svg, {
+                [sty.svgglobal_schedule_override]: hasVariant(
+                  globalVariants,
+                  "schedule",
+                  "override"
+                )
+              })}
               role={"img"}
             />
           </p.PlasmicLink>
