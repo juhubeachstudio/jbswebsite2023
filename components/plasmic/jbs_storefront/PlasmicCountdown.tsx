@@ -121,7 +121,6 @@ function PlasmicCountdown__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => 0
       }
     ],
-
     [$props, $ctx, $refs]
   );
   const $state = p.useDollarState(stateSpecs, {
@@ -239,9 +238,7 @@ function PlasmicCountdown__RenderFunc(props: {
                 }
               )}
             >
-              {hasVariant(globalVariants, "schedule", "override")
-                ? "D"
-                : "Days"}
+              {hasVariant(globalVariants, "schedule", "override") ? "D" : "D"}
             </div>
           }
         />
@@ -255,26 +252,22 @@ function PlasmicCountdown__RenderFunc(props: {
             )
           })}
         >
-          {(
-            hasVariant(globalVariants, "schedule", "override") ? true : false
-          ) ? (
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__vm7Aa,
-                {
-                  [sty.textglobal_schedule_override__vm7Aa2BEqj]: hasVariant(
-                    globalVariants,
-                    "schedule",
-                    "override"
-                  )
-                }
-              )}
-            >
-              {":"}
-            </div>
-          ) : null}
+          <div
+            className={classNames(
+              projectcss.all,
+              projectcss.__wab_text,
+              sty.text__vm7Aa,
+              {
+                [sty.textglobal_schedule_override__vm7Aa2BEqj]: hasVariant(
+                  globalVariants,
+                  "schedule",
+                  "override"
+                )
+              }
+            )}
+          >
+            {":"}
+          </div>
         </div>
         <CountdownNumber
           className={classNames("__wab_instance", sty.countdownNumber__asVz, {
@@ -346,9 +339,7 @@ function PlasmicCountdown__RenderFunc(props: {
                 }
               )}
             >
-              {hasVariant(globalVariants, "schedule", "override")
-                ? "H"
-                : "Hours"}
+              {hasVariant(globalVariants, "schedule", "override") ? "H" : "H"}
             </div>
           }
         />
@@ -449,9 +440,7 @@ function PlasmicCountdown__RenderFunc(props: {
                 }
               )}
             >
-              {hasVariant(globalVariants, "schedule", "override")
-                ? "M"
-                : "Minutes"}
+              {hasVariant(globalVariants, "schedule", "override") ? "M" : "M"}
             </div>
           }
         />
@@ -465,26 +454,22 @@ function PlasmicCountdown__RenderFunc(props: {
             )
           })}
         >
-          {(
-            hasVariant(globalVariants, "schedule", "override") ? true : false
-          ) ? (
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__abzYa,
-                {
-                  [sty.textglobal_schedule_override__abzYa2BEqj]: hasVariant(
-                    globalVariants,
-                    "schedule",
-                    "override"
-                  )
-                }
-              )}
-            >
-              {":"}
-            </div>
-          ) : null}
+          <div
+            className={classNames(
+              projectcss.all,
+              projectcss.__wab_text,
+              sty.text__abzYa,
+              {
+                [sty.textglobal_schedule_override__abzYa2BEqj]: hasVariant(
+                  globalVariants,
+                  "schedule",
+                  "override"
+                )
+              }
+            )}
+          >
+            {":"}
+          </div>
         </div>
         <CountdownNumber
           className={classNames("__wab_instance", sty.countdownNumber___9HtnV, {
@@ -538,9 +523,7 @@ function PlasmicCountdown__RenderFunc(props: {
                 }
               )}
             >
-              {hasVariant(globalVariants, "schedule", "override")
-                ? "S"
-                : "Seconds"}
+              {hasVariant(globalVariants, "schedule", "override") ? "S" : "S"}
             </div>
           }
         />
@@ -618,7 +601,6 @@ type NodeOverridesType<T extends NodeNameType> = Pick<
   PlasmicCountdown__OverridesType,
   DescendantsType<T>
 >;
-
 type NodeComponentProps<T extends NodeNameType> =
   // Explicitly specify variants, args, and overrides as objects
   {

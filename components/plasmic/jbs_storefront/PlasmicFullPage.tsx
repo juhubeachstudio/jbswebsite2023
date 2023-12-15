@@ -158,7 +158,7 @@ function PlasmicFullPage__RenderFunc(props: {
         }
       )}
     >
-      {(hasVariant(globalVariants, "schedule", "override") ? false : true) ? (
+      {(hasVariant(globalVariants, "schedule", "override") ? false : false) ? (
         <Navbar
           data-plasmic-name={"navbar"}
           data-plasmic-override={overrides.navbar}
@@ -171,13 +171,13 @@ function PlasmicFullPage__RenderFunc(props: {
           })}
         />
       ) : null}
-      {(hasVariant(globalVariants, "schedule", "override") ? false : true)
+      {(hasVariant(globalVariants, "schedule", "override") ? false : false)
         ? p.renderPlasmicSlot({
             defaultContents: null,
             value: args.children
           })
         : null}
-      {(hasVariant(globalVariants, "schedule", "override") ? false : true) ? (
+      {(hasVariant(globalVariants, "schedule", "override") ? false : false) ? (
         <Footer
           data-plasmic-name={"footer"}
           data-plasmic-override={overrides.footer}
@@ -218,13 +218,15 @@ function PlasmicFullPage__RenderFunc(props: {
               ? "auto"
               : hasVariant(globalVariants, "schedule", "override")
               ? "auto"
+              : hasVariant(globalVariants, "screen", "mobileOnly")
+              ? "auto"
               : "auto"
           }
           displayMaxHeight={"none"}
           displayMaxWidth={"100%"}
           displayMinHeight={"0"}
           displayMinWidth={
-            hasVariant(globalVariants, "schedule", "override") ? "100%" : "0"
+            hasVariant(globalVariants, "schedule", "override") ? "100%" : "100%"
           }
           displayWidth={
             hasVariant(globalVariants, "schedule", "override") &&
@@ -232,12 +234,14 @@ function PlasmicFullPage__RenderFunc(props: {
               ? "auto"
               : hasVariant(globalVariants, "schedule", "override")
               ? "auto"
+              : hasVariant(globalVariants, "screen", "mobileOnly")
+              ? "auto"
               : "auto"
           }
           loading={
             hasVariant(globalVariants, "schedule", "override")
               ? "eager"
-              : "lazy"
+              : "eager"
           }
           src={
             hasVariant(globalVariants, "schedule", "override") &&
@@ -255,10 +259,17 @@ function PlasmicFullPage__RenderFunc(props: {
                   fullHeight: 5047,
                   aspectRatio: undefined
                 }
-              : {
+              : hasVariant(globalVariants, "screen", "mobileOnly")
+              ? {
                   src: "/plasmic/jbs_storefront/images/theJuhuBeachNarrowwebp2.webp",
                   fullWidth: 879,
                   fullHeight: 1484,
+                  aspectRatio: undefined
+                }
+              : {
+                  src: "/plasmic/jbs_storefront/images/theJuhuBeachWidewebp.webp",
+                  fullWidth: 7239,
+                  fullHeight: 5047,
                   aspectRatio: undefined
                 }
           }
@@ -344,6 +355,8 @@ function PlasmicFullPage__RenderFunc(props: {
                 ? "auto"
                 : hasVariant(globalVariants, "schedule", "override")
                 ? "auto"
+                : hasVariant(globalVariants, "screen", "mobileOnly")
+                ? "auto"
                 : "auto"
             }
             displayMaxHeight={"none"}
@@ -353,12 +366,16 @@ function PlasmicFullPage__RenderFunc(props: {
                 ? "30%"
                 : hasVariant(globalVariants, "schedule", "override")
                 ? "auto"
-                : "100%"
+                : hasVariant(globalVariants, "screen", "mobileOnly")
+                ? "30%"
+                : "auto"
             }
             displayMinHeight={"0"}
             displayMinWidth={
               hasVariant(globalVariants, "schedule", "override") &&
               hasVariant(globalVariants, "screen", "mobileOnly")
+                ? "20%"
+                : hasVariant(globalVariants, "screen", "mobileOnly")
                 ? "20%"
                 : "0"
             }
@@ -368,12 +385,14 @@ function PlasmicFullPage__RenderFunc(props: {
                 ? "auto"
                 : hasVariant(globalVariants, "schedule", "override")
                 ? "10%"
-                : "auto"
+                : hasVariant(globalVariants, "screen", "mobileOnly")
+                ? "auto"
+                : "10%"
             }
             loading={
               hasVariant(globalVariants, "schedule", "override")
                 ? "eager"
-                : "lazy"
+                : "eager"
             }
             src={
               hasVariant(globalVariants, "schedule", "override")
@@ -383,7 +402,12 @@ function PlasmicFullPage__RenderFunc(props: {
                     fullHeight: 150,
                     aspectRatio: 1.194498
                   }
-                : undefined
+                : {
+                    src: "/plasmic/jbs_storefront/images/jbsLogo20.svg",
+                    fullWidth: 179,
+                    fullHeight: 150,
+                    aspectRatio: 1.194498
+                  }
             }
           />
 
@@ -409,7 +433,7 @@ function PlasmicFullPage__RenderFunc(props: {
               targetTimeUtc={
                 hasVariant(globalVariants, "schedule", "override")
                   ? "2023-12-19T13:30:00.000Z"
-                  : undefined
+                  : "2023-12-19T13:30:00.000Z"
               }
             />
 
@@ -444,7 +468,9 @@ function PlasmicFullPage__RenderFunc(props: {
                   ? "~ see you soon sweedy ~"
                   : hasVariant(globalVariants, "schedule", "override")
                   ? "~ see you soon sweedy ~"
-                  : "You won't believe what happens next."}
+                  : hasVariant(globalVariants, "screen", "mobileOnly")
+                  ? "~ see you soon sweedy ~"
+                  : "~ see you soon sweedy ~"}
               </h1>
             </div>
           </div>
