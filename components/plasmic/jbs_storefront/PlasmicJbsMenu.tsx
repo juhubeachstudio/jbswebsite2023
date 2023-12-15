@@ -47,6 +47,7 @@ import projectcss from "./plasmic_jbs_storefront.module.css"; // plasmic-import:
 import sty from "./PlasmicJbsMenu.module.css"; // plasmic-import: NFEkw9xPSE/css
 
 import ChecksvgIcon from "./icons/PlasmicIcon__Checksvg"; // plasmic-import: ew07hyuAC0c/icon
+import HamburgersvgIcon from "./icons/PlasmicIcon__Hamburgersvg"; // plasmic-import: QybYSQyE3W/icon
 import Icon38Icon from "./icons/PlasmicIcon__Icon38"; // plasmic-import: 3r4KXWygi9v/icon
 
 createPlasmicElementProxy;
@@ -71,6 +72,7 @@ export const PlasmicJbsMenu__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicJbsMenu__OverridesType = {
   root?: p.Flex<"div">;
+  svg?: p.Flex<"svg">;
   homeMenuItem?: p.Flex<"div">;
 };
 
@@ -228,8 +230,14 @@ function PlasmicJbsMenu__RenderFunc(props: {
           }
         }}
         size={"minimal"}
-      />
-
+      >
+        <HamburgersvgIcon
+          data-plasmic-name={"svg"}
+          data-plasmic-override={overrides.svg}
+          className={classNames(projectcss.all, sty.svg)}
+          role={"img"}
+        />
+      </Button>
       <Button
         className={classNames("__wab_instance", sty.button__zu9X, {
           [sty.buttonrevealMenu__zu9XxT6MH]: hasVariant(
@@ -1025,7 +1033,8 @@ function PlasmicJbsMenu__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "homeMenuItem"],
+  root: ["root", "svg", "homeMenuItem"],
+  svg: ["svg"],
   homeMenuItem: ["homeMenuItem"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
@@ -1033,6 +1042,7 @@ type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
+  svg: "svg";
   homeMenuItem: "div";
 };
 
@@ -1096,6 +1106,7 @@ export const PlasmicJbsMenu = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
+    svg: makeNodeComponent("svg"),
     homeMenuItem: makeNodeComponent("homeMenuItem"),
 
     // Metadata about props expected for PlasmicJbsMenu

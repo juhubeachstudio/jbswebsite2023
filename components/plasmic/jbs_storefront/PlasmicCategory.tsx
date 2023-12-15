@@ -48,6 +48,7 @@ import { GraphqlFetcher } from "@plasmicpkgs/plasmic-query";
 import Button from "../../Button"; // plasmic-import: yEsI5slGwPm/component
 
 import { ScheduleValue, useSchedule } from "./PlasmicGlobalVariant__Schedule"; // plasmic-import: zd5JVdnkSq7D/globalVariant
+import { useScreenVariants as useScreenVariants_6Hzia3M7Np4Ulu } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6hzia3m7Np4ulu/globalVariant
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -133,7 +134,8 @@ function PlasmicCategory__RenderFunc(props: {
   });
 
   const globalVariants = ensureGlobalVariants({
-    schedule: useSchedule()
+    schedule: useSchedule(),
+    screen: useScreenVariants_6Hzia3M7Np4Ulu()
   });
 
   return (

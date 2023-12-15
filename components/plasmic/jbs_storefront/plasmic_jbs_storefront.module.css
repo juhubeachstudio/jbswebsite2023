@@ -35,6 +35,15 @@
   --plasmic-token-jbs-logo: var(--token-AzWGadODdUBA);
   --token-Vzl0MpjGDjfd: 1.2rem;
   --plasmic-token-buttons-1-2-rem: var(--token-Vzl0MpjGDjfd);
+  --token-sapp5MZ2Bymk: 16px;
+  --plasmic-token-mobile-button-1-rem: var(--token-sapp5MZ2Bymk);
+}
+
+@media (min-width: 0px) and (max-width: 768px) {
+  .plasmic_tokens {
+    --token-sapp5MZ2Bymk: 1rem;
+    --plasmic-token-mobile-button-1-rem: var(--token-sapp5MZ2Bymk);
+  }
 }
 
 .plasmic_tokens {

@@ -61,6 +61,16 @@
       }
     },
     {
+      "name": "Mobile Button (1rem)",
+      "type": "fontsize",
+      "value": "16px",
+      "category": "fontsize",
+      "meta": {
+        "projectId": "heL2P6rJiLNgtnBJPb6i1m",
+        "id": "sapp5MZ2Bymk"
+      }
+    },
+    {
       "name": "System: Bg Container",
       "type": "color",
       "value": "var(--antd-colorBgContainer)",
