@@ -75,7 +75,7 @@
     font-size: 2rem;
   }
 }
-.freeBox__vLBny {
+.form {
   display: flex;
   position: relative;
   flex-direction: row;
@@ -104,7 +104,7 @@
   height: 2em;
   color: var(--token-qoXYsQ1lS);
 }
-.svg___09M9S {
+.svg {
   position: relative;
   object-fit: cover;
   width: auto;
@@ -133,12 +133,14 @@
   min-width: 0;
   padding: 0px;
 }
-.productBox__zJkT:global(.__wab_instance) {
+.productBox:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
 }
-.productCardJbs__yX45:global(.__wab_instance) {
+.productCardJbs:global(.__wab_instance) {
   max-width: 100%;
+  height: 100%;
+  min-height: 0;
 }
 .text__dJyAc {
   position: relative;
@@ -153,98 +155,6 @@
   height: auto;
   max-width: 100%;
   min-width: 0;
-}
-.graphQlFetcher:global(.__wab_instance) {
-  width: 100%;
-  max-width: 100%;
-  object-fit: cover;
-  position: relative;
-  min-width: 0;
-}
-.freeBox___9Iimi {
-  display: grid;
-  position: relative;
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  grid-template-rows: auto auto;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  grid-row-gap: 0px;
-  grid-column-gap: 0px;
-  grid-auto-columns: 1fr;
-  border-top-style: solid;
-  border-bottom-style: solid;
-  min-width: 0;
-  border-width: 2px;
-}
-@media (min-width: 0px) and (max-width: 768px) {
-  .freeBox___9Iimi {
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-  }
-}
-.freeBox__mN316 {
-  display: flex;
-  position: relative;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  width: 100%;
-  max-width: 100%;
-  min-width: 0;
-}
-.productBox__kYtl:global(.__wab_instance) {
-  max-width: 100%;
-  object-fit: cover;
-  height: 100%;
-  min-height: 0;
-}
-.productCardJbs___2NeUn:global(.__wab_instance) {
-  max-width: 100%;
-  position: relative;
-  height: 100%;
-  min-height: 0;
-}
-.freeBox__rMAqc {
-  display: flex;
-  position: relative;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  min-width: 0;
-  padding: 24px;
-}
-@media (min-width: 0px) and (max-width: 768px) {
-  .freeBox__rMAqc {
-    padding-right: 8px;
-    padding-left: 8px;
-  }
-}
-.button__uE74L:global(.__wab_instance) {
-  max-width: 100%;
-  position: relative;
-  width: auto;
-  height: auto;
-}
-.svg__wh0Wx {
-  position: relative;
-  object-fit: cover;
-  width: auto;
-  height: 1em;
-}
-.text__qXuCj {
-  font-style: italic;
-  font-size: var(--token-Vzl0MpjGDjfd);
-  font-weight: 700;
-}
-.svg__gg2Hm {
-  position: relative;
-  object-fit: cover;
-  width: 1.2rem;
-  height: 100%;
-  min-height: 0;
 }
 .text___2Ayx {
   position: relative;
