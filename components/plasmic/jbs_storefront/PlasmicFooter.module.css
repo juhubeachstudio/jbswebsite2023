@@ -131,11 +131,20 @@
   width: auto;
   height: 1em;
 }
+.text__js8Qw {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .text__js8Qw {
+    font-size: 1.2rem;
+  }
+}
 .svg__dGkJ {
   position: relative;
   object-fit: cover;
   width: auto;
-  height: 1.2rem;
+  height: 1.6rem;
 }
 .freeBox__ovOtb {
   display: flex;

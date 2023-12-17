@@ -63,6 +63,7 @@ export const PlasmicCart2__ArgProps = new Array<ArgPropType>();
 export type PlasmicCart2__OverridesType = {
   root?: p.Flex<"div">;
   cartProvider?: p.Flex<typeof CartProvider>;
+  svg?: p.Flex<"svg">;
   img?: p.Flex<typeof p.PlasmicImg>;
   p?: p.Flex<"p">;
   specialInstructionsInput?: p.Flex<typeof SpecialInstructionsInput>;
@@ -176,10 +177,28 @@ function PlasmicCart2__RenderFunc(props: {
                   </div>
                   <Button
                     className={classNames("__wab_instance", sty.button__w6F7L)}
-                    color={"red"}
+                    color={"redJbs"}
+                    endIcon={
+                      <Icon38Icon
+                        data-plasmic-name={"svg"}
+                        data-plasmic-override={overrides.svg}
+                        className={classNames(projectcss.all, sty.svg)}
+                        role={"img"}
+                      />
+                    }
                     link={`/category/${"all"}`}
                     showEndIcon={true}
-                  />
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__ybIe6
+                      )}
+                    >
+                      {"SEE ALL OUR PRODUCTS"}
+                    </div>
+                  </Button>
                 </p.Stack>
               ) : null}
               {(() => {
@@ -686,9 +705,71 @@ function PlasmicCart2__RenderFunc(props: {
                       }}
                     />
                   </div>
-                  <div
+                  <p.Stack
+                    as={"div"}
+                    hasGap={true}
                     className={classNames(projectcss.all, sty.freeBox__dON3)}
                   >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text___8Htm2
+                      )}
+                    >
+                      <React.Fragment>
+                        <span
+                          className={
+                            "plasmic_default__all plasmic_default__span"
+                          }
+                          style={{ fontWeight: 700 }}
+                        >
+                          {"REGARDING CUSTOMISATION"}
+                        </span>
+                        <React.Fragment>{" - after you click "}</React.Fragment>
+                        <span
+                          className={
+                            "plasmic_default__all plasmic_default__span"
+                          }
+                          style={{ fontWeight: 700 }}
+                        >
+                          {"pay now"}
+                        </span>
+                        <React.Fragment>
+                          {" at checkout, in the "}
+                        </React.Fragment>
+                        <span
+                          className={
+                            "plasmic_default__all plasmic_default__span"
+                          }
+                          style={{ fontWeight: 700 }}
+                        >
+                          {"Billing Information"}
+                        </span>
+                        <React.Fragment>
+                          {
+                            " section, you will find a little box called notes . Please add your customisation text there. \nFor example:\n"
+                          }
+                        </React.Fragment>
+                        <span
+                          className={
+                            "plasmic_default__all plasmic_default__span"
+                          }
+                          style={{ fontStyle: "italic" }}
+                        >
+                          {"green heart - your text"}
+                        </span>
+                        <React.Fragment>{"\n"}</React.Fragment>
+                        <span
+                          className={
+                            "plasmic_default__all plasmic_default__span"
+                          }
+                          style={{ fontStyle: "italic" }}
+                        >
+                          {"pigeon - your text"}
+                        </span>
+                      </React.Fragment>
+                    </div>
                     <Button
                       className={classNames(
                         "__wab_instance",
@@ -719,7 +800,7 @@ function PlasmicCart2__RenderFunc(props: {
                         {"PROCEED TO CHECKOUT"}
                       </div>
                     </Button>
-                  </div>
+                  </p.Stack>
                 </div>
               ) : null}
             </React.Fragment>
@@ -731,8 +812,9 @@ function PlasmicCart2__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "cartProvider", "img", "p", "specialInstructionsInput"],
-  cartProvider: ["cartProvider", "img", "p", "specialInstructionsInput"],
+  root: ["root", "cartProvider", "svg", "img", "p", "specialInstructionsInput"],
+  cartProvider: ["cartProvider", "svg", "img", "p", "specialInstructionsInput"],
+  svg: ["svg"],
   img: ["img"],
   p: ["p"],
   specialInstructionsInput: ["specialInstructionsInput"]
@@ -743,6 +825,7 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   cartProvider: typeof CartProvider;
+  svg: "svg";
   img: typeof p.PlasmicImg;
   p: "p";
   specialInstructionsInput: typeof SpecialInstructionsInput;
@@ -809,6 +892,7 @@ export const PlasmicCart2 = Object.assign(
   {
     // Helper components rendering sub-elements
     cartProvider: makeNodeComponent("cartProvider"),
+    svg: makeNodeComponent("svg"),
     img: makeNodeComponent("img"),
     p: makeNodeComponent("p"),
     specialInstructionsInput: makeNodeComponent("specialInstructionsInput"),

@@ -1406,7 +1406,7 @@ function PlasmicHomepage__RenderFunc(props: {
                   >
                     {p.renderPlasmicSlot({
                       defaultContents:
-                        "Life is a party, these are the snacks \nour delightful new Textile Collectibles ",
+                        "Life is a party, these are the snacks \nOur delightful new Textile Collectibles ",
                       value: args.slot2,
                       className: classNames(sty.slotTargetSlot2)
                     })}
@@ -1420,6 +1420,7 @@ function PlasmicHomepage__RenderFunc(props: {
                         )}
                         color={"redJbs"}
                         link={`/category/${"chakhna"}`}
+                        size={"compact"}
                       >
                         <div
                           className={classNames(
@@ -1436,12 +1437,14 @@ function PlasmicHomepage__RenderFunc(props: {
                   })}
                 </div>
               </div>
-              <CategoryProductsSlider
-                className={classNames(
-                  "__wab_instance",
-                  sty.categoryProductsSlider__e2Pml
-                )}
-              />
+              <div className={classNames(projectcss.all, sty.freeBox__vqZiR)}>
+                <CategoryProductsSlider
+                  className={classNames(
+                    "__wab_instance",
+                    sty.categoryProductsSlider__e2Pml
+                  )}
+                />
+              </div>
             </Section>
             <Section
               className={classNames("__wab_instance", sty.section___3Ew)}
@@ -2662,6 +2665,11 @@ function PlasmicHomepage__RenderFunc(props: {
                       )}
                       color={"redJbs"}
                       link={`/category/${"giftsss"}`}
+                      size={
+                        hasVariant(globalVariants, "screen", "mobileOnly")
+                          ? "compact"
+                          : undefined
+                      }
                     >
                       <div
                         className={classNames(
@@ -2808,6 +2816,11 @@ function PlasmicHomepage__RenderFunc(props: {
                             )}
                             color={"red"}
                             link={`/category/${"bucket-hats"}`}
+                            size={
+                              hasVariant(globalVariants, "screen", "mobileOnly")
+                                ? "compact"
+                                : undefined
+                            }
                           >
                             <div
                               className={classNames(
@@ -2900,9 +2913,9 @@ function PlasmicHomepage__RenderFunc(props: {
                               sty.text__ip4Eu
                             )}
                           >
-                            {
-                              "A whimsical flower shaped bucket hat,\ncuz you're literally a fairy, we made this just for you"
-                            }
+                            {hasVariant(globalVariants, "screen", "mobileOnly")
+                              ? "A whimsical flower shaped bucket hat,\ncuz you're literally a fairy,\n we made this just for you"
+                              : "A whimsical flower shaped bucket hat,\ncuz you're literally a fairy, we made this just for you"}
                           </div>
                         }
                         slot3={
@@ -2913,6 +2926,16 @@ function PlasmicHomepage__RenderFunc(props: {
                             )}
                             color={"red"}
                             link={`/category/${"flower-hat"}`}
+                            shadow={
+                              hasVariant(globalVariants, "screen", "mobileOnly")
+                                ? []
+                                : undefined
+                            }
+                            size={
+                              hasVariant(globalVariants, "screen", "mobileOnly")
+                                ? "compact"
+                                : undefined
+                            }
                           >
                             <div
                               className={classNames(
@@ -2938,7 +2961,7 @@ function PlasmicHomepage__RenderFunc(props: {
                           src={
                             hasVariant(globalVariants, "screen", "mobileOnly")
                               ? {
-                                  src: "/plasmic/jbs_storefront/images/bannerHat2Mobile.png",
+                                  src: "/plasmic/jbs_storefront/images/bannerHat2Flipped.jpg",
                                   fullWidth: 858,
                                   fullHeight: 1206,
                                   aspectRatio: undefined
@@ -3219,7 +3242,7 @@ function PlasmicHomepage__RenderFunc(props: {
                       )}
                     >
                       {
-                        "Our brand celebrates the weird and wonderful conceptness of life through delightful, handrafted lifestyle accessory products."
+                        "Our brand celebrates the weird and wonderful conceptness of life through delightful, handcrafted lifestyle accessory products."
                       }
                     </div>
                   </div>
@@ -3236,7 +3259,7 @@ function PlasmicHomepage__RenderFunc(props: {
                       )}
                     >
                       {
-                        "Exploring textile waste\u2019s as a raw material for a scaleable + sustainable enterprise."
+                        "Exploring textile waste as a raw material for a scaleable + sustainable enterprise."
                       }
                     </div>
                     <Button
@@ -3253,6 +3276,11 @@ function PlasmicHomepage__RenderFunc(props: {
                       }
                       link={`/about`}
                       showEndIcon={true}
+                      size={
+                        hasVariant(globalVariants, "screen", "mobileOnly")
+                          ? "compact"
+                          : undefined
+                      }
                     >
                       <div
                         className={classNames(

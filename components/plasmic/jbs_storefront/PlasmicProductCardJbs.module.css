@@ -15,9 +15,16 @@
   display: flex;
   color: var(--token-ZGgUq6H0D);
   height: auto;
-  width: auto;
+  width: 100%;
   align-items: flex-start;
   justify-content: center;
+  min-width: 0;
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .link__cdKoo {
+    width: 100%;
+    min-width: 0;
+  }
 }
 .productMedia__rUWyF:global(.__wab_instance) {
   object-fit: cover;
@@ -33,6 +40,8 @@
 }
 @media (min-width: 0px) and (max-width: 768px) {
   .productMedia__rUWyF:global(.__wab_instance) {
+    flex-grow: 1;
+    flex-shrink: 0;
     border-width: 2px;
   }
 }

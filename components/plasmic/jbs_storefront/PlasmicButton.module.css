@@ -183,7 +183,7 @@
   background: #7f7e77;
 }
 .rootcolor_white:hover .buttoncolor_white {
-  background: #ffef5c;
+  background: var(--token-LN1YkB123lXQ);
 }
 .rootcolor_softBlue:hover .buttoncolor_softBlue {
   background: #e1f0ff;
@@ -385,6 +385,9 @@
 }
 .rootcolor_red:hover .slotTargetChildrencolor_red {
   color: var(--token-KUFb4wcAz);
+}
+.rootcolor_white:hover .slotTargetChildrencolor_white {
+  color: var(--token-kzT08fQBAHgz);
 }
 .rootcolor_clear:hover .slotTargetChildrencolor_clear {
   color: var(--token-vg8USqXsf);
