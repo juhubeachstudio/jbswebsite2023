@@ -40,11 +40,7 @@ import FullPage from "../../FullPage"; // plasmic-import: VpRM2nIn0R/component
 import Section from "../../Section"; // plasmic-import: GMAR4VOl00/component
 import { CategoryCollection } from "@plasmicpkgs/commerce";
 import { CategoryField } from "@plasmicpkgs/commerce";
-import TextInput from "../../TextInput"; // plasmic-import: Y6q1pqli4zM/component
-import { ProductCollection } from "@plasmicpkgs/commerce";
-import { ProductBox } from "@plasmicpkgs/commerce";
-import ProductCardJbs from "../../ProductCardJbs"; // plasmic-import: Ft4Mem_Zab/component
-import { GraphqlFetcher } from "@plasmicpkgs/plasmic-query";
+import ProductsSearch from "../../ProductsSearch"; // plasmic-import: V9g_ixtcrSzg/component
 import Button from "../../Button"; // plasmic-import: yEsI5slGwPm/component
 
 import { ScheduleValue, useSchedule } from "./PlasmicGlobalVariant__Schedule"; // plasmic-import: zd5JVdnkSq7D/globalVariant
@@ -56,7 +52,6 @@ import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic_antd_5_hostl
 import projectcss from "./plasmic_jbs_storefront.module.css"; // plasmic-import: heL2P6rJiLNgtnBJPb6i1m/projectcss
 import sty from "./PlasmicCategory.module.css"; // plasmic-import: PSeXEG18MHGr/css
 
-import SearchsvgIcon from "./icons/PlasmicIcon__Searchsvg"; // plasmic-import: iGJtLc9clP/icon
 import ChecksvgIcon from "./icons/PlasmicIcon__Checksvg"; // plasmic-import: ew07hyuAC0c/icon
 import Icon38Icon from "./icons/PlasmicIcon__Icon38"; // plasmic-import: 3r4KXWygi9v/icon
 
@@ -77,9 +72,7 @@ export type PlasmicCategory__OverridesType = {
   section?: p.Flex<typeof Section>;
   categoryCollection?: p.Flex<typeof CategoryCollection>;
   categoryField?: p.Flex<typeof CategoryField>;
-  textInput?: p.Flex<typeof TextInput>;
-  productCollection?: p.Flex<typeof ProductCollection>;
-  graphQlFetcher?: p.Flex<typeof GraphqlFetcher>;
+  productsSearch?: p.Flex<typeof ProductsSearch>;
 };
 
 export interface DefaultCategoryProps {}
@@ -114,24 +107,6 @@ function PlasmicCategory__RenderFunc(props: {
   const $refs = refsRef.current;
 
   const currentUser = p.useCurrentUser?.() || {};
-
-  const stateSpecs: Parameters<typeof p.useDollarState>[0] = React.useMemo(
-    () => [
-      {
-        path: "textInput.value",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ``
-      }
-    ],
-    [$props, $ctx, $refs]
-  );
-  const $state = p.useDollarState(stateSpecs, {
-    $props,
-    $ctx,
-    $queries: {},
-    $refs
-  });
 
   const globalVariants = ensureGlobalVariants({
     schedule: useSchedule(),
@@ -244,420 +219,14 @@ function PlasmicCategory__RenderFunc(props: {
                         field={"name"}
                       />
 
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__vLBny
-                        )}
-                      >
-                        <TextInput
-                          data-plasmic-name={"textInput"}
-                          data-plasmic-override={overrides.textInput}
-                          className={classNames(
-                            "__wab_instance",
-                            sty.textInput
-                          )}
-                          endIcon={
-                            <ChecksvgIcon
-                              className={classNames(
-                                projectcss.all,
-                                sty.svg___09M9S
-                              )}
-                              role={"img"}
-                            />
-                          }
-                          onChange={async (...eventArgs: any) => {
-                            ((...eventArgs) => {
-                              p.generateStateOnChangeProp($state, [
-                                "textInput",
-                                "value"
-                              ])((e => e.target?.value).apply(null, eventArgs));
-                            }).apply(null, eventArgs);
-                            (async event => {
-                              const $steps = {};
-
-                              $steps["updateTextInputValue"] = true
-                                ? (() => {
-                                    const actionArgs = {
-                                      variable: {
-                                        objRoot: $state,
-                                        variablePath: ["textInput", "value"]
-                                      },
-                                      operation: 0,
-                                      value: $state.textInput.value
-                                    };
-                                    return (({
-                                      variable,
-                                      value,
-                                      startIndex,
-                                      deleteCount
-                                    }) => {
-                                      if (!variable) {
-                                        return;
-                                      }
-                                      const { objRoot, variablePath } =
-                                        variable;
-
-                                      p.set(objRoot, variablePath, value);
-                                      return value;
-                                    })?.apply(null, [actionArgs]);
-                                  })()
-                                : undefined;
-                              if (
-                                $steps["updateTextInputValue"] != null &&
-                                typeof $steps["updateTextInputValue"] ===
-                                  "object" &&
-                                typeof $steps["updateTextInputValue"].then ===
-                                  "function"
-                              ) {
-                                $steps["updateTextInputValue"] = await $steps[
-                                  "updateTextInputValue"
-                                ];
-                              }
-                            }).apply(null, eventArgs);
-                          }}
-                          required={false}
-                          showStartIcon={true}
-                          type={"text"}
-                          value={
-                            p.generateStateValueProp($state, [
-                              "textInput",
-                              "value"
-                            ]) ?? ""
-                          }
-                        />
-                      </div>
-                      <ProductCollection
-                        data-plasmic-name={"productCollection"}
-                        data-plasmic-override={overrides.productCollection}
+                      <ProductsSearch
+                        data-plasmic-name={"productsSearch"}
+                        data-plasmic-override={overrides.productsSearch}
                         className={classNames(
                           "__wab_instance",
-                          sty.productCollection
+                          sty.productsSearch
                         )}
-                        emptyMessage={
-                          <ph.DataCtxReader>
-                            {$ctx => (
-                              <div
-                                className={classNames(
-                                  projectcss.all,
-                                  projectcss.__wab_text,
-                                  sty.text__dJyAc
-                                )}
-                              >
-                                {"No product found!"}
-                              </div>
-                            )}
-                          </ph.DataCtxReader>
-                        }
-                        loadingMessage={
-                          <ph.DataCtxReader>
-                            {$ctx => (
-                              <div
-                                className={classNames(
-                                  projectcss.all,
-                                  projectcss.__wab_text,
-                                  sty.text__n5Hqi
-                                )}
-                              >
-                                {"Loading..."}
-                              </div>
-                            )}
-                          </ph.DataCtxReader>
-                        }
-                        noAutoRepeat={true}
-                        noLayout={false}
-                        search={(() => {
-                          try {
-                            return $state.textInput.value || $ctx.params.slug;
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return undefined;
-                            }
-                            throw e;
-                          }
-                        })()}
-                        sort={"trending-desc"}
-                      >
-                        <ph.DataCtxReader>
-                          {$ctx =>
-                            (_par =>
-                              !_par ? [] : Array.isArray(_par) ? _par : [_par])(
-                              (() => {
-                                try {
-                                  return $ctx.products;
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return [];
-                                  }
-                                  throw e;
-                                }
-                              })()
-                            ).map((__plasmic_item_0, __plasmic_idx_0) => {
-                              const currentProduct = __plasmic_item_0;
-                              const productIndex = __plasmic_idx_0;
-                              return (
-                                <div
-                                  className={classNames(
-                                    projectcss.all,
-                                    sty.freeBox__jy2A1
-                                  )}
-                                  key={productIndex}
-                                >
-                                  <ProductBox
-                                    className={classNames(
-                                      "__wab_instance",
-                                      sty.productBox__zJkT
-                                    )}
-                                    id={(() => {
-                                      try {
-                                        return currentProduct.id;
-                                      } catch (e) {
-                                        if (
-                                          e instanceof TypeError ||
-                                          e?.plasmicType ===
-                                            "PlasmicUndefinedDataError"
-                                        ) {
-                                          return undefined;
-                                        }
-                                        throw e;
-                                      }
-                                    })()}
-                                  >
-                                    <ph.DataCtxReader>
-                                      {$ctx => (
-                                        <ProductCardJbs
-                                          className={classNames(
-                                            "__wab_instance",
-                                            sty.productCardJbs__yX45
-                                          )}
-                                          currentItem={(() => {
-                                            try {
-                                              return currentProduct;
-                                            } catch (e) {
-                                              if (
-                                                e instanceof TypeError ||
-                                                e?.plasmicType ===
-                                                  "PlasmicUndefinedDataError"
-                                              ) {
-                                                return undefined;
-                                              }
-                                              throw e;
-                                            }
-                                          })()}
-                                        />
-                                      )}
-                                    </ph.DataCtxReader>
-                                  </ProductBox>
-                                </div>
-                              );
-                            })
-                          }
-                        </ph.DataCtxReader>
-                      </ProductCollection>
-                      {false ? (
-                        <GraphqlFetcher
-                          data-plasmic-name={"graphQlFetcher"}
-                          data-plasmic-override={overrides.graphQlFetcher}
-                          className={classNames(
-                            "__wab_instance",
-                            sty.graphQlFetcher
-                          )}
-                          dataName={"fetchedData"}
-                          errorDisplay={
-                            <ph.DataCtxReader>
-                              {$ctx => "Error fetching data"}
-                            </ph.DataCtxReader>
-                          }
-                          headers={{
-                            "Content-Type": "application/json",
-                            Accept: "application/json",
-                            "X-Shopify-Storefront-Access-Token":
-                              "0f43cbfd628ae6e4fef6a34969378290"
-                          }}
-                          loadingDisplay={
-                            <ph.DataCtxReader>
-                              {$ctx => "Loading..."}
-                            </ph.DataCtxReader>
-                          }
-                          method={"POST"}
-                          noLayout={false}
-                          previewSpinner={false}
-                          query={{
-                            query:
-                              '{\n  products(first: 10, query: "collection:collars AND (product_type:short * OR title:short * OR tag:short *)") {\n    edges {\n      node {\n        id\n        title\n        priceRange {\n          minVariantPrice {\n            amount\n            currencyCode\n          }\n        }\n        images(first: 1) {\n          edges {\n            node {\n              altText\n            }\n          }\n        }\n      }\n    }\n  }\n}\n',
-                            variables: {}
-                          }}
-                          queryKey={(() => {
-                            try {
-                              return undefined;
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return undefined;
-                              }
-                              throw e;
-                            }
-                          })()}
-                          url={
-                            "https://juhubeachstudio.myshopify.com/api/2023-07/graphql.json"
-                          }
-                          varOverrides={(() => {
-                            try {
-                              return {
-                                categoryId: $ctx.currentCategory.id,
-                                searchText: $state.textInput.value
-                              };
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return {};
-                              }
-                              throw e;
-                            }
-                          })()}
-                        >
-                          <ph.DataCtxReader>
-                            {$ctx => (
-                              <div
-                                className={classNames(
-                                  projectcss.all,
-                                  sty.freeBox___9Iimi
-                                )}
-                              >
-                                {(_par =>
-                                  !_par
-                                    ? []
-                                    : Array.isArray(_par)
-                                    ? _par
-                                    : [_par])(
-                                  (() => {
-                                    try {
-                                      return JSON.parse(
-                                        $ctx.fetchedData.data.product.metafield
-                                          .value
-                                      );
-                                    } catch (e) {
-                                      if (
-                                        e instanceof TypeError ||
-                                        e?.plasmicType ===
-                                          "PlasmicUndefinedDataError"
-                                      ) {
-                                        return [];
-                                      }
-                                      throw e;
-                                    }
-                                  })()
-                                ).map((__plasmic_item_0, __plasmic_idx_0) => {
-                                  const currentItem = __plasmic_item_0;
-                                  const currentIndex = __plasmic_idx_0;
-                                  return (
-                                    <div
-                                      className={classNames(
-                                        projectcss.all,
-                                        sty.freeBox__mN316
-                                      )}
-                                      key={currentIndex}
-                                    >
-                                      <ProductBox
-                                        className={classNames(
-                                          "__wab_instance",
-                                          sty.productBox__kYtl
-                                        )}
-                                        id={(() => {
-                                          try {
-                                            return currentItem;
-                                          } catch (e) {
-                                            if (
-                                              e instanceof TypeError ||
-                                              e?.plasmicType ===
-                                                "PlasmicUndefinedDataError"
-                                            ) {
-                                              return undefined;
-                                            }
-                                            throw e;
-                                          }
-                                        })()}
-                                      >
-                                        <ph.DataCtxReader>
-                                          {$ctx => (
-                                            <ProductCardJbs
-                                              className={classNames(
-                                                "__wab_instance",
-                                                sty.productCardJbs___2NeUn
-                                              )}
-                                              currentItem={(() => {
-                                                try {
-                                                  return $ctx.currentProduct;
-                                                } catch (e) {
-                                                  if (
-                                                    e instanceof TypeError ||
-                                                    e?.plasmicType ===
-                                                      "PlasmicUndefinedDataError"
-                                                  ) {
-                                                    return undefined;
-                                                  }
-                                                  throw e;
-                                                }
-                                              })()}
-                                            />
-                                          )}
-                                        </ph.DataCtxReader>
-                                      </ProductBox>
-                                    </div>
-                                  );
-                                })}
-                                <div
-                                  className={classNames(
-                                    projectcss.all,
-                                    sty.freeBox__rMAqc
-                                  )}
-                                >
-                                  <Button
-                                    className={classNames(
-                                      "__wab_instance",
-                                      sty.button__uE74L
-                                    )}
-                                    color={"clear"}
-                                    endIcon={
-                                      <Icon38Icon
-                                        className={classNames(
-                                          projectcss.all,
-                                          sty.svg__gg2Hm
-                                        )}
-                                        role={"img"}
-                                      />
-                                    }
-                                    link={`/category/${"all"}`}
-                                    shape={"sharp"}
-                                    showEndIcon={true}
-                                  >
-                                    <div
-                                      className={classNames(
-                                        projectcss.all,
-                                        projectcss.__wab_text,
-                                        sty.text__qXuCj
-                                      )}
-                                    >
-                                      {"SEE ALL"}
-                                    </div>
-                                  </Button>
-                                </div>
-                              </div>
-                            )}
-                          </ph.DataCtxReader>
-                        </GraphqlFetcher>
-                      ) : null}
+                      />
                     </div>
                   )}
                 </ph.DataCtxReader>
@@ -682,21 +251,35 @@ function PlasmicCategory__RenderFunc(props: {
                     {"SEE ALL CATEGORIES"}
                   </div>
                 </Button>
-                <Button
-                  className={classNames("__wab_instance", sty.button__ofyzo)}
-                  color={"red"}
-                  link={`/category/${"all"}`}
-                >
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__yQesa
-                    )}
+                {(() => {
+                  try {
+                    return $ctx.params.slug !== "all";
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return true;
+                    }
+                    throw e;
+                  }
+                })() ? (
+                  <Button
+                    className={classNames("__wab_instance", sty.button__ofyzo)}
+                    color={"redJbs"}
+                    link={`/category/${"all"}`}
                   >
-                    {"SHOP ALL"}
-                  </div>
-                </Button>
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__yQesa
+                      )}
+                    >
+                      {"SHOP ALL"}
+                    </div>
+                  </Button>
+                ) : null}
               </p.Stack>
             </Section>
           </FullPage>
@@ -713,38 +296,19 @@ const PlasmicDescendants = {
     "section",
     "categoryCollection",
     "categoryField",
-    "textInput",
-    "productCollection",
-    "graphQlFetcher"
+    "productsSearch"
   ],
   fullPage: [
     "fullPage",
     "section",
     "categoryCollection",
     "categoryField",
-    "textInput",
-    "productCollection",
-    "graphQlFetcher"
+    "productsSearch"
   ],
-  section: [
-    "section",
-    "categoryCollection",
-    "categoryField",
-    "textInput",
-    "productCollection",
-    "graphQlFetcher"
-  ],
-  categoryCollection: [
-    "categoryCollection",
-    "categoryField",
-    "textInput",
-    "productCollection",
-    "graphQlFetcher"
-  ],
+  section: ["section", "categoryCollection", "categoryField", "productsSearch"],
+  categoryCollection: ["categoryCollection", "categoryField", "productsSearch"],
   categoryField: ["categoryField"],
-  textInput: ["textInput"],
-  productCollection: ["productCollection"],
-  graphQlFetcher: ["graphQlFetcher"]
+  productsSearch: ["productsSearch"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -755,9 +319,7 @@ type NodeDefaultElementType = {
   section: typeof Section;
   categoryCollection: typeof CategoryCollection;
   categoryField: typeof CategoryField;
-  textInput: typeof TextInput;
-  productCollection: typeof ProductCollection;
-  graphQlFetcher: typeof GraphqlFetcher;
+  productsSearch: typeof ProductsSearch;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -824,9 +386,7 @@ export const PlasmicCategory = Object.assign(
     section: makeNodeComponent("section"),
     categoryCollection: makeNodeComponent("categoryCollection"),
     categoryField: makeNodeComponent("categoryField"),
-    textInput: makeNodeComponent("textInput"),
-    productCollection: makeNodeComponent("productCollection"),
-    graphQlFetcher: makeNodeComponent("graphQlFetcher"),
+    productsSearch: makeNodeComponent("productsSearch"),
 
     // Metadata about props expected for PlasmicCategory
     internalVariantProps: PlasmicCategory__VariantProps,

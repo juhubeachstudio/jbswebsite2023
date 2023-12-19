@@ -93,6 +93,7 @@
   height: auto;
   background: none;
   backdrop-filter: none;
+  display: grid;
   -webkit-backdrop-filter: none;
 }
 .sectionglobal_schedule_override > * {
