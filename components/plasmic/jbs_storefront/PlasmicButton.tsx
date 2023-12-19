@@ -591,6 +591,11 @@ function PlasmicButton__RenderFunc(props: {
               "redJbs"
             ),
             [sty.contentContainercolor_red]: hasVariant($state, "color", "red"),
+            [sty.contentContainercolor_white]: hasVariant(
+              $state,
+              "color",
+              "white"
+            ),
             [sty.contentContainerisDisabled]: hasVariant(
               $state,
               "isDisabled",

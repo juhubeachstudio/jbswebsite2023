@@ -1369,6 +1369,19 @@
           "cssFilePath": "plasmic/jbs_storefront/PlasmicCountdown.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "V9g_ixtcrSzg",
+          "name": "ProductsSearch",
+          "type": "managed",
+          "projectId": "heL2P6rJiLNgtnBJPb6i1m",
+          "renderModuleFilePath": "plasmic/jbs_storefront/PlasmicProductsSearch.tsx",
+          "importSpec": {
+            "modulePath": "ProductsSearch.tsx"
+          },
+          "cssFilePath": "plasmic/jbs_storefront/PlasmicProductsSearch.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [
@@ -2283,6 +2296,11 @@
           "id": "vGkAfT8MVk4h",
           "name": "Footer (resized)",
           "filePath": "../public/plasmic/jbs_storefront/images/footerResized.jpg"
+        },
+        {
+          "id": "F2Cu3qXtyX_a",
+          "name": "Banner hat 2 flipped",
+          "filePath": "../public/plasmic/jbs_storefront/images/bannerHat2Flipped.jpg"
         }
       ],
       "indirect": false,

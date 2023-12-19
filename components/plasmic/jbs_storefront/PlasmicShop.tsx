@@ -40,8 +40,7 @@ import FullPage from "../../FullPage"; // plasmic-import: VpRM2nIn0R/component
 import Section from "../../Section"; // plasmic-import: GMAR4VOl00/component
 import { CategoryCollection } from "@plasmicpkgs/commerce";
 import { CategoryField } from "@plasmicpkgs/commerce";
-import { ProductCollection } from "@plasmicpkgs/commerce";
-import ProductCardJbs from "../../ProductCardJbs"; // plasmic-import: Ft4Mem_Zab/component
+import ProductsSearch from "../../ProductsSearch"; // plasmic-import: V9g_ixtcrSzg/component
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -67,8 +66,7 @@ export type PlasmicShop__OverridesType = {
   categoryCollection?: p.Flex<typeof CategoryCollection>;
   freeBox?: p.Flex<"div">;
   categoryField?: p.Flex<typeof CategoryField>;
-  productCollection?: p.Flex<typeof ProductCollection>;
-  productCardJbs?: p.Flex<typeof ProductCardJbs>;
+  productsSearch?: p.Flex<typeof ProductsSearch>;
 };
 
 export interface DefaultShopProps {}
@@ -194,58 +192,14 @@ function PlasmicShop__RenderFunc(props: {
                         field={"name"}
                       />
 
-                      <ProductCollection
-                        data-plasmic-name={"productCollection"}
-                        data-plasmic-override={overrides.productCollection}
+                      <ProductsSearch
+                        data-plasmic-name={"productsSearch"}
+                        data-plasmic-override={overrides.productsSearch}
                         className={classNames(
                           "__wab_instance",
-                          sty.productCollection
+                          sty.productsSearch
                         )}
-                        emptyMessage={
-                          <ph.DataCtxReader>
-                            {$ctx => (
-                              <div
-                                className={classNames(
-                                  projectcss.all,
-                                  projectcss.__wab_text,
-                                  sty.text___2X4UH
-                                )}
-                              >
-                                {"No product found!"}
-                              </div>
-                            )}
-                          </ph.DataCtxReader>
-                        }
-                        loadingMessage={
-                          <ph.DataCtxReader>
-                            {$ctx => (
-                              <div
-                                className={classNames(
-                                  projectcss.all,
-                                  projectcss.__wab_text,
-                                  sty.text__uqVt7
-                                )}
-                              >
-                                {"Loading..."}
-                              </div>
-                            )}
-                          </ph.DataCtxReader>
-                        }
-                        sort={"trending-desc"}
-                      >
-                        <ph.DataCtxReader>
-                          {$ctx => (
-                            <ProductCardJbs
-                              data-plasmic-name={"productCardJbs"}
-                              data-plasmic-override={overrides.productCardJbs}
-                              className={classNames(
-                                "__wab_instance",
-                                sty.productCardJbs
-                              )}
-                            />
-                          )}
-                        </ph.DataCtxReader>
-                      </ProductCollection>
+                      />
                     </div>
                   )}
                 </ph.DataCtxReader>
@@ -266,8 +220,7 @@ const PlasmicDescendants = {
     "categoryCollection",
     "freeBox",
     "categoryField",
-    "productCollection",
-    "productCardJbs"
+    "productsSearch"
   ],
   fullPage: [
     "fullPage",
@@ -275,28 +228,24 @@ const PlasmicDescendants = {
     "categoryCollection",
     "freeBox",
     "categoryField",
-    "productCollection",
-    "productCardJbs"
+    "productsSearch"
   ],
   section: [
     "section",
     "categoryCollection",
     "freeBox",
     "categoryField",
-    "productCollection",
-    "productCardJbs"
+    "productsSearch"
   ],
   categoryCollection: [
     "categoryCollection",
     "freeBox",
     "categoryField",
-    "productCollection",
-    "productCardJbs"
+    "productsSearch"
   ],
-  freeBox: ["freeBox", "categoryField", "productCollection", "productCardJbs"],
+  freeBox: ["freeBox", "categoryField", "productsSearch"],
   categoryField: ["categoryField"],
-  productCollection: ["productCollection", "productCardJbs"],
-  productCardJbs: ["productCardJbs"]
+  productsSearch: ["productsSearch"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -308,8 +257,7 @@ type NodeDefaultElementType = {
   categoryCollection: typeof CategoryCollection;
   freeBox: "div";
   categoryField: typeof CategoryField;
-  productCollection: typeof ProductCollection;
-  productCardJbs: typeof ProductCardJbs;
+  productsSearch: typeof ProductsSearch;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -377,8 +325,7 @@ export const PlasmicShop = Object.assign(
     categoryCollection: makeNodeComponent("categoryCollection"),
     freeBox: makeNodeComponent("freeBox"),
     categoryField: makeNodeComponent("categoryField"),
-    productCollection: makeNodeComponent("productCollection"),
-    productCardJbs: makeNodeComponent("productCardJbs"),
+    productsSearch: makeNodeComponent("productsSearch"),
 
     // Metadata about props expected for PlasmicShop
     internalVariantProps: PlasmicShop__VariantProps,
