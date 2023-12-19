@@ -180,7 +180,7 @@ function PlasmicJbsMenu__RenderFunc(props: {
             "revealSubMenu"
           )
         })}
-        color={"red"}
+        color={"redJbs"}
         onClick={async event => {
           const $steps = {};
 
@@ -251,7 +251,9 @@ function PlasmicJbsMenu__RenderFunc(props: {
             "revealSubMenu"
           )
         })}
-        color={hasVariant($state, "revealMenu", "revealMenu") ? "red" : "red"}
+        color={
+          hasVariant($state, "revealMenu", "revealMenu") ? "red" : "redJbs"
+        }
         link={`/`}
         shape={"sharp"}
         size={"minimal"}
@@ -281,7 +283,9 @@ function PlasmicJbsMenu__RenderFunc(props: {
             "revealSubMenu"
           )
         })}
-        color={hasVariant($state, "revealMenu", "revealMenu") ? "red" : "red"}
+        color={
+          hasVariant($state, "revealMenu", "revealMenu") ? "red" : "redJbs"
+        }
         link={`/about`}
         shape={"sharp"}
         size={"minimal"}
@@ -323,7 +327,9 @@ function PlasmicJbsMenu__RenderFunc(props: {
               "revealSubMenu"
             )
           })}
-          color={hasVariant($state, "revealMenu", "revealMenu") ? "red" : "red"}
+          color={
+            hasVariant($state, "revealMenu", "revealMenu") ? "red" : "redJbs"
+          }
           onClick={async event => {
             const $steps = {};
 
@@ -393,7 +399,7 @@ function PlasmicJbsMenu__RenderFunc(props: {
               )
             })}
             color={
-              hasVariant($state, "revealMenu", "revealMenu") ? "red" : "red"
+              hasVariant($state, "revealMenu", "revealMenu") ? "red" : "redJbs"
             }
             link={`/categories`}
             onClick={async event => {
@@ -453,7 +459,7 @@ function PlasmicJbsMenu__RenderFunc(props: {
               )
             })}
             color={
-              hasVariant($state, "revealMenu", "revealMenu") ? "red" : "red"
+              hasVariant($state, "revealMenu", "revealMenu") ? "red" : "redJbs"
             }
             link={`/category/${"all"}`}
             onClick={async event => {
@@ -505,7 +511,7 @@ function PlasmicJbsMenu__RenderFunc(props: {
               )
             })}
             color={
-              hasVariant($state, "revealMenu", "revealMenu") ? "red" : "red"
+              hasVariant($state, "revealMenu", "revealMenu") ? "red" : "redJbs"
             }
             link={`/category/${"caps"}`}
             onClick={async event => {
@@ -565,7 +571,7 @@ function PlasmicJbsMenu__RenderFunc(props: {
               )
             })}
             color={
-              hasVariant($state, "revealMenu", "revealMenu") ? "red" : "red"
+              hasVariant($state, "revealMenu", "revealMenu") ? "red" : "redJbs"
             }
             link={`/category/${"flower-hat"}`}
             onClick={async event => {
@@ -617,7 +623,7 @@ function PlasmicJbsMenu__RenderFunc(props: {
               )
             })}
             color={
-              hasVariant($state, "revealMenu", "revealMenu") ? "red" : "red"
+              hasVariant($state, "revealMenu", "revealMenu") ? "red" : "redJbs"
             }
             link={`/category/${"bucket-hats"}`}
             onClick={async event => {
@@ -677,7 +683,7 @@ function PlasmicJbsMenu__RenderFunc(props: {
               )
             })}
             color={
-              hasVariant($state, "revealMenu", "revealMenu") ? "red" : "red"
+              hasVariant($state, "revealMenu", "revealMenu") ? "red" : "redJbs"
             }
             link={`/category/${"collars"}`}
             onClick={async event => {
@@ -729,7 +735,7 @@ function PlasmicJbsMenu__RenderFunc(props: {
               )
             })}
             color={
-              hasVariant($state, "revealMenu", "revealMenu") ? "red" : "red"
+              hasVariant($state, "revealMenu", "revealMenu") ? "red" : "redJbs"
             }
             link={`/category/${"bags"}`}
             onClick={async event => {
@@ -781,7 +787,7 @@ function PlasmicJbsMenu__RenderFunc(props: {
               )
             })}
             color={
-              hasVariant($state, "revealMenu", "revealMenu") ? "red" : "red"
+              hasVariant($state, "revealMenu", "revealMenu") ? "red" : "redJbs"
             }
             link={`/category/${"chakhna"}`}
             onClick={async event => {
@@ -833,7 +839,7 @@ function PlasmicJbsMenu__RenderFunc(props: {
               )
             })}
             color={
-              hasVariant($state, "revealMenu", "revealMenu") ? "red" : "red"
+              hasVariant($state, "revealMenu", "revealMenu") ? "red" : "redJbs"
             }
             link={`/category/${"pet-stuff"}`}
             onClick={async event => {
@@ -885,7 +891,7 @@ function PlasmicJbsMenu__RenderFunc(props: {
               )
             })}
             color={
-              hasVariant($state, "revealMenu", "revealMenu") ? "red" : "red"
+              hasVariant($state, "revealMenu", "revealMenu") ? "red" : "redJbs"
             }
             link={`/category/${"decor"}`}
             onClick={async event => {
@@ -937,7 +943,7 @@ function PlasmicJbsMenu__RenderFunc(props: {
               )
             })}
             color={
-              hasVariant($state, "revealMenu", "revealMenu") ? "red" : "red"
+              hasVariant($state, "revealMenu", "revealMenu") ? "red" : "redJbs"
             }
             link={`/category/${"giftsss"}`}
             onClick={async event => {
@@ -989,7 +995,7 @@ function PlasmicJbsMenu__RenderFunc(props: {
               )
             })}
             color={
-              hasVariant($state, "revealMenu", "revealMenu") ? "red" : "red"
+              hasVariant($state, "revealMenu", "revealMenu") ? "red" : "redJbs"
             }
             link={`/category/${"mystery-boxes"}`}
             onClick={async event => {

@@ -135,6 +135,12 @@
   width: auto;
   height: 1em;
 }
+.text__bcGYs {
+  padding-right: 0px;
+  padding-left: 0px;
+  font-weight: 700;
+  font-size: var(--token-Vzl0MpjGDjfd);
+}
 .svg__lZoa6 {
   position: relative;
   object-fit: cover;
