@@ -1068,7 +1068,20 @@ function PlasmicHomepage__RenderFunc(props: {
                                         "screen",
                                         "mobileOnly"
                                       )
-                                        ? `/category/${"currentItem.slug"}`
+                                        ? `/category/${(() => {
+                                            try {
+                                              return currentItem.slug;
+                                            } catch (e) {
+                                              if (
+                                                e instanceof TypeError ||
+                                                e?.plasmicType ===
+                                                  "PlasmicUndefinedDataError"
+                                              ) {
+                                                return undefined;
+                                              }
+                                              throw e;
+                                            }
+                                          })()}`
                                         : `/category/${(() => {
                                             try {
                                               return currentItem.slug;
