@@ -21,6 +21,11 @@
 .root > * {
   grid-column: 4;
 }
+@media (min-width: 0px) and (max-width: 768px) {
+  .root > * {
+    grid-column: 4;
+  }
+}
 .fullPage:global(.__wab_instance) {
   max-width: 100%;
   position: relative;

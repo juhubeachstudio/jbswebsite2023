@@ -42,6 +42,8 @@ import { CategoryCollection } from "@plasmicpkgs/commerce";
 import CategoryCard from "../../CategoryCard"; // plasmic-import: VOdWaLC8FIM5/component
 import Button from "../../Button"; // plasmic-import: yEsI5slGwPm/component
 
+import { useScreenVariants as useScreenVariants_6Hzia3M7Np4Ulu } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6hzia3m7Np4ulu/globalVariant
+
 import "@plasmicapp/react-web/lib/plasmic.css";
 
 import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic_antd_5_hostless.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
@@ -103,6 +105,10 @@ function PlasmicCategories__RenderFunc(props: {
   const $refs = refsRef.current;
 
   const currentUser = p.useCurrentUser?.() || {};
+
+  const globalVariants = ensureGlobalVariants({
+    screen: useScreenVariants_6Hzia3M7Np4Ulu()
+  });
 
   return (
     <React.Fragment>
@@ -236,9 +242,24 @@ function PlasmicCategories__RenderFunc(props: {
                   data-plasmic-name={"button"}
                   data-plasmic-override={overrides.button}
                   className={classNames("__wab_instance", sty.button)}
-                  color={"red"}
+                  color={"redJbs"}
                   link={`/category/${"all"}`}
-                />
+                  size={
+                    hasVariant(globalVariants, "screen", "mobileOnly")
+                      ? "compact"
+                      : undefined
+                  }
+                >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__bcGYs
+                    )}
+                  >
+                    {"SHOP ALL CATEGORIES"}
+                  </div>
+                </Button>
               </p.Stack>
             </Section>
           </FullPage>

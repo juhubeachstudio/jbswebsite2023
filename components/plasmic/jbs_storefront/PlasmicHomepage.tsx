@@ -20,6 +20,13 @@ import { useRouter } from "next/router";
 import * as p from "@plasmicapp/react-web";
 import * as ph from "@plasmicapp/react-web/lib/host";
 
+import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
+import {
+  executePlasmicDataOp,
+  usePlasmicDataOp,
+  usePlasmicInvalidate
+} from "@plasmicapp/react-web/lib/data-sources";
+
 import {
   hasVariant,
   classNames,
@@ -47,10 +54,12 @@ import Marquee from "react-fast-marquee"; // plasmic-import: m9EkGU-jS0/codeComp
 import FullpagewidthSlide from "../../FullpagewidthSlide"; // plasmic-import: DUKvgkpbeBWf/component
 import Button from "../../Button"; // plasmic-import: yEsI5slGwPm/component
 import CategoryProductsSlider from "../../CategoryProductsSlider"; // plasmic-import: 3Ndtrkcj4d1_/component
-import { ProductCollection } from "@plasmicpkgs/commerce";
+import { GraphqlFetcher } from "@plasmicpkgs/plasmic-query";
+import { DataProvider } from "@plasmicpkgs/plasmic-basic-components";
 import { ProductBox } from "@plasmicpkgs/commerce";
 import { ProductMedia } from "@plasmicpkgs/commerce";
 import { ProductTextField } from "@plasmicpkgs/commerce";
+import { ProductCollection } from "@plasmicpkgs/commerce";
 import SurpriseMeButton from "../../SurpriseMeButton"; // plasmic-import: cuLrZTUy4Zrk/component
 import HeaderSlide from "../../HeaderSlide"; // plasmic-import: dIysgpuSQtRE/component
 import { AntdSliderMark } from "@plasmicpkgs/antd5/skinny/registerSlider";
@@ -100,8 +109,10 @@ export type PlasmicHomepage__OverridesType = {
   shopCategoriesSlides?: p.Flex<typeof SliderWrapper>;
   span?: p.Flex<"span">;
   sliderCarousel3?: p.Flex<typeof SliderWrapper>;
-  sliderCarousel5?: p.Flex<typeof SliderWrapper>;
-  sliderCarousel11?: p.Flex<typeof SliderWrapper>;
+  graphQlFetcher?: p.Flex<typeof GraphqlFetcher>;
+  dataProvider?: p.Flex<typeof DataProvider>;
+  sliderCarousel7?: p.Flex<typeof SliderWrapper>;
+  productCollection?: p.Flex<typeof ProductCollection>;
   surpriseMeButton?: p.Flex<typeof SurpriseMeButton>;
   sliderCarousel6?: p.Flex<typeof SliderWrapper>;
   sliderMark?: p.Flex<typeof AntdSliderMark>;
@@ -179,30 +190,6 @@ function PlasmicHomepage__RenderFunc(props: {
         )
       },
       {
-        path: "sliderCarousel5.currentSlide",
-        type: "private",
-        variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) => 0,
-
-        refName: "sliderCarousel5",
-        onMutate: p.generateOnMutateForSpec(
-          "currentSlide",
-          SliderWrapper_Helpers
-        )
-      },
-      {
-        path: "sliderCarousel11.currentSlide",
-        type: "private",
-        variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) => 0,
-
-        refName: "sliderCarousel11",
-        onMutate: p.generateOnMutateForSpec(
-          "currentSlide",
-          SliderWrapper_Helpers
-        )
-      },
-      {
         path: "sliderCarousel6.currentSlide",
         type: "private",
         variableType: "number",
@@ -213,6 +200,24 @@ function PlasmicHomepage__RenderFunc(props: {
           "currentSlide",
           SliderWrapper_Helpers
         )
+      },
+      {
+        path: "sliderCarousel7.currentSlide",
+        type: "private",
+        variableType: "number",
+        initFunc: ({ $props, $state, $queries, $ctx }) => 0,
+
+        refName: "sliderCarousel7",
+        onMutate: p.generateOnMutateForSpec(
+          "currentSlide",
+          SliderWrapper_Helpers
+        )
+      },
+      {
+        path: "randomProducts",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
       }
     ],
     [$props, $ctx, $refs]
@@ -223,6 +228,8 @@ function PlasmicHomepage__RenderFunc(props: {
     $queries: {},
     $refs
   });
+  const dataSourcesCtx = usePlasmicDataSourceContext();
+  const plasmicInvalidate = usePlasmicInvalidate();
 
   const globalVariants = ensureGlobalVariants({
     schedule: useSchedule(),
@@ -1406,7 +1413,7 @@ function PlasmicHomepage__RenderFunc(props: {
                   >
                     {p.renderPlasmicSlot({
                       defaultContents:
-                        "Life is a party, these are the snacks \nour delightful new Textile Collectibles ",
+                        "Life is a party, these are the snacks \nOur delightful new Textile Collectibles ",
                       value: args.slot2,
                       className: classNames(sty.slotTargetSlot2)
                     })}
@@ -1420,6 +1427,7 @@ function PlasmicHomepage__RenderFunc(props: {
                         )}
                         color={"redJbs"}
                         link={`/category/${"chakhna"}`}
+                        size={"compact"}
                       >
                         <div
                           className={classNames(
@@ -1436,12 +1444,14 @@ function PlasmicHomepage__RenderFunc(props: {
                   })}
                 </div>
               </div>
-              <CategoryProductsSlider
-                className={classNames(
-                  "__wab_instance",
-                  sty.categoryProductsSlider__e2Pml
-                )}
-              />
+              <div className={classNames(projectcss.all, sty.freeBox__vqZiR)}>
+                <CategoryProductsSlider
+                  className={classNames(
+                    "__wab_instance",
+                    sty.categoryProductsSlider__e2Pml
+                  )}
+                />
+              </div>
             </Section>
             <Section
               className={classNames("__wab_instance", sty.section___3Ew)}
@@ -1484,1012 +1494,750 @@ function PlasmicHomepage__RenderFunc(props: {
                   >
                     {"Looking for something different?"}
                   </div>
-                  {(() => {
-                    const child$Props = {
-                      arrowColor: true ? "var(--antd-colorWhite)" : undefined,
-                      arrows: true,
-                      autoplay: true,
-                      beforeChange:
-                        p.generateStateOnChangePropForCodeComponents(
-                          $state,
-                          "currentSlide",
-                          ["sliderCarousel5", "currentSlide"],
-                          SliderWrapper_Helpers
-                        ),
-                      centerMode: true,
-                      className: classNames(
-                        "__wab_instance",
-                        sty.sliderCarousel5
-                      ),
-                      dots: true,
-                      initialSlide: p.generateStateValueProp($state, [
-                        "sliderCarousel5",
-                        "currentSlide"
-                      ]),
-                      ref: ref => {
-                        $refs["sliderCarousel5"] = ref;
-                      },
-                      sliderScopeClassName: sty["sliderCarousel5__slider"],
-                      slidesToShow: 3
-                    };
-                    p.initializeCodeComponentStates(
-                      $state,
-                      [
-                        {
-                          name: "currentSlide",
-                          plasmicStateName: "sliderCarousel5.currentSlide"
-                        }
-                      ],
-                      [],
-                      SliderWrapper_Helpers ?? {},
-                      child$Props
-                    );
-
-                    return (
-                      <SliderWrapper
-                        data-plasmic-name={"sliderCarousel5"}
-                        data-plasmic-override={overrides.sliderCarousel5}
-                        {...child$Props}
-                      >
-                        <ProductCollection
-                          category={"gid://shopify/Collection/455454589224"}
+                  <GraphqlFetcher
+                    data-plasmic-name={"graphQlFetcher"}
+                    data-plasmic-override={overrides.graphQlFetcher}
+                    className={classNames("__wab_instance", sty.graphQlFetcher)}
+                    dataName={"productsData"}
+                    errorDisplay={
+                      <ph.DataCtxReader>
+                        {$ctx => "Error fetching data"}
+                      </ph.DataCtxReader>
+                    }
+                    headers={{
+                      "Content-Type": "application/json",
+                      Accept: "application/json",
+                      "X-Shopify-Storefront-Access-Token":
+                        "0f43cbfd628ae6e4fef6a34969378290"
+                    }}
+                    loadingDisplay={
+                      <ph.DataCtxReader>
+                        {$ctx => "Loading..."}
+                      </ph.DataCtxReader>
+                    }
+                    method={"POST"}
+                    noLayout={true}
+                    query={{
+                      query:
+                        "query getProductsWithFilter($first: Int = 250) {\n  products(first: $first) {\n    edges {\n      node {\n        id\n        collections(first: 10) {\n          edges {\n            node {\n              title\n              handle\n            }\n          }\n        }\n      }\n    }\n  }\n}\n",
+                      variables: { name: "Rick Sanchez" }
+                    }}
+                    queryKey={"randomProducts"}
+                    url={
+                      "https://juhubeachstudio.myshopify.com/api/2022-07/graphql.json"
+                    }
+                    varOverrides={{}}
+                  >
+                    <ph.DataCtxReader>
+                      {$ctx => (
+                        <DataProvider
+                          data-plasmic-name={"dataProvider"}
+                          data-plasmic-override={overrides.dataProvider}
                           className={classNames(
                             "__wab_instance",
-                            sty.productCollection__ctIC
+                            sty.dataProvider
                           )}
-                          emptyMessage={
-                            <ph.DataCtxReader>
-                              {$ctx => (
-                                <div
-                                  className={classNames(
-                                    projectcss.all,
-                                    projectcss.__wab_text,
-                                    sty.text__sUDj2
-                                  )}
-                                >
-                                  {"No product found!"}
-                                </div>
-                              )}
-                            </ph.DataCtxReader>
-                          }
-                          loadingMessage={
-                            <ph.DataCtxReader>
-                              {$ctx => (
-                                <div
-                                  className={classNames(
-                                    projectcss.all,
-                                    projectcss.__wab_text,
-                                    sty.text___7Nuk
-                                  )}
-                                >
-                                  {"Loading..."}
-                                </div>
-                              )}
-                            </ph.DataCtxReader>
-                          }
-                          noAutoRepeat={true}
+                          data={(() => {
+                            try {
+                              return (() => {
+                                const numberOfProductsToChoose = 3;
+                                const products =
+                                  $ctx.productsData.data.products.edges;
+                                const categoriesToRemove = [
+                                  "headwear",
+                                  "chakhna",
+                                  "mystery-boxes"
+                                ];
+
+                                const filteredProducts = products.filter(
+                                  product => {
+                                    const productCategories =
+                                      product.node.collections.edges.map(
+                                        edge => edge.node.handle
+                                      );
+                                    return !categoriesToRemove.some(category =>
+                                      productCategories.includes(category)
+                                    );
+                                  }
+                                );
+                                const offset = new Date().getMinutes();
+                                const selectedElements = filteredProducts.slice(
+                                  offset % filteredProducts.length,
+                                  (offset + 3) % filteredProducts.length
+                                );
+                                return selectedElements;
+                              })();
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return {};
+                              }
+                              throw e;
+                            }
+                          })()}
+                          name={"randomProducts"}
                         >
                           <ph.DataCtxReader>
                             {$ctx => (
-                              <ProductBox
-                                className={classNames(
-                                  "__wab_instance",
-                                  sty.productBox__byAfg
-                                )}
-                                id={(() => {
-                                  try {
-                                    return $ctx.products[0].id;
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return undefined;
-                                    }
-                                    throw e;
-                                  }
-                                })()}
-                              >
-                                <ph.DataCtxReader>
-                                  {$ctx => (
-                                    <div
-                                      className={classNames(
-                                        projectcss.all,
-                                        sty.freeBox___8BaHw
-                                      )}
-                                      onClick={async event => {
-                                        const $steps = {};
+                              <React.Fragment>
+                                {false ? (
+                                  <div
+                                    className={classNames(
+                                      projectcss.all,
+                                      sty.freeBox__xoBRs
+                                    )}
+                                    onLoad={async event => {
+                                      const $steps = {};
 
-                                        $steps["goToProductPage"] = true
-                                          ? (() => {
-                                              const actionArgs = {
-                                                destination: `/product/${(() => {
-                                                  try {
-                                                    return $ctx.currentProduct
-                                                      .slug;
-                                                  } catch (e) {
-                                                    if (
-                                                      e instanceof TypeError ||
-                                                      e?.plasmicType ===
-                                                        "PlasmicUndefinedDataError"
-                                                    ) {
-                                                      return undefined;
-                                                    }
-                                                    throw e;
-                                                  }
-                                                })()}`
-                                              };
-                                              return (({ destination }) => {
-                                                if (
-                                                  typeof destination ===
-                                                    "string" &&
-                                                  destination.startsWith("#")
-                                                ) {
-                                                  document
-                                                    .getElementById(
-                                                      destination.substr(1)
-                                                    )
-                                                    .scrollIntoView({
-                                                      behavior: "smooth"
-                                                    });
-                                                } else {
-                                                  __nextRouter?.push(
-                                                    destination
-                                                  );
-                                                }
-                                              })?.apply(null, [actionArgs]);
-                                            })()
-                                          : undefined;
-                                        if (
-                                          $steps["goToProductPage"] != null &&
-                                          typeof $steps["goToProductPage"] ===
-                                            "object" &&
-                                          typeof $steps["goToProductPage"]
-                                            .then === "function"
-                                        ) {
-                                          $steps["goToProductPage"] =
-                                            await $steps["goToProductPage"];
+                                      $steps["refreshData"] = true
+                                        ? (() => {
+                                            const actionArgs = {
+                                              queryInvalidation: [
+                                                "plasmic_refresh_all"
+                                              ]
+                                            };
+                                            return (async ({
+                                              queryInvalidation
+                                            }) => {
+                                              if (!queryInvalidation) {
+                                                return;
+                                              }
+                                              await plasmicInvalidate(
+                                                queryInvalidation
+                                              );
+                                            })?.apply(null, [actionArgs]);
+                                          })()
+                                        : undefined;
+                                      if (
+                                        $steps["refreshData"] != null &&
+                                        typeof $steps["refreshData"] ===
+                                          "object" &&
+                                        typeof $steps["refreshData"].then ===
+                                          "function"
+                                      ) {
+                                        $steps["refreshData"] = await $steps[
+                                          "refreshData"
+                                        ];
+                                      }
+                                    }}
+                                  >
+                                    {(_par =>
+                                      !_par
+                                        ? []
+                                        : Array.isArray(_par)
+                                        ? _par
+                                        : [_par])(
+                                      (() => {
+                                        try {
+                                          return (() => {
+                                            return JSON.parse(
+                                              $state.randomProducts
+                                            );
+                                          })();
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return [];
+                                          }
+                                          throw e;
                                         }
-                                      }}
+                                      })()
+                                    ).map(
+                                      (__plasmic_item_0, __plasmic_idx_0) => {
+                                        const product = __plasmic_item_0;
+                                        const productIndex = __plasmic_idx_0;
+                                        return (
+                                          <ProductBox
+                                            className={classNames(
+                                              "__wab_instance",
+                                              sty.productBox__wiw
+                                            )}
+                                            id={(() => {
+                                              try {
+                                                return product.node.id;
+                                              } catch (e) {
+                                                if (
+                                                  e instanceof TypeError ||
+                                                  e?.plasmicType ===
+                                                    "PlasmicUndefinedDataError"
+                                                ) {
+                                                  return undefined;
+                                                }
+                                                throw e;
+                                              }
+                                            })()}
+                                            key={productIndex}
+                                          >
+                                            <ph.DataCtxReader>
+                                              {$ctx => (
+                                                <div
+                                                  className={classNames(
+                                                    projectcss.all,
+                                                    sty.freeBox__m3FZg
+                                                  )}
+                                                  onClick={async event => {
+                                                    const $steps = {};
+
+                                                    $steps["goToProductPage"] =
+                                                      true
+                                                        ? (() => {
+                                                            const actionArgs = {
+                                                              destination: `/product/${(() => {
+                                                                try {
+                                                                  return $ctx
+                                                                    .currentProduct
+                                                                    .slug;
+                                                                } catch (e) {
+                                                                  if (
+                                                                    e instanceof
+                                                                      TypeError ||
+                                                                    e?.plasmicType ===
+                                                                      "PlasmicUndefinedDataError"
+                                                                  ) {
+                                                                    return undefined;
+                                                                  }
+                                                                  throw e;
+                                                                }
+                                                              })()}`
+                                                            };
+                                                            return (({
+                                                              destination
+                                                            }) => {
+                                                              if (
+                                                                typeof destination ===
+                                                                  "string" &&
+                                                                destination.startsWith(
+                                                                  "#"
+                                                                )
+                                                              ) {
+                                                                document
+                                                                  .getElementById(
+                                                                    destination.substr(
+                                                                      1
+                                                                    )
+                                                                  )
+                                                                  .scrollIntoView(
+                                                                    {
+                                                                      behavior:
+                                                                        "smooth"
+                                                                    }
+                                                                  );
+                                                              } else {
+                                                                __nextRouter?.push(
+                                                                  destination
+                                                                );
+                                                              }
+                                                            })?.apply(null, [
+                                                              actionArgs
+                                                            ]);
+                                                          })()
+                                                        : undefined;
+                                                    if (
+                                                      $steps[
+                                                        "goToProductPage"
+                                                      ] != null &&
+                                                      typeof $steps[
+                                                        "goToProductPage"
+                                                      ] === "object" &&
+                                                      typeof $steps[
+                                                        "goToProductPage"
+                                                      ].then === "function"
+                                                    ) {
+                                                      $steps[
+                                                        "goToProductPage"
+                                                      ] = await $steps[
+                                                        "goToProductPage"
+                                                      ];
+                                                    }
+                                                  }}
+                                                >
+                                                  <ProductMedia
+                                                    className={classNames(
+                                                      "__wab_instance",
+                                                      sty.productMedia__hppx4
+                                                    )}
+                                                  />
+
+                                                  <div
+                                                    className={classNames(
+                                                      projectcss.all,
+                                                      sty.freeBox__e0UnQ
+                                                    )}
+                                                  >
+                                                    <ProductTextField
+                                                      className={classNames(
+                                                        "__wab_instance",
+                                                        sty.productTextField__zxYn
+                                                      )}
+                                                      field={"name"}
+                                                    />
+                                                  </div>
+                                                </div>
+                                              )}
+                                            </ph.DataCtxReader>
+                                          </ProductBox>
+                                        );
+                                      }
+                                    )}
+                                  </div>
+                                ) : null}
+                                {(() => {
+                                  const child$Props = {
+                                    accessibility: false,
+                                    arrowColor: true
+                                      ? "var(--antd-colorWhite)"
+                                      : undefined,
+                                    arrows: false,
+                                    autoplay: false,
+                                    autoplaySpeed: 10000,
+                                    beforeChange:
+                                      p.generateStateOnChangePropForCodeComponents(
+                                        $state,
+                                        "currentSlide",
+                                        ["sliderCarousel7", "currentSlide"],
+                                        SliderWrapper_Helpers
+                                      ),
+                                    centerMode: true,
+                                    className: classNames(
+                                      "__wab_instance",
+                                      sty.sliderCarousel7
+                                    ),
+                                    dots: false,
+                                    infinite: false,
+                                    initialSlide: p.generateStateValueProp(
+                                      $state,
+                                      ["sliderCarousel7", "currentSlide"]
+                                    ),
+                                    pauseOnHover: false,
+                                    ref: ref => {
+                                      $refs["sliderCarousel7"] = ref;
+                                    },
+                                    sliderScopeClassName:
+                                      sty["sliderCarousel7__slider"],
+                                    slidesToShow: hasVariant(
+                                      globalVariants,
+                                      "screen",
+                                      "mobileOnly"
+                                    )
+                                      ? 1
+                                      : 3,
+                                    useTransform: false
+                                  };
+                                  p.initializeCodeComponentStates(
+                                    $state,
+                                    [
+                                      {
+                                        name: "currentSlide",
+                                        plasmicStateName:
+                                          "sliderCarousel7.currentSlide"
+                                      }
+                                    ],
+                                    [],
+                                    SliderWrapper_Helpers ?? {},
+                                    child$Props
+                                  );
+
+                                  return (
+                                    <SliderWrapper
+                                      data-plasmic-name={"sliderCarousel7"}
+                                      data-plasmic-override={
+                                        overrides.sliderCarousel7
+                                      }
+                                      {...child$Props}
                                     >
-                                      <ProductMedia
+                                      <ProductBox
                                         className={classNames(
                                           "__wab_instance",
-                                          sty.productMedia__pNbSx
+                                          sty.productBox__a9DDm
                                         )}
-                                      />
-
-                                      <div
-                                        className={classNames(
-                                          projectcss.all,
-                                          sty.freeBox__uvc6Y
-                                        )}
+                                        id={(() => {
+                                          try {
+                                            return $ctx.randomProducts[0].node
+                                              .id;
+                                          } catch (e) {
+                                            if (
+                                              e instanceof TypeError ||
+                                              e?.plasmicType ===
+                                                "PlasmicUndefinedDataError"
+                                            ) {
+                                              return undefined;
+                                            }
+                                            throw e;
+                                          }
+                                        })()}
                                       >
-                                        <ProductTextField
-                                          className={classNames(
-                                            "__wab_instance",
-                                            sty.productTextField__bv4Di
-                                          )}
-                                          field={"name"}
-                                        />
-                                      </div>
-                                    </div>
-                                  )}
-                                </ph.DataCtxReader>
-                              </ProductBox>
-                            )}
-                          </ph.DataCtxReader>
-                        </ProductCollection>
-                        <ProductCollection
-                          category={"gid://shopify/Collection/455454490920"}
-                          className={classNames(
-                            "__wab_instance",
-                            sty.productCollection__dH69B
-                          )}
-                          emptyMessage={
-                            <ph.DataCtxReader>
-                              {$ctx => (
-                                <div
-                                  className={classNames(
-                                    projectcss.all,
-                                    projectcss.__wab_text,
-                                    sty.text__aJy2
-                                  )}
-                                >
-                                  {"No product found!"}
-                                </div>
-                              )}
-                            </ph.DataCtxReader>
-                          }
-                          loadingMessage={
-                            <ph.DataCtxReader>
-                              {$ctx => (
-                                <div
-                                  className={classNames(
-                                    projectcss.all,
-                                    projectcss.__wab_text,
-                                    sty.text__lInVg
-                                  )}
-                                >
-                                  {"Loading..."}
-                                </div>
-                              )}
-                            </ph.DataCtxReader>
-                          }
-                          noAutoRepeat={true}
-                        >
-                          <ph.DataCtxReader>
-                            {$ctx => (
-                              <ProductBox
-                                className={classNames(
-                                  "__wab_instance",
-                                  sty.productBox__r6Hmx
-                                )}
-                                id={(() => {
-                                  try {
-                                    return $ctx.products[1].id;
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return undefined;
-                                    }
-                                    throw e;
-                                  }
-                                })()}
-                              >
-                                <ph.DataCtxReader>
-                                  {$ctx => (
-                                    <div
-                                      className={classNames(
-                                        projectcss.all,
-                                        sty.freeBox__bfvQ
-                                      )}
-                                      onClick={async event => {
-                                        const $steps = {};
+                                        <ph.DataCtxReader>
+                                          {$ctx => (
+                                            <div
+                                              className={classNames(
+                                                projectcss.all,
+                                                sty.freeBox__ordWd
+                                              )}
+                                              onClick={async event => {
+                                                const $steps = {};
 
-                                        $steps["goToProductPage"] = true
-                                          ? (() => {
-                                              const actionArgs = {
-                                                destination: `/product/${(() => {
-                                                  try {
-                                                    return $ctx.currentProduct
-                                                      .slug;
-                                                  } catch (e) {
-                                                    if (
-                                                      e instanceof TypeError ||
-                                                      e?.plasmicType ===
-                                                        "PlasmicUndefinedDataError"
-                                                    ) {
-                                                      return undefined;
-                                                    }
-                                                    throw e;
-                                                  }
-                                                })()}`
-                                              };
-                                              return (({ destination }) => {
+                                                $steps["goToProductPage"] = true
+                                                  ? (() => {
+                                                      const actionArgs = {
+                                                        destination: `/product/${(() => {
+                                                          try {
+                                                            return $ctx
+                                                              .currentProduct
+                                                              .slug;
+                                                          } catch (e) {
+                                                            if (
+                                                              e instanceof
+                                                                TypeError ||
+                                                              e?.plasmicType ===
+                                                                "PlasmicUndefinedDataError"
+                                                            ) {
+                                                              return undefined;
+                                                            }
+                                                            throw e;
+                                                          }
+                                                        })()}`
+                                                      };
+                                                      return (({
+                                                        destination
+                                                      }) => {
+                                                        if (
+                                                          typeof destination ===
+                                                            "string" &&
+                                                          destination.startsWith(
+                                                            "#"
+                                                          )
+                                                        ) {
+                                                          document
+                                                            .getElementById(
+                                                              destination.substr(
+                                                                1
+                                                              )
+                                                            )
+                                                            .scrollIntoView({
+                                                              behavior: "smooth"
+                                                            });
+                                                        } else {
+                                                          __nextRouter?.push(
+                                                            destination
+                                                          );
+                                                        }
+                                                      })?.apply(null, [
+                                                        actionArgs
+                                                      ]);
+                                                    })()
+                                                  : undefined;
                                                 if (
-                                                  typeof destination ===
-                                                    "string" &&
-                                                  destination.startsWith("#")
+                                                  $steps["goToProductPage"] !=
+                                                    null &&
+                                                  typeof $steps[
+                                                    "goToProductPage"
+                                                  ] === "object" &&
+                                                  typeof $steps[
+                                                    "goToProductPage"
+                                                  ].then === "function"
                                                 ) {
-                                                  document
-                                                    .getElementById(
-                                                      destination.substr(1)
-                                                    )
-                                                    .scrollIntoView({
-                                                      behavior: "smooth"
-                                                    });
-                                                } else {
-                                                  __nextRouter?.push(
-                                                    destination
-                                                  );
+                                                  $steps["goToProductPage"] =
+                                                    await $steps[
+                                                      "goToProductPage"
+                                                    ];
                                                 }
-                                              })?.apply(null, [actionArgs]);
-                                            })()
-                                          : undefined;
-                                        if (
-                                          $steps["goToProductPage"] != null &&
-                                          typeof $steps["goToProductPage"] ===
-                                            "object" &&
-                                          typeof $steps["goToProductPage"]
-                                            .then === "function"
-                                        ) {
-                                          $steps["goToProductPage"] =
-                                            await $steps["goToProductPage"];
-                                        }
-                                      }}
-                                    >
-                                      <ProductMedia
+                                              }}
+                                            >
+                                              <ProductMedia
+                                                className={classNames(
+                                                  "__wab_instance",
+                                                  sty.productMedia__kcHFn
+                                                )}
+                                              />
+
+                                              <div
+                                                className={classNames(
+                                                  projectcss.all,
+                                                  sty.freeBox__xqVb
+                                                )}
+                                              >
+                                                <ProductTextField
+                                                  className={classNames(
+                                                    "__wab_instance",
+                                                    sty.productTextField__xCeMe
+                                                  )}
+                                                  field={"name"}
+                                                />
+                                              </div>
+                                            </div>
+                                          )}
+                                        </ph.DataCtxReader>
+                                      </ProductBox>
+                                      <ProductBox
                                         className={classNames(
                                           "__wab_instance",
-                                          sty.productMedia__goqSz
+                                          sty.productBox__zykb2
                                         )}
-                                      />
-
-                                      <div
-                                        className={classNames(
-                                          projectcss.all,
-                                          sty.freeBox__xdgws
-                                        )}
+                                        id={(() => {
+                                          try {
+                                            return $ctx.randomProducts[1].node
+                                              .id;
+                                          } catch (e) {
+                                            if (
+                                              e instanceof TypeError ||
+                                              e?.plasmicType ===
+                                                "PlasmicUndefinedDataError"
+                                            ) {
+                                              return undefined;
+                                            }
+                                            throw e;
+                                          }
+                                        })()}
                                       >
-                                        <ProductTextField
-                                          className={classNames(
-                                            "__wab_instance",
-                                            sty.productTextField__xvKXh
-                                          )}
-                                          field={"name"}
-                                        />
-                                      </div>
-                                    </div>
-                                  )}
-                                </ph.DataCtxReader>
-                              </ProductBox>
-                            )}
-                          </ph.DataCtxReader>
-                        </ProductCollection>
-                        <ProductCollection
-                          category={"gid://shopify/Collection/455454785832"}
-                          className={classNames(
-                            "__wab_instance",
-                            sty.productCollection__qQncX
-                          )}
-                          emptyMessage={
-                            <ph.DataCtxReader>
-                              {$ctx => (
-                                <div
-                                  className={classNames(
-                                    projectcss.all,
-                                    projectcss.__wab_text,
-                                    sty.text__sm7G
-                                  )}
-                                >
-                                  {"No product found!"}
-                                </div>
-                              )}
-                            </ph.DataCtxReader>
-                          }
-                          loadingMessage={
-                            <ph.DataCtxReader>
-                              {$ctx => (
-                                <div
-                                  className={classNames(
-                                    projectcss.all,
-                                    projectcss.__wab_text,
-                                    sty.text__g1U6O
-                                  )}
-                                >
-                                  {"Loading..."}
-                                </div>
-                              )}
-                            </ph.DataCtxReader>
-                          }
-                          noAutoRepeat={true}
-                        >
-                          <ph.DataCtxReader>
-                            {$ctx => (
-                              <ProductBox
-                                className={classNames(
-                                  "__wab_instance",
-                                  sty.productBox__uevg3
-                                )}
-                                id={(() => {
-                                  try {
-                                    return $ctx.products[2].id;
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return undefined;
-                                    }
-                                    throw e;
-                                  }
-                                })()}
-                              >
-                                <ph.DataCtxReader>
-                                  {$ctx => (
-                                    <div
-                                      className={classNames(
-                                        projectcss.all,
-                                        sty.freeBox__lcBy4
-                                      )}
-                                      onClick={async event => {
-                                        const $steps = {};
+                                        <ph.DataCtxReader>
+                                          {$ctx => (
+                                            <div
+                                              className={classNames(
+                                                projectcss.all,
+                                                sty.freeBox__uP8D
+                                              )}
+                                              onClick={async event => {
+                                                const $steps = {};
 
-                                        $steps["goToProductPage"] = true
-                                          ? (() => {
-                                              const actionArgs = {
-                                                destination: `/product/${(() => {
-                                                  try {
-                                                    return $ctx.currentProduct
-                                                      .slug;
-                                                  } catch (e) {
-                                                    if (
-                                                      e instanceof TypeError ||
-                                                      e?.plasmicType ===
-                                                        "PlasmicUndefinedDataError"
-                                                    ) {
-                                                      return undefined;
-                                                    }
-                                                    throw e;
-                                                  }
-                                                })()}`
-                                              };
-                                              return (({ destination }) => {
+                                                $steps["goToProductPage"] = true
+                                                  ? (() => {
+                                                      const actionArgs = {
+                                                        destination: `/product/${(() => {
+                                                          try {
+                                                            return $ctx
+                                                              .currentProduct
+                                                              .slug;
+                                                          } catch (e) {
+                                                            if (
+                                                              e instanceof
+                                                                TypeError ||
+                                                              e?.plasmicType ===
+                                                                "PlasmicUndefinedDataError"
+                                                            ) {
+                                                              return undefined;
+                                                            }
+                                                            throw e;
+                                                          }
+                                                        })()}`
+                                                      };
+                                                      return (({
+                                                        destination
+                                                      }) => {
+                                                        if (
+                                                          typeof destination ===
+                                                            "string" &&
+                                                          destination.startsWith(
+                                                            "#"
+                                                          )
+                                                        ) {
+                                                          document
+                                                            .getElementById(
+                                                              destination.substr(
+                                                                1
+                                                              )
+                                                            )
+                                                            .scrollIntoView({
+                                                              behavior: "smooth"
+                                                            });
+                                                        } else {
+                                                          __nextRouter?.push(
+                                                            destination
+                                                          );
+                                                        }
+                                                      })?.apply(null, [
+                                                        actionArgs
+                                                      ]);
+                                                    })()
+                                                  : undefined;
                                                 if (
-                                                  typeof destination ===
-                                                    "string" &&
-                                                  destination.startsWith("#")
+                                                  $steps["goToProductPage"] !=
+                                                    null &&
+                                                  typeof $steps[
+                                                    "goToProductPage"
+                                                  ] === "object" &&
+                                                  typeof $steps[
+                                                    "goToProductPage"
+                                                  ].then === "function"
                                                 ) {
-                                                  document
-                                                    .getElementById(
-                                                      destination.substr(1)
-                                                    )
-                                                    .scrollIntoView({
-                                                      behavior: "smooth"
-                                                    });
-                                                } else {
-                                                  __nextRouter?.push(
-                                                    destination
-                                                  );
+                                                  $steps["goToProductPage"] =
+                                                    await $steps[
+                                                      "goToProductPage"
+                                                    ];
                                                 }
-                                              })?.apply(null, [actionArgs]);
-                                            })()
-                                          : undefined;
-                                        if (
-                                          $steps["goToProductPage"] != null &&
-                                          typeof $steps["goToProductPage"] ===
-                                            "object" &&
-                                          typeof $steps["goToProductPage"]
-                                            .then === "function"
-                                        ) {
-                                          $steps["goToProductPage"] =
-                                            await $steps["goToProductPage"];
-                                        }
-                                      }}
-                                    >
-                                      <ProductMedia
+                                              }}
+                                            >
+                                              <ProductMedia
+                                                className={classNames(
+                                                  "__wab_instance",
+                                                  sty.productMedia__bYhBa
+                                                )}
+                                              />
+
+                                              <div
+                                                className={classNames(
+                                                  projectcss.all,
+                                                  sty.freeBox__umVc
+                                                )}
+                                              >
+                                                <ProductTextField
+                                                  className={classNames(
+                                                    "__wab_instance",
+                                                    sty.productTextField__g1UTw
+                                                  )}
+                                                  field={"name"}
+                                                />
+                                              </div>
+                                            </div>
+                                          )}
+                                        </ph.DataCtxReader>
+                                      </ProductBox>
+                                      <ProductBox
                                         className={classNames(
                                           "__wab_instance",
-                                          sty.productMedia___3J1I
+                                          sty.productBox__lLJcI
                                         )}
-                                      />
-
-                                      <div
-                                        className={classNames(
-                                          projectcss.all,
-                                          sty.freeBox___5WgZq
-                                        )}
+                                        id={(() => {
+                                          try {
+                                            return $ctx.randomProducts[2].node
+                                              .id;
+                                          } catch (e) {
+                                            if (
+                                              e instanceof TypeError ||
+                                              e?.plasmicType ===
+                                                "PlasmicUndefinedDataError"
+                                            ) {
+                                              return undefined;
+                                            }
+                                            throw e;
+                                          }
+                                        })()}
                                       >
-                                        <ProductTextField
-                                          className={classNames(
-                                            "__wab_instance",
-                                            sty.productTextField___6VvHr
-                                          )}
-                                          field={"name"}
-                                        />
-                                      </div>
-                                    </div>
-                                  )}
-                                </ph.DataCtxReader>
-                              </ProductBox>
-                            )}
-                          </ph.DataCtxReader>
-                        </ProductCollection>
-                      </SliderWrapper>
-                    );
-                  })()}
-                  {(() => {
-                    const child$Props = {
-                      arrows: true,
-                      autoplay: true,
-                      beforeChange:
-                        p.generateStateOnChangePropForCodeComponents(
-                          $state,
-                          "currentSlide",
-                          ["sliderCarousel11", "currentSlide"],
-                          SliderWrapper_Helpers
-                        ),
-                      centerMode: true,
-                      className: classNames(
-                        "__wab_instance",
-                        sty.sliderCarousel11
-                      ),
-                      dots: true,
-                      initialSlide: p.generateStateValueProp($state, [
-                        "sliderCarousel11",
-                        "currentSlide"
-                      ]),
-                      ref: ref => {
-                        $refs["sliderCarousel11"] = ref;
-                      },
-                      sliderScopeClassName: sty["sliderCarousel11__slider"],
-                      slidesToShow: 1
-                    };
-                    p.initializeCodeComponentStates(
-                      $state,
-                      [
-                        {
-                          name: "currentSlide",
-                          plasmicStateName: "sliderCarousel11.currentSlide"
-                        }
-                      ],
-                      [],
-                      SliderWrapper_Helpers ?? {},
-                      child$Props
-                    );
+                                        <ph.DataCtxReader>
+                                          {$ctx => (
+                                            <div
+                                              className={classNames(
+                                                projectcss.all,
+                                                sty.freeBox__zs2SZ
+                                              )}
+                                              onClick={async event => {
+                                                const $steps = {};
 
-                    return (
-                      <SliderWrapper
-                        data-plasmic-name={"sliderCarousel11"}
-                        data-plasmic-override={overrides.sliderCarousel11}
-                        {...child$Props}
-                      >
-                        <ProductCollection
-                          category={"gid://shopify/Collection/455454589224"}
-                          className={classNames(
-                            "__wab_instance",
-                            sty.productCollection__s8XSc
-                          )}
-                          emptyMessage={
-                            <ph.DataCtxReader>
-                              {$ctx => (
-                                <div
-                                  className={classNames(
-                                    projectcss.all,
-                                    projectcss.__wab_text,
-                                    sty.text__v7Zy6
-                                  )}
-                                >
-                                  {"No product found!"}
-                                </div>
-                              )}
-                            </ph.DataCtxReader>
-                          }
-                          loadingMessage={
-                            <ph.DataCtxReader>
-                              {$ctx => (
-                                <div
-                                  className={classNames(
-                                    projectcss.all,
-                                    projectcss.__wab_text,
-                                    sty.text__omqJ2
-                                  )}
-                                >
-                                  {"Loading..."}
-                                </div>
-                              )}
-                            </ph.DataCtxReader>
-                          }
-                          noAutoRepeat={true}
-                        >
-                          <ph.DataCtxReader>
-                            {$ctx => (
-                              <ProductBox
-                                className={classNames(
-                                  "__wab_instance",
-                                  sty.productBox__mbHnp
-                                )}
-                                id={(() => {
-                                  try {
-                                    return $ctx.products[0].id;
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return undefined;
-                                    }
-                                    throw e;
-                                  }
-                                })()}
-                              >
-                                <ph.DataCtxReader>
-                                  {$ctx => (
-                                    <div
-                                      className={classNames(
-                                        projectcss.all,
-                                        sty.freeBox__hOQe
-                                      )}
-                                      onClick={async event => {
-                                        const $steps = {};
-
-                                        $steps["goToProductPage"] = true
-                                          ? (() => {
-                                              const actionArgs = {
-                                                destination: `/product/${(() => {
-                                                  try {
-                                                    return $ctx.currentProduct
-                                                      .slug;
-                                                  } catch (e) {
-                                                    if (
-                                                      e instanceof TypeError ||
-                                                      e?.plasmicType ===
-                                                        "PlasmicUndefinedDataError"
-                                                    ) {
-                                                      return undefined;
-                                                    }
-                                                    throw e;
-                                                  }
-                                                })()}`
-                                              };
-                                              return (({ destination }) => {
+                                                $steps["goToProductPage"] = true
+                                                  ? (() => {
+                                                      const actionArgs = {
+                                                        destination: `/product/${(() => {
+                                                          try {
+                                                            return $ctx
+                                                              .currentProduct
+                                                              .slug;
+                                                          } catch (e) {
+                                                            if (
+                                                              e instanceof
+                                                                TypeError ||
+                                                              e?.plasmicType ===
+                                                                "PlasmicUndefinedDataError"
+                                                            ) {
+                                                              return undefined;
+                                                            }
+                                                            throw e;
+                                                          }
+                                                        })()}`
+                                                      };
+                                                      return (({
+                                                        destination
+                                                      }) => {
+                                                        if (
+                                                          typeof destination ===
+                                                            "string" &&
+                                                          destination.startsWith(
+                                                            "#"
+                                                          )
+                                                        ) {
+                                                          document
+                                                            .getElementById(
+                                                              destination.substr(
+                                                                1
+                                                              )
+                                                            )
+                                                            .scrollIntoView({
+                                                              behavior: "smooth"
+                                                            });
+                                                        } else {
+                                                          __nextRouter?.push(
+                                                            destination
+                                                          );
+                                                        }
+                                                      })?.apply(null, [
+                                                        actionArgs
+                                                      ]);
+                                                    })()
+                                                  : undefined;
                                                 if (
-                                                  typeof destination ===
-                                                    "string" &&
-                                                  destination.startsWith("#")
+                                                  $steps["goToProductPage"] !=
+                                                    null &&
+                                                  typeof $steps[
+                                                    "goToProductPage"
+                                                  ] === "object" &&
+                                                  typeof $steps[
+                                                    "goToProductPage"
+                                                  ].then === "function"
                                                 ) {
-                                                  document
-                                                    .getElementById(
-                                                      destination.substr(1)
-                                                    )
-                                                    .scrollIntoView({
-                                                      behavior: "smooth"
-                                                    });
-                                                } else {
-                                                  __nextRouter?.push(
-                                                    destination
-                                                  );
+                                                  $steps["goToProductPage"] =
+                                                    await $steps[
+                                                      "goToProductPage"
+                                                    ];
                                                 }
-                                              })?.apply(null, [actionArgs]);
-                                            })()
-                                          : undefined;
-                                        if (
-                                          $steps["goToProductPage"] != null &&
-                                          typeof $steps["goToProductPage"] ===
-                                            "object" &&
-                                          typeof $steps["goToProductPage"]
-                                            .then === "function"
-                                        ) {
-                                          $steps["goToProductPage"] =
-                                            await $steps["goToProductPage"];
-                                        }
-                                      }}
-                                    >
-                                      <ProductMedia
-                                        className={classNames(
-                                          "__wab_instance",
-                                          sty.productMedia__otHxq
-                                        )}
-                                      />
+                                              }}
+                                            >
+                                              <ProductMedia
+                                                className={classNames(
+                                                  "__wab_instance",
+                                                  sty.productMedia___9NIvs
+                                                )}
+                                              />
 
-                                      <div
-                                        className={classNames(
-                                          projectcss.all,
-                                          sty.freeBox__qlKlT
-                                        )}
-                                      >
-                                        <ProductTextField
-                                          className={classNames(
-                                            "__wab_instance",
-                                            sty.productTextField__uUUu
+                                              <div
+                                                className={classNames(
+                                                  projectcss.all,
+                                                  sty.freeBox__u2EJn
+                                                )}
+                                              >
+                                                <ProductTextField
+                                                  className={classNames(
+                                                    "__wab_instance",
+                                                    sty.productTextField__aufai
+                                                  )}
+                                                  field={"name"}
+                                                />
+                                              </div>
+                                            </div>
                                           )}
-                                          field={"name"}
-                                        />
-                                      </div>
-                                    </div>
-                                  )}
-                                </ph.DataCtxReader>
-                              </ProductBox>
-                            )}
-                          </ph.DataCtxReader>
-                        </ProductCollection>
-                        <ProductCollection
-                          category={"gid://shopify/Collection/455454490920"}
-                          className={classNames(
-                            "__wab_instance",
-                            sty.productCollection__vUk
-                          )}
-                          emptyMessage={
-                            <ph.DataCtxReader>
-                              {$ctx => (
-                                <div
-                                  className={classNames(
-                                    projectcss.all,
-                                    projectcss.__wab_text,
-                                    sty.text__orY77
-                                  )}
-                                >
-                                  {"No product found!"}
-                                </div>
-                              )}
-                            </ph.DataCtxReader>
-                          }
-                          loadingMessage={
-                            <ph.DataCtxReader>
-                              {$ctx => (
-                                <div
-                                  className={classNames(
-                                    projectcss.all,
-                                    projectcss.__wab_text,
-                                    sty.text__biwOi
-                                  )}
-                                >
-                                  {"Loading..."}
-                                </div>
-                              )}
-                            </ph.DataCtxReader>
-                          }
-                          noAutoRepeat={true}
-                        >
-                          <ph.DataCtxReader>
-                            {$ctx => (
-                              <ProductBox
-                                className={classNames(
-                                  "__wab_instance",
-                                  sty.productBox__zEb3Y
-                                )}
-                                id={(() => {
-                                  try {
-                                    return $ctx.products[1].id;
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return undefined;
-                                    }
-                                    throw e;
-                                  }
+                                        </ph.DataCtxReader>
+                                      </ProductBox>
+                                    </SliderWrapper>
+                                  );
                                 })()}
-                              >
-                                <ph.DataCtxReader>
-                                  {$ctx => (
-                                    <div
-                                      className={classNames(
-                                        projectcss.all,
-                                        sty.freeBox__gFtGs
-                                      )}
-                                      onClick={async event => {
-                                        const $steps = {};
-
-                                        $steps["goToProductPage"] = true
-                                          ? (() => {
-                                              const actionArgs = {
-                                                destination: `/product/${(() => {
-                                                  try {
-                                                    return $ctx.currentProduct
-                                                      .slug;
-                                                  } catch (e) {
-                                                    if (
-                                                      e instanceof TypeError ||
-                                                      e?.plasmicType ===
-                                                        "PlasmicUndefinedDataError"
-                                                    ) {
-                                                      return undefined;
-                                                    }
-                                                    throw e;
-                                                  }
-                                                })()}`
-                                              };
-                                              return (({ destination }) => {
-                                                if (
-                                                  typeof destination ===
-                                                    "string" &&
-                                                  destination.startsWith("#")
-                                                ) {
-                                                  document
-                                                    .getElementById(
-                                                      destination.substr(1)
-                                                    )
-                                                    .scrollIntoView({
-                                                      behavior: "smooth"
-                                                    });
-                                                } else {
-                                                  __nextRouter?.push(
-                                                    destination
-                                                  );
-                                                }
-                                              })?.apply(null, [actionArgs]);
-                                            })()
-                                          : undefined;
-                                        if (
-                                          $steps["goToProductPage"] != null &&
-                                          typeof $steps["goToProductPage"] ===
-                                            "object" &&
-                                          typeof $steps["goToProductPage"]
-                                            .then === "function"
-                                        ) {
-                                          $steps["goToProductPage"] =
-                                            await $steps["goToProductPage"];
-                                        }
-                                      }}
-                                    >
-                                      <ProductMedia
-                                        className={classNames(
-                                          "__wab_instance",
-                                          sty.productMedia__naLet
-                                        )}
-                                      />
-
-                                      <div
-                                        className={classNames(
-                                          projectcss.all,
-                                          sty.freeBox__uzXsL
-                                        )}
-                                      >
-                                        <ProductTextField
-                                          className={classNames(
-                                            "__wab_instance",
-                                            sty.productTextField__zyg1U
-                                          )}
-                                          field={"name"}
-                                        />
-                                      </div>
-                                    </div>
-                                  )}
-                                </ph.DataCtxReader>
-                              </ProductBox>
+                              </React.Fragment>
                             )}
                           </ph.DataCtxReader>
-                        </ProductCollection>
-                        <ProductCollection
-                          category={"gid://shopify/Collection/455454785832"}
-                          className={classNames(
-                            "__wab_instance",
-                            sty.productCollection___4FsTx
-                          )}
-                          emptyMessage={
-                            <ph.DataCtxReader>
-                              {$ctx => (
-                                <div
-                                  className={classNames(
-                                    projectcss.all,
-                                    projectcss.__wab_text,
-                                    sty.text__dagNw
-                                  )}
-                                >
-                                  {"No product found!"}
-                                </div>
-                              )}
-                            </ph.DataCtxReader>
-                          }
-                          loadingMessage={
-                            <ph.DataCtxReader>
-                              {$ctx => (
-                                <div
-                                  className={classNames(
-                                    projectcss.all,
-                                    projectcss.__wab_text,
-                                    sty.text__nncJe
-                                  )}
-                                >
-                                  {"Loading..."}
-                                </div>
-                              )}
-                            </ph.DataCtxReader>
-                          }
-                          noAutoRepeat={true}
-                        >
-                          <ph.DataCtxReader>
-                            {$ctx => (
-                              <ProductBox
-                                className={classNames(
-                                  "__wab_instance",
-                                  sty.productBox__in7F9
-                                )}
-                                id={(() => {
-                                  try {
-                                    return $ctx.products[2].id;
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return undefined;
-                                    }
-                                    throw e;
-                                  }
-                                })()}
-                              >
-                                <ph.DataCtxReader>
-                                  {$ctx => (
-                                    <div
-                                      className={classNames(
-                                        projectcss.all,
-                                        sty.freeBox__dhW0X
-                                      )}
-                                      onClick={async event => {
-                                        const $steps = {};
-
-                                        $steps["goToProductPage"] = true
-                                          ? (() => {
-                                              const actionArgs = {
-                                                destination: `/product/${(() => {
-                                                  try {
-                                                    return $ctx.currentProduct
-                                                      .slug;
-                                                  } catch (e) {
-                                                    if (
-                                                      e instanceof TypeError ||
-                                                      e?.plasmicType ===
-                                                        "PlasmicUndefinedDataError"
-                                                    ) {
-                                                      return undefined;
-                                                    }
-                                                    throw e;
-                                                  }
-                                                })()}`
-                                              };
-                                              return (({ destination }) => {
-                                                if (
-                                                  typeof destination ===
-                                                    "string" &&
-                                                  destination.startsWith("#")
-                                                ) {
-                                                  document
-                                                    .getElementById(
-                                                      destination.substr(1)
-                                                    )
-                                                    .scrollIntoView({
-                                                      behavior: "smooth"
-                                                    });
-                                                } else {
-                                                  __nextRouter?.push(
-                                                    destination
-                                                  );
-                                                }
-                                              })?.apply(null, [actionArgs]);
-                                            })()
-                                          : undefined;
-                                        if (
-                                          $steps["goToProductPage"] != null &&
-                                          typeof $steps["goToProductPage"] ===
-                                            "object" &&
-                                          typeof $steps["goToProductPage"]
-                                            .then === "function"
-                                        ) {
-                                          $steps["goToProductPage"] =
-                                            await $steps["goToProductPage"];
-                                        }
-                                      }}
-                                    >
-                                      <ProductMedia
-                                        className={classNames(
-                                          "__wab_instance",
-                                          sty.productMedia___07N7N
-                                        )}
-                                      />
-
-                                      <div
-                                        className={classNames(
-                                          projectcss.all,
-                                          sty.freeBox__v9Ps0
-                                        )}
-                                      >
-                                        <ProductTextField
-                                          className={classNames(
-                                            "__wab_instance",
-                                            sty.productTextField__axe
-                                          )}
-                                          field={"name"}
-                                        />
-                                      </div>
-                                    </div>
-                                  )}
-                                </ph.DataCtxReader>
-                              </ProductBox>
-                            )}
-                          </ph.DataCtxReader>
-                        </ProductCollection>
-                      </SliderWrapper>
-                    );
-                  })()}
+                        </DataProvider>
+                      )}
+                    </ph.DataCtxReader>
+                  </GraphqlFetcher>
                   <div
                     className={classNames(projectcss.all, sty.freeBox__h1Sbz)}
                   >
                     <ProductCollection
+                      data-plasmic-name={"productCollection"}
+                      data-plasmic-override={overrides.productCollection}
                       className={classNames(
                         "__wab_instance",
-                        sty.productCollection__oDCk
+                        sty.productCollection
                       )}
                       emptyMessage={
                         <ph.DataCtxReader>
@@ -2526,15 +2274,17 @@ function PlasmicHomepage__RenderFunc(props: {
                     >
                       <ph.DataCtxReader>
                         {$ctx => (
-                          <div
+                          <SurpriseMeButton
+                            data-plasmic-name={"surpriseMeButton"}
+                            data-plasmic-override={overrides.surpriseMeButton}
                             className={classNames(
-                              projectcss.all,
-                              sty.freeBox__dg5S3
+                              "__wab_instance",
+                              sty.surpriseMeButton
                             )}
                             onClick={async event => {
                               const $steps = {};
 
-                              $steps["goToRandomProductPage"] = true
+                              $steps["goToARandomProductPage"] = true
                                 ? (() => {
                                     const actionArgs = {
                                       destination: `/product/${(() => {
@@ -2578,27 +2328,18 @@ function PlasmicHomepage__RenderFunc(props: {
                                   })()
                                 : undefined;
                               if (
-                                $steps["goToRandomProductPage"] != null &&
-                                typeof $steps["goToRandomProductPage"] ===
+                                $steps["goToARandomProductPage"] != null &&
+                                typeof $steps["goToARandomProductPage"] ===
                                   "object" &&
-                                typeof $steps["goToRandomProductPage"].then ===
+                                typeof $steps["goToARandomProductPage"].then ===
                                   "function"
                               ) {
-                                $steps["goToRandomProductPage"] = await $steps[
-                                  "goToRandomProductPage"
+                                $steps["goToARandomProductPage"] = await $steps[
+                                  "goToARandomProductPage"
                                 ];
                               }
                             }}
-                          >
-                            <SurpriseMeButton
-                              data-plasmic-name={"surpriseMeButton"}
-                              data-plasmic-override={overrides.surpriseMeButton}
-                              className={classNames(
-                                "__wab_instance",
-                                sty.surpriseMeButton
-                              )}
-                            />
-                          </div>
+                          />
                         )}
                       </ph.DataCtxReader>
                     </ProductCollection>
@@ -2662,6 +2403,11 @@ function PlasmicHomepage__RenderFunc(props: {
                       )}
                       color={"redJbs"}
                       link={`/category/${"giftsss"}`}
+                      size={
+                        hasVariant(globalVariants, "screen", "mobileOnly")
+                          ? "compact"
+                          : undefined
+                      }
                     >
                       <div
                         className={classNames(
@@ -2808,6 +2554,11 @@ function PlasmicHomepage__RenderFunc(props: {
                             )}
                             color={"red"}
                             link={`/category/${"bucket-hats"}`}
+                            size={
+                              hasVariant(globalVariants, "screen", "mobileOnly")
+                                ? "compact"
+                                : undefined
+                            }
                           >
                             <div
                               className={classNames(
@@ -2900,9 +2651,9 @@ function PlasmicHomepage__RenderFunc(props: {
                               sty.text__ip4Eu
                             )}
                           >
-                            {
-                              "A whimsical flower shaped bucket hat,\ncuz you're literally a fairy, we made this just for you"
-                            }
+                            {hasVariant(globalVariants, "screen", "mobileOnly")
+                              ? "A whimsical flower shaped bucket hat,\ncuz you're literally a fairy,\n we made this just for you"
+                              : "A whimsical flower shaped bucket hat,\ncuz you're literally a fairy, we made this just for you"}
                           </div>
                         }
                         slot3={
@@ -2913,6 +2664,16 @@ function PlasmicHomepage__RenderFunc(props: {
                             )}
                             color={"red"}
                             link={`/category/${"flower-hat"}`}
+                            shadow={
+                              hasVariant(globalVariants, "screen", "mobileOnly")
+                                ? []
+                                : undefined
+                            }
+                            size={
+                              hasVariant(globalVariants, "screen", "mobileOnly")
+                                ? "compact"
+                                : undefined
+                            }
                           >
                             <div
                               className={classNames(
@@ -2938,7 +2699,7 @@ function PlasmicHomepage__RenderFunc(props: {
                           src={
                             hasVariant(globalVariants, "screen", "mobileOnly")
                               ? {
-                                  src: "/plasmic/jbs_storefront/images/bannerHat2Mobile.png",
+                                  src: "/plasmic/jbs_storefront/images/bannerHat2Flipped.jpg",
                                   fullWidth: 858,
                                   fullHeight: 1206,
                                   aspectRatio: undefined
@@ -3219,7 +2980,7 @@ function PlasmicHomepage__RenderFunc(props: {
                       )}
                     >
                       {
-                        "Our brand celebrates the weird and wonderful conceptness of life through delightful, handrafted lifestyle accessory products."
+                        "Our brand celebrates the weird and wonderful conceptness of life through delightful, handcrafted lifestyle accessory products."
                       }
                     </div>
                   </div>
@@ -3236,7 +2997,7 @@ function PlasmicHomepage__RenderFunc(props: {
                       )}
                     >
                       {
-                        "Exploring textile waste\u2019s as a raw material for a scaleable + sustainable enterprise."
+                        "Exploring textile waste as a raw material for a scaleable + sustainable enterprise."
                       }
                     </div>
                     <Button
@@ -3253,6 +3014,11 @@ function PlasmicHomepage__RenderFunc(props: {
                       }
                       link={`/about`}
                       showEndIcon={true}
+                      size={
+                        hasVariant(globalVariants, "screen", "mobileOnly")
+                          ? "compact"
+                          : undefined
+                      }
                     >
                       <div
                         className={classNames(
@@ -3291,8 +3057,10 @@ const PlasmicDescendants = {
     "shopCategoriesSlides",
     "span",
     "sliderCarousel3",
-    "sliderCarousel5",
-    "sliderCarousel11",
+    "graphQlFetcher",
+    "dataProvider",
+    "sliderCarousel7",
+    "productCollection",
     "surpriseMeButton",
     "sliderCarousel6",
     "sliderMark"
@@ -3306,8 +3074,10 @@ const PlasmicDescendants = {
     "shopCategoriesSlides",
     "span",
     "sliderCarousel3",
-    "sliderCarousel5",
-    "sliderCarousel11",
+    "graphQlFetcher",
+    "dataProvider",
+    "sliderCarousel7",
+    "productCollection",
     "surpriseMeButton",
     "sliderCarousel6",
     "sliderMark"
@@ -3323,8 +3093,10 @@ const PlasmicDescendants = {
   shopCategoriesSlides: ["shopCategoriesSlides", "span"],
   span: ["span"],
   sliderCarousel3: ["sliderCarousel3"],
-  sliderCarousel5: ["sliderCarousel5"],
-  sliderCarousel11: ["sliderCarousel11"],
+  graphQlFetcher: ["graphQlFetcher", "dataProvider", "sliderCarousel7"],
+  dataProvider: ["dataProvider", "sliderCarousel7"],
+  sliderCarousel7: ["sliderCarousel7"],
+  productCollection: ["productCollection", "surpriseMeButton"],
   surpriseMeButton: ["surpriseMeButton"],
   sliderCarousel6: ["sliderCarousel6"],
   sliderMark: ["sliderMark"]
@@ -3342,8 +3114,10 @@ type NodeDefaultElementType = {
   shopCategoriesSlides: typeof SliderWrapper;
   span: "span";
   sliderCarousel3: typeof SliderWrapper;
-  sliderCarousel5: typeof SliderWrapper;
-  sliderCarousel11: typeof SliderWrapper;
+  graphQlFetcher: typeof GraphqlFetcher;
+  dataProvider: typeof DataProvider;
+  sliderCarousel7: typeof SliderWrapper;
+  productCollection: typeof ProductCollection;
   surpriseMeButton: typeof SurpriseMeButton;
   sliderCarousel6: typeof SliderWrapper;
   sliderMark: typeof AntdSliderMark;
@@ -3417,8 +3191,10 @@ export const PlasmicHomepage = Object.assign(
     shopCategoriesSlides: makeNodeComponent("shopCategoriesSlides"),
     span: makeNodeComponent("span"),
     sliderCarousel3: makeNodeComponent("sliderCarousel3"),
-    sliderCarousel5: makeNodeComponent("sliderCarousel5"),
-    sliderCarousel11: makeNodeComponent("sliderCarousel11"),
+    graphQlFetcher: makeNodeComponent("graphQlFetcher"),
+    dataProvider: makeNodeComponent("dataProvider"),
+    sliderCarousel7: makeNodeComponent("sliderCarousel7"),
+    productCollection: makeNodeComponent("productCollection"),
     surpriseMeButton: makeNodeComponent("surpriseMeButton"),
     sliderCarousel6: makeNodeComponent("sliderCarousel6"),
     sliderMark: makeNodeComponent("sliderMark"),

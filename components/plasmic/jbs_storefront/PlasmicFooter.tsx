@@ -39,6 +39,8 @@ import {
 import Blackyellowborder from "../../Blackyellowborder"; // plasmic-import: qeyEUvMFwY/component
 import Button from "../../Button"; // plasmic-import: yEsI5slGwPm/component
 
+import { useScreenVariants as useScreenVariants_6Hzia3M7Np4Ulu } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6hzia3m7Np4ulu/globalVariant
+
 import "@plasmicapp/react-web/lib/plasmic.css";
 
 import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic_antd_5_hostless.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
@@ -111,6 +113,10 @@ function PlasmicFooter__RenderFunc(props: {
   const triggers = {
     hoverActive_root: isRootHover && isRootActive
   };
+
+  const globalVariants = ensureGlobalVariants({
+    screen: useScreenVariants_6Hzia3M7Np4Ulu()
+  });
 
   return (
     <div
@@ -196,7 +202,13 @@ function PlasmicFooter__RenderFunc(props: {
             data-plasmic-override={overrides.emailButton}
             alignment={"leftAligned"}
             className={classNames("__wab_instance", sty.emailButton)}
-            color={triggers.hoverActive_root ? "darkRedJbs" : "red"}
+            color={
+              triggers.hoverActive_root
+                ? "darkRedJbs"
+                : hasVariant(globalVariants, "screen", "mobileOnly")
+                ? "redJbs"
+                : "red"
+            }
             endIcon={
               <Icon38Icon
                 className={classNames(projectcss.all, sty.svg__dGkJ)}
@@ -205,8 +217,23 @@ function PlasmicFooter__RenderFunc(props: {
             }
             link={"mailto:juhubeachstudio@gmail.com"}
             showEndIcon={true}
+            size={
+              hasVariant(globalVariants, "screen", "mobileOnly")
+                ? "compact"
+                : undefined
+            }
           >
-            {"juhubeachstudio@gmail.com"}
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__js8Qw
+              )}
+            >
+              {hasVariant(globalVariants, "screen", "mobileOnly")
+                ? "Email Us"
+                : "juhubeachstudio@gmail.com"}
+            </div>
           </Button>
           <p.Stack
             as={"div"}

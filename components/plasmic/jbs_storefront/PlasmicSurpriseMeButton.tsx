@@ -53,15 +53,20 @@ type VariantPropType = keyof PlasmicSurpriseMeButton__VariantsArgs;
 export const PlasmicSurpriseMeButton__VariantProps =
   new Array<VariantPropType>();
 
-export type PlasmicSurpriseMeButton__ArgsType = {};
+export type PlasmicSurpriseMeButton__ArgsType = {
+  onClick?: (event: any) => void;
+};
 type ArgPropType = keyof PlasmicSurpriseMeButton__ArgsType;
-export const PlasmicSurpriseMeButton__ArgProps = new Array<ArgPropType>();
+export const PlasmicSurpriseMeButton__ArgProps = new Array<ArgPropType>(
+  "onClick"
+);
 
 export type PlasmicSurpriseMeButton__OverridesType = {
   root?: p.Flex<typeof p.PlasmicImg>;
 };
 
 export interface DefaultSurpriseMeButtonProps {
+  onClick?: (event: any) => void;
   className?: string;
 }
 
@@ -124,6 +129,7 @@ function PlasmicSurpriseMeButton__RenderFunc(props: {
         hasVariant(globalVariants, "screen", "mobileOnly") ? "150px" : "200px"
       }
       loading={"lazy"}
+      onClick={args.onClick}
       src={{
         src: "/plasmic/jbs_storefront/images/asset81Png.png",
         fullWidth: 686,
@@ -149,7 +155,6 @@ type NodeOverridesType<T extends NodeNameType> = Pick<
   PlasmicSurpriseMeButton__OverridesType,
   DescendantsType<T>
 >;
-
 type NodeComponentProps<T extends NodeNameType> =
   // Explicitly specify variants, args, and overrides as objects
   {
