@@ -24,15 +24,15 @@
   max-width: 100%;
   align-self: flex-start;
   background: var(--token-vg8USqXsf);
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
   flex-grow: 0;
   flex-shrink: 1;
   min-height: 100%;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
   border-radius: 100%;
   padding: var(--token-2XemaP11eshr);
-  margin: -2px;
+  margin: -4px 0px 0px -2px;
 }
 .cartProvider:global(.__wab_instance) {
   max-width: 100%;
@@ -43,12 +43,13 @@
 }
 .text {
   width: auto;
-  font-size: 8px;
   flex-shrink: 1;
   flex-grow: 0;
   height: auto;
   text-align: center;
-  padding: 0px 5px;
+  font-size: 12px;
+  line-height: 1;
+  padding: 1px 5px;
 }
 .svg__xjDi {
   position: relative;

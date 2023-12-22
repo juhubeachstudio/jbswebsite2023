@@ -458,6 +458,7 @@ function PlasmicProductPage__RenderFunc(props: {
                                         {$ctx => "Error fetching data"}
                                       </ph.DataCtxReader>
                                     }
+                                    errorName={"fetchError"}
                                     headers={{
                                       "Content-Type": "application/json",
                                       Accept: "application/json",
@@ -558,6 +559,7 @@ function PlasmicProductPage__RenderFunc(props: {
                                         {$ctx => "Error fetching data"}
                                       </ph.DataCtxReader>
                                     }
+                                    errorName={"fetchError"}
                                     headers={{
                                       "Content-Type": "application/json",
                                       Accept: "application/json",
@@ -658,6 +660,7 @@ function PlasmicProductPage__RenderFunc(props: {
                                         {$ctx => "Error fetching data"}
                                       </ph.DataCtxReader>
                                     }
+                                    errorName={"fetchError"}
                                     headers={{
                                       "Content-Type": "application/json",
                                       Accept: "application/json",
@@ -808,6 +811,7 @@ function PlasmicProductPage__RenderFunc(props: {
                           {$ctx => "Error fetching data"}
                         </ph.DataCtxReader>
                       }
+                      errorName={"fetchError"}
                       headers={{
                         "Content-Type": "application/json",
                         Accept: "application/json",
