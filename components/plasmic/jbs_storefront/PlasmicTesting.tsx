@@ -223,14 +223,14 @@ function PlasmicTesting__RenderFunc(props: {
             {...child$Props}
           >
             <FormItemWrapper
-              className={classNames("__wab_instance", sty.formField__pTdKf)}
+              className={classNames("__wab_instance", sty.formField___94Vds)}
               label={"Name"}
               name={"name"}
             >
               <AntdInput className={classNames("__wab_instance", sty.input)} />
             </FormItemWrapper>
             <FormItemWrapper
-              className={classNames("__wab_instance", sty.formField___8FJ5)}
+              className={classNames("__wab_instance", sty.formField__dcs7I)}
               label={"Message"}
               name={"message"}
             >

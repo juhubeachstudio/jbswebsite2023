@@ -111,7 +111,7 @@ export type PlasmicHomepage__OverridesType = {
   sliderCarousel3?: p.Flex<typeof SliderWrapper>;
   graphQlFetcher?: p.Flex<typeof GraphqlFetcher>;
   dataProvider?: p.Flex<typeof DataProvider>;
-  sliderCarousel7?: p.Flex<typeof SliderWrapper>;
+  sliderCarousel8?: p.Flex<typeof SliderWrapper>;
   productCollection?: p.Flex<typeof ProductCollection>;
   surpriseMeButton?: p.Flex<typeof SurpriseMeButton>;
   sliderCarousel6?: p.Flex<typeof SliderWrapper>;
@@ -202,23 +202,23 @@ function PlasmicHomepage__RenderFunc(props: {
         )
       },
       {
-        path: "sliderCarousel7.currentSlide",
+        path: "randomProducts",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "sliderCarousel8.currentSlide",
         type: "private",
         variableType: "number",
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           hasVariant(globalVariants, "screen", "mobileOnly") ? 1 : 0,
 
-        refName: "sliderCarousel7",
+        refName: "sliderCarousel8",
         onMutate: p.generateOnMutateForSpec(
           "currentSlide",
           SliderWrapper_Helpers
         )
-      },
-      {
-        path: "randomProducts",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ""
       }
     ],
     [$props, $ctx, $refs]
@@ -1518,6 +1518,7 @@ function PlasmicHomepage__RenderFunc(props: {
                         {$ctx => "Error fetching data"}
                       </ph.DataCtxReader>
                     }
+                    errorName={"fetchError"}
                     headers={{
                       "Content-Type": "application/json",
                       Accept: "application/json",
@@ -1536,7 +1537,7 @@ function PlasmicHomepage__RenderFunc(props: {
                         "query getProductsWithFilter($first: Int = 250) {\n  products(first: $first) {\n    edges {\n      node {\n        id\n        handle\n        title\n        collections(first: 10) {\n          edges {\n            node {\n              title\n              handle\n            }\n          }\n        }\n      }\n    }\n  }\n}\n",
                       variables: { name: "Rick Sanchez" }
                     }}
-                    queryKey={"randomProducts"}
+                    queryKey={"productsData"}
                     url={
                       "https://juhubeachstudio.myshopify.com/api/2022-07/graphql.json"
                     }
@@ -1593,7 +1594,7 @@ function PlasmicHomepage__RenderFunc(props: {
                                   <div
                                     className={classNames(
                                       projectcss.all,
-                                      sty.freeBox__xoBRs
+                                      sty.freeBox__mY9K3
                                     )}
                                     onLoad={async event => {
                                       const $steps = {};
@@ -1662,7 +1663,7 @@ function PlasmicHomepage__RenderFunc(props: {
                                           <ProductBox
                                             className={classNames(
                                               "__wab_instance",
-                                              sty.productBox__wiw
+                                              sty.productBox__jHCvw
                                             )}
                                             id={(() => {
                                               try {
@@ -1685,7 +1686,7 @@ function PlasmicHomepage__RenderFunc(props: {
                                                 <div
                                                   className={classNames(
                                                     projectcss.all,
-                                                    sty.freeBox__m3FZg
+                                                    sty.freeBox__iPIzG
                                                   )}
                                                   onClick={async event => {
                                                     const $steps = {};
@@ -1766,20 +1767,20 @@ function PlasmicHomepage__RenderFunc(props: {
                                                   <ProductMedia
                                                     className={classNames(
                                                       "__wab_instance",
-                                                      sty.productMedia__hppx4
+                                                      sty.productMedia__yyLur
                                                     )}
                                                   />
 
                                                   <div
                                                     className={classNames(
                                                       projectcss.all,
-                                                      sty.freeBox__e0UnQ
+                                                      sty.freeBox__ov1U
                                                     )}
                                                   >
                                                     <ProductTextField
                                                       className={classNames(
                                                         "__wab_instance",
-                                                        sty.productTextField__zxYn
+                                                        sty.productTextField__edO8H
                                                       )}
                                                       field={"name"}
                                                     />
@@ -1806,26 +1807,26 @@ function PlasmicHomepage__RenderFunc(props: {
                                       p.generateStateOnChangePropForCodeComponents(
                                         $state,
                                         "currentSlide",
-                                        ["sliderCarousel7", "currentSlide"],
+                                        ["sliderCarousel8", "currentSlide"],
                                         SliderWrapper_Helpers
                                       ),
                                     centerMode: true,
                                     className: classNames(
                                       "__wab_instance",
-                                      sty.sliderCarousel7
+                                      sty.sliderCarousel8
                                     ),
                                     dots: false,
                                     infinite: false,
                                     initialSlide: p.generateStateValueProp(
                                       $state,
-                                      ["sliderCarousel7", "currentSlide"]
+                                      ["sliderCarousel8", "currentSlide"]
                                     ),
                                     pauseOnHover: false,
                                     ref: ref => {
-                                      $refs["sliderCarousel7"] = ref;
+                                      $refs["sliderCarousel8"] = ref;
                                     },
                                     sliderScopeClassName:
-                                      sty["sliderCarousel7__slider"],
+                                      sty["sliderCarousel8__slider"],
                                     slidesToShow: hasVariant(
                                       globalVariants,
                                       "screen",
@@ -1841,7 +1842,7 @@ function PlasmicHomepage__RenderFunc(props: {
                                       {
                                         name: "currentSlide",
                                         plasmicStateName:
-                                          "sliderCarousel7.currentSlide"
+                                          "sliderCarousel8.currentSlide"
                                       }
                                     ],
                                     [],
@@ -1851,16 +1852,16 @@ function PlasmicHomepage__RenderFunc(props: {
 
                                   return (
                                     <SliderWrapper
-                                      data-plasmic-name={"sliderCarousel7"}
+                                      data-plasmic-name={"sliderCarousel8"}
                                       data-plasmic-override={
-                                        overrides.sliderCarousel7
+                                        overrides.sliderCarousel8
                                       }
                                       {...child$Props}
                                     >
                                       <ProductBox
                                         className={classNames(
                                           "__wab_instance",
-                                          sty.productBox__a9DDm
+                                          sty.productBox__t9I07
                                         )}
                                         id={(() => {
                                           try {
@@ -1883,7 +1884,7 @@ function PlasmicHomepage__RenderFunc(props: {
                                             <div
                                               className={classNames(
                                                 projectcss.all,
-                                                sty.freeBox__ordWd
+                                                sty.freeBox__c4IAp
                                               )}
                                               onClick={async event => {
                                                 const $steps = {};
@@ -1958,20 +1959,20 @@ function PlasmicHomepage__RenderFunc(props: {
                                               <ProductMedia
                                                 className={classNames(
                                                   "__wab_instance",
-                                                  sty.productMedia__kcHFn
+                                                  sty.productMedia__ocTb
                                                 )}
                                               />
 
                                               <div
                                                 className={classNames(
                                                   projectcss.all,
-                                                  sty.freeBox__xqVb
+                                                  sty.freeBox__onUu
                                                 )}
                                               >
                                                 <ProductTextField
                                                   className={classNames(
                                                     "__wab_instance",
-                                                    sty.productTextField__xCeMe
+                                                    sty.productTextField__yBpdO
                                                   )}
                                                   field={"name"}
                                                 />
@@ -1983,7 +1984,7 @@ function PlasmicHomepage__RenderFunc(props: {
                                       <ProductBox
                                         className={classNames(
                                           "__wab_instance",
-                                          sty.productBox__zykb2
+                                          sty.productBox__j52G3
                                         )}
                                         id={(() => {
                                           try {
@@ -2006,7 +2007,7 @@ function PlasmicHomepage__RenderFunc(props: {
                                             <div
                                               className={classNames(
                                                 projectcss.all,
-                                                sty.freeBox__uP8D
+                                                sty.freeBox__y6FFj
                                               )}
                                               onClick={async event => {
                                                 const $steps = {};
@@ -2081,20 +2082,20 @@ function PlasmicHomepage__RenderFunc(props: {
                                               <ProductMedia
                                                 className={classNames(
                                                   "__wab_instance",
-                                                  sty.productMedia__bYhBa
+                                                  sty.productMedia__qK41
                                                 )}
                                               />
 
                                               <div
                                                 className={classNames(
                                                   projectcss.all,
-                                                  sty.freeBox__umVc
+                                                  sty.freeBox__kxGkY
                                                 )}
                                               >
                                                 <ProductTextField
                                                   className={classNames(
                                                     "__wab_instance",
-                                                    sty.productTextField__g1UTw
+                                                    sty.productTextField__tou45
                                                   )}
                                                   field={"name"}
                                                 />
@@ -2106,7 +2107,7 @@ function PlasmicHomepage__RenderFunc(props: {
                                       <ProductBox
                                         className={classNames(
                                           "__wab_instance",
-                                          sty.productBox__lLJcI
+                                          sty.productBox__b5Wzj
                                         )}
                                         id={(() => {
                                           try {
@@ -2129,7 +2130,7 @@ function PlasmicHomepage__RenderFunc(props: {
                                             <div
                                               className={classNames(
                                                 projectcss.all,
-                                                sty.freeBox__zs2SZ
+                                                sty.freeBox__yDyG
                                               )}
                                               onClick={async event => {
                                                 const $steps = {};
@@ -2204,20 +2205,20 @@ function PlasmicHomepage__RenderFunc(props: {
                                               <ProductMedia
                                                 className={classNames(
                                                   "__wab_instance",
-                                                  sty.productMedia___9NIvs
+                                                  sty.productMedia__igT2L
                                                 )}
                                               />
 
                                               <div
                                                 className={classNames(
                                                   projectcss.all,
-                                                  sty.freeBox__u2EJn
+                                                  sty.freeBox___8I2PT
                                                 )}
                                               >
                                                 <ProductTextField
                                                   className={classNames(
                                                     "__wab_instance",
-                                                    sty.productTextField__aufai
+                                                    sty.productTextField__xikAp
                                                   )}
                                                   field={"name"}
                                                 />
@@ -3066,7 +3067,7 @@ const PlasmicDescendants = {
     "sliderCarousel3",
     "graphQlFetcher",
     "dataProvider",
-    "sliderCarousel7",
+    "sliderCarousel8",
     "productCollection",
     "surpriseMeButton",
     "sliderCarousel6",
@@ -3083,7 +3084,7 @@ const PlasmicDescendants = {
     "sliderCarousel3",
     "graphQlFetcher",
     "dataProvider",
-    "sliderCarousel7",
+    "sliderCarousel8",
     "productCollection",
     "surpriseMeButton",
     "sliderCarousel6",
@@ -3100,9 +3101,9 @@ const PlasmicDescendants = {
   shopCategoriesSlides: ["shopCategoriesSlides", "span"],
   span: ["span"],
   sliderCarousel3: ["sliderCarousel3"],
-  graphQlFetcher: ["graphQlFetcher", "dataProvider", "sliderCarousel7"],
-  dataProvider: ["dataProvider", "sliderCarousel7"],
-  sliderCarousel7: ["sliderCarousel7"],
+  graphQlFetcher: ["graphQlFetcher", "dataProvider", "sliderCarousel8"],
+  dataProvider: ["dataProvider", "sliderCarousel8"],
+  sliderCarousel8: ["sliderCarousel8"],
   productCollection: ["productCollection", "surpriseMeButton"],
   surpriseMeButton: ["surpriseMeButton"],
   sliderCarousel6: ["sliderCarousel6"],
@@ -3123,7 +3124,7 @@ type NodeDefaultElementType = {
   sliderCarousel3: typeof SliderWrapper;
   graphQlFetcher: typeof GraphqlFetcher;
   dataProvider: typeof DataProvider;
-  sliderCarousel7: typeof SliderWrapper;
+  sliderCarousel8: typeof SliderWrapper;
   productCollection: typeof ProductCollection;
   surpriseMeButton: typeof SurpriseMeButton;
   sliderCarousel6: typeof SliderWrapper;
@@ -3200,7 +3201,7 @@ export const PlasmicHomepage = Object.assign(
     sliderCarousel3: makeNodeComponent("sliderCarousel3"),
     graphQlFetcher: makeNodeComponent("graphQlFetcher"),
     dataProvider: makeNodeComponent("dataProvider"),
-    sliderCarousel7: makeNodeComponent("sliderCarousel7"),
+    sliderCarousel8: makeNodeComponent("sliderCarousel8"),
     productCollection: makeNodeComponent("productCollection"),
     surpriseMeButton: makeNodeComponent("surpriseMeButton"),
     sliderCarousel6: makeNodeComponent("sliderCarousel6"),

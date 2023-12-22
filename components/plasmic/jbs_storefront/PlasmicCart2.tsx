@@ -20,6 +20,13 @@ import { useRouter } from "next/router";
 import * as p from "@plasmicapp/react-web";
 import * as ph from "@plasmicapp/react-web/lib/host";
 
+import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
+import {
+  executePlasmicDataOp,
+  usePlasmicDataOp,
+  usePlasmicInvalidate
+} from "@plasmicapp/react-web/lib/data-sources";
+
 import {
   hasVariant,
   classNames,
@@ -39,6 +46,9 @@ import {
 import { CartProvider } from "@plasmicpkgs/commerce";
 import Button from "../../Button"; // plasmic-import: yEsI5slGwPm/component
 import SpecialInstructionsInput from "../../SpecialInstructionsInput"; // plasmic-import: znFTM0nXx5O6/component
+import { GraphqlFetcher } from "@plasmicpkgs/plasmic-query";
+
+import { useScreenVariants as useScreenVariants_6Hzia3M7Np4Ulu } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6hzia3m7Np4ulu/globalVariant
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -67,6 +77,8 @@ export type PlasmicCart2__OverridesType = {
   img?: p.Flex<typeof p.PlasmicImg>;
   p?: p.Flex<"p">;
   specialInstructionsInput?: p.Flex<typeof SpecialInstructionsInput>;
+  textarea?: p.Flex<"textarea">;
+  graphQlFetcher?: p.Flex<typeof GraphqlFetcher>;
 };
 
 export interface DefaultCart2Props {
@@ -113,6 +125,12 @@ function PlasmicCart2__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "textarea.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ``
       }
     ],
     [$props, $ctx, $refs]
@@ -122,6 +140,12 @@ function PlasmicCart2__RenderFunc(props: {
     $ctx,
     $queries: {},
     $refs
+  });
+  const dataSourcesCtx = usePlasmicDataSourceContext();
+  const plasmicInvalidate = usePlasmicInvalidate();
+
+  const globalVariants = ensureGlobalVariants({
+    screen: useScreenVariants_6Hzia3M7Np4Ulu()
   });
 
   return (
@@ -646,143 +670,439 @@ function PlasmicCart2__RenderFunc(props: {
                       </React.Fragment>
                     </div>
                   </div>
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__g3ALw)}
-                  >
-                    <p
-                      data-plasmic-name={"p"}
-                      data-plasmic-override={overrides.p}
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.p,
-                        projectcss.__wab_text,
-                        sty.p
-                      )}
+                  {false ? (
+                    <div
+                      className={classNames(projectcss.all, sty.freeBox__g3ALw)}
                     >
-                      {"Special Instructions"}
-                    </p>
-                    <SpecialInstructionsInput
-                      data-plasmic-name={"specialInstructionsInput"}
-                      data-plasmic-override={overrides.specialInstructionsInput}
-                      className={classNames(
-                        "__wab_instance",
-                        sty.specialInstructionsInput
-                      )}
-                      onSpecialInstructionsChange={async (
-                        ...eventArgs: any
-                      ) => {
-                        p.generateStateOnChangeProp($state, [
-                          "specialInstructionsInput",
-                          "specialInstructions"
-                        ]).apply(null, eventArgs);
-                        (async val => {
-                          const $steps = {};
+                      <p
+                        data-plasmic-name={"p"}
+                        data-plasmic-override={overrides.p}
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.p,
+                          projectcss.__wab_text,
+                          sty.p
+                        )}
+                      >
+                        {"Special Instructions"}
+                      </p>
+                      <SpecialInstructionsInput
+                        data-plasmic-name={"specialInstructionsInput"}
+                        data-plasmic-override={
+                          overrides.specialInstructionsInput
+                        }
+                        className={classNames(
+                          "__wab_instance",
+                          sty.specialInstructionsInput
+                        )}
+                        onSpecialInstructionsChange={async (
+                          ...eventArgs: any
+                        ) => {
+                          p.generateStateOnChangeProp($state, [
+                            "specialInstructionsInput",
+                            "specialInstructions"
+                          ]).apply(null, eventArgs);
+                          (async val => {
+                            const $steps = {};
 
-                          $steps["runCode"] = false
-                            ? (() => {
-                                const actionArgs = {
-                                  customFunction: async () => {
-                                    return (() => {
-                                      return ($ctx.cart.note =
-                                        $state.specialInstructionsInput
-                                          ?.specialInstructions || "");
-                                    })();
-                                  }
-                                };
-                                return (({ customFunction }) => {
-                                  return customFunction();
-                                })?.apply(null, [actionArgs]);
-                              })()
-                            : undefined;
-                          if (
-                            $steps["runCode"] != null &&
-                            typeof $steps["runCode"] === "object" &&
-                            typeof $steps["runCode"].then === "function"
-                          ) {
-                            $steps["runCode"] = await $steps["runCode"];
-                          }
-                        }).apply(null, eventArgs);
-                      }}
-                    />
-                  </div>
+                            $steps["runCode"] = false
+                              ? (() => {
+                                  const actionArgs = {
+                                    customFunction: async () => {
+                                      return (() => {
+                                        return ($ctx.cart.note =
+                                          $state.specialInstructionsInput
+                                            ?.specialInstructions || "");
+                                      })();
+                                    }
+                                  };
+                                  return (({ customFunction }) => {
+                                    return customFunction();
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["runCode"] != null &&
+                              typeof $steps["runCode"] === "object" &&
+                              typeof $steps["runCode"].then === "function"
+                            ) {
+                              $steps["runCode"] = await $steps["runCode"];
+                            }
+                          }).apply(null, eventArgs);
+                        }}
+                      />
+                    </div>
+                  ) : null}
                   <p.Stack
                     as={"div"}
                     hasGap={true}
                     className={classNames(projectcss.all, sty.freeBox__dON3)}
                   >
-                    <div
+                    <textarea
+                      data-plasmic-name={"textarea"}
+                      data-plasmic-override={overrides.textarea}
                       className={classNames(
                         projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text___8Htm2
+                        projectcss.textarea,
+                        sty.textarea
                       )}
-                    >
-                      <React.Fragment>
-                        <span
-                          className={
-                            "plasmic_default__all plasmic_default__span"
+                      onChange={async (...eventArgs: any) => {
+                        (e => {
+                          p.generateStateOnChangeProp($state, [
+                            "textarea",
+                            "value"
+                          ])(e.target.value);
+                        }).apply(null, eventArgs);
+                        (async event => {
+                          const $steps = {};
+
+                          $steps["updateTextareaValue"] = true
+                            ? (() => {
+                                const actionArgs = {
+                                  variable: {
+                                    objRoot: $state,
+                                    variablePath: ["textarea", "value"]
+                                  },
+                                  operation: 0,
+                                  value: $state.textarea.value
+                                };
+                                return (({
+                                  variable,
+                                  value,
+                                  startIndex,
+                                  deleteCount
+                                }) => {
+                                  if (!variable) {
+                                    return;
+                                  }
+                                  const { objRoot, variablePath } = variable;
+
+                                  p.set(objRoot, variablePath, value);
+                                  return value;
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                          if (
+                            $steps["updateTextareaValue"] != null &&
+                            typeof $steps["updateTextareaValue"] === "object" &&
+                            typeof $steps["updateTextareaValue"].then ===
+                              "function"
+                          ) {
+                            $steps["updateTextareaValue"] = await $steps[
+                              "updateTextareaValue"
+                            ];
                           }
-                          style={{ fontWeight: 700 }}
-                        >
-                          {"IN CASE OF CUSTOMISATION"}
-                        </span>
-                        <React.Fragment>{" - after you click "}</React.Fragment>
-                        <span
-                          className={
-                            "plasmic_default__all plasmic_default__span"
-                          }
-                          style={{ fontWeight: 700 }}
-                        >
-                          {"pay now"}
-                        </span>
+                        }).apply(null, eventArgs);
+                      }}
+                      placeholder={"Customisation details"}
+                      ref={ref => {
+                        $refs["textarea"] = ref;
+                      }}
+                      value={
+                        p.generateStateValueProp($state, [
+                          "textarea",
+                          "value"
+                        ]) ?? ""
+                      }
+                    />
+
+                    {false ? (
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text___8Htm2
+                        )}
+                      >
                         <React.Fragment>
-                          {" at checkout, in the "}
+                          <span
+                            className={
+                              "plasmic_default__all plasmic_default__span"
+                            }
+                            style={{ fontWeight: 700 }}
+                          >
+                            {"IN CASE OF CUSTOMISATION"}
+                          </span>
+                          <React.Fragment>
+                            {" - after you click "}
+                          </React.Fragment>
+                          <span
+                            className={
+                              "plasmic_default__all plasmic_default__span"
+                            }
+                            style={{ fontWeight: 700 }}
+                          >
+                            {"pay now"}
+                          </span>
+                          <React.Fragment>
+                            {" at checkout, in the "}
+                          </React.Fragment>
+                          <span
+                            className={
+                              "plasmic_default__all plasmic_default__span"
+                            }
+                            style={{ fontWeight: 700 }}
+                          >
+                            {"Billing Information"}
+                          </span>
+                          <React.Fragment>
+                            {
+                              " section, you will find a little box called notes . Please add your customisation text there. "
+                            }
+                          </React.Fragment>
                         </React.Fragment>
-                        <span
-                          className={
-                            "plasmic_default__all plasmic_default__span"
-                          }
-                          style={{ fontWeight: 700 }}
-                        >
-                          {"Billing Information"}
-                        </span>
-                        <React.Fragment>
-                          {
-                            " section, you will find a little box called notes . Please add your customisation text there. "
-                          }
-                        </React.Fragment>
-                      </React.Fragment>
-                    </div>
-                    <Button
+                      </div>
+                    ) : null}
+                    <GraphqlFetcher
+                      data-plasmic-name={"graphQlFetcher"}
+                      data-plasmic-override={overrides.graphQlFetcher}
                       className={classNames(
                         "__wab_instance",
-                        sty.button__ywrkm
+                        sty.graphQlFetcher
                       )}
-                      color={"red"}
-                      link={(() => {
+                      dataName={"updateCartNote"}
+                      errorDisplay={
+                        <ph.DataCtxReader>
+                          {$ctx => "Error fetching data"}
+                        </ph.DataCtxReader>
+                      }
+                      errorName={"fetchError"}
+                      headers={{
+                        "Content-Type": "application/json",
+                        Accept: "application/json",
+                        "X-Shopify-Storefront-Access-Token":
+                          "0f43cbfd628ae6e4fef6a34969378290"
+                      }}
+                      loadingDisplay={
+                        <ph.DataCtxReader>
+                          {$ctx => "Loading..."}
+                        </ph.DataCtxReader>
+                      }
+                      method={"POST"}
+                      noLayout={false}
+                      query={{
+                        query:
+                          'mutation updateCartNote($checkoutId: ID!, $checkoutNote: String = "") {\n  checkoutAttributesUpdateV2(\n    checkoutId: $checkoutId\n    input: {note: $checkoutNote}\n  ) {\n    checkout {\n      id\n      note\n      webUrl\n    }\n    checkoutUserErrors {\n      message\n    }\n  }\n}\n',
+                        variables: {
+                          checkoutNote: "Let's see what this does",
+                          checkoutId:
+                            "gid://shopify/Checkout/92fa775dcb44e77e04448d67dfd16013?key=4a2ce717f7ea5687030f46f6e950ca97"
+                        }
+                      }}
+                      queryKey={"updateCartNote"}
+                      url={
+                        "https://juhubeachstudio.myshopify.com/api/2022-07/graphql.json"
+                      }
+                      varOverrides={(() => {
                         try {
-                          return $ctx.cart.url;
+                          return {
+                            checkoutNote: $state.textarea.value,
+                            checkoutId: $ctx.cart.id
+                          };
                         } catch (e) {
                           if (
                             e instanceof TypeError ||
                             e?.plasmicType === "PlasmicUndefinedDataError"
                           ) {
-                            return undefined;
+                            return {};
                           }
                           throw e;
                         }
                       })()}
                     >
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text__b8Xci
+                      <ph.DataCtxReader>
+                        {$ctx => (
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox___2QYxz
+                            )}
+                          >
+                            <Button
+                              className={classNames(
+                                "__wab_instance",
+                                sty.button__of9VO
+                              )}
+                              color={"redJbs"}
+                              link={(() => {
+                                try {
+                                  return $ctx.cart.url;
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return undefined;
+                                  }
+                                  throw e;
+                                }
+                              })()}
+                              onClick={async event => {
+                                const $steps = {};
+
+                                $steps["refreshData"] = true
+                                  ? (() => {
+                                      const actionArgs = {
+                                        queryInvalidation: [].concat(
+                                          $ctx.updateCartNote
+                                        )
+                                      };
+                                      return (async ({ queryInvalidation }) => {
+                                        if (!queryInvalidation) {
+                                          return;
+                                        }
+                                        await plasmicInvalidate(
+                                          queryInvalidation
+                                        );
+                                      })?.apply(null, [actionArgs]);
+                                    })()
+                                  : undefined;
+                                if (
+                                  $steps["refreshData"] != null &&
+                                  typeof $steps["refreshData"] === "object" &&
+                                  typeof $steps["refreshData"].then ===
+                                    "function"
+                                ) {
+                                  $steps["refreshData"] = await $steps[
+                                    "refreshData"
+                                  ];
+                                }
+
+                                $steps["invokeGlobalAction"] = true
+                                  ? (() => {
+                                      const actionArgs = {
+                                        args: [
+                                          undefined,
+                                          (() => {
+                                            try {
+                                              return (() => {
+                                                let checkoutData =
+                                                  $ctx.updateCartNote.data
+                                                    .checkoutAttributesUpdateV2
+                                                    .checkout;
+                                                let errorData =
+                                                  $ctx.updateCartNote.error;
+                                                if (errorData) {
+                                                  return JSON.stringify(
+                                                    errorData
+                                                  );
+                                                }
+                                                return `Cart ${checkoutData.webUrl} updated with the note: ${checkoutData.note}!`;
+                                              })();
+                                            } catch (e) {
+                                              if (
+                                                e instanceof TypeError ||
+                                                e?.plasmicType ===
+                                                  "PlasmicUndefinedDataError"
+                                              ) {
+                                                return undefined;
+                                              }
+                                              throw e;
+                                            }
+                                          })()
+                                        ]
+                                      };
+                                      return $globalActions[
+                                        "plasmic-antd5-config-provider.showNotification"
+                                      ]?.apply(null, [...actionArgs.args]);
+                                    })()
+                                  : undefined;
+                                if (
+                                  $steps["invokeGlobalAction"] != null &&
+                                  typeof $steps["invokeGlobalAction"] ===
+                                    "object" &&
+                                  typeof $steps["invokeGlobalAction"].then ===
+                                    "function"
+                                ) {
+                                  $steps["invokeGlobalAction"] = await $steps[
+                                    "invokeGlobalAction"
+                                  ];
+                                }
+                              }}
+                              size={
+                                hasVariant(
+                                  globalVariants,
+                                  "screen",
+                                  "mobileOnly"
+                                )
+                                  ? "compact"
+                                  : undefined
+                              }
+                            >
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  projectcss.__wab_text,
+                                  sty.text___9YcN
+                                )}
+                              >
+                                {"PROCEED TO CHECKOUT"}
+                              </div>
+                            </Button>
+                          </div>
                         )}
+                      </ph.DataCtxReader>
+                    </GraphqlFetcher>
+                    {false ? (
+                      <Button
+                        className={classNames(
+                          "__wab_instance",
+                          sty.button__ywrkm
+                        )}
+                        color={"redJbs"}
+                        link={(() => {
+                          try {
+                            return $ctx.cart.url;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()}
+                        onClick={async event => {
+                          const $steps = {};
+
+                          $steps["refreshData"] = true
+                            ? (() => {
+                                const actionArgs = { queryInvalidation: [] };
+                                return (async ({ queryInvalidation }) => {
+                                  if (!queryInvalidation) {
+                                    return;
+                                  }
+                                  await plasmicInvalidate(queryInvalidation);
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                          if (
+                            $steps["refreshData"] != null &&
+                            typeof $steps["refreshData"] === "object" &&
+                            typeof $steps["refreshData"].then === "function"
+                          ) {
+                            $steps["refreshData"] = await $steps["refreshData"];
+                          }
+                        }}
+                        size={
+                          hasVariant(globalVariants, "screen", "mobileOnly")
+                            ? "compact"
+                            : undefined
+                        }
                       >
-                        {"PROCEED TO CHECKOUT"}
-                      </div>
-                    </Button>
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__b8Xci
+                          )}
+                        >
+                          {"PROCEED TO CHECKOUT"}
+                        </div>
+                      </Button>
+                    ) : null}
                   </p.Stack>
                 </div>
               ) : null}
@@ -795,12 +1115,31 @@ function PlasmicCart2__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "cartProvider", "svg", "img", "p", "specialInstructionsInput"],
-  cartProvider: ["cartProvider", "svg", "img", "p", "specialInstructionsInput"],
+  root: [
+    "root",
+    "cartProvider",
+    "svg",
+    "img",
+    "p",
+    "specialInstructionsInput",
+    "textarea",
+    "graphQlFetcher"
+  ],
+  cartProvider: [
+    "cartProvider",
+    "svg",
+    "img",
+    "p",
+    "specialInstructionsInput",
+    "textarea",
+    "graphQlFetcher"
+  ],
   svg: ["svg"],
   img: ["img"],
   p: ["p"],
-  specialInstructionsInput: ["specialInstructionsInput"]
+  specialInstructionsInput: ["specialInstructionsInput"],
+  textarea: ["textarea"],
+  graphQlFetcher: ["graphQlFetcher"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -812,6 +1151,8 @@ type NodeDefaultElementType = {
   img: typeof p.PlasmicImg;
   p: "p";
   specialInstructionsInput: typeof SpecialInstructionsInput;
+  textarea: "textarea";
+  graphQlFetcher: typeof GraphqlFetcher;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -879,6 +1220,8 @@ export const PlasmicCart2 = Object.assign(
     img: makeNodeComponent("img"),
     p: makeNodeComponent("p"),
     specialInstructionsInput: makeNodeComponent("specialInstructionsInput"),
+    textarea: makeNodeComponent("textarea"),
+    graphQlFetcher: makeNodeComponent("graphQlFetcher"),
 
     // Metadata about props expected for PlasmicCart2
     internalVariantProps: PlasmicCart2__VariantProps,
