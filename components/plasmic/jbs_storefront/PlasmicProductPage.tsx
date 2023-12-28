@@ -392,6 +392,65 @@ function PlasmicProductPage__RenderFunc(props: {
                               )}
                             />
                           ) : null}
+                          {(() => {
+                            try {
+                              return (
+                                $ctx.currentProduct.variants.length > 1 &&
+                                $ctx.currentProduct.variants.some(
+                                  variant => !variant.availableForSale
+                                )
+                              );
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return true;
+                              }
+                              throw e;
+                            }
+                          })() ? (
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.text__is2Zg
+                              )}
+                            >
+                              <React.Fragment>
+                                {(() => {
+                                  try {
+                                    return (() => {
+                                      const soldOutVariants =
+                                        $ctx.currentProduct.variants.filter(
+                                          variant => !variant.availableForSale
+                                        );
+                                      const variantNames = soldOutVariants.map(
+                                        variant => variant.name
+                                      );
+                                      const message = `Note: ${variantNames.join(
+                                        ", "
+                                      )} ${
+                                        soldOutVariants.length > 1
+                                          ? "variants are"
+                                          : "variant is"
+                                      } all sold out :( the other ones are still available 👀`;
+                                      return message;
+                                    })();
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return "";
+                                    }
+                                    throw e;
+                                  }
+                                })()}
+                              </React.Fragment>
+                            </div>
+                          ) : null}
                           <ProductTextField
                             className={classNames(
                               "__wab_instance",
@@ -458,6 +517,7 @@ function PlasmicProductPage__RenderFunc(props: {
                                         {$ctx => "Error fetching data"}
                                       </ph.DataCtxReader>
                                     }
+                                    errorName={"fetchError"}
                                     headers={{
                                       "Content-Type": "application/json",
                                       Accept: "application/json",
@@ -558,6 +618,7 @@ function PlasmicProductPage__RenderFunc(props: {
                                         {$ctx => "Error fetching data"}
                                       </ph.DataCtxReader>
                                     }
+                                    errorName={"fetchError"}
                                     headers={{
                                       "Content-Type": "application/json",
                                       Accept: "application/json",
@@ -658,6 +719,7 @@ function PlasmicProductPage__RenderFunc(props: {
                                         {$ctx => "Error fetching data"}
                                       </ph.DataCtxReader>
                                     }
+                                    errorName={"fetchError"}
                                     headers={{
                                       "Content-Type": "application/json",
                                       Accept: "application/json",
@@ -808,6 +870,7 @@ function PlasmicProductPage__RenderFunc(props: {
                           {$ctx => "Error fetching data"}
                         </ph.DataCtxReader>
                       }
+                      errorName={"fetchError"}
                       headers={{
                         "Content-Type": "application/json",
                         Accept: "application/json",

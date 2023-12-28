@@ -590,10 +590,10 @@
   resolved "https://registry.yarnpkg.com/@plasmicpkgs/plasmic-nav/-/plasmic-nav-0.0.155.tgz#a4061716dfc1bf03806324adcd4d88515fc28e07"
   integrity sha512-lGRVIoacpn8hsWi2BsBVvxsX8VOa0+Z/idxVmUwsPIKNwsH1ehzmHzcN75wLi3FNPIzYL+y83uhrG/7EzcW07Q==
 
-"@plasmicpkgs/plasmic-query@^0.0.202":
-  version "0.0.202"
-  resolved "https://registry.yarnpkg.com/@plasmicpkgs/plasmic-query/-/plasmic-query-0.0.202.tgz#8744901761c8a3048e91de96d95ebebc0d811538"
-  integrity sha512-3Ec2axZHtJgad7GNg1VmzcDmFHlWF3RlNs7jo99+B5jd1sIP0UrjEZpxubCUdLKBB271Y+N8yoZVhe/Zv+NgHg==
+"@plasmicpkgs/plasmic-query@^0.0.206":
+  version "0.0.206"
+  resolved "https://registry.yarnpkg.com/@plasmicpkgs/plasmic-query/-/plasmic-query-0.0.206.tgz#2639bfe8c92ba949c10d0771c247ade141be49f6"
+  integrity sha512-IY28gVOB/M1L84MH5hbtpmYfXHpWDuWe8K9BPEtGrG7pcqErZicdihGtObTmK8pqbKOI0A7Nxx/q6GKIDO/Aiw==
 
 "@plasmicpkgs/react-awesome-reveal@^3.8.186":
   version "3.8.186"
