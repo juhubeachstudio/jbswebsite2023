@@ -63,7 +63,7 @@ export const PlasmicProductCardJbs__ArgProps = new Array<ArgPropType>(
 
 export type PlasmicProductCardJbs__OverridesType = {
   root?: p.Flex<"div">;
-  freeBox?: p.Flex<"div">;
+  text?: p.Flex<"div">;
   productTextField?: p.Flex<typeof ProductTextField>;
   productPrice?: p.Flex<typeof ProductPriceComponent>;
 };
@@ -126,6 +126,33 @@ function PlasmicProductCardJbs__RenderFunc(props: {
       )}
       data-plasmic-trigger-props={[triggerRootHoverProps]}
     >
+      {(() => {
+        try {
+          return !$ctx.currentProduct.availableForSale;
+        } catch (e) {
+          if (
+            e instanceof TypeError ||
+            e?.plasmicType === "PlasmicUndefinedDataError"
+          ) {
+            return true;
+          }
+          throw e;
+        }
+      })() ? (
+        <div className={classNames(projectcss.all, sty.freeBox__ho5W)}>
+          <div
+            data-plasmic-name={"text"}
+            data-plasmic-override={overrides.text}
+            className={classNames(
+              projectcss.all,
+              projectcss.__wab_text,
+              sty.text
+            )}
+          >
+            {"Sold Out"}
+          </div>
+        </div>
+      ) : null}
       <p.PlasmicLink
         className={classNames(projectcss.all, projectcss.a, sty.link__cdKoo)}
         component={Link}
@@ -156,10 +183,8 @@ function PlasmicProductCardJbs__RenderFunc(props: {
       </p.PlasmicLink>
       <p.Stack
         as={"div"}
-        data-plasmic-name={"freeBox"}
-        data-plasmic-override={overrides.freeBox}
         hasGap={true}
-        className={classNames(projectcss.all, sty.freeBox)}
+        className={classNames(projectcss.all, sty.freeBox___3HlGq)}
       >
         <p.PlasmicLink
           className={classNames(projectcss.all, projectcss.a, sty.link___7Zco)}
@@ -197,8 +222,8 @@ function PlasmicProductCardJbs__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "freeBox", "productTextField", "productPrice"],
-  freeBox: ["freeBox", "productTextField", "productPrice"],
+  root: ["root", "text", "productTextField", "productPrice"],
+  text: ["text"],
   productTextField: ["productTextField"],
   productPrice: ["productPrice"]
 } as const;
@@ -207,7 +232,7 @@ type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
-  freeBox: "div";
+  text: "div";
   productTextField: typeof ProductTextField;
   productPrice: typeof ProductPriceComponent;
 };
@@ -272,7 +297,7 @@ export const PlasmicProductCardJbs = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
-    freeBox: makeNodeComponent("freeBox"),
+    text: makeNodeComponent("text"),
     productTextField: makeNodeComponent("productTextField"),
     productPrice: makeNodeComponent("productPrice"),
 

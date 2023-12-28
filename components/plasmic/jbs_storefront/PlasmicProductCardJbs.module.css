@@ -11,6 +11,50 @@
   overflow: hidden;
   border: 1px solid var(--token-ZGgUq6H0D);
 }
+.freeBox__ho5W {
+  display: flex;
+  position: absolute;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  left: auto;
+  top: 0;
+  z-index: 1;
+  right: 0;
+  border-bottom-left-radius: 16px;
+  border-top-width: 0px;
+  border-right-width: 0px;
+  border-bottom-width: 2px;
+  border-left-width: 2px;
+  border-top-color: #ffffff00;
+  border-right-color: #ffffff00;
+  border-bottom-color: var(--token-RvPI6LyeIPmd);
+  border-left-color: var(--token-RvPI6LyeIPmd);
+  background: #ffffffcc;
+  padding: 8px;
+  border-style: solid;
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .freeBox__ho5W {
+    border-bottom-left-radius: 12px;
+    padding: 4px 8px;
+  }
+}
+.text {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  font-size: var(--token-hYndcje43OGL);
+  min-width: 0;
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .text {
+    font-size: var(--token-o0Nl0Hefncwa);
+  }
+}
 .link__cdKoo {
   display: flex;
   color: var(--token-ZGgUq6H0D);
@@ -79,7 +123,7 @@
   top: auto;
   display: flex;
 }
-.freeBox {
+.freeBox___3HlGq {
   display: flex;
   position: relative;
   flex-direction: column;
@@ -90,7 +134,7 @@
   padding: 16px;
   border-top: 1px solid var(--token-ZGgUq6H0D);
 }
-.freeBox > :global(.__wab_flex-container) {
+.freeBox___3HlGq > :global(.__wab_flex-container) {
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
@@ -98,10 +142,10 @@
   margin-top: calc(0px - var(--token-cSJ2BJk-9JCq));
   height: calc(100% + var(--token-cSJ2BJk-9JCq));
 }
-.freeBox > :global(.__wab_flex-container) > *,
-.freeBox > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
-.freeBox > :global(.__wab_flex-container) > picture > img,
-.freeBox
+.freeBox___3HlGq > :global(.__wab_flex-container) > *,
+.freeBox___3HlGq > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.freeBox___3HlGq > :global(.__wab_flex-container) > picture > img,
+.freeBox___3HlGq
   > :global(.__wab_flex-container)
   > :global(.__wab_slot)
   > picture
@@ -109,7 +153,7 @@
   margin-top: var(--token-cSJ2BJk-9JCq);
 }
 @media (min-width: 0px) and (max-width: 768px) {
-  .freeBox {
+  .freeBox___3HlGq {
     border-left-width: 2px;
     border-right-width: 2px;
     border-bottom-width: 2px;

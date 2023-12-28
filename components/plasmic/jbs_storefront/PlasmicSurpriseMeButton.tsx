@@ -62,7 +62,8 @@ export const PlasmicSurpriseMeButton__ArgProps = new Array<ArgPropType>(
 );
 
 export type PlasmicSurpriseMeButton__OverridesType = {
-  root?: p.Flex<typeof p.PlasmicImg>;
+  root?: p.Flex<"div">;
+  img?: p.Flex<typeof p.PlasmicImg>;
 };
 
 export interface DefaultSurpriseMeButtonProps {
@@ -101,18 +102,23 @@ function PlasmicSurpriseMeButton__RenderFunc(props: {
 
   const currentUser = p.useCurrentUser?.() || {};
 
+  const [isRootHover, triggerRootHoverProps] = useTrigger("useHover", {});
+  const triggers = {
+    hover_root: isRootHover
+  };
+
   const globalVariants = ensureGlobalVariants({
     screen: useScreenVariants_6Hzia3M7Np4Ulu()
   });
 
   return (
-    <p.PlasmicImg
+    <div
       data-plasmic-name={"root"}
       data-plasmic-override={overrides.root}
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
-      alt={""}
       className={classNames(
+        projectcss.all,
         projectcss.root_reset,
         projectcss.plasmic_default_styles,
         projectcss.plasmic_mixins,
@@ -120,34 +126,44 @@ function PlasmicSurpriseMeButton__RenderFunc(props: {
         plasmic_antd_5_hostless_css.plasmic_tokens,
         sty.root
       )}
-      displayHeight={"auto"}
-      displayMaxHeight={"none"}
-      displayMaxWidth={"100%"}
-      displayMinHeight={"0"}
-      displayMinWidth={"0"}
-      displayWidth={
-        hasVariant(globalVariants, "screen", "mobileOnly") ? "150px" : "200px"
-      }
-      loading={"lazy"}
-      onClick={args.onClick}
-      src={{
-        src: "/plasmic/jbs_storefront/images/asset81Png.png",
-        fullWidth: 686,
-        fullHeight: 543,
-        aspectRatio: undefined
-      }}
-    />
+      data-plasmic-trigger-props={[triggerRootHoverProps]}
+    >
+      <p.PlasmicImg
+        data-plasmic-name={"img"}
+        data-plasmic-override={overrides.img}
+        alt={""}
+        className={classNames(sty.img)}
+        displayHeight={"auto"}
+        displayMaxHeight={"none"}
+        displayMaxWidth={"100%"}
+        displayMinHeight={"0"}
+        displayMinWidth={"0"}
+        displayWidth={
+          hasVariant(globalVariants, "screen", "mobileOnly") ? "150px" : "200px"
+        }
+        loading={"lazy"}
+        onClick={args.onClick}
+        src={{
+          src: "/plasmic/jbs_storefront/images/asset81Png.png",
+          fullWidth: 686,
+          fullHeight: 543,
+          aspectRatio: undefined
+        }}
+      />
+    </div>
   ) as React.ReactElement | null;
 }
 
 const PlasmicDescendants = {
-  root: ["root"]
+  root: ["root", "img"],
+  img: ["img"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
-  root: typeof p.PlasmicImg;
+  root: "div";
+  img: typeof p.PlasmicImg;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -210,6 +226,7 @@ export const PlasmicSurpriseMeButton = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
+    img: makeNodeComponent("img"),
 
     // Metadata about props expected for PlasmicSurpriseMeButton
     internalVariantProps: PlasmicSurpriseMeButton__VariantProps,

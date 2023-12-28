@@ -62,8 +62,10 @@ export const PlasmicAddToCartCustomButton__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicAddToCartCustomButton__OverridesType = {
   root?: p.Flex<"div">;
+  addToCart?: p.Flex<"div">;
   addToCartButton?: p.Flex<typeof AddToCartButton>;
-  button?: p.Flex<"button">;
+  soldOut?: p.Flex<"div">;
+  text?: p.Flex<"div">;
 };
 
 export interface DefaultAddToCartCustomButtonProps {
@@ -152,155 +154,268 @@ function PlasmicAddToCartCustomButton__RenderFunc(props: {
         }
       )}
     >
-      <AddToCartButton
-        data-plasmic-name={"addToCartButton"}
-        data-plasmic-override={overrides.addToCartButton}
-        className={classNames("__wab_instance", sty.addToCartButton)}
-      >
-        <button
-          data-plasmic-name={"button"}
-          data-plasmic-override={overrides.button}
-          className={classNames(
-            projectcss.all,
-            projectcss.button,
-            projectcss.__wab_text,
-            sty.button,
-            {
-              [sty.buttonaddedToCartVariant]: hasVariant(
-                $state,
-                "addedToCartVariant",
-                "addedToCartVariant"
-              )
-            }
-          )}
-          onClick={async event => {
-            const $steps = {};
-
-            $steps["updatedVariant"] = false
-              ? (() => {
-                  const actionArgs = {
-                    vgroup: "addedToCartVariant",
-                    operation: 4
-                  };
-                  return (({ vgroup, value }) => {
-                    if (typeof value === "string") {
-                      value = [value];
-                    }
-
-                    p.set($state, vgroup, true);
-                    return true;
-                  })?.apply(null, [actionArgs]);
-                })()
-              : undefined;
-            if (
-              $steps["updatedVariant"] != null &&
-              typeof $steps["updatedVariant"] === "object" &&
-              typeof $steps["updatedVariant"].then === "function"
-            ) {
-              $steps["updatedVariant"] = await $steps["updatedVariant"];
-            }
-
-            $steps["showNotification"] = true
-              ? (() => {
-                  const actionArgs = {
-                    args: [
-                      "success",
-                      "Item added to cart!",
-                      (() => {
-                        try {
-                          return $ctx.currentProduct.name;
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return undefined;
-                          }
-                          throw e;
-                        }
-                      })(),
-                      3
-                    ]
-                  };
-                  return $globalActions[
-                    "plasmic-antd5-config-provider.showNotification"
-                  ]?.apply(null, [...actionArgs.args]);
-                })()
-              : undefined;
-            if (
-              $steps["showNotification"] != null &&
-              typeof $steps["showNotification"] === "object" &&
-              typeof $steps["showNotification"].then === "function"
-            ) {
-              $steps["showNotification"] = await $steps["showNotification"];
-            }
-
-            $steps["waitFor2Seconds"] = false
-              ? (() => {
-                  const actionArgs = {
-                    customFunction: async () => {
-                      return setTimeout(() => {}, 2000);
-                    }
-                  };
-                  return (({ customFunction }) => {
-                    return customFunction();
-                  })?.apply(null, [actionArgs]);
-                })()
-              : undefined;
-            if (
-              $steps["waitFor2Seconds"] != null &&
-              typeof $steps["waitFor2Seconds"] === "object" &&
-              typeof $steps["waitFor2Seconds"].then === "function"
-            ) {
-              $steps["waitFor2Seconds"] = await $steps["waitFor2Seconds"];
-            }
-
-            $steps["revertVariantToBase"] = false
-              ? (() => {
-                  const actionArgs = {
-                    vgroup: "addedToCartVariant",
-                    operation: 6
-                  };
-                  return (({ vgroup, value }) => {
-                    if (typeof value === "string") {
-                      value = [value];
-                    }
-
-                    p.set($state, vgroup, false);
-                    return false;
-                  })?.apply(null, [actionArgs]);
-                })()
-              : undefined;
-            if (
-              $steps["revertVariantToBase"] != null &&
-              typeof $steps["revertVariantToBase"] === "object" &&
-              typeof $steps["revertVariantToBase"].then === "function"
-            ) {
-              $steps["revertVariantToBase"] = await $steps[
-                "revertVariantToBase"
-              ];
-            }
-          }}
+      {(() => {
+        try {
+          return $ctx.currentProduct.availableForSale;
+        } catch (e) {
+          if (
+            e instanceof TypeError ||
+            e?.plasmicType === "PlasmicUndefinedDataError"
+          ) {
+            return true;
+          }
+          throw e;
+        }
+      })() ? (
+        <div
+          data-plasmic-name={"addToCart"}
+          data-plasmic-override={overrides.addToCart}
+          className={classNames(projectcss.all, sty.addToCart, {
+            [sty.addToCartaddedToCartVariant]: hasVariant(
+              $state,
+              "addedToCartVariant",
+              "addedToCartVariant"
+            )
+          })}
         >
-          {"Add To Cart"}
-        </button>
-      </AddToCartButton>
+          <AddToCartButton
+            data-plasmic-name={"addToCartButton"}
+            data-plasmic-override={overrides.addToCartButton}
+            className={classNames("__wab_instance", sty.addToCartButton)}
+          >
+            <button
+              className={classNames(
+                projectcss.all,
+                projectcss.button,
+                projectcss.__wab_text,
+                sty.button__lp97B,
+                {
+                  [sty.buttonaddedToCartVariant__lp97BEWaKl]: hasVariant(
+                    $state,
+                    "addedToCartVariant",
+                    "addedToCartVariant"
+                  )
+                }
+              )}
+              onClick={async event => {
+                const $steps = {};
+
+                $steps["updatedVariant"] = false
+                  ? (() => {
+                      const actionArgs = {
+                        vgroup: "addedToCartVariant",
+                        operation: 4
+                      };
+                      return (({ vgroup, value }) => {
+                        if (typeof value === "string") {
+                          value = [value];
+                        }
+
+                        p.set($state, vgroup, true);
+                        return true;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["updatedVariant"] != null &&
+                  typeof $steps["updatedVariant"] === "object" &&
+                  typeof $steps["updatedVariant"].then === "function"
+                ) {
+                  $steps["updatedVariant"] = await $steps["updatedVariant"];
+                }
+
+                $steps["showNotification"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        args: [
+                          "success",
+                          "Item added to cart!",
+                          (() => {
+                            try {
+                              return $ctx.currentProduct.name;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return undefined;
+                              }
+                              throw e;
+                            }
+                          })(),
+                          3
+                        ]
+                      };
+                      return $globalActions[
+                        "plasmic-antd5-config-provider.showNotification"
+                      ]?.apply(null, [...actionArgs.args]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["showNotification"] != null &&
+                  typeof $steps["showNotification"] === "object" &&
+                  typeof $steps["showNotification"].then === "function"
+                ) {
+                  $steps["showNotification"] = await $steps["showNotification"];
+                }
+
+                $steps["waitFor2Seconds"] = false
+                  ? (() => {
+                      const actionArgs = {
+                        customFunction: async () => {
+                          return setTimeout(() => {}, 2000);
+                        }
+                      };
+                      return (({ customFunction }) => {
+                        return customFunction();
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["waitFor2Seconds"] != null &&
+                  typeof $steps["waitFor2Seconds"] === "object" &&
+                  typeof $steps["waitFor2Seconds"].then === "function"
+                ) {
+                  $steps["waitFor2Seconds"] = await $steps["waitFor2Seconds"];
+                }
+
+                $steps["revertVariantToBase"] = false
+                  ? (() => {
+                      const actionArgs = {
+                        vgroup: "addedToCartVariant",
+                        operation: 6
+                      };
+                      return (({ vgroup, value }) => {
+                        if (typeof value === "string") {
+                          value = [value];
+                        }
+
+                        p.set($state, vgroup, false);
+                        return false;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["revertVariantToBase"] != null &&
+                  typeof $steps["revertVariantToBase"] === "object" &&
+                  typeof $steps["revertVariantToBase"].then === "function"
+                ) {
+                  $steps["revertVariantToBase"] = await $steps[
+                    "revertVariantToBase"
+                  ];
+                }
+              }}
+            >
+              {"Add To Cart"}
+            </button>
+          </AddToCartButton>
+        </div>
+      ) : null}
+      {(() => {
+        try {
+          return !$ctx.currentProduct.availableForSale;
+        } catch (e) {
+          if (
+            e instanceof TypeError ||
+            e?.plasmicType === "PlasmicUndefinedDataError"
+          ) {
+            return true;
+          }
+          throw e;
+        }
+      })() ? (
+        <div
+          data-plasmic-name={"soldOut"}
+          data-plasmic-override={overrides.soldOut}
+          className={classNames(projectcss.all, sty.soldOut, {
+            [sty.soldOutaddedToCartVariant]: hasVariant(
+              $state,
+              "addedToCartVariant",
+              "addedToCartVariant"
+            )
+          })}
+        >
+          <button
+            className={classNames(
+              projectcss.all,
+              projectcss.button,
+              sty.button___3ObkG
+            )}
+            onClick={async event => {
+              const $steps = {};
+
+              $steps["invokeGlobalAction"] = true
+                ? (() => {
+                    const actionArgs = {
+                      args: [
+                        "info",
+                        "Sold out! Can not add to cart.",
+                        (() => {
+                          try {
+                            return `We're sorry, but people loved ${$ctx.currentProduct.name} too much and we ran out of it! :(`;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })(),
+                        3
+                      ]
+                    };
+                    return $globalActions[
+                      "plasmic-antd5-config-provider.showNotification"
+                    ]?.apply(null, [...actionArgs.args]);
+                  })()
+                : undefined;
+              if (
+                $steps["invokeGlobalAction"] != null &&
+                typeof $steps["invokeGlobalAction"] === "object" &&
+                typeof $steps["invokeGlobalAction"].then === "function"
+              ) {
+                $steps["invokeGlobalAction"] = await $steps[
+                  "invokeGlobalAction"
+                ];
+              }
+            }}
+          >
+            <div
+              data-plasmic-name={"text"}
+              data-plasmic-override={overrides.text}
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text
+              )}
+            >
+              {"SOLD OUT"}
+            </div>
+          </button>
+        </div>
+      ) : null}
     </div>
   ) as React.ReactElement | null;
 }
 
 const PlasmicDescendants = {
-  root: ["root", "addToCartButton", "button"],
-  addToCartButton: ["addToCartButton", "button"],
-  button: ["button"]
+  root: ["root", "addToCart", "addToCartButton", "soldOut", "text"],
+  addToCart: ["addToCart", "addToCartButton"],
+  addToCartButton: ["addToCartButton"],
+  soldOut: ["soldOut", "text"],
+  text: ["text"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
+  addToCart: "div";
   addToCartButton: typeof AddToCartButton;
-  button: "button";
+  soldOut: "div";
+  text: "div";
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -363,8 +478,10 @@ export const PlasmicAddToCartCustomButton = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
+    addToCart: makeNodeComponent("addToCart"),
     addToCartButton: makeNodeComponent("addToCartButton"),
-    button: makeNodeComponent("button"),
+    soldOut: makeNodeComponent("soldOut"),
+    text: makeNodeComponent("text"),
 
     // Metadata about props expected for PlasmicAddToCartCustomButton
     internalVariantProps: PlasmicAddToCartCustomButton__VariantProps,
