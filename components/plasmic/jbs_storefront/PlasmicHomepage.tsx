@@ -2987,9 +2987,9 @@ function PlasmicHomepage__RenderFunc(props: {
                         sty.text__cQmWl
                       )}
                     >
-                      {
-                        "Our brand celebrates the weird and wonderful conceptness of life through delightful, handcrafted lifestyle accessory products."
-                      }
+                      {hasVariant(globalVariants, "screen", "mobileOnly")
+                        ? "Our brand celebrates the weird and wonderful conceptness of life through delightful, handcrafted lifestyle accessory products."
+                        : "Our brand celebrates the weird and wonderful concept-ness of life through delightful, handcrafted lifestyle accessory products."}
                     </div>
                   </div>
                   <p.Stack

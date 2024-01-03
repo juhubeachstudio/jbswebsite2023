@@ -2021,21 +2021,7 @@ function PlasmicAbout__RenderFunc(props: {
                         sty.text___1Wz8P
                       )}
                     >
-                      <React.Fragment>
-                        {(() => {
-                          try {
-                            return $state.metersOfTextile;
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return "700";
-                            }
-                            throw e;
-                          }
-                        })()}
-                      </React.Fragment>
+                      {"700"}
                     </div>
                   }
                   unit={
@@ -2070,21 +2056,7 @@ function PlasmicAbout__RenderFunc(props: {
                         sty.text__fuGtF
                       )}
                     >
-                      <React.Fragment>
-                        {(() => {
-                          try {
-                            return $state.numberOfProducts;
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return "1,556";
-                            }
-                            throw e;
-                          }
-                        })()}
-                      </React.Fragment>
+                      {"1,556"}
                     </div>
                   }
                   unit={
