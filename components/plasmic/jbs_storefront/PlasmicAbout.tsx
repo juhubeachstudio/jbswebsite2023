@@ -66,7 +66,6 @@ import { sliderHelpers as SliderWrapper_Helpers } from "@plasmicpkgs/react-slick
 import Blackyellowborder from "../../Blackyellowborder"; // plasmic-import: qeyEUvMFwY/component
 import Statistic from "../../Statistic"; // plasmic-import: -6dqxJDphRkf/component
 
-import { ScheduleValue, useSchedule } from "./PlasmicGlobalVariant__Schedule"; // plasmic-import: zd5JVdnkSq7D/globalVariant
 import { useScreenVariants as useScreenVariants_6Hzia3M7Np4Ulu } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6hzia3m7Np4ulu/globalVariant
 
 import "@plasmicapp/react-web/lib/plasmic.css";
@@ -210,7 +209,6 @@ function PlasmicAbout__RenderFunc(props: {
   });
 
   const globalVariants = ensureGlobalVariants({
-    schedule: useSchedule(),
     screen: useScreenVariants_6Hzia3M7Np4Ulu()
   });
 
@@ -237,14 +235,7 @@ function PlasmicAbout__RenderFunc(props: {
             projectcss.plasmic_mixins,
             projectcss.plasmic_tokens,
             plasmic_antd_5_hostless_css.plasmic_tokens,
-            sty.root,
-            {
-              [sty.rootglobal_schedule_override]: hasVariant(
-                globalVariants,
-                "schedule",
-                "override"
-              )
-            }
+            sty.root
           )}
         >
           <FullPage
@@ -2322,9 +2313,9 @@ function PlasmicAbout__RenderFunc(props: {
                       sty.text__aAif
                     )}
                   >
-                    {
-                      "Because of our irregular raw materials, we can make lotsss of different products but only as limited editions. We also like to use a mix of machine and handwork which gives us so much room to create one of a kind details and make everything sturdy and high quality. After drawing, cutting, stitching, ironing, embroidery, etc all of the sketches are finally turned into our beautiful finished products."
-                    }
+                    {hasVariant(globalVariants, "screen", "mobileOnly")
+                      ? "Because of our irregular raw materials, we can make lotsss of different products but only as limited editions. We also like to use a mix of machine and handwork which gives us so much room to create one of a kind details and make everything sturdy and high quality. After drawing, cutting, stitching, ironing, embroidery, etc all of the sketches are finally turned into our beautiful finished products. "
+                      : "Because of our irregular raw materials, we can make lotsss of different products but only as limited editions. We also like to use a mix of machine and handwork which gives us so much room to create one of a kind details and make everything sturdy and high quality. After drawing, cutting, stitching, ironing, embroidery, etc all of the sketches are finally turned into our beautiful finished products."}
                   </div>
                 </Stack__>
               </Stack__>
@@ -2368,13 +2359,7 @@ function PlasmicAbout__RenderFunc(props: {
                   </div>
                   <PlasmicImg__
                     alt={""}
-                    className={classNames(sty.img__vCli7, {
-                      [sty.imgglobal_schedule_override__vCli72BEqj]: hasVariant(
-                        globalVariants,
-                        "schedule",
-                        "override"
-                      )
-                    })}
+                    className={classNames(sty.img__vCli7)}
                     displayHeight={"auto"}
                     displayMaxHeight={"none"}
                     displayMaxWidth={"100%"}

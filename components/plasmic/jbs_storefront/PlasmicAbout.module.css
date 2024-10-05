@@ -26,9 +26,6 @@
     grid-column: 4;
   }
 }
-.rootglobal_schedule_override > * {
-  grid-column: 4;
-}
 .fullPage:global(.__wab_instance) {
   max-width: 100%;
   position: relative;

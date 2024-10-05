@@ -2305,7 +2305,7 @@
       ],
       "indirect": false,
       "globalContextsFilePath": "plasmic/jbs_storefront/PlasmicGlobalContextsProvider.tsx",
-      "splitsProviderFilePath": "plasmic/jbs_storefront/PlasmicSplitsProvider.tsx",
+      "splitsProviderFilePath": "",
       "codeComponents": [
         {
           "id": "Y-3ZgxdS1wv60n",
@@ -2499,12 +2499,6 @@
         "name": "Screen",
         "projectId": "heL2P6rJiLNgtnBJPb6i1m",
         "contextFilePath": "plasmic/jbs_storefront/PlasmicGlobalVariant__Screen.tsx"
-      },
-      {
-        "id": "zd5JVdnkSq7D",
-        "name": "Schedule",
-        "projectId": "heL2P6rJiLNgtnBJPb6i1m",
-        "contextFilePath": "plasmic/jbs_storefront/PlasmicGlobalVariant__Schedule.tsx"
       }
     ]
   },

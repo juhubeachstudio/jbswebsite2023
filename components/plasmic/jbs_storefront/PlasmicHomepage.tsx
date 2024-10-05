@@ -87,7 +87,6 @@ import SurpriseMeButton from "../../SurpriseMeButton"; // plasmic-import: cuLrZT
 import HeaderSlide from "../../HeaderSlide"; // plasmic-import: dIysgpuSQtRE/component
 import { AntdSliderMark } from "@plasmicpkgs/antd5/skinny/registerSlider";
 
-import { ScheduleValue, useSchedule } from "./PlasmicGlobalVariant__Schedule"; // plasmic-import: zd5JVdnkSq7D/globalVariant
 import { useScreenVariants as useScreenVariants_6Hzia3M7Np4Ulu } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6hzia3m7Np4ulu/globalVariant
 
 import "@plasmicapp/react-web/lib/plasmic.css";
@@ -248,7 +247,6 @@ function PlasmicHomepage__RenderFunc(props: {
   const plasmicInvalidate = usePlasmicInvalidate();
 
   const globalVariants = ensureGlobalVariants({
-    schedule: useSchedule(),
     screen: useScreenVariants_6Hzia3M7Np4Ulu()
   });
 
@@ -275,26 +273,13 @@ function PlasmicHomepage__RenderFunc(props: {
             projectcss.plasmic_mixins,
             projectcss.plasmic_tokens,
             plasmic_antd_5_hostless_css.plasmic_tokens,
-            sty.root,
-            {
-              [sty.rootglobal_schedule_override]: hasVariant(
-                globalVariants,
-                "schedule",
-                "override"
-              )
-            }
+            sty.root
           )}
         >
           <FullPage
             data-plasmic-name={"fullPage"}
             data-plasmic-override={overrides.fullPage}
-            className={classNames("__wab_instance", sty.fullPage, {
-              [sty.fullPageglobal_schedule_override]: hasVariant(
-                globalVariants,
-                "schedule",
-                "override"
-              )
-            })}
+            className={classNames("__wab_instance", sty.fullPage)}
           >
             <div className={classNames(projectcss.all, sty.freeBox__zflhR)}>
               {(() => {

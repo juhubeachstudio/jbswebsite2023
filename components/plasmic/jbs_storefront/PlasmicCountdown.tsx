@@ -62,8 +62,6 @@ import {
 import CountdownNumber from "../../CountdownNumber"; // plasmic-import: wHIYrv4suznQ/component
 import { Timer } from "@plasmicpkgs/plasmic-basic-components";
 
-import { ScheduleValue, useSchedule } from "./PlasmicGlobalVariant__Schedule"; // plasmic-import: zd5JVdnkSq7D/globalVariant
-
 import "@plasmicapp/react-web/lib/plasmic.css";
 
 import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic_antd_5_hostless.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
@@ -154,10 +152,6 @@ function PlasmicCountdown__RenderFunc(props: {
     $refs
   });
 
-  const globalVariants = ensureGlobalVariants({
-    schedule: useSchedule()
-  });
-
   return (
     <div
       data-plasmic-name={"root"}
@@ -171,80 +165,39 @@ function PlasmicCountdown__RenderFunc(props: {
         projectcss.plasmic_mixins,
         projectcss.plasmic_tokens,
         plasmic_antd_5_hostless_css.plasmic_tokens,
-        sty.root,
-        {
-          [sty.rootglobal_schedule_override]: hasVariant(
-            globalVariants,
-            "schedule",
-            "override"
-          )
-        }
+        sty.root
       )}
     >
       <Stack__
         as={"div"}
         hasGap={true}
-        className={classNames(projectcss.all, sty.freeBox___8VMx, {
-          [sty.freeBoxglobal_schedule_override___8VMx2BEqj]: hasVariant(
-            globalVariants,
-            "schedule",
-            "override"
-          )
-        })}
+        className={classNames(projectcss.all, sty.freeBox___8VMx)}
       >
         <CountdownNumber
-          className={classNames("__wab_instance", sty.countdownNumber__o8Cya, {
-            [sty.countdownNumberglobal_schedule_override__o8Cya2BEqj]:
-              hasVariant(globalVariants, "schedule", "override")
-          })}
+          className={classNames("__wab_instance", sty.countdownNumber__o8Cya)}
           number={
             <div
               className={classNames(
                 projectcss.all,
                 projectcss.__wab_text,
-                sty.text__z2RhB,
-                {
-                  [sty.textglobal_schedule_override__z2RhB2BEqj]: hasVariant(
-                    globalVariants,
-                    "schedule",
-                    "override"
-                  )
-                }
+                sty.text__z2RhB
               )}
             >
-              {hasVariant(globalVariants, "schedule", "override") ? (
-                <React.Fragment>
-                  {(() => {
-                    try {
-                      return Math.floor($state.remainingSeconds / 60 / 60 / 24);
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return "42";
-                      }
-                      throw e;
+              <React.Fragment>
+                {(() => {
+                  try {
+                    return Math.floor($state.remainingSeconds / 60 / 60 / 24);
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return "42";
                     }
-                  })()}
-                </React.Fragment>
-              ) : (
-                <React.Fragment>
-                  {(() => {
-                    try {
-                      return Math.floor($state.remainingSeconds / 60 / 60 / 24);
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return "42";
-                      }
-                      throw e;
-                    }
-                  })()}
-                </React.Fragment>
-              )}
+                    throw e;
+                  }
+                })()}
+              </React.Fragment>
             </div>
           }
           unit={
@@ -252,100 +205,50 @@ function PlasmicCountdown__RenderFunc(props: {
               className={classNames(
                 projectcss.all,
                 projectcss.__wab_text,
-                sty.text__fvzjS,
-                {
-                  [sty.textglobal_schedule_override__fvzjS2BEqj]: hasVariant(
-                    globalVariants,
-                    "schedule",
-                    "override"
-                  )
-                }
+                sty.text__fvzjS
               )}
             >
-              {hasVariant(globalVariants, "schedule", "override") ? "D" : "D"}
+              {"D"}
             </div>
           }
         />
 
-        <div
-          className={classNames(projectcss.all, sty.freeBox__pakFd, {
-            [sty.freeBoxglobal_schedule_override__pakFd2BEqj]: hasVariant(
-              globalVariants,
-              "schedule",
-              "override"
-            )
-          })}
-        >
+        <div className={classNames(projectcss.all, sty.freeBox__pakFd)}>
           <div
             className={classNames(
               projectcss.all,
               projectcss.__wab_text,
-              sty.text__vm7Aa,
-              {
-                [sty.textglobal_schedule_override__vm7Aa2BEqj]: hasVariant(
-                  globalVariants,
-                  "schedule",
-                  "override"
-                )
-              }
+              sty.text__vm7Aa
             )}
           >
             {":"}
           </div>
         </div>
         <CountdownNumber
-          className={classNames("__wab_instance", sty.countdownNumber__asVz, {
-            [sty.countdownNumberglobal_schedule_override__asVz2BEqj]:
-              hasVariant(globalVariants, "schedule", "override")
-          })}
+          className={classNames("__wab_instance", sty.countdownNumber__asVz)}
           number={
             <div
               className={classNames(
                 projectcss.all,
                 projectcss.__wab_text,
-                sty.text__gVncp,
-                {
-                  [sty.textglobal_schedule_override__gVncp2BEqj]: hasVariant(
-                    globalVariants,
-                    "schedule",
-                    "override"
-                  )
-                }
+                sty.text__gVncp
               )}
             >
-              {hasVariant(globalVariants, "schedule", "override") ? (
-                <React.Fragment>
-                  {(() => {
-                    try {
-                      return Math.floor($state.remainingSeconds / 60 / 60) % 24;
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return "42";
-                      }
-                      throw e;
+              <React.Fragment>
+                {(() => {
+                  try {
+                    return Math.floor($state.remainingSeconds / 60 / 60) % 24;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return "42";
                     }
-                  })()}
-                </React.Fragment>
-              ) : (
-                <React.Fragment>
-                  {(() => {
-                    try {
-                      return Math.floor($state.remainingSeconds / 60 / 60) % 24;
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return "42";
-                      }
-                      throw e;
-                    }
-                  })()}
-                </React.Fragment>
-              )}
+                    throw e;
+                  }
+                })()}
+              </React.Fragment>
             </div>
           }
           unit={
@@ -353,100 +256,50 @@ function PlasmicCountdown__RenderFunc(props: {
               className={classNames(
                 projectcss.all,
                 projectcss.__wab_text,
-                sty.text__uclA,
-                {
-                  [sty.textglobal_schedule_override__uclA2BEqj]: hasVariant(
-                    globalVariants,
-                    "schedule",
-                    "override"
-                  )
-                }
+                sty.text__uclA
               )}
             >
-              {hasVariant(globalVariants, "schedule", "override") ? "H" : "H"}
+              {"H"}
             </div>
           }
         />
 
-        <div
-          className={classNames(projectcss.all, sty.freeBox___1JEmD, {
-            [sty.freeBoxglobal_schedule_override___1JEmD2BEqj]: hasVariant(
-              globalVariants,
-              "schedule",
-              "override"
-            )
-          })}
-        >
+        <div className={classNames(projectcss.all, sty.freeBox___1JEmD)}>
           <div
             className={classNames(
               projectcss.all,
               projectcss.__wab_text,
-              sty.text__wnsQu,
-              {
-                [sty.textglobal_schedule_override__wnsQu2BEqj]: hasVariant(
-                  globalVariants,
-                  "schedule",
-                  "override"
-                )
-              }
+              sty.text__wnsQu
             )}
           >
             {":"}
           </div>
         </div>
         <CountdownNumber
-          className={classNames("__wab_instance", sty.countdownNumber__lr4Ec, {
-            [sty.countdownNumberglobal_schedule_override__lr4Ec2BEqj]:
-              hasVariant(globalVariants, "schedule", "override")
-          })}
+          className={classNames("__wab_instance", sty.countdownNumber__lr4Ec)}
           number={
             <div
               className={classNames(
                 projectcss.all,
                 projectcss.__wab_text,
-                sty.text__d6Dm,
-                {
-                  [sty.textglobal_schedule_override__d6Dm2BEqj]: hasVariant(
-                    globalVariants,
-                    "schedule",
-                    "override"
-                  )
-                }
+                sty.text__d6Dm
               )}
             >
-              {hasVariant(globalVariants, "schedule", "override") ? (
-                <React.Fragment>
-                  {(() => {
-                    try {
-                      return Math.floor($state.remainingSeconds / 60) % 60;
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return "42";
-                      }
-                      throw e;
+              <React.Fragment>
+                {(() => {
+                  try {
+                    return Math.floor($state.remainingSeconds / 60) % 60;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return "42";
                     }
-                  })()}
-                </React.Fragment>
-              ) : (
-                <React.Fragment>
-                  {(() => {
-                    try {
-                      return Math.floor($state.remainingSeconds / 60) % 60;
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return "42";
-                      }
-                      throw e;
-                    }
-                  })()}
-                </React.Fragment>
-              )}
+                    throw e;
+                  }
+                })()}
+              </React.Fragment>
             </div>
           }
           unit={
@@ -454,65 +307,33 @@ function PlasmicCountdown__RenderFunc(props: {
               className={classNames(
                 projectcss.all,
                 projectcss.__wab_text,
-                sty.text__hYnpb,
-                {
-                  [sty.textglobal_schedule_override__hYnpb2BEqj]: hasVariant(
-                    globalVariants,
-                    "schedule",
-                    "override"
-                  )
-                }
+                sty.text__hYnpb
               )}
             >
-              {hasVariant(globalVariants, "schedule", "override") ? "M" : "M"}
+              {"M"}
             </div>
           }
         />
 
-        <div
-          className={classNames(projectcss.all, sty.freeBox__rleSk, {
-            [sty.freeBoxglobal_schedule_override__rleSk2BEqj]: hasVariant(
-              globalVariants,
-              "schedule",
-              "override"
-            )
-          })}
-        >
+        <div className={classNames(projectcss.all, sty.freeBox__rleSk)}>
           <div
             className={classNames(
               projectcss.all,
               projectcss.__wab_text,
-              sty.text__abzYa,
-              {
-                [sty.textglobal_schedule_override__abzYa2BEqj]: hasVariant(
-                  globalVariants,
-                  "schedule",
-                  "override"
-                )
-              }
+              sty.text__abzYa
             )}
           >
             {":"}
           </div>
         </div>
         <CountdownNumber
-          className={classNames("__wab_instance", sty.countdownNumber___9HtnV, {
-            [sty.countdownNumberglobal_schedule_override___9HtnV2BEqj]:
-              hasVariant(globalVariants, "schedule", "override")
-          })}
+          className={classNames("__wab_instance", sty.countdownNumber___9HtnV)}
           number={
             <div
               className={classNames(
                 projectcss.all,
                 projectcss.__wab_text,
-                sty.text___7O2Zg,
-                {
-                  [sty.textglobal_schedule_override___7O2Zg2BEqj]: hasVariant(
-                    globalVariants,
-                    "schedule",
-                    "override"
-                  )
-                }
+                sty.text___7O2Zg
               )}
             >
               <React.Fragment>
@@ -537,17 +358,10 @@ function PlasmicCountdown__RenderFunc(props: {
               className={classNames(
                 projectcss.all,
                 projectcss.__wab_text,
-                sty.text__gmztY,
-                {
-                  [sty.textglobal_schedule_override__gmztY2BEqj]: hasVariant(
-                    globalVariants,
-                    "schedule",
-                    "override"
-                  )
-                }
+                sty.text__gmztY
               )}
             >
-              {hasVariant(globalVariants, "schedule", "override") ? "S" : "S"}
+              {"S"}
             </div>
           }
         />
@@ -555,13 +369,7 @@ function PlasmicCountdown__RenderFunc(props: {
       <Timer
         data-plasmic-name={"timer"}
         data-plasmic-override={overrides.timer}
-        className={classNames("__wab_instance", sty.timer, {
-          [sty.timerglobal_schedule_override]: hasVariant(
-            globalVariants,
-            "schedule",
-            "override"
-          )
-        })}
+        className={classNames("__wab_instance", sty.timer)}
         intervalSeconds={1}
         isRunning={true}
         onTick={async () => {

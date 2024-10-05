@@ -61,8 +61,6 @@ import {
 
 import Countdown from "../../Countdown"; // plasmic-import: si44vJRCqCM3/component
 
-import { ScheduleValue, useSchedule } from "./PlasmicGlobalVariant__Schedule"; // plasmic-import: zd5JVdnkSq7D/globalVariant
-
 import "@plasmicapp/react-web/lib/plasmic.css";
 
 import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic_antd_5_hostless.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
@@ -126,23 +124,13 @@ function PlasmicCountdownJbs__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const globalVariants = ensureGlobalVariants({
-    schedule: useSchedule()
-  });
-
   return (
     <Countdown
       data-plasmic-name={"dec1712PmCountdown"}
       data-plasmic-override={overrides.dec1712PmCountdown}
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
-      className={classNames("__wab_instance", sty.dec1712PmCountdown, {
-        [sty.dec1712PmCountdownglobal_schedule_override]: hasVariant(
-          globalVariants,
-          "schedule",
-          "override"
-        )
-      })}
+      className={classNames("__wab_instance", sty.dec1712PmCountdown)}
       targetTimeUtc={"2023-12-17T06:30:00.000Z"}
     />
   ) as React.ReactElement | null;

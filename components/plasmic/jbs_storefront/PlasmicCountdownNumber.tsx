@@ -59,8 +59,6 @@ import {
   useGlobalActions
 } from "@plasmicapp/react-web/lib/host";
 
-import { ScheduleValue, useSchedule } from "./PlasmicGlobalVariant__Schedule"; // plasmic-import: zd5JVdnkSq7D/globalVariant
-
 import "@plasmicapp/react-web/lib/plasmic.css";
 
 import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic_antd_5_hostless.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
@@ -133,10 +131,6 @@ function PlasmicCountdownNumber__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const globalVariants = ensureGlobalVariants({
-    schedule: useSchedule()
-  });
-
   return (
     <div
       data-plasmic-name={"root"}
@@ -150,14 +144,7 @@ function PlasmicCountdownNumber__RenderFunc(props: {
         projectcss.plasmic_mixins,
         projectcss.plasmic_tokens,
         plasmic_antd_5_hostless_css.plasmic_tokens,
-        sty.root,
-        {
-          [sty.rootglobal_schedule_override]: hasVariant(
-            globalVariants,
-            "schedule",
-            "override"
-          )
-        }
+        sty.root
       )}
     >
       <div className={classNames(projectcss.all, sty.freeBox__tdM9F)}>
@@ -192,7 +179,6 @@ type NodeOverridesType<T extends NodeNameType> = Pick<
   PlasmicCountdownNumber__OverridesType,
   DescendantsType<T>
 >;
-
 type NodeComponentProps<T extends NodeNameType> =
   // Explicitly specify variants, args, and overrides as objects
   {

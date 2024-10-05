@@ -66,7 +66,6 @@ import { CategoryField } from "@plasmicpkgs/commerce";
 import ProductsSearch from "../../ProductsSearch"; // plasmic-import: V9g_ixtcrSzg/component
 import Button from "../../Button"; // plasmic-import: yEsI5slGwPm/component
 
-import { ScheduleValue, useSchedule } from "./PlasmicGlobalVariant__Schedule"; // plasmic-import: zd5JVdnkSq7D/globalVariant
 import { useScreenVariants as useScreenVariants_6Hzia3M7Np4Ulu } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6hzia3m7Np4ulu/globalVariant
 
 import "@plasmicapp/react-web/lib/plasmic.css";
@@ -139,7 +138,6 @@ function PlasmicCategory__RenderFunc(props: {
   const $refs = refsRef.current;
 
   const globalVariants = ensureGlobalVariants({
-    schedule: useSchedule(),
     screen: useScreenVariants_6Hzia3M7Np4Ulu()
   });
 
@@ -166,14 +164,7 @@ function PlasmicCategory__RenderFunc(props: {
             projectcss.plasmic_mixins,
             projectcss.plasmic_tokens,
             plasmic_antd_5_hostless_css.plasmic_tokens,
-            sty.root,
-            {
-              [sty.rootglobal_schedule_override]: hasVariant(
-                globalVariants,
-                "schedule",
-                "override"
-              )
-            }
+            sty.root
           )}
         >
           <FullPage
