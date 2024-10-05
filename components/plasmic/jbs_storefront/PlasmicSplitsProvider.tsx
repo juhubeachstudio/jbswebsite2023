@@ -23,7 +23,7 @@ export const splits = [
     projectId: "heL2P6rJiLNgtnBJPb6i1m",
     externalId: null,
     description: "Launching Soon (19 Dec 2023, 7pm)",
-    pagesPaths: ["/", "/category/[slug]"],
+    pagesPaths: ["/", "/about", "/category/[slug]"],
     type: "segment",
     slices: [
       { id: "FdcbBB87JzKp", externalId: null, cond: {}, contents: [] },

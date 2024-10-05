@@ -66,6 +66,7 @@ import { sliderHelpers as SliderWrapper_Helpers } from "@plasmicpkgs/react-slick
 import Blackyellowborder from "../../Blackyellowborder"; // plasmic-import: qeyEUvMFwY/component
 import Statistic from "../../Statistic"; // plasmic-import: -6dqxJDphRkf/component
 
+import { ScheduleValue, useSchedule } from "./PlasmicGlobalVariant__Schedule"; // plasmic-import: zd5JVdnkSq7D/globalVariant
 import { useScreenVariants as useScreenVariants_6Hzia3M7Np4Ulu } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6hzia3m7Np4ulu/globalVariant
 
 import "@plasmicapp/react-web/lib/plasmic.css";
@@ -209,6 +210,7 @@ function PlasmicAbout__RenderFunc(props: {
   });
 
   const globalVariants = ensureGlobalVariants({
+    schedule: useSchedule(),
     screen: useScreenVariants_6Hzia3M7Np4Ulu()
   });
 
@@ -235,7 +237,14 @@ function PlasmicAbout__RenderFunc(props: {
             projectcss.plasmic_mixins,
             projectcss.plasmic_tokens,
             plasmic_antd_5_hostless_css.plasmic_tokens,
-            sty.root
+            sty.root,
+            {
+              [sty.rootglobal_schedule_override]: hasVariant(
+                globalVariants,
+                "schedule",
+                "override"
+              )
+            }
           )}
         >
           <FullPage
@@ -2359,7 +2368,13 @@ function PlasmicAbout__RenderFunc(props: {
                   </div>
                   <PlasmicImg__
                     alt={""}
-                    className={classNames(sty.img__vCli7)}
+                    className={classNames(sty.img__vCli7, {
+                      [sty.imgglobal_schedule_override__vCli72BEqj]: hasVariant(
+                        globalVariants,
+                        "schedule",
+                        "override"
+                      )
+                    })}
                     displayHeight={"auto"}
                     displayMaxHeight={"none"}
                     displayMaxWidth={"100%"}
