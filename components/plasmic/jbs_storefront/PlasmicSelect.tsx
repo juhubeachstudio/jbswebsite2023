@@ -17,26 +17,49 @@ import Head from "next/head";
 import Link, { LinkProps } from "next/link";
 import { useRouter } from "next/router";
 
-import * as p from "@plasmicapp/react-web";
-import * as ph from "@plasmicapp/react-web/lib/host";
-
-import * as pp from "@plasmicapp/react-web";
 import {
-  hasVariant,
-  classNames,
-  wrapWithClassName,
-  createPlasmicElementProxy,
-  makeFragment,
+  Flex as Flex__,
   MultiChoiceArg,
+  PlasmicDataSourceContextProvider as PlasmicDataSourceContextProvider__,
+  PlasmicIcon as PlasmicIcon__,
+  PlasmicImg as PlasmicImg__,
+  PlasmicLink as PlasmicLink__,
+  PlasmicPageGuard as PlasmicPageGuard__,
   SingleBooleanChoiceArg,
   SingleChoiceArg,
-  pick,
-  omit,
-  useTrigger,
+  Stack as Stack__,
   StrictProps,
+  Trans as Trans__,
+  classNames,
+  createPlasmicElementProxy,
   deriveRenderOpts,
-  ensureGlobalVariants
+  ensureGlobalVariants,
+  generateOnMutateForSpec,
+  generateStateOnChangeProp,
+  generateStateOnChangePropForCodeComponents,
+  generateStateValueProp,
+  get as $stateGet,
+  hasVariant,
+  initializeCodeComponentStates,
+  initializePlasmicStates,
+  makeFragment,
+  omit,
+  pick,
+  renderPlasmicSlot,
+  set as $stateSet,
+  useCurrentUser,
+  useDollarState,
+  usePlasmicTranslator,
+  useTrigger,
+  wrapWithClassName
 } from "@plasmicapp/react-web";
+import {
+  DataCtxReader as DataCtxReader__,
+  useDataEnv,
+  useGlobalActions
+} from "@plasmicapp/react-web/lib/host";
+
+import * as pp from "@plasmicapp/react-web";
 import Select__Overlay from "../../Select__Overlay"; // plasmic-import: BUE2LdR7dya/component
 import Select__Option from "../../Select__Option"; // plasmic-import: LflRXS5a9uB/component
 import Select__OptionGroup from "../../Select__OptionGroup"; // plasmic-import: 4zYX0j05aN3/component
@@ -47,8 +70,8 @@ import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic_antd_5_hostl
 import projectcss from "./plasmic_jbs_storefront.module.css"; // plasmic-import: heL2P6rJiLNgtnBJPb6i1m/projectcss
 import sty from "./PlasmicSelect.module.css"; // plasmic-import: Gp2VtwSwUbo/css
 
-import ChevronDownsvgIcon from "./icons/PlasmicIcon__ChevronDownsvg"; // plasmic-import: V7YDwEX2Uw9/icon
-import ChevronUpsvgIcon from "./icons/PlasmicIcon__ChevronUpsvg"; // plasmic-import: nDazK5xy2JG/icon
+import ChevronDownSvgIcon from "./icons/PlasmicIcon__ChevronDownSvg"; // plasmic-import: V7YDwEX2Uw9/icon
+import ChevronUpSvgIcon from "./icons/PlasmicIcon__ChevronUpSvg"; // plasmic-import: nDazK5xy2JG/icon
 
 createPlasmicElementProxy;
 
@@ -102,6 +125,7 @@ export type PlasmicSelect__ArgsType = {
   "aria-label"?: string;
   "aria-labelledby"?: string;
   options?: any;
+  onChange?: (value: string) => void;
 };
 type ArgPropType = keyof PlasmicSelect__ArgsType;
 export const PlasmicSelect__ArgProps = new Array<ArgPropType>(
@@ -112,16 +136,17 @@ export const PlasmicSelect__ArgProps = new Array<ArgPropType>(
   "name",
   "aria-label",
   "aria-labelledby",
-  "options"
+  "options",
+  "onChange"
 );
 
 export type PlasmicSelect__OverridesType = {
-  root?: p.Flex<"div">;
-  trigger?: p.Flex<"button">;
-  contentContainer?: p.Flex<"div">;
-  dropdownIcon?: p.Flex<"svg">;
-  overlay?: p.Flex<typeof Select__Overlay>;
-  optionsContainer?: p.Flex<"div">;
+  root?: Flex__<"div">;
+  trigger?: Flex__<"button">;
+  contentContainer?: Flex__<"div">;
+  dropdownIcon?: Flex__<"svg">;
+  overlay?: Flex__<typeof Select__Overlay>;
+  optionsContainer?: Flex__<"div">;
 };
 
 export interface DefaultSelectProps extends pp.BaseSelectProps {
@@ -164,7 +189,16 @@ function PlasmicSelect__RenderFunc(props: {
 }) {
   const { variants, overrides, forNode } = props;
 
-  const args = React.useMemo(() => Object.assign({}, props.args), [props.args]);
+  const args = React.useMemo(
+    () =>
+      Object.assign(
+        {},
+        Object.fromEntries(
+          Object.entries(props.args).filter(([_, v]) => v !== undefined)
+        )
+      ),
+    [props.args]
+  );
 
   const $props = {
     ...args,
@@ -172,13 +206,11 @@ function PlasmicSelect__RenderFunc(props: {
   };
 
   const __nextRouter = useNextRouter();
-  const $ctx = ph.useDataEnv?.() || {};
+  const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const currentUser = p.useCurrentUser?.() || {};
-
-  const stateSpecs: Parameters<typeof p.useDollarState>[0] = React.useMemo(
+  const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
         path: "showPlaceholder",
@@ -213,10 +245,9 @@ function PlasmicSelect__RenderFunc(props: {
         onChangeProp: "onChange"
       }
     ],
-
     [$props, $ctx, $refs]
   );
-  const $state = p.useDollarState(stateSpecs, {
+  const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
     $queries: {},
@@ -371,7 +402,7 @@ function PlasmicSelect__RenderFunc(props: {
                 ? false
                 : true
             )
-              ? p.renderPlasmicSlot({
+              ? renderPlasmicSlot({
                   defaultContents: "Selected",
                   value: args.selectedContent,
                   className: classNames(sty.slotTargetSelectedContent, {
@@ -438,7 +469,7 @@ function PlasmicSelect__RenderFunc(props: {
                 ? true
                 : false
             )
-              ? p.renderPlasmicSlot({
+              ? renderPlasmicSlot({
                   defaultContents: "Select\u2026",
                   value: args.placeholder,
                   className: classNames(sty.slotTargetPlaceholder, {
@@ -501,13 +532,13 @@ function PlasmicSelect__RenderFunc(props: {
                 })
               : null}
           </div>
-          <p.PlasmicIcon
+          <PlasmicIcon__
             data-plasmic-name={"dropdownIcon"}
             data-plasmic-override={overrides.dropdownIcon}
             PlasmicIconType={
               hasVariant($state, "isOpen", "isOpen")
-                ? ChevronUpsvgIcon
-                : ChevronDownsvgIcon
+                ? ChevronUpSvgIcon
+                : ChevronDownSvgIcon
             }
             className={classNames(projectcss.all, sty.dropdownIcon, {
               [sty.dropdownIcon___focusVisibleWithin]:
@@ -587,7 +618,7 @@ function PlasmicSelect__RenderFunc(props: {
                 )
               })}
             >
-              {p.renderPlasmicSlot({
+              {renderPlasmicSlot({
                 defaultContents: null,
                 value: args.children
               })}
@@ -640,7 +671,6 @@ const PlasmicDescendants = {
     "overlay",
     "optionsContainer"
   ],
-
   trigger: ["trigger", "contentContainer", "dropdownIcon"],
   contentContainer: ["contentContainer"],
   dropdownIcon: ["dropdownIcon"],
@@ -664,7 +694,6 @@ type NodeOverridesType<T extends NodeNameType> = Pick<
   PlasmicSelect__OverridesType,
   DescendantsType<T>
 >;
-
 type NodeComponentProps<T extends NodeNameType> =
   // Explicitly specify variants, args, and overrides as objects
   {

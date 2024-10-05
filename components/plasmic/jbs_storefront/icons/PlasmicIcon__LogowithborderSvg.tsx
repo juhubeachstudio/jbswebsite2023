@@ -5,11 +5,11 @@
 import React from "react";
 import { classNames } from "@plasmicapp/react-web";
 
-export type LogowithbordersvgIconProps = React.ComponentProps<"svg"> & {
+export type LogowithborderSvgIconProps = React.ComponentProps<"svg"> & {
   title?: string;
 };
 
-export function LogowithbordersvgIcon(props: LogowithbordersvgIconProps) {
+export function LogowithborderSvgIcon(props: LogowithborderSvgIconProps) {
   const { className, style, title, ...restProps } = props;
   return (
     <svg
@@ -49,5 +49,5 @@ export function LogowithbordersvgIcon(props: LogowithbordersvgIconProps) {
   );
 }
 
-export default LogowithbordersvgIcon;
+export default LogowithborderSvgIcon;
 /* prettier-ignore-end */

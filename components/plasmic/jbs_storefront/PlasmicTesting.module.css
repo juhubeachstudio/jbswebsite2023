@@ -21,7 +21,7 @@
   min-width: 0;
   padding: 8px;
 }
-.formField__kbaVq:global(.__wab_instance) {
+.formField__dk27:global(.__wab_instance) {
   width: 100%;
   margin-bottom: 24px;
   min-width: 0;
@@ -30,7 +30,7 @@
   max-width: 100%;
   object-fit: cover;
 }
-.formField__ajfXz:global(.__wab_instance) {
+.formField__wNTh:global(.__wab_instance) {
   width: 100%;
   margin-bottom: 24px;
   min-width: 0;
@@ -49,4 +49,9 @@
   height: auto;
   max-width: 100%;
   min-width: 0;
+}
+.productPrice:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+  color: var(--token-jgohepLVeKvh);
 }

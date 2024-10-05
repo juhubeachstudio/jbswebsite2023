@@ -17,25 +17,47 @@ import Head from "next/head";
 import Link, { LinkProps } from "next/link";
 import { useRouter } from "next/router";
 
-import * as p from "@plasmicapp/react-web";
-import * as ph from "@plasmicapp/react-web/lib/host";
-
 import {
-  hasVariant,
-  classNames,
-  wrapWithClassName,
-  createPlasmicElementProxy,
-  makeFragment,
+  Flex as Flex__,
   MultiChoiceArg,
+  PlasmicDataSourceContextProvider as PlasmicDataSourceContextProvider__,
+  PlasmicIcon as PlasmicIcon__,
+  PlasmicImg as PlasmicImg__,
+  PlasmicLink as PlasmicLink__,
+  PlasmicPageGuard as PlasmicPageGuard__,
   SingleBooleanChoiceArg,
   SingleChoiceArg,
-  pick,
-  omit,
-  useTrigger,
+  Stack as Stack__,
   StrictProps,
+  Trans as Trans__,
+  classNames,
+  createPlasmicElementProxy,
   deriveRenderOpts,
-  ensureGlobalVariants
+  ensureGlobalVariants,
+  generateOnMutateForSpec,
+  generateStateOnChangeProp,
+  generateStateOnChangePropForCodeComponents,
+  generateStateValueProp,
+  get as $stateGet,
+  hasVariant,
+  initializeCodeComponentStates,
+  initializePlasmicStates,
+  makeFragment,
+  omit,
+  pick,
+  renderPlasmicSlot,
+  set as $stateSet,
+  useCurrentUser,
+  useDollarState,
+  usePlasmicTranslator,
+  useTrigger,
+  wrapWithClassName
 } from "@plasmicapp/react-web";
+import {
+  DataCtxReader as DataCtxReader__,
+  useDataEnv,
+  useGlobalActions
+} from "@plasmicapp/react-web/lib/host";
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -64,7 +86,7 @@ export const PlasmicFullpageheightSlide__ArgProps = new Array<ArgPropType>(
 );
 
 export type PlasmicFullpageheightSlide__OverridesType = {
-  root?: p.Flex<"div">;
+  root?: Flex__<"div">;
 };
 
 export interface DefaultFullpageheightSlideProps {
@@ -91,7 +113,16 @@ function PlasmicFullpageheightSlide__RenderFunc(props: {
 }) {
   const { variants, overrides, forNode } = props;
 
-  const args = React.useMemo(() => Object.assign({}, props.args), [props.args]);
+  const args = React.useMemo(
+    () =>
+      Object.assign(
+        {},
+        Object.fromEntries(
+          Object.entries(props.args).filter(([_, v]) => v !== undefined)
+        )
+      ),
+    [props.args]
+  );
 
   const $props = {
     ...args,
@@ -99,11 +130,9 @@ function PlasmicFullpageheightSlide__RenderFunc(props: {
   };
 
   const __nextRouter = useNextRouter();
-  const $ctx = ph.useDataEnv?.() || {};
+  const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
-
-  const currentUser = p.useCurrentUser?.() || {};
 
   return (
     <div
@@ -121,9 +150,9 @@ function PlasmicFullpageheightSlide__RenderFunc(props: {
         sty.root
       )}
     >
-      {p.renderPlasmicSlot({
+      {renderPlasmicSlot({
         defaultContents: (
-          <p.PlasmicImg
+          <PlasmicImg__
             alt={""}
             className={classNames(sty.img__stRcb)}
             displayHeight={"100%"}
@@ -145,14 +174,14 @@ function PlasmicFullpageheightSlide__RenderFunc(props: {
       })}
       <div className={classNames(projectcss.all, sty.freeBox__h0V7A)}>
         <div className={classNames(projectcss.all, sty.freeBox__noCdX)}>
-          {p.renderPlasmicSlot({
+          {renderPlasmicSlot({
             defaultContents: "Precious BBY Collar",
             value: args.slot,
             className: classNames(sty.slotTargetSlot)
           })}
         </div>
         <div className={classNames(projectcss.all, sty.freeBox__lacX4)}>
-          {p.renderPlasmicSlot({
+          {renderPlasmicSlot({
             defaultContents: "Matching collars for you and your baby",
             value: args.slot2,
             className: classNames(sty.slotTargetSlot2)
@@ -178,7 +207,6 @@ type NodeOverridesType<T extends NodeNameType> = Pick<
   PlasmicFullpageheightSlide__OverridesType,
   DescendantsType<T>
 >;
-
 type NodeComponentProps<T extends NodeNameType> =
   // Explicitly specify variants, args, and overrides as objects
   {

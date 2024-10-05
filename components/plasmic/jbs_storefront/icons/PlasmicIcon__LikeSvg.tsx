@@ -5,41 +5,33 @@
 import React from "react";
 import { classNames } from "@plasmicapp/react-web";
 
-export type SquaresvgIconProps = React.ComponentProps<"svg"> & {
+export type LikeSvgIconProps = React.ComponentProps<"svg"> & {
   title?: string;
 };
 
-export function SquaresvgIcon(props: SquaresvgIconProps) {
+export function LikeSvgIcon(props: LikeSvgIconProps) {
   const { className, style, title, ...restProps } = props;
   return (
     <svg
       xmlns={"http://www.w3.org/2000/svg"}
-      fill={"none"}
-      viewBox={"0 0 24 24"}
+      viewBox={"0 0 11.57 10.03"}
       height={"1em"}
       width={"1em"}
-      style={{
-        stroke: "currentcolor",
-
-        ...(style || {}),
-      }}
       className={classNames("plasmic-default__svg", className)}
+      style={style}
       {...restProps}
     >
       {title && <title>{title}</title>}
 
       <path
         d={
-          "M17.25 19.25H6.75a2 2 0 01-2-2V6.75a2 2 0 012-2h10.5a2 2 0 012 2v10.5a2 2 0 01-2 2z"
+          "M11.53 3.76c-.38 3.18-5.05 6.27-5.77 6.27C4.39 10.03-.2 6.79 0 3.76S4.17-1.87 5.66 1.8c1.7-2.47 6.41-2.56 5.87 1.96z"
         }
-        stroke={"currentColor"}
-        strokeWidth={"1.5"}
-        strokeLinecap={"round"}
-        strokeLinejoin={"round"}
+        fill={"currentColor"}
       ></path>
     </svg>
   );
 }
 
-export default SquaresvgIcon;
+export default LikeSvgIcon;
 /* prettier-ignore-end */

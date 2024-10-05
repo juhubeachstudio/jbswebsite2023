@@ -17,25 +17,48 @@ import Head from "next/head";
 import Link, { LinkProps } from "next/link";
 import { useRouter } from "next/router";
 
-import * as p from "@plasmicapp/react-web";
-import * as ph from "@plasmicapp/react-web/lib/host";
-
 import {
-  hasVariant,
-  classNames,
-  wrapWithClassName,
-  createPlasmicElementProxy,
-  makeFragment,
+  Flex as Flex__,
   MultiChoiceArg,
+  PlasmicDataSourceContextProvider as PlasmicDataSourceContextProvider__,
+  PlasmicIcon as PlasmicIcon__,
+  PlasmicImg as PlasmicImg__,
+  PlasmicLink as PlasmicLink__,
+  PlasmicPageGuard as PlasmicPageGuard__,
   SingleBooleanChoiceArg,
   SingleChoiceArg,
-  pick,
-  omit,
-  useTrigger,
+  Stack as Stack__,
   StrictProps,
+  Trans as Trans__,
+  classNames,
+  createPlasmicElementProxy,
   deriveRenderOpts,
-  ensureGlobalVariants
+  ensureGlobalVariants,
+  generateOnMutateForSpec,
+  generateStateOnChangeProp,
+  generateStateOnChangePropForCodeComponents,
+  generateStateValueProp,
+  get as $stateGet,
+  hasVariant,
+  initializeCodeComponentStates,
+  initializePlasmicStates,
+  makeFragment,
+  omit,
+  pick,
+  renderPlasmicSlot,
+  set as $stateSet,
+  useCurrentUser,
+  useDollarState,
+  usePlasmicTranslator,
+  useTrigger,
+  wrapWithClassName
 } from "@plasmicapp/react-web";
+import {
+  DataCtxReader as DataCtxReader__,
+  useDataEnv,
+  useGlobalActions
+} from "@plasmicapp/react-web/lib/host";
+
 import Button from "../../Button"; // plasmic-import: yEsI5slGwPm/component
 import { CartProvider } from "@plasmicpkgs/commerce";
 
@@ -45,7 +68,7 @@ import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic_antd_5_hostl
 import projectcss from "./plasmic_jbs_storefront.module.css"; // plasmic-import: heL2P6rJiLNgtnBJPb6i1m/projectcss
 import sty from "./PlasmicGoToCartButton.module.css"; // plasmic-import: iT6In2ggLenM/css
 
-import ChecksvgIcon from "./icons/PlasmicIcon__Checksvg"; // plasmic-import: ew07hyuAC0c/icon
+import CheckSvgIcon from "./icons/PlasmicIcon__CheckSvg"; // plasmic-import: ew07hyuAC0c/icon
 import Cart1SvgIcon from "./icons/PlasmicIcon__Cart1Svg"; // plasmic-import: RqINMsIJ-W/icon
 import Icon38Icon from "./icons/PlasmicIcon__Icon38"; // plasmic-import: 3r4KXWygi9v/icon
 
@@ -61,11 +84,11 @@ type ArgPropType = keyof PlasmicGoToCartButton__ArgsType;
 export const PlasmicGoToCartButton__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicGoToCartButton__OverridesType = {
-  root?: p.Flex<typeof Button>;
-  svg?: p.Flex<"svg">;
-  freeBox?: p.Flex<"div">;
-  cartProvider?: p.Flex<typeof CartProvider>;
-  text?: p.Flex<"div">;
+  root?: Flex__<typeof Button>;
+  svg?: Flex__<"svg">;
+  freeBox?: Flex__<"div">;
+  cartProvider?: Flex__<typeof CartProvider>;
+  text?: Flex__<"div">;
 };
 
 export interface DefaultGoToCartButtonProps {
@@ -89,7 +112,16 @@ function PlasmicGoToCartButton__RenderFunc(props: {
 }) {
   const { variants, overrides, forNode } = props;
 
-  const args = React.useMemo(() => Object.assign({}, props.args), [props.args]);
+  const args = React.useMemo(
+    () =>
+      Object.assign(
+        {},
+        Object.fromEntries(
+          Object.entries(props.args).filter(([_, v]) => v !== undefined)
+        )
+      ),
+    [props.args]
+  );
 
   const $props = {
     ...args,
@@ -97,11 +129,9 @@ function PlasmicGoToCartButton__RenderFunc(props: {
   };
 
   const __nextRouter = useNextRouter();
-  const $ctx = ph.useDataEnv?.() || {};
+  const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
-
-  const currentUser = p.useCurrentUser?.() || {};
 
   return (
     <Button
@@ -131,7 +161,7 @@ function PlasmicGoToCartButton__RenderFunc(props: {
           data-plasmic-override={overrides.cartProvider}
           className={classNames("__wab_instance", sty.cartProvider)}
         >
-          <ph.DataCtxReader>
+          <DataCtxReader__>
             {$ctx => (
               <div
                 data-plasmic-name={"text"}
@@ -164,7 +194,7 @@ function PlasmicGoToCartButton__RenderFunc(props: {
                 </React.Fragment>
               </div>
             )}
-          </ph.DataCtxReader>
+          </DataCtxReader__>
         </CartProvider>
       </div>
     </Button>

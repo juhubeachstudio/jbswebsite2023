@@ -17,25 +17,48 @@ import Head from "next/head";
 import Link, { LinkProps } from "next/link";
 import { useRouter } from "next/router";
 
-import * as p from "@plasmicapp/react-web";
-import * as ph from "@plasmicapp/react-web/lib/host";
-
 import {
-  hasVariant,
-  classNames,
-  wrapWithClassName,
-  createPlasmicElementProxy,
-  makeFragment,
+  Flex as Flex__,
   MultiChoiceArg,
+  PlasmicDataSourceContextProvider as PlasmicDataSourceContextProvider__,
+  PlasmicIcon as PlasmicIcon__,
+  PlasmicImg as PlasmicImg__,
+  PlasmicLink as PlasmicLink__,
+  PlasmicPageGuard as PlasmicPageGuard__,
   SingleBooleanChoiceArg,
   SingleChoiceArg,
-  pick,
-  omit,
-  useTrigger,
+  Stack as Stack__,
   StrictProps,
+  Trans as Trans__,
+  classNames,
+  createPlasmicElementProxy,
   deriveRenderOpts,
-  ensureGlobalVariants
+  ensureGlobalVariants,
+  generateOnMutateForSpec,
+  generateStateOnChangeProp,
+  generateStateOnChangePropForCodeComponents,
+  generateStateValueProp,
+  get as $stateGet,
+  hasVariant,
+  initializeCodeComponentStates,
+  initializePlasmicStates,
+  makeFragment,
+  omit,
+  pick,
+  renderPlasmicSlot,
+  set as $stateSet,
+  useCurrentUser,
+  useDollarState,
+  usePlasmicTranslator,
+  useTrigger,
+  wrapWithClassName
 } from "@plasmicapp/react-web";
+import {
+  DataCtxReader as DataCtxReader__,
+  useDataEnv,
+  useGlobalActions
+} from "@plasmicapp/react-web/lib/host";
+
 import { ProductMedia } from "@plasmicpkgs/commerce";
 import { ProductTextField } from "@plasmicpkgs/commerce";
 import { ProductPriceComponent } from "@plasmicpkgs/commerce";
@@ -62,10 +85,11 @@ export const PlasmicProductCardJbs__ArgProps = new Array<ArgPropType>(
 );
 
 export type PlasmicProductCardJbs__OverridesType = {
-  root?: p.Flex<"div">;
-  text?: p.Flex<"div">;
-  productTextField?: p.Flex<typeof ProductTextField>;
-  productPrice?: p.Flex<typeof ProductPriceComponent>;
+  root?: Flex__<"div">;
+  text?: Flex__<"div">;
+  productTextField?: Flex__<typeof ProductTextField>;
+  productPrice?: Flex__<typeof ProductPriceComponent>;
+  listPrice?: Flex__<"div">;
 };
 
 export interface DefaultProductCardJbsProps {
@@ -90,7 +114,16 @@ function PlasmicProductCardJbs__RenderFunc(props: {
 }) {
   const { variants, overrides, forNode } = props;
 
-  const args = React.useMemo(() => Object.assign({}, props.args), [props.args]);
+  const args = React.useMemo(
+    () =>
+      Object.assign(
+        {},
+        Object.fromEntries(
+          Object.entries(props.args).filter(([_, v]) => v !== undefined)
+        )
+      ),
+    [props.args]
+  );
 
   const $props = {
     ...args,
@@ -98,11 +131,9 @@ function PlasmicProductCardJbs__RenderFunc(props: {
   };
 
   const __nextRouter = useNextRouter();
-  const $ctx = ph.useDataEnv?.() || {};
+  const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
-
-  const currentUser = p.useCurrentUser?.() || {};
 
   const [isRootHover, triggerRootHoverProps] = useTrigger("useHover", {});
   const triggers = {
@@ -153,7 +184,7 @@ function PlasmicProductCardJbs__RenderFunc(props: {
           </div>
         </div>
       ) : null}
-      <p.PlasmicLink
+      <PlasmicLink__
         className={classNames(projectcss.all, projectcss.a, sty.link__cdKoo)}
         component={Link}
         href={`/product/${(() => {
@@ -180,13 +211,13 @@ function PlasmicProductCardJbs__RenderFunc(props: {
           className={classNames("__wab_instance", sty.productMedia__zreYd)}
           mediaIndex={triggers.hover_root ? 1 : 1}
         />
-      </p.PlasmicLink>
-      <p.Stack
+      </PlasmicLink__>
+      <Stack__
         as={"div"}
         hasGap={true}
         className={classNames(projectcss.all, sty.freeBox___3HlGq)}
       >
-        <p.PlasmicLink
+        <PlasmicLink__
           className={classNames(projectcss.all, projectcss.a, sty.link___7Zco)}
           component={Link}
           href={`/product/${(() => {
@@ -210,22 +241,67 @@ function PlasmicProductCardJbs__RenderFunc(props: {
             className={classNames("__wab_instance", sty.productTextField)}
             field={"name"}
           />
-        </p.PlasmicLink>
-        <ProductPriceComponent
-          data-plasmic-name={"productPrice"}
-          data-plasmic-override={overrides.productPrice}
-          className={classNames("__wab_instance", sty.productPrice)}
-        />
-      </p.Stack>
+        </PlasmicLink__>
+        <Stack__
+          as={"div"}
+          hasGap={true}
+          className={classNames(projectcss.all, sty.freeBox___3MPn)}
+        >
+          <ProductPriceComponent
+            data-plasmic-name={"productPrice"}
+            data-plasmic-override={overrides.productPrice}
+            className={classNames("__wab_instance", sty.productPrice)}
+          />
+
+          <div
+            data-plasmic-name={"listPrice"}
+            data-plasmic-override={overrides.listPrice}
+            className={classNames(
+              projectcss.all,
+              projectcss.__wab_text,
+              sty.listPrice
+            )}
+          >
+            <React.Fragment>
+              {(() => {
+                try {
+                  return (() => {
+                    let minListPrice = $props.currentItem.variants.reduce(
+                      (minPrice, variant) => {
+                        return variant.listPrice && variant.listPrice < minPrice
+                          ? variant.listPrice
+                          : minPrice;
+                      },
+                      Infinity
+                    );
+                    return minListPrice && minListPrice !== Infinity
+                      ? "\u20B9" + minListPrice
+                      : "";
+                  })();
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return "";
+                  }
+                  throw e;
+                }
+              })()}
+            </React.Fragment>
+          </div>
+        </Stack__>
+      </Stack__>
     </div>
   ) as React.ReactElement | null;
 }
 
 const PlasmicDescendants = {
-  root: ["root", "text", "productTextField", "productPrice"],
+  root: ["root", "text", "productTextField", "productPrice", "listPrice"],
   text: ["text"],
   productTextField: ["productTextField"],
-  productPrice: ["productPrice"]
+  productPrice: ["productPrice"],
+  listPrice: ["listPrice"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -235,6 +311,7 @@ type NodeDefaultElementType = {
   text: "div";
   productTextField: typeof ProductTextField;
   productPrice: typeof ProductPriceComponent;
+  listPrice: "div";
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -300,6 +377,7 @@ export const PlasmicProductCardJbs = Object.assign(
     text: makeNodeComponent("text"),
     productTextField: makeNodeComponent("productTextField"),
     productPrice: makeNodeComponent("productPrice"),
+    listPrice: makeNodeComponent("listPrice"),
 
     // Metadata about props expected for PlasmicProductCardJbs
     internalVariantProps: PlasmicProductCardJbs__VariantProps,

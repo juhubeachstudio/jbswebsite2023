@@ -8,16 +8,22 @@ import * as React from "react";
 import { getActiveVariation } from "@plasmicapp/react-web/lib/splits";
 import { ScheduleContext } from "./PlasmicGlobalVariant__Schedule"; // plasmic-import: zd5JVdnkSq7D/globalVariant
 
-export interface PlasmicSplitsProviderProps {
+type GetActiveVariationParams = Partial<
+  Parameters<typeof getActiveVariation>[0]
+>;
+
+export interface PlasmicSplitsProviderProps extends GetActiveVariationParams {
   children?: React.ReactNode;
-  traits?: Record<string, string>;
 }
 
-const splits = [
+export const splits = [
   {
     id: "ShaqSCBmIkM9",
+    name: "Schedule",
     projectId: "heL2P6rJiLNgtnBJPb6i1m",
     externalId: null,
+    description: "Launching Soon (19 Dec 2023, 7pm)",
+    pagesPaths: ["/", "/category/[slug]"],
     type: "segment",
     slices: [
       { id: "FdcbBB87JzKp", externalId: null, cond: {}, contents: [] },
@@ -45,7 +51,7 @@ const splits = [
   }
 ];
 
-function getGlobalContextValueFromVariation(
+export function getGlobalContextValueFromVariation(
   groupId: string,
   variation: Record<string, string>
 ) {
@@ -74,10 +80,11 @@ function getGlobalContextValueFromVariation(
 export default function PlasmicSplitsProvider(
   props: PlasmicSplitsProviderProps
 ) {
-  const { children, traits } = props;
+  const { children, traits, ...rest } = props;
   const variation = getActiveVariation({
     splits,
-    traits: traits ?? {}
+    traits: traits ?? {},
+    ...rest
   });
 
   return (

@@ -17,26 +17,49 @@ import Head from "next/head";
 import Link, { LinkProps } from "next/link";
 import { useRouter } from "next/router";
 
-import * as p from "@plasmicapp/react-web";
-import * as ph from "@plasmicapp/react-web/lib/host";
-
-import * as pp from "@plasmicapp/react-web";
 import {
-  hasVariant,
-  classNames,
-  wrapWithClassName,
-  createPlasmicElementProxy,
-  makeFragment,
+  Flex as Flex__,
   MultiChoiceArg,
+  PlasmicDataSourceContextProvider as PlasmicDataSourceContextProvider__,
+  PlasmicIcon as PlasmicIcon__,
+  PlasmicImg as PlasmicImg__,
+  PlasmicLink as PlasmicLink__,
+  PlasmicPageGuard as PlasmicPageGuard__,
   SingleBooleanChoiceArg,
   SingleChoiceArg,
-  pick,
-  omit,
-  useTrigger,
+  Stack as Stack__,
   StrictProps,
+  Trans as Trans__,
+  classNames,
+  createPlasmicElementProxy,
   deriveRenderOpts,
-  ensureGlobalVariants
+  ensureGlobalVariants,
+  generateOnMutateForSpec,
+  generateStateOnChangeProp,
+  generateStateOnChangePropForCodeComponents,
+  generateStateValueProp,
+  get as $stateGet,
+  hasVariant,
+  initializeCodeComponentStates,
+  initializePlasmicStates,
+  makeFragment,
+  omit,
+  pick,
+  renderPlasmicSlot,
+  set as $stateSet,
+  useCurrentUser,
+  useDollarState,
+  usePlasmicTranslator,
+  useTrigger,
+  wrapWithClassName
 } from "@plasmicapp/react-web";
+import {
+  DataCtxReader as DataCtxReader__,
+  useDataEnv,
+  useGlobalActions
+} from "@plasmicapp/react-web/lib/host";
+
+import * as pp from "@plasmicapp/react-web";
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -44,8 +67,8 @@ import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic_antd_5_hostl
 import projectcss from "./plasmic_jbs_storefront.module.css"; // plasmic-import: heL2P6rJiLNgtnBJPb6i1m/projectcss
 import sty from "./PlasmicTextInput.module.css"; // plasmic-import: Y6q1pqli4zM/css
 
-import SearchsvgIcon from "./icons/PlasmicIcon__Searchsvg"; // plasmic-import: iGJtLc9clP/icon
-import ChecksvgIcon from "./icons/PlasmicIcon__Checksvg"; // plasmic-import: ew07hyuAC0c/icon
+import SearchSvgIcon from "./icons/PlasmicIcon__SearchSvg"; // plasmic-import: iGJtLc9clP/icon
+import CheckSvgIcon from "./icons/PlasmicIcon__CheckSvg"; // plasmic-import: ew07hyuAC0c/icon
 
 createPlasmicElementProxy;
 
@@ -78,6 +101,7 @@ export type PlasmicTextInput__ArgsType = {
   required?: boolean;
   "aria-label"?: string;
   "aria-labelledby"?: string;
+  onChange?: (event: any) => void;
   type?:
     | "text"
     | "password"
@@ -99,14 +123,15 @@ export const PlasmicTextInput__ArgProps = new Array<ArgPropType>(
   "required",
   "aria-label",
   "aria-labelledby",
+  "onChange",
   "type"
 );
 
 export type PlasmicTextInput__OverridesType = {
-  root?: p.Flex<"div">;
-  startIconContainer?: p.Flex<"div">;
-  input?: p.Flex<"input">;
-  endIconContainer?: p.Flex<"div">;
+  root?: Flex__<"div">;
+  startIconContainer?: Flex__<"div">;
+  input?: Flex__<"input">;
+  endIconContainer?: Flex__<"div">;
 };
 
 export interface DefaultTextInputProps extends pp.BaseTextInputProps {
@@ -116,6 +141,7 @@ export interface DefaultTextInputProps extends pp.BaseTextInputProps {
   required?: boolean;
   "aria-label"?: string;
   "aria-labelledby"?: string;
+  onChange?: (event: any) => void;
   type?:
     | "text"
     | "password"
@@ -152,7 +178,9 @@ function PlasmicTextInput__RenderFunc(props: {
         {
           placeholder: "Enter something…"
         },
-        props.args
+        Object.fromEntries(
+          Object.entries(props.args).filter(([_, v]) => v !== undefined)
+        )
       ),
     [props.args]
   );
@@ -163,13 +191,11 @@ function PlasmicTextInput__RenderFunc(props: {
   };
 
   const __nextRouter = useNextRouter();
-  const $ctx = ph.useDataEnv?.() || {};
+  const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const currentUser = p.useCurrentUser?.() || {};
-
-  const stateSpecs: Parameters<typeof p.useDollarState>[0] = React.useMemo(
+  const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
         path: "showStartIcon",
@@ -212,7 +238,7 @@ function PlasmicTextInput__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
-  const $state = p.useDollarState(stateSpecs, {
+  const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
     $queries: {},
@@ -277,9 +303,9 @@ function PlasmicTextInput__RenderFunc(props: {
           )
         })}
       >
-        {p.renderPlasmicSlot({
+        {renderPlasmicSlot({
           defaultContents: (
-            <SearchsvgIcon
+            <SearchSvgIcon
               className={classNames(projectcss.all, sty.svg__hCg5X)}
               role={"img"}
             />
@@ -321,7 +347,7 @@ function PlasmicTextInput__RenderFunc(props: {
         name={args.name}
         onChange={async (...eventArgs: any) => {
           (e => {
-            p.generateStateOnChangeProp($state, ["input", "value"])(
+            generateStateOnChangeProp($state, ["input", "value"])(
               e.target.value
             );
           }).apply(null, eventArgs);
@@ -343,7 +369,7 @@ function PlasmicTextInput__RenderFunc(props: {
                     }
                     const { objRoot, variablePath } = variable;
 
-                    p.set(objRoot, variablePath, value);
+                    $stateSet(objRoot, variablePath, value);
                     return value;
                   })?.apply(null, [actionArgs]);
                 })()
@@ -363,7 +389,7 @@ function PlasmicTextInput__RenderFunc(props: {
         }}
         required={args.required}
         type={args.type}
-        value={p.generateStateValueProp($state, ["input", "value"]) ?? ""}
+        value={generateStateValueProp($state, ["input", "value"]) ?? ""}
       />
 
       <div
@@ -378,9 +404,9 @@ function PlasmicTextInput__RenderFunc(props: {
           )
         })}
       >
-        {p.renderPlasmicSlot({
+        {renderPlasmicSlot({
           defaultContents: (
-            <ChecksvgIcon
+            <CheckSvgIcon
               className={classNames(projectcss.all, sty.svg__vBucl)}
               role={"img"}
             />

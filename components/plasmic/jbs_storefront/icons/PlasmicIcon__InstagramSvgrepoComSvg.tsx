@@ -5,12 +5,12 @@
 import React from "react";
 import { classNames } from "@plasmicapp/react-web";
 
-export type InstagramSvgrepoComsvgIconProps = React.ComponentProps<"svg"> & {
+export type InstagramSvgrepoComSvgIconProps = React.ComponentProps<"svg"> & {
   title?: string;
 };
 
-export function InstagramSvgrepoComsvgIcon(
-  props: InstagramSvgrepoComsvgIconProps
+export function InstagramSvgrepoComSvgIcon(
+  props: InstagramSvgrepoComSvgIconProps
 ) {
   const { className, style, title, ...restProps } = props;
   return (
@@ -47,5 +47,5 @@ export function InstagramSvgrepoComsvgIcon(
   );
 }
 
-export default InstagramSvgrepoComsvgIcon;
+export default InstagramSvgrepoComSvgIcon;
 /* prettier-ignore-end */

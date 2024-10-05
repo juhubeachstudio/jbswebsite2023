@@ -17,25 +17,48 @@ import Head from "next/head";
 import Link, { LinkProps } from "next/link";
 import { useRouter } from "next/router";
 
-import * as p from "@plasmicapp/react-web";
-import * as ph from "@plasmicapp/react-web/lib/host";
-
 import {
-  hasVariant,
-  classNames,
-  wrapWithClassName,
-  createPlasmicElementProxy,
-  makeFragment,
+  Flex as Flex__,
   MultiChoiceArg,
+  PlasmicDataSourceContextProvider as PlasmicDataSourceContextProvider__,
+  PlasmicIcon as PlasmicIcon__,
+  PlasmicImg as PlasmicImg__,
+  PlasmicLink as PlasmicLink__,
+  PlasmicPageGuard as PlasmicPageGuard__,
   SingleBooleanChoiceArg,
   SingleChoiceArg,
-  pick,
-  omit,
-  useTrigger,
+  Stack as Stack__,
   StrictProps,
+  Trans as Trans__,
+  classNames,
+  createPlasmicElementProxy,
   deriveRenderOpts,
-  ensureGlobalVariants
+  ensureGlobalVariants,
+  generateOnMutateForSpec,
+  generateStateOnChangeProp,
+  generateStateOnChangePropForCodeComponents,
+  generateStateValueProp,
+  get as $stateGet,
+  hasVariant,
+  initializeCodeComponentStates,
+  initializePlasmicStates,
+  makeFragment,
+  omit,
+  pick,
+  renderPlasmicSlot,
+  set as $stateSet,
+  useCurrentUser,
+  useDollarState,
+  usePlasmicTranslator,
+  useTrigger,
+  wrapWithClassName
 } from "@plasmicapp/react-web";
+import {
+  DataCtxReader as DataCtxReader__,
+  useDataEnv,
+  useGlobalActions
+} from "@plasmicapp/react-web/lib/host";
+
 import FullPage from "../../FullPage"; // plasmic-import: VpRM2nIn0R/component
 import Section from "../../Section"; // plasmic-import: GMAR4VOl00/component
 import { CategoryCollection } from "@plasmicpkgs/commerce";
@@ -50,7 +73,7 @@ import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic_antd_5_hostl
 import projectcss from "./plasmic_jbs_storefront.module.css"; // plasmic-import: heL2P6rJiLNgtnBJPb6i1m/projectcss
 import sty from "./PlasmicCategories.module.css"; // plasmic-import: iURTST31N2A8/css
 
-import ChecksvgIcon from "./icons/PlasmicIcon__Checksvg"; // plasmic-import: ew07hyuAC0c/icon
+import CheckSvgIcon from "./icons/PlasmicIcon__CheckSvg"; // plasmic-import: ew07hyuAC0c/icon
 import Icon38Icon from "./icons/PlasmicIcon__Icon38"; // plasmic-import: 3r4KXWygi9v/icon
 
 createPlasmicElementProxy;
@@ -65,12 +88,12 @@ type ArgPropType = keyof PlasmicCategories__ArgsType;
 export const PlasmicCategories__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicCategories__OverridesType = {
-  root?: p.Flex<"div">;
-  fullPage?: p.Flex<typeof FullPage>;
-  section?: p.Flex<typeof Section>;
-  categoryCollection?: p.Flex<typeof CategoryCollection>;
-  categoryCard?: p.Flex<typeof CategoryCard>;
-  button?: p.Flex<typeof Button>;
+  root?: Flex__<"div">;
+  fullPage?: Flex__<typeof FullPage>;
+  section?: Flex__<typeof Section>;
+  categoryCollection?: Flex__<typeof CategoryCollection>;
+  categoryCard?: Flex__<typeof CategoryCard>;
+  button?: Flex__<typeof Button>;
 };
 
 export interface DefaultCategoriesProps {}
@@ -92,7 +115,16 @@ function PlasmicCategories__RenderFunc(props: {
 }) {
   const { variants, overrides, forNode } = props;
 
-  const args = React.useMemo(() => Object.assign({}, props.args), [props.args]);
+  const args = React.useMemo(
+    () =>
+      Object.assign(
+        {},
+        Object.fromEntries(
+          Object.entries(props.args).filter(([_, v]) => v !== undefined)
+        )
+      ),
+    [props.args]
+  );
 
   const $props = {
     ...args,
@@ -100,11 +132,9 @@ function PlasmicCategories__RenderFunc(props: {
   };
 
   const __nextRouter = useNextRouter();
-  const $ctx = ph.useDataEnv?.() || {};
+  const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
-
-  const currentUser = p.useCurrentUser?.() || {};
 
   const globalVariants = ensureGlobalVariants({
     screen: useScreenVariants_6Hzia3M7Np4Ulu()
@@ -160,7 +190,7 @@ function PlasmicCategories__RenderFunc(props: {
                 data-plasmic-override={overrides.categoryCollection}
                 className={classNames("__wab_instance", sty.categoryCollection)}
                 emptyMessage={
-                  <ph.DataCtxReader>
+                  <DataCtxReader__>
                     {$ctx => (
                       <div
                         className={classNames(
@@ -172,10 +202,10 @@ function PlasmicCategories__RenderFunc(props: {
                         {"No collection found!"}
                       </div>
                     )}
-                  </ph.DataCtxReader>
+                  </DataCtxReader__>
                 }
                 loadingMessage={
-                  <ph.DataCtxReader>
+                  <DataCtxReader__>
                     {$ctx => (
                       <div
                         className={classNames(
@@ -187,11 +217,11 @@ function PlasmicCategories__RenderFunc(props: {
                         {"Loading..."}
                       </div>
                     )}
-                  </ph.DataCtxReader>
+                  </DataCtxReader__>
                 }
                 noAutoRepeat={true}
               >
-                <ph.DataCtxReader>
+                <DataCtxReader__>
                   {$ctx => (
                     <div
                       className={classNames(projectcss.all, sty.freeBox__cqIcg)}
@@ -231,9 +261,9 @@ function PlasmicCategories__RenderFunc(props: {
                       })}
                     </div>
                   )}
-                </ph.DataCtxReader>
+                </DataCtxReader__>
               </CategoryCollection>
-              <p.Stack
+              <Stack__
                 as={"div"}
                 hasGap={true}
                 className={classNames(projectcss.all, sty.freeBox__onkfy)}
@@ -260,7 +290,7 @@ function PlasmicCategories__RenderFunc(props: {
                     {"SHOP ALL CATEGORIES"}
                   </div>
                 </Button>
-              </p.Stack>
+              </Stack__>
             </Section>
           </FullPage>
         </div>

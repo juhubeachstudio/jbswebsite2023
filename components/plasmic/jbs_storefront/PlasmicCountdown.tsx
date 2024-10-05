@@ -17,25 +17,48 @@ import Head from "next/head";
 import Link, { LinkProps } from "next/link";
 import { useRouter } from "next/router";
 
-import * as p from "@plasmicapp/react-web";
-import * as ph from "@plasmicapp/react-web/lib/host";
-
 import {
-  hasVariant,
-  classNames,
-  wrapWithClassName,
-  createPlasmicElementProxy,
-  makeFragment,
+  Flex as Flex__,
   MultiChoiceArg,
+  PlasmicDataSourceContextProvider as PlasmicDataSourceContextProvider__,
+  PlasmicIcon as PlasmicIcon__,
+  PlasmicImg as PlasmicImg__,
+  PlasmicLink as PlasmicLink__,
+  PlasmicPageGuard as PlasmicPageGuard__,
   SingleBooleanChoiceArg,
   SingleChoiceArg,
-  pick,
-  omit,
-  useTrigger,
+  Stack as Stack__,
   StrictProps,
+  Trans as Trans__,
+  classNames,
+  createPlasmicElementProxy,
   deriveRenderOpts,
-  ensureGlobalVariants
+  ensureGlobalVariants,
+  generateOnMutateForSpec,
+  generateStateOnChangeProp,
+  generateStateOnChangePropForCodeComponents,
+  generateStateValueProp,
+  get as $stateGet,
+  hasVariant,
+  initializeCodeComponentStates,
+  initializePlasmicStates,
+  makeFragment,
+  omit,
+  pick,
+  renderPlasmicSlot,
+  set as $stateSet,
+  useCurrentUser,
+  useDollarState,
+  usePlasmicTranslator,
+  useTrigger,
+  wrapWithClassName
 } from "@plasmicapp/react-web";
+import {
+  DataCtxReader as DataCtxReader__,
+  useDataEnv,
+  useGlobalActions
+} from "@plasmicapp/react-web/lib/host";
+
 import CountdownNumber from "../../CountdownNumber"; // plasmic-import: wHIYrv4suznQ/component
 import { Timer } from "@plasmicpkgs/plasmic-basic-components";
 
@@ -63,8 +86,8 @@ export const PlasmicCountdown__ArgProps = new Array<ArgPropType>(
 );
 
 export type PlasmicCountdown__OverridesType = {
-  root?: p.Flex<"div">;
-  timer?: p.Flex<typeof Timer>;
+  root?: Flex__<"div">;
+  timer?: Flex__<typeof Timer>;
 };
 
 export interface DefaultCountdownProps {
@@ -95,7 +118,9 @@ function PlasmicCountdown__RenderFunc(props: {
         {
           targetTimeUtc: "2025-12-10T23:26:25.224Z"
         },
-        props.args
+        Object.fromEntries(
+          Object.entries(props.args).filter(([_, v]) => v !== undefined)
+        )
       ),
     [props.args]
   );
@@ -106,13 +131,11 @@ function PlasmicCountdown__RenderFunc(props: {
   };
 
   const __nextRouter = useNextRouter();
-  const $ctx = ph.useDataEnv?.() || {};
+  const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const currentUser = p.useCurrentUser?.() || {};
-
-  const stateSpecs: Parameters<typeof p.useDollarState>[0] = React.useMemo(
+  const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
         path: "remainingSeconds",
@@ -121,9 +144,10 @@ function PlasmicCountdown__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => 0
       }
     ],
+
     [$props, $ctx, $refs]
   );
-  const $state = p.useDollarState(stateSpecs, {
+  const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
     $queries: {},
@@ -157,7 +181,7 @@ function PlasmicCountdown__RenderFunc(props: {
         }
       )}
     >
-      <p.Stack
+      <Stack__
         as={"div"}
         hasGap={true}
         className={classNames(projectcss.all, sty.freeBox___8VMx, {
@@ -527,7 +551,7 @@ function PlasmicCountdown__RenderFunc(props: {
             </div>
           }
         />
-      </p.Stack>
+      </Stack__>
       <Timer
         data-plasmic-name={"timer"}
         data-plasmic-override={overrides.timer}
@@ -563,7 +587,7 @@ function PlasmicCountdown__RenderFunc(props: {
                   }
                   const { objRoot, variablePath } = variable;
 
-                  p.set(objRoot, variablePath, value);
+                  $stateSet(objRoot, variablePath, value);
                   return value;
                 })?.apply(null, [actionArgs]);
               })()
@@ -601,6 +625,7 @@ type NodeOverridesType<T extends NodeNameType> = Pick<
   PlasmicCountdown__OverridesType,
   DescendantsType<T>
 >;
+
 type NodeComponentProps<T extends NodeNameType> =
   // Explicitly specify variants, args, and overrides as objects
   {

@@ -17,25 +17,48 @@ import Head from "next/head";
 import Link, { LinkProps } from "next/link";
 import { useRouter } from "next/router";
 
-import * as p from "@plasmicapp/react-web";
-import * as ph from "@plasmicapp/react-web/lib/host";
-
 import {
-  hasVariant,
-  classNames,
-  wrapWithClassName,
-  createPlasmicElementProxy,
-  makeFragment,
+  Flex as Flex__,
   MultiChoiceArg,
+  PlasmicDataSourceContextProvider as PlasmicDataSourceContextProvider__,
+  PlasmicIcon as PlasmicIcon__,
+  PlasmicImg as PlasmicImg__,
+  PlasmicLink as PlasmicLink__,
+  PlasmicPageGuard as PlasmicPageGuard__,
   SingleBooleanChoiceArg,
   SingleChoiceArg,
-  pick,
-  omit,
-  useTrigger,
+  Stack as Stack__,
   StrictProps,
+  Trans as Trans__,
+  classNames,
+  createPlasmicElementProxy,
   deriveRenderOpts,
-  ensureGlobalVariants
+  ensureGlobalVariants,
+  generateOnMutateForSpec,
+  generateStateOnChangeProp,
+  generateStateOnChangePropForCodeComponents,
+  generateStateValueProp,
+  get as $stateGet,
+  hasVariant,
+  initializeCodeComponentStates,
+  initializePlasmicStates,
+  makeFragment,
+  omit,
+  pick,
+  renderPlasmicSlot,
+  set as $stateSet,
+  useCurrentUser,
+  useDollarState,
+  usePlasmicTranslator,
+  useTrigger,
+  wrapWithClassName
 } from "@plasmicapp/react-web";
+import {
+  DataCtxReader as DataCtxReader__,
+  useDataEnv,
+  useGlobalActions
+} from "@plasmicapp/react-web/lib/host";
+
 import Button from "../../Button"; // plasmic-import: yEsI5slGwPm/component
 
 import { useScreenVariants as useScreenVariants_6Hzia3M7Np4Ulu } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6hzia3m7Np4ulu/globalVariant
@@ -46,8 +69,8 @@ import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic_antd_5_hostl
 import projectcss from "./plasmic_jbs_storefront.module.css"; // plasmic-import: heL2P6rJiLNgtnBJPb6i1m/projectcss
 import sty from "./PlasmicJbsMenu.module.css"; // plasmic-import: NFEkw9xPSE/css
 
-import ChecksvgIcon from "./icons/PlasmicIcon__Checksvg"; // plasmic-import: ew07hyuAC0c/icon
-import HamburgersvgIcon from "./icons/PlasmicIcon__Hamburgersvg"; // plasmic-import: QybYSQyE3W/icon
+import CheckSvgIcon from "./icons/PlasmicIcon__CheckSvg"; // plasmic-import: ew07hyuAC0c/icon
+import HamburgerSvgIcon from "./icons/PlasmicIcon__HamburgerSvg"; // plasmic-import: QybYSQyE3W/icon
 import Icon38Icon from "./icons/PlasmicIcon__Icon38"; // plasmic-import: 3r4KXWygi9v/icon
 
 createPlasmicElementProxy;
@@ -71,9 +94,9 @@ type ArgPropType = keyof PlasmicJbsMenu__ArgsType;
 export const PlasmicJbsMenu__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicJbsMenu__OverridesType = {
-  root?: p.Flex<"div">;
-  svg?: p.Flex<"svg">;
-  homeMenuItem?: p.Flex<"div">;
+  root?: Flex__<"div">;
+  svg?: Flex__<"svg">;
+  homeMenuItem?: Flex__<"div">;
 };
 
 export interface DefaultJbsMenuProps {
@@ -99,7 +122,16 @@ function PlasmicJbsMenu__RenderFunc(props: {
 }) {
   const { variants, overrides, forNode } = props;
 
-  const args = React.useMemo(() => Object.assign({}, props.args), [props.args]);
+  const args = React.useMemo(
+    () =>
+      Object.assign(
+        {},
+        Object.fromEntries(
+          Object.entries(props.args).filter(([_, v]) => v !== undefined)
+        )
+      ),
+    [props.args]
+  );
 
   const $props = {
     ...args,
@@ -107,13 +139,11 @@ function PlasmicJbsMenu__RenderFunc(props: {
   };
 
   const __nextRouter = useNextRouter();
-  const $ctx = ph.useDataEnv?.() || {};
+  const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const currentUser = p.useCurrentUser?.() || {};
-
-  const stateSpecs: Parameters<typeof p.useDollarState>[0] = React.useMemo(
+  const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
         path: "revealMenu",
@@ -130,7 +160,7 @@ function PlasmicJbsMenu__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
-  const $state = p.useDollarState(stateSpecs, {
+  const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
     $queries: {},
@@ -142,7 +172,7 @@ function PlasmicJbsMenu__RenderFunc(props: {
   });
 
   return (
-    <p.Stack
+    <Stack__
       as={"div"}
       data-plasmic-name={"root"}
       data-plasmic-override={overrides.root}
@@ -192,8 +222,8 @@ function PlasmicJbsMenu__RenderFunc(props: {
                     value = [value];
                   }
 
-                  const oldValue = p.get($state, vgroup);
-                  p.set($state, vgroup, !oldValue);
+                  const oldValue = $stateGet($state, vgroup);
+                  $stateSet($state, vgroup, !oldValue);
                   return !oldValue;
                 })?.apply(null, [actionArgs]);
               })()
@@ -214,7 +244,7 @@ function PlasmicJbsMenu__RenderFunc(props: {
                     value = [value];
                   }
 
-                  p.set($state, vgroup, false);
+                  $stateSet($state, vgroup, false);
                   return false;
                 })?.apply(null, [actionArgs]);
               })()
@@ -231,7 +261,7 @@ function PlasmicJbsMenu__RenderFunc(props: {
         }}
         size={"minimal"}
       >
-        <HamburgersvgIcon
+        <HamburgerSvgIcon
           data-plasmic-name={"svg"}
           data-plasmic-override={overrides.svg}
           className={classNames(projectcss.all, sty.svg)}
@@ -341,8 +371,8 @@ function PlasmicJbsMenu__RenderFunc(props: {
                       value = [value];
                     }
 
-                    const oldValue = p.get($state, vgroup);
-                    p.set($state, vgroup, !oldValue);
+                    const oldValue = $stateGet($state, vgroup);
+                    $stateSet($state, vgroup, !oldValue);
                     return !oldValue;
                   })?.apply(null, [actionArgs]);
                 })()
@@ -416,8 +446,8 @@ function PlasmicJbsMenu__RenderFunc(props: {
                         value = [value];
                       }
 
-                      const oldValue = p.get($state, vgroup);
-                      p.set($state, vgroup, !oldValue);
+                      const oldValue = $stateGet($state, vgroup);
+                      $stateSet($state, vgroup, !oldValue);
                       return !oldValue;
                     })?.apply(null, [actionArgs]);
                   })()
@@ -476,8 +506,8 @@ function PlasmicJbsMenu__RenderFunc(props: {
                         value = [value];
                       }
 
-                      const oldValue = p.get($state, vgroup);
-                      p.set($state, vgroup, !oldValue);
+                      const oldValue = $stateGet($state, vgroup);
+                      $stateSet($state, vgroup, !oldValue);
                       return !oldValue;
                     })?.apply(null, [actionArgs]);
                   })()
@@ -528,8 +558,8 @@ function PlasmicJbsMenu__RenderFunc(props: {
                         value = [value];
                       }
 
-                      const oldValue = p.get($state, vgroup);
-                      p.set($state, vgroup, !oldValue);
+                      const oldValue = $stateGet($state, vgroup);
+                      $stateSet($state, vgroup, !oldValue);
                       return !oldValue;
                     })?.apply(null, [actionArgs]);
                   })()
@@ -588,8 +618,8 @@ function PlasmicJbsMenu__RenderFunc(props: {
                         value = [value];
                       }
 
-                      const oldValue = p.get($state, vgroup);
-                      p.set($state, vgroup, !oldValue);
+                      const oldValue = $stateGet($state, vgroup);
+                      $stateSet($state, vgroup, !oldValue);
                       return !oldValue;
                     })?.apply(null, [actionArgs]);
                   })()
@@ -640,8 +670,8 @@ function PlasmicJbsMenu__RenderFunc(props: {
                         value = [value];
                       }
 
-                      const oldValue = p.get($state, vgroup);
-                      p.set($state, vgroup, !oldValue);
+                      const oldValue = $stateGet($state, vgroup);
+                      $stateSet($state, vgroup, !oldValue);
                       return !oldValue;
                     })?.apply(null, [actionArgs]);
                   })()
@@ -700,8 +730,8 @@ function PlasmicJbsMenu__RenderFunc(props: {
                         value = [value];
                       }
 
-                      const oldValue = p.get($state, vgroup);
-                      p.set($state, vgroup, !oldValue);
+                      const oldValue = $stateGet($state, vgroup);
+                      $stateSet($state, vgroup, !oldValue);
                       return !oldValue;
                     })?.apply(null, [actionArgs]);
                   })()
@@ -752,8 +782,8 @@ function PlasmicJbsMenu__RenderFunc(props: {
                         value = [value];
                       }
 
-                      const oldValue = p.get($state, vgroup);
-                      p.set($state, vgroup, !oldValue);
+                      const oldValue = $stateGet($state, vgroup);
+                      $stateSet($state, vgroup, !oldValue);
                       return !oldValue;
                     })?.apply(null, [actionArgs]);
                   })()
@@ -804,8 +834,8 @@ function PlasmicJbsMenu__RenderFunc(props: {
                         value = [value];
                       }
 
-                      const oldValue = p.get($state, vgroup);
-                      p.set($state, vgroup, !oldValue);
+                      const oldValue = $stateGet($state, vgroup);
+                      $stateSet($state, vgroup, !oldValue);
                       return !oldValue;
                     })?.apply(null, [actionArgs]);
                   })()
@@ -856,8 +886,8 @@ function PlasmicJbsMenu__RenderFunc(props: {
                         value = [value];
                       }
 
-                      const oldValue = p.get($state, vgroup);
-                      p.set($state, vgroup, !oldValue);
+                      const oldValue = $stateGet($state, vgroup);
+                      $stateSet($state, vgroup, !oldValue);
                       return !oldValue;
                     })?.apply(null, [actionArgs]);
                   })()
@@ -908,8 +938,8 @@ function PlasmicJbsMenu__RenderFunc(props: {
                         value = [value];
                       }
 
-                      const oldValue = p.get($state, vgroup);
-                      p.set($state, vgroup, !oldValue);
+                      const oldValue = $stateGet($state, vgroup);
+                      $stateSet($state, vgroup, !oldValue);
                       return !oldValue;
                     })?.apply(null, [actionArgs]);
                   })()
@@ -960,8 +990,8 @@ function PlasmicJbsMenu__RenderFunc(props: {
                         value = [value];
                       }
 
-                      const oldValue = p.get($state, vgroup);
-                      p.set($state, vgroup, !oldValue);
+                      const oldValue = $stateGet($state, vgroup);
+                      $stateSet($state, vgroup, !oldValue);
                       return !oldValue;
                     })?.apply(null, [actionArgs]);
                   })()
@@ -1012,8 +1042,8 @@ function PlasmicJbsMenu__RenderFunc(props: {
                         value = [value];
                       }
 
-                      const oldValue = p.get($state, vgroup);
-                      p.set($state, vgroup, !oldValue);
+                      const oldValue = $stateGet($state, vgroup);
+                      $stateSet($state, vgroup, !oldValue);
                       return !oldValue;
                     })?.apply(null, [actionArgs]);
                   })()
@@ -1034,7 +1064,7 @@ function PlasmicJbsMenu__RenderFunc(props: {
           </Button>
         </div>
       </div>
-    </p.Stack>
+    </Stack__>
   ) as React.ReactElement | null;
 }
 

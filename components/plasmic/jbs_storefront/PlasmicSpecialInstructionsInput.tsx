@@ -17,25 +17,48 @@ import Head from "next/head";
 import Link, { LinkProps } from "next/link";
 import { useRouter } from "next/router";
 
-import * as p from "@plasmicapp/react-web";
-import * as ph from "@plasmicapp/react-web/lib/host";
-
 import {
-  hasVariant,
-  classNames,
-  wrapWithClassName,
-  createPlasmicElementProxy,
-  makeFragment,
+  Flex as Flex__,
   MultiChoiceArg,
+  PlasmicDataSourceContextProvider as PlasmicDataSourceContextProvider__,
+  PlasmicIcon as PlasmicIcon__,
+  PlasmicImg as PlasmicImg__,
+  PlasmicLink as PlasmicLink__,
+  PlasmicPageGuard as PlasmicPageGuard__,
   SingleBooleanChoiceArg,
   SingleChoiceArg,
-  pick,
-  omit,
-  useTrigger,
+  Stack as Stack__,
   StrictProps,
+  Trans as Trans__,
+  classNames,
+  createPlasmicElementProxy,
   deriveRenderOpts,
-  ensureGlobalVariants
+  ensureGlobalVariants,
+  generateOnMutateForSpec,
+  generateStateOnChangeProp,
+  generateStateOnChangePropForCodeComponents,
+  generateStateValueProp,
+  get as $stateGet,
+  hasVariant,
+  initializeCodeComponentStates,
+  initializePlasmicStates,
+  makeFragment,
+  omit,
+  pick,
+  renderPlasmicSlot,
+  set as $stateSet,
+  useCurrentUser,
+  useDollarState,
+  usePlasmicTranslator,
+  useTrigger,
+  wrapWithClassName
 } from "@plasmicapp/react-web";
+import {
+  DataCtxReader as DataCtxReader__,
+  useDataEnv,
+  useGlobalActions
+} from "@plasmicapp/react-web/lib/host";
+
 import TextInput from "../../TextInput"; // plasmic-import: Y6q1pqli4zM/component
 
 import "@plasmicapp/react-web/lib/plasmic.css";
@@ -44,8 +67,8 @@ import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic_antd_5_hostl
 import projectcss from "./plasmic_jbs_storefront.module.css"; // plasmic-import: heL2P6rJiLNgtnBJPb6i1m/projectcss
 import sty from "./PlasmicSpecialInstructionsInput.module.css"; // plasmic-import: znFTM0nXx5O6/css
 
-import SearchsvgIcon from "./icons/PlasmicIcon__Searchsvg"; // plasmic-import: iGJtLc9clP/icon
-import ChecksvgIcon from "./icons/PlasmicIcon__Checksvg"; // plasmic-import: ew07hyuAC0c/icon
+import SearchSvgIcon from "./icons/PlasmicIcon__SearchSvg"; // plasmic-import: iGJtLc9clP/icon
+import CheckSvgIcon from "./icons/PlasmicIcon__CheckSvg"; // plasmic-import: ew07hyuAC0c/icon
 
 createPlasmicElementProxy;
 
@@ -64,7 +87,7 @@ export const PlasmicSpecialInstructionsInput__ArgProps = new Array<ArgPropType>(
 );
 
 export type PlasmicSpecialInstructionsInput__OverridesType = {
-  textInput?: p.Flex<typeof TextInput>;
+  textInput?: Flex__<typeof TextInput>;
 };
 
 export interface DefaultSpecialInstructionsInputProps {
@@ -89,7 +112,16 @@ function PlasmicSpecialInstructionsInput__RenderFunc(props: {
 }) {
   const { variants, overrides, forNode } = props;
 
-  const args = React.useMemo(() => Object.assign({}, props.args), [props.args]);
+  const args = React.useMemo(
+    () =>
+      Object.assign(
+        {},
+        Object.fromEntries(
+          Object.entries(props.args).filter(([_, v]) => v !== undefined)
+        )
+      ),
+    [props.args]
+  );
 
   const $props = {
     ...args,
@@ -97,13 +129,11 @@ function PlasmicSpecialInstructionsInput__RenderFunc(props: {
   };
 
   const __nextRouter = useNextRouter();
-  const $ctx = ph.useDataEnv?.() || {};
+  const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const currentUser = p.useCurrentUser?.() || {};
-
-  const stateSpecs: Parameters<typeof p.useDollarState>[0] = React.useMemo(
+  const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
         path: "textInput.value",
@@ -122,7 +152,7 @@ function PlasmicSpecialInstructionsInput__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
-  const $state = p.useDollarState(stateSpecs, {
+  const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
     $queries: {},
@@ -138,7 +168,7 @@ function PlasmicSpecialInstructionsInput__RenderFunc(props: {
       className={classNames("__wab_instance", sty.textInput)}
       onChange={async (...eventArgs: any) => {
         ((...eventArgs) => {
-          p.generateStateOnChangeProp($state, ["textInput", "value"])(
+          generateStateOnChangeProp($state, ["textInput", "value"])(
             (e => e.target?.value).apply(null, eventArgs)
           );
         }).apply(null, eventArgs);
@@ -160,7 +190,7 @@ function PlasmicSpecialInstructionsInput__RenderFunc(props: {
                   }
                   const { objRoot, variablePath } = variable;
 
-                  p.set(objRoot, variablePath, value);
+                  $stateSet(objRoot, variablePath, value);
                   return value;
                 })?.apply(null, [actionArgs]);
               })()
@@ -178,7 +208,7 @@ function PlasmicSpecialInstructionsInput__RenderFunc(props: {
       }}
       placeholder={'Example: Can you write "My Name" on the hat?'}
       type={"text"}
-      value={p.generateStateValueProp($state, ["textInput", "value"]) ?? ""}
+      value={generateStateValueProp($state, ["textInput", "value"]) ?? ""}
     />
   ) as React.ReactElement | null;
 }

@@ -17,25 +17,48 @@ import Head from "next/head";
 import Link, { LinkProps } from "next/link";
 import { useRouter } from "next/router";
 
-import * as p from "@plasmicapp/react-web";
-import * as ph from "@plasmicapp/react-web/lib/host";
-
 import {
-  hasVariant,
-  classNames,
-  wrapWithClassName,
-  createPlasmicElementProxy,
-  makeFragment,
+  Flex as Flex__,
   MultiChoiceArg,
+  PlasmicDataSourceContextProvider as PlasmicDataSourceContextProvider__,
+  PlasmicIcon as PlasmicIcon__,
+  PlasmicImg as PlasmicImg__,
+  PlasmicLink as PlasmicLink__,
+  PlasmicPageGuard as PlasmicPageGuard__,
   SingleBooleanChoiceArg,
   SingleChoiceArg,
-  pick,
-  omit,
-  useTrigger,
+  Stack as Stack__,
   StrictProps,
+  Trans as Trans__,
+  classNames,
+  createPlasmicElementProxy,
   deriveRenderOpts,
-  ensureGlobalVariants
+  ensureGlobalVariants,
+  generateOnMutateForSpec,
+  generateStateOnChangeProp,
+  generateStateOnChangePropForCodeComponents,
+  generateStateValueProp,
+  get as $stateGet,
+  hasVariant,
+  initializeCodeComponentStates,
+  initializePlasmicStates,
+  makeFragment,
+  omit,
+  pick,
+  renderPlasmicSlot,
+  set as $stateSet,
+  useCurrentUser,
+  useDollarState,
+  usePlasmicTranslator,
+  useTrigger,
+  wrapWithClassName
 } from "@plasmicapp/react-web";
+import {
+  DataCtxReader as DataCtxReader__,
+  useDataEnv,
+  useGlobalActions
+} from "@plasmicapp/react-web/lib/host";
+
 import { SliderWrapper } from "@plasmicpkgs/react-slick";
 import { sliderHelpers as SliderWrapper_Helpers } from "@plasmicpkgs/react-slick";
 import { ProductCollection } from "@plasmicpkgs/commerce";
@@ -64,7 +87,7 @@ type ArgPropType = keyof PlasmicSomethingNewSlider2__ArgsType;
 export const PlasmicSomethingNewSlider2__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicSomethingNewSlider2__OverridesType = {
-  sliderCarousel11?: p.Flex<typeof SliderWrapper>;
+  sliderCarousel11?: Flex__<typeof SliderWrapper>;
 };
 
 export interface DefaultSomethingNewSlider2Props {
@@ -88,7 +111,16 @@ function PlasmicSomethingNewSlider2__RenderFunc(props: {
 }) {
   const { variants, overrides, forNode } = props;
 
-  const args = React.useMemo(() => Object.assign({}, props.args), [props.args]);
+  const args = React.useMemo(
+    () =>
+      Object.assign(
+        {},
+        Object.fromEntries(
+          Object.entries(props.args).filter(([_, v]) => v !== undefined)
+        )
+      ),
+    [props.args]
+  );
 
   const $props = {
     ...args,
@@ -96,13 +128,11 @@ function PlasmicSomethingNewSlider2__RenderFunc(props: {
   };
 
   const __nextRouter = useNextRouter();
-  const $ctx = ph.useDataEnv?.() || {};
+  const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const currentUser = p.useCurrentUser?.() || {};
-
-  const stateSpecs: Parameters<typeof p.useDollarState>[0] = React.useMemo(
+  const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
         path: "sliderCarousel11.currentSlide",
@@ -111,15 +141,12 @@ function PlasmicSomethingNewSlider2__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => 0,
 
         refName: "sliderCarousel11",
-        onMutate: p.generateOnMutateForSpec(
-          "currentSlide",
-          SliderWrapper_Helpers
-        )
+        onMutate: generateOnMutateForSpec("currentSlide", SliderWrapper_Helpers)
       }
     ],
     [$props, $ctx, $refs]
   );
-  const $state = p.useDollarState(stateSpecs, {
+  const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
     $queries: {},
@@ -135,7 +162,7 @@ function PlasmicSomethingNewSlider2__RenderFunc(props: {
       arrows: false,
       autoplay: true,
       autoplaySpeed: 1500,
-      beforeChange: p.generateStateOnChangePropForCodeComponents(
+      beforeChange: generateStateOnChangePropForCodeComponents(
         $state,
         "currentSlide",
         ["sliderCarousel11", "currentSlide"],
@@ -152,7 +179,7 @@ function PlasmicSomethingNewSlider2__RenderFunc(props: {
         sty.sliderCarousel11
       ),
       dots: true,
-      initialSlide: p.generateStateValueProp($state, [
+      initialSlide: generateStateValueProp($state, [
         "sliderCarousel11",
         "currentSlide"
       ]),
@@ -162,7 +189,7 @@ function PlasmicSomethingNewSlider2__RenderFunc(props: {
       sliderScopeClassName: sty["sliderCarousel11__slider"],
       slidesToShow: 3
     };
-    p.initializeCodeComponentStates(
+    initializeCodeComponentStates(
       $state,
       [
         {
@@ -191,7 +218,7 @@ function PlasmicSomethingNewSlider2__RenderFunc(props: {
               sty.productCollection__v7Vm
             )}
             emptyMessage={
-              <ph.DataCtxReader>
+              <DataCtxReader__>
                 {$ctx => (
                   <div
                     className={classNames(
@@ -203,10 +230,10 @@ function PlasmicSomethingNewSlider2__RenderFunc(props: {
                     {"No product found!"}
                   </div>
                 )}
-              </ph.DataCtxReader>
+              </DataCtxReader__>
             }
             loadingMessage={
-              <ph.DataCtxReader>
+              <DataCtxReader__>
                 {$ctx => (
                   <div
                     className={classNames(
@@ -218,11 +245,11 @@ function PlasmicSomethingNewSlider2__RenderFunc(props: {
                     {"Loading..."}
                   </div>
                 )}
-              </ph.DataCtxReader>
+              </DataCtxReader__>
             }
             noAutoRepeat={true}
           >
-            <ph.DataCtxReader>
+            <DataCtxReader__>
               {$ctx => (
                 <ProductBox
                   className={classNames(
@@ -243,7 +270,7 @@ function PlasmicSomethingNewSlider2__RenderFunc(props: {
                     }
                   })()}
                 >
-                  <ph.DataCtxReader>
+                  <DataCtxReader__>
                     {$ctx => (
                       <div
                         className={classNames(
@@ -274,10 +301,10 @@ function PlasmicSomethingNewSlider2__RenderFunc(props: {
                         </div>
                       </div>
                     )}
-                  </ph.DataCtxReader>
+                  </DataCtxReader__>
                 </ProductBox>
               )}
-            </ph.DataCtxReader>
+            </DataCtxReader__>
           </ProductCollection>
         </div>
         <div className={classNames(projectcss.all, sty.freeBox___13X83)}>
@@ -288,7 +315,7 @@ function PlasmicSomethingNewSlider2__RenderFunc(props: {
               sty.productCollection__id1Jp
             )}
             emptyMessage={
-              <ph.DataCtxReader>
+              <DataCtxReader__>
                 {$ctx => (
                   <div
                     className={classNames(
@@ -300,10 +327,10 @@ function PlasmicSomethingNewSlider2__RenderFunc(props: {
                     {"No product found!"}
                   </div>
                 )}
-              </ph.DataCtxReader>
+              </DataCtxReader__>
             }
             loadingMessage={
-              <ph.DataCtxReader>
+              <DataCtxReader__>
                 {$ctx => (
                   <div
                     className={classNames(
@@ -315,11 +342,11 @@ function PlasmicSomethingNewSlider2__RenderFunc(props: {
                     {"Loading..."}
                   </div>
                 )}
-              </ph.DataCtxReader>
+              </DataCtxReader__>
             }
             noAutoRepeat={true}
           >
-            <ph.DataCtxReader>
+            <DataCtxReader__>
               {$ctx => (
                 <ProductBox
                   className={classNames(
@@ -340,7 +367,7 @@ function PlasmicSomethingNewSlider2__RenderFunc(props: {
                     }
                   })()}
                 >
-                  <ph.DataCtxReader>
+                  <DataCtxReader__>
                     {$ctx => (
                       <div
                         className={classNames(
@@ -371,10 +398,10 @@ function PlasmicSomethingNewSlider2__RenderFunc(props: {
                         </div>
                       </div>
                     )}
-                  </ph.DataCtxReader>
+                  </DataCtxReader__>
                 </ProductBox>
               )}
-            </ph.DataCtxReader>
+            </DataCtxReader__>
           </ProductCollection>
         </div>
         <div className={classNames(projectcss.all, sty.freeBox__jFvKg)}>
@@ -385,7 +412,7 @@ function PlasmicSomethingNewSlider2__RenderFunc(props: {
               sty.productCollection__n8Ave
             )}
             emptyMessage={
-              <ph.DataCtxReader>
+              <DataCtxReader__>
                 {$ctx => (
                   <div
                     className={classNames(
@@ -397,10 +424,10 @@ function PlasmicSomethingNewSlider2__RenderFunc(props: {
                     {"No product found!"}
                   </div>
                 )}
-              </ph.DataCtxReader>
+              </DataCtxReader__>
             }
             loadingMessage={
-              <ph.DataCtxReader>
+              <DataCtxReader__>
                 {$ctx => (
                   <div
                     className={classNames(
@@ -412,11 +439,11 @@ function PlasmicSomethingNewSlider2__RenderFunc(props: {
                     {"Loading..."}
                   </div>
                 )}
-              </ph.DataCtxReader>
+              </DataCtxReader__>
             }
             noAutoRepeat={true}
           >
-            <ph.DataCtxReader>
+            <DataCtxReader__>
               {$ctx => (
                 <ProductBox
                   className={classNames("__wab_instance", sty.productBox__gDCz)}
@@ -434,7 +461,7 @@ function PlasmicSomethingNewSlider2__RenderFunc(props: {
                     }
                   })()}
                 >
-                  <ph.DataCtxReader>
+                  <DataCtxReader__>
                     {$ctx => (
                       <div
                         className={classNames(
@@ -465,10 +492,10 @@ function PlasmicSomethingNewSlider2__RenderFunc(props: {
                         </div>
                       </div>
                     )}
-                  </ph.DataCtxReader>
+                  </DataCtxReader__>
                 </ProductBox>
               )}
-            </ph.DataCtxReader>
+            </DataCtxReader__>
           </ProductCollection>
         </div>
       </SliderWrapper>

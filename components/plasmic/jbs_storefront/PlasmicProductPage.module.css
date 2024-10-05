@@ -42,14 +42,12 @@
   border-bottom-width: 2px;
   grid-column-start: 1 !important;
   grid-column-end: -1 !important;
+  --plsmc-rc-col-gap: 0px;
 }
 .columns > :global(.__wab_flex-container) {
   align-items: stretch;
   flex-direction: row;
   flex-wrap: nowrap;
-}
-.columns {
-  --plsmc-rc-col-gap: 0px;
 }
 .columns > :global(.__wab_flex-container) > :nth-child(2n + 1) {
   width: calc((100% - 2 * var(--plsmc-rc-col-gap, 0px)) * 6 / 12);

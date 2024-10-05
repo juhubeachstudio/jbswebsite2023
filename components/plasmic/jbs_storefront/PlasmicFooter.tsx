@@ -17,25 +17,48 @@ import Head from "next/head";
 import Link, { LinkProps } from "next/link";
 import { useRouter } from "next/router";
 
-import * as p from "@plasmicapp/react-web";
-import * as ph from "@plasmicapp/react-web/lib/host";
-
 import {
-  hasVariant,
-  classNames,
-  wrapWithClassName,
-  createPlasmicElementProxy,
-  makeFragment,
+  Flex as Flex__,
   MultiChoiceArg,
+  PlasmicDataSourceContextProvider as PlasmicDataSourceContextProvider__,
+  PlasmicIcon as PlasmicIcon__,
+  PlasmicImg as PlasmicImg__,
+  PlasmicLink as PlasmicLink__,
+  PlasmicPageGuard as PlasmicPageGuard__,
   SingleBooleanChoiceArg,
   SingleChoiceArg,
-  pick,
-  omit,
-  useTrigger,
+  Stack as Stack__,
   StrictProps,
+  Trans as Trans__,
+  classNames,
+  createPlasmicElementProxy,
   deriveRenderOpts,
-  ensureGlobalVariants
+  ensureGlobalVariants,
+  generateOnMutateForSpec,
+  generateStateOnChangeProp,
+  generateStateOnChangePropForCodeComponents,
+  generateStateValueProp,
+  get as $stateGet,
+  hasVariant,
+  initializeCodeComponentStates,
+  initializePlasmicStates,
+  makeFragment,
+  omit,
+  pick,
+  renderPlasmicSlot,
+  set as $stateSet,
+  useCurrentUser,
+  useDollarState,
+  usePlasmicTranslator,
+  useTrigger,
+  wrapWithClassName
 } from "@plasmicapp/react-web";
+import {
+  DataCtxReader as DataCtxReader__,
+  useDataEnv,
+  useGlobalActions
+} from "@plasmicapp/react-web/lib/host";
+
 import Blackyellowborder from "../../Blackyellowborder"; // plasmic-import: qeyEUvMFwY/component
 import Button from "../../Button"; // plasmic-import: yEsI5slGwPm/component
 
@@ -47,12 +70,12 @@ import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic_antd_5_hostl
 import projectcss from "./plasmic_jbs_storefront.module.css"; // plasmic-import: heL2P6rJiLNgtnBJPb6i1m/projectcss
 import sty from "./PlasmicFooter.module.css"; // plasmic-import: mZogRkwS1rd/css
 
-import ChecksvgIcon from "./icons/PlasmicIcon__Checksvg"; // plasmic-import: ew07hyuAC0c/icon
+import CheckSvgIcon from "./icons/PlasmicIcon__CheckSvg"; // plasmic-import: ew07hyuAC0c/icon
 import Icon38Icon from "./icons/PlasmicIcon__Icon38"; // plasmic-import: 3r4KXWygi9v/icon
-import FacebookSvgrepoComsvgIcon from "./icons/PlasmicIcon__FacebookSvgrepoComsvg"; // plasmic-import: ZrO-7nzknCPT/icon
-import InstagramSvgrepoComsvgIcon from "./icons/PlasmicIcon__InstagramSvgrepoComsvg"; // plasmic-import: oo9zvXXIVhzp/icon
-import WhatsappSvgrepoComsvgIcon from "./icons/PlasmicIcon__WhatsappSvgrepoComsvg"; // plasmic-import: MwIlfRiCxnsi/icon
-import PhonesvgIcon from "./icons/PlasmicIcon__Phonesvg"; // plasmic-import: UJbuthH60ZPo/icon
+import FacebookSvgrepoComSvgIcon from "./icons/PlasmicIcon__FacebookSvgrepoComSvg"; // plasmic-import: ZrO-7nzknCPT/icon
+import InstagramSvgrepoComSvgIcon from "./icons/PlasmicIcon__InstagramSvgrepoComSvg"; // plasmic-import: oo9zvXXIVhzp/icon
+import WhatsappSvgrepoComSvgIcon from "./icons/PlasmicIcon__WhatsappSvgrepoComSvg"; // plasmic-import: MwIlfRiCxnsi/icon
+import PhoneSvgIcon from "./icons/PlasmicIcon__PhoneSvg"; // plasmic-import: UJbuthH60ZPo/icon
 
 createPlasmicElementProxy;
 
@@ -66,11 +89,11 @@ type ArgPropType = keyof PlasmicFooter__ArgsType;
 export const PlasmicFooter__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicFooter__OverridesType = {
-  root?: p.Flex<"div">;
-  img?: p.Flex<typeof p.PlasmicImg>;
-  blackyellowborder?: p.Flex<typeof Blackyellowborder>;
-  h5?: p.Flex<"h5">;
-  emailButton?: p.Flex<typeof Button>;
+  root?: Flex__<"div">;
+  img?: Flex__<typeof PlasmicImg__>;
+  blackyellowborder?: Flex__<typeof Blackyellowborder>;
+  h5?: Flex__<"h5">;
+  emailButton?: Flex__<typeof Button>;
 };
 
 export interface DefaultFooterProps {
@@ -94,7 +117,16 @@ function PlasmicFooter__RenderFunc(props: {
 }) {
   const { variants, overrides, forNode } = props;
 
-  const args = React.useMemo(() => Object.assign({}, props.args), [props.args]);
+  const args = React.useMemo(
+    () =>
+      Object.assign(
+        {},
+        Object.fromEntries(
+          Object.entries(props.args).filter(([_, v]) => v !== undefined)
+        )
+      ),
+    [props.args]
+  );
 
   const $props = {
     ...args,
@@ -102,11 +134,9 @@ function PlasmicFooter__RenderFunc(props: {
   };
 
   const __nextRouter = useNextRouter();
-  const $ctx = ph.useDataEnv?.() || {};
+  const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
-
-  const currentUser = p.useCurrentUser?.() || {};
 
   const [isRootHover, triggerRootHoverProps] = useTrigger("useHover", {});
   const [isRootActive, triggerRootActiveProps] = useTrigger("usePressed", {});
@@ -138,7 +168,7 @@ function PlasmicFooter__RenderFunc(props: {
         triggerRootActiveProps
       ]}
     >
-      <p.PlasmicImg
+      <PlasmicImg__
         data-plasmic-name={"img"}
         data-plasmic-override={overrides.img}
         alt={""}
@@ -166,7 +196,7 @@ function PlasmicFooter__RenderFunc(props: {
       />
 
       <div className={classNames(projectcss.all, sty.freeBox__anaXj)}>
-        <p.Stack
+        <Stack__
           as={"div"}
           hasGap={true}
           className={classNames(projectcss.all, sty.freeBox__iqeF4)}
@@ -235,7 +265,7 @@ function PlasmicFooter__RenderFunc(props: {
                 : "juhubeachstudio@gmail.com"}
             </div>
           </Button>
-          <p.Stack
+          <Stack__
             as={"div"}
             hasGap={true}
             className={classNames(projectcss.all, sty.freeBox__ovOtb)}
@@ -249,7 +279,7 @@ function PlasmicFooter__RenderFunc(props: {
             >
               {"Find us"}
             </div>
-            <p.Stack
+            <Stack__
               as={"div"}
               hasGap={true}
               className={classNames(projectcss.all, sty.freeBox___394L7)}
@@ -262,7 +292,7 @@ function PlasmicFooter__RenderFunc(props: {
                 size={"compact"}
                 target={true}
               >
-                <FacebookSvgrepoComsvgIcon
+                <FacebookSvgrepoComSvgIcon
                   className={classNames(projectcss.all, sty.svg__adS8R)}
                   role={"img"}
                 />
@@ -275,7 +305,7 @@ function PlasmicFooter__RenderFunc(props: {
                 size={"compact"}
                 target={true}
               >
-                <InstagramSvgrepoComsvgIcon
+                <InstagramSvgrepoComSvgIcon
                   className={classNames(projectcss.all, sty.svg__pccuH)}
                   role={"img"}
                 />
@@ -283,12 +313,12 @@ function PlasmicFooter__RenderFunc(props: {
               <Button
                 className={classNames("__wab_instance", sty.button__uDJjx)}
                 color={"white"}
-                link={"https://wa.me/message/5UQ7HPIFA5JMF1"}
+                link={"https://wa.me/919594594424"}
                 shape={"round"}
                 size={"compact"}
                 target={true}
               >
-                <WhatsappSvgrepoComsvgIcon
+                <WhatsappSvgrepoComSvgIcon
                   className={classNames(projectcss.all, sty.svg___8Oc15)}
                   role={"img"}
                 />
@@ -301,14 +331,14 @@ function PlasmicFooter__RenderFunc(props: {
                 size={"compact"}
                 target={true}
               >
-                <PhonesvgIcon
+                <PhoneSvgIcon
                   className={classNames(projectcss.all, sty.svg__iqJo)}
                   role={"img"}
                 />
               </Button>
-            </p.Stack>
-          </p.Stack>
-          <p.Stack
+            </Stack__>
+          </Stack__>
+          <Stack__
             as={"div"}
             hasGap={true}
             className={classNames(projectcss.all, sty.freeBox___3Bhqm)}
@@ -398,8 +428,8 @@ function PlasmicFooter__RenderFunc(props: {
                 {"Terms of use"}
               </div>
             </Button>
-          </p.Stack>
-        </p.Stack>
+          </Stack__>
+        </Stack__>
       </div>
     </div>
   ) as React.ReactElement | null;
@@ -417,7 +447,7 @@ type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
-  img: typeof p.PlasmicImg;
+  img: typeof PlasmicImg__;
   blackyellowborder: typeof Blackyellowborder;
   h5: "h5";
   emailButton: typeof Button;

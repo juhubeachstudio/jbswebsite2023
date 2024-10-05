@@ -5,11 +5,11 @@
 import React from "react";
 import { classNames } from "@plasmicapp/react-web";
 
-export type JbslogosvgIconProps = React.ComponentProps<"svg"> & {
+export type JbslogoSvgIconProps = React.ComponentProps<"svg"> & {
   title?: string;
 };
 
-export function JbslogosvgIcon(props: JbslogosvgIconProps) {
+export function JbslogoSvgIcon(props: JbslogoSvgIconProps) {
   const { className, style, title, ...restProps } = props;
   return (
     <svg
@@ -33,5 +33,5 @@ export function JbslogosvgIcon(props: JbslogosvgIconProps) {
   );
 }
 
-export default JbslogosvgIcon;
+export default JbslogoSvgIcon;
 /* prettier-ignore-end */

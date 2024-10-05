@@ -5,11 +5,11 @@
 import React from "react";
 import { classNames } from "@plasmicapp/react-web";
 
-export type PhonesvgIconProps = React.ComponentProps<"svg"> & {
+export type PhoneSvgIconProps = React.ComponentProps<"svg"> & {
   title?: string;
 };
 
-export function PhonesvgIcon(props: PhonesvgIconProps) {
+export function PhoneSvgIcon(props: PhoneSvgIconProps) {
   const { className, style, title, ...restProps } = props;
   return (
     <svg
@@ -33,5 +33,5 @@ export function PhonesvgIcon(props: PhonesvgIconProps) {
   );
 }
 
-export default PhonesvgIcon;
+export default PhoneSvgIcon;
 /* prettier-ignore-end */

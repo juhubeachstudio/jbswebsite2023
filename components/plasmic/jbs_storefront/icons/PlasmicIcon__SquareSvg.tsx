@@ -5,36 +5,41 @@
 import React from "react";
 import { classNames } from "@plasmicapp/react-web";
 
-export type Facebook176SvgrepoComsvg2IconProps = React.ComponentProps<"svg"> & {
+export type SquareSvgIconProps = React.ComponentProps<"svg"> & {
   title?: string;
 };
 
-export function Facebook176SvgrepoComsvg2Icon(
-  props: Facebook176SvgrepoComsvg2IconProps
-) {
+export function SquareSvgIcon(props: SquareSvgIconProps) {
   const { className, style, title, ...restProps } = props;
   return (
     <svg
       xmlns={"http://www.w3.org/2000/svg"}
-      viewBox={"-5 0 20 20"}
-      version={"1.1"}
+      fill={"none"}
+      viewBox={"0 0 24 24"}
       height={"1em"}
+      width={"1em"}
+      style={{
+        stroke: "currentcolor",
+
+        ...(style || {}),
+      }}
       className={classNames("plasmic-default__svg", className)}
-      style={style}
       {...restProps}
     >
       {title && <title>{title}</title>}
 
       <path
         d={
-          "M6.821 20v-9h2.733L10 7H6.821V5.052C6.821 4.022 6.848 3 8.287 3h1.458V.14c0-.043-1.253-.14-2.52-.14C4.58 0 2.924 1.657 2.924 4.7V7H0v4h2.923v9h3.898z"
+          "M17.25 19.25H6.75a2 2 0 01-2-2V6.75a2 2 0 012-2h10.5a2 2 0 012 2v10.5a2 2 0 01-2 2z"
         }
-        fill={"currentColor"}
-        fillRule={"evenodd"}
+        stroke={"currentColor"}
+        strokeWidth={"1.5"}
+        strokeLinecap={"round"}
+        strokeLinejoin={"round"}
       ></path>
     </svg>
   );
 }
 
-export default Facebook176SvgrepoComsvg2Icon;
+export default SquareSvgIcon;
 /* prettier-ignore-end */

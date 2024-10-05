@@ -5,11 +5,11 @@
 import React from "react";
 import { classNames } from "@plasmicapp/react-web";
 
-export type HamburgersvgIconProps = React.ComponentProps<"svg"> & {
+export type HamburgerSvgIconProps = React.ComponentProps<"svg"> & {
   title?: string;
 };
 
-export function HamburgersvgIcon(props: HamburgersvgIconProps) {
+export function HamburgerSvgIcon(props: HamburgerSvgIconProps) {
   const { className, style, title, ...restProps } = props;
   return (
     <svg
@@ -33,5 +33,5 @@ export function HamburgersvgIcon(props: HamburgersvgIconProps) {
   );
 }
 
-export default HamburgersvgIcon;
+export default HamburgerSvgIcon;
 /* prettier-ignore-end */

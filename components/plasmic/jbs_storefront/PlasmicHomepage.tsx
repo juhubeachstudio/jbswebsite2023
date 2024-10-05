@@ -17,8 +17,47 @@ import Head from "next/head";
 import Link, { LinkProps } from "next/link";
 import { useRouter } from "next/router";
 
-import * as p from "@plasmicapp/react-web";
-import * as ph from "@plasmicapp/react-web/lib/host";
+import {
+  Flex as Flex__,
+  MultiChoiceArg,
+  PlasmicDataSourceContextProvider as PlasmicDataSourceContextProvider__,
+  PlasmicIcon as PlasmicIcon__,
+  PlasmicImg as PlasmicImg__,
+  PlasmicLink as PlasmicLink__,
+  PlasmicPageGuard as PlasmicPageGuard__,
+  SingleBooleanChoiceArg,
+  SingleChoiceArg,
+  Stack as Stack__,
+  StrictProps,
+  Trans as Trans__,
+  classNames,
+  createPlasmicElementProxy,
+  deriveRenderOpts,
+  ensureGlobalVariants,
+  generateOnMutateForSpec,
+  generateStateOnChangeProp,
+  generateStateOnChangePropForCodeComponents,
+  generateStateValueProp,
+  get as $stateGet,
+  hasVariant,
+  initializeCodeComponentStates,
+  initializePlasmicStates,
+  makeFragment,
+  omit,
+  pick,
+  renderPlasmicSlot,
+  set as $stateSet,
+  useCurrentUser,
+  useDollarState,
+  usePlasmicTranslator,
+  useTrigger,
+  wrapWithClassName
+} from "@plasmicapp/react-web";
+import {
+  DataCtxReader as DataCtxReader__,
+  useDataEnv,
+  useGlobalActions
+} from "@plasmicapp/react-web/lib/host";
 
 import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 import {
@@ -27,22 +66,6 @@ import {
   usePlasmicInvalidate
 } from "@plasmicapp/react-web/lib/data-sources";
 
-import {
-  hasVariant,
-  classNames,
-  wrapWithClassName,
-  createPlasmicElementProxy,
-  makeFragment,
-  MultiChoiceArg,
-  SingleBooleanChoiceArg,
-  SingleChoiceArg,
-  pick,
-  omit,
-  useTrigger,
-  StrictProps,
-  deriveRenderOpts,
-  ensureGlobalVariants
-} from "@plasmicapp/react-web";
 import FullPage from "../../FullPage"; // plasmic-import: VpRM2nIn0R/component
 import { SliderWrapper } from "@plasmicpkgs/react-slick";
 import { sliderHelpers as SliderWrapper_Helpers } from "@plasmicpkgs/react-slick";
@@ -73,11 +96,11 @@ import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic_antd_5_hostl
 import projectcss from "./plasmic_jbs_storefront.module.css"; // plasmic-import: heL2P6rJiLNgtnBJPb6i1m/projectcss
 import sty from "./PlasmicHomepage.module.css"; // plasmic-import: HsoJyy15p4bPd/css
 
-import PreviousHeaderButtonsvgIcon from "./icons/PlasmicIcon__PreviousHeaderButtonsvg"; // plasmic-import: z1uPvBfdo2RJ/icon
-import NextHeaderButtonsvgIcon from "./icons/PlasmicIcon__NextHeaderButtonsvg"; // plasmic-import: yJKrBu9wLCwe/icon
+import PreviousHeaderButtonSvgIcon from "./icons/PlasmicIcon__PreviousHeaderButtonSvg"; // plasmic-import: z1uPvBfdo2RJ/icon
+import NextHeaderButtonSvgIcon from "./icons/PlasmicIcon__NextHeaderButtonSvg"; // plasmic-import: yJKrBu9wLCwe/icon
 import PreviousArrowIcon from "./icons/PlasmicIcon__PreviousArrow"; // plasmic-import: ESn-GSFA8a73/icon
 import NextArrowIcon from "./icons/PlasmicIcon__NextArrow"; // plasmic-import: igWE0GYF7JlT/icon
-import ChecksvgIcon from "./icons/PlasmicIcon__Checksvg"; // plasmic-import: ew07hyuAC0c/icon
+import CheckSvgIcon from "./icons/PlasmicIcon__CheckSvg"; // plasmic-import: ew07hyuAC0c/icon
 import Icon38Icon from "./icons/PlasmicIcon__Icon38"; // plasmic-import: 3r4KXWygi9v/icon
 
 createPlasmicElementProxy;
@@ -100,22 +123,22 @@ export const PlasmicHomepage__ArgProps = new Array<ArgPropType>(
 );
 
 export type PlasmicHomepage__OverridesType = {
-  root?: p.Flex<"div">;
-  fullPage?: p.Flex<typeof FullPage>;
-  sliderCarousel?: p.Flex<typeof SliderWrapper>;
-  previous?: p.Flex<"svg">;
-  next?: p.Flex<"svg">;
-  categoriesDataProvider?: p.Flex<typeof CategoryCollection>;
-  shopCategoriesSlides?: p.Flex<typeof SliderWrapper>;
-  span?: p.Flex<"span">;
-  sliderCarousel3?: p.Flex<typeof SliderWrapper>;
-  graphQlFetcher?: p.Flex<typeof GraphqlFetcher>;
-  dataProvider?: p.Flex<typeof DataProvider>;
-  sliderCarousel8?: p.Flex<typeof SliderWrapper>;
-  productCollection?: p.Flex<typeof ProductCollection>;
-  surpriseMeButton?: p.Flex<typeof SurpriseMeButton>;
-  sliderCarousel6?: p.Flex<typeof SliderWrapper>;
-  sliderMark?: p.Flex<typeof AntdSliderMark>;
+  root?: Flex__<"div">;
+  fullPage?: Flex__<typeof FullPage>;
+  sliderCarousel?: Flex__<typeof SliderWrapper>;
+  previous?: Flex__<"svg">;
+  next?: Flex__<"svg">;
+  categoriesDataProvider?: Flex__<typeof CategoryCollection>;
+  shopCategoriesSlides?: Flex__<typeof SliderWrapper>;
+  span?: Flex__<"span">;
+  sliderCarousel3?: Flex__<typeof SliderWrapper>;
+  graphQlFetcher?: Flex__<typeof GraphqlFetcher>;
+  dataProvider?: Flex__<typeof DataProvider>;
+  sliderCarousel8?: Flex__<typeof SliderWrapper>;
+  productCollection?: Flex__<typeof ProductCollection>;
+  surpriseMeButton?: Flex__<typeof SurpriseMeButton>;
+  sliderCarousel6?: Flex__<typeof SliderWrapper>;
+  sliderMark?: Flex__<typeof AntdSliderMark>;
 };
 
 export interface DefaultHomepageProps {}
@@ -137,7 +160,16 @@ function PlasmicHomepage__RenderFunc(props: {
 }) {
   const { variants, overrides, forNode } = props;
 
-  const args = React.useMemo(() => Object.assign({}, props.args), [props.args]);
+  const args = React.useMemo(
+    () =>
+      Object.assign(
+        {},
+        Object.fromEntries(
+          Object.entries(props.args).filter(([_, v]) => v !== undefined)
+        )
+      ),
+    [props.args]
+  );
 
   const $props = {
     ...args,
@@ -145,13 +177,11 @@ function PlasmicHomepage__RenderFunc(props: {
   };
 
   const __nextRouter = useNextRouter();
-  const $ctx = ph.useDataEnv?.() || {};
+  const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const currentUser = p.useCurrentUser?.() || {};
-
-  const stateSpecs: Parameters<typeof p.useDollarState>[0] = React.useMemo(
+  const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
         path: "sliderCarousel.currentSlide",
@@ -160,10 +190,7 @@ function PlasmicHomepage__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => 0,
 
         refName: "sliderCarousel",
-        onMutate: p.generateOnMutateForSpec(
-          "currentSlide",
-          SliderWrapper_Helpers
-        )
+        onMutate: generateOnMutateForSpec("currentSlide", SliderWrapper_Helpers)
       },
       {
         path: "shopCategoriesSlides.currentSlide",
@@ -172,10 +199,7 @@ function PlasmicHomepage__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => 0,
 
         refName: "shopCategoriesSlides",
-        onMutate: p.generateOnMutateForSpec(
-          "currentSlide",
-          SliderWrapper_Helpers
-        )
+        onMutate: generateOnMutateForSpec("currentSlide", SliderWrapper_Helpers)
       },
       {
         path: "sliderCarousel3.currentSlide",
@@ -184,10 +208,7 @@ function PlasmicHomepage__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => 0,
 
         refName: "sliderCarousel3",
-        onMutate: p.generateOnMutateForSpec(
-          "currentSlide",
-          SliderWrapper_Helpers
-        )
+        onMutate: generateOnMutateForSpec("currentSlide", SliderWrapper_Helpers)
       },
       {
         path: "sliderCarousel6.currentSlide",
@@ -196,10 +217,7 @@ function PlasmicHomepage__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => 0,
 
         refName: "sliderCarousel6",
-        onMutate: p.generateOnMutateForSpec(
-          "currentSlide",
-          SliderWrapper_Helpers
-        )
+        onMutate: generateOnMutateForSpec("currentSlide", SliderWrapper_Helpers)
       },
       {
         path: "randomProducts",
@@ -215,15 +233,12 @@ function PlasmicHomepage__RenderFunc(props: {
           hasVariant(globalVariants, "screen", "mobileOnly") ? 1 : 0,
 
         refName: "sliderCarousel8",
-        onMutate: p.generateOnMutateForSpec(
-          "currentSlide",
-          SliderWrapper_Helpers
-        )
+        onMutate: generateOnMutateForSpec("currentSlide", SliderWrapper_Helpers)
       }
     ],
     [$props, $ctx, $refs]
   );
-  const $state = p.useDollarState(stateSpecs, {
+  const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
     $queries: {},
@@ -288,7 +303,7 @@ function PlasmicHomepage__RenderFunc(props: {
                   arrows: false,
                   autoplay: true,
                   autoplaySpeed: 2000,
-                  beforeChange: p.generateStateOnChangePropForCodeComponents(
+                  beforeChange: generateStateOnChangePropForCodeComponents(
                     $state,
                     "currentSlide",
                     ["sliderCarousel", "currentSlide"],
@@ -297,7 +312,7 @@ function PlasmicHomepage__RenderFunc(props: {
                   className: classNames("__wab_instance", sty.sliderCarousel),
                   draggable: true,
                   fade: false,
-                  initialSlide: p.generateStateValueProp($state, [
+                  initialSlide: generateStateValueProp($state, [
                     "sliderCarousel",
                     "currentSlide"
                   ]),
@@ -319,7 +334,7 @@ function PlasmicHomepage__RenderFunc(props: {
                   swipeToSlide: true,
                   touchMove: true
                 };
-                p.initializeCodeComponentStates(
+                initializeCodeComponentStates(
                   $state,
                   [
                     {
@@ -344,7 +359,7 @@ function PlasmicHomepage__RenderFunc(props: {
                         sty.fullpageheightSlide__fmp4
                       )}
                     >
-                      <p.PlasmicLink
+                      <PlasmicLink__
                         className={classNames(
                           projectcss.all,
                           projectcss.a,
@@ -354,7 +369,7 @@ function PlasmicHomepage__RenderFunc(props: {
                         href={`/product/${"my-precious-baby-collar"}`}
                         platform={"nextjs"}
                       >
-                        <p.PlasmicImg
+                        <PlasmicImg__
                           alt={""}
                           className={classNames(sty.img__a3Vuy)}
                           displayHeight={"auto"}
@@ -364,13 +379,13 @@ function PlasmicHomepage__RenderFunc(props: {
                           displayMinWidth={"0"}
                           displayWidth={"100%"}
                           src={{
-                            src: "/plasmic/jbs_storefront/images/bannerRoseCollarwebp.webp",
+                            src: "/plasmic/jbs_storefront/images/bannerRoseCollarWebp.webp",
                             fullWidth: 2660,
                             fullHeight: 3489,
                             aspectRatio: undefined
                           }}
                         />
-                      </p.PlasmicLink>
+                      </PlasmicLink__>
                     </FullpageheightSlide>
                     <FullpageheightSlide
                       className={classNames(
@@ -380,7 +395,7 @@ function PlasmicHomepage__RenderFunc(props: {
                       slot={"Mehfil Lights"}
                       slot2={"Pre lit fabric cigarettes"}
                     >
-                      <p.PlasmicLink
+                      <PlasmicLink__
                         className={classNames(
                           projectcss.all,
                           projectcss.a,
@@ -390,7 +405,7 @@ function PlasmicHomepage__RenderFunc(props: {
                         href={`/product/${"mehfil-lights-fabric-suttas"}`}
                         platform={"nextjs"}
                       >
-                        <p.PlasmicImg
+                        <PlasmicImg__
                           alt={""}
                           className={classNames(sty.img__maMc)}
                           displayHeight={"auto"}
@@ -400,19 +415,19 @@ function PlasmicHomepage__RenderFunc(props: {
                           displayMinWidth={"0"}
                           displayWidth={"100%"}
                           src={{
-                            src: "/plasmic/jbs_storefront/images/bannerMehfilLightsCigaretteswebp.webp",
+                            src: "/plasmic/jbs_storefront/images/bannerMehfilLightsCigarettesWebp.webp",
                             fullWidth: 2660,
                             fullHeight: 3491,
                             aspectRatio: undefined
                           }}
                         />
-                      </p.PlasmicLink>
+                      </PlasmicLink__>
                     </FullpageheightSlide>
                     <FullpageheightSlide
                       slot={"Bucket Hats"}
                       slot2={"Reversible Topis in lots of juicy colours"}
                     >
-                      <p.PlasmicLink
+                      <PlasmicLink__
                         className={classNames(
                           projectcss.all,
                           projectcss.a,
@@ -422,7 +437,7 @@ function PlasmicHomepage__RenderFunc(props: {
                         href={`/category/${"bucket-hats"}`}
                         platform={"nextjs"}
                       >
-                        <p.PlasmicImg
+                        <PlasmicImg__
                           alt={""}
                           className={classNames(sty.img__fbuK1)}
                           displayHeight={"auto"}
@@ -432,13 +447,13 @@ function PlasmicHomepage__RenderFunc(props: {
                           displayMinWidth={"0"}
                           displayWidth={"100%"}
                           src={{
-                            src: "/plasmic/jbs_storefront/images/bannerYellowOrangeBucketHatwebp.webp",
+                            src: "/plasmic/jbs_storefront/images/bannerYellowOrangeBucketHatWebp.webp",
                             fullWidth: 2663,
                             fullHeight: 3500,
                             aspectRatio: undefined
                           }}
                         />
-                      </p.PlasmicLink>
+                      </PlasmicLink__>
                     </FullpageheightSlide>
                     <FullpageheightSlide
                       className={classNames(
@@ -448,7 +463,7 @@ function PlasmicHomepage__RenderFunc(props: {
                       slot={"Custom Heart  Chakhna"}
                       slot2={"Get any embroidered text of your choice"}
                     >
-                      <p.PlasmicLink
+                      <PlasmicLink__
                         className={classNames(
                           projectcss.all,
                           projectcss.a,
@@ -458,7 +473,7 @@ function PlasmicHomepage__RenderFunc(props: {
                         href={`/product/${"customisable-hearts"}`}
                         platform={"nextjs"}
                       >
-                        <p.PlasmicImg
+                        <PlasmicImg__
                           alt={""}
                           className={classNames(sty.img__kn1Ug)}
                           displayHeight={"auto"}
@@ -468,13 +483,13 @@ function PlasmicHomepage__RenderFunc(props: {
                           displayMinWidth={"0"}
                           displayWidth={"100%"}
                           src={{
-                            src: "/plasmic/jbs_storefront/images/bannerCustomHeartswebp.webp",
+                            src: "/plasmic/jbs_storefront/images/bannerCustomHeartsWebp.webp",
                             fullWidth: 2659,
                             fullHeight: 3488,
                             aspectRatio: undefined
                           }}
                         />
-                      </p.PlasmicLink>
+                      </PlasmicLink__>
                     </FullpageheightSlide>
                     <FullpageheightSlide
                       className={classNames(
@@ -484,7 +499,7 @@ function PlasmicHomepage__RenderFunc(props: {
                       slot={"Aashiq Topi"}
                       slot2={"Dedicated to all you lovers out there"}
                     >
-                      <p.PlasmicLink
+                      <PlasmicLink__
                         className={classNames(
                           projectcss.all,
                           projectcss.a,
@@ -494,7 +509,7 @@ function PlasmicHomepage__RenderFunc(props: {
                         href={`/category/${"caps"}`}
                         platform={"nextjs"}
                       >
-                        <p.PlasmicImg
+                        <PlasmicImg__
                           alt={""}
                           className={classNames(sty.img___5Al6)}
                           displayHeight={"auto"}
@@ -504,13 +519,13 @@ function PlasmicHomepage__RenderFunc(props: {
                           displayMinWidth={"0"}
                           displayWidth={"100%"}
                           src={{
-                            src: "/plasmic/jbs_storefront/images/bannerAashiqCapLavenderwebp.webp",
+                            src: "/plasmic/jbs_storefront/images/bannerAashiqCapLavenderWebp.webp",
                             fullWidth: 2659,
                             fullHeight: 3488,
                             aspectRatio: undefined
                           }}
                         />
-                      </p.PlasmicLink>
+                      </PlasmicLink__>
                     </FullpageheightSlide>
                     <FullpageheightSlide
                       className={classNames(
@@ -530,7 +545,7 @@ function PlasmicHomepage__RenderFunc(props: {
                         </div>
                       }
                     >
-                      <p.PlasmicLink
+                      <PlasmicLink__
                         className={classNames(
                           projectcss.all,
                           projectcss.a,
@@ -540,7 +555,7 @@ function PlasmicHomepage__RenderFunc(props: {
                         href={`/category/${"caps"}`}
                         platform={"nextjs"}
                       >
-                        <p.PlasmicImg
+                        <PlasmicImg__
                           alt={""}
                           className={classNames(sty.img__ez6Ph)}
                           displayHeight={"auto"}
@@ -550,13 +565,13 @@ function PlasmicHomepage__RenderFunc(props: {
                           displayMinWidth={"0"}
                           displayWidth={"100%"}
                           src={{
-                            src: "/plasmic/jbs_storefront/images/bannerCapsAnimationwebp.webp",
+                            src: "/plasmic/jbs_storefront/images/bannerCapsAnimationWebp.webp",
                             fullWidth: 2111,
                             fullHeight: 2767,
                             aspectRatio: undefined
                           }}
                         />
-                      </p.PlasmicLink>
+                      </PlasmicLink__>
                     </FullpageheightSlide>
                     <FullpageheightSlide
                       className={classNames(
@@ -566,7 +581,7 @@ function PlasmicHomepage__RenderFunc(props: {
                       slot={"Photo Frames"}
                       slot2={"For all your special memories"}
                     >
-                      <p.PlasmicLink
+                      <PlasmicLink__
                         className={classNames(
                           projectcss.all,
                           projectcss.a,
@@ -576,7 +591,7 @@ function PlasmicHomepage__RenderFunc(props: {
                         href={`/category/${"decor"}`}
                         platform={"nextjs"}
                       >
-                        <p.PlasmicImg
+                        <PlasmicImg__
                           alt={""}
                           className={classNames(sty.img__hGljC)}
                           displayHeight={"auto"}
@@ -586,13 +601,13 @@ function PlasmicHomepage__RenderFunc(props: {
                           displayMinWidth={"0"}
                           displayWidth={"100%"}
                           src={{
-                            src: "/plasmic/jbs_storefront/images/bannerHeartFramewebp.webp",
+                            src: "/plasmic/jbs_storefront/images/bannerHeartFrameWebp.webp",
                             fullWidth: 2659,
                             fullHeight: 3488,
                             aspectRatio: undefined
                           }}
                         />
-                      </p.PlasmicLink>
+                      </PlasmicLink__>
                     </FullpageheightSlide>
                     <FullpageheightSlide
                       className={classNames(
@@ -602,7 +617,7 @@ function PlasmicHomepage__RenderFunc(props: {
                       slot={"Tote-e-Dil"}
                       slot2={"For all your baggage"}
                     >
-                      <p.PlasmicLink
+                      <PlasmicLink__
                         className={classNames(
                           projectcss.all,
                           projectcss.a,
@@ -612,7 +627,7 @@ function PlasmicHomepage__RenderFunc(props: {
                         href={`/category/${"bags"}`}
                         platform={"nextjs"}
                       >
-                        <p.PlasmicImg
+                        <PlasmicImg__
                           alt={""}
                           className={classNames(sty.img___7ZkK3)}
                           displayHeight={"auto"}
@@ -622,18 +637,18 @@ function PlasmicHomepage__RenderFunc(props: {
                           displayMinWidth={"0"}
                           displayWidth={"100%"}
                           src={{
-                            src: "/plasmic/jbs_storefront/images/bannerDilTotewebp.webp",
+                            src: "/plasmic/jbs_storefront/images/bannerDilToteWebp.webp",
                             fullWidth: 2659,
                             fullHeight: 3488,
                             aspectRatio: undefined
                           }}
                         />
-                      </p.PlasmicLink>
+                      </PlasmicLink__>
                     </FullpageheightSlide>
                   </SliderWrapper>
                 );
               })()}
-              <PreviousHeaderButtonsvgIcon
+              <PreviousHeaderButtonSvgIcon
                 className={classNames(projectcss.all, sty.svg__lgbjd)}
                 onClick={async event => {
                   const $steps = {};
@@ -663,7 +678,7 @@ function PlasmicHomepage__RenderFunc(props: {
                 role={"img"}
               />
 
-              <NextHeaderButtonsvgIcon
+              <NextHeaderButtonSvgIcon
                 className={classNames(projectcss.all, sty.svg__psPx1)}
                 onClick={async event => {
                   const $steps = {};
@@ -722,13 +737,13 @@ function PlasmicHomepage__RenderFunc(props: {
                 play={false}
               />
 
-              <p.Stack
+              <Stack__
                 as={"div"}
                 hasGap={true}
                 className={classNames(projectcss.all, sty.columns___4WQdg)}
               >
                 <div className={classNames(projectcss.all, sty.column__kfmfc)}>
-                  <p.PlasmicImg
+                  <PlasmicImg__
                     alt={""}
                     className={classNames(sty.img___7Ge68)}
                     displayHeight={"auto"}
@@ -772,7 +787,7 @@ function PlasmicHomepage__RenderFunc(props: {
                     }
                   </div>
                 </div>
-              </p.Stack>
+              </Stack__>
             </Section>
             <Section
               className={classNames("__wab_instance", sty.section__xJgV)}
@@ -786,7 +801,7 @@ function PlasmicHomepage__RenderFunc(props: {
               />
 
               <div className={classNames(projectcss.all, sty.freeBox__ai3H)}>
-                <p.PlasmicImg
+                <PlasmicImg__
                   alt={""}
                   className={classNames(sty.img__hEo1L)}
                   displayHeight={"auto"}
@@ -894,7 +909,7 @@ function PlasmicHomepage__RenderFunc(props: {
                     sty.categoriesDataProvider
                   )}
                   emptyMessage={
-                    <ph.DataCtxReader>
+                    <DataCtxReader__>
                       {$ctx => (
                         <div
                           className={classNames(
@@ -906,10 +921,10 @@ function PlasmicHomepage__RenderFunc(props: {
                           {"No collection found!"}
                         </div>
                       )}
-                    </ph.DataCtxReader>
+                    </DataCtxReader__>
                   }
                   loadingMessage={
-                    <ph.DataCtxReader>
+                    <DataCtxReader__>
                       {$ctx => (
                         <div
                           className={classNames(
@@ -921,11 +936,11 @@ function PlasmicHomepage__RenderFunc(props: {
                           {"Loading..."}
                         </div>
                       )}
-                    </ph.DataCtxReader>
+                    </DataCtxReader__>
                   }
                   noAutoRepeat={true}
                 >
-                  <ph.DataCtxReader>
+                  <DataCtxReader__>
                     {$ctx =>
                       (() => {
                         const child$Props = {
@@ -942,7 +957,7 @@ function PlasmicHomepage__RenderFunc(props: {
                             ? 1500
                             : 2000,
                           beforeChange:
-                            p.generateStateOnChangePropForCodeComponents(
+                            generateStateOnChangePropForCodeComponents(
                               $state,
                               "currentSlide",
                               ["shopCategoriesSlides", "currentSlide"],
@@ -967,7 +982,7 @@ function PlasmicHomepage__RenderFunc(props: {
                             sty.shopCategoriesSlides
                           ),
                           dots: false,
-                          initialSlide: p.generateStateValueProp($state, [
+                          initialSlide: generateStateValueProp($state, [
                             "shopCategoriesSlides",
                             "currentSlide"
                           ]),
@@ -1001,7 +1016,7 @@ function PlasmicHomepage__RenderFunc(props: {
                             ? false
                             : true
                         };
-                        p.initializeCodeComponentStates(
+                        initializeCodeComponentStates(
                           $state,
                           [
                             {
@@ -1055,7 +1070,7 @@ function PlasmicHomepage__RenderFunc(props: {
                                   )}
                                   key={currentIndex}
                                 >
-                                  <p.PlasmicLink
+                                  <PlasmicLink__
                                     className={classNames(
                                       projectcss.all,
                                       projectcss.a,
@@ -1099,7 +1114,7 @@ function PlasmicHomepage__RenderFunc(props: {
                                     }
                                     platform={"nextjs"}
                                   >
-                                    <p.PlasmicImg
+                                    <PlasmicImg__
                                       alt={""}
                                       className={classNames(sty.img___1TGgh)}
                                       displayHeight={
@@ -1156,7 +1171,7 @@ function PlasmicHomepage__RenderFunc(props: {
                                         })()}
                                       </React.Fragment>
                                     </div>
-                                  </p.PlasmicLink>
+                                  </PlasmicLink__>
                                 </span>
                               );
                             })}
@@ -1164,7 +1179,7 @@ function PlasmicHomepage__RenderFunc(props: {
                         );
                       })()
                     }
-                  </ph.DataCtxReader>
+                  </DataCtxReader__>
                 </CategoryCollection>
               </div>
             </Section>
@@ -1197,7 +1212,7 @@ function PlasmicHomepage__RenderFunc(props: {
                     arrows: false,
                     autoplay: true,
                     autoplaySpeed: 2000,
-                    beforeChange: p.generateStateOnChangePropForCodeComponents(
+                    beforeChange: generateStateOnChangePropForCodeComponents(
                       $state,
                       "currentSlide",
                       ["sliderCarousel3", "currentSlide"],
@@ -1208,7 +1223,7 @@ function PlasmicHomepage__RenderFunc(props: {
                       "__wab_instance",
                       sty.sliderCarousel3
                     ),
-                    initialSlide: p.generateStateValueProp($state, [
+                    initialSlide: generateStateValueProp($state, [
                       "sliderCarousel3",
                       "currentSlide"
                     ]),
@@ -1218,7 +1233,7 @@ function PlasmicHomepage__RenderFunc(props: {
                     },
                     sliderScopeClassName: sty["sliderCarousel3__slider"]
                   };
-                  p.initializeCodeComponentStates(
+                  initializeCodeComponentStates(
                     $state,
                     [
                       {
@@ -1243,7 +1258,7 @@ function PlasmicHomepage__RenderFunc(props: {
                           sty.fullpagewidthSlide__ozUiu
                         )}
                       >
-                        <p.PlasmicImg
+                        <PlasmicImg__
                           alt={""}
                           className={classNames(sty.img__xhgra)}
                           displayHeight={"auto"}
@@ -1256,7 +1271,7 @@ function PlasmicHomepage__RenderFunc(props: {
                           src={
                             hasVariant(globalVariants, "screen", "mobileOnly")
                               ? {
-                                  src: "/plasmic/jbs_storefront/images/chakhnaCatwebp.webp",
+                                  src: "/plasmic/jbs_storefront/images/chakhnaCatWebp.webp",
                                   fullWidth: 856,
                                   fullHeight: 1254,
                                   aspectRatio: undefined
@@ -1276,7 +1291,7 @@ function PlasmicHomepage__RenderFunc(props: {
                           sty.fullpagewidthSlide___3IreU
                         )}
                       >
-                        <p.PlasmicImg
+                        <PlasmicImg__
                           alt={""}
                           className={classNames(sty.img__yv4Fp)}
                           displayHeight={"100%"}
@@ -1288,7 +1303,7 @@ function PlasmicHomepage__RenderFunc(props: {
                           src={
                             hasVariant(globalVariants, "screen", "mobileOnly")
                               ? {
-                                  src: "/plasmic/jbs_storefront/images/chakhnaAntswebp.webp",
+                                  src: "/plasmic/jbs_storefront/images/chakhnaAntsWebp.webp",
                                   fullWidth: 5375,
                                   fullHeight: 7960,
                                   aspectRatio: undefined
@@ -1308,7 +1323,7 @@ function PlasmicHomepage__RenderFunc(props: {
                           sty.fullpagewidthSlide__rOnB
                         )}
                       >
-                        <p.PlasmicImg
+                        <PlasmicImg__
                           alt={""}
                           className={classNames(sty.img___5Sw5)}
                           displayHeight={"100%"}
@@ -1324,7 +1339,7 @@ function PlasmicHomepage__RenderFunc(props: {
                           src={
                             hasVariant(globalVariants, "screen", "mobileOnly")
                               ? {
-                                  src: "/plasmic/jbs_storefront/images/bannerChakhnaSlipperswebp.webp",
+                                  src: "/plasmic/jbs_storefront/images/bannerChakhnaSlippersWebp.webp",
                                   fullWidth: 855,
                                   fullHeight: 1255,
                                   aspectRatio: undefined
@@ -1341,7 +1356,7 @@ function PlasmicHomepage__RenderFunc(props: {
                     </SliderWrapper>
                   );
                 })()}
-                <NextHeaderButtonsvgIcon
+                <NextHeaderButtonSvgIcon
                   className={classNames(projectcss.all, sty.svg__dA3So)}
                   onClick={async event => {
                     const $steps = {};
@@ -1372,7 +1387,7 @@ function PlasmicHomepage__RenderFunc(props: {
                   role={"img"}
                 />
 
-                <PreviousHeaderButtonsvgIcon
+                <PreviousHeaderButtonSvgIcon
                   className={classNames(projectcss.all, sty.svg__nmgH)}
                   onClick={async event => {
                     const $steps = {};
@@ -1416,7 +1431,7 @@ function PlasmicHomepage__RenderFunc(props: {
                   <div
                     className={classNames(projectcss.all, sty.freeBox__mHaDk)}
                   >
-                    {p.renderPlasmicSlot({
+                    {renderPlasmicSlot({
                       defaultContents: "Chakhna",
                       value: args.slot,
                       className: classNames(sty.slotTargetSlot)
@@ -1425,14 +1440,14 @@ function PlasmicHomepage__RenderFunc(props: {
                   <div
                     className={classNames(projectcss.all, sty.freeBox__l88HA)}
                   >
-                    {p.renderPlasmicSlot({
+                    {renderPlasmicSlot({
                       defaultContents:
                         "Life is a party, these are the snacks \nOur delightful new Textile Collectibles ",
                       value: args.slot2,
                       className: classNames(sty.slotTargetSlot2)
                     })}
                   </div>
-                  {p.renderPlasmicSlot({
+                  {renderPlasmicSlot({
                     defaultContents: (
                       <Button
                         className={classNames(
@@ -1481,7 +1496,7 @@ function PlasmicHomepage__RenderFunc(props: {
                 className={classNames("__wab_instance", sty.section__qiHuq)}
               >
                 <div className={classNames(projectcss.all, sty.freeBox__yw83G)}>
-                  <p.PlasmicImg
+                  <PlasmicImg__
                     alt={""}
                     className={classNames(sty.img__qlm1G)}
                     displayHeight={"auto"}
@@ -1514,9 +1529,9 @@ function PlasmicHomepage__RenderFunc(props: {
                     className={classNames("__wab_instance", sty.graphQlFetcher)}
                     dataName={"productsData"}
                     errorDisplay={
-                      <ph.DataCtxReader>
+                      <DataCtxReader__>
                         {$ctx => "Error fetching data"}
-                      </ph.DataCtxReader>
+                      </DataCtxReader__>
                     }
                     errorName={"fetchError"}
                     headers={{
@@ -1526,9 +1541,7 @@ function PlasmicHomepage__RenderFunc(props: {
                         "0f43cbfd628ae6e4fef6a34969378290"
                     }}
                     loadingDisplay={
-                      <ph.DataCtxReader>
-                        {$ctx => "Loading..."}
-                      </ph.DataCtxReader>
+                      <DataCtxReader__>{$ctx => "Loading..."}</DataCtxReader__>
                     }
                     method={"POST"}
                     noLayout={true}
@@ -1543,7 +1556,7 @@ function PlasmicHomepage__RenderFunc(props: {
                     }
                     varOverrides={{}}
                   >
-                    <ph.DataCtxReader>
+                    <DataCtxReader__>
                       {$ctx => (
                         <DataProvider
                           data-plasmic-name={"dataProvider"}
@@ -1587,7 +1600,7 @@ function PlasmicHomepage__RenderFunc(props: {
                           })()}
                           name={"randomProducts"}
                         >
-                          <ph.DataCtxReader>
+                          <DataCtxReader__>
                             {$ctx => (
                               <React.Fragment>
                                 {false ? (
@@ -1681,7 +1694,7 @@ function PlasmicHomepage__RenderFunc(props: {
                                             })()}
                                             key={productIndex}
                                           >
-                                            <ph.DataCtxReader>
+                                            <DataCtxReader__>
                                               {$ctx => (
                                                 <div
                                                   className={classNames(
@@ -1787,7 +1800,7 @@ function PlasmicHomepage__RenderFunc(props: {
                                                   </div>
                                                 </div>
                                               )}
-                                            </ph.DataCtxReader>
+                                            </DataCtxReader__>
                                           </ProductBox>
                                         );
                                       }
@@ -1804,7 +1817,7 @@ function PlasmicHomepage__RenderFunc(props: {
                                     autoplay: false,
                                     autoplaySpeed: 10000,
                                     beforeChange:
-                                      p.generateStateOnChangePropForCodeComponents(
+                                      generateStateOnChangePropForCodeComponents(
                                         $state,
                                         "currentSlide",
                                         ["sliderCarousel8", "currentSlide"],
@@ -1817,7 +1830,7 @@ function PlasmicHomepage__RenderFunc(props: {
                                     ),
                                     dots: false,
                                     infinite: false,
-                                    initialSlide: p.generateStateValueProp(
+                                    initialSlide: generateStateValueProp(
                                       $state,
                                       ["sliderCarousel8", "currentSlide"]
                                     ),
@@ -1836,7 +1849,7 @@ function PlasmicHomepage__RenderFunc(props: {
                                       : 3,
                                     useTransform: false
                                   };
-                                  p.initializeCodeComponentStates(
+                                  initializeCodeComponentStates(
                                     $state,
                                     [
                                       {
@@ -1879,7 +1892,7 @@ function PlasmicHomepage__RenderFunc(props: {
                                           }
                                         })()}
                                       >
-                                        <ph.DataCtxReader>
+                                        <DataCtxReader__>
                                           {$ctx => (
                                             <div
                                               className={classNames(
@@ -1979,7 +1992,7 @@ function PlasmicHomepage__RenderFunc(props: {
                                               </div>
                                             </div>
                                           )}
-                                        </ph.DataCtxReader>
+                                        </DataCtxReader__>
                                       </ProductBox>
                                       <ProductBox
                                         className={classNames(
@@ -2002,7 +2015,7 @@ function PlasmicHomepage__RenderFunc(props: {
                                           }
                                         })()}
                                       >
-                                        <ph.DataCtxReader>
+                                        <DataCtxReader__>
                                           {$ctx => (
                                             <div
                                               className={classNames(
@@ -2102,7 +2115,7 @@ function PlasmicHomepage__RenderFunc(props: {
                                               </div>
                                             </div>
                                           )}
-                                        </ph.DataCtxReader>
+                                        </DataCtxReader__>
                                       </ProductBox>
                                       <ProductBox
                                         className={classNames(
@@ -2125,7 +2138,7 @@ function PlasmicHomepage__RenderFunc(props: {
                                           }
                                         })()}
                                       >
-                                        <ph.DataCtxReader>
+                                        <DataCtxReader__>
                                           {$ctx => (
                                             <div
                                               className={classNames(
@@ -2225,17 +2238,17 @@ function PlasmicHomepage__RenderFunc(props: {
                                               </div>
                                             </div>
                                           )}
-                                        </ph.DataCtxReader>
+                                        </DataCtxReader__>
                                       </ProductBox>
                                     </SliderWrapper>
                                   );
                                 })()}
                               </React.Fragment>
                             )}
-                          </ph.DataCtxReader>
+                          </DataCtxReader__>
                         </DataProvider>
                       )}
-                    </ph.DataCtxReader>
+                    </DataCtxReader__>
                   </GraphqlFetcher>
                   <div
                     className={classNames(projectcss.all, sty.freeBox__h1Sbz)}
@@ -2248,7 +2261,7 @@ function PlasmicHomepage__RenderFunc(props: {
                         sty.productCollection
                       )}
                       emptyMessage={
-                        <ph.DataCtxReader>
+                        <DataCtxReader__>
                           {$ctx => (
                             <div
                               className={classNames(
@@ -2260,10 +2273,10 @@ function PlasmicHomepage__RenderFunc(props: {
                               {"No product found!"}
                             </div>
                           )}
-                        </ph.DataCtxReader>
+                        </DataCtxReader__>
                       }
                       loadingMessage={
-                        <ph.DataCtxReader>
+                        <DataCtxReader__>
                           {$ctx => (
                             <div
                               className={classNames(
@@ -2275,12 +2288,12 @@ function PlasmicHomepage__RenderFunc(props: {
                               {"Loading..."}
                             </div>
                           )}
-                        </ph.DataCtxReader>
+                        </DataCtxReader__>
                       }
                       noAutoRepeat={true}
                       noLayout={true}
                     >
-                      <ph.DataCtxReader>
+                      <DataCtxReader__>
                         {$ctx => (
                           <SurpriseMeButton
                             data-plasmic-name={"surpriseMeButton"}
@@ -2349,7 +2362,7 @@ function PlasmicHomepage__RenderFunc(props: {
                             }}
                           />
                         )}
-                      </ph.DataCtxReader>
+                      </DataCtxReader__>
                     </ProductCollection>
                   </div>
                 </div>
@@ -2370,7 +2383,7 @@ function PlasmicHomepage__RenderFunc(props: {
                   <div
                     className={classNames(projectcss.all, sty.freeBox__mCkic)}
                   >
-                    <p.PlasmicImg
+                    <PlasmicImg__
                       alt={""}
                       className={classNames(sty.img__f3JA)}
                       displayHeight={"auto"}
@@ -2381,14 +2394,14 @@ function PlasmicHomepage__RenderFunc(props: {
                       displayWidth={"100%"}
                       loading={"lazy"}
                       src={{
-                        src: "/plasmic/jbs_storefront/images/heartFramewebp.webp",
+                        src: "/plasmic/jbs_storefront/images/heartFrameWebp.webp",
                         fullWidth: 1046,
                         fullHeight: 876,
                         aspectRatio: undefined
                       }}
                     />
                   </div>
-                  <p.Stack
+                  <Stack__
                     as={"div"}
                     hasGap={true}
                     className={classNames(projectcss.all, sty.freeBox__zg89B)}
@@ -2427,11 +2440,11 @@ function PlasmicHomepage__RenderFunc(props: {
                         {"gifts here!"}
                       </div>
                     </Button>
-                  </p.Stack>
+                  </Stack__>
                   <div
                     className={classNames(projectcss.all, sty.freeBox__b9AXi)}
                   >
-                    <p.PlasmicImg
+                    <PlasmicImg__
                       alt={""}
                       className={classNames(sty.img__p06FD)}
                       displayHeight={"auto"}
@@ -2442,7 +2455,7 @@ function PlasmicHomepage__RenderFunc(props: {
                       displayWidth={"100%"}
                       loading={"lazy"}
                       src={{
-                        src: "/plasmic/jbs_storefront/images/strawberrieswebp.webp",
+                        src: "/plasmic/jbs_storefront/images/strawberriesWebp.webp",
                         fullWidth: 1311,
                         fullHeight: 1326,
                         aspectRatio: undefined
@@ -2467,7 +2480,7 @@ function PlasmicHomepage__RenderFunc(props: {
                     arrows: false,
                     autoplay: true,
                     autoplaySpeed: 2000,
-                    beforeChange: p.generateStateOnChangePropForCodeComponents(
+                    beforeChange: generateStateOnChangePropForCodeComponents(
                       $state,
                       "currentSlide",
                       ["sliderCarousel6", "currentSlide"],
@@ -2477,7 +2490,7 @@ function PlasmicHomepage__RenderFunc(props: {
                       "__wab_instance",
                       sty.sliderCarousel6
                     ),
-                    initialSlide: p.generateStateValueProp($state, [
+                    initialSlide: generateStateValueProp($state, [
                       "sliderCarousel6",
                       "currentSlide"
                     ]),
@@ -2488,7 +2501,7 @@ function PlasmicHomepage__RenderFunc(props: {
                     swipeToSlide: true,
                     useCSS: true
                   };
-                  p.initializeCodeComponentStates(
+                  initializeCodeComponentStates(
                     $state,
                     [
                       {
@@ -2513,7 +2526,7 @@ function PlasmicHomepage__RenderFunc(props: {
                           sty.headerSlide__hJkVl
                         )}
                         slot={
-                          <p.Stack
+                          <Stack__
                             as={"div"}
                             hasGap={true}
                             className={classNames(
@@ -2539,7 +2552,7 @@ function PlasmicHomepage__RenderFunc(props: {
                             >
                               {"Hats"}
                             </div>
-                          </p.Stack>
+                          </Stack__>
                         }
                         slot2={
                           <div
@@ -2586,7 +2599,7 @@ function PlasmicHomepage__RenderFunc(props: {
                             sty.freeBox__adBiX
                           )}
                         >
-                          <p.PlasmicImg
+                          <PlasmicImg__
                             alt={""}
                             className={classNames(sty.img__jb9Bo)}
                             displayHeight={
@@ -2608,7 +2621,7 @@ function PlasmicHomepage__RenderFunc(props: {
                                     aspectRatio: undefined
                                   }
                                 : {
-                                    src: "/plasmic/jbs_storefront/images/bucketHatBannerwebp.webp",
+                                    src: "/plasmic/jbs_storefront/images/bucketHatBannerWebp.webp",
                                     fullWidth: 4096,
                                     fullHeight: 2230,
                                     aspectRatio: undefined
@@ -2623,7 +2636,7 @@ function PlasmicHomepage__RenderFunc(props: {
                           sty.headerSlide__esgQ
                         )}
                         slot={
-                          <p.Stack
+                          <Stack__
                             as={"div"}
                             hasGap={true}
                             className={classNames(
@@ -2649,7 +2662,7 @@ function PlasmicHomepage__RenderFunc(props: {
                             >
                               {"Topi"}
                             </div>
-                          </p.Stack>
+                          </Stack__>
                         }
                         slot2={
                           <div
@@ -2695,7 +2708,7 @@ function PlasmicHomepage__RenderFunc(props: {
                           </Button>
                         }
                       >
-                        <p.PlasmicImg
+                        <PlasmicImg__
                           alt={""}
                           className={classNames(sty.img__oRta7)}
                           displayHeight={"100%"}
@@ -2724,7 +2737,7 @@ function PlasmicHomepage__RenderFunc(props: {
                     </SliderWrapper>
                   );
                 })()}
-                <PreviousHeaderButtonsvgIcon
+                <PreviousHeaderButtonSvgIcon
                   className={classNames(projectcss.all, sty.svg__bnODj)}
                   onClick={async event => {
                     const $steps = {};
@@ -2755,7 +2768,7 @@ function PlasmicHomepage__RenderFunc(props: {
                   role={"img"}
                 />
 
-                <NextHeaderButtonsvgIcon
+                <NextHeaderButtonSvgIcon
                   className={classNames(projectcss.all, sty.svg___1Z6PB)}
                   onClick={async event => {
                     const $steps = {};
@@ -2807,7 +2820,7 @@ function PlasmicHomepage__RenderFunc(props: {
               />
 
               <div className={classNames(projectcss.all, sty.freeBox__qfSeR)}>
-                <p.PlasmicLink
+                <PlasmicLink__
                   className={classNames(
                     projectcss.all,
                     projectcss.a,
@@ -2823,7 +2836,7 @@ function PlasmicHomepage__RenderFunc(props: {
                     <div
                       className={classNames(projectcss.all, sty.column__yyv49)}
                     >
-                      <p.PlasmicImg
+                      <PlasmicImg__
                         alt={""}
                         className={classNames(sty.img__zl0Fd)}
                         displayHeight={
@@ -2850,7 +2863,7 @@ function PlasmicHomepage__RenderFunc(props: {
                         }
                         loading={"lazy"}
                         src={{
-                          src: "/plasmic/jbs_storefront/images/clamwebp.webp",
+                          src: "/plasmic/jbs_storefront/images/clamWebp.webp",
                           fullWidth: 2000,
                           fullHeight: 3496,
                           aspectRatio: undefined
@@ -2860,7 +2873,7 @@ function PlasmicHomepage__RenderFunc(props: {
                     <div
                       className={classNames(projectcss.all, sty.column__by8Ox)}
                     >
-                      <p.PlasmicImg
+                      <PlasmicImg__
                         alt={""}
                         className={classNames(sty.img__fdlkx)}
                         displayHeight={"auto"}
@@ -2883,7 +2896,7 @@ function PlasmicHomepage__RenderFunc(props: {
                       />
                     </div>
                   </div>
-                </p.PlasmicLink>
+                </PlasmicLink__>
               </div>
             </Section>
             <Section
@@ -2916,7 +2929,7 @@ function PlasmicHomepage__RenderFunc(props: {
                 </Marquee>
               </div>
               <div className={classNames(projectcss.all, sty.freeBox__riipX)}>
-                <p.PlasmicImg
+                <PlasmicImg__
                   alt={""}
                   className={classNames(sty.img__gx5Wa)}
                   displayHeight={"auto"}
@@ -2927,14 +2940,14 @@ function PlasmicHomepage__RenderFunc(props: {
                   displayWidth={"auto"}
                   loading={"lazy"}
                   src={{
-                    src: "/plasmic/jbs_storefront/images/seaOfWasteWideNewwebp.webp",
+                    src: "/plasmic/jbs_storefront/images/seaOfWasteWideNewWebp.webp",
                     fullWidth: 5339,
                     fullHeight: 2036,
                     aspectRatio: undefined
                   }}
                 />
 
-                <p.PlasmicImg
+                <PlasmicImg__
                   alt={""}
                   className={classNames(sty.img__tPjZ4)}
                   displayHeight={"auto"}
@@ -2945,19 +2958,19 @@ function PlasmicHomepage__RenderFunc(props: {
                   displayWidth={"auto"}
                   loading={"lazy"}
                   src={{
-                    src: "/plasmic/jbs_storefront/images/seaOfWasteNarrowwebp.webp",
+                    src: "/plasmic/jbs_storefront/images/seaOfWasteNarrowWebp.webp",
                     fullWidth: 860,
                     fullHeight: 1038,
                     aspectRatio: undefined
                   }}
                 />
               </div>
-              <p.Stack
+              <Stack__
                 as={"div"}
                 hasGap={true}
                 className={classNames(projectcss.all, sty.freeBox__gNDo7)}
               >
-                <p.Stack
+                <Stack__
                   as={"div"}
                   hasGap={true}
                   className={classNames(projectcss.all, sty.columns__mkbQx)}
@@ -2987,12 +3000,12 @@ function PlasmicHomepage__RenderFunc(props: {
                         sty.text__cQmWl
                       )}
                     >
-                      {
-                        "Our brand celebrates the weird and wonderful conceptness of life through delightful, handcrafted lifestyle accessory products."
-                      }
+                      {hasVariant(globalVariants, "screen", "mobileOnly")
+                        ? "Our brand celebrates the weird and wonderful conceptness of life through delightful, handcrafted lifestyle accessory products."
+                        : "Our brand celebrates the weird and wonderful concept-ness of life through delightful, handcrafted lifestyle accessory products."}
                     </div>
                   </div>
-                  <p.Stack
+                  <Stack__
                     as={"div"}
                     hasGap={true}
                     className={classNames(projectcss.all, sty.column__uGeWu)}
@@ -3038,14 +3051,14 @@ function PlasmicHomepage__RenderFunc(props: {
                         {"Want to know how we do it?"}
                       </div>
                     </Button>
-                  </p.Stack>
-                </p.Stack>
+                  </Stack__>
+                </Stack__>
                 <AntdSliderMark
                   data-plasmic-name={"sliderMark"}
                   data-plasmic-override={overrides.sliderMark}
                   className={classNames("__wab_instance", sty.sliderMark)}
                 />
-              </p.Stack>
+              </Stack__>
             </Section>
           </FullPage>
         </div>

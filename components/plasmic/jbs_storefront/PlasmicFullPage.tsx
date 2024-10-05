@@ -17,25 +17,48 @@ import Head from "next/head";
 import Link, { LinkProps } from "next/link";
 import { useRouter } from "next/router";
 
-import * as p from "@plasmicapp/react-web";
-import * as ph from "@plasmicapp/react-web/lib/host";
-
 import {
-  hasVariant,
-  classNames,
-  wrapWithClassName,
-  createPlasmicElementProxy,
-  makeFragment,
+  Flex as Flex__,
   MultiChoiceArg,
+  PlasmicDataSourceContextProvider as PlasmicDataSourceContextProvider__,
+  PlasmicIcon as PlasmicIcon__,
+  PlasmicImg as PlasmicImg__,
+  PlasmicLink as PlasmicLink__,
+  PlasmicPageGuard as PlasmicPageGuard__,
   SingleBooleanChoiceArg,
   SingleChoiceArg,
-  pick,
-  omit,
-  useTrigger,
+  Stack as Stack__,
   StrictProps,
+  Trans as Trans__,
+  classNames,
+  createPlasmicElementProxy,
   deriveRenderOpts,
-  ensureGlobalVariants
+  ensureGlobalVariants,
+  generateOnMutateForSpec,
+  generateStateOnChangeProp,
+  generateStateOnChangePropForCodeComponents,
+  generateStateValueProp,
+  get as $stateGet,
+  hasVariant,
+  initializeCodeComponentStates,
+  initializePlasmicStates,
+  makeFragment,
+  omit,
+  pick,
+  renderPlasmicSlot,
+  set as $stateSet,
+  useCurrentUser,
+  useDollarState,
+  usePlasmicTranslator,
+  useTrigger,
+  wrapWithClassName
 } from "@plasmicapp/react-web";
+import {
+  DataCtxReader as DataCtxReader__,
+  useDataEnv,
+  useGlobalActions
+} from "@plasmicapp/react-web/lib/host";
+
 import Navbar from "../../Navbar"; // plasmic-import: zY4oOp60G2/component
 import Footer from "../../Footer"; // plasmic-import: mZogRkwS1rd/component
 import Marquee from "react-fast-marquee"; // plasmic-import: m9EkGU-jS0/codeComponent
@@ -64,16 +87,16 @@ type ArgPropType = keyof PlasmicFullPage__ArgsType;
 export const PlasmicFullPage__ArgProps = new Array<ArgPropType>("children");
 
 export type PlasmicFullPage__OverridesType = {
-  root?: p.Flex<"div">;
-  navbar?: p.Flex<typeof Navbar>;
-  footer?: p.Flex<typeof Footer>;
-  section?: p.Flex<"section">;
-  juhuBeachBg?: p.Flex<typeof p.PlasmicImg>;
-  marquee?: p.Flex<typeof Marquee>;
-  text?: p.Flex<"div">;
-  img?: p.Flex<typeof p.PlasmicImg>;
-  countdown?: p.Flex<typeof Countdown>;
-  h1?: p.Flex<"h1">;
+  root?: Flex__<"div">;
+  navbar?: Flex__<typeof Navbar>;
+  footer?: Flex__<typeof Footer>;
+  section?: Flex__<"section">;
+  juhuBeachBg?: Flex__<typeof PlasmicImg__>;
+  marquee?: Flex__<typeof Marquee>;
+  text?: Flex__<"div">;
+  img?: Flex__<typeof PlasmicImg__>;
+  countdown?: Flex__<typeof Countdown>;
+  h1?: Flex__<"h1">;
 };
 
 export interface DefaultFullPageProps {
@@ -98,7 +121,16 @@ function PlasmicFullPage__RenderFunc(props: {
 }) {
   const { variants, overrides, forNode } = props;
 
-  const args = React.useMemo(() => Object.assign({}, props.args), [props.args]);
+  const args = React.useMemo(
+    () =>
+      Object.assign(
+        {},
+        Object.fromEntries(
+          Object.entries(props.args).filter(([_, v]) => v !== undefined)
+        )
+      ),
+    [props.args]
+  );
 
   const $props = {
     ...args,
@@ -106,13 +138,11 @@ function PlasmicFullPage__RenderFunc(props: {
   };
 
   const __nextRouter = useNextRouter();
-  const $ctx = ph.useDataEnv?.() || {};
+  const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const currentUser = p.useCurrentUser?.() || {};
-
-  const stateSpecs: Parameters<typeof p.useDollarState>[0] = React.useMemo(
+  const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
         path: "variable",
@@ -123,7 +153,7 @@ function PlasmicFullPage__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
-  const $state = p.useDollarState(stateSpecs, {
+  const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
     $queries: {},
@@ -172,7 +202,7 @@ function PlasmicFullPage__RenderFunc(props: {
         />
       ) : null}
       {(hasVariant(globalVariants, "schedule", "override") ? false : true)
-        ? p.renderPlasmicSlot({
+        ? renderPlasmicSlot({
             defaultContents: null,
             value: args.children
           })
@@ -202,7 +232,7 @@ function PlasmicFullPage__RenderFunc(props: {
             )
           })}
         >
-          <p.PlasmicImg
+          <PlasmicImg__
             data-plasmic-name={"juhuBeachBg"}
             data-plasmic-override={overrides.juhuBeachBg}
             alt={""}
@@ -250,27 +280,27 @@ function PlasmicFullPage__RenderFunc(props: {
               hasVariant(globalVariants, "schedule", "override") &&
               hasVariant(globalVariants, "screen", "mobileOnly")
                 ? {
-                    src: "/plasmic/jbs_storefront/images/theJuhuBeachNarrowwebp2.webp",
+                    src: "/plasmic/jbs_storefront/images/theJuhuBeachNarrowWebp2.webp",
                     fullWidth: 879,
                     fullHeight: 1484,
                     aspectRatio: undefined
                   }
                 : hasVariant(globalVariants, "schedule", "override")
                 ? {
-                    src: "/plasmic/jbs_storefront/images/theJuhuBeachWidewebp.webp",
+                    src: "/plasmic/jbs_storefront/images/theJuhuBeachWideWebp.webp",
                     fullWidth: 7239,
                     fullHeight: 5047,
                     aspectRatio: undefined
                   }
                 : hasVariant(globalVariants, "screen", "mobileOnly")
                 ? {
-                    src: "/plasmic/jbs_storefront/images/theJuhuBeachNarrowwebp2.webp",
+                    src: "/plasmic/jbs_storefront/images/theJuhuBeachNarrowWebp2.webp",
                     fullWidth: 879,
                     fullHeight: 1484,
                     aspectRatio: undefined
                   }
                 : {
-                    src: "/plasmic/jbs_storefront/images/theJuhuBeachWidewebp.webp",
+                    src: "/plasmic/jbs_storefront/images/theJuhuBeachWideWebp.webp",
                     fullWidth: 7239,
                     fullHeight: 5047,
                     aspectRatio: undefined
@@ -341,7 +371,7 @@ function PlasmicFullPage__RenderFunc(props: {
               })}
             />
 
-            <p.PlasmicImg
+            <PlasmicImg__
               data-plasmic-name={"img"}
               data-plasmic-override={overrides.img}
               alt={""}
@@ -520,10 +550,10 @@ type NodeDefaultElementType = {
   navbar: typeof Navbar;
   footer: typeof Footer;
   section: "section";
-  juhuBeachBg: typeof p.PlasmicImg;
+  juhuBeachBg: typeof PlasmicImg__;
   marquee: typeof Marquee;
   text: "div";
-  img: typeof p.PlasmicImg;
+  img: typeof PlasmicImg__;
   countdown: typeof Countdown;
   h1: "h1";
 };

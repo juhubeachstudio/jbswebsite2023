@@ -17,25 +17,48 @@ import Head from "next/head";
 import Link, { LinkProps } from "next/link";
 import { useRouter } from "next/router";
 
-import * as p from "@plasmicapp/react-web";
-import * as ph from "@plasmicapp/react-web/lib/host";
-
 import {
-  hasVariant,
-  classNames,
-  wrapWithClassName,
-  createPlasmicElementProxy,
-  makeFragment,
+  Flex as Flex__,
   MultiChoiceArg,
+  PlasmicDataSourceContextProvider as PlasmicDataSourceContextProvider__,
+  PlasmicIcon as PlasmicIcon__,
+  PlasmicImg as PlasmicImg__,
+  PlasmicLink as PlasmicLink__,
+  PlasmicPageGuard as PlasmicPageGuard__,
   SingleBooleanChoiceArg,
   SingleChoiceArg,
-  pick,
-  omit,
-  useTrigger,
+  Stack as Stack__,
   StrictProps,
+  Trans as Trans__,
+  classNames,
+  createPlasmicElementProxy,
   deriveRenderOpts,
-  ensureGlobalVariants
+  ensureGlobalVariants,
+  generateOnMutateForSpec,
+  generateStateOnChangeProp,
+  generateStateOnChangePropForCodeComponents,
+  generateStateValueProp,
+  get as $stateGet,
+  hasVariant,
+  initializeCodeComponentStates,
+  initializePlasmicStates,
+  makeFragment,
+  omit,
+  pick,
+  renderPlasmicSlot,
+  set as $stateSet,
+  useCurrentUser,
+  useDollarState,
+  usePlasmicTranslator,
+  useTrigger,
+  wrapWithClassName
 } from "@plasmicapp/react-web";
+import {
+  DataCtxReader as DataCtxReader__,
+  useDataEnv,
+  useGlobalActions
+} from "@plasmicapp/react-web/lib/host";
+
 import { FormWrapper } from "@plasmicpkgs/antd5/skinny/Form";
 import { formHelpers as FormWrapper_Helpers } from "@plasmicpkgs/antd5/skinny/Form";
 import { FormItemWrapper } from "@plasmicpkgs/antd5/skinny/FormItem";
@@ -44,6 +67,7 @@ import { inputHelpers as AntdInput_Helpers } from "@plasmicpkgs/antd5/skinny/reg
 import { AntdTextArea } from "@plasmicpkgs/antd5/skinny/registerInput";
 import { inputHelpers as AntdTextArea_Helpers } from "@plasmicpkgs/antd5/skinny/registerInput";
 import { AntdButton } from "@plasmicpkgs/antd5/skinny/registerButton";
+import { ProductPriceComponent } from "@plasmicpkgs/commerce";
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -63,12 +87,13 @@ type ArgPropType = keyof PlasmicTesting__ArgsType;
 export const PlasmicTesting__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicTesting__OverridesType = {
-  root?: p.Flex<"div">;
-  form?: p.Flex<typeof FormWrapper>;
-  input?: p.Flex<typeof AntdInput>;
-  textArea?: p.Flex<typeof AntdTextArea>;
-  button?: p.Flex<typeof AntdButton>;
-  text?: p.Flex<"div">;
+  root?: Flex__<"div">;
+  form?: Flex__<typeof FormWrapper>;
+  input?: Flex__<typeof AntdInput>;
+  textArea?: Flex__<typeof AntdTextArea>;
+  button?: Flex__<typeof AntdButton>;
+  text?: Flex__<"div">;
+  productPrice?: Flex__<typeof ProductPriceComponent>;
 };
 
 export interface DefaultTestingProps {
@@ -92,7 +117,16 @@ function PlasmicTesting__RenderFunc(props: {
 }) {
   const { variants, overrides, forNode } = props;
 
-  const args = React.useMemo(() => Object.assign({}, props.args), [props.args]);
+  const args = React.useMemo(
+    () =>
+      Object.assign(
+        {},
+        Object.fromEntries(
+          Object.entries(props.args).filter(([_, v]) => v !== undefined)
+        )
+      ),
+    [props.args]
+  );
 
   const $props = {
     ...args,
@@ -100,13 +134,11 @@ function PlasmicTesting__RenderFunc(props: {
   };
 
   const __nextRouter = useNextRouter();
-  const $ctx = ph.useDataEnv?.() || {};
+  const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const currentUser = p.useCurrentUser?.() || {};
-
-  const stateSpecs: Parameters<typeof p.useDollarState>[0] = React.useMemo(
+  const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
         path: "form.value",
@@ -115,7 +147,7 @@ function PlasmicTesting__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
 
         refName: "form",
-        onMutate: p.generateOnMutateForSpec("value", FormWrapper_Helpers)
+        onMutate: generateOnMutateForSpec("value", FormWrapper_Helpers)
       },
       {
         path: "form.isSubmitting",
@@ -124,12 +156,12 @@ function PlasmicTesting__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => false,
 
         refName: "form",
-        onMutate: p.generateOnMutateForSpec("isSubmitting", FormWrapper_Helpers)
+        onMutate: generateOnMutateForSpec("isSubmitting", FormWrapper_Helpers)
       }
     ],
     [$props, $ctx, $refs]
   );
-  const $state = p.useDollarState(stateSpecs, {
+  const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
     $queries: {},
@@ -155,7 +187,7 @@ function PlasmicTesting__RenderFunc(props: {
       {(() => {
         const child$Props = {
           className: classNames("__wab_instance", sty.form),
-          extendedOnValuesChange: p.generateStateOnChangePropForCodeComponents(
+          extendedOnValuesChange: generateStateOnChangePropForCodeComponents(
             $state,
             "value",
             ["form", "value"],
@@ -188,7 +220,7 @@ function PlasmicTesting__RenderFunc(props: {
               $steps["runCode"] = await $steps["runCode"];
             }
           },
-          onIsSubmittingChange: p.generateStateOnChangePropForCodeComponents(
+          onIsSubmittingChange: generateStateOnChangePropForCodeComponents(
             $state,
             "isSubmitting",
             ["form", "isSubmitting"],
@@ -199,7 +231,7 @@ function PlasmicTesting__RenderFunc(props: {
           },
           wrapperCol: { span: 16, horizontalOnly: true }
         };
-        p.initializeCodeComponentStates(
+        initializeCodeComponentStates(
           $state,
           [
             {
@@ -223,14 +255,14 @@ function PlasmicTesting__RenderFunc(props: {
             {...child$Props}
           >
             <FormItemWrapper
-              className={classNames("__wab_instance", sty.formField__kbaVq)}
+              className={classNames("__wab_instance", sty.formField__dk27)}
               label={"Name"}
               name={"name"}
             >
               <AntdInput className={classNames("__wab_instance", sty.input)} />
             </FormItemWrapper>
             <FormItemWrapper
-              className={classNames("__wab_instance", sty.formField__ajfXz)}
+              className={classNames("__wab_instance", sty.formField__wNTh)}
               label={"Message"}
               name={"message"}
             >
@@ -256,17 +288,23 @@ function PlasmicTesting__RenderFunc(props: {
           </FormWrapper>
         );
       })()}
+      <ProductPriceComponent
+        data-plasmic-name={"productPrice"}
+        data-plasmic-override={overrides.productPrice}
+        className={classNames("__wab_instance", sty.productPrice)}
+      />
     </div>
   ) as React.ReactElement | null;
 }
 
 const PlasmicDescendants = {
-  root: ["root", "form", "input", "textArea", "button", "text"],
+  root: ["root", "form", "input", "textArea", "button", "text", "productPrice"],
   form: ["form", "input", "textArea", "button", "text"],
   input: ["input"],
   textArea: ["textArea"],
   button: ["button", "text"],
-  text: ["text"]
+  text: ["text"],
+  productPrice: ["productPrice"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -278,6 +316,7 @@ type NodeDefaultElementType = {
   textArea: typeof AntdTextArea;
   button: typeof AntdButton;
   text: "div";
+  productPrice: typeof ProductPriceComponent;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -345,6 +384,7 @@ export const PlasmicTesting = Object.assign(
     textArea: makeNodeComponent("textArea"),
     button: makeNodeComponent("button"),
     text: makeNodeComponent("text"),
+    productPrice: makeNodeComponent("productPrice"),
 
     // Metadata about props expected for PlasmicTesting
     internalVariantProps: PlasmicTesting__VariantProps,

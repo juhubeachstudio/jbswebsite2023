@@ -17,25 +17,48 @@ import Head from "next/head";
 import Link, { LinkProps } from "next/link";
 import { useRouter } from "next/router";
 
-import * as p from "@plasmicapp/react-web";
-import * as ph from "@plasmicapp/react-web/lib/host";
-
 import {
-  hasVariant,
-  classNames,
-  wrapWithClassName,
-  createPlasmicElementProxy,
-  makeFragment,
+  Flex as Flex__,
   MultiChoiceArg,
+  PlasmicDataSourceContextProvider as PlasmicDataSourceContextProvider__,
+  PlasmicIcon as PlasmicIcon__,
+  PlasmicImg as PlasmicImg__,
+  PlasmicLink as PlasmicLink__,
+  PlasmicPageGuard as PlasmicPageGuard__,
   SingleBooleanChoiceArg,
   SingleChoiceArg,
-  pick,
-  omit,
-  useTrigger,
+  Stack as Stack__,
   StrictProps,
+  Trans as Trans__,
+  classNames,
+  createPlasmicElementProxy,
   deriveRenderOpts,
-  ensureGlobalVariants
+  ensureGlobalVariants,
+  generateOnMutateForSpec,
+  generateStateOnChangeProp,
+  generateStateOnChangePropForCodeComponents,
+  generateStateValueProp,
+  get as $stateGet,
+  hasVariant,
+  initializeCodeComponentStates,
+  initializePlasmicStates,
+  makeFragment,
+  omit,
+  pick,
+  renderPlasmicSlot,
+  set as $stateSet,
+  useCurrentUser,
+  useDollarState,
+  usePlasmicTranslator,
+  useTrigger,
+  wrapWithClassName
 } from "@plasmicapp/react-web";
+import {
+  DataCtxReader as DataCtxReader__,
+  useDataEnv,
+  useGlobalActions
+} from "@plasmicapp/react-web/lib/host";
+
 import { ProductCollection } from "@plasmicpkgs/commerce";
 import { SliderWrapper } from "@plasmicpkgs/react-slick";
 import { sliderHelpers as SliderWrapper_Helpers } from "@plasmicpkgs/react-slick";
@@ -66,11 +89,11 @@ export const PlasmicCategoryProductsSlider__ArgProps = new Array<ArgPropType>(
 );
 
 export type PlasmicCategoryProductsSlider__OverridesType = {
-  root?: p.Flex<"div">;
-  productCollection?: p.Flex<typeof ProductCollection>;
-  sliderCarousel?: p.Flex<typeof SliderWrapper>;
-  link?: p.Flex<"a"> & Partial<LinkProps>;
-  productInSlider?: p.Flex<typeof ProductInSlider>;
+  root?: Flex__<"div">;
+  productCollection?: Flex__<typeof ProductCollection>;
+  sliderCarousel?: Flex__<typeof SliderWrapper>;
+  link?: Flex__<"a"> & Partial<LinkProps>;
+  productInSlider?: Flex__<typeof ProductInSlider>;
 };
 
 export interface DefaultCategoryProductsSliderProps {
@@ -101,7 +124,9 @@ function PlasmicCategoryProductsSlider__RenderFunc(props: {
         {
           category: "gid://shopify/Collection/456658977064"
         },
-        props.args
+        Object.fromEntries(
+          Object.entries(props.args).filter(([_, v]) => v !== undefined)
+        )
       ),
     [props.args]
   );
@@ -112,13 +137,11 @@ function PlasmicCategoryProductsSlider__RenderFunc(props: {
   };
 
   const __nextRouter = useNextRouter();
-  const $ctx = ph.useDataEnv?.() || {};
+  const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const currentUser = p.useCurrentUser?.() || {};
-
-  const stateSpecs: Parameters<typeof p.useDollarState>[0] = React.useMemo(
+  const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
         path: "sliderCarousel.currentSlide",
@@ -127,10 +150,7 @@ function PlasmicCategoryProductsSlider__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => 0,
 
         refName: "sliderCarousel",
-        onMutate: p.generateOnMutateForSpec(
-          "currentSlide",
-          SliderWrapper_Helpers
-        )
+        onMutate: generateOnMutateForSpec("currentSlide", SliderWrapper_Helpers)
       },
       {
         path: "hovered",
@@ -141,7 +161,7 @@ function PlasmicCategoryProductsSlider__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
-  const $state = p.useDollarState(stateSpecs, {
+  const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
     $queries: {},
@@ -174,7 +194,7 @@ function PlasmicCategoryProductsSlider__RenderFunc(props: {
         category={args.category}
         className={classNames("__wab_instance", sty.productCollection)}
         emptyMessage={
-          <ph.DataCtxReader>
+          <DataCtxReader__>
             {$ctx => (
               <div
                 className={classNames(
@@ -186,10 +206,10 @@ function PlasmicCategoryProductsSlider__RenderFunc(props: {
                 {"No product found!"}
               </div>
             )}
-          </ph.DataCtxReader>
+          </DataCtxReader__>
         }
         loadingMessage={
-          <ph.DataCtxReader>
+          <DataCtxReader__>
             {$ctx => (
               <div
                 className={classNames(
@@ -201,19 +221,19 @@ function PlasmicCategoryProductsSlider__RenderFunc(props: {
                 {"Loading..."}
               </div>
             )}
-          </ph.DataCtxReader>
+          </DataCtxReader__>
         }
         noAutoRepeat={true}
         noLayout={true}
       >
-        <ph.DataCtxReader>
+        <DataCtxReader__>
           {$ctx =>
             (() => {
               const child$Props = {
                 arrows: false,
                 autoplay: true,
                 autoplaySpeed: 1500,
-                beforeChange: p.generateStateOnChangePropForCodeComponents(
+                beforeChange: generateStateOnChangePropForCodeComponents(
                   $state,
                   "currentSlide",
                   ["sliderCarousel", "currentSlide"],
@@ -222,7 +242,7 @@ function PlasmicCategoryProductsSlider__RenderFunc(props: {
                 className: classNames("__wab_instance", sty.sliderCarousel),
                 draggable: true,
                 fade: false,
-                initialSlide: p.generateStateValueProp($state, [
+                initialSlide: generateStateValueProp($state, [
                   "sliderCarousel",
                   "currentSlide"
                 ]),
@@ -249,7 +269,7 @@ function PlasmicCategoryProductsSlider__RenderFunc(props: {
                   ? false
                   : true
               };
-              p.initializeCodeComponentStates(
+              initializeCodeComponentStates(
                 $state,
                 [
                   {
@@ -286,7 +306,7 @@ function PlasmicCategoryProductsSlider__RenderFunc(props: {
                     const currentItem = __plasmic_item_0;
                     const currentIndex = __plasmic_idx_0;
                     return (
-                      <p.PlasmicLink
+                      <PlasmicLink__
                         data-plasmic-name={"link"}
                         data-plasmic-override={overrides.link}
                         className={classNames(
@@ -333,16 +353,16 @@ function PlasmicCategoryProductsSlider__RenderFunc(props: {
                           )}
                           currentItem={currentItem}
                         />
-                      </p.PlasmicLink>
+                      </PlasmicLink__>
                     );
                   })}
                 </SliderWrapper>
               );
             })()
           }
-        </ph.DataCtxReader>
+        </DataCtxReader__>
       </ProductCollection>
-      <p.PlasmicImg
+      <PlasmicImg__
         alt={""}
         className={classNames(sty.img__fWwdg)}
         displayHeight={"50px"}
@@ -384,7 +404,7 @@ function PlasmicCategoryProductsSlider__RenderFunc(props: {
         }}
       />
 
-      <p.PlasmicImg
+      <PlasmicImg__
         alt={""}
         className={classNames(sty.img__mi8EP)}
         displayHeight={"auto"}

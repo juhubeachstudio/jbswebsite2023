@@ -17,25 +17,48 @@ import Head from "next/head";
 import Link, { LinkProps } from "next/link";
 import { useRouter } from "next/router";
 
-import * as p from "@plasmicapp/react-web";
-import * as ph from "@plasmicapp/react-web/lib/host";
-
 import {
-  hasVariant,
-  classNames,
-  wrapWithClassName,
-  createPlasmicElementProxy,
-  makeFragment,
+  Flex as Flex__,
   MultiChoiceArg,
+  PlasmicDataSourceContextProvider as PlasmicDataSourceContextProvider__,
+  PlasmicIcon as PlasmicIcon__,
+  PlasmicImg as PlasmicImg__,
+  PlasmicLink as PlasmicLink__,
+  PlasmicPageGuard as PlasmicPageGuard__,
   SingleBooleanChoiceArg,
   SingleChoiceArg,
-  pick,
-  omit,
-  useTrigger,
+  Stack as Stack__,
   StrictProps,
+  Trans as Trans__,
+  classNames,
+  createPlasmicElementProxy,
   deriveRenderOpts,
-  ensureGlobalVariants
+  ensureGlobalVariants,
+  generateOnMutateForSpec,
+  generateStateOnChangeProp,
+  generateStateOnChangePropForCodeComponents,
+  generateStateValueProp,
+  get as $stateGet,
+  hasVariant,
+  initializeCodeComponentStates,
+  initializePlasmicStates,
+  makeFragment,
+  omit,
+  pick,
+  renderPlasmicSlot,
+  set as $stateSet,
+  useCurrentUser,
+  useDollarState,
+  usePlasmicTranslator,
+  useTrigger,
+  wrapWithClassName
 } from "@plasmicapp/react-web";
+import {
+  DataCtxReader as DataCtxReader__,
+  useDataEnv,
+  useGlobalActions
+} from "@plasmicapp/react-web/lib/host";
+
 import FullPage from "../../FullPage"; // plasmic-import: VpRM2nIn0R/component
 import Section from "../../Section"; // plasmic-import: GMAR4VOl00/component
 import { SliderWrapper } from "@plasmicpkgs/react-slick";
@@ -65,15 +88,15 @@ type ArgPropType = keyof PlasmicAbout__ArgsType;
 export const PlasmicAbout__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicAbout__OverridesType = {
-  root?: p.Flex<"div">;
-  fullPage?: p.Flex<typeof FullPage>;
-  sliderCarousel?: p.Flex<typeof SliderWrapper>;
-  h1?: p.Flex<"h1">;
-  sliderCarousel2?: p.Flex<typeof SliderWrapper>;
-  sliderCarousel3?: p.Flex<typeof SliderWrapper>;
-  svg?: p.Flex<"svg">;
-  sliderCarousel5?: p.Flex<typeof SliderWrapper>;
-  sliderCarousel6?: p.Flex<typeof SliderWrapper>;
+  root?: Flex__<"div">;
+  fullPage?: Flex__<typeof FullPage>;
+  sliderCarousel?: Flex__<typeof SliderWrapper>;
+  h1?: Flex__<"h1">;
+  sliderCarousel2?: Flex__<typeof SliderWrapper>;
+  sliderCarousel3?: Flex__<typeof SliderWrapper>;
+  svg?: Flex__<"svg">;
+  sliderCarousel5?: Flex__<typeof SliderWrapper>;
+  sliderCarousel6?: Flex__<typeof SliderWrapper>;
 };
 
 export interface DefaultAboutProps {}
@@ -95,7 +118,16 @@ function PlasmicAbout__RenderFunc(props: {
 }) {
   const { variants, overrides, forNode } = props;
 
-  const args = React.useMemo(() => Object.assign({}, props.args), [props.args]);
+  const args = React.useMemo(
+    () =>
+      Object.assign(
+        {},
+        Object.fromEntries(
+          Object.entries(props.args).filter(([_, v]) => v !== undefined)
+        )
+      ),
+    [props.args]
+  );
 
   const $props = {
     ...args,
@@ -103,13 +135,11 @@ function PlasmicAbout__RenderFunc(props: {
   };
 
   const __nextRouter = useNextRouter();
-  const $ctx = ph.useDataEnv?.() || {};
+  const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const currentUser = p.useCurrentUser?.() || {};
-
-  const stateSpecs: Parameters<typeof p.useDollarState>[0] = React.useMemo(
+  const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
         path: "sliderCarousel.currentSlide",
@@ -118,10 +148,7 @@ function PlasmicAbout__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => 0,
 
         refName: "sliderCarousel",
-        onMutate: p.generateOnMutateForSpec(
-          "currentSlide",
-          SliderWrapper_Helpers
-        )
+        onMutate: generateOnMutateForSpec("currentSlide", SliderWrapper_Helpers)
       },
       {
         path: "sliderCarousel2.currentSlide",
@@ -130,10 +157,7 @@ function PlasmicAbout__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => 0,
 
         refName: "sliderCarousel2",
-        onMutate: p.generateOnMutateForSpec(
-          "currentSlide",
-          SliderWrapper_Helpers
-        )
+        onMutate: generateOnMutateForSpec("currentSlide", SliderWrapper_Helpers)
       },
       {
         path: "sliderCarousel3.currentSlide",
@@ -142,10 +166,7 @@ function PlasmicAbout__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => 0,
 
         refName: "sliderCarousel3",
-        onMutate: p.generateOnMutateForSpec(
-          "currentSlide",
-          SliderWrapper_Helpers
-        )
+        onMutate: generateOnMutateForSpec("currentSlide", SliderWrapper_Helpers)
       },
       {
         path: "sliderCarousel5.currentSlide",
@@ -154,10 +175,7 @@ function PlasmicAbout__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => 0,
 
         refName: "sliderCarousel5",
-        onMutate: p.generateOnMutateForSpec(
-          "currentSlide",
-          SliderWrapper_Helpers
-        )
+        onMutate: generateOnMutateForSpec("currentSlide", SliderWrapper_Helpers)
       },
       {
         path: "sliderCarousel6.currentSlide",
@@ -166,10 +184,7 @@ function PlasmicAbout__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => 0,
 
         refName: "sliderCarousel6",
-        onMutate: p.generateOnMutateForSpec(
-          "currentSlide",
-          SliderWrapper_Helpers
-        )
+        onMutate: generateOnMutateForSpec("currentSlide", SliderWrapper_Helpers)
       },
       {
         path: "metersOfTextile",
@@ -186,7 +201,7 @@ function PlasmicAbout__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
-  const $state = p.useDollarState(stateSpecs, {
+  const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
     $queries: {},
@@ -237,7 +252,7 @@ function PlasmicAbout__RenderFunc(props: {
                     ? false
                     : true
                 ) ? (
-                  <p.PlasmicImg
+                  <PlasmicImg__
                     alt={""}
                     className={classNames(sty.img__vprZ4)}
                     displayHeight={"auto"}
@@ -248,14 +263,14 @@ function PlasmicAbout__RenderFunc(props: {
                     displayWidth={"auto"}
                     loading={"lazy"}
                     src={{
-                      src: "/plasmic/jbs_storefront/images/weAreJuhuwebp.webp",
+                      src: "/plasmic/jbs_storefront/images/weAreJuhuWebp.webp",
                       fullWidth: 4096,
                       fullHeight: 1645,
                       aspectRatio: undefined
                     }}
                   />
                 ) : null}
-                <p.PlasmicImg
+                <PlasmicImg__
                   alt={""}
                   className={classNames(sty.img__nTwgc)}
                   displayHeight={"auto"}
@@ -266,7 +281,7 @@ function PlasmicAbout__RenderFunc(props: {
                   displayWidth={"auto"}
                   loading={"lazy"}
                   src={{
-                    src: "/plasmic/jbs_storefront/images/weAreJuhuNarrowwebp.webp",
+                    src: "/plasmic/jbs_storefront/images/weAreJuhuNarrowWebp.webp",
                     fullWidth: 895,
                     fullHeight: 558,
                     aspectRatio: undefined
@@ -279,7 +294,7 @@ function PlasmicAbout__RenderFunc(props: {
             >
               <div className={classNames(projectcss.all, sty.columns__zzulA)}>
                 <div className={classNames(projectcss.all, sty.column__puagE)}>
-                  <p.PlasmicImg
+                  <PlasmicImg__
                     alt={""}
                     className={classNames(sty.img__r0Jpl)}
                     displayHeight={"auto"}
@@ -290,7 +305,7 @@ function PlasmicAbout__RenderFunc(props: {
                     displayWidth={"100%"}
                     loading={"lazy"}
                     src={{
-                      src: "/plasmic/jbs_storefront/images/profileAksharawebp.webp",
+                      src: "/plasmic/jbs_storefront/images/profileAksharaWebp.webp",
                       fullWidth: 3641,
                       fullHeight: 2487,
                       aspectRatio: undefined
@@ -298,7 +313,7 @@ function PlasmicAbout__RenderFunc(props: {
                   />
                 </div>
                 <div className={classNames(projectcss.all, sty.column__o3W3R)}>
-                  <p.PlasmicImg
+                  <PlasmicImg__
                     alt={""}
                     className={classNames(sty.img__o24D5)}
                     displayHeight={"auto"}
@@ -309,7 +324,7 @@ function PlasmicAbout__RenderFunc(props: {
                     displayWidth={"100%"}
                     loading={"lazy"}
                     src={{
-                      src: "/plasmic/jbs_storefront/images/profilePrakruthiwebp.webp",
+                      src: "/plasmic/jbs_storefront/images/profilePrakruthiWebp.webp",
                       fullWidth: 3497,
                       fullHeight: 2519,
                       aspectRatio: undefined
@@ -321,12 +336,12 @@ function PlasmicAbout__RenderFunc(props: {
             <Section
               className={classNames("__wab_instance", sty.section__ppS85)}
             >
-              <p.Stack
+              <Stack__
                 as={"div"}
                 hasGap={true}
                 className={classNames(projectcss.all, sty.columns__kYtE)}
               >
-                <p.Stack
+                <Stack__
                   as={"div"}
                   hasGap={true}
                   className={classNames(projectcss.all, sty.column__py98A)}
@@ -373,7 +388,7 @@ function PlasmicAbout__RenderFunc(props: {
                       "We set out to explore Mumbai the manufacturing hub for some answers and found LOTS and LOTS of textile waste instead. This was our chance to make the things we wanted, without making a bad problem even worse and so JBS was bornnn"
                     }
                   </div>
-                </p.Stack>
+                </Stack__>
                 <div className={classNames(projectcss.all, sty.column__u114A)}>
                   {(() => {
                     const child$Props = {
@@ -383,19 +398,18 @@ function PlasmicAbout__RenderFunc(props: {
                         ? false
                         : true,
                       autoplay: true,
-                      beforeChange:
-                        p.generateStateOnChangePropForCodeComponents(
-                          $state,
-                          "currentSlide",
-                          ["sliderCarousel", "currentSlide"],
-                          SliderWrapper_Helpers
-                        ),
+                      beforeChange: generateStateOnChangePropForCodeComponents(
+                        $state,
+                        "currentSlide",
+                        ["sliderCarousel", "currentSlide"],
+                        SliderWrapper_Helpers
+                      ),
                       className: classNames(
                         "__wab_instance",
                         sty.sliderCarousel
                       ),
                       dots: true,
-                      initialSlide: p.generateStateValueProp($state, [
+                      initialSlide: generateStateValueProp($state, [
                         "sliderCarousel",
                         "currentSlide"
                       ]),
@@ -404,7 +418,7 @@ function PlasmicAbout__RenderFunc(props: {
                       },
                       sliderScopeClassName: sty["sliderCarousel__slider"]
                     };
-                    p.initializeCodeComponentStates(
+                    initializeCodeComponentStates(
                       $state,
                       [
                         {
@@ -429,7 +443,7 @@ function PlasmicAbout__RenderFunc(props: {
                             sty.freeBox__cKjVs
                           )}
                         >
-                          <p.PlasmicImg
+                          <PlasmicImg__
                             alt={""}
                             className={classNames(sty.img__tx1Lb)}
                             displayHeight={"auto"}
@@ -452,7 +466,7 @@ function PlasmicAbout__RenderFunc(props: {
                             sty.freeBox__yqC2R
                           )}
                         >
-                          <p.PlasmicImg
+                          <PlasmicImg__
                             alt={""}
                             className={classNames(sty.img__shPbV)}
                             displayHeight={"auto"}
@@ -475,7 +489,7 @@ function PlasmicAbout__RenderFunc(props: {
                             sty.freeBox__iVLw
                           )}
                         >
-                          <p.PlasmicImg
+                          <PlasmicImg__
                             alt={""}
                             className={classNames(sty.img___2J70B)}
                             displayHeight={"auto"}
@@ -496,13 +510,13 @@ function PlasmicAbout__RenderFunc(props: {
                     );
                   })()}
                 </div>
-              </p.Stack>
+              </Stack__>
             </Section>
             <Section
               className={classNames("__wab_instance", sty.section__j2Fxj)}
             >
               <div className={classNames(projectcss.all, sty.freeBox__ihiLy)}>
-                <p.PlasmicImg
+                <PlasmicImg__
                   alt={""}
                   className={classNames(sty.img__qyg4T)}
                   displayHeight={"auto"}
@@ -513,14 +527,14 @@ function PlasmicAbout__RenderFunc(props: {
                   displayWidth={"auto"}
                   loading={"lazy"}
                   src={{
-                    src: "/plasmic/jbs_storefront/images/theJuhuBeachWidewebp.webp",
+                    src: "/plasmic/jbs_storefront/images/theJuhuBeachWideWebp.webp",
                     fullWidth: 7239,
                     fullHeight: 5047,
                     aspectRatio: undefined
                   }}
                 />
 
-                <p.Stack
+                <Stack__
                   as={"div"}
                   hasGap={true}
                   className={classNames(projectcss.all, sty.columns__bZln9)}
@@ -538,7 +552,7 @@ function PlasmicAbout__RenderFunc(props: {
                       {"What's a Juhu Beach"}
                     </div>
                   </div>
-                  <p.Stack
+                  <Stack__
                     as={"div"}
                     hasGap={true}
                     className={classNames(projectcss.all, sty.column__v3VCh)}
@@ -565,11 +579,11 @@ function PlasmicAbout__RenderFunc(props: {
                         "This is basically how we wanted this brand to feel too, just like at the beach, everyone is welcome, anything can happen, no cynicism, just vibes. But because real life might actually be inescapable you can always make it more fun!"
                       }
                     </div>
-                  </p.Stack>
-                </p.Stack>
+                  </Stack__>
+                </Stack__>
               </div>
               <div className={classNames(projectcss.all, sty.freeBox__luyD)}>
-                <p.PlasmicImg
+                <PlasmicImg__
                   alt={""}
                   className={classNames(sty.img__dBzrS)}
                   displayHeight={"auto"}
@@ -580,14 +594,14 @@ function PlasmicAbout__RenderFunc(props: {
                   displayWidth={"auto"}
                   loading={"lazy"}
                   src={{
-                    src: "/plasmic/jbs_storefront/images/theJuhuBeachNarrowwebp2.webp",
+                    src: "/plasmic/jbs_storefront/images/theJuhuBeachNarrowWebp2.webp",
                     fullWidth: 879,
                     fullHeight: 1484,
                     aspectRatio: undefined
                   }}
                 />
 
-                <p.Stack
+                <Stack__
                   as={"div"}
                   hasGap={true}
                   className={classNames(projectcss.all, sty.columns__vGb4)}
@@ -605,7 +619,7 @@ function PlasmicAbout__RenderFunc(props: {
                       {"What's a Juhu Beach"}
                     </div>
                   </div>
-                  <p.Stack
+                  <Stack__
                     as={"div"}
                     hasGap={true}
                     className={classNames(projectcss.all, sty.column__wyZtk)}
@@ -632,14 +646,14 @@ function PlasmicAbout__RenderFunc(props: {
                         "This is basically how we wanted this brand to feel too, just like at the beach, everyone is welcome, anything can happen, no cynicism, just vibes. While real life may be inescapable you can always make it more fun"
                       }
                     </div>
-                  </p.Stack>
-                </p.Stack>
+                  </Stack__>
+                </Stack__>
               </div>
             </Section>
             <Section
               className={classNames("__wab_instance", sty.section__zxezt)}
             >
-              <p.Stack
+              <Stack__
                 as={"div"}
                 hasGap={true}
                 className={classNames(projectcss.all, sty.freeBox__bVCj)}
@@ -671,7 +685,7 @@ function PlasmicAbout__RenderFunc(props: {
                   </React.Fragment>
                 </div>
                 <div className={classNames(projectcss.all, sty.freeBox__htKgA)}>
-                  <p.PlasmicImg
+                  <PlasmicImg__
                     alt={""}
                     className={classNames(sty.img__fbg3T)}
                     displayHeight={"100%"}
@@ -682,14 +696,14 @@ function PlasmicAbout__RenderFunc(props: {
                     displayWidth={"auto"}
                     loading={"lazy"}
                     src={{
-                      src: "/plasmic/jbs_storefront/images/drawingPinBluepng.webp",
+                      src: "/plasmic/jbs_storefront/images/drawingPinBluePng.webp",
                       fullWidth: 181,
                       fullHeight: 400,
                       aspectRatio: undefined
                     }}
                   />
 
-                  <p.PlasmicImg
+                  <PlasmicImg__
                     alt={""}
                     className={classNames(sty.img___96Gh)}
                     displayHeight={"100%"}
@@ -700,14 +714,14 @@ function PlasmicAbout__RenderFunc(props: {
                     displayWidth={"auto"}
                     loading={"lazy"}
                     src={{
-                      src: "/plasmic/jbs_storefront/images/drawingPinBluepng.webp",
+                      src: "/plasmic/jbs_storefront/images/drawingPinBluePng.webp",
                       fullWidth: 181,
                       fullHeight: 400,
                       aspectRatio: undefined
                     }}
                   />
                 </div>
-                <p.PlasmicImg
+                <PlasmicImg__
                   alt={""}
                   className={classNames(sty.img__u8Xf)}
                   displayHeight={"auto"}
@@ -718,14 +732,14 @@ function PlasmicAbout__RenderFunc(props: {
                   displayWidth={"auto"}
                   loading={"lazy"}
                   src={{
-                    src: "/plasmic/jbs_storefront/images/wasteFellowsAutowebp.webp",
+                    src: "/plasmic/jbs_storefront/images/wasteFellowsAutoWebp.webp",
                     fullWidth: 1658,
                     fullHeight: 1080,
                     aspectRatio: undefined
                   }}
                 />
 
-                <p.Stack
+                <Stack__
                   as={"div"}
                   hasGap={true}
                   className={classNames(projectcss.all, sty.freeBox__dqUkO)}
@@ -782,8 +796,8 @@ function PlasmicAbout__RenderFunc(props: {
                       <React.Fragment>{"\u201d"}</React.Fragment>
                     </React.Fragment>
                   </div>
-                </p.Stack>
-              </p.Stack>
+                </Stack__>
+              </Stack__>
             </Section>
             <Section
               className={classNames("__wab_instance", sty.section__wMEy)}
@@ -796,7 +810,7 @@ function PlasmicAbout__RenderFunc(props: {
               />
 
               <div className={classNames(projectcss.all, sty.freeBox__oOVd)}>
-                <p.PlasmicImg
+                <PlasmicImg__
                   alt={""}
                   className={classNames(sty.img__k5HgV)}
                   displayHeight={
@@ -815,7 +829,7 @@ function PlasmicAbout__RenderFunc(props: {
                   }
                   loading={"lazy"}
                   src={{
-                    src: "/plasmic/jbs_storefront/images/bannerTeamwebp.webp",
+                    src: "/plasmic/jbs_storefront/images/bannerTeamWebp.webp",
                     fullWidth: 4096,
                     fullHeight: 3009,
                     aspectRatio: undefined
@@ -844,7 +858,7 @@ function PlasmicAbout__RenderFunc(props: {
                 </div>
               </div>
             </Section>
-            <p.Stack
+            <Stack__
               as={"div"}
               hasGap={true}
               className={classNames(projectcss.all, sty.columns__uym5W)}
@@ -875,10 +889,10 @@ function PlasmicAbout__RenderFunc(props: {
                   }
                 </div>
               </div>
-            </p.Stack>
+            </Stack__>
             <div className={classNames(projectcss.all, sty.columns__rf6UN)}>
               <div className={classNames(projectcss.all, sty.column__dIz1)}>
-                <p.PlasmicImg
+                <PlasmicImg__
                   alt={""}
                   className={classNames(sty.img__lsP7Y)}
                   displayHeight={"auto"}
@@ -897,7 +911,7 @@ function PlasmicAbout__RenderFunc(props: {
                 />
               </div>
               <div className={classNames(projectcss.all, sty.column__rz8Li)}>
-                <p.PlasmicImg
+                <PlasmicImg__
                   alt={""}
                   className={classNames(sty.img___0IuIu)}
                   displayHeight={"auto"}
@@ -927,7 +941,7 @@ function PlasmicAbout__RenderFunc(props: {
               />
 
               <div className={classNames(projectcss.all, sty.freeBox__xxwor)}>
-                <p.PlasmicImg
+                <PlasmicImg__
                   alt={""}
                   className={classNames(sty.img___4I0S7)}
                   displayHeight={"auto"}
@@ -938,7 +952,7 @@ function PlasmicAbout__RenderFunc(props: {
                   displayWidth={"auto"}
                   loading={"lazy"}
                   src={{
-                    src: "/plasmic/jbs_storefront/images/bannerProcesswebp.webp",
+                    src: "/plasmic/jbs_storefront/images/bannerProcessWebp.webp",
                     fullWidth: 4096,
                     fullHeight: 2304,
                     aspectRatio: undefined
@@ -965,7 +979,7 @@ function PlasmicAbout__RenderFunc(props: {
                 </div>
               </div>
             </Section>
-            <p.Stack
+            <Stack__
               as={"div"}
               hasGap={true}
               className={classNames(projectcss.all, sty.columns__k2nd)}
@@ -1021,11 +1035,11 @@ function PlasmicAbout__RenderFunc(props: {
                   </React.Fragment>
                 </div>
               </div>
-            </p.Stack>
+            </Stack__>
             <Section
               className={classNames("__wab_instance", sty.section___6M8CL)}
             >
-              <p.Stack
+              <Stack__
                 as={"div"}
                 hasGap={true}
                 className={classNames(projectcss.all, sty.freeBox__radub)}
@@ -1037,7 +1051,7 @@ function PlasmicAbout__RenderFunc(props: {
                       ? false
                       : undefined,
                     autoplay: true,
-                    beforeChange: p.generateStateOnChangePropForCodeComponents(
+                    beforeChange: generateStateOnChangePropForCodeComponents(
                       $state,
                       "currentSlide",
                       ["sliderCarousel2", "currentSlide"],
@@ -1049,7 +1063,7 @@ function PlasmicAbout__RenderFunc(props: {
                       sty.sliderCarousel2
                     ),
                     dots: true,
-                    initialSlide: p.generateStateValueProp($state, [
+                    initialSlide: generateStateValueProp($state, [
                       "sliderCarousel2",
                       "currentSlide"
                     ]),
@@ -1058,7 +1072,7 @@ function PlasmicAbout__RenderFunc(props: {
                     },
                     sliderScopeClassName: sty["sliderCarousel2__slider"]
                   };
-                  p.initializeCodeComponentStates(
+                  initializeCodeComponentStates(
                     $state,
                     [
                       {
@@ -1083,7 +1097,7 @@ function PlasmicAbout__RenderFunc(props: {
                           sty.freeBox__neHuN
                         )}
                       >
-                        <p.PlasmicImg
+                        <PlasmicImg__
                           alt={""}
                           className={classNames(sty.img___4GGb)}
                           displayHeight={"auto"}
@@ -1106,7 +1120,7 @@ function PlasmicAbout__RenderFunc(props: {
                           sty.freeBox__ytN4
                         )}
                       >
-                        <p.PlasmicImg
+                        <PlasmicImg__
                           alt={""}
                           className={classNames(sty.img__fpOPm)}
                           displayHeight={"auto"}
@@ -1129,7 +1143,7 @@ function PlasmicAbout__RenderFunc(props: {
                           sty.freeBox__lcPjv
                         )}
                       >
-                        <p.PlasmicImg
+                        <PlasmicImg__
                           alt={""}
                           className={classNames(sty.img__rMuuQ)}
                           displayHeight={"auto"}
@@ -1152,7 +1166,7 @@ function PlasmicAbout__RenderFunc(props: {
                           sty.freeBox__sNaVf
                         )}
                       >
-                        <p.PlasmicImg
+                        <PlasmicImg__
                           alt={""}
                           className={classNames(sty.img__rmO8)}
                           displayHeight={"auto"}
@@ -1175,7 +1189,7 @@ function PlasmicAbout__RenderFunc(props: {
                           sty.freeBox__lOwR0
                         )}
                       >
-                        <p.PlasmicImg
+                        <PlasmicImg__
                           alt={""}
                           className={classNames(sty.img__f2HcN)}
                           displayHeight={"auto"}
@@ -1198,7 +1212,7 @@ function PlasmicAbout__RenderFunc(props: {
                           sty.freeBox__ooPor
                         )}
                       >
-                        <p.PlasmicImg
+                        <PlasmicImg__
                           alt={""}
                           className={classNames(sty.img__kIwZ7)}
                           displayHeight={"auto"}
@@ -1221,7 +1235,7 @@ function PlasmicAbout__RenderFunc(props: {
                           sty.freeBox___0JRWt
                         )}
                       >
-                        <p.PlasmicImg
+                        <PlasmicImg__
                           alt={""}
                           className={classNames(sty.img___43JAc)}
                           displayHeight={"auto"}
@@ -1244,7 +1258,7 @@ function PlasmicAbout__RenderFunc(props: {
                           sty.freeBox__yimR
                         )}
                       >
-                        <p.PlasmicImg
+                        <PlasmicImg__
                           alt={""}
                           className={classNames(sty.img__dsPrD)}
                           displayHeight={"auto"}
@@ -1267,7 +1281,7 @@ function PlasmicAbout__RenderFunc(props: {
                           sty.freeBox__yaMtX
                         )}
                       >
-                        <p.PlasmicImg
+                        <PlasmicImg__
                           alt={""}
                           className={classNames(sty.img___6UzEr)}
                           displayHeight={"auto"}
@@ -1287,7 +1301,7 @@ function PlasmicAbout__RenderFunc(props: {
                     </SliderWrapper>
                   );
                 })()}
-                <p.Stack
+                <Stack__
                   as={"div"}
                   hasGap={true}
                   className={classNames(projectcss.all, sty.freeBox__v3B0S)}
@@ -1347,13 +1361,13 @@ function PlasmicAbout__RenderFunc(props: {
                       </React.Fragment>
                     </React.Fragment>
                   </div>
-                </p.Stack>
-              </p.Stack>
+                </Stack__>
+              </Stack__>
             </Section>
             <Section
               className={classNames("__wab_instance", sty.section__ch4Xy)}
             >
-              <p.Stack
+              <Stack__
                 as={"div"}
                 hasGap={true}
                 className={classNames(projectcss.all, sty.freeBox__rL0US)}
@@ -1374,7 +1388,7 @@ function PlasmicAbout__RenderFunc(props: {
                     <div
                       className={classNames(projectcss.all, sty.freeBox__lne7T)}
                     >
-                      <p.PlasmicImg
+                      <PlasmicImg__
                         alt={""}
                         className={classNames(sty.img__su3Rw)}
                         displayHeight={"60px"}
@@ -1385,14 +1399,14 @@ function PlasmicAbout__RenderFunc(props: {
                         displayWidth={"auto"}
                         loading={"lazy"}
                         src={{
-                          src: "/plasmic/jbs_storefront/images/gemsClipwebp.webp",
+                          src: "/plasmic/jbs_storefront/images/gemsClipWebp.webp",
                           fullWidth: 242,
                           fullHeight: 460,
                           aspectRatio: undefined
                         }}
                       />
                     </div>
-                    <p.Stack
+                    <Stack__
                       as={"div"}
                       hasGap={true}
                       className={classNames(projectcss.all, sty.columns__ykBke)}
@@ -1430,7 +1444,7 @@ function PlasmicAbout__RenderFunc(props: {
                           sty.column__qVtLb
                         )}
                       >
-                        <p.PlasmicImg
+                        <PlasmicImg__
                           alt={""}
                           className={classNames(sty.img__g016Y)}
                           displayHeight={"100%"}
@@ -1441,14 +1455,14 @@ function PlasmicAbout__RenderFunc(props: {
                           displayWidth={"auto"}
                           loading={"lazy"}
                           src={{
-                            src: "/plasmic/jbs_storefront/images/materialsDeadstockwebp.webp",
+                            src: "/plasmic/jbs_storefront/images/materialsDeadstockWebp.webp",
                             fullWidth: 2179,
                             fullHeight: 1360,
                             aspectRatio: undefined
                           }}
                         />
                       </div>
-                    </p.Stack>
+                    </Stack__>
                   </div>
                   <div
                     className={classNames(projectcss.all, sty.freeBox__t43Mk)}
@@ -1456,7 +1470,7 @@ function PlasmicAbout__RenderFunc(props: {
                     <div
                       className={classNames(projectcss.all, sty.freeBox__viKy6)}
                     >
-                      <p.PlasmicImg
+                      <PlasmicImg__
                         alt={""}
                         className={classNames(sty.img__rbd8W)}
                         displayHeight={"60px"}
@@ -1467,14 +1481,14 @@ function PlasmicAbout__RenderFunc(props: {
                         displayWidth={"auto"}
                         loading={"lazy"}
                         src={{
-                          src: "/plasmic/jbs_storefront/images/gemsClipwebp.webp",
+                          src: "/plasmic/jbs_storefront/images/gemsClipWebp.webp",
                           fullWidth: 242,
                           fullHeight: 460,
                           aspectRatio: undefined
                         }}
                       />
                     </div>
-                    <p.Stack
+                    <Stack__
                       as={"div"}
                       hasGap={true}
                       className={classNames(projectcss.all, sty.columns__j7Us5)}
@@ -1509,7 +1523,7 @@ function PlasmicAbout__RenderFunc(props: {
                           sty.column__mz66F
                         )}
                       >
-                        <p.PlasmicImg
+                        <PlasmicImg__
                           alt={""}
                           className={classNames(sty.img___46KI1)}
                           displayHeight={"100%"}
@@ -1520,14 +1534,14 @@ function PlasmicAbout__RenderFunc(props: {
                           displayWidth={"auto"}
                           loading={"lazy"}
                           src={{
-                            src: "/plasmic/jbs_storefront/images/materialsChindiwebp.webp",
+                            src: "/plasmic/jbs_storefront/images/materialsChindiWebp.webp",
                             fullWidth: 2146,
                             fullHeight: 1334,
                             aspectRatio: undefined
                           }}
                         />
                       </div>
-                    </p.Stack>
+                    </Stack__>
                   </div>
                   <div
                     className={classNames(projectcss.all, sty.freeBox__lSPcz)}
@@ -1538,7 +1552,7 @@ function PlasmicAbout__RenderFunc(props: {
                         sty.freeBox___8FyTo
                       )}
                     >
-                      <p.PlasmicImg
+                      <PlasmicImg__
                         alt={""}
                         className={classNames(sty.img__bCa6)}
                         displayHeight={"60px"}
@@ -1549,14 +1563,14 @@ function PlasmicAbout__RenderFunc(props: {
                         displayWidth={"auto"}
                         loading={"lazy"}
                         src={{
-                          src: "/plasmic/jbs_storefront/images/gemsClipwebp.webp",
+                          src: "/plasmic/jbs_storefront/images/gemsClipWebp.webp",
                           fullWidth: 242,
                           fullHeight: 460,
                           aspectRatio: undefined
                         }}
                       />
                     </div>
-                    <p.Stack
+                    <Stack__
                       as={"div"}
                       hasGap={true}
                       className={classNames(projectcss.all, sty.columns___2V9K)}
@@ -1567,7 +1581,7 @@ function PlasmicAbout__RenderFunc(props: {
                           sty.column___4L0IL
                         )}
                       >
-                        <p.PlasmicImg
+                        <PlasmicImg__
                           alt={""}
                           className={classNames(sty.img__eO7H0)}
                           displayHeight={"100%"}
@@ -1578,7 +1592,7 @@ function PlasmicAbout__RenderFunc(props: {
                           displayWidth={"auto"}
                           loading={"lazy"}
                           src={{
-                            src: "/plasmic/jbs_storefront/images/materialsSurpluswebp.webp",
+                            src: "/plasmic/jbs_storefront/images/materialsSurplusWebp.webp",
                             fullWidth: 2168,
                             fullHeight: 1357,
                             aspectRatio: undefined
@@ -1612,7 +1626,7 @@ function PlasmicAbout__RenderFunc(props: {
                           }
                         </div>
                       </div>
-                    </p.Stack>
+                    </Stack__>
                   </div>
                   <div
                     className={classNames(projectcss.all, sty.freeBox__w7UlV)}
@@ -1620,7 +1634,7 @@ function PlasmicAbout__RenderFunc(props: {
                     <div
                       className={classNames(projectcss.all, sty.freeBox__q9Bs)}
                     >
-                      <p.PlasmicImg
+                      <PlasmicImg__
                         alt={""}
                         className={classNames(sty.img__qd9Xe)}
                         displayHeight={"60px"}
@@ -1631,14 +1645,14 @@ function PlasmicAbout__RenderFunc(props: {
                         displayWidth={"auto"}
                         loading={"lazy"}
                         src={{
-                          src: "/plasmic/jbs_storefront/images/gemsClipwebp.webp",
+                          src: "/plasmic/jbs_storefront/images/gemsClipWebp.webp",
                           fullWidth: 242,
                           fullHeight: 460,
                           aspectRatio: undefined
                         }}
                       />
                     </div>
-                    <p.Stack
+                    <Stack__
                       as={"div"}
                       hasGap={true}
                       className={classNames(projectcss.all, sty.columns__gx4Jz)}
@@ -1646,7 +1660,7 @@ function PlasmicAbout__RenderFunc(props: {
                       <div
                         className={classNames(projectcss.all, sty.column__vwuE)}
                       >
-                        <p.PlasmicImg
+                        <PlasmicImg__
                           alt={""}
                           className={classNames(sty.img___36Ik)}
                           displayHeight={"100%"}
@@ -1657,7 +1671,7 @@ function PlasmicAbout__RenderFunc(props: {
                           displayWidth={"auto"}
                           loading={"lazy"}
                           src={{
-                            src: "/plasmic/jbs_storefront/images/materialsDamagedwebp.webp",
+                            src: "/plasmic/jbs_storefront/images/materialsDamagedWebp.webp",
                             fullWidth: 2048,
                             fullHeight: 1379,
                             aspectRatio: undefined
@@ -1688,15 +1702,15 @@ function PlasmicAbout__RenderFunc(props: {
                           }
                         </div>
                       </div>
-                    </p.Stack>
+                    </Stack__>
                   </div>
                 </div>
-              </p.Stack>
+              </Stack__>
             </Section>
             <Section
               className={classNames("__wab_instance", sty.section__eHgi1)}
             >
-              <p.Stack
+              <Stack__
                 as={"div"}
                 hasGap={true}
                 className={classNames(projectcss.all, sty.freeBox__hy50G)}
@@ -1708,7 +1722,7 @@ function PlasmicAbout__RenderFunc(props: {
                       ? false
                       : undefined,
                     autoplay: true,
-                    beforeChange: p.generateStateOnChangePropForCodeComponents(
+                    beforeChange: generateStateOnChangePropForCodeComponents(
                       $state,
                       "currentSlide",
                       ["sliderCarousel3", "currentSlide"],
@@ -1720,7 +1734,7 @@ function PlasmicAbout__RenderFunc(props: {
                       sty.sliderCarousel3
                     ),
                     dots: true,
-                    initialSlide: p.generateStateValueProp($state, [
+                    initialSlide: generateStateValueProp($state, [
                       "sliderCarousel3",
                       "currentSlide"
                     ]),
@@ -1729,7 +1743,7 @@ function PlasmicAbout__RenderFunc(props: {
                     },
                     sliderScopeClassName: sty["sliderCarousel3__slider"]
                   };
-                  p.initializeCodeComponentStates(
+                  initializeCodeComponentStates(
                     $state,
                     [
                       {
@@ -1754,7 +1768,7 @@ function PlasmicAbout__RenderFunc(props: {
                           sty.freeBox__k6FU
                         )}
                       >
-                        <p.PlasmicImg
+                        <PlasmicImg__
                           alt={""}
                           className={classNames(sty.img__gVb8J)}
                           displayHeight={"auto"}
@@ -1777,7 +1791,7 @@ function PlasmicAbout__RenderFunc(props: {
                           sty.freeBox__iwBfR
                         )}
                       >
-                        <p.PlasmicImg
+                        <PlasmicImg__
                           alt={""}
                           className={classNames(sty.img__azK5T)}
                           displayHeight={"auto"}
@@ -1800,7 +1814,7 @@ function PlasmicAbout__RenderFunc(props: {
                           sty.freeBox__cHOl1
                         )}
                       >
-                        <p.PlasmicImg
+                        <PlasmicImg__
                           alt={""}
                           className={classNames(sty.img__z7VDw)}
                           displayHeight={"auto"}
@@ -1823,7 +1837,7 @@ function PlasmicAbout__RenderFunc(props: {
                           sty.freeBox__xhzGi
                         )}
                       >
-                        <p.PlasmicImg
+                        <PlasmicImg__
                           alt={""}
                           className={classNames(sty.img___2O22M)}
                           displayHeight={"auto"}
@@ -1846,7 +1860,7 @@ function PlasmicAbout__RenderFunc(props: {
                           sty.freeBox__k7Iup
                         )}
                       >
-                        <p.PlasmicImg
+                        <PlasmicImg__
                           alt={""}
                           className={classNames(sty.img__tfNB)}
                           displayHeight={"auto"}
@@ -1869,7 +1883,7 @@ function PlasmicAbout__RenderFunc(props: {
                           sty.freeBox___9YhyC
                         )}
                       >
-                        <p.PlasmicImg
+                        <PlasmicImg__
                           alt={""}
                           className={classNames(sty.img___8HCxs)}
                           displayHeight={"auto"}
@@ -1892,7 +1906,7 @@ function PlasmicAbout__RenderFunc(props: {
                           sty.freeBox__gfZmb
                         )}
                       >
-                        <p.PlasmicImg
+                        <PlasmicImg__
                           alt={""}
                           className={classNames(sty.img__ppVj)}
                           displayHeight={"auto"}
@@ -1915,7 +1929,7 @@ function PlasmicAbout__RenderFunc(props: {
                           sty.freeBox__kDlY
                         )}
                       >
-                        <p.PlasmicImg
+                        <PlasmicImg__
                           alt={""}
                           className={classNames(sty.img__kbXHf)}
                           displayHeight={"auto"}
@@ -1938,7 +1952,7 @@ function PlasmicAbout__RenderFunc(props: {
                           sty.freeBox___9Mfu2
                         )}
                       >
-                        <p.PlasmicImg
+                        <PlasmicImg__
                           alt={""}
                           className={classNames(sty.img__fTm9S)}
                           displayHeight={"auto"}
@@ -1961,7 +1975,7 @@ function PlasmicAbout__RenderFunc(props: {
                           sty.freeBox__oXqh1
                         )}
                       >
-                        <p.PlasmicImg
+                        <PlasmicImg__
                           alt={""}
                           className={classNames(sty.img__ub9Ek)}
                           displayHeight={"auto"}
@@ -1981,7 +1995,7 @@ function PlasmicAbout__RenderFunc(props: {
                     </SliderWrapper>
                   );
                 })()}
-                <p.Stack
+                <Stack__
                   as={"div"}
                   hasGap={true}
                   className={classNames(projectcss.all, sty.freeBox__sKvnY)}
@@ -2006,8 +2020,8 @@ function PlasmicAbout__RenderFunc(props: {
                       "Our product ideas come from lots of different places. Moments from our own lives, objects we would love to use ourselves, stuff that makes us laugh, all these things appear as amusing little details on the products, packaging, etc which make up our unique Juhu Beach Studio design language. Any limitations a material poses force us to get super creative with what we make out of it. And since we make limited quantites we can really go nuts and experiment with unusual designs."
                     }
                   </div>
-                </p.Stack>
-              </p.Stack>
+                </Stack__>
+              </Stack__>
             </Section>
             <div className={classNames(projectcss.all, sty.freeBox___8IWHu)}>
               <div className={classNames(projectcss.all, sty.freeBox__twvWp)}>
@@ -2021,21 +2035,7 @@ function PlasmicAbout__RenderFunc(props: {
                         sty.text___1Wz8P
                       )}
                     >
-                      <React.Fragment>
-                        {(() => {
-                          try {
-                            return $state.metersOfTextile;
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return "700";
-                            }
-                            throw e;
-                          }
-                        })()}
-                      </React.Fragment>
+                      {"700"}
                     </div>
                   }
                   unit={
@@ -2070,21 +2070,7 @@ function PlasmicAbout__RenderFunc(props: {
                         sty.text__fuGtF
                       )}
                     >
-                      <React.Fragment>
-                        {(() => {
-                          try {
-                            return $state.numberOfProducts;
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return "1,556";
-                            }
-                            throw e;
-                          }
-                        })()}
-                      </React.Fragment>
+                      {"1,556"}
                     </div>
                   }
                   unit={
@@ -2113,7 +2099,7 @@ function PlasmicAbout__RenderFunc(props: {
             <Section
               className={classNames("__wab_instance", sty.section__ve8Ea)}
             >
-              <p.Stack
+              <Stack__
                 as={"div"}
                 hasGap={true}
                 className={classNames(projectcss.all, sty.freeBox__hGgMn)}
@@ -2125,7 +2111,7 @@ function PlasmicAbout__RenderFunc(props: {
                       ? false
                       : undefined,
                     autoplay: true,
-                    beforeChange: p.generateStateOnChangePropForCodeComponents(
+                    beforeChange: generateStateOnChangePropForCodeComponents(
                       $state,
                       "currentSlide",
                       ["sliderCarousel5", "currentSlide"],
@@ -2137,7 +2123,7 @@ function PlasmicAbout__RenderFunc(props: {
                       sty.sliderCarousel5
                     ),
                     dots: true,
-                    initialSlide: p.generateStateValueProp($state, [
+                    initialSlide: generateStateValueProp($state, [
                       "sliderCarousel5",
                       "currentSlide"
                     ]),
@@ -2146,7 +2132,7 @@ function PlasmicAbout__RenderFunc(props: {
                     },
                     sliderScopeClassName: sty["sliderCarousel5__slider"]
                   };
-                  p.initializeCodeComponentStates(
+                  initializeCodeComponentStates(
                     $state,
                     [
                       {
@@ -2171,7 +2157,7 @@ function PlasmicAbout__RenderFunc(props: {
                           sty.freeBox__uXuQ3
                         )}
                       >
-                        <p.PlasmicImg
+                        <PlasmicImg__
                           alt={""}
                           className={classNames(sty.img__weVMp)}
                           displayHeight={"auto"}
@@ -2194,7 +2180,7 @@ function PlasmicAbout__RenderFunc(props: {
                           sty.freeBox__n23UD
                         )}
                       >
-                        <p.PlasmicImg
+                        <PlasmicImg__
                           alt={""}
                           className={classNames(sty.img__ki9Zx)}
                           displayHeight={"auto"}
@@ -2217,7 +2203,7 @@ function PlasmicAbout__RenderFunc(props: {
                           sty.freeBox__btEhT
                         )}
                       >
-                        <p.PlasmicImg
+                        <PlasmicImg__
                           alt={""}
                           className={classNames(sty.img__guRpA)}
                           displayHeight={"auto"}
@@ -2240,7 +2226,7 @@ function PlasmicAbout__RenderFunc(props: {
                           sty.freeBox___9Bd5
                         )}
                       >
-                        <p.PlasmicImg
+                        <PlasmicImg__
                           alt={""}
                           className={classNames(sty.img__hYvbw)}
                           displayHeight={"auto"}
@@ -2263,7 +2249,7 @@ function PlasmicAbout__RenderFunc(props: {
                           sty.freeBox__m7Wm
                         )}
                       >
-                        <p.PlasmicImg
+                        <PlasmicImg__
                           alt={""}
                           className={classNames(sty.img__sRgI0)}
                           displayHeight={"auto"}
@@ -2286,7 +2272,7 @@ function PlasmicAbout__RenderFunc(props: {
                           sty.freeBox___1Gj2D
                         )}
                       >
-                        <p.PlasmicImg
+                        <PlasmicImg__
                           alt={""}
                           className={classNames(sty.img___88WI0)}
                           displayHeight={"auto"}
@@ -2306,7 +2292,7 @@ function PlasmicAbout__RenderFunc(props: {
                     </SliderWrapper>
                   );
                 })()}
-                <p.Stack
+                <Stack__
                   as={"div"}
                   hasGap={true}
                   className={classNames(projectcss.all, sty.freeBox__eARsP)}
@@ -2331,8 +2317,8 @@ function PlasmicAbout__RenderFunc(props: {
                       "Because of our irregular raw materials, we can make lotsss of different products but only as limited editions. We also like to use a mix of machine and handwork which gives us so much room to create one of a kind details and make everything sturdy and high quality. After drawing, cutting, stitching, ironing, embroidery, etc all of the sketches are finally turned into our beautiful finished products."
                     }
                   </div>
-                </p.Stack>
-              </p.Stack>
+                </Stack__>
+              </Stack__>
             </Section>
             <Section
               className={classNames("__wab_instance", sty.section__tneL3)}
@@ -2371,7 +2357,7 @@ function PlasmicAbout__RenderFunc(props: {
                   >
                     {"1"}
                   </div>
-                  <p.PlasmicImg
+                  <PlasmicImg__
                     alt={""}
                     className={classNames(sty.img__vCli7)}
                     displayHeight={"auto"}
@@ -2382,7 +2368,7 @@ function PlasmicAbout__RenderFunc(props: {
                     displayWidth={"auto"}
                     loading={"lazy"}
                     src={{
-                      src: "/plasmic/jbs_storefront/images/agendaClothesPilewebp.webp",
+                      src: "/plasmic/jbs_storefront/images/agendaClothesPileWebp.webp",
                       fullWidth: 1066,
                       fullHeight: 1021,
                       aspectRatio: undefined
@@ -2411,7 +2397,7 @@ function PlasmicAbout__RenderFunc(props: {
                   >
                     {"2"}
                   </div>
-                  <p.PlasmicImg
+                  <PlasmicImg__
                     alt={""}
                     className={classNames(sty.img__bgq7B)}
                     displayHeight={"auto"}
@@ -2422,7 +2408,7 @@ function PlasmicAbout__RenderFunc(props: {
                     displayWidth={"auto"}
                     loading={"lazy"}
                     src={{
-                      src: "/plasmic/jbs_storefront/images/agendaMousewebp.webp",
+                      src: "/plasmic/jbs_storefront/images/agendaMouseWebp.webp",
                       fullWidth: 1066,
                       fullHeight: 1022,
                       aspectRatio: undefined
@@ -2451,7 +2437,7 @@ function PlasmicAbout__RenderFunc(props: {
                   >
                     {"3"}
                   </div>
-                  <p.PlasmicImg
+                  <PlasmicImg__
                     alt={""}
                     className={classNames(sty.img__kAbar)}
                     displayHeight={"auto"}
@@ -2462,7 +2448,7 @@ function PlasmicAbout__RenderFunc(props: {
                     displayWidth={"auto"}
                     loading={"lazy"}
                     src={{
-                      src: "/plasmic/jbs_storefront/images/agendaCoconutwebp.webp",
+                      src: "/plasmic/jbs_storefront/images/agendaCoconutWebp.webp",
                       fullWidth: 1066,
                       fullHeight: 1022,
                       aspectRatio: undefined
@@ -2491,7 +2477,7 @@ function PlasmicAbout__RenderFunc(props: {
                   >
                     {"4"}
                   </div>
-                  <p.PlasmicImg
+                  <PlasmicImg__
                     alt={""}
                     className={classNames(sty.img__tNcCq)}
                     displayHeight={"auto"}
@@ -2502,7 +2488,7 @@ function PlasmicAbout__RenderFunc(props: {
                     displayWidth={"auto"}
                     loading={"lazy"}
                     src={{
-                      src: "/plasmic/jbs_storefront/images/agendaHammerwebp.webp",
+                      src: "/plasmic/jbs_storefront/images/agendaHammerWebp.webp",
                       fullWidth: 1066,
                       fullHeight: 1022,
                       aspectRatio: undefined
@@ -2531,7 +2517,7 @@ function PlasmicAbout__RenderFunc(props: {
                   >
                     {"5"}
                   </div>
-                  <p.PlasmicImg
+                  <PlasmicImg__
                     alt={""}
                     className={classNames(sty.img__nujIn)}
                     displayHeight={"auto"}
@@ -2542,7 +2528,7 @@ function PlasmicAbout__RenderFunc(props: {
                     displayWidth={"auto"}
                     loading={"lazy"}
                     src={{
-                      src: "/plasmic/jbs_storefront/images/agendaTreasurewebp.webp",
+                      src: "/plasmic/jbs_storefront/images/agendaTreasureWebp.webp",
                       fullWidth: 1066,
                       fullHeight: 1021,
                       aspectRatio: undefined
@@ -2566,7 +2552,7 @@ function PlasmicAbout__RenderFunc(props: {
                 {(() => {
                   const child$Props = {
                     arrows: true,
-                    beforeChange: p.generateStateOnChangePropForCodeComponents(
+                    beforeChange: generateStateOnChangePropForCodeComponents(
                       $state,
                       "currentSlide",
                       ["sliderCarousel6", "currentSlide"],
@@ -2577,7 +2563,7 @@ function PlasmicAbout__RenderFunc(props: {
                       sty.sliderCarousel6
                     ),
                     dots: true,
-                    initialSlide: p.generateStateValueProp($state, [
+                    initialSlide: generateStateValueProp($state, [
                       "sliderCarousel6",
                       "currentSlide"
                     ]),
@@ -2587,7 +2573,7 @@ function PlasmicAbout__RenderFunc(props: {
                     sliderScopeClassName: sty["sliderCarousel6__slider"],
                     slidesToShow: 1
                   };
-                  p.initializeCodeComponentStates(
+                  initializeCodeComponentStates(
                     $state,
                     [
                       {
@@ -2621,7 +2607,7 @@ function PlasmicAbout__RenderFunc(props: {
                         >
                           {"1"}
                         </div>
-                        <p.PlasmicImg
+                        <PlasmicImg__
                           alt={""}
                           className={classNames(sty.img__wahg6)}
                           displayHeight={"auto"}
@@ -2632,7 +2618,7 @@ function PlasmicAbout__RenderFunc(props: {
                           displayWidth={"auto"}
                           loading={"lazy"}
                           src={{
-                            src: "/plasmic/jbs_storefront/images/agendaClothesPilewebp.webp",
+                            src: "/plasmic/jbs_storefront/images/agendaClothesPileWebp.webp",
                             fullWidth: 1066,
                             fullHeight: 1021,
                             aspectRatio: undefined
@@ -2666,7 +2652,7 @@ function PlasmicAbout__RenderFunc(props: {
                         >
                           {"2"}
                         </div>
-                        <p.PlasmicImg
+                        <PlasmicImg__
                           alt={""}
                           className={classNames(sty.img__h1BYg)}
                           displayHeight={"auto"}
@@ -2677,7 +2663,7 @@ function PlasmicAbout__RenderFunc(props: {
                           displayWidth={"auto"}
                           loading={"lazy"}
                           src={{
-                            src: "/plasmic/jbs_storefront/images/agendaMousewebp.webp",
+                            src: "/plasmic/jbs_storefront/images/agendaMouseWebp.webp",
                             fullWidth: 1066,
                             fullHeight: 1022,
                             aspectRatio: undefined
@@ -2711,7 +2697,7 @@ function PlasmicAbout__RenderFunc(props: {
                         >
                           {"3"}
                         </div>
-                        <p.PlasmicImg
+                        <PlasmicImg__
                           alt={""}
                           className={classNames(sty.img__seB1F)}
                           displayHeight={"auto"}
@@ -2722,7 +2708,7 @@ function PlasmicAbout__RenderFunc(props: {
                           displayWidth={"auto"}
                           loading={"lazy"}
                           src={{
-                            src: "/plasmic/jbs_storefront/images/agendaCoconutwebp.webp",
+                            src: "/plasmic/jbs_storefront/images/agendaCoconutWebp.webp",
                             fullWidth: 1066,
                             fullHeight: 1022,
                             aspectRatio: undefined
@@ -2756,7 +2742,7 @@ function PlasmicAbout__RenderFunc(props: {
                         >
                           {"4"}
                         </div>
-                        <p.PlasmicImg
+                        <PlasmicImg__
                           alt={""}
                           className={classNames(sty.img__kcCf)}
                           displayHeight={"auto"}
@@ -2767,7 +2753,7 @@ function PlasmicAbout__RenderFunc(props: {
                           displayWidth={"auto"}
                           loading={"lazy"}
                           src={{
-                            src: "/plasmic/jbs_storefront/images/agendaHammerwebp.webp",
+                            src: "/plasmic/jbs_storefront/images/agendaHammerWebp.webp",
                             fullWidth: 1066,
                             fullHeight: 1022,
                             aspectRatio: undefined
@@ -2801,7 +2787,7 @@ function PlasmicAbout__RenderFunc(props: {
                         >
                           {"5"}
                         </div>
-                        <p.PlasmicImg
+                        <PlasmicImg__
                           alt={""}
                           className={classNames(sty.img__jq1PA)}
                           displayHeight={"auto"}
@@ -2812,7 +2798,7 @@ function PlasmicAbout__RenderFunc(props: {
                           displayWidth={"auto"}
                           loading={"lazy"}
                           src={{
-                            src: "/plasmic/jbs_storefront/images/agendaTreasurewebp.webp",
+                            src: "/plasmic/jbs_storefront/images/agendaTreasureWebp.webp",
                             fullWidth: 1066,
                             fullHeight: 1021,
                             aspectRatio: undefined

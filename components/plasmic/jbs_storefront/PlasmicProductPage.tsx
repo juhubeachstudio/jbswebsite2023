@@ -17,25 +17,48 @@ import Head from "next/head";
 import Link, { LinkProps } from "next/link";
 import { useRouter } from "next/router";
 
-import * as p from "@plasmicapp/react-web";
-import * as ph from "@plasmicapp/react-web/lib/host";
-
 import {
-  hasVariant,
-  classNames,
-  wrapWithClassName,
-  createPlasmicElementProxy,
-  makeFragment,
+  Flex as Flex__,
   MultiChoiceArg,
+  PlasmicDataSourceContextProvider as PlasmicDataSourceContextProvider__,
+  PlasmicIcon as PlasmicIcon__,
+  PlasmicImg as PlasmicImg__,
+  PlasmicLink as PlasmicLink__,
+  PlasmicPageGuard as PlasmicPageGuard__,
   SingleBooleanChoiceArg,
   SingleChoiceArg,
-  pick,
-  omit,
-  useTrigger,
+  Stack as Stack__,
   StrictProps,
+  Trans as Trans__,
+  classNames,
+  createPlasmicElementProxy,
   deriveRenderOpts,
-  ensureGlobalVariants
+  ensureGlobalVariants,
+  generateOnMutateForSpec,
+  generateStateOnChangeProp,
+  generateStateOnChangePropForCodeComponents,
+  generateStateValueProp,
+  get as $stateGet,
+  hasVariant,
+  initializeCodeComponentStates,
+  initializePlasmicStates,
+  makeFragment,
+  omit,
+  pick,
+  renderPlasmicSlot,
+  set as $stateSet,
+  useCurrentUser,
+  useDollarState,
+  usePlasmicTranslator,
+  useTrigger,
+  wrapWithClassName
 } from "@plasmicapp/react-web";
+import {
+  DataCtxReader as DataCtxReader__,
+  useDataEnv,
+  useGlobalActions
+} from "@plasmicapp/react-web/lib/host";
+
 import FullPage from "../../FullPage"; // plasmic-import: VpRM2nIn0R/component
 import { ProductBox } from "@plasmicpkgs/commerce";
 import { PlasmicHead } from "@plasmicapp/react-web";
@@ -60,7 +83,7 @@ import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic_antd_5_hostl
 import projectcss from "./plasmic_jbs_storefront.module.css"; // plasmic-import: heL2P6rJiLNgtnBJPb6i1m/projectcss
 import sty from "./PlasmicProductPage.module.css"; // plasmic-import: sFlg1tQbot/css
 
-import ChecksvgIcon from "./icons/PlasmicIcon__Checksvg"; // plasmic-import: ew07hyuAC0c/icon
+import CheckSvgIcon from "./icons/PlasmicIcon__CheckSvg"; // plasmic-import: ew07hyuAC0c/icon
 import Icon38Icon from "./icons/PlasmicIcon__Icon38"; // plasmic-import: 3r4KXWygi9v/icon
 
 createPlasmicElementProxy;
@@ -75,19 +98,19 @@ type ArgPropType = keyof PlasmicProductPage__ArgsType;
 export const PlasmicProductPage__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicProductPage__OverridesType = {
-  root?: p.Flex<"div">;
-  fullPage?: p.Flex<typeof FullPage>;
-  columns?: p.Flex<"div">;
-  pageMetadataOverride?: p.Flex<typeof PlasmicHead>;
-  productMedia?: p.Flex<typeof ProductMedia>;
-  productPrice?: p.Flex<typeof ProductPriceComponent>;
-  productVariantPicker?: p.Flex<typeof ProductVariantPicker>;
-  addToCartCustomButton?: p.Flex<typeof AddToCartCustomButton>;
-  accordion?: p.Flex<typeof AntdAccordion>;
-  section?: p.Flex<typeof Section>;
-  productCardJbs?: p.Flex<typeof ProductCardJbs>;
-  button?: p.Flex<typeof Button>;
-  svg?: p.Flex<"svg">;
+  root?: Flex__<"div">;
+  fullPage?: Flex__<typeof FullPage>;
+  columns?: Flex__<"div">;
+  pageMetadataOverride?: Flex__<typeof PlasmicHead>;
+  productMedia?: Flex__<typeof ProductMedia>;
+  productPrice?: Flex__<typeof ProductPriceComponent>;
+  productVariantPicker?: Flex__<typeof ProductVariantPicker>;
+  addToCartCustomButton?: Flex__<typeof AddToCartCustomButton>;
+  accordion?: Flex__<typeof AntdAccordion>;
+  section?: Flex__<typeof Section>;
+  productCardJbs?: Flex__<typeof ProductCardJbs>;
+  button?: Flex__<typeof Button>;
+  svg?: Flex__<"svg">;
 };
 
 export interface DefaultProductPageProps {}
@@ -109,7 +132,16 @@ function PlasmicProductPage__RenderFunc(props: {
 }) {
   const { variants, overrides, forNode } = props;
 
-  const args = React.useMemo(() => Object.assign({}, props.args), [props.args]);
+  const args = React.useMemo(
+    () =>
+      Object.assign(
+        {},
+        Object.fromEntries(
+          Object.entries(props.args).filter(([_, v]) => v !== undefined)
+        )
+      ),
+    [props.args]
+  );
 
   const $props = {
     ...args,
@@ -117,13 +149,11 @@ function PlasmicProductPage__RenderFunc(props: {
   };
 
   const __nextRouter = useNextRouter();
-  const $ctx = ph.useDataEnv?.() || {};
+  const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const currentUser = p.useCurrentUser?.() || {};
-
-  const stateSpecs: Parameters<typeof p.useDollarState>[0] = React.useMemo(
+  const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
         path: "accordion.activePanelId",
@@ -131,7 +161,7 @@ function PlasmicProductPage__RenderFunc(props: {
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
 
-        onMutate: p.generateOnMutateForSpec(
+        onMutate: generateOnMutateForSpec(
           "activePanelId",
           AntdAccordion_Helpers
         )
@@ -139,7 +169,7 @@ function PlasmicProductPage__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
-  const $state = p.useDollarState(stateSpecs, {
+  const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
     $queries: {},
@@ -181,7 +211,7 @@ function PlasmicProductPage__RenderFunc(props: {
             data-plasmic-override={overrides.fullPage}
             className={classNames("__wab_instance", sty.fullPage)}
           >
-            <p.Stack
+            <Stack__
               as={"div"}
               data-plasmic-name={"columns"}
               data-plasmic-override={overrides.columns}
@@ -209,7 +239,7 @@ function PlasmicProductPage__RenderFunc(props: {
                   })()}
                   noLayout={true}
                 >
-                  <ph.DataCtxReader>
+                  <DataCtxReader__>
                     {$ctx => (
                       <React.Fragment>
                         <PlasmicHead
@@ -313,10 +343,10 @@ function PlasmicProductPage__RenderFunc(props: {
                         </div>
                       </React.Fragment>
                     )}
-                  </ph.DataCtxReader>
+                  </DataCtxReader__>
                 </ProductBox>
               </div>
-              <p.Stack
+              <Stack__
                 as={"div"}
                 hasGap={true}
                 className={classNames(projectcss.all, sty.column__vIqh5)}
@@ -340,10 +370,10 @@ function PlasmicProductPage__RenderFunc(props: {
                     }
                   })()}
                 >
-                  <ph.DataCtxReader>
+                  <DataCtxReader__>
                     {$ctx => (
                       <React.Fragment>
-                        <p.Stack
+                        <Stack__
                           as={"div"}
                           hasGap={true}
                           className={classNames(
@@ -458,7 +488,7 @@ function PlasmicProductPage__RenderFunc(props: {
                             )}
                             field={"description"}
                           />
-                        </p.Stack>
+                        </Stack__>
                         <AddToCartCustomButton
                           data-plasmic-name={"addToCartCustomButton"}
                           data-plasmic-override={
@@ -472,7 +502,7 @@ function PlasmicProductPage__RenderFunc(props: {
 
                         {(() => {
                           const child$Props = {
-                            activeKey: p.generateStateValueProp($state, [
+                            activeKey: generateStateValueProp($state, [
                               "accordion",
                               "activePanelId"
                             ]),
@@ -513,9 +543,9 @@ function PlasmicProductPage__RenderFunc(props: {
                                     )}
                                     dataName={"fetchedData"}
                                     errorDisplay={
-                                      <ph.DataCtxReader>
+                                      <DataCtxReader__>
                                         {$ctx => "Error fetching data"}
-                                      </ph.DataCtxReader>
+                                      </DataCtxReader__>
                                     }
                                     errorName={"fetchError"}
                                     headers={{
@@ -525,9 +555,9 @@ function PlasmicProductPage__RenderFunc(props: {
                                         "0f43cbfd628ae6e4fef6a34969378290"
                                     }}
                                     loadingDisplay={
-                                      <ph.DataCtxReader>
+                                      <DataCtxReader__>
                                         {$ctx => "Loading..."}
-                                      </ph.DataCtxReader>
+                                      </DataCtxReader__>
                                     }
                                     method={"POST"}
                                     noLayout={false}
@@ -554,7 +584,7 @@ function PlasmicProductPage__RenderFunc(props: {
                                       }
                                     })()}
                                   >
-                                    <ph.DataCtxReader>
+                                    <DataCtxReader__>
                                       {$ctx => (
                                         <div
                                           className={classNames(
@@ -582,7 +612,7 @@ function PlasmicProductPage__RenderFunc(props: {
                                           </React.Fragment>
                                         </div>
                                       )}
-                                    </ph.DataCtxReader>
+                                    </DataCtxReader__>
                                   </GraphqlFetcher>
                                 </AntdAccordionItem>
                                 <AntdAccordionItem
@@ -614,9 +644,9 @@ function PlasmicProductPage__RenderFunc(props: {
                                     )}
                                     dataName={"fetchedData"}
                                     errorDisplay={
-                                      <ph.DataCtxReader>
+                                      <DataCtxReader__>
                                         {$ctx => "Error fetching data"}
-                                      </ph.DataCtxReader>
+                                      </DataCtxReader__>
                                     }
                                     errorName={"fetchError"}
                                     headers={{
@@ -626,9 +656,9 @@ function PlasmicProductPage__RenderFunc(props: {
                                         "0f43cbfd628ae6e4fef6a34969378290"
                                     }}
                                     loadingDisplay={
-                                      <ph.DataCtxReader>
+                                      <DataCtxReader__>
                                         {$ctx => "Loading..."}
-                                      </ph.DataCtxReader>
+                                      </DataCtxReader__>
                                     }
                                     method={"POST"}
                                     noLayout={false}
@@ -655,7 +685,7 @@ function PlasmicProductPage__RenderFunc(props: {
                                       }
                                     })()}
                                   >
-                                    <ph.DataCtxReader>
+                                    <DataCtxReader__>
                                       {$ctx => (
                                         <div
                                           className={classNames(
@@ -683,7 +713,7 @@ function PlasmicProductPage__RenderFunc(props: {
                                           </React.Fragment>
                                         </div>
                                       )}
-                                    </ph.DataCtxReader>
+                                    </DataCtxReader__>
                                   </GraphqlFetcher>
                                 </AntdAccordionItem>
                                 <AntdAccordionItem
@@ -715,9 +745,9 @@ function PlasmicProductPage__RenderFunc(props: {
                                     )}
                                     dataName={"fetchedData"}
                                     errorDisplay={
-                                      <ph.DataCtxReader>
+                                      <DataCtxReader__>
                                         {$ctx => "Error fetching data"}
-                                      </ph.DataCtxReader>
+                                      </DataCtxReader__>
                                     }
                                     errorName={"fetchError"}
                                     headers={{
@@ -727,9 +757,9 @@ function PlasmicProductPage__RenderFunc(props: {
                                         "0f43cbfd628ae6e4fef6a34969378290"
                                     }}
                                     loadingDisplay={
-                                      <ph.DataCtxReader>
+                                      <DataCtxReader__>
                                         {$ctx => "Loading..."}
-                                      </ph.DataCtxReader>
+                                      </DataCtxReader__>
                                     }
                                     method={"POST"}
                                     noLayout={false}
@@ -756,7 +786,7 @@ function PlasmicProductPage__RenderFunc(props: {
                                       }
                                     })()}
                                   >
-                                    <ph.DataCtxReader>
+                                    <DataCtxReader__>
                                       {$ctx => (
                                         <div
                                           className={classNames(
@@ -784,13 +814,13 @@ function PlasmicProductPage__RenderFunc(props: {
                                           </React.Fragment>
                                         </div>
                                       )}
-                                    </ph.DataCtxReader>
+                                    </DataCtxReader__>
                                   </GraphqlFetcher>
                                 </AntdAccordionItem>
                               </React.Fragment>
                             ),
                             onChange:
-                              p.generateStateOnChangePropForCodeComponents(
+                              generateStateOnChangePropForCodeComponents(
                                 $state,
                                 "activePanelId",
                                 ["accordion", "activePanelId"],
@@ -798,7 +828,7 @@ function PlasmicProductPage__RenderFunc(props: {
                               ),
                             size: "large"
                           };
-                          p.initializeCodeComponentStates(
+                          initializeCodeComponentStates(
                             $state,
                             [
                               {
@@ -821,10 +851,10 @@ function PlasmicProductPage__RenderFunc(props: {
                         })()}
                       </React.Fragment>
                     )}
-                  </ph.DataCtxReader>
+                  </DataCtxReader__>
                 </ProductBox>
-              </p.Stack>
-            </p.Stack>
+              </Stack__>
+            </Stack__>
             <Section
               data-plasmic-name={"section"}
               data-plasmic-override={overrides.section}
@@ -857,7 +887,7 @@ function PlasmicProductPage__RenderFunc(props: {
                   }
                 })()}
               >
-                <ph.DataCtxReader>
+                <DataCtxReader__>
                   {$ctx => (
                     <GraphqlFetcher
                       className={classNames(
@@ -866,9 +896,9 @@ function PlasmicProductPage__RenderFunc(props: {
                       )}
                       dataName={"fetchedData"}
                       errorDisplay={
-                        <ph.DataCtxReader>
+                        <DataCtxReader__>
                           {$ctx => "Error fetching data"}
-                        </ph.DataCtxReader>
+                        </DataCtxReader__>
                       }
                       errorName={"fetchError"}
                       headers={{
@@ -878,9 +908,9 @@ function PlasmicProductPage__RenderFunc(props: {
                           "0f43cbfd628ae6e4fef6a34969378290"
                       }}
                       loadingDisplay={
-                        <ph.DataCtxReader>
+                        <DataCtxReader__>
                           {$ctx => "Loading..."}
-                        </ph.DataCtxReader>
+                        </DataCtxReader__>
                       }
                       method={"POST"}
                       noLayout={false}
@@ -906,7 +936,7 @@ function PlasmicProductPage__RenderFunc(props: {
                         }
                       })()}
                     >
-                      <ph.DataCtxReader>
+                      <DataCtxReader__>
                         {$ctx => (
                           <div
                             className={classNames(
@@ -964,7 +994,7 @@ function PlasmicProductPage__RenderFunc(props: {
                                       }
                                     })()}
                                   >
-                                    <ph.DataCtxReader>
+                                    <DataCtxReader__>
                                       {$ctx => (
                                         <ProductCardJbs
                                           data-plasmic-name={"productCardJbs"}
@@ -991,7 +1021,7 @@ function PlasmicProductPage__RenderFunc(props: {
                                           })()}
                                         />
                                       )}
-                                    </ph.DataCtxReader>
+                                    </DataCtxReader__>
                                   </ProductBox>
                                 </div>
                               );
@@ -1038,10 +1068,10 @@ function PlasmicProductPage__RenderFunc(props: {
                             </div>
                           </div>
                         )}
-                      </ph.DataCtxReader>
+                      </DataCtxReader__>
                     </GraphqlFetcher>
                   )}
-                </ph.DataCtxReader>
+                </DataCtxReader__>
               </ProductBox>
             </Section>
           </FullPage>

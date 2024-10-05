@@ -17,8 +17,47 @@ import Head from "next/head";
 import Link, { LinkProps } from "next/link";
 import { useRouter } from "next/router";
 
-import * as p from "@plasmicapp/react-web";
-import * as ph from "@plasmicapp/react-web/lib/host";
+import {
+  Flex as Flex__,
+  MultiChoiceArg,
+  PlasmicDataSourceContextProvider as PlasmicDataSourceContextProvider__,
+  PlasmicIcon as PlasmicIcon__,
+  PlasmicImg as PlasmicImg__,
+  PlasmicLink as PlasmicLink__,
+  PlasmicPageGuard as PlasmicPageGuard__,
+  SingleBooleanChoiceArg,
+  SingleChoiceArg,
+  Stack as Stack__,
+  StrictProps,
+  Trans as Trans__,
+  classNames,
+  createPlasmicElementProxy,
+  deriveRenderOpts,
+  ensureGlobalVariants,
+  generateOnMutateForSpec,
+  generateStateOnChangeProp,
+  generateStateOnChangePropForCodeComponents,
+  generateStateValueProp,
+  get as $stateGet,
+  hasVariant,
+  initializeCodeComponentStates,
+  initializePlasmicStates,
+  makeFragment,
+  omit,
+  pick,
+  renderPlasmicSlot,
+  set as $stateSet,
+  useCurrentUser,
+  useDollarState,
+  usePlasmicTranslator,
+  useTrigger,
+  wrapWithClassName
+} from "@plasmicapp/react-web";
+import {
+  DataCtxReader as DataCtxReader__,
+  useDataEnv,
+  useGlobalActions
+} from "@plasmicapp/react-web/lib/host";
 
 import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 import {
@@ -27,22 +66,6 @@ import {
   usePlasmicInvalidate
 } from "@plasmicapp/react-web/lib/data-sources";
 
-import {
-  hasVariant,
-  classNames,
-  wrapWithClassName,
-  createPlasmicElementProxy,
-  makeFragment,
-  MultiChoiceArg,
-  SingleBooleanChoiceArg,
-  SingleChoiceArg,
-  pick,
-  omit,
-  useTrigger,
-  StrictProps,
-  deriveRenderOpts,
-  ensureGlobalVariants
-} from "@plasmicapp/react-web";
 import { CartProvider } from "@plasmicpkgs/commerce";
 import Button from "../../Button"; // plasmic-import: yEsI5slGwPm/component
 import SpecialInstructionsInput from "../../SpecialInstructionsInput"; // plasmic-import: znFTM0nXx5O6/component
@@ -56,7 +79,7 @@ import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic_antd_5_hostl
 import projectcss from "./plasmic_jbs_storefront.module.css"; // plasmic-import: heL2P6rJiLNgtnBJPb6i1m/projectcss
 import sty from "./PlasmicCart2.module.css"; // plasmic-import: 4iMp3co2mNSz/css
 
-import ChecksvgIcon from "./icons/PlasmicIcon__Checksvg"; // plasmic-import: ew07hyuAC0c/icon
+import CheckSvgIcon from "./icons/PlasmicIcon__CheckSvg"; // plasmic-import: ew07hyuAC0c/icon
 import Icon38Icon from "./icons/PlasmicIcon__Icon38"; // plasmic-import: 3r4KXWygi9v/icon
 
 createPlasmicElementProxy;
@@ -71,14 +94,14 @@ type ArgPropType = keyof PlasmicCart2__ArgsType;
 export const PlasmicCart2__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicCart2__OverridesType = {
-  root?: p.Flex<"div">;
-  cartProvider?: p.Flex<typeof CartProvider>;
-  svg?: p.Flex<"svg">;
-  img?: p.Flex<typeof p.PlasmicImg>;
-  p?: p.Flex<"p">;
-  specialInstructionsInput?: p.Flex<typeof SpecialInstructionsInput>;
-  textarea?: p.Flex<"textarea">;
-  graphQlFetcher?: p.Flex<typeof GraphqlFetcher>;
+  root?: Flex__<"div">;
+  cartProvider?: Flex__<typeof CartProvider>;
+  svg?: Flex__<"svg">;
+  img?: Flex__<typeof PlasmicImg__>;
+  p?: Flex__<"p">;
+  specialInstructionsInput?: Flex__<typeof SpecialInstructionsInput>;
+  textarea?: Flex__<"textarea">;
+  graphQlFetcher?: Flex__<typeof GraphqlFetcher>;
 };
 
 export interface DefaultCart2Props {
@@ -102,7 +125,16 @@ function PlasmicCart2__RenderFunc(props: {
 }) {
   const { variants, overrides, forNode } = props;
 
-  const args = React.useMemo(() => Object.assign({}, props.args), [props.args]);
+  const args = React.useMemo(
+    () =>
+      Object.assign(
+        {},
+        Object.fromEntries(
+          Object.entries(props.args).filter(([_, v]) => v !== undefined)
+        )
+      ),
+    [props.args]
+  );
 
   const $props = {
     ...args,
@@ -110,15 +142,13 @@ function PlasmicCart2__RenderFunc(props: {
   };
 
   const __nextRouter = useNextRouter();
-  const $ctx = ph.useDataEnv?.() || {};
+  const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const $globalActions = ph.useGlobalActions?.();
+  const $globalActions = useGlobalActions?.();
 
-  const currentUser = p.useCurrentUser?.() || {};
-
-  const stateSpecs: Parameters<typeof p.useDollarState>[0] = React.useMemo(
+  const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
         path: "specialInstructionsInput.specialInstructions",
@@ -135,7 +165,7 @@ function PlasmicCart2__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
-  const $state = p.useDollarState(stateSpecs, {
+  const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
     $queries: {},
@@ -169,7 +199,7 @@ function PlasmicCart2__RenderFunc(props: {
         data-plasmic-override={overrides.cartProvider}
         className={classNames("__wab_instance", sty.cartProvider)}
       >
-        <ph.DataCtxReader>
+        <DataCtxReader__>
           {$ctx => (
             <React.Fragment>
               {(() => {
@@ -185,7 +215,7 @@ function PlasmicCart2__RenderFunc(props: {
                   throw e;
                 }
               })() ? (
-                <p.Stack
+                <Stack__
                   as={"div"}
                   hasGap={true}
                   className={classNames(projectcss.all, sty.freeBox___28Ya1)}
@@ -223,7 +253,7 @@ function PlasmicCart2__RenderFunc(props: {
                       {"SEE ALL OUR PRODUCTS"}
                     </div>
                   </Button>
-                </p.Stack>
+                </Stack__>
               ) : null}
               {(() => {
                 try {
@@ -268,7 +298,7 @@ function PlasmicCart2__RenderFunc(props: {
                           )}
                           key={currentIndex}
                         >
-                          <p.PlasmicLink
+                          <PlasmicLink__
                             className={classNames(
                               projectcss.all,
                               projectcss.a,
@@ -290,7 +320,7 @@ function PlasmicCart2__RenderFunc(props: {
                             })()}`}
                             platform={"nextjs"}
                           >
-                            <p.PlasmicImg
+                            <PlasmicImg__
                               data-plasmic-name={"img"}
                               data-plasmic-override={overrides.img}
                               alt={(() => {
@@ -330,15 +360,15 @@ function PlasmicCart2__RenderFunc(props: {
                                 }
                               })()}
                             />
-                          </p.PlasmicLink>
+                          </PlasmicLink__>
                           <div
                             className={classNames(
                               projectcss.all,
                               sty.freeBox__pLc1J
                             )}
                           >
-                            <p.Stack
-                              as={p.PlasmicLink}
+                            <Stack__
+                              as={PlasmicLink__}
                               hasGap={true}
                               className={classNames(
                                 projectcss.all,
@@ -429,7 +459,7 @@ function PlasmicCart2__RenderFunc(props: {
                                   </React.Fragment>
                                 </div>
                               ) : null}
-                            </p.Stack>
+                            </Stack__>
                             <div
                               className={classNames(
                                 projectcss.all,
@@ -698,7 +728,7 @@ function PlasmicCart2__RenderFunc(props: {
                         onSpecialInstructionsChange={async (
                           ...eventArgs: any
                         ) => {
-                          p.generateStateOnChangeProp($state, [
+                          generateStateOnChangeProp($state, [
                             "specialInstructionsInput",
                             "specialInstructions"
                           ]).apply(null, eventArgs);
@@ -733,7 +763,7 @@ function PlasmicCart2__RenderFunc(props: {
                       />
                     </div>
                   ) : null}
-                  <p.Stack
+                  <Stack__
                     as={"div"}
                     hasGap={true}
                     className={classNames(projectcss.all, sty.freeBox__dON3)}
@@ -749,7 +779,7 @@ function PlasmicCart2__RenderFunc(props: {
                         )}
                         onChange={async (...eventArgs: any) => {
                           (e => {
-                            p.generateStateOnChangeProp($state, [
+                            generateStateOnChangeProp($state, [
                               "textarea",
                               "value"
                             ])(e.target.value);
@@ -778,7 +808,7 @@ function PlasmicCart2__RenderFunc(props: {
                                     }
                                     const { objRoot, variablePath } = variable;
 
-                                    p.set(objRoot, variablePath, value);
+                                    $stateSet(objRoot, variablePath, value);
                                     return value;
                                   })?.apply(null, [actionArgs]);
                                 })()
@@ -801,7 +831,7 @@ function PlasmicCart2__RenderFunc(props: {
                           $refs["textarea"] = ref;
                         }}
                         value={
-                          p.generateStateValueProp($state, [
+                          generateStateValueProp($state, [
                             "textarea",
                             "value"
                           ]) ?? ""
@@ -861,9 +891,9 @@ function PlasmicCart2__RenderFunc(props: {
                         )}
                         dataName={"updateCartNote"}
                         errorDisplay={
-                          <ph.DataCtxReader>
+                          <DataCtxReader__>
                             {$ctx => "Error fetching data"}
-                          </ph.DataCtxReader>
+                          </DataCtxReader__>
                         }
                         errorName={"fetchError"}
                         headers={{
@@ -873,9 +903,9 @@ function PlasmicCart2__RenderFunc(props: {
                             "0f43cbfd628ae6e4fef6a34969378290"
                         }}
                         loadingDisplay={
-                          <ph.DataCtxReader>
+                          <DataCtxReader__>
                             {$ctx => "Loading..."}
-                          </ph.DataCtxReader>
+                          </DataCtxReader__>
                         }
                         method={"POST"}
                         noLayout={false}
@@ -909,7 +939,7 @@ function PlasmicCart2__RenderFunc(props: {
                           }
                         })()}
                       >
-                        <ph.DataCtxReader>
+                        <DataCtxReader__>
                           {$ctx => (
                             <div
                               className={classNames(
@@ -1043,7 +1073,7 @@ function PlasmicCart2__RenderFunc(props: {
                               </Button>
                             </div>
                           )}
-                        </ph.DataCtxReader>
+                        </DataCtxReader__>
                       </GraphqlFetcher>
                     ) : null}
                     <div
@@ -1085,12 +1115,12 @@ function PlasmicCart2__RenderFunc(props: {
                         </div>
                       </Button>
                     </div>
-                  </p.Stack>
+                  </Stack__>
                 </div>
               ) : null}
             </React.Fragment>
           )}
-        </ph.DataCtxReader>
+        </DataCtxReader__>
       </CartProvider>
     </div>
   ) as React.ReactElement | null;
@@ -1130,7 +1160,7 @@ type NodeDefaultElementType = {
   root: "div";
   cartProvider: typeof CartProvider;
   svg: "svg";
-  img: typeof p.PlasmicImg;
+  img: typeof PlasmicImg__;
   p: "p";
   specialInstructionsInput: typeof SpecialInstructionsInput;
   textarea: "textarea";

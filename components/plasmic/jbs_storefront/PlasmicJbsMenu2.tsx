@@ -17,25 +17,48 @@ import Head from "next/head";
 import Link, { LinkProps } from "next/link";
 import { useRouter } from "next/router";
 
-import * as p from "@plasmicapp/react-web";
-import * as ph from "@plasmicapp/react-web/lib/host";
-
 import {
-  hasVariant,
-  classNames,
-  wrapWithClassName,
-  createPlasmicElementProxy,
-  makeFragment,
+  Flex as Flex__,
   MultiChoiceArg,
+  PlasmicDataSourceContextProvider as PlasmicDataSourceContextProvider__,
+  PlasmicIcon as PlasmicIcon__,
+  PlasmicImg as PlasmicImg__,
+  PlasmicLink as PlasmicLink__,
+  PlasmicPageGuard as PlasmicPageGuard__,
   SingleBooleanChoiceArg,
   SingleChoiceArg,
-  pick,
-  omit,
-  useTrigger,
+  Stack as Stack__,
   StrictProps,
+  Trans as Trans__,
+  classNames,
+  createPlasmicElementProxy,
   deriveRenderOpts,
-  ensureGlobalVariants
+  ensureGlobalVariants,
+  generateOnMutateForSpec,
+  generateStateOnChangeProp,
+  generateStateOnChangePropForCodeComponents,
+  generateStateValueProp,
+  get as $stateGet,
+  hasVariant,
+  initializeCodeComponentStates,
+  initializePlasmicStates,
+  makeFragment,
+  omit,
+  pick,
+  renderPlasmicSlot,
+  set as $stateSet,
+  useCurrentUser,
+  useDollarState,
+  usePlasmicTranslator,
+  useTrigger,
+  wrapWithClassName
 } from "@plasmicapp/react-web";
+import {
+  DataCtxReader as DataCtxReader__,
+  useDataEnv,
+  useGlobalActions
+} from "@plasmicapp/react-web/lib/host";
+
 import { CategoryCollection } from "@plasmicpkgs/commerce";
 import { AntdMenu } from "@plasmicpkgs/antd5/skinny/registerMenu";
 import { AntdMenuItem } from "@plasmicpkgs/antd5/skinny/registerMenu";
@@ -62,11 +85,11 @@ type ArgPropType = keyof PlasmicJbsMenu2__ArgsType;
 export const PlasmicJbsMenu2__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicJbsMenu2__OverridesType = {
-  root?: p.Flex<"div">;
-  categoryCollection?: p.Flex<typeof CategoryCollection>;
-  menu?: p.Flex<typeof AntdMenu>;
-  shop?: p.Flex<typeof AntdSubMenu>;
-  svg?: p.Flex<"svg">;
+  root?: Flex__<"div">;
+  categoryCollection?: Flex__<typeof CategoryCollection>;
+  menu?: Flex__<typeof AntdMenu>;
+  shop?: Flex__<typeof AntdSubMenu>;
+  svg?: Flex__<"svg">;
 };
 
 export interface DefaultJbsMenu2Props {
@@ -90,7 +113,16 @@ function PlasmicJbsMenu2__RenderFunc(props: {
 }) {
   const { variants, overrides, forNode } = props;
 
-  const args = React.useMemo(() => Object.assign({}, props.args), [props.args]);
+  const args = React.useMemo(
+    () =>
+      Object.assign(
+        {},
+        Object.fromEntries(
+          Object.entries(props.args).filter(([_, v]) => v !== undefined)
+        )
+      ),
+    [props.args]
+  );
 
   const $props = {
     ...args,
@@ -98,11 +130,9 @@ function PlasmicJbsMenu2__RenderFunc(props: {
   };
 
   const __nextRouter = useNextRouter();
-  const $ctx = ph.useDataEnv?.() || {};
+  const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
-
-  const currentUser = p.useCurrentUser?.() || {};
 
   const globalVariants = ensureGlobalVariants({
     screen: useScreenVariants_6Hzia3M7Np4Ulu()
@@ -133,7 +163,7 @@ function PlasmicJbsMenu2__RenderFunc(props: {
         noAutoRepeat={true}
         noLayout={true}
       >
-        <ph.DataCtxReader>
+        <DataCtxReader__>
           {$ctx => (
             <AntdMenu
               data-plasmic-name={"menu"}
@@ -356,7 +386,7 @@ function PlasmicJbsMenu2__RenderFunc(props: {
               </AntdSubMenu>
             </AntdMenu>
           )}
-        </ph.DataCtxReader>
+        </DataCtxReader__>
       </CategoryCollection>
     </div>
   ) as React.ReactElement | null;

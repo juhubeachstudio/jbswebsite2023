@@ -5,12 +5,12 @@
 import React from "react";
 import { classNames } from "@plasmicapp/react-web";
 
-export type PreviousHeaderButtonsvgIconProps = React.ComponentProps<"svg"> & {
+export type PreviousHeaderButtonSvgIconProps = React.ComponentProps<"svg"> & {
   title?: string;
 };
 
-export function PreviousHeaderButtonsvgIcon(
-  props: PreviousHeaderButtonsvgIconProps
+export function PreviousHeaderButtonSvgIcon(
+  props: PreviousHeaderButtonSvgIconProps
 ) {
   const { className, style, title, ...restProps } = props;
   return (
@@ -52,5 +52,5 @@ export function PreviousHeaderButtonsvgIcon(
   );
 }
 
-export default PreviousHeaderButtonsvgIcon;
+export default PreviousHeaderButtonSvgIcon;
 /* prettier-ignore-end */

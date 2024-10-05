@@ -17,25 +17,48 @@ import Head from "next/head";
 import Link, { LinkProps } from "next/link";
 import { useRouter } from "next/router";
 
-import * as p from "@plasmicapp/react-web";
-import * as ph from "@plasmicapp/react-web/lib/host";
-
 import {
-  hasVariant,
-  classNames,
-  wrapWithClassName,
-  createPlasmicElementProxy,
-  makeFragment,
+  Flex as Flex__,
   MultiChoiceArg,
+  PlasmicDataSourceContextProvider as PlasmicDataSourceContextProvider__,
+  PlasmicIcon as PlasmicIcon__,
+  PlasmicImg as PlasmicImg__,
+  PlasmicLink as PlasmicLink__,
+  PlasmicPageGuard as PlasmicPageGuard__,
   SingleBooleanChoiceArg,
   SingleChoiceArg,
-  pick,
-  omit,
-  useTrigger,
+  Stack as Stack__,
   StrictProps,
+  Trans as Trans__,
+  classNames,
+  createPlasmicElementProxy,
   deriveRenderOpts,
-  ensureGlobalVariants
+  ensureGlobalVariants,
+  generateOnMutateForSpec,
+  generateStateOnChangeProp,
+  generateStateOnChangePropForCodeComponents,
+  generateStateValueProp,
+  get as $stateGet,
+  hasVariant,
+  initializeCodeComponentStates,
+  initializePlasmicStates,
+  makeFragment,
+  omit,
+  pick,
+  renderPlasmicSlot,
+  set as $stateSet,
+  useCurrentUser,
+  useDollarState,
+  usePlasmicTranslator,
+  useTrigger,
+  wrapWithClassName
 } from "@plasmicapp/react-web";
+import {
+  DataCtxReader as DataCtxReader__,
+  useDataEnv,
+  useGlobalActions
+} from "@plasmicapp/react-web/lib/host";
+
 import Marquee from "react-fast-marquee"; // plasmic-import: m9EkGU-jS0/codeComponent
 import JbsMenu from "../../JbsMenu"; // plasmic-import: NFEkw9xPSE/component
 import GoToCartButton from "../../GoToCartButton"; // plasmic-import: iT6In2ggLenM/component
@@ -49,7 +72,7 @@ import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic_antd_5_hostl
 import projectcss from "./plasmic_jbs_storefront.module.css"; // plasmic-import: heL2P6rJiLNgtnBJPb6i1m/projectcss
 import sty from "./PlasmicNavbar.module.css"; // plasmic-import: zY4oOp60G2/css
 
-import LogowithbordersvgIcon from "./icons/PlasmicIcon__Logowithbordersvg"; // plasmic-import: otd7TS4DBl/icon
+import LogowithborderSvgIcon from "./icons/PlasmicIcon__LogowithborderSvg"; // plasmic-import: otd7TS4DBl/icon
 
 createPlasmicElementProxy;
 
@@ -63,13 +86,13 @@ type ArgPropType = keyof PlasmicNavbar__ArgsType;
 export const PlasmicNavbar__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicNavbar__OverridesType = {
-  root?: p.Flex<"div">;
-  marquee?: p.Flex<typeof Marquee>;
-  text?: p.Flex<"div">;
-  jbsMenu?: p.Flex<typeof JbsMenu>;
-  link?: p.Flex<"a"> & Partial<LinkProps>;
-  svg?: p.Flex<"svg">;
-  goToCartButton?: p.Flex<typeof GoToCartButton>;
+  root?: Flex__<"div">;
+  marquee?: Flex__<typeof Marquee>;
+  text?: Flex__<"div">;
+  jbsMenu?: Flex__<typeof JbsMenu>;
+  link?: Flex__<"a"> & Partial<LinkProps>;
+  svg?: Flex__<"svg">;
+  goToCartButton?: Flex__<typeof GoToCartButton>;
 };
 
 export interface DefaultNavbarProps {
@@ -93,7 +116,16 @@ function PlasmicNavbar__RenderFunc(props: {
 }) {
   const { variants, overrides, forNode } = props;
 
-  const args = React.useMemo(() => Object.assign({}, props.args), [props.args]);
+  const args = React.useMemo(
+    () =>
+      Object.assign(
+        {},
+        Object.fromEntries(
+          Object.entries(props.args).filter(([_, v]) => v !== undefined)
+        )
+      ),
+    [props.args]
+  );
 
   const $props = {
     ...args,
@@ -101,11 +133,9 @@ function PlasmicNavbar__RenderFunc(props: {
   };
 
   const __nextRouter = useNextRouter();
-  const $ctx = ph.useDataEnv?.() || {};
+  const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
-
-  const currentUser = p.useCurrentUser?.() || {};
 
   const globalVariants = ensureGlobalVariants({
     screen: useScreenVariants_6Hzia3M7Np4Ulu(),
@@ -151,7 +181,7 @@ function PlasmicNavbar__RenderFunc(props: {
           </div>
         </Marquee>
       </div>
-      <p.Stack
+      <Stack__
         as={"div"}
         hasGap={true}
         className={classNames(projectcss.all, sty.freeBox__kesXh)}
@@ -164,7 +194,7 @@ function PlasmicNavbar__RenderFunc(props: {
           />
         </div>
         <div className={classNames(projectcss.all, sty.freeBox__yR3M)}>
-          <p.PlasmicLink
+          <PlasmicLink__
             data-plasmic-name={"link"}
             data-plasmic-override={overrides.link}
             className={classNames(projectcss.all, projectcss.a, sty.link)}
@@ -172,7 +202,7 @@ function PlasmicNavbar__RenderFunc(props: {
             href={`/`}
             platform={"nextjs"}
           >
-            <LogowithbordersvgIcon
+            <LogowithborderSvgIcon
               data-plasmic-name={"svg"}
               data-plasmic-override={overrides.svg}
               className={classNames(projectcss.all, sty.svg, {
@@ -184,9 +214,9 @@ function PlasmicNavbar__RenderFunc(props: {
               })}
               role={"img"}
             />
-          </p.PlasmicLink>
+          </PlasmicLink__>
         </div>
-        <p.Stack
+        <Stack__
           as={"div"}
           hasGap={true}
           className={classNames(projectcss.all, sty.freeBox__zbKg3)}
@@ -196,8 +226,8 @@ function PlasmicNavbar__RenderFunc(props: {
             data-plasmic-override={overrides.goToCartButton}
             className={classNames("__wab_instance", sty.goToCartButton)}
           />
-        </p.Stack>
-      </p.Stack>
+        </Stack__>
+      </Stack__>
     </div>
   ) as React.ReactElement | null;
 }

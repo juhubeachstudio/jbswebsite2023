@@ -17,25 +17,47 @@ import Head from "next/head";
 import Link, { LinkProps } from "next/link";
 import { useRouter } from "next/router";
 
-import * as p from "@plasmicapp/react-web";
-import * as ph from "@plasmicapp/react-web/lib/host";
-
 import {
-  hasVariant,
-  classNames,
-  wrapWithClassName,
-  createPlasmicElementProxy,
-  makeFragment,
+  Flex as Flex__,
   MultiChoiceArg,
+  PlasmicDataSourceContextProvider as PlasmicDataSourceContextProvider__,
+  PlasmicIcon as PlasmicIcon__,
+  PlasmicImg as PlasmicImg__,
+  PlasmicLink as PlasmicLink__,
+  PlasmicPageGuard as PlasmicPageGuard__,
   SingleBooleanChoiceArg,
   SingleChoiceArg,
-  pick,
-  omit,
-  useTrigger,
+  Stack as Stack__,
   StrictProps,
+  Trans as Trans__,
+  classNames,
+  createPlasmicElementProxy,
   deriveRenderOpts,
-  ensureGlobalVariants
+  ensureGlobalVariants,
+  generateOnMutateForSpec,
+  generateStateOnChangeProp,
+  generateStateOnChangePropForCodeComponents,
+  generateStateValueProp,
+  get as $stateGet,
+  hasVariant,
+  initializeCodeComponentStates,
+  initializePlasmicStates,
+  makeFragment,
+  omit,
+  pick,
+  renderPlasmicSlot,
+  set as $stateSet,
+  useCurrentUser,
+  useDollarState,
+  usePlasmicTranslator,
+  useTrigger,
+  wrapWithClassName
 } from "@plasmicapp/react-web";
+import {
+  DataCtxReader as DataCtxReader__,
+  useDataEnv,
+  useGlobalActions
+} from "@plasmicapp/react-web/lib/host";
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -60,9 +82,8 @@ export const PlasmicProductInSlider__ArgProps = new Array<ArgPropType>(
 );
 
 export type PlasmicProductInSlider__OverridesType = {
-  root?: p.Flex<"div">;
-  img?: p.Flex<typeof p.PlasmicImg>;
-  freeBox?: p.Flex<"div">;
+  root?: Flex__<"div">;
+  img?: Flex__<typeof PlasmicImg__>;
 };
 
 export interface DefaultProductInSliderProps {
@@ -87,7 +108,16 @@ function PlasmicProductInSlider__RenderFunc(props: {
 }) {
   const { variants, overrides, forNode } = props;
 
-  const args = React.useMemo(() => Object.assign({}, props.args), [props.args]);
+  const args = React.useMemo(
+    () =>
+      Object.assign(
+        {},
+        Object.fromEntries(
+          Object.entries(props.args).filter(([_, v]) => v !== undefined)
+        )
+      ),
+    [props.args]
+  );
 
   const $props = {
     ...args,
@@ -95,11 +125,9 @@ function PlasmicProductInSlider__RenderFunc(props: {
   };
 
   const __nextRouter = useNextRouter();
-  const $ctx = ph.useDataEnv?.() || {};
+  const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
-
-  const currentUser = p.useCurrentUser?.() || {};
 
   const [isImgHover, triggerImgHoverProps] = useTrigger("useHover", {});
   const triggers = {
@@ -164,7 +192,7 @@ function PlasmicProductInSlider__RenderFunc(props: {
         }
       }}
     >
-      <p.PlasmicImg
+      <PlasmicImg__
         data-plasmic-name={"img"}
         data-plasmic-override={overrides.img}
         alt={""}
@@ -202,7 +230,12 @@ function PlasmicProductInSlider__RenderFunc(props: {
                     e instanceof TypeError ||
                     e?.plasmicType === "PlasmicUndefinedDataError"
                   ) {
-                    return "https://site-assets.plasmic.app/5de007f59ab2febed8e1b1cc462e17f1.svg";
+                    return {
+                      src: "/plasmic/jbs_storefront/images/image.svg",
+                      fullWidth: 150,
+                      fullHeight: 150,
+                      aspectRatio: 1
+                    };
                   }
                   throw e;
                 }
@@ -211,11 +244,7 @@ function PlasmicProductInSlider__RenderFunc(props: {
         data-plasmic-trigger-props={[triggerImgHoverProps]}
       />
 
-      <div
-        data-plasmic-name={"freeBox"}
-        data-plasmic-override={overrides.freeBox}
-        className={classNames(projectcss.all, sty.freeBox)}
-      >
+      <div className={classNames(projectcss.all, sty.freeBox__lba1)}>
         <div
           className={classNames(
             projectcss.all,
@@ -239,46 +268,85 @@ function PlasmicProductInSlider__RenderFunc(props: {
             })()}
           </React.Fragment>
         </div>
-        <div
-          className={classNames(
-            projectcss.all,
-            projectcss.__wab_text,
-            sty.text__uyc27
-          )}
+        <Stack__
+          as={"div"}
+          hasGap={true}
+          className={classNames(projectcss.all, sty.freeBox___1Csbu)}
         >
-          <React.Fragment>
-            {(() => {
-              try {
-                return `₹${$props.currentItem.price.value}`;
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return "\u20b9$$$";
+          <div
+            className={classNames(
+              projectcss.all,
+              projectcss.__wab_text,
+              sty.text__uyc27
+            )}
+          >
+            <React.Fragment>
+              {(() => {
+                try {
+                  return `₹${$props.currentItem.price.value}`;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return "\u20b9$$$";
+                  }
+                  throw e;
                 }
-                throw e;
-              }
-            })()}
-          </React.Fragment>
-        </div>
+              })()}
+            </React.Fragment>
+          </div>
+          <div
+            className={classNames(
+              projectcss.all,
+              projectcss.__wab_text,
+              sty.text__wDne9
+            )}
+          >
+            <React.Fragment>
+              {(() => {
+                try {
+                  return (() => {
+                    let minListPrice = $props.currentItem.variants.reduce(
+                      (minPrice, variant) => {
+                        return variant.listPrice && variant.listPrice < minPrice
+                          ? variant.listPrice
+                          : minPrice;
+                      },
+                      Infinity
+                    );
+                    return minListPrice && minListPrice !== Infinity
+                      ? "\u20B9" + minListPrice
+                      : "";
+                  })();
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return "\u20b9$$$";
+                  }
+                  throw e;
+                }
+              })()}
+            </React.Fragment>
+          </div>
+        </Stack__>
       </div>
     </div>
   ) as React.ReactElement | null;
 }
 
 const PlasmicDescendants = {
-  root: ["root", "img", "freeBox"],
-  img: ["img"],
-  freeBox: ["freeBox"]
+  root: ["root", "img"],
+  img: ["img"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
-  img: typeof p.PlasmicImg;
-  freeBox: "div";
+  img: typeof PlasmicImg__;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -342,7 +410,6 @@ export const PlasmicProductInSlider = Object.assign(
   {
     // Helper components rendering sub-elements
     img: makeNodeComponent("img"),
-    freeBox: makeNodeComponent("freeBox"),
 
     // Metadata about props expected for PlasmicProductInSlider
     internalVariantProps: PlasmicProductInSlider__VariantProps,
