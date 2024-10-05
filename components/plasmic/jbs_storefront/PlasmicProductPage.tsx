@@ -104,6 +104,7 @@ export type PlasmicProductPage__OverridesType = {
   pageMetadataOverride?: Flex__<typeof PlasmicHead>;
   productMedia?: Flex__<typeof ProductMedia>;
   productPrice?: Flex__<typeof ProductPriceComponent>;
+  listPrice?: Flex__<"div">;
   productVariantPicker?: Flex__<typeof ProductVariantPicker>;
   addToCartCustomButton?: Flex__<typeof AddToCartCustomButton>;
   accordion?: Flex__<typeof AntdAccordion>;
@@ -389,15 +390,65 @@ function PlasmicProductPage__RenderFunc(props: {
                             field={"name"}
                           />
 
-                          <ProductPriceComponent
-                            data-plasmic-name={"productPrice"}
-                            data-plasmic-override={overrides.productPrice}
+                          <Stack__
+                            as={"div"}
+                            hasGap={true}
                             className={classNames(
-                              "__wab_instance",
-                              sty.productPrice
+                              projectcss.all,
+                              sty.freeBox__c4QrQ
                             )}
-                          />
+                          >
+                            <ProductPriceComponent
+                              data-plasmic-name={"productPrice"}
+                              data-plasmic-override={overrides.productPrice}
+                              className={classNames(
+                                "__wab_instance",
+                                sty.productPrice
+                              )}
+                            />
 
+                            <div
+                              data-plasmic-name={"listPrice"}
+                              data-plasmic-override={overrides.listPrice}
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.listPrice
+                              )}
+                            >
+                              <React.Fragment>
+                                {(() => {
+                                  try {
+                                    return (() => {
+                                      let minListPrice =
+                                        $ctx.currentProduct.variants.reduce(
+                                          (minPrice, variant) => {
+                                            return variant.listPrice &&
+                                              variant.listPrice < minPrice
+                                              ? variant.listPrice
+                                              : minPrice;
+                                          },
+                                          Infinity
+                                        );
+                                      return minListPrice &&
+                                        minListPrice !== Infinity
+                                        ? "\u20B9" + minListPrice
+                                        : "";
+                                    })();
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return "";
+                                    }
+                                    throw e;
+                                  }
+                                })()}
+                              </React.Fragment>
+                            </div>
+                          </Stack__>
                           {(() => {
                             try {
                               return $ctx.currentProduct.variants.length > 1;
@@ -1089,6 +1140,7 @@ const PlasmicDescendants = {
     "pageMetadataOverride",
     "productMedia",
     "productPrice",
+    "listPrice",
     "productVariantPicker",
     "addToCartCustomButton",
     "accordion",
@@ -1103,6 +1155,7 @@ const PlasmicDescendants = {
     "pageMetadataOverride",
     "productMedia",
     "productPrice",
+    "listPrice",
     "productVariantPicker",
     "addToCartCustomButton",
     "accordion",
@@ -1116,6 +1169,7 @@ const PlasmicDescendants = {
     "pageMetadataOverride",
     "productMedia",
     "productPrice",
+    "listPrice",
     "productVariantPicker",
     "addToCartCustomButton",
     "accordion"
@@ -1123,6 +1177,7 @@ const PlasmicDescendants = {
   pageMetadataOverride: ["pageMetadataOverride"],
   productMedia: ["productMedia"],
   productPrice: ["productPrice"],
+  listPrice: ["listPrice"],
   productVariantPicker: ["productVariantPicker"],
   addToCartCustomButton: ["addToCartCustomButton"],
   accordion: ["accordion"],
@@ -1141,6 +1196,7 @@ type NodeDefaultElementType = {
   pageMetadataOverride: typeof PlasmicHead;
   productMedia: typeof ProductMedia;
   productPrice: typeof ProductPriceComponent;
+  listPrice: "div";
   productVariantPicker: typeof ProductVariantPicker;
   addToCartCustomButton: typeof AddToCartCustomButton;
   accordion: typeof AntdAccordion;
@@ -1215,6 +1271,7 @@ export const PlasmicProductPage = Object.assign(
     pageMetadataOverride: makeNodeComponent("pageMetadataOverride"),
     productMedia: makeNodeComponent("productMedia"),
     productPrice: makeNodeComponent("productPrice"),
+    listPrice: makeNodeComponent("listPrice"),
     productVariantPicker: makeNodeComponent("productVariantPicker"),
     addToCartCustomButton: makeNodeComponent("addToCartCustomButton"),
     accordion: makeNodeComponent("accordion"),
