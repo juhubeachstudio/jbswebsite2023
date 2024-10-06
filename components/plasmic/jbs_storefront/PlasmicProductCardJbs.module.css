@@ -227,9 +227,9 @@
   max-width: 100%;
   text-decoration-line: line-through;
   font-style: italic;
-  font-weight: 300;
+  font-weight: 500;
   left: auto;
   top: auto;
   font-size: var(--token-hYndcje43OGL);
-  color: var(--token-kzT08fQBAHgz);
+  color: #9e9e9ee0;
 }
