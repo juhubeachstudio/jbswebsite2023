@@ -47,8 +47,7 @@
           "componentImportPath": "@plasmicpkgs/plasmic-query"
         }
       ],
-      "customFunctions": [],
-      "jsBundleThemes": []
+      "customFunctions": []
     },
     {
       "projectId": "i3z63WaCLuRiSZRBwZC8d1",
@@ -70,8 +69,7 @@
           "componentImportPath": "@plasmicpkgs/commerce-shopify"
         }
       ],
-      "customFunctions": [],
-      "jsBundleThemes": []
+      "customFunctions": []
     },
     {
       "projectId": "xp1p7dmg329XVLHyuEUxD2",
@@ -189,8 +187,7 @@
           "componentImportPath": "@plasmicpkgs/commerce"
         }
       ],
-      "customFunctions": [],
-      "jsBundleThemes": []
+      "customFunctions": []
     },
     {
       "projectId": "r3ASNrnyvLLLAtDvzUioQ",
@@ -216,8 +213,7 @@
           }
         }
       ],
-      "customFunctions": [],
-      "jsBundleThemes": []
+      "customFunctions": []
     },
     {
       "projectId": "ohDidvG9XsCeFumugENU3J",
@@ -617,8 +613,7 @@
           "componentImportPath": "@plasmicpkgs/antd5/skinny/registerBreadcrumb"
         }
       ],
-      "customFunctions": [],
-      "jsBundleThemes": []
+      "customFunctions": []
     },
     {
       "projectId": "7nJ7UcFmq9UzB6eXfC5z4a",
@@ -640,8 +635,7 @@
           "componentImportPath": "@plasmicpkgs/plasmic-nav"
         }
       ],
-      "customFunctions": [],
-      "jsBundleThemes": []
+      "customFunctions": []
     },
     {
       "projectId": "heL2P6rJiLNgtnBJPb6i1m",
@@ -1267,19 +1261,6 @@
           "componentType": "component"
         },
         {
-          "id": "4IPw6iK9f_-q",
-          "name": "Countdown",
-          "type": "managed",
-          "projectId": "heL2P6rJiLNgtnBJPb6i1m",
-          "renderModuleFilePath": "plasmic/jbs_storefront/PlasmicCountdown.tsx",
-          "importSpec": {
-            "modulePath": "Countdown.tsx"
-          },
-          "cssFilePath": "plasmic/jbs_storefront/PlasmicCountdown.module.css",
-          "scheme": "blackbox",
-          "componentType": "component"
-        },
-        {
           "id": "SFhtR_YchzSd",
           "name": "JbsMenu2",
           "type": "managed",
@@ -1302,19 +1283,6 @@
             "modulePath": "Testproduct.tsx"
           },
           "cssFilePath": "plasmic/jbs_storefront/PlasmicTestproduct.module.css",
-          "scheme": "blackbox",
-          "componentType": "component"
-        },
-        {
-          "id": "Tu3iaahTzpLP",
-          "name": "CountdownNumber",
-          "type": "managed",
-          "projectId": "heL2P6rJiLNgtnBJPb6i1m",
-          "renderModuleFilePath": "plasmic/jbs_storefront/PlasmicCountdownNumber.tsx",
-          "importSpec": {
-            "modulePath": "CountdownNumber.tsx"
-          },
-          "cssFilePath": "plasmic/jbs_storefront/PlasmicCountdownNumber.module.css",
           "scheme": "blackbox",
           "componentType": "component"
         },
@@ -1345,32 +1313,6 @@
           "componentType": "component"
         },
         {
-          "id": "wHIYrv4suznQ",
-          "name": "CountdownNumber",
-          "type": "managed",
-          "projectId": "heL2P6rJiLNgtnBJPb6i1m",
-          "renderModuleFilePath": "plasmic/jbs_storefront/PlasmicCountdownNumber.tsx",
-          "importSpec": {
-            "modulePath": "CountdownNumber.tsx"
-          },
-          "cssFilePath": "plasmic/jbs_storefront/PlasmicCountdownNumber.module.css",
-          "scheme": "blackbox",
-          "componentType": "component"
-        },
-        {
-          "id": "zowCfpHLJi3H",
-          "name": "Countdown",
-          "type": "managed",
-          "projectId": "heL2P6rJiLNgtnBJPb6i1m",
-          "renderModuleFilePath": "plasmic/jbs_storefront/PlasmicCountdown.tsx",
-          "importSpec": {
-            "modulePath": "Countdown.tsx"
-          },
-          "cssFilePath": "plasmic/jbs_storefront/PlasmicCountdown.module.css",
-          "scheme": "blackbox",
-          "componentType": "component"
-        },
-        {
           "id": "V9g_ixtcrSzg",
           "name": "ProductsSearch",
           "type": "managed",
@@ -1380,6 +1322,58 @@
             "modulePath": "ProductsSearch.tsx"
           },
           "cssFilePath": "plasmic/jbs_storefront/PlasmicProductsSearch.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "4IPw6iK9f_-q",
+          "name": "Countdown3",
+          "type": "managed",
+          "projectId": "heL2P6rJiLNgtnBJPb6i1m",
+          "renderModuleFilePath": "plasmic/jbs_storefront/PlasmicCountdown3.tsx",
+          "importSpec": {
+            "modulePath": "Countdown3.tsx"
+          },
+          "cssFilePath": "plasmic/jbs_storefront/PlasmicCountdown3.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "Tu3iaahTzpLP",
+          "name": "CountdownNumber2",
+          "type": "managed",
+          "projectId": "heL2P6rJiLNgtnBJPb6i1m",
+          "renderModuleFilePath": "plasmic/jbs_storefront/PlasmicCountdownNumber2.tsx",
+          "importSpec": {
+            "modulePath": "CountdownNumber2.tsx"
+          },
+          "cssFilePath": "plasmic/jbs_storefront/PlasmicCountdownNumber2.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "wHIYrv4suznQ",
+          "name": "CountdownNumber3",
+          "type": "managed",
+          "projectId": "heL2P6rJiLNgtnBJPb6i1m",
+          "renderModuleFilePath": "plasmic/jbs_storefront/PlasmicCountdownNumber3.tsx",
+          "importSpec": {
+            "modulePath": "CountdownNumber3.tsx"
+          },
+          "cssFilePath": "plasmic/jbs_storefront/PlasmicCountdownNumber3.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "zowCfpHLJi3H",
+          "name": "Countdown2",
+          "type": "managed",
+          "projectId": "heL2P6rJiLNgtnBJPb6i1m",
+          "renderModuleFilePath": "plasmic/jbs_storefront/PlasmicCountdown2.tsx",
+          "importSpec": {
+            "modulePath": "Countdown2.tsx"
+          },
+          "cssFilePath": "plasmic/jbs_storefront/PlasmicCountdown2.module.css",
           "scheme": "blackbox",
           "componentType": "component"
         }
@@ -2384,8 +2378,7 @@
           "componentImportPath": "@plasmicpkgs/plasmic-basic-components"
         }
       ],
-      "customFunctions": [],
-      "jsBundleThemes": []
+      "customFunctions": []
     },
     {
       "projectId": "58GpZjZCWTaJ8AUhpCwt2K",
@@ -2407,8 +2400,7 @@
           "componentImportPath": "@plasmicpkgs/react-awesome-reveal"
         }
       ],
-      "customFunctions": [],
-      "jsBundleThemes": []
+      "customFunctions": []
     },
     {
       "projectId": "84wxoth5npGrp6RRXPL88z",
@@ -2436,8 +2428,7 @@
           "componentImportPath": "@plasmicpkgs/react-scroll-parallax"
         }
       ],
-      "customFunctions": [],
-      "jsBundleThemes": []
+      "customFunctions": []
     },
     {
       "projectId": "5dGW8Awro3qq8Hh5MveXLP",
@@ -2465,8 +2456,7 @@
           "componentImportPath": "@plasmicpkgs/lottie-react"
         }
       ],
-      "customFunctions": [],
-      "jsBundleThemes": []
+      "customFunctions": []
     },
     {
       "projectId": "9Vr5YWkf3w7jj6SsTcCEta",
@@ -2488,8 +2478,7 @@
           "componentImportPath": "@plasmicpkgs/plasmic-basic-components"
         }
       ],
-      "customFunctions": [],
-      "jsBundleThemes": []
+      "customFunctions": []
     }
   ],
   "globalVariants": {
@@ -2506,6 +2495,6 @@
   "nextjsConfig": {
     "pagesDir": "../pages"
   },
-  "cliVersion": "0.1.331",
-  "$schema": "https://unpkg.com/@plasmicapp/cli@0.1.331/dist/plasmic.schema.json"
+  "cliVersion": "0.1.340",
+  "$schema": "https://unpkg.com/@plasmicapp/cli@0.1.340/dist/plasmic.schema.json"
 }

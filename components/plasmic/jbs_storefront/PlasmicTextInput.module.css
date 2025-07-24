@@ -101,19 +101,16 @@
   width: 100%;
   min-width: 0;
 }
+.root .input___focusVisibleWithin {
+  width: auto;
+  outline: none;
+}
 .root:focus-within .input {
   width: 100%;
   min-width: 0;
   outline: none;
 }
-.root .input___focusVisibleWithin {
-  width: auto;
-  outline: none;
-}
 .root .input:focus {
-  outline: none;
-}
-.root:focus-within .input:focus {
   outline: none;
 }
 .root .input::placeholder {
@@ -121,6 +118,9 @@
 }
 .rootcolor_dark .inputcolor_dark::placeholder {
   color: #c8c7c1;
+}
+.root:focus-within .input:focus {
+  outline: none;
 }
 .root:focus-within .input::placeholder {
   outline: none;

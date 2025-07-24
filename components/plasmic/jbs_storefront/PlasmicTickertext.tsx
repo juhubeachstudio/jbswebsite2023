@@ -1,6 +1,6 @@
-// @ts-nocheck
 /* eslint-disable */
 /* tslint:disable */
+// @ts-nocheck
 /* prettier-ignore-start */
 
 /** @jsxRuntime classic */
@@ -122,6 +122,7 @@ function PlasmicTickertext__RenderFunc(props: {
   };
 
   const __nextRouter = useNextRouter();
+
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
@@ -146,7 +147,6 @@ function PlasmicTickertext__RenderFunc(props: {
         data-plasmic-name={"marquee"}
         data-plasmic-override={overrides.marquee}
         autoFill={true}
-        className={classNames("__wab_instance", sty.marquee)}
         play={true}
       >
         <div
@@ -193,15 +193,15 @@ type NodeComponentProps<T extends NodeNameType> =
     args?: PlasmicTickertext__ArgsType;
     overrides?: NodeOverridesType<T>;
   } & Omit<PlasmicTickertext__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
-    /* Specify args directly as props*/ Omit<
-      PlasmicTickertext__ArgsType,
-      ReservedPropsType
-    > &
-    /* Specify overrides for each element directly as props*/ Omit<
+    // Specify args directly as props
+    Omit<PlasmicTickertext__ArgsType, ReservedPropsType> &
+    // Specify overrides for each element directly as props
+    Omit<
       NodeOverridesType<T>,
       ReservedPropsType | VariantPropType | ArgPropType
     > &
-    /* Specify props for the root element*/ Omit<
+    // Specify props for the root element
+    Omit<
       Partial<React.ComponentProps<NodeDefaultElementType[T]>>,
       ReservedPropsType | VariantPropType | ArgPropType | DescendantsType<T>
     >;

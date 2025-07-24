@@ -1,6 +1,6 @@
-// @ts-nocheck
 /* eslint-disable */
 /* tslint:disable */
+// @ts-nocheck
 /* prettier-ignore-start */
 
 /** @jsxRuntime classic */
@@ -62,7 +62,7 @@ import {
 import Navbar from "../../Navbar"; // plasmic-import: zY4oOp60G2/component
 import Footer from "../../Footer"; // plasmic-import: mZogRkwS1rd/component
 import Marquee from "react-fast-marquee"; // plasmic-import: m9EkGU-jS0/codeComponent
-import Countdown from "../../Countdown"; // plasmic-import: zowCfpHLJi3H/component
+import Countdown2 from "../../Countdown2"; // plasmic-import: zowCfpHLJi3H/component
 
 import { useScreenVariants as useScreenVariants_6Hzia3M7Np4Ulu } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6hzia3m7Np4ulu/globalVariant
 
@@ -79,9 +79,7 @@ export type PlasmicFullPage__VariantsArgs = {};
 type VariantPropType = keyof PlasmicFullPage__VariantsArgs;
 export const PlasmicFullPage__VariantProps = new Array<VariantPropType>();
 
-export type PlasmicFullPage__ArgsType = {
-  children?: React.ReactNode;
-};
+export type PlasmicFullPage__ArgsType = { children?: React.ReactNode };
 type ArgPropType = keyof PlasmicFullPage__ArgsType;
 export const PlasmicFullPage__ArgProps = new Array<ArgPropType>("children");
 
@@ -94,7 +92,7 @@ export type PlasmicFullPage__OverridesType = {
   marquee?: Flex__<typeof Marquee>;
   text?: Flex__<"div">;
   img?: Flex__<typeof PlasmicImg__>;
-  countdown?: Flex__<typeof Countdown>;
+  countdown2?: Flex__<typeof Countdown2>;
   h1?: Flex__<"h1">;
 };
 
@@ -137,6 +135,7 @@ function PlasmicFullPage__RenderFunc(props: {
   };
 
   const __nextRouter = useNextRouter();
+
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
@@ -244,7 +243,6 @@ function PlasmicFullPage__RenderFunc(props: {
                 data-plasmic-name={"marquee"}
                 data-plasmic-override={overrides.marquee}
                 autoFill={true}
-                className={classNames("__wab_instance", sty.marquee)}
                 play={true}
               >
                 <div
@@ -299,10 +297,10 @@ function PlasmicFullPage__RenderFunc(props: {
             />
 
             <div className={classNames(projectcss.all, sty.freeBox__u76Au)}>
-              <Countdown
-                data-plasmic-name={"countdown"}
-                data-plasmic-override={overrides.countdown}
-                className={classNames("__wab_instance", sty.countdown)}
+              <Countdown2
+                data-plasmic-name={"countdown2"}
+                data-plasmic-override={overrides.countdown2}
+                className={classNames("__wab_instance", sty.countdown2)}
                 targetTimeUtc={"2023-12-19T13:30:00.000Z"}
               />
 
@@ -340,7 +338,7 @@ const PlasmicDescendants = {
     "marquee",
     "text",
     "img",
-    "countdown",
+    "countdown2",
     "h1"
   ],
   navbar: ["navbar"],
@@ -351,14 +349,14 @@ const PlasmicDescendants = {
     "marquee",
     "text",
     "img",
-    "countdown",
+    "countdown2",
     "h1"
   ],
   juhuBeachBg: ["juhuBeachBg"],
   marquee: ["marquee", "text"],
   text: ["text"],
   img: ["img"],
-  countdown: ["countdown"],
+  countdown2: ["countdown2"],
   h1: ["h1"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
@@ -373,7 +371,7 @@ type NodeDefaultElementType = {
   marquee: typeof Marquee;
   text: "div";
   img: typeof PlasmicImg__;
-  countdown: typeof Countdown;
+  countdown2: typeof Countdown2;
   h1: "h1";
 };
 
@@ -389,15 +387,15 @@ type NodeComponentProps<T extends NodeNameType> =
     args?: PlasmicFullPage__ArgsType;
     overrides?: NodeOverridesType<T>;
   } & Omit<PlasmicFullPage__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
-    /* Specify args directly as props*/ Omit<
-      PlasmicFullPage__ArgsType,
-      ReservedPropsType
-    > &
-    /* Specify overrides for each element directly as props*/ Omit<
+    // Specify args directly as props
+    Omit<PlasmicFullPage__ArgsType, ReservedPropsType> &
+    // Specify overrides for each element directly as props
+    Omit<
       NodeOverridesType<T>,
       ReservedPropsType | VariantPropType | ArgPropType
     > &
-    /* Specify props for the root element*/ Omit<
+    // Specify props for the root element
+    Omit<
       Partial<React.ComponentProps<NodeDefaultElementType[T]>>,
       ReservedPropsType | VariantPropType | ArgPropType | DescendantsType<T>
     >;
@@ -444,7 +442,7 @@ export const PlasmicFullPage = Object.assign(
     marquee: makeNodeComponent("marquee"),
     text: makeNodeComponent("text"),
     img: makeNodeComponent("img"),
-    countdown: makeNodeComponent("countdown"),
+    countdown2: makeNodeComponent("countdown2"),
     h1: makeNodeComponent("h1"),
 
     // Metadata about props expected for PlasmicFullPage

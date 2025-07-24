@@ -2150,21 +2150,21 @@
 }
 @media (min-width: 0px) and (max-width: 768px) {
   .img__gx5Wa {
-    display: none !important;
+    display: none;
   }
 }
 .img__tPjZ4 {
   position: relative;
   object-fit: cover;
   max-width: 100%;
-  display: none !important;
+  display: none;
 }
 .img__tPjZ4 > picture > img {
   object-fit: cover;
 }
 @media (min-width: 0px) and (max-width: 768px) {
   .img__tPjZ4 {
-    display: block !important;
+    display: block;
   }
 }
 .freeBox__gNDo7 {

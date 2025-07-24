@@ -1,6 +1,6 @@
-// @ts-nocheck
 /* eslint-disable */
 /* tslint:disable */
+// @ts-nocheck
 /* prettier-ignore-start */
 
 /** @jsxRuntime classic */
@@ -134,6 +134,7 @@ function PlasmicTesting__RenderFunc(props: {
   };
 
   const __nextRouter = useNextRouter();
+
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
@@ -187,12 +188,14 @@ function PlasmicTesting__RenderFunc(props: {
       {(() => {
         const child$Props = {
           className: classNames("__wab_instance", sty.form),
-          extendedOnValuesChange: generateStateOnChangePropForCodeComponents(
-            $state,
-            "value",
-            ["form", "value"],
-            FormWrapper_Helpers
-          ),
+          extendedOnValuesChange: async (...eventArgs: any) => {
+            generateStateOnChangePropForCodeComponents(
+              $state,
+              "value",
+              ["form", "value"],
+              FormWrapper_Helpers
+            ).apply(null, eventArgs);
+          },
           formItems: undefined,
           labelCol: { span: 8, horizontalOnly: true },
           layout: "vertical",
@@ -220,12 +223,14 @@ function PlasmicTesting__RenderFunc(props: {
               $steps["runCode"] = await $steps["runCode"];
             }
           },
-          onIsSubmittingChange: generateStateOnChangePropForCodeComponents(
-            $state,
-            "isSubmitting",
-            ["form", "isSubmitting"],
-            FormWrapper_Helpers
-          ),
+          onIsSubmittingChange: async (...eventArgs: any) => {
+            generateStateOnChangePropForCodeComponents(
+              $state,
+              "isSubmitting",
+              ["form", "isSubmitting"],
+              FormWrapper_Helpers
+            ).apply(null, eventArgs);
+          },
           ref: ref => {
             $refs["form"] = ref;
           },
@@ -255,14 +260,14 @@ function PlasmicTesting__RenderFunc(props: {
             {...child$Props}
           >
             <FormItemWrapper
-              className={classNames("__wab_instance", sty.formField__tKqhu)}
+              className={classNames("__wab_instance", sty.formField__y6ZuP)}
               label={"Name"}
               name={"name"}
             >
               <AntdInput className={classNames("__wab_instance", sty.input)} />
             </FormItemWrapper>
             <FormItemWrapper
-              className={classNames("__wab_instance", sty.formField__oPmtN)}
+              className={classNames("__wab_instance", sty.formField__znUoG)}
               label={"Message"}
               name={"message"}
             >
@@ -331,15 +336,15 @@ type NodeComponentProps<T extends NodeNameType> =
     args?: PlasmicTesting__ArgsType;
     overrides?: NodeOverridesType<T>;
   } & Omit<PlasmicTesting__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
-    /* Specify args directly as props*/ Omit<
-      PlasmicTesting__ArgsType,
-      ReservedPropsType
-    > &
-    /* Specify overrides for each element directly as props*/ Omit<
+    // Specify args directly as props
+    Omit<PlasmicTesting__ArgsType, ReservedPropsType> &
+    // Specify overrides for each element directly as props
+    Omit<
       NodeOverridesType<T>,
       ReservedPropsType | VariantPropType | ArgPropType
     > &
-    /* Specify props for the root element*/ Omit<
+    // Specify props for the root element
+    Omit<
       Partial<React.ComponentProps<NodeDefaultElementType[T]>>,
       ReservedPropsType | VariantPropType | ArgPropType | DescendantsType<T>
     >;

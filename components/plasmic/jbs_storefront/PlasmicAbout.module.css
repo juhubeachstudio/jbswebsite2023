@@ -58,14 +58,14 @@
   position: relative;
   object-fit: cover;
   max-width: 100%;
-  display: none !important;
+  display: none;
 }
 .img__nTwgc > picture > img {
   object-fit: cover;
 }
 @media (min-width: 0px) and (max-width: 768px) {
   .img__nTwgc {
-    display: block !important;
+    display: block;
   }
 }
 .section__zMq4Z:global(.__wab_instance) {

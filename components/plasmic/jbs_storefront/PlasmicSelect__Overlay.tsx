@@ -1,6 +1,6 @@
-// @ts-nocheck
 /* eslint-disable */
 /* tslint:disable */
+// @ts-nocheck
 /* prettier-ignore-start */
 
 /** @jsxRuntime classic */
@@ -82,9 +82,7 @@ export const PlasmicSelect__Overlay__VariantProps = new Array<VariantPropType>(
   "relativePlacement"
 );
 
-export type PlasmicSelect__Overlay__ArgsType = {
-  children?: React.ReactNode;
-};
+export type PlasmicSelect__Overlay__ArgsType = { children?: React.ReactNode };
 type ArgPropType = keyof PlasmicSelect__Overlay__ArgsType;
 export const PlasmicSelect__Overlay__ArgProps = new Array<ArgPropType>(
   "children"
@@ -139,6 +137,7 @@ function PlasmicSelect__Overlay__RenderFunc(props: {
   };
 
   const __nextRouter = useNextRouter();
+
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
@@ -307,15 +306,15 @@ type NodeComponentProps<T extends NodeNameType> =
     args?: PlasmicSelect__Overlay__ArgsType;
     overrides?: NodeOverridesType<T>;
   } & Omit<PlasmicSelect__Overlay__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
-    /* Specify args directly as props*/ Omit<
-      PlasmicSelect__Overlay__ArgsType,
-      ReservedPropsType
-    > &
-    /* Specify overrides for each element directly as props*/ Omit<
+    // Specify args directly as props
+    Omit<PlasmicSelect__Overlay__ArgsType, ReservedPropsType> &
+    // Specify overrides for each element directly as props
+    Omit<
       NodeOverridesType<T>,
       ReservedPropsType | VariantPropType | ArgPropType
     > &
-    /* Specify props for the root element*/ Omit<
+    // Specify props for the root element
+    Omit<
       Partial<React.ComponentProps<NodeDefaultElementType[T]>>,
       ReservedPropsType | VariantPropType | ArgPropType | DescendantsType<T>
     >;

@@ -1,6 +1,6 @@
-// @ts-nocheck
 /* eslint-disable */
 /* tslint:disable */
+// @ts-nocheck
 /* prettier-ignore-start */
 
 /** @jsxRuntime classic */
@@ -142,6 +142,7 @@ function PlasmicCart2__RenderFunc(props: {
   };
 
   const __nextRouter = useNextRouter();
+
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
@@ -732,6 +733,15 @@ function PlasmicCart2__RenderFunc(props: {
                             "specialInstructionsInput",
                             "specialInstructions"
                           ]).apply(null, eventArgs);
+
+                          if (
+                            eventArgs.length > 1 &&
+                            eventArgs[1] &&
+                            eventArgs[1]._plasmic_state_init_
+                          ) {
+                            return;
+                          }
+
                           (async val => {
                             const $steps = {};
 
@@ -784,6 +794,7 @@ function PlasmicCart2__RenderFunc(props: {
                               "value"
                             ])(e.target.value);
                           }).apply(null, eventArgs);
+
                           (async event => {
                             const $steps = {};
 
@@ -1179,15 +1190,15 @@ type NodeComponentProps<T extends NodeNameType> =
     args?: PlasmicCart2__ArgsType;
     overrides?: NodeOverridesType<T>;
   } & Omit<PlasmicCart2__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
-    /* Specify args directly as props*/ Omit<
-      PlasmicCart2__ArgsType,
-      ReservedPropsType
-    > &
-    /* Specify overrides for each element directly as props*/ Omit<
+    // Specify args directly as props
+    Omit<PlasmicCart2__ArgsType, ReservedPropsType> &
+    // Specify overrides for each element directly as props
+    Omit<
       NodeOverridesType<T>,
       ReservedPropsType | VariantPropType | ArgPropType
     > &
-    /* Specify props for the root element*/ Omit<
+    // Specify props for the root element
+    Omit<
       Partial<React.ComponentProps<NodeDefaultElementType[T]>>,
       ReservedPropsType | VariantPropType | ArgPropType | DescendantsType<T>
     >;

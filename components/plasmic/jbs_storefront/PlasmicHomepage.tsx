@@ -1,6 +1,6 @@
-// @ts-nocheck
 /* eslint-disable */
 /* tslint:disable */
+// @ts-nocheck
 /* prettier-ignore-start */
 
 /** @jsxRuntime classic */
@@ -176,6 +176,7 @@ function PlasmicHomepage__RenderFunc(props: {
   };
 
   const __nextRouter = useNextRouter();
+
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
@@ -288,12 +289,14 @@ function PlasmicHomepage__RenderFunc(props: {
                   arrows: false,
                   autoplay: true,
                   autoplaySpeed: 2000,
-                  beforeChange: generateStateOnChangePropForCodeComponents(
-                    $state,
-                    "currentSlide",
-                    ["sliderCarousel", "currentSlide"],
-                    SliderWrapper_Helpers
-                  ),
+                  beforeChange: async (...eventArgs: any) => {
+                    generateStateOnChangePropForCodeComponents(
+                      $state,
+                      "currentSlide",
+                      ["sliderCarousel", "currentSlide"],
+                      SliderWrapper_Helpers
+                    ).apply(null, eventArgs);
+                  },
                   className: classNames("__wab_instance", sty.sliderCarousel),
                   draggable: true,
                   fade: false,
@@ -941,13 +944,14 @@ function PlasmicHomepage__RenderFunc(props: {
                           )
                             ? 1500
                             : 2000,
-                          beforeChange:
+                          beforeChange: async (...eventArgs: any) => {
                             generateStateOnChangePropForCodeComponents(
                               $state,
                               "currentSlide",
                               ["shopCategoriesSlides", "currentSlide"],
                               SliderWrapper_Helpers
-                            ),
+                            ).apply(null, eventArgs);
+                          },
                           centerMode: hasVariant(
                             globalVariants,
                             "screen",
@@ -1172,12 +1176,7 @@ function PlasmicHomepage__RenderFunc(props: {
               className={classNames("__wab_instance", sty.section__kbatp)}
             >
               <div className={classNames(projectcss.all, sty.freeBox__jv4Mt)}>
-                <Marquee
-                  autoFill={true}
-                  className={classNames("__wab_instance", sty.marquee__s7ZZl)}
-                  direction={"right"}
-                  play={true}
-                >
+                <Marquee autoFill={true} direction={"right"} play={true}>
                   <div
                     className={classNames(
                       projectcss.all,
@@ -1197,12 +1196,14 @@ function PlasmicHomepage__RenderFunc(props: {
                     arrows: false,
                     autoplay: true,
                     autoplaySpeed: 2000,
-                    beforeChange: generateStateOnChangePropForCodeComponents(
-                      $state,
-                      "currentSlide",
-                      ["sliderCarousel3", "currentSlide"],
-                      SliderWrapper_Helpers
-                    ),
+                    beforeChange: async (...eventArgs: any) => {
+                      generateStateOnChangePropForCodeComponents(
+                        $state,
+                        "currentSlide",
+                        ["sliderCarousel3", "currentSlide"],
+                        SliderWrapper_Helpers
+                      ).apply(null, eventArgs);
+                    },
                     centerMode: false,
                     className: classNames(
                       "__wab_instance",
@@ -1539,7 +1540,6 @@ function PlasmicHomepage__RenderFunc(props: {
                     url={
                       "https://juhubeachstudio.myshopify.com/api/2022-07/graphql.json"
                     }
-                    varOverrides={{}}
                   >
                     <DataCtxReader__>
                       {$ctx => (
@@ -1801,13 +1801,14 @@ function PlasmicHomepage__RenderFunc(props: {
                                     arrows: false,
                                     autoplay: false,
                                     autoplaySpeed: 10000,
-                                    beforeChange:
+                                    beforeChange: async (...eventArgs: any) => {
                                       generateStateOnChangePropForCodeComponents(
                                         $state,
                                         "currentSlide",
                                         ["sliderCarousel8", "currentSlide"],
                                         SliderWrapper_Helpers
-                                      ),
+                                      ).apply(null, eventArgs);
+                                    },
                                     centerMode: true,
                                     className: classNames(
                                       "__wab_instance",
@@ -2465,12 +2466,14 @@ function PlasmicHomepage__RenderFunc(props: {
                     arrows: false,
                     autoplay: true,
                     autoplaySpeed: 2000,
-                    beforeChange: generateStateOnChangePropForCodeComponents(
-                      $state,
-                      "currentSlide",
-                      ["sliderCarousel6", "currentSlide"],
-                      SliderWrapper_Helpers
-                    ),
+                    beforeChange: async (...eventArgs: any) => {
+                      generateStateOnChangePropForCodeComponents(
+                        $state,
+                        "currentSlide",
+                        ["sliderCarousel6", "currentSlide"],
+                        SliderWrapper_Helpers
+                      ).apply(null, eventArgs);
+                    },
                     className: classNames(
                       "__wab_instance",
                       sty.sliderCarousel6
@@ -2895,11 +2898,7 @@ function PlasmicHomepage__RenderFunc(props: {
               />
 
               <div className={classNames(projectcss.all, sty.freeBox__r9H7F)}>
-                <Marquee
-                  autoFill={true}
-                  className={classNames("__wab_instance", sty.marquee__hmz1V)}
-                  direction={"right"}
-                >
+                <Marquee autoFill={true} direction={"right"}>
                   <div
                     className={classNames(
                       projectcss.all,
@@ -3141,15 +3140,15 @@ type NodeComponentProps<T extends NodeNameType> =
     args?: PlasmicHomepage__ArgsType;
     overrides?: NodeOverridesType<T>;
   } & Omit<PlasmicHomepage__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
-    /* Specify args directly as props*/ Omit<
-      PlasmicHomepage__ArgsType,
-      ReservedPropsType
-    > &
-    /* Specify overrides for each element directly as props*/ Omit<
+    // Specify args directly as props
+    Omit<PlasmicHomepage__ArgsType, ReservedPropsType> &
+    // Specify overrides for each element directly as props
+    Omit<
       NodeOverridesType<T>,
       ReservedPropsType | VariantPropType | ArgPropType
     > &
-    /* Specify props for the root element*/ Omit<
+    // Specify props for the root element
+    Omit<
       Partial<React.ComponentProps<NodeDefaultElementType[T]>>,
       ReservedPropsType | VariantPropType | ArgPropType | DescendantsType<T>
     >;

@@ -1,6 +1,6 @@
-// @ts-nocheck
 /* eslint-disable */
 /* tslint:disable */
+// @ts-nocheck
 /* prettier-ignore-start */
 
 /** @jsxRuntime classic */
@@ -75,9 +75,7 @@ type VariantPropType = keyof PlasmicBlackyellowborder__VariantsArgs;
 export const PlasmicBlackyellowborder__VariantProps =
   new Array<VariantPropType>();
 
-export type PlasmicBlackyellowborder__ArgsType = {
-  play?: boolean;
-};
+export type PlasmicBlackyellowborder__ArgsType = { play?: boolean };
 type ArgPropType = keyof PlasmicBlackyellowborder__ArgsType;
 export const PlasmicBlackyellowborder__ArgProps = new Array<ArgPropType>(
   "play"
@@ -130,6 +128,7 @@ function PlasmicBlackyellowborder__RenderFunc(props: {
   };
 
   const __nextRouter = useNextRouter();
+
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
@@ -154,7 +153,6 @@ function PlasmicBlackyellowborder__RenderFunc(props: {
         data-plasmic-name={"marquee"}
         data-plasmic-override={overrides.marquee}
         autoFill={true}
-        className={classNames("__wab_instance", sty.marquee)}
         play={args.play}
       >
         <div
@@ -193,15 +191,15 @@ type NodeComponentProps<T extends NodeNameType> =
     args?: PlasmicBlackyellowborder__ArgsType;
     overrides?: NodeOverridesType<T>;
   } & Omit<PlasmicBlackyellowborder__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
-    /* Specify args directly as props*/ Omit<
-      PlasmicBlackyellowborder__ArgsType,
-      ReservedPropsType
-    > &
-    /* Specify overrides for each element directly as props*/ Omit<
+    // Specify args directly as props
+    Omit<PlasmicBlackyellowborder__ArgsType, ReservedPropsType> &
+    // Specify overrides for each element directly as props
+    Omit<
       NodeOverridesType<T>,
       ReservedPropsType | VariantPropType | ArgPropType
     > &
-    /* Specify props for the root element*/ Omit<
+    // Specify props for the root element
+    Omit<
       Partial<React.ComponentProps<NodeDefaultElementType[T]>>,
       ReservedPropsType | VariantPropType | ArgPropType | DescendantsType<T>
     >;

@@ -17,10 +17,10 @@
 .root > :global(.__wab_flex-container) > :global(.__wab_slot) > picture > img {
   margin-left: 4px;
 }
-.root:focus-within {
+.root___focusVisibleWithin {
   outline: none;
 }
-.root___focusVisibleWithin {
+.root:focus-within {
   outline: none;
 }
 .freeBox {
@@ -34,11 +34,11 @@
   -webkit-transition-duration: 0.2s;
   border-radius: 4px;
 }
-.root:focus-within .freeBox {
+.root .freeBox___focusVisibleWithin {
   box-shadow: 0px 0px 0px 3px #96c7f2;
   outline: none;
 }
-.root .freeBox___focusVisibleWithin {
+.root:focus-within .freeBox {
   box-shadow: 0px 0px 0px 3px #96c7f2;
   outline: none;
 }
@@ -56,6 +56,12 @@
 .svgisIndeterminate {
   color: #0091ff;
 }
+.root .svg___focusVisibleWithin {
+  outline: none;
+}
+.root:focus-within .svg {
+  outline: none;
+}
 .root:hover .svg {
   color: #c8c7c1;
 }
@@ -68,12 +74,6 @@
 .rootisIndeterminate:hover .svgisIndeterminate {
   color: #0081f1;
 }
-.root:focus-within .svg {
-  outline: none;
-}
-.root .svg___focusVisibleWithin {
-  outline: none;
-}
 .labelContainer {
   display: flex;
   position: relative;
@@ -81,10 +81,10 @@
   align-items: stretch;
   justify-content: flex-start;
 }
-.root:focus-within .labelContainer {
+.root .labelContainer___focusVisibleWithin {
   outline: none;
 }
-.root .labelContainer___focusVisibleWithin {
+.root:focus-within .labelContainer {
   outline: none;
 }
 .slotTargetChildren {
@@ -150,36 +150,6 @@
   > img {
   overflow: hidden;
 }
-.root:focus-within .slotTargetChildren > *,
-.root:focus-within .slotTargetChildren > :global(.__wab_slot) > *,
-.root:focus-within
-  .slotTargetChildren
-  > :global(.__wab_slot)
-  > :global(.__wab_slot)
-  > *,
-.root:focus-within
-  .slotTargetChildren
-  > :global(.__wab_slot)
-  > :global(.__wab_slot)
-  > :global(.__wab_slot)
-  > *,
-.root:focus-within .slotTargetChildren > picture > img,
-.root:focus-within .slotTargetChildren > :global(.__wab_slot) > picture > img,
-.root:focus-within
-  .slotTargetChildren
-  > :global(.__wab_slot)
-  > :global(.__wab_slot)
-  > picture
-  > img,
-.root:focus-within
-  .slotTargetChildren
-  > :global(.__wab_slot)
-  > :global(.__wab_slot)
-  > :global(.__wab_slot)
-  > picture
-  > img {
-  outline: none;
-}
 .root .slotTargetChildren___focusVisibleWithin > *,
 .root .slotTargetChildren___focusVisibleWithin > :global(.__wab_slot) > *,
 .root
@@ -207,6 +177,36 @@
   > img,
 .root
   .slotTargetChildren___focusVisibleWithin
+  > :global(.__wab_slot)
+  > :global(.__wab_slot)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  outline: none;
+}
+.root:focus-within .slotTargetChildren > *,
+.root:focus-within .slotTargetChildren > :global(.__wab_slot) > *,
+.root:focus-within
+  .slotTargetChildren
+  > :global(.__wab_slot)
+  > :global(.__wab_slot)
+  > *,
+.root:focus-within
+  .slotTargetChildren
+  > :global(.__wab_slot)
+  > :global(.__wab_slot)
+  > :global(.__wab_slot)
+  > *,
+.root:focus-within .slotTargetChildren > picture > img,
+.root:focus-within .slotTargetChildren > :global(.__wab_slot) > picture > img,
+.root:focus-within
+  .slotTargetChildren
+  > :global(.__wab_slot)
+  > :global(.__wab_slot)
+  > picture
+  > img,
+.root:focus-within
+  .slotTargetChildren
   > :global(.__wab_slot)
   > :global(.__wab_slot)
   > :global(.__wab_slot)

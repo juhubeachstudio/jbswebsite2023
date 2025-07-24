@@ -1,6 +1,6 @@
-// @ts-nocheck
 /* eslint-disable */
 /* tslint:disable */
+// @ts-nocheck
 /* prettier-ignore-start */
 
 /** @jsxRuntime classic */
@@ -79,9 +79,7 @@ export type PlasmicProductCardNew__VariantsArgs = {};
 type VariantPropType = keyof PlasmicProductCardNew__VariantsArgs;
 export const PlasmicProductCardNew__VariantProps = new Array<VariantPropType>();
 
-export type PlasmicProductCardNew__ArgsType = {
-  currentItem?: any;
-};
+export type PlasmicProductCardNew__ArgsType = { currentItem?: any };
 type ArgPropType = keyof PlasmicProductCardNew__ArgsType;
 export const PlasmicProductCardNew__ArgProps = new Array<ArgPropType>(
   "currentItem"
@@ -134,6 +132,7 @@ function PlasmicProductCardNew__RenderFunc(props: {
   };
 
   const __nextRouter = useNextRouter();
+
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
@@ -317,15 +316,15 @@ type NodeComponentProps<T extends NodeNameType> =
     args?: PlasmicProductCardNew__ArgsType;
     overrides?: NodeOverridesType<T>;
   } & Omit<PlasmicProductCardNew__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
-    /* Specify args directly as props*/ Omit<
-      PlasmicProductCardNew__ArgsType,
-      ReservedPropsType
-    > &
-    /* Specify overrides for each element directly as props*/ Omit<
+    // Specify args directly as props
+    Omit<PlasmicProductCardNew__ArgsType, ReservedPropsType> &
+    // Specify overrides for each element directly as props
+    Omit<
       NodeOverridesType<T>,
       ReservedPropsType | VariantPropType | ArgPropType
     > &
-    /* Specify props for the root element*/ Omit<
+    // Specify props for the root element
+    Omit<
       Partial<React.ComponentProps<NodeDefaultElementType[T]>>,
       ReservedPropsType | VariantPropType | ArgPropType | DescendantsType<T>
     >;

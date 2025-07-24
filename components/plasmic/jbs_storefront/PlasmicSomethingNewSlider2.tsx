@@ -1,6 +1,6 @@
-// @ts-nocheck
 /* eslint-disable */
 /* tslint:disable */
+// @ts-nocheck
 /* prettier-ignore-start */
 
 /** @jsxRuntime classic */
@@ -128,6 +128,7 @@ function PlasmicSomethingNewSlider2__RenderFunc(props: {
   };
 
   const __nextRouter = useNextRouter();
+
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
@@ -162,12 +163,14 @@ function PlasmicSomethingNewSlider2__RenderFunc(props: {
       arrows: false,
       autoplay: true,
       autoplaySpeed: 1500,
-      beforeChange: generateStateOnChangePropForCodeComponents(
-        $state,
-        "currentSlide",
-        ["sliderCarousel11", "currentSlide"],
-        SliderWrapper_Helpers
-      ),
+      beforeChange: async (...eventArgs: any) => {
+        generateStateOnChangePropForCodeComponents(
+          $state,
+          "currentSlide",
+          ["sliderCarousel11", "currentSlide"],
+          SliderWrapper_Helpers
+        ).apply(null, eventArgs);
+      },
       centerMode: true,
       className: classNames(
         "__wab_instance",
@@ -525,15 +528,15 @@ type NodeComponentProps<T extends NodeNameType> =
     args?: PlasmicSomethingNewSlider2__ArgsType;
     overrides?: NodeOverridesType<T>;
   } & Omit<PlasmicSomethingNewSlider2__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
-    /* Specify args directly as props*/ Omit<
-      PlasmicSomethingNewSlider2__ArgsType,
-      ReservedPropsType
-    > &
-    /* Specify overrides for each element directly as props*/ Omit<
+    // Specify args directly as props
+    Omit<PlasmicSomethingNewSlider2__ArgsType, ReservedPropsType> &
+    // Specify overrides for each element directly as props
+    Omit<
       NodeOverridesType<T>,
       ReservedPropsType | VariantPropType | ArgPropType
     > &
-    /* Specify props for the root element*/ Omit<
+    // Specify props for the root element
+    Omit<
       Partial<React.ComponentProps<NodeDefaultElementType[T]>>,
       ReservedPropsType | VariantPropType | ArgPropType | DescendantsType<T>
     >;

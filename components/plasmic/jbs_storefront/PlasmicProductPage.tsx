@@ -1,6 +1,6 @@
-// @ts-nocheck
 /* eslint-disable */
 /* tslint:disable */
+// @ts-nocheck
 /* prettier-ignore-start */
 
 /** @jsxRuntime classic */
@@ -150,6 +150,7 @@ function PlasmicProductPage__RenderFunc(props: {
   };
 
   const __nextRouter = useNextRouter();
+
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
@@ -246,10 +247,6 @@ function PlasmicProductPage__RenderFunc(props: {
                         <PlasmicHead
                           data-plasmic-name={"pageMetadataOverride"}
                           data-plasmic-override={overrides.pageMetadataOverride}
-                          className={classNames(
-                            "__wab_instance",
-                            sty.pageMetadataOverride
-                          )}
                           description={(() => {
                             try {
                               return $ctx.currentProduct.description;
@@ -870,13 +867,14 @@ function PlasmicProductPage__RenderFunc(props: {
                                 </AntdAccordionItem>
                               </React.Fragment>
                             ),
-                            onChange:
+                            onChange: async (...eventArgs: any) => {
                               generateStateOnChangePropForCodeComponents(
                                 $state,
                                 "activePanelId",
                                 ["accordion", "activePanelId"],
                                 AntdAccordion_Helpers
-                              ),
+                              ).apply(null, eventArgs);
+                            },
                             size: "large"
                           };
                           initializeCodeComponentStates(
@@ -1218,15 +1216,15 @@ type NodeComponentProps<T extends NodeNameType> =
     args?: PlasmicProductPage__ArgsType;
     overrides?: NodeOverridesType<T>;
   } & Omit<PlasmicProductPage__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
-    /* Specify args directly as props*/ Omit<
-      PlasmicProductPage__ArgsType,
-      ReservedPropsType
-    > &
-    /* Specify overrides for each element directly as props*/ Omit<
+    // Specify args directly as props
+    Omit<PlasmicProductPage__ArgsType, ReservedPropsType> &
+    // Specify overrides for each element directly as props
+    Omit<
       NodeOverridesType<T>,
       ReservedPropsType | VariantPropType | ArgPropType
     > &
-    /* Specify props for the root element*/ Omit<
+    // Specify props for the root element
+    Omit<
       Partial<React.ComponentProps<NodeDefaultElementType[T]>>,
       ReservedPropsType | VariantPropType | ArgPropType | DescendantsType<T>
     >;

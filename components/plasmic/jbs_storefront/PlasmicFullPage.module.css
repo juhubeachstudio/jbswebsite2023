@@ -215,7 +215,7 @@
   min-width: 0;
   padding: 8px;
 }
-.countdown:global(.__wab_instance) {
+.countdown2:global(.__wab_instance) {
   max-width: 100%;
   transform: none;
 }

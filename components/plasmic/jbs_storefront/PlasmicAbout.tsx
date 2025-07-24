@@ -1,6 +1,6 @@
-// @ts-nocheck
 /* eslint-disable */
 /* tslint:disable */
+// @ts-nocheck
 /* prettier-ignore-start */
 
 /** @jsxRuntime classic */
@@ -135,6 +135,7 @@ function PlasmicAbout__RenderFunc(props: {
   };
 
   const __nextRouter = useNextRouter();
+
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
@@ -398,12 +399,14 @@ function PlasmicAbout__RenderFunc(props: {
                         ? false
                         : true,
                       autoplay: true,
-                      beforeChange: generateStateOnChangePropForCodeComponents(
-                        $state,
-                        "currentSlide",
-                        ["sliderCarousel", "currentSlide"],
-                        SliderWrapper_Helpers
-                      ),
+                      beforeChange: async (...eventArgs: any) => {
+                        generateStateOnChangePropForCodeComponents(
+                          $state,
+                          "currentSlide",
+                          ["sliderCarousel", "currentSlide"],
+                          SliderWrapper_Helpers
+                        ).apply(null, eventArgs);
+                      },
                       className: classNames(
                         "__wab_instance",
                         sty.sliderCarousel
@@ -1051,12 +1054,14 @@ function PlasmicAbout__RenderFunc(props: {
                       ? false
                       : undefined,
                     autoplay: true,
-                    beforeChange: generateStateOnChangePropForCodeComponents(
-                      $state,
-                      "currentSlide",
-                      ["sliderCarousel2", "currentSlide"],
-                      SliderWrapper_Helpers
-                    ),
+                    beforeChange: async (...eventArgs: any) => {
+                      generateStateOnChangePropForCodeComponents(
+                        $state,
+                        "currentSlide",
+                        ["sliderCarousel2", "currentSlide"],
+                        SliderWrapper_Helpers
+                      ).apply(null, eventArgs);
+                    },
                     centerMode: false,
                     className: classNames(
                       "__wab_instance",
@@ -1722,12 +1727,14 @@ function PlasmicAbout__RenderFunc(props: {
                       ? false
                       : undefined,
                     autoplay: true,
-                    beforeChange: generateStateOnChangePropForCodeComponents(
-                      $state,
-                      "currentSlide",
-                      ["sliderCarousel3", "currentSlide"],
-                      SliderWrapper_Helpers
-                    ),
+                    beforeChange: async (...eventArgs: any) => {
+                      generateStateOnChangePropForCodeComponents(
+                        $state,
+                        "currentSlide",
+                        ["sliderCarousel3", "currentSlide"],
+                        SliderWrapper_Helpers
+                      ).apply(null, eventArgs);
+                    },
                     centerMode: false,
                     className: classNames(
                       "__wab_instance",
@@ -2111,12 +2118,14 @@ function PlasmicAbout__RenderFunc(props: {
                       ? false
                       : undefined,
                     autoplay: true,
-                    beforeChange: generateStateOnChangePropForCodeComponents(
-                      $state,
-                      "currentSlide",
-                      ["sliderCarousel5", "currentSlide"],
-                      SliderWrapper_Helpers
-                    ),
+                    beforeChange: async (...eventArgs: any) => {
+                      generateStateOnChangePropForCodeComponents(
+                        $state,
+                        "currentSlide",
+                        ["sliderCarousel5", "currentSlide"],
+                        SliderWrapper_Helpers
+                      ).apply(null, eventArgs);
+                    },
                     centerMode: false,
                     className: classNames(
                       "__wab_instance",
@@ -2552,12 +2561,14 @@ function PlasmicAbout__RenderFunc(props: {
                 {(() => {
                   const child$Props = {
                     arrows: true,
-                    beforeChange: generateStateOnChangePropForCodeComponents(
-                      $state,
-                      "currentSlide",
-                      ["sliderCarousel6", "currentSlide"],
-                      SliderWrapper_Helpers
-                    ),
+                    beforeChange: async (...eventArgs: any) => {
+                      generateStateOnChangePropForCodeComponents(
+                        $state,
+                        "currentSlide",
+                        ["sliderCarousel6", "currentSlide"],
+                        SliderWrapper_Helpers
+                      ).apply(null, eventArgs);
+                    },
                     className: classNames(
                       "__wab_instance",
                       sty.sliderCarousel6
@@ -2886,15 +2897,15 @@ type NodeComponentProps<T extends NodeNameType> =
     args?: PlasmicAbout__ArgsType;
     overrides?: NodeOverridesType<T>;
   } & Omit<PlasmicAbout__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
-    /* Specify args directly as props*/ Omit<
-      PlasmicAbout__ArgsType,
-      ReservedPropsType
-    > &
-    /* Specify overrides for each element directly as props*/ Omit<
+    // Specify args directly as props
+    Omit<PlasmicAbout__ArgsType, ReservedPropsType> &
+    // Specify overrides for each element directly as props
+    Omit<
       NodeOverridesType<T>,
       ReservedPropsType | VariantPropType | ArgPropType
     > &
-    /* Specify props for the root element*/ Omit<
+    // Specify props for the root element
+    Omit<
       Partial<React.ComponentProps<NodeDefaultElementType[T]>>,
       ReservedPropsType | VariantPropType | ArgPropType | DescendantsType<T>
     >;

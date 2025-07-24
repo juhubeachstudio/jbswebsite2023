@@ -1,6 +1,6 @@
-// @ts-nocheck
 /* eslint-disable */
 /* tslint:disable */
+// @ts-nocheck
 /* prettier-ignore-start */
 
 /** @jsxRuntime classic */
@@ -72,9 +72,7 @@ export type PlasmicCategoryCard__VariantsArgs = {};
 type VariantPropType = keyof PlasmicCategoryCard__VariantsArgs;
 export const PlasmicCategoryCard__VariantProps = new Array<VariantPropType>();
 
-export type PlasmicCategoryCard__ArgsType = {
-  currentItem?: any;
-};
+export type PlasmicCategoryCard__ArgsType = { currentItem?: any };
 type ArgPropType = keyof PlasmicCategoryCard__ArgsType;
 export const PlasmicCategoryCard__ArgProps = new Array<ArgPropType>(
   "currentItem"
@@ -125,6 +123,7 @@ function PlasmicCategoryCard__RenderFunc(props: {
   };
 
   const __nextRouter = useNextRouter();
+
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
@@ -239,15 +238,15 @@ type NodeComponentProps<T extends NodeNameType> =
     args?: PlasmicCategoryCard__ArgsType;
     overrides?: NodeOverridesType<T>;
   } & Omit<PlasmicCategoryCard__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
-    /* Specify args directly as props*/ Omit<
-      PlasmicCategoryCard__ArgsType,
-      ReservedPropsType
-    > &
-    /* Specify overrides for each element directly as props*/ Omit<
+    // Specify args directly as props
+    Omit<PlasmicCategoryCard__ArgsType, ReservedPropsType> &
+    // Specify overrides for each element directly as props
+    Omit<
       NodeOverridesType<T>,
       ReservedPropsType | VariantPropType | ArgPropType
     > &
-    /* Specify props for the root element*/ Omit<
+    // Specify props for the root element
+    Omit<
       Partial<React.ComponentProps<NodeDefaultElementType[T]>>,
       ReservedPropsType | VariantPropType | ArgPropType | DescendantsType<T>
     >;

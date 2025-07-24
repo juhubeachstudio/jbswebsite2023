@@ -1,6 +1,6 @@
-// @ts-nocheck
 /* eslint-disable */
 /* tslint:disable */
+// @ts-nocheck
 /* prettier-ignore-start */
 
 /** @jsxRuntime classic */
@@ -72,9 +72,7 @@ export type PlasmicFullpageheight__VariantsArgs = {};
 type VariantPropType = keyof PlasmicFullpageheight__VariantsArgs;
 export const PlasmicFullpageheight__VariantProps = new Array<VariantPropType>();
 
-export type PlasmicFullpageheight__ArgsType = {
-  children?: React.ReactNode;
-};
+export type PlasmicFullpageheight__ArgsType = { children?: React.ReactNode };
 type ArgPropType = keyof PlasmicFullpageheight__ArgsType;
 export const PlasmicFullpageheight__ArgProps = new Array<ArgPropType>(
   "children"
@@ -123,6 +121,7 @@ function PlasmicFullpageheight__RenderFunc(props: {
   };
 
   const __nextRouter = useNextRouter();
+
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
@@ -173,15 +172,15 @@ type NodeComponentProps<T extends NodeNameType> =
     args?: PlasmicFullpageheight__ArgsType;
     overrides?: NodeOverridesType<T>;
   } & Omit<PlasmicFullpageheight__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
-    /* Specify args directly as props*/ Omit<
-      PlasmicFullpageheight__ArgsType,
-      ReservedPropsType
-    > &
-    /* Specify overrides for each element directly as props*/ Omit<
+    // Specify args directly as props
+    Omit<PlasmicFullpageheight__ArgsType, ReservedPropsType> &
+    // Specify overrides for each element directly as props
+    Omit<
       NodeOverridesType<T>,
       ReservedPropsType | VariantPropType | ArgPropType
     > &
-    /* Specify props for the root element*/ Omit<
+    // Specify props for the root element
+    Omit<
       Partial<React.ComponentProps<NodeDefaultElementType[T]>>,
       ReservedPropsType | VariantPropType | ArgPropType | DescendantsType<T>
     >;
