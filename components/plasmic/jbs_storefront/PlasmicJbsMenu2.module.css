@@ -12,6 +12,7 @@
   .root {
     display: flex;
     flex-direction: column;
+    column-gap: 0px;
   }
 }
 .categoryCollection:global(.__wab_instance) {
@@ -46,6 +47,7 @@
   .menu:global(.__wab_instance) {
     display: flex;
     flex-direction: column;
+    column-gap: 0px;
   }
 }
 .menuItem__go0Ju:global(.__wab_instance) {

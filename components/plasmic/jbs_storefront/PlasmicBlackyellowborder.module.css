@@ -24,7 +24,7 @@
       var(--token-5flkhAz6pTxg) 51%
     )
     0% 0% / 2em auto repeat-x padding-box border-box scroll;
-  transform: skewX(-45deg) skewY(0deg);
+  transform: skew(-45deg, 0deg);
   transition-property: all;
   transition-duration: 1s;
   transition-timing-function: linear;

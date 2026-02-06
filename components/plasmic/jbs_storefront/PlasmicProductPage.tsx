@@ -74,12 +74,11 @@ import { GraphqlFetcher } from "@plasmicpkgs/plasmic-query";
 import Section from "../../Section"; // plasmic-import: GMAR4VOl00/component
 import ProductCardJbs from "../../ProductCardJbs"; // plasmic-import: Ft4Mem_Zab/component
 import Button from "../../Button"; // plasmic-import: yEsI5slGwPm/component
-
-import { useScreenVariants as useScreenVariants_6Hzia3M7Np4Ulu } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6hzia3m7Np4ulu/globalVariant
+import { _useGlobalVariants } from "./plasmic"; // plasmic-import: heL2P6rJiLNgtnBJPb6i1m/projectModule
+import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: heL2P6rJiLNgtnBJPb6i1m/styleTokensProvider
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic_antd_5_hostless.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
 import projectcss from "./plasmic_jbs_storefront.module.css"; // plasmic-import: heL2P6rJiLNgtnBJPb6i1m/projectcss
 import sty from "./PlasmicProductPage.module.css"; // plasmic-import: sFlg1tQbot/css
 
@@ -178,9 +177,7 @@ function PlasmicProductPage__RenderFunc(props: {
     $refs
   });
 
-  const globalVariants = ensureGlobalVariants({
-    screen: useScreenVariants_6Hzia3M7Np4Ulu()
-  });
+  const styleTokensClassNames = _useStyleTokens();
 
   return (
     <React.Fragment>
@@ -203,8 +200,7 @@ function PlasmicProductPage__RenderFunc(props: {
             projectcss.root_reset,
             projectcss.plasmic_default_styles,
             projectcss.plasmic_mixins,
-            projectcss.plasmic_tokens,
-            plasmic_antd_5_hostless_css.plasmic_tokens,
+            styleTokensClassNames,
             sty.root
           )}
         >
@@ -213,11 +209,9 @@ function PlasmicProductPage__RenderFunc(props: {
             data-plasmic-override={overrides.fullPage}
             className={classNames("__wab_instance", sty.fullPage)}
           >
-            <Stack__
-              as={"div"}
+            <div
               data-plasmic-name={"columns"}
               data-plasmic-override={overrides.columns}
-              hasGap={true}
               className={classNames(projectcss.all, sty.columns)}
             >
               <div className={classNames(projectcss.all, sty.column___88Slm)}>
@@ -344,11 +338,7 @@ function PlasmicProductPage__RenderFunc(props: {
                   </DataCtxReader__>
                 </ProductBox>
               </div>
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.column__vIqh5)}
-              >
+              <div className={classNames(projectcss.all, sty.column__vIqh5)}>
                 <ProductBox
                   className={classNames(
                     "__wab_instance",
@@ -371,9 +361,7 @@ function PlasmicProductPage__RenderFunc(props: {
                   <DataCtxReader__>
                     {$ctx => (
                       <React.Fragment>
-                        <Stack__
-                          as={"div"}
-                          hasGap={true}
+                        <div
                           className={classNames(
                             projectcss.all,
                             sty.freeBox__emiHk
@@ -387,9 +375,7 @@ function PlasmicProductPage__RenderFunc(props: {
                             field={"name"}
                           />
 
-                          <Stack__
-                            as={"div"}
-                            hasGap={true}
+                          <div
                             className={classNames(
                               projectcss.all,
                               sty.freeBox__c4QrQ
@@ -445,7 +431,7 @@ function PlasmicProductPage__RenderFunc(props: {
                                 })()}
                               </React.Fragment>
                             </div>
-                          </Stack__>
+                          </div>
                           {(() => {
                             try {
                               return $ctx.currentProduct.variants.length > 1;
@@ -506,13 +492,7 @@ function PlasmicProductPage__RenderFunc(props: {
                                       const variantNames = soldOutVariants.map(
                                         variant => variant.name
                                       );
-                                      const message = `Note: ${variantNames.join(
-                                        ", "
-                                      )} ${
-                                        soldOutVariants.length > 1
-                                          ? "variants are"
-                                          : "variant is"
-                                      } all sold out :( the other ones are still available 👀`;
+                                      const message = `Note: ${variantNames.join(", ")} ${soldOutVariants.length > 1 ? "variants are" : "variant is"} all sold out :( the other ones are still available 👀`;
                                       return message;
                                     })();
                                   } catch (e) {
@@ -536,7 +516,7 @@ function PlasmicProductPage__RenderFunc(props: {
                             )}
                             field={"description"}
                           />
-                        </Stack__>
+                        </div>
                         <AddToCartCustomButton
                           data-plasmic-name={"addToCartCustomButton"}
                           data-plasmic-override={
@@ -875,6 +855,7 @@ function PlasmicProductPage__RenderFunc(props: {
                                 AntdAccordion_Helpers
                               ).apply(null, eventArgs);
                             },
+                            rotationAngle: 90,
                             size: "large"
                           };
                           initializeCodeComponentStates(
@@ -902,8 +883,8 @@ function PlasmicProductPage__RenderFunc(props: {
                     )}
                   </DataCtxReader__>
                 </ProductBox>
-              </Stack__>
-            </Stack__>
+              </div>
+            </div>
             <Section
               data-plasmic-name={"section"}
               data-plasmic-override={overrides.section}
@@ -1215,7 +1196,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicProductPage__VariantsArgs;
     args?: PlasmicProductPage__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicProductPage__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicProductPage__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicProductPage__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

@@ -62,10 +62,11 @@ import {
 import { ProductMedia } from "@plasmicpkgs/commerce";
 import { ProductTextField } from "@plasmicpkgs/commerce";
 import { ProductPriceComponent } from "@plasmicpkgs/commerce";
+import { _useGlobalVariants } from "./plasmic"; // plasmic-import: heL2P6rJiLNgtnBJPb6i1m/projectModule
+import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: heL2P6rJiLNgtnBJPb6i1m/styleTokensProvider
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic_antd_5_hostless.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
 import projectcss from "./plasmic_jbs_storefront.module.css"; // plasmic-import: heL2P6rJiLNgtnBJPb6i1m/projectcss
 import sty from "./PlasmicProductCardJbs.module.css"; // plasmic-import: Ft4Mem_Zab/css
 
@@ -139,6 +140,8 @@ function PlasmicProductCardJbs__RenderFunc(props: {
     hover_root: isRootHover
   };
 
+  const styleTokensClassNames = _useStyleTokens();
+
   return (
     <div
       data-plasmic-name={"root"}
@@ -150,8 +153,7 @@ function PlasmicProductCardJbs__RenderFunc(props: {
         projectcss.root_reset,
         projectcss.plasmic_default_styles,
         projectcss.plasmic_mixins,
-        projectcss.plasmic_tokens,
-        plasmic_antd_5_hostless_css.plasmic_tokens,
+        styleTokensClassNames,
         sty.root
       )}
       data-plasmic-trigger-props={[triggerRootHoverProps]}
@@ -211,11 +213,7 @@ function PlasmicProductCardJbs__RenderFunc(props: {
           mediaIndex={triggers.hover_root ? 1 : 1}
         />
       </PlasmicLink__>
-      <Stack__
-        as={"div"}
-        hasGap={true}
-        className={classNames(projectcss.all, sty.freeBox___3HlGq)}
-      >
+      <div className={classNames(projectcss.all, sty.freeBox___3HlGq)}>
         <PlasmicLink__
           className={classNames(projectcss.all, projectcss.a, sty.link___7Zco)}
           component={Link}
@@ -241,11 +239,7 @@ function PlasmicProductCardJbs__RenderFunc(props: {
             field={"name"}
           />
         </PlasmicLink__>
-        <Stack__
-          as={"div"}
-          hasGap={true}
-          className={classNames(projectcss.all, sty.freeBox___3MPn)}
-        >
+        <div className={classNames(projectcss.all, sty.freeBox___3MPn)}>
           <ProductPriceComponent
             data-plasmic-name={"productPrice"}
             data-plasmic-override={overrides.productPrice}
@@ -289,8 +283,8 @@ function PlasmicProductCardJbs__RenderFunc(props: {
               })()}
             </React.Fragment>
           </div>
-        </Stack__>
-      </Stack__>
+        </div>
+      </div>
     </div>
   ) as React.ReactElement | null;
 }
@@ -324,7 +318,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicProductCardJbs__VariantsArgs;
     args?: PlasmicProductCardJbs__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicProductCardJbs__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicProductCardJbs__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicProductCardJbs__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

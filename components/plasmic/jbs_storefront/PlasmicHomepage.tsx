@@ -86,12 +86,11 @@ import { ProductCollection } from "@plasmicpkgs/commerce";
 import SurpriseMeButton from "../../SurpriseMeButton"; // plasmic-import: cuLrZTUy4Zrk/component
 import HeaderSlide from "../../HeaderSlide"; // plasmic-import: dIysgpuSQtRE/component
 import { AntdSliderMark } from "@plasmicpkgs/antd5/skinny/registerSlider";
-
-import { useScreenVariants as useScreenVariants_6Hzia3M7Np4Ulu } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6hzia3m7Np4ulu/globalVariant
+import { _useGlobalVariants } from "./plasmic"; // plasmic-import: heL2P6rJiLNgtnBJPb6i1m/projectModule
+import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: heL2P6rJiLNgtnBJPb6i1m/styleTokensProvider
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic_antd_5_hostless.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
 import projectcss from "./plasmic_jbs_storefront.module.css"; // plasmic-import: heL2P6rJiLNgtnBJPb6i1m/projectcss
 import sty from "./PlasmicHomepage.module.css"; // plasmic-import: HsoJyy15p4bPd/css
 
@@ -181,6 +180,8 @@ function PlasmicHomepage__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
+  const globalVariants = _useGlobalVariants();
+
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
@@ -247,9 +248,7 @@ function PlasmicHomepage__RenderFunc(props: {
   const dataSourcesCtx = usePlasmicDataSourceContext();
   const plasmicInvalidate = usePlasmicInvalidate();
 
-  const globalVariants = ensureGlobalVariants({
-    screen: useScreenVariants_6Hzia3M7Np4Ulu()
-  });
+  const styleTokensClassNames = _useStyleTokens();
 
   return (
     <React.Fragment>
@@ -272,8 +271,7 @@ function PlasmicHomepage__RenderFunc(props: {
             projectcss.root_reset,
             projectcss.plasmic_default_styles,
             projectcss.plasmic_mixins,
-            projectcss.plasmic_tokens,
-            plasmic_antd_5_hostless_css.plasmic_tokens,
+            styleTokensClassNames,
             sty.root
           )}
         >
@@ -658,9 +656,8 @@ function PlasmicHomepage__RenderFunc(props: {
                     typeof $steps["runActionOnSliderCarousel"].then ===
                       "function"
                   ) {
-                    $steps["runActionOnSliderCarousel"] = await $steps[
-                      "runActionOnSliderCarousel"
-                    ];
+                    $steps["runActionOnSliderCarousel"] =
+                      await $steps["runActionOnSliderCarousel"];
                   }
                 }}
                 role={"img"}
@@ -688,9 +685,8 @@ function PlasmicHomepage__RenderFunc(props: {
                     typeof $steps["runActionOnSliderCarousel"].then ===
                       "function"
                   ) {
-                    $steps["runActionOnSliderCarousel"] = await $steps[
-                      "runActionOnSliderCarousel"
-                    ];
+                    $steps["runActionOnSliderCarousel"] =
+                      await $steps["runActionOnSliderCarousel"];
                   }
 
                   $steps["runElementAction"] = true
@@ -706,9 +702,8 @@ function PlasmicHomepage__RenderFunc(props: {
                     typeof $steps["runElementAction"] === "object" &&
                     typeof $steps["runElementAction"].then === "function"
                   ) {
-                    $steps["runElementAction"] = await $steps[
-                      "runElementAction"
-                    ];
+                    $steps["runElementAction"] =
+                      await $steps["runElementAction"];
                   }
                 }}
                 role={"img"}
@@ -725,11 +720,7 @@ function PlasmicHomepage__RenderFunc(props: {
                 play={false}
               />
 
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.columns___4WQdg)}
-              >
+              <div className={classNames(projectcss.all, sty.columns___4WQdg)}>
                 <div className={classNames(projectcss.all, sty.column__kfmfc)}>
                   <PlasmicImg__
                     alt={""}
@@ -775,7 +766,7 @@ function PlasmicHomepage__RenderFunc(props: {
                     }
                   </div>
                 </div>
-              </Stack__>
+              </div>
             </Section>
             <Section
               className={classNames("__wab_instance", sty.section__xJgV)}
@@ -837,9 +828,8 @@ function PlasmicHomepage__RenderFunc(props: {
                         typeof $steps["runActionOnSliderCarousel2"].then ===
                           "function"
                       ) {
-                        $steps["runActionOnSliderCarousel2"] = await $steps[
-                          "runActionOnSliderCarousel2"
-                        ];
+                        $steps["runActionOnSliderCarousel2"] =
+                          await $steps["runActionOnSliderCarousel2"];
                       }
                     }}
                     role={"img"}
@@ -881,9 +871,8 @@ function PlasmicHomepage__RenderFunc(props: {
                         typeof $steps["runActionOnSliderCarousel2"].then ===
                           "function"
                       ) {
-                        $steps["runActionOnSliderCarousel2"] = await $steps[
-                          "runActionOnSliderCarousel2"
-                        ];
+                        $steps["runActionOnSliderCarousel2"] =
+                          await $steps["runActionOnSliderCarousel2"];
                       }
                     }}
                     role={"img"}
@@ -1365,9 +1354,8 @@ function PlasmicHomepage__RenderFunc(props: {
                       typeof $steps["runActionOnSliderCarousel3"].then ===
                         "function"
                     ) {
-                      $steps["runActionOnSliderCarousel3"] = await $steps[
-                        "runActionOnSliderCarousel3"
-                      ];
+                      $steps["runActionOnSliderCarousel3"] =
+                        await $steps["runActionOnSliderCarousel3"];
                     }
                   }}
                   role={"img"}
@@ -1396,9 +1384,8 @@ function PlasmicHomepage__RenderFunc(props: {
                       typeof $steps["runActionOnSliderCarousel3"].then ===
                         "function"
                     ) {
-                      $steps["runActionOnSliderCarousel3"] = await $steps[
-                        "runActionOnSliderCarousel3"
-                      ];
+                      $steps["runActionOnSliderCarousel3"] =
+                        await $steps["runActionOnSliderCarousel3"];
                     }
                   }}
                   role={"img"}
@@ -1623,9 +1610,8 @@ function PlasmicHomepage__RenderFunc(props: {
                                         typeof $steps["refreshData"].then ===
                                           "function"
                                       ) {
-                                        $steps["refreshData"] = await $steps[
-                                          "refreshData"
-                                        ];
+                                        $steps["refreshData"] =
+                                          await $steps["refreshData"];
                                       }
                                     }}
                                   >
@@ -1633,8 +1619,8 @@ function PlasmicHomepage__RenderFunc(props: {
                                       !_par
                                         ? []
                                         : Array.isArray(_par)
-                                        ? _par
-                                        : [_par])(
+                                          ? _par
+                                          : [_par])(
                                       (() => {
                                         try {
                                           return (() => {
@@ -1756,9 +1742,10 @@ function PlasmicHomepage__RenderFunc(props: {
                                                     ) {
                                                       $steps[
                                                         "goToProductPage"
-                                                      ] = await $steps[
-                                                        "goToProductPage"
-                                                      ];
+                                                      ] =
+                                                        await $steps[
+                                                          "goToProductPage"
+                                                        ];
                                                     }
                                                   }}
                                                 >
@@ -2341,9 +2328,8 @@ function PlasmicHomepage__RenderFunc(props: {
                                 typeof $steps["goToARandomProductPage"].then ===
                                   "function"
                               ) {
-                                $steps["goToARandomProductPage"] = await $steps[
-                                  "goToARandomProductPage"
-                                ];
+                                $steps["goToARandomProductPage"] =
+                                  await $steps["goToARandomProductPage"];
                               }
                             }}
                           />
@@ -2387,9 +2373,7 @@ function PlasmicHomepage__RenderFunc(props: {
                       }}
                     />
                   </div>
-                  <Stack__
-                    as={"div"}
-                    hasGap={true}
+                  <div
                     className={classNames(projectcss.all, sty.freeBox__zg89B)}
                   >
                     <div
@@ -2426,7 +2410,7 @@ function PlasmicHomepage__RenderFunc(props: {
                         {"gifts here!"}
                       </div>
                     </Button>
-                  </Stack__>
+                  </div>
                   <div
                     className={classNames(projectcss.all, sty.freeBox__b9AXi)}
                   >
@@ -2514,9 +2498,7 @@ function PlasmicHomepage__RenderFunc(props: {
                           sty.headerSlide__hJkVl
                         )}
                         slot={
-                          <Stack__
-                            as={"div"}
-                            hasGap={true}
+                          <div
                             className={classNames(
                               projectcss.all,
                               sty.freeBox__dEnIl
@@ -2540,7 +2522,7 @@ function PlasmicHomepage__RenderFunc(props: {
                             >
                               {"Hats"}
                             </div>
-                          </Stack__>
+                          </div>
                         }
                         slot2={
                           <div
@@ -2624,9 +2606,7 @@ function PlasmicHomepage__RenderFunc(props: {
                           sty.headerSlide__esgQ
                         )}
                         slot={
-                          <Stack__
-                            as={"div"}
-                            hasGap={true}
+                          <div
                             className={classNames(
                               projectcss.all,
                               sty.freeBox__oCcH
@@ -2650,7 +2630,7 @@ function PlasmicHomepage__RenderFunc(props: {
                             >
                               {"Topi"}
                             </div>
-                          </Stack__>
+                          </div>
                         }
                         slot2={
                           <div
@@ -2748,9 +2728,8 @@ function PlasmicHomepage__RenderFunc(props: {
                       typeof $steps["runActionOnSliderCarousel6"].then ===
                         "function"
                     ) {
-                      $steps["runActionOnSliderCarousel6"] = await $steps[
-                        "runActionOnSliderCarousel6"
-                      ];
+                      $steps["runActionOnSliderCarousel6"] =
+                        await $steps["runActionOnSliderCarousel6"];
                     }
                   }}
                   role={"img"}
@@ -2779,9 +2758,8 @@ function PlasmicHomepage__RenderFunc(props: {
                       typeof $steps["runActionOnSliderCarousel6"].then ===
                         "function"
                     ) {
-                      $steps["runActionOnSliderCarousel6"] = await $steps[
-                        "runActionOnSliderCarousel6"
-                      ];
+                      $steps["runActionOnSliderCarousel6"] =
+                        await $steps["runActionOnSliderCarousel6"];
                     }
                   }}
                   role={"img"}
@@ -2949,16 +2927,8 @@ function PlasmicHomepage__RenderFunc(props: {
                   }}
                 />
               </div>
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__gNDo7)}
-              >
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.columns__mkbQx)}
-                >
+              <div className={classNames(projectcss.all, sty.freeBox__gNDo7)}>
+                <div className={classNames(projectcss.all, sty.columns__mkbQx)}>
                   <div
                     className={classNames(projectcss.all, sty.column__ejCnz)}
                   >
@@ -2989,9 +2959,7 @@ function PlasmicHomepage__RenderFunc(props: {
                         : "Our brand celebrates the weird and wonderful concept-ness of life through delightful, handcrafted lifestyle accessory products."}
                     </div>
                   </div>
-                  <Stack__
-                    as={"div"}
-                    hasGap={true}
+                  <div
                     className={classNames(projectcss.all, sty.column__uGeWu)}
                   >
                     <div
@@ -3035,14 +3003,14 @@ function PlasmicHomepage__RenderFunc(props: {
                         {"Want to know how we do it?"}
                       </div>
                     </Button>
-                  </Stack__>
-                </Stack__>
+                  </div>
+                </div>
                 <AntdSliderMark
                   data-plasmic-name={"sliderMark"}
                   data-plasmic-override={overrides.sliderMark}
                   className={classNames("__wab_instance", sty.sliderMark)}
                 />
-              </Stack__>
+              </div>
             </Section>
           </FullPage>
         </div>
@@ -3139,7 +3107,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicHomepage__VariantsArgs;
     args?: PlasmicHomepage__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicHomepage__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicHomepage__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicHomepage__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

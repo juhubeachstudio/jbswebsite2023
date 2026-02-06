@@ -26,7 +26,7 @@
   object-fit: cover;
 }
 .root:hover .img {
-  transform: scaleX(1.5) scaleY(1.5) scaleZ(1);
+  transform: scale3d(1.5, 1.5, 1);
   filter: blur(4px);
 }
 .text {

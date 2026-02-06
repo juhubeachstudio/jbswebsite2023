@@ -59,9 +59,11 @@ import {
   useGlobalActions
 } from "@plasmicapp/react-web/lib/host";
 
+import { _useGlobalVariants } from "./plasmic"; // plasmic-import: heL2P6rJiLNgtnBJPb6i1m/projectModule
+import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: heL2P6rJiLNgtnBJPb6i1m/styleTokensProvider
+
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic_antd_5_hostless.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
 import projectcss from "./plasmic_jbs_storefront.module.css"; // plasmic-import: heL2P6rJiLNgtnBJPb6i1m/projectcss
 import sty from "./PlasmicProductInSlider.module.css"; // plasmic-import: p75X7EWJ1KaV/css
 
@@ -133,6 +135,8 @@ function PlasmicProductInSlider__RenderFunc(props: {
     hover_img: isImgHover
   };
 
+  const styleTokensClassNames = _useStyleTokens();
+
   return (
     <div
       data-plasmic-name={"root"}
@@ -144,8 +148,7 @@ function PlasmicProductInSlider__RenderFunc(props: {
         projectcss.root_reset,
         projectcss.plasmic_default_styles,
         projectcss.plasmic_mixins,
-        projectcss.plasmic_tokens,
-        plasmic_antd_5_hostless_css.plasmic_tokens,
+        styleTokensClassNames,
         sty.root
       )}
       onClick={async event => {
@@ -267,11 +270,7 @@ function PlasmicProductInSlider__RenderFunc(props: {
             })()}
           </React.Fragment>
         </div>
-        <Stack__
-          as={"div"}
-          hasGap={true}
-          className={classNames(projectcss.all, sty.freeBox___1Csbu)}
-        >
+        <div className={classNames(projectcss.all, sty.freeBox___1Csbu)}>
           <div
             className={classNames(
               projectcss.all,
@@ -330,7 +329,7 @@ function PlasmicProductInSlider__RenderFunc(props: {
               })()}
             </React.Fragment>
           </div>
-        </Stack__>
+        </div>
       </div>
     </div>
   ) as React.ReactElement | null;
@@ -359,7 +358,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicProductInSlider__VariantsArgs;
     args?: PlasmicProductInSlider__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicProductInSlider__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicProductInSlider__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicProductInSlider__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

@@ -60,10 +60,11 @@ import {
 } from "@plasmicapp/react-web/lib/host";
 
 import TextInput from "../../TextInput"; // plasmic-import: Y6q1pqli4zM/component
+import { _useGlobalVariants } from "./plasmic"; // plasmic-import: heL2P6rJiLNgtnBJPb6i1m/projectModule
+import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: heL2P6rJiLNgtnBJPb6i1m/styleTokensProvider
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic_antd_5_hostless.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
 import projectcss from "./plasmic_jbs_storefront.module.css"; // plasmic-import: heL2P6rJiLNgtnBJPb6i1m/projectcss
 import sty from "./PlasmicSpecialInstructionsInput.module.css"; // plasmic-import: znFTM0nXx5O6/css
 
@@ -160,6 +161,8 @@ function PlasmicSpecialInstructionsInput__RenderFunc(props: {
     $refs
   });
 
+  const styleTokensClassNames = _useStyleTokens();
+
   return (
     <TextInput
       data-plasmic-name={"textInput"}
@@ -210,9 +213,8 @@ function PlasmicSpecialInstructionsInput__RenderFunc(props: {
             typeof $steps["updateSpecialInstructions"] === "object" &&
             typeof $steps["updateSpecialInstructions"].then === "function"
           ) {
-            $steps["updateSpecialInstructions"] = await $steps[
-              "updateSpecialInstructions"
-            ];
+            $steps["updateSpecialInstructions"] =
+              await $steps["updateSpecialInstructions"];
           }
         }).apply(null, eventArgs);
       }}
@@ -244,7 +246,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicSpecialInstructionsInput__VariantsArgs;
     args?: PlasmicSpecialInstructionsInput__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicSpecialInstructionsInput__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicSpecialInstructionsInput__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicSpecialInstructionsInput__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

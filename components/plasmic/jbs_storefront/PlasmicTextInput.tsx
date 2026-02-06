@@ -61,9 +61,11 @@ import {
 
 import * as pp from "@plasmicapp/react-web";
 
+import { _useGlobalVariants } from "./plasmic"; // plasmic-import: heL2P6rJiLNgtnBJPb6i1m/projectModule
+import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: heL2P6rJiLNgtnBJPb6i1m/styleTokensProvider
+
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic_antd_5_hostless.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
 import projectcss from "./plasmic_jbs_storefront.module.css"; // plasmic-import: heL2P6rJiLNgtnBJPb6i1m/projectcss
 import sty from "./PlasmicTextInput.module.css"; // plasmic-import: Y6q1pqli4zM/css
 
@@ -254,6 +256,8 @@ function PlasmicTextInput__RenderFunc(props: {
     focusVisibleWithin_root: isRootFocusVisibleWithin
   };
 
+  const styleTokensClassNames = _useStyleTokens();
+
   return (
     <div
       data-plasmic-name={"root"}
@@ -265,8 +269,7 @@ function PlasmicTextInput__RenderFunc(props: {
         projectcss.root_reset,
         projectcss.plasmic_default_styles,
         projectcss.plasmic_mixins,
-        projectcss.plasmic_tokens,
-        plasmic_antd_5_hostless_css.plasmic_tokens,
+        styleTokensClassNames,
         sty.root,
         {
           [sty.root___focusVisibleWithin]: triggers.focusVisibleWithin_root,
@@ -483,7 +486,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicTextInput__VariantsArgs;
     args?: PlasmicTextInput__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicTextInput__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicTextInput__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicTextInput__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

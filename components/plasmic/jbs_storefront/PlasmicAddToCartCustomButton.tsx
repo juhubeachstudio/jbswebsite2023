@@ -60,10 +60,11 @@ import {
 } from "@plasmicapp/react-web/lib/host";
 
 import { AddToCartButton } from "@plasmicpkgs/commerce";
+import { _useGlobalVariants } from "./plasmic"; // plasmic-import: heL2P6rJiLNgtnBJPb6i1m/projectModule
+import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: heL2P6rJiLNgtnBJPb6i1m/styleTokensProvider
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic_antd_5_hostless.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
 import projectcss from "./plasmic_jbs_storefront.module.css"; // plasmic-import: heL2P6rJiLNgtnBJPb6i1m/projectcss
 import sty from "./PlasmicAddToCartCustomButton.module.css"; // plasmic-import: AyNa8RYOflZ1/css
 
@@ -162,6 +163,8 @@ function PlasmicAddToCartCustomButton__RenderFunc(props: {
     $refs
   });
 
+  const styleTokensClassNames = _useStyleTokens();
+
   return (
     <div
       data-plasmic-name={"root"}
@@ -173,8 +176,7 @@ function PlasmicAddToCartCustomButton__RenderFunc(props: {
         projectcss.root_reset,
         projectcss.plasmic_default_styles,
         projectcss.plasmic_mixins,
-        projectcss.plasmic_tokens,
-        plasmic_antd_5_hostless_css.plasmic_tokens,
+        styleTokensClassNames,
         sty.root,
         {
           [sty.rootaddedToCartVariant]: hasVariant(
@@ -331,9 +333,8 @@ function PlasmicAddToCartCustomButton__RenderFunc(props: {
                   typeof $steps["revertVariantToBase"] === "object" &&
                   typeof $steps["revertVariantToBase"].then === "function"
                 ) {
-                  $steps["revertVariantToBase"] = await $steps[
-                    "revertVariantToBase"
-                  ];
+                  $steps["revertVariantToBase"] =
+                    await $steps["revertVariantToBase"];
                 }
               }}
             >
@@ -407,9 +408,8 @@ function PlasmicAddToCartCustomButton__RenderFunc(props: {
                 typeof $steps["invokeGlobalAction"] === "object" &&
                 typeof $steps["invokeGlobalAction"].then === "function"
               ) {
-                $steps["invokeGlobalAction"] = await $steps[
-                  "invokeGlobalAction"
-                ];
+                $steps["invokeGlobalAction"] =
+                  await $steps["invokeGlobalAction"];
               }
             }}
           >
@@ -460,7 +460,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicAddToCartCustomButton__VariantsArgs;
     args?: PlasmicAddToCartCustomButton__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicAddToCartCustomButton__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicAddToCartCustomButton__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicAddToCartCustomButton__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

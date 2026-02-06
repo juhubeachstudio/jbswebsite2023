@@ -12,27 +12,13 @@
   display: flex;
   position: relative;
   flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
   width: auto;
   height: auto;
   max-width: 100%;
+  column-gap: 0px;
   padding: 8px 16px 8px 8px;
-}
-.freeBox___8VMx > :global(.__wab_flex-container) {
-  flex-direction: row;
-  align-items: stretch;
-  justify-content: flex-start;
-  margin-left: calc(0px - 0px);
-  width: calc(100% + 0px);
-}
-.freeBox___8VMx > :global(.__wab_flex-container) > *,
-.freeBox___8VMx > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
-.freeBox___8VMx > :global(.__wab_flex-container) > picture > img,
-.freeBox___8VMx
-  > :global(.__wab_flex-container)
-  > :global(.__wab_slot)
-  > picture
-  > img {
-  margin-left: 0px;
 }
 .countdownNumber3__o8Cya:global(.__wab_instance) {
   position: relative;
@@ -108,7 +94,7 @@
   height: auto;
   max-width: 100%;
   align-self: stretch;
-  margin-left: calc(0px + 0px) !important;
+  margin-left: 0px;
   min-width: 0;
   padding: 8px 0px 8px 14px;
 }

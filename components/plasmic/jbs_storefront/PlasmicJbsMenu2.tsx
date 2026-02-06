@@ -64,12 +64,11 @@ import { AntdMenu } from "@plasmicpkgs/antd5/skinny/registerMenu";
 import { AntdMenuItem } from "@plasmicpkgs/antd5/skinny/registerMenu";
 import { AntdSubMenu } from "@plasmicpkgs/antd5/skinny/registerMenu";
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
-
-import { useScreenVariants as useScreenVariants_6Hzia3M7Np4Ulu } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6hzia3m7Np4ulu/globalVariant
+import { _useGlobalVariants } from "./plasmic"; // plasmic-import: heL2P6rJiLNgtnBJPb6i1m/projectModule
+import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: heL2P6rJiLNgtnBJPb6i1m/styleTokensProvider
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic_antd_5_hostless.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
 import projectcss from "./plasmic_jbs_storefront.module.css"; // plasmic-import: heL2P6rJiLNgtnBJPb6i1m/projectcss
 import sty from "./PlasmicJbsMenu2.module.css"; // plasmic-import: SFhtR_YchzSd/css
 
@@ -135,9 +134,7 @@ function PlasmicJbsMenu2__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const globalVariants = ensureGlobalVariants({
-    screen: useScreenVariants_6Hzia3M7Np4Ulu()
-  });
+  const styleTokensClassNames = _useStyleTokens();
 
   return (
     <div
@@ -150,8 +147,7 @@ function PlasmicJbsMenu2__RenderFunc(props: {
         projectcss.root_reset,
         projectcss.plasmic_default_styles,
         projectcss.plasmic_mixins,
-        projectcss.plasmic_tokens,
-        plasmic_antd_5_hostless_css.plasmic_tokens,
+        styleTokensClassNames,
         sty.root
       )}
     >
@@ -422,7 +418,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicJbsMenu2__VariantsArgs;
     args?: PlasmicJbsMenu2__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicJbsMenu2__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicJbsMenu2__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicJbsMenu2__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

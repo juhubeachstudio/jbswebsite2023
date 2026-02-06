@@ -59,11 +59,11 @@ import {
   useGlobalActions
 } from "@plasmicapp/react-web/lib/host";
 
-import { useScreenVariants as useScreenVariants_6Hzia3M7Np4Ulu } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6hzia3m7Np4ulu/globalVariant
+import { _useGlobalVariants } from "./plasmic"; // plasmic-import: heL2P6rJiLNgtnBJPb6i1m/projectModule
+import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: heL2P6rJiLNgtnBJPb6i1m/styleTokensProvider
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic_antd_5_hostless.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
 import projectcss from "./plasmic_jbs_storefront.module.css"; // plasmic-import: heL2P6rJiLNgtnBJPb6i1m/projectcss
 import sty from "./PlasmicFullpagewidthSlide.module.css"; // plasmic-import: DUKvgkpbeBWf/css
 
@@ -132,9 +132,9 @@ function PlasmicFullpagewidthSlide__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const globalVariants = ensureGlobalVariants({
-    screen: useScreenVariants_6Hzia3M7Np4Ulu()
-  });
+  const globalVariants = _useGlobalVariants();
+
+  const styleTokensClassNames = _useStyleTokens();
 
   return (
     <div
@@ -147,8 +147,7 @@ function PlasmicFullpagewidthSlide__RenderFunc(props: {
         projectcss.root_reset,
         projectcss.plasmic_default_styles,
         projectcss.plasmic_mixins,
-        projectcss.plasmic_tokens,
-        plasmic_antd_5_hostless_css.plasmic_tokens,
+        styleTokensClassNames,
         sty.root
       )}
     >
@@ -207,7 +206,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicFullpagewidthSlide__VariantsArgs;
     args?: PlasmicFullpagewidthSlide__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicFullpagewidthSlide__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicFullpagewidthSlide__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicFullpagewidthSlide__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

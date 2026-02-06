@@ -60,10 +60,11 @@ import {
 } from "@plasmicapp/react-web/lib/host";
 
 import Countdown from "../../Countdown"; // plasmic-import: si44vJRCqCM3/component
+import { _useGlobalVariants } from "./plasmic"; // plasmic-import: heL2P6rJiLNgtnBJPb6i1m/projectModule
+import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: heL2P6rJiLNgtnBJPb6i1m/styleTokensProvider
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic_antd_5_hostless.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
 import projectcss from "./plasmic_jbs_storefront.module.css"; // plasmic-import: heL2P6rJiLNgtnBJPb6i1m/projectcss
 import sty from "./PlasmicCountdownJbs.module.css"; // plasmic-import: s9nFwVvBxOV3/css
 
@@ -125,6 +126,8 @@ function PlasmicCountdownJbs__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
+  const styleTokensClassNames = _useStyleTokens();
+
   return (
     <Countdown
       data-plasmic-name={"dec1712PmCountdown"}
@@ -158,7 +161,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicCountdownJbs__VariantsArgs;
     args?: PlasmicCountdownJbs__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicCountdownJbs__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicCountdownJbs__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicCountdownJbs__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

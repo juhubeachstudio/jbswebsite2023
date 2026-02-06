@@ -65,12 +65,11 @@ import { SliderWrapper } from "@plasmicpkgs/react-slick";
 import { sliderHelpers as SliderWrapper_Helpers } from "@plasmicpkgs/react-slick";
 import Blackyellowborder from "../../Blackyellowborder"; // plasmic-import: qeyEUvMFwY/component
 import Statistic from "../../Statistic"; // plasmic-import: -6dqxJDphRkf/component
-
-import { useScreenVariants as useScreenVariants_6Hzia3M7Np4Ulu } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6hzia3m7Np4ulu/globalVariant
+import { _useGlobalVariants } from "./plasmic"; // plasmic-import: heL2P6rJiLNgtnBJPb6i1m/projectModule
+import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: heL2P6rJiLNgtnBJPb6i1m/styleTokensProvider
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic_antd_5_hostless.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
 import projectcss from "./plasmic_jbs_storefront.module.css"; // plasmic-import: heL2P6rJiLNgtnBJPb6i1m/projectcss
 import sty from "./PlasmicAbout.module.css"; // plasmic-import: R6tZZ6EQ-gsb/css
 
@@ -139,6 +138,8 @@ function PlasmicAbout__RenderFunc(props: {
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
+
+  const globalVariants = _useGlobalVariants();
 
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
@@ -209,9 +210,7 @@ function PlasmicAbout__RenderFunc(props: {
     $refs
   });
 
-  const globalVariants = ensureGlobalVariants({
-    screen: useScreenVariants_6Hzia3M7Np4Ulu()
-  });
+  const styleTokensClassNames = _useStyleTokens();
 
   return (
     <React.Fragment>
@@ -234,8 +233,7 @@ function PlasmicAbout__RenderFunc(props: {
             projectcss.root_reset,
             projectcss.plasmic_default_styles,
             projectcss.plasmic_mixins,
-            projectcss.plasmic_tokens,
-            plasmic_antd_5_hostless_css.plasmic_tokens,
+            styleTokensClassNames,
             sty.root
           )}
         >
@@ -337,16 +335,8 @@ function PlasmicAbout__RenderFunc(props: {
             <Section
               className={classNames("__wab_instance", sty.section__ppS85)}
             >
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.columns__kYtE)}
-              >
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.column__py98A)}
-                >
+              <div className={classNames(projectcss.all, sty.columns__kYtE)}>
+                <div className={classNames(projectcss.all, sty.column__py98A)}>
                   <div
                     className={classNames(
                       projectcss.all,
@@ -389,7 +379,7 @@ function PlasmicAbout__RenderFunc(props: {
                       "We set out to explore Mumbai the manufacturing hub for some answers and found LOTS and LOTS of textile waste instead. This was our chance to make the things we wanted, without making a bad problem even worse and so JBS was bornnn"
                     }
                   </div>
-                </Stack__>
+                </div>
                 <div className={classNames(projectcss.all, sty.column__u114A)}>
                   {(() => {
                     const child$Props = {
@@ -513,7 +503,7 @@ function PlasmicAbout__RenderFunc(props: {
                     );
                   })()}
                 </div>
-              </Stack__>
+              </div>
             </Section>
             <Section
               className={classNames("__wab_instance", sty.section__j2Fxj)}
@@ -537,11 +527,7 @@ function PlasmicAbout__RenderFunc(props: {
                   }}
                 />
 
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.columns__bZln9)}
-                >
+                <div className={classNames(projectcss.all, sty.columns__bZln9)}>
                   <div
                     className={classNames(projectcss.all, sty.column__na9KH)}
                   >
@@ -555,9 +541,7 @@ function PlasmicAbout__RenderFunc(props: {
                       {"What's a Juhu Beach"}
                     </div>
                   </div>
-                  <Stack__
-                    as={"div"}
-                    hasGap={true}
+                  <div
                     className={classNames(projectcss.all, sty.column__v3VCh)}
                   >
                     <div
@@ -582,8 +566,8 @@ function PlasmicAbout__RenderFunc(props: {
                         "This is basically how we wanted this brand to feel too, just like at the beach, everyone is welcome, anything can happen, no cynicism, just vibes. But because real life might actually be inescapable you can always make it more fun!"
                       }
                     </div>
-                  </Stack__>
-                </Stack__>
+                  </div>
+                </div>
               </div>
               <div className={classNames(projectcss.all, sty.freeBox__luyD)}>
                 <PlasmicImg__
@@ -604,11 +588,7 @@ function PlasmicAbout__RenderFunc(props: {
                   }}
                 />
 
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.columns__vGb4)}
-                >
+                <div className={classNames(projectcss.all, sty.columns__vGb4)}>
                   <div
                     className={classNames(projectcss.all, sty.column__aAkHu)}
                   >
@@ -622,9 +602,7 @@ function PlasmicAbout__RenderFunc(props: {
                       {"What's a Juhu Beach"}
                     </div>
                   </div>
-                  <Stack__
-                    as={"div"}
-                    hasGap={true}
+                  <div
                     className={classNames(projectcss.all, sty.column__wyZtk)}
                   >
                     <div
@@ -649,18 +627,14 @@ function PlasmicAbout__RenderFunc(props: {
                         "This is basically how we wanted this brand to feel too, just like at the beach, everyone is welcome, anything can happen, no cynicism, just vibes. While real life may be inescapable you can always make it more fun"
                       }
                     </div>
-                  </Stack__>
-                </Stack__>
+                  </div>
+                </div>
               </div>
             </Section>
             <Section
               className={classNames("__wab_instance", sty.section__zxezt)}
             >
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__bVCj)}
-              >
+              <div className={classNames(projectcss.all, sty.freeBox__bVCj)}>
                 <div
                   className={classNames(
                     projectcss.all,
@@ -742,11 +716,7 @@ function PlasmicAbout__RenderFunc(props: {
                   }}
                 />
 
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox__dqUkO)}
-                >
+                <div className={classNames(projectcss.all, sty.freeBox__dqUkO)}>
                   <div
                     className={classNames(
                       projectcss.all,
@@ -799,8 +769,8 @@ function PlasmicAbout__RenderFunc(props: {
                       <React.Fragment>{"\u201d"}</React.Fragment>
                     </React.Fragment>
                   </div>
-                </Stack__>
-              </Stack__>
+                </div>
+              </div>
             </Section>
             <Section
               className={classNames("__wab_instance", sty.section__wMEy)}
@@ -861,11 +831,7 @@ function PlasmicAbout__RenderFunc(props: {
                 </div>
               </div>
             </Section>
-            <Stack__
-              as={"div"}
-              hasGap={true}
-              className={classNames(projectcss.all, sty.columns__uym5W)}
-            >
+            <div className={classNames(projectcss.all, sty.columns__uym5W)}>
               <div className={classNames(projectcss.all, sty.column__adnja)}>
                 <div
                   className={classNames(
@@ -892,7 +858,7 @@ function PlasmicAbout__RenderFunc(props: {
                   }
                 </div>
               </div>
-            </Stack__>
+            </div>
             <div className={classNames(projectcss.all, sty.columns__rf6UN)}>
               <div className={classNames(projectcss.all, sty.column__dIz1)}>
                 <PlasmicImg__
@@ -982,11 +948,7 @@ function PlasmicAbout__RenderFunc(props: {
                 </div>
               </div>
             </Section>
-            <Stack__
-              as={"div"}
-              hasGap={true}
-              className={classNames(projectcss.all, sty.columns__k2nd)}
-            >
+            <div className={classNames(projectcss.all, sty.columns__k2nd)}>
               <div className={classNames(projectcss.all, sty.column__ooRoi)}>
                 <div
                   className={classNames(
@@ -1038,15 +1000,11 @@ function PlasmicAbout__RenderFunc(props: {
                   </React.Fragment>
                 </div>
               </div>
-            </Stack__>
+            </div>
             <Section
               className={classNames("__wab_instance", sty.section___6M8CL)}
             >
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__radub)}
-              >
+              <div className={classNames(projectcss.all, sty.freeBox__radub)}>
                 {(() => {
                   const child$Props = {
                     arrowColor: true ? "#0F0F0F" : undefined,
@@ -1306,11 +1264,7 @@ function PlasmicAbout__RenderFunc(props: {
                     </SliderWrapper>
                   );
                 })()}
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox__v3B0S)}
-                >
+                <div className={classNames(projectcss.all, sty.freeBox__v3B0S)}>
                   <div
                     className={classNames(
                       projectcss.all,
@@ -1366,17 +1320,13 @@ function PlasmicAbout__RenderFunc(props: {
                       </React.Fragment>
                     </React.Fragment>
                   </div>
-                </Stack__>
-              </Stack__>
+                </div>
+              </div>
             </Section>
             <Section
               className={classNames("__wab_instance", sty.section__ch4Xy)}
             >
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__rL0US)}
-              >
+              <div className={classNames(projectcss.all, sty.freeBox__rL0US)}>
                 <div
                   className={classNames(
                     projectcss.all,
@@ -1411,9 +1361,7 @@ function PlasmicAbout__RenderFunc(props: {
                         }}
                       />
                     </div>
-                    <Stack__
-                      as={"div"}
-                      hasGap={true}
+                    <div
                       className={classNames(projectcss.all, sty.columns__ykBke)}
                     >
                       <div
@@ -1467,7 +1415,7 @@ function PlasmicAbout__RenderFunc(props: {
                           }}
                         />
                       </div>
-                    </Stack__>
+                    </div>
                   </div>
                   <div
                     className={classNames(projectcss.all, sty.freeBox__t43Mk)}
@@ -1493,9 +1441,7 @@ function PlasmicAbout__RenderFunc(props: {
                         }}
                       />
                     </div>
-                    <Stack__
-                      as={"div"}
-                      hasGap={true}
+                    <div
                       className={classNames(projectcss.all, sty.columns__j7Us5)}
                     >
                       <div
@@ -1546,7 +1492,7 @@ function PlasmicAbout__RenderFunc(props: {
                           }}
                         />
                       </div>
-                    </Stack__>
+                    </div>
                   </div>
                   <div
                     className={classNames(projectcss.all, sty.freeBox__lSPcz)}
@@ -1575,9 +1521,7 @@ function PlasmicAbout__RenderFunc(props: {
                         }}
                       />
                     </div>
-                    <Stack__
-                      as={"div"}
-                      hasGap={true}
+                    <div
                       className={classNames(projectcss.all, sty.columns___2V9K)}
                     >
                       <div
@@ -1631,7 +1575,7 @@ function PlasmicAbout__RenderFunc(props: {
                           }
                         </div>
                       </div>
-                    </Stack__>
+                    </div>
                   </div>
                   <div
                     className={classNames(projectcss.all, sty.freeBox__w7UlV)}
@@ -1657,9 +1601,7 @@ function PlasmicAbout__RenderFunc(props: {
                         }}
                       />
                     </div>
-                    <Stack__
-                      as={"div"}
-                      hasGap={true}
+                    <div
                       className={classNames(projectcss.all, sty.columns__gx4Jz)}
                     >
                       <div
@@ -1707,19 +1649,15 @@ function PlasmicAbout__RenderFunc(props: {
                           }
                         </div>
                       </div>
-                    </Stack__>
+                    </div>
                   </div>
                 </div>
-              </Stack__>
+              </div>
             </Section>
             <Section
               className={classNames("__wab_instance", sty.section__eHgi1)}
             >
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__hy50G)}
-              >
+              <div className={classNames(projectcss.all, sty.freeBox__hy50G)}>
                 {(() => {
                   const child$Props = {
                     arrowColor: true ? "#0F0F0F" : undefined,
@@ -2002,11 +1940,7 @@ function PlasmicAbout__RenderFunc(props: {
                     </SliderWrapper>
                   );
                 })()}
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox__sKvnY)}
-                >
+                <div className={classNames(projectcss.all, sty.freeBox__sKvnY)}>
                   <div
                     className={classNames(
                       projectcss.all,
@@ -2027,8 +1961,8 @@ function PlasmicAbout__RenderFunc(props: {
                       "Our product ideas come from lots of different places. Moments from our own lives, objects we would love to use ourselves, stuff that makes us laugh, all these things appear as amusing little details on the products, packaging, etc which make up our unique Juhu Beach Studio design language. Any limitations a material poses force us to get super creative with what we make out of it. And since we make limited quantites we can really go nuts and experiment with unusual designs."
                     }
                   </div>
-                </Stack__>
-              </Stack__>
+                </div>
+              </div>
             </Section>
             <div className={classNames(projectcss.all, sty.freeBox___8IWHu)}>
               <div className={classNames(projectcss.all, sty.freeBox__twvWp)}>
@@ -2106,11 +2040,7 @@ function PlasmicAbout__RenderFunc(props: {
             <Section
               className={classNames("__wab_instance", sty.section__ve8Ea)}
             >
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__hGgMn)}
-              >
+              <div className={classNames(projectcss.all, sty.freeBox__hGgMn)}>
                 {(() => {
                   const child$Props = {
                     arrowColor: true ? "#0F0F0F" : undefined,
@@ -2301,11 +2231,7 @@ function PlasmicAbout__RenderFunc(props: {
                     </SliderWrapper>
                   );
                 })()}
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox__eARsP)}
-                >
+                <div className={classNames(projectcss.all, sty.freeBox__eARsP)}>
                   <div
                     className={classNames(
                       projectcss.all,
@@ -2326,8 +2252,8 @@ function PlasmicAbout__RenderFunc(props: {
                       ? "Because of our irregular raw materials, we can make lotsss of different products but only as limited editions. We also like to use a mix of machine and handwork which gives us so much room to create one of a kind details and make everything sturdy and high quality. After drawing, cutting, stitching, ironing, embroidery, etc all of the sketches are finally turned into our beautiful finished products. "
                       : "Because of our irregular raw materials, we can make lotsss of different products but only as limited editions. We also like to use a mix of machine and handwork which gives us so much room to create one of a kind details and make everything sturdy and high quality. After drawing, cutting, stitching, ironing, embroidery, etc all of the sketches are finally turned into our beautiful finished products."}
                   </div>
-                </Stack__>
-              </Stack__>
+                </div>
+              </div>
             </Section>
             <Section
               className={classNames("__wab_instance", sty.section__tneL3)}
@@ -2896,7 +2822,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicAbout__VariantsArgs;
     args?: PlasmicAbout__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicAbout__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicAbout__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicAbout__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

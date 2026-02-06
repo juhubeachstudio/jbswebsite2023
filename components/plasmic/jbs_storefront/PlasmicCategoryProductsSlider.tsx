@@ -63,12 +63,11 @@ import { ProductCollection } from "@plasmicpkgs/commerce";
 import { SliderWrapper } from "@plasmicpkgs/react-slick";
 import { sliderHelpers as SliderWrapper_Helpers } from "@plasmicpkgs/react-slick";
 import ProductInSlider from "../../ProductInSlider"; // plasmic-import: p75X7EWJ1KaV/component
-
-import { useScreenVariants as useScreenVariants_6Hzia3M7Np4Ulu } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6hzia3m7Np4ulu/globalVariant
+import { _useGlobalVariants } from "./plasmic"; // plasmic-import: heL2P6rJiLNgtnBJPb6i1m/projectModule
+import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: heL2P6rJiLNgtnBJPb6i1m/styleTokensProvider
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic_antd_5_hostless.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
 import projectcss from "./plasmic_jbs_storefront.module.css"; // plasmic-import: heL2P6rJiLNgtnBJPb6i1m/projectcss
 import sty from "./PlasmicCategoryProductsSlider.module.css"; // plasmic-import: 3Ndtrkcj4d1_/css
 
@@ -142,6 +141,8 @@ function PlasmicCategoryProductsSlider__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
+  const globalVariants = _useGlobalVariants();
+
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
@@ -169,9 +170,7 @@ function PlasmicCategoryProductsSlider__RenderFunc(props: {
     $refs
   });
 
-  const globalVariants = ensureGlobalVariants({
-    screen: useScreenVariants_6Hzia3M7Np4Ulu()
-  });
+  const styleTokensClassNames = _useStyleTokens();
 
   return (
     <div
@@ -184,8 +183,7 @@ function PlasmicCategoryProductsSlider__RenderFunc(props: {
         projectcss.root_reset,
         projectcss.plasmic_default_styles,
         projectcss.plasmic_mixins,
-        projectcss.plasmic_tokens,
-        plasmic_antd_5_hostless_css.plasmic_tokens,
+        styleTokensClassNames,
         sty.root
       )}
     >
@@ -394,9 +392,8 @@ function PlasmicCategoryProductsSlider__RenderFunc(props: {
             typeof $steps["runActionOnSliderCarousel"] === "object" &&
             typeof $steps["runActionOnSliderCarousel"].then === "function"
           ) {
-            $steps["runActionOnSliderCarousel"] = await $steps[
-              "runActionOnSliderCarousel"
-            ];
+            $steps["runActionOnSliderCarousel"] =
+              await $steps["runActionOnSliderCarousel"];
           }
         }}
         src={{
@@ -436,9 +433,8 @@ function PlasmicCategoryProductsSlider__RenderFunc(props: {
             typeof $steps["runActionOnSliderCarousel"] === "object" &&
             typeof $steps["runActionOnSliderCarousel"].then === "function"
           ) {
-            $steps["runActionOnSliderCarousel"] = await $steps[
-              "runActionOnSliderCarousel"
-            ];
+            $steps["runActionOnSliderCarousel"] =
+              await $steps["runActionOnSliderCarousel"];
           }
         }}
         src={{
@@ -492,7 +488,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicCategoryProductsSlider__VariantsArgs;
     args?: PlasmicCategoryProductsSlider__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicCategoryProductsSlider__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicCategoryProductsSlider__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicCategoryProductsSlider__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

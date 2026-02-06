@@ -61,10 +61,11 @@ import {
 
 import FullPage from "../../FullPage"; // plasmic-import: VpRM2nIn0R/component
 import DocumentPage from "../../DocumentPage"; // plasmic-import: gApc9GaJbE-W/component
+import { _useGlobalVariants } from "./plasmic"; // plasmic-import: heL2P6rJiLNgtnBJPb6i1m/projectModule
+import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: heL2P6rJiLNgtnBJPb6i1m/styleTokensProvider
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic_antd_5_hostless.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
 import projectcss from "./plasmic_jbs_storefront.module.css"; // plasmic-import: heL2P6rJiLNgtnBJPb6i1m/projectcss
 import sty from "./PlasmicCancellationAndRefundPolicy.module.css"; // plasmic-import: J2WSooeINI37/css
 
@@ -130,6 +131,8 @@ function PlasmicCancellationAndRefundPolicy__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
+  const styleTokensClassNames = _useStyleTokens();
+
   return (
     <React.Fragment>
       <Head></Head>
@@ -151,8 +154,7 @@ function PlasmicCancellationAndRefundPolicy__RenderFunc(props: {
             projectcss.root_reset,
             projectcss.plasmic_default_styles,
             projectcss.plasmic_mixins,
-            projectcss.plasmic_tokens,
-            plasmic_antd_5_hostless_css.plasmic_tokens,
+            styleTokensClassNames,
             sty.root
           )}
         >
@@ -166,11 +168,9 @@ function PlasmicCancellationAndRefundPolicy__RenderFunc(props: {
               data-plasmic-override={overrides.documentPage}
               className={classNames("__wab_instance", sty.documentPage)}
               slot={
-                <Stack__
-                  as={"div"}
+                <div
                   data-plasmic-name={"freeBox"}
                   data-plasmic-override={overrides.freeBox}
-                  hasGap={true}
                   className={classNames(projectcss.all, sty.freeBox)}
                 >
                   <div
@@ -286,7 +286,7 @@ function PlasmicCancellationAndRefundPolicy__RenderFunc(props: {
                       "please notify us via email, please let us know via email with \u201cMY CUSTOMISED ORDER\u201d in the subject line and we will reach out to you and sort it out"
                     }
                   </div>
-                </Stack__>
+                </div>
               }
             />
           </FullPage>
@@ -325,10 +325,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicCancellationAndRefundPolicy__VariantsArgs;
     args?: PlasmicCancellationAndRefundPolicy__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit< // Specify variants directly as props
-    PlasmicCancellationAndRefundPolicy__VariantsArgs,
-    ReservedPropsType
-  > &
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicCancellationAndRefundPolicy__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicCancellationAndRefundPolicy__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

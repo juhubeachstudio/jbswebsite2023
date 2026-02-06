@@ -63,10 +63,11 @@ import TextInput from "../../TextInput"; // plasmic-import: Y6q1pqli4zM/componen
 import { ProductCollection } from "@plasmicpkgs/commerce";
 import { ProductBox } from "@plasmicpkgs/commerce";
 import ProductCardJbs from "../../ProductCardJbs"; // plasmic-import: Ft4Mem_Zab/component
+import { _useGlobalVariants } from "./plasmic"; // plasmic-import: heL2P6rJiLNgtnBJPb6i1m/projectModule
+import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: heL2P6rJiLNgtnBJPb6i1m/styleTokensProvider
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic_antd_5_hostless.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
 import projectcss from "./plasmic_jbs_storefront.module.css"; // plasmic-import: heL2P6rJiLNgtnBJPb6i1m/projectcss
 import sty from "./PlasmicProductsSearch.module.css"; // plasmic-import: V9g_ixtcrSzg/css
 
@@ -156,6 +157,8 @@ function PlasmicProductsSearch__RenderFunc(props: {
     $refs
   });
 
+  const styleTokensClassNames = _useStyleTokens();
+
   return (
     <div
       data-plasmic-name={"root"}
@@ -167,8 +170,7 @@ function PlasmicProductsSearch__RenderFunc(props: {
         projectcss.root_reset,
         projectcss.plasmic_default_styles,
         projectcss.plasmic_mixins,
-        projectcss.plasmic_tokens,
-        plasmic_antd_5_hostless_css.plasmic_tokens,
+        styleTokensClassNames,
         sty.root
       )}
     >
@@ -233,9 +235,8 @@ function PlasmicProductsSearch__RenderFunc(props: {
                 typeof $steps["updateTextInputValue"] === "object" &&
                 typeof $steps["updateTextInputValue"].then === "function"
               ) {
-                $steps["updateTextInputValue"] = await $steps[
-                  "updateTextInputValue"
-                ];
+                $steps["updateTextInputValue"] =
+                  await $steps["updateTextInputValue"];
               }
             }).apply(null, eventArgs);
           }}
@@ -419,7 +420,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicProductsSearch__VariantsArgs;
     args?: PlasmicProductsSearch__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicProductsSearch__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicProductsSearch__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicProductsSearch__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

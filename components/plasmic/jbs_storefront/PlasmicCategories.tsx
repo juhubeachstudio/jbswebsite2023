@@ -64,12 +64,11 @@ import Section from "../../Section"; // plasmic-import: GMAR4VOl00/component
 import { CategoryCollection } from "@plasmicpkgs/commerce";
 import CategoryCard from "../../CategoryCard"; // plasmic-import: VOdWaLC8FIM5/component
 import Button from "../../Button"; // plasmic-import: yEsI5slGwPm/component
-
-import { useScreenVariants as useScreenVariants_6Hzia3M7Np4Ulu } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6hzia3m7Np4ulu/globalVariant
+import { _useGlobalVariants } from "./plasmic"; // plasmic-import: heL2P6rJiLNgtnBJPb6i1m/projectModule
+import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: heL2P6rJiLNgtnBJPb6i1m/styleTokensProvider
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic_antd_5_hostless.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
 import projectcss from "./plasmic_jbs_storefront.module.css"; // plasmic-import: heL2P6rJiLNgtnBJPb6i1m/projectcss
 import sty from "./PlasmicCategories.module.css"; // plasmic-import: iURTST31N2A8/css
 
@@ -137,9 +136,9 @@ function PlasmicCategories__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const globalVariants = ensureGlobalVariants({
-    screen: useScreenVariants_6Hzia3M7Np4Ulu()
-  });
+  const globalVariants = _useGlobalVariants();
+
+  const styleTokensClassNames = _useStyleTokens();
 
   return (
     <React.Fragment>
@@ -162,8 +161,7 @@ function PlasmicCategories__RenderFunc(props: {
             projectcss.root_reset,
             projectcss.plasmic_default_styles,
             projectcss.plasmic_mixins,
-            projectcss.plasmic_tokens,
-            plasmic_antd_5_hostless_css.plasmic_tokens,
+            styleTokensClassNames,
             sty.root
           )}
         >
@@ -264,11 +262,7 @@ function PlasmicCategories__RenderFunc(props: {
                   )}
                 </DataCtxReader__>
               </CategoryCollection>
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__onkfy)}
-              >
+              <div className={classNames(projectcss.all, sty.freeBox__onkfy)}>
                 <Button
                   data-plasmic-name={"button"}
                   data-plasmic-override={overrides.button}
@@ -291,7 +285,7 @@ function PlasmicCategories__RenderFunc(props: {
                     {"SHOP ALL CATEGORIES"}
                   </div>
                 </Button>
-              </Stack__>
+              </div>
             </Section>
           </FullPage>
         </div>
@@ -344,7 +338,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicCategories__VariantsArgs;
     args?: PlasmicCategories__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicCategories__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicCategories__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicCategories__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

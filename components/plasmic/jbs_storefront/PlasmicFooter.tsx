@@ -61,12 +61,11 @@ import {
 
 import Blackyellowborder from "../../Blackyellowborder"; // plasmic-import: qeyEUvMFwY/component
 import Button from "../../Button"; // plasmic-import: yEsI5slGwPm/component
-
-import { useScreenVariants as useScreenVariants_6Hzia3M7Np4Ulu } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6hzia3m7Np4ulu/globalVariant
+import { _useGlobalVariants } from "./plasmic"; // plasmic-import: heL2P6rJiLNgtnBJPb6i1m/projectModule
+import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: heL2P6rJiLNgtnBJPb6i1m/styleTokensProvider
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic_antd_5_hostless.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
 import projectcss from "./plasmic_jbs_storefront.module.css"; // plasmic-import: heL2P6rJiLNgtnBJPb6i1m/projectcss
 import sty from "./PlasmicFooter.module.css"; // plasmic-import: mZogRkwS1rd/css
 
@@ -139,15 +138,15 @@ function PlasmicFooter__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
+  const globalVariants = _useGlobalVariants();
+
   const [isRootHover, triggerRootHoverProps] = useTrigger("useHover", {});
   const [isRootActive, triggerRootActiveProps] = useTrigger("usePressed", {});
   const triggers = {
     hoverActive_root: isRootHover && isRootActive
   };
 
-  const globalVariants = ensureGlobalVariants({
-    screen: useScreenVariants_6Hzia3M7Np4Ulu()
-  });
+  const styleTokensClassNames = _useStyleTokens();
 
   return (
     <div
@@ -160,8 +159,7 @@ function PlasmicFooter__RenderFunc(props: {
         projectcss.root_reset,
         projectcss.plasmic_default_styles,
         projectcss.plasmic_mixins,
-        projectcss.plasmic_tokens,
-        plasmic_antd_5_hostless_css.plasmic_tokens,
+        styleTokensClassNames,
         sty.root
       )}
       data-plasmic-trigger-props={[
@@ -197,11 +195,7 @@ function PlasmicFooter__RenderFunc(props: {
       />
 
       <div className={classNames(projectcss.all, sty.freeBox__anaXj)}>
-        <Stack__
-          as={"div"}
-          hasGap={true}
-          className={classNames(projectcss.all, sty.freeBox__iqeF4)}
-        >
+        <div className={classNames(projectcss.all, sty.freeBox__iqeF4)}>
           <div
             className={classNames(
               projectcss.all,
@@ -237,8 +231,8 @@ function PlasmicFooter__RenderFunc(props: {
               triggers.hoverActive_root
                 ? "darkRedJbs"
                 : hasVariant(globalVariants, "screen", "mobileOnly")
-                ? "redJbs"
-                : "red"
+                  ? "redJbs"
+                  : "red"
             }
             endIcon={
               <Icon38Icon
@@ -266,11 +260,7 @@ function PlasmicFooter__RenderFunc(props: {
                 : "juhubeachstudio@gmail.com"}
             </div>
           </Button>
-          <Stack__
-            as={"div"}
-            hasGap={true}
-            className={classNames(projectcss.all, sty.freeBox__ovOtb)}
-          >
+          <div className={classNames(projectcss.all, sty.freeBox__ovOtb)}>
             <div
               className={classNames(
                 projectcss.all,
@@ -280,11 +270,7 @@ function PlasmicFooter__RenderFunc(props: {
             >
               {"Find us"}
             </div>
-            <Stack__
-              as={"div"}
-              hasGap={true}
-              className={classNames(projectcss.all, sty.freeBox___394L7)}
-            >
+            <div className={classNames(projectcss.all, sty.freeBox___394L7)}>
               <Button
                 className={classNames("__wab_instance", sty.button__uU4)}
                 color={"white"}
@@ -337,13 +323,9 @@ function PlasmicFooter__RenderFunc(props: {
                   role={"img"}
                 />
               </Button>
-            </Stack__>
-          </Stack__>
-          <Stack__
-            as={"div"}
-            hasGap={true}
-            className={classNames(projectcss.all, sty.freeBox___3Bhqm)}
-          >
+            </div>
+          </div>
+          <div className={classNames(projectcss.all, sty.freeBox___3Bhqm)}>
             <Button
               className={classNames("__wab_instance", sty.button__eOh2R)}
               color={"clear"}
@@ -429,8 +411,8 @@ function PlasmicFooter__RenderFunc(props: {
                 {"Terms of use"}
               </div>
             </Button>
-          </Stack__>
-        </Stack__>
+          </div>
+        </div>
       </div>
     </div>
   ) as React.ReactElement | null;
@@ -465,7 +447,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicFooter__VariantsArgs;
     args?: PlasmicFooter__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicFooter__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicFooter__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicFooter__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

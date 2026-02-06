@@ -61,10 +61,11 @@ import {
 
 import CountdownNumber2 from "../../CountdownNumber2"; // plasmic-import: Tu3iaahTzpLP/component
 import { Timer } from "@plasmicpkgs/plasmic-basic-components";
+import { _useGlobalVariants } from "./plasmic"; // plasmic-import: heL2P6rJiLNgtnBJPb6i1m/projectModule
+import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: heL2P6rJiLNgtnBJPb6i1m/styleTokensProvider
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic_antd_5_hostless.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
 import projectcss from "./plasmic_jbs_storefront.module.css"; // plasmic-import: heL2P6rJiLNgtnBJPb6i1m/projectcss
 import sty from "./PlasmicCountdown.module.css"; // plasmic-import: si44vJRCqCM3/css
 
@@ -151,6 +152,8 @@ function PlasmicCountdown__RenderFunc(props: {
     $refs
   });
 
+  const styleTokensClassNames = _useStyleTokens();
+
   return (
     <div
       data-plasmic-name={"root"}
@@ -162,16 +165,13 @@ function PlasmicCountdown__RenderFunc(props: {
         projectcss.root_reset,
         projectcss.plasmic_default_styles,
         projectcss.plasmic_mixins,
-        projectcss.plasmic_tokens,
-        plasmic_antd_5_hostless_css.plasmic_tokens,
+        styleTokensClassNames,
         sty.root
       )}
     >
-      <Stack__
-        as={"div"}
+      <div
         data-plasmic-name={"freeBox"}
         data-plasmic-override={overrides.freeBox}
-        hasGap={true}
         className={classNames(projectcss.all, sty.freeBox)}
       >
         <CountdownNumber2
@@ -261,7 +261,7 @@ function PlasmicCountdown__RenderFunc(props: {
           }
           unit={"Seconds"}
         />
-      </Stack__>
+      </div>
       <Timer
         data-plasmic-name={"timer"}
         data-plasmic-override={overrides.timer}
@@ -301,9 +301,8 @@ function PlasmicCountdown__RenderFunc(props: {
             typeof $steps["updateRemainingSeconds"] === "object" &&
             typeof $steps["updateRemainingSeconds"].then === "function"
           ) {
-            $steps["updateRemainingSeconds"] = await $steps[
-              "updateRemainingSeconds"
-            ];
+            $steps["updateRemainingSeconds"] =
+              await $steps["updateRemainingSeconds"];
           }
         }}
         runWhileEditing={true}
@@ -337,7 +336,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicCountdown__VariantsArgs;
     args?: PlasmicCountdown__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicCountdown__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicCountdown__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicCountdown__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

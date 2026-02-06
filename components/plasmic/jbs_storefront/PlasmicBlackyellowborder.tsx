@@ -60,10 +60,11 @@ import {
 } from "@plasmicapp/react-web/lib/host";
 
 import Marquee from "react-fast-marquee"; // plasmic-import: m9EkGU-jS0/codeComponent
+import { _useGlobalVariants } from "./plasmic"; // plasmic-import: heL2P6rJiLNgtnBJPb6i1m/projectModule
+import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: heL2P6rJiLNgtnBJPb6i1m/styleTokensProvider
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic_antd_5_hostless.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
 import projectcss from "./plasmic_jbs_storefront.module.css"; // plasmic-import: heL2P6rJiLNgtnBJPb6i1m/projectcss
 import sty from "./PlasmicBlackyellowborder.module.css"; // plasmic-import: qeyEUvMFwY/css
 
@@ -133,6 +134,8 @@ function PlasmicBlackyellowborder__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
+  const styleTokensClassNames = _useStyleTokens();
+
   return (
     <div
       data-plasmic-name={"root"}
@@ -144,8 +147,7 @@ function PlasmicBlackyellowborder__RenderFunc(props: {
         projectcss.root_reset,
         projectcss.plasmic_default_styles,
         projectcss.plasmic_mixins,
-        projectcss.plasmic_tokens,
-        plasmic_antd_5_hostless_css.plasmic_tokens,
+        styleTokensClassNames,
         sty.root
       )}
     >
@@ -190,7 +192,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicBlackyellowborder__VariantsArgs;
     args?: PlasmicBlackyellowborder__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicBlackyellowborder__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicBlackyellowborder__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicBlackyellowborder__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

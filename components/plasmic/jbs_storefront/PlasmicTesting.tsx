@@ -68,10 +68,11 @@ import { AntdTextArea } from "@plasmicpkgs/antd5/skinny/registerInput";
 import { inputHelpers as AntdTextArea_Helpers } from "@plasmicpkgs/antd5/skinny/registerInput";
 import { AntdButton } from "@plasmicpkgs/antd5/skinny/registerButton";
 import { ProductPriceComponent } from "@plasmicpkgs/commerce";
+import { _useGlobalVariants } from "./plasmic"; // plasmic-import: heL2P6rJiLNgtnBJPb6i1m/projectModule
+import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: heL2P6rJiLNgtnBJPb6i1m/styleTokensProvider
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic_antd_5_hostless.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
 import projectcss from "./plasmic_jbs_storefront.module.css"; // plasmic-import: heL2P6rJiLNgtnBJPb6i1m/projectcss
 import sty from "./PlasmicTesting.module.css"; // plasmic-import: _tCpKQh4oNWn/css
 
@@ -169,6 +170,8 @@ function PlasmicTesting__RenderFunc(props: {
     $refs
   });
 
+  const styleTokensClassNames = _useStyleTokens();
+
   return (
     <div
       data-plasmic-name={"root"}
@@ -180,8 +183,7 @@ function PlasmicTesting__RenderFunc(props: {
         projectcss.root_reset,
         projectcss.plasmic_default_styles,
         projectcss.plasmic_mixins,
-        projectcss.plasmic_tokens,
-        plasmic_antd_5_hostless_css.plasmic_tokens,
+        styleTokensClassNames,
         sty.root
       )}
     >
@@ -260,14 +262,14 @@ function PlasmicTesting__RenderFunc(props: {
             {...child$Props}
           >
             <FormItemWrapper
-              className={classNames("__wab_instance", sty.formField__y6ZuP)}
+              className={classNames("__wab_instance", sty.formField__c6R8)}
               label={"Name"}
               name={"name"}
             >
               <AntdInput className={classNames("__wab_instance", sty.input)} />
             </FormItemWrapper>
             <FormItemWrapper
-              className={classNames("__wab_instance", sty.formField__znUoG)}
+              className={classNames("__wab_instance", sty.formField__pjpTo)}
               label={"Message"}
               name={"message"}
             >
@@ -335,7 +337,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicTesting__VariantsArgs;
     args?: PlasmicTesting__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicTesting__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicTesting__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicTesting__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props
